@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Cloud Studio Docs",
   tagline: "",
-  url: "https://https://cloudrawdev.github.io",
+  url: "https://cloudrawdev.github.io",
   baseUrl: "/cloudstudio-docs.cloudraw.kr",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
