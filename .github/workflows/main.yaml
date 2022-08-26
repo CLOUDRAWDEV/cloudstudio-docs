@@ -20,7 +20,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 16.15
 
       # Install and build Docusaurus
       - name: Build Docusaurus
