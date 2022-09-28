@@ -1,13 +1,3 @@
-# 배포 설명
-
-1. 배포는 github actions으로 진행됩니다.   
-
-2. `main` 브랜치에서 `npm run build`를 해서 `/build` 디렉터리를 만듭니다.   
-
-3. `/build`를 `gh-pages` 브랜치로 옮깁니다.   
-
-4. `gh-pages` 브랜치의 `/` 경로를 퍼블리싱 합니다.   
-
 # Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
