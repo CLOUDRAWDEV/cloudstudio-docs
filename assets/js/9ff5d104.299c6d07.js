@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[7221],{8057:s=>{s.exports=JSON.parse('{"label":"security","permalink":"/docs/tags/security","allTagsPath":"/docs/tags","count":1,"items":[{"id":"canvas/security","title":"\ubcf4\uc548\uc9c4\ub2e8","description":"last update: 2022.10.24","permalink":"/docs/canvas/security"}]}')}}]);

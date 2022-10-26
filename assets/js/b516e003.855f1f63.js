@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[8460],{1762:e=>{e.exports=JSON.parse('{"label":"DEV","permalink":"/docs/tags/dev","allTagsPath":"/docs/tags","count":1,"items":[{"id":"start/deploy","title":"\ubc30\ud3ec\uad00\ub9ac","description":"last update: 2022.10.24","permalink":"/docs/start/deploy"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"All posts","items":[{"title":"\ubca0\ud0c0 \ud14c\uc2a4\ud2b8 \uacf5\uc9c0","permalink":"/blog/1"},{"title":"\ubd80\uc0b0 \uc5d1\uc2a4\ud3ec \ud589\uc0ac\uacf5\uc9c0","permalink":"/blog/notice/index"}]}')}}]);

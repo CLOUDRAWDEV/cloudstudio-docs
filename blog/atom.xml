@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.cloudraw.kr/blog</id>
+    <title>Cloud Studio Documents Blog</title>
+    <updated>2022-10-26T02:08:23.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.cloudraw.kr/blog"/>
+    <subtitle>Cloud Studio Documents Blog</subtitle>
+    <icon>https://docs.cloudraw.kr/img/simbol3.png</icon>
+    <entry>
+        <title type="html"><![CDATA[베타 테스트 공지]]></title>
+        <id>/1</id>
+        <link href="https://docs.cloudraw.kr/blog/1"/>
+        <updated>2022-10-26T02:08:23.000Z</updated>
+        <summary type="html"><![CDATA[안녕하세요. 클라우드로팀 입니다.]]></summary>
+        <content type="html"><![CDATA[<p>안녕하세요. 클라우드로팀 입니다.</p><br><p>클라우드 스튜디오의 베타 서비스가 시작되었습니다. 클라우드 스튜디오에 관심 있는 모든 분들이 참여 가능하오니
+테스트 기간 동안 많은 참여와 의견 부탁드립니다.</p><br><p>감사합니다.</p><a href="https://cloudstudio.cloudraw.kr/signin" target="_blank" rel="noopener noreferrer"><button class="button_tHl2" style="background-color:#206FD6;border-radius:4px;color:#fff;padding:0.6rem;border:none">베타 테스트 시작하기</button></a><br><br><div class="imgWrap_LCPB"><img loading="lazy" src="/assets/images/betatest-a496a0d1516e2b5562c03fee23da78d6.png" alt="이미지" class="img_ev3q"></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[부산 엑스포 행사공지]]></title>
+        <id>notice/index</id>
+        <link href="https://docs.cloudraw.kr/blog/notice/index"/>
+        <updated>2022-10-26T02:08:23.000Z</updated>
+        <summary type="html"><![CDATA[안녕하세요. 클라우드로팀 입니다.]]></summary>
+        <content type="html"><![CDATA[<p>안녕하세요. 클라우드로팀 입니다.
+이번에 클라우드로가 부산 클라우드 엑스포에 참가하게 되었습니다.
+엑스포에서 서비스 시연과 다양한 이벤트를 진행할 예정이니 많은 관심 부탁드립니다. </p><hr>행사기간: 2022. 9. 28(수) ~ 9. 30(금)<br> 장소: 벡스코 제2전시장 B23<hr><br><div class="imgWrap_LCPB"><img loading="lazy" src="/assets/images/booth-20e1a4af3a6b9b66252ed3f196634547.jpg" alt="부스 이미지" class="img_ev3q"></div><br><br><p>추가로 온라인 설문이벤트를 통해 <span style="background-color:#0B7D5E;border-radius:2px;color:#fff;padding:0.2rem">스타벅스 1만원권</span>을 총 30명에게 추첨할 예정입니다.
+아래 링크를 통해 설문 이벤트에 참여하실 수 있습니다.</p><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSe04X7tXmE4pJ9ZVmvpoVX9ttWnmp2xym7GG-fHmFX-QXMagg/viewform" target="_blank" rel="noopener noreferrer">https://docs.google.com/forms/d/e/1FAIpQLSe04X7tXmE4pJ9ZVmvpoVX9ttWnmp2xym7GG-fHmFX-QXMagg/viewform</a></p><div class="imgWrap_LCPB"><img loading="lazy" src="/assets/images/web_1440x500-039384afbe5a2587a5ab21403c5a0df9.png" alt="이미지" class="img_ev3q"></div><br><br>감사합니다.]]></content>
+    </entry>
+</feed>

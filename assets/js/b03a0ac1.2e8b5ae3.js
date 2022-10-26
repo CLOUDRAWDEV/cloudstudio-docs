@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[4785],{2312:e=>{e.exports=JSON.parse('{"label":"CDN","permalink":"/docs/tags/cdn","allTagsPath":"/docs/tags","count":1,"items":[{"id":"template/ETC/CDN/azure_cdn","title":"Azure CDN","description":"last update: 2022.10.24","permalink":"/docs/template/ETC/CDN/azure_cdn"}]}')}}]);
