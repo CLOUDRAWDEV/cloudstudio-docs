@@ -38,8 +38,8 @@ export default function Footer(props) {
                 "716, Bd, Yeoksam-Height, 151, Teheran-ro, Gangnam-gu, Seoul, Korea",
         },
         ko: {
-            terms: "서비스 이용 약관",
-            privacy: "개인정보 처리 방침",
+            terms: "서비스 이용약관",
+            privacy: "개인정보 처리방침",
             refund: "환불 정책",
             companyName: "(주)클라우드로",
             brn: "사업자등록번호 : 886-86-02497",
