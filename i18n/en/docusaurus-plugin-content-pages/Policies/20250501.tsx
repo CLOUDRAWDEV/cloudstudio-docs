@@ -211,8 +211,8 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>Collected Items</th>
-                            <th style={{ width: "50%" }}>Purpose of Collection</th>
+                            <th style={{ width: "30%" }}>Collected Items</th>
+                            <th style={{ width: "40%" }}>Purpose of Collection</th>
                             <th style={{ width: "30%" }}>Retention and Usage Period</th>
                         </tr>
                     </thead>
@@ -270,18 +270,31 @@ function Policy20250501() {
                                 AWS Credential Information
                                     <br />
                                     (Access Key, <br />
-                                    Secret Key)
+                                    Secret Key, <br />
+                                    Session Token)
                             </td>
                         <td>AWS Management Service through API Integration</td>
                         </tr>
                         <tr>
                             <td style={{ textAlign: "center" }}>
-                                NCloud Credential Information <br />
+                                Naver Cloud Credential Information <br />
                                 (Access Key, <br />
                                 Secret Key)
                             </td>
                             <td>
-                                NCloud Management Service through API Integration
+                                Naver Cloud Management Service through API Integration
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                NNN Cloud Credential Information  <br />
+                                (User ID, <br />
+                                Tenant ID, <br />
+                                Password)
+                            </td>
+                            <td>
+                                {" "}
+                                NNN Cloud Management Service through API Integration
                             </td>
                         </tr>
                     </tbody>
@@ -330,11 +343,11 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>Processing subcontractor</th>
-                            <th style={{ width: "20%" }}>
+                            <th style={{ width: "15%" }}>Processing subcontractor</th>
+                            <th style={{ width: "15%" }}>
                             Outsourced Services and Purpose of Use
                             </th>
-                            <th style={{ width: "20%" }}>Collected Items</th>
+                            <th style={{ width: "30%" }}>Collected Items</th>
                             <th style={{ width: "40%" }}>Retention and Usage Period</th>
                         </tr>
                     </thead>

@@ -216,8 +216,8 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>収集項目</th>
-                            <th style={{ width: "50%" }}>収集目的</th>
+                            <th style={{ width: "30%" }}>収集項目</th>
+                            <th style={{ width: "40%" }}>収集目的</th>
                             <th style={{ width: "30%" }}>保有及び利用期間</th>
                         </tr>
                     </thead>
@@ -282,18 +282,31 @@ function Policy20250501() {
                                 AWS クレデンシャル情報
                                 <br />
                                 (Access Key, <br />
-                                Secret Key)
+                                Secret Key, <br />
+                                Session Token)
                             </td>
                             <td>AWS API連動による管理サービスを提供</td>
                         </tr>
                         <tr>
                             <td style={{ textAlign: "center" }}>
-                                NCloud クレデンシャル情報 <br />
+                                Naver Cloud クレデンシャル情報 <br />
                                 (Access Key,
                                 <br />
                                 Secret Key)
                             </td>
-                            <td> NCloud API連動による管理サービスを提供</td>
+                            <td> Naver Cloud API連動による管理サービスを提供</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                NNN Cloud クレデンシャル情報 <br />
+                                (User ID, <br />
+                                Tenant ID, <br />
+                                Password)
+                            </td>
+                            <td>
+                                {" "}
+                                NNN Cloud API連動による管理サービスを提供
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -346,11 +359,11 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>処理委託業者</th>
-                            <th style={{ width: "20%" }}>
+                            <th style={{ width: "15%" }}>処理委託業者</th>
+                            <th style={{ width: "15%" }}>
                                 委託業務及び利用目的
                             </th>
-                            <th style={{ width: "20%" }}>収集項目</th>
+                            <th style={{ width: "30%" }}>収集項目</th>
                             <th style={{ width: "40%" }}>保有及び利用期間</th>
                         </tr>
                     </thead>

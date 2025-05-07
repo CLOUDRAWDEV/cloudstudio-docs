@@ -234,8 +234,8 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>수집항목</th>
-                            <th style={{ width: "50%" }}>수집 목적</th>
+                            <th style={{ width: "30%" }}>수집항목</th>
+                            <th style={{ width: "40%" }}>수집 목적</th>
                             <th style={{ width: "30%" }}>보유 및 이용기간</th>
                         </tr>
                     </thead>
@@ -296,20 +296,32 @@ function Policy20250501() {
                                 AWS 자격증명 정보
                                 <br />
                                 (Access Key, <br />
-                                Secret Key)
+                                Secret Key, Session Token)
                             </td>
                             <td>AWS API 서비스 연동을 통한 관리 서비스 제공</td>
                         </tr>
                         <tr>
                             <td style={{ textAlign: "center" }}>
-                                NCloud 자격증명 정보 <br />
+                                Naver Cloud 자격증명 정보 <br />
                                 (Access Key,
                                 <br />
                                 Secret Key)
                             </td>
                             <td>
                                 {" "}
-                                NCloud 서비스 API 연동을 통한 관리 서비스 제공
+                                Naver Cloud 서비스 API 연동을 통한 관리 서비스 제공
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                NNN Cloud 자격증명 정보 <br />
+                                (User ID, <br />
+                                Tenant ID, <br />
+                                Password)
+                            </td>
+                            <td>
+                                {" "}
+                                NNN Cloud 서비스 API 연동을 통한 관리 서비스 제공
                             </td>
                         </tr>
                     </tbody>
@@ -368,11 +380,11 @@ function Policy20250501() {
                 <table>
                     <thead>
                         <tr>
-                            <th style={{ width: "20%" }}>처리 위탁업체</th>
-                            <th style={{ width: "20%" }}>
+                            <th style={{ width: "15%" }}>처리 위탁업체</th>
+                            <th style={{ width: "15%" }}>
                                 위탁업무 및 이용 목적
                             </th>
-                            <th style={{ width: "20%" }}>수집항목</th>
+                            <th style={{ width: "30%" }}>수집항목</th>
                             <th style={{ width: "40%" }}>보유 및 이용기간</th>
                         </tr>
                     </thead>
