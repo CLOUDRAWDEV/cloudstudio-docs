@@ -8,7 +8,7 @@ function Policy20240401() {
     return (
         <>
             <section className={policyStyles.policy}>
-                <h1>개인정보 처리방침</h1>
+                <h1>個人情報処理方針</h1>
                 <br />
                 <hr />
                 <br />
@@ -183,66 +183,66 @@ function Policy20240401() {
                 </h4>
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "10%" }}>区分</th>
-                            <th style={{ width: "20%" }}>収集項目</th>
-                            <th style={{ width: "40%" }}>収集目的</th>
-                            <th style={{ width: "30%" }}>保有及び利用期間</th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "10%" }}>区分</th>
+                        <th style={{ width: "20%" }}>収集項目</th>
+                        <th style={{ width: "40%" }}>収集目的</th>
+                        <th style={{ width: "30%" }}>保有及び利用期間</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th rowSpan={3}>必須</th>
-                            <td style={{ textAlign: "center" }}>ID</td>
-                            <td rowSpan={3}>
-                                サービス利用に伴う本人確認及び通知事項の伝達、サービスに関連する相談及び苦情処理等の円滑なコミュニケーション経路の確保
-                            </td>
-                            <td rowSpan={3} style={{ textAlign: "center" }}>
-                                <strong>会員退会時まで</strong>
-                                <br />
-                                ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>イーメール</td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>パスワード</td>
-                        </tr>
+                    <tr>
+                        <th rowSpan={3}>必須</th>
+                        <td style={{ textAlign: "center" }}>ID</td>
+                        <td rowSpan={3}>
+                            サービス利用に伴う本人確認及び通知事項の伝達、サービスに関連する相談及び苦情処理等の円滑なコミュニケーション経路の確保
+                        </td>
+                        <td rowSpan={3} style={{ textAlign: "center" }}>
+                            <strong>会員退会時まで</strong>
+                            <br />
+                            ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>イーメール</td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>パスワード</td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
                 <h4>2. 決済手段登録時に以下のような個人情報を収集します。</h4>
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "20%" }}>収集項目</th>
-                            <th style={{ width: "50%" }}>収集目的</th>
-                            <th style={{ width: "30%" }}>保有及び利用期間</th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "20%" }}>収集項目</th>
+                        <th style={{ width: "50%" }}>収集目的</th>
+                        <th style={{ width: "30%" }}>保有及び利用期間</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                生年月日/事業者登録番号
-                            </td>
-                            <td>決済手段の所有者確認</td>
-                            <td rowSpan={3} style={{ textAlign: "center" }}>
-                                <strong>会員退会時まで</strong>
-                                <br />
-                                ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                決済手段情報
-                                <br />
-                                (クレジットカード会社名, <br />
-                                クレジットカード番号, <br />
-                                クレジットカード有効期限)
-                            </td>
-                            <td>サービス利用に伴う費用決済</td>
-                        </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>
+                            生年月日/事業者登録番号
+                        </td>
+                        <td>決済手段の所有者確認</td>
+                        <td rowSpan={3} style={{ textAlign: "center" }}>
+                            <strong>会員退会時まで</strong>
+                            <br />
+                            ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>
+                            決済手段情報
+                            <br />
+                            (クレジットカード会社名, <br />
+                            クレジットカード番号, <br />
+                            クレジットカード有効期限)
+                        </td>
+                        <td>サービス利用に伴う費用決済</td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
@@ -252,47 +252,47 @@ function Policy20240401() {
                 </h4>
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "20%" }}>収集項目</th>
-                            <th style={{ width: "50%" }}>収集目的</th>
-                            <th style={{ width: "30%" }}>保有及び利用期間</th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "20%" }}>収集項目</th>
+                        <th style={{ width: "50%" }}>収集目的</th>
+                        <th style={{ width: "30%" }}>保有及び利用期間</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                MS Azure クレデンシャル情報 <br />
-                                (Tenant ID,
-                                <br />
-                                Subscription ID, <br />
-                                Service Principal ID, <br />
-                                Service Principal Key)
-                            </td>
-                            <td> MS Azure API連動による管理サービスを提供</td>
-                            <td rowSpan={3} style={{ textAlign: "center" }}>
-                                <strong>削除時または会員退会時まで</strong>
-                                <br />
-                                ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                AWS クレデンシャル情報
-                                <br />
-                                (Access Key, <br />
-                                Secret Key)
-                            </td>
-                            <td>AWS API連動による管理サービスを提供</td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                NCloud クレデンシャル情報 <br />
-                                (Access Key,
-                                <br />
-                                Secret Key)
-                            </td>
-                            <td> NCloud API連動による管理サービスを提供</td>
-                        </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>
+                            MS Azure クレデンシャル情報 <br />
+                            (Tenant ID,
+                            <br />
+                            Subscription ID, <br />
+                            Service Principal ID, <br />
+                            Service Principal Key)
+                        </td>
+                        <td> MS Azure API連動による管理サービスを提供</td>
+                        <td rowSpan={3} style={{ textAlign: "center" }}>
+                            <strong>削除時または会員退会時まで</strong>
+                            <br />
+                            ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>
+                            AWS クレデンシャル情報
+                            <br />
+                            (Access Key, <br />
+                            Secret Key)
+                        </td>
+                        <td>AWS API連動による管理サービスを提供</td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>
+                            NCloud クレデンシャル情報 <br />
+                            (Access Key,
+                            <br />
+                            Secret Key)
+                        </td>
+                        <td> NCloud API連動による管理サービスを提供</td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
@@ -302,27 +302,27 @@ function Policy20240401() {
                 </h4>
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "40%" }}>収集項目</th>
-                            <th style={{ width: "60%" }}>収集目的</th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "40%" }}>収集項目</th>
+                        <th style={{ width: "60%" }}>収集目的</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                サービス利用記録、接続ログ、クッキー、接続IP情報
-                            </td>
-                            <td>
-                                利用サービス情報などに関する分析および細分化を通じた
-                                利用者のサービス利用好みの分析
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>決済記録</td>
-                            <td>
-                                取引履歴確認、不正取引確認、決済キャンセル金額の返金
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            サービス利用記録、接続ログ、クッキー、接続IP情報
+                        </td>
+                        <td>
+                            利用サービス情報などに関する分析および細分化を通じた
+                            利用者のサービス利用好みの分析
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>決済記録</td>
+                        <td>
+                            取引履歴確認、不正取引確認、決済キャンセル金額の返金
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
@@ -343,36 +343,36 @@ function Policy20240401() {
                 <br />
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "20%" }}>処理委託業者</th>
-                            <th style={{ width: "20%" }}>
-                                委託業務及び利用目的
-                            </th>
-                            <th style={{ width: "20%" }}>収集項目</th>
-                            <th style={{ width: "40%" }}>保有及び利用期間</th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "20%" }}>処理委託業者</th>
+                        <th style={{ width: "20%" }}>
+                            委託業務及び利用目的
+                        </th>
+                        <th style={{ width: "20%" }}>収集項目</th>
+                        <th style={{ width: "40%" }}>保有及び利用期間</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>ブートペイ</td>
-                            <td style={{ textAlign: "center" }}>
-                                費用決済代行
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                                決済手段情報 <br />
-                                (クレジットカード会社名, <br />
-                                クレジットカード番号,
-                                <br />
-                                クレジットカード有効期限)
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                                <strong>
-                                    会員退会時または委託契約終了時まで
-                                </strong>
-                                <br />
-                                ただし、関係法令に定めがある場合は、当該法律で定められた期間中保持および利用可能
-                            </td>
-                        </tr>
+                    <tr>
+                        <td style={{ textAlign: "center" }}>ブートペイ</td>
+                        <td style={{ textAlign: "center" }}>
+                            費用決済代行
+                        </td>
+                        <td style={{ textAlign: "center" }}>
+                            決済手段情報 <br />
+                            (クレジットカード会社名, <br />
+                            クレジットカード番号,
+                            <br />
+                            クレジットカード有効期限)
+                        </td>
+                        <td style={{ textAlign: "center" }}>
+                            <strong>
+                                会員退会時または委託契約終了時まで
+                            </strong>
+                            <br />
+                            ただし、関係法令に定めがある場合は、当該法律で定められた期間中保持および利用可能
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
@@ -513,25 +513,25 @@ function Policy20240401() {
                 <br />
                 <table>
                     <thead>
-                        <tr>
-                            <th style={{ width: "100vh" }} colSpan={2}>
-                                個人情報保護責任者(CPO)
-                            </th>
-                        </tr>
+                    <tr>
+                        <th style={{ width: "100vh" }} colSpan={2}>
+                            個人情報保護責任者(CPO)
+                        </th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>名前</td>
-                            <td>HyunBae Moon</td>
-                        </tr>
-                        <tr>
-                            <td>職責</td>
-                            <td>本部長</td>
-                        </tr>
-                        <tr>
-                            <td>イーメール</td>
-                            <td>hbmoon@cloudraw.kr</td>
-                        </tr>
+                    <tr>
+                        <td>名前</td>
+                        <td>HyunBae Moon</td>
+                    </tr>
+                    <tr>
+                        <td>職責</td>
+                        <td>本部長</td>
+                    </tr>
+                    <tr>
+                        <td>イーメール</td>
+                        <td>hbmoon@cloudraw.kr</td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />

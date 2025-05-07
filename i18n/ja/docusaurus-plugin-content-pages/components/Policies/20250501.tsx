@@ -1,12 +1,10 @@
 import React from "react"
 import policyStyles from "@site/src/scss/_policy.module.scss"
 import Labeling from "@site/src/pages/policy/Labeling"
-// import RequiredPersonalInfo from "@site/src/pages/policy/RequiredPersonalInfo"
-import RequiredPersonalInfo from "../../policy/RequiredPersonalInfo"
-// import OptionalPersonalInfo from "@site/src/pages/policy/OptionalPersonalInfo"
-import OptionalPersonalInfo from "../../policy/OptionalPersonalInfo"
+import RequiredPersonalInfo from "@site/src/pages/policy/RequiredPersonalInfo"
+import OptionalPersonalInfo from "@site/src/pages/policy/OptionalPersonalInfo"
 
-function Policy20240401() {
+function Policy20250501() {
     return (
         <>
             <section className={policyStyles.policy}>
@@ -179,91 +177,197 @@ function Policy20240401() {
                 {/* 개인정보의 처리목적 및 보유기간 */}
                 <h2>個人情報の処理目的及び保有期間</h2>
                 <br />
+                <h4>
+                    1.
+                    サービスの会員登録過程で、以下のような個人情報を収集します。
+                </h4>
                 <table>
                     <thead>
-                        <th>区分</th>
-                        <th>収集項目</th>
-                        <th>収集目的</th>
-                        <th>保有及び利用期間</th>
+                        <tr>
+                            <th style={{ width: "10%" }}>区分</th>
+                            <th style={{ width: "20%" }}>収集項目</th>
+                            <th style={{ width: "40%" }}>収集目的</th>
+                            <th style={{ width: "30%" }}>保有及び利用期間</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th rowSpan={2}>必須</th>
-                            <td>ID, パスワード, イーメール</td>
-                            <td>
+                            <th rowSpan={3}>必須</th>
+                            <td style={{ textAlign: "center" }}>ID</td>
+                            <td rowSpan={3}>
                                 サービス利用に伴う本人確認及び通知事項の伝達、サービスに関連する相談及び苦情処理等の円滑なコミュニケーション経路の確保
                             </td>
-                            <td rowSpan={7} style={{ textAlign: "center" }}>
+                            <td rowSpan={3} style={{ textAlign: "center" }}>
                                 <strong>会員退会時まで</strong>
                                 <br />
                                 ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
                             </td>
                         </tr>
                         <tr>
+                            <td style={{ textAlign: "center" }}>イーメール</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>パスワード</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h4>2. 決済手段登録時に以下のような個人情報を収集します。</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style={{ width: "20%" }}>収集項目</th>
+                            <th style={{ width: "50%" }}>収集目的</th>
+                            <th style={{ width: "30%" }}>保有及び利用期間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+
+                            </td>
+                            <td>決済手段の所有者確認</td>
+                            <td rowSpan={3} style={{ textAlign: "center" }}>
+                                <strong>会員退会時まで</strong>
+                                <br />
+                                ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                決済手段情報
+                                <br />
+                                (生年月日/事業者登録番号, <br />
+                                クレジットカード会社名, <br />
+                                クレジットカード番号, <br />
+                                クレジットカード有効期限, <br />
+                                クレジットカード暗証番号の最初の2桁)
+                            </td>
+                            <td>サービス利用に伴う費用決済</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h4>
+                    3.
+                    クレデンシャル登録の際、以下のような個人情報を収集します。
+                </h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style={{ width: "20%" }}>収集項目</th>
+                            <th style={{ width: "50%" }}>収集目的</th>
+                            <th style={{ width: "30%" }}>保有及び利用期間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                MS Azure クレデンシャル情報 <br />
+                                (Tenant ID,
+                                <br />
+                                Subscription ID, <br />
+                                Service Principal ID, <br />
+                                Service Principal Key)
+                            </td>
+                            <td> MS Azure API連動による管理サービスを提供</td>
+                            <td rowSpan={3} style={{ textAlign: "center" }}>
+                                <strong>削除時または会員退会時まで</strong>
+                                <br />
+                                ただし、関係法令に定めがある場合は、該当法律で定められた期間内に保有及び利用可能
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                AWS クレデンシャル情報
+                                <br />
+                                (Access Key, <br />
+                                Secret Key)
+                            </td>
+                            <td>AWS API連動による管理サービスを提供</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: "center" }}>
+                                NCloud クレデンシャル情報 <br />
+                                (Access Key,
+                                <br />
+                                Secret Key)
+                            </td>
+                            <td> NCloud API連動による管理サービスを提供</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h4>
+                    4.
+                    サービス利用過程で以下のような情報が自動的に生成されたり、追加で収集されることがあります。
+                </h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style={{ width: "40%" }}>収集項目</th>
+                            <th style={{ width: "60%" }}>収集目的</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td>
                                 サービス利用記録、接続ログ、クッキー、接続IP情報
                             </td>
                             <td>
-                                利用サービス情報等に関する分析及びセグメンテーションを通じた利用者のサービス利用嗜好の分析
+                                利用サービス情報などに関する分析および細分化を通じた
+                                利用者のサービス利用好みの分析
                             </td>
-                        </tr>
-                        <tr>
-                            <th rowSpan={5}>選択</th>
-                            <td>
-                                クレジットカード情報（カード会社名、カード番号、有効期限）
-                            </td>
-                            <td>サービス利用に伴う費用の決済</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                MS Azure CSP サービスクレデンシャル情報 (Tenant
-                                ID, Subscription ID, Service Principal ID,
-                                Service Principal Key)
-                            </td>
-                            <td> API連携を通じた管理サービスの提供</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                AWS CSP サービスクレデンシャル情報(Access Key,
-                                Secret Key)
-                            </td>
-                            <td>API連携を通じた管理サービスの提供</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Naver Cloud CSP サービスクレデンシャル情報
-                                (Access Key, Secret Key)
-                            </td>
-                            <td> API連携を通じた管理サービスの提供</td>
                         </tr>
                         <tr>
                             <td>決済記録</td>
                             <td>
-                                取引履歴の確認、不正取引の確認、決済取消額の返金
+                                取引履歴確認、不正取引確認、決済キャンセル金額の返金
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <br />
                 <h4>
-                    Cloudrawは、会員登録のために必要最小限の個人情報を収集します。個人情報の収集に同意しないことも可能ですが、その場合は会員登録が制限されることがあります。
+                    Cloudrawは会員登録のために必要最小限の個人情報を
+                    収集します。個人情報収集に同意しない場合、会員登録が制限されることがあります。
                 </h4>
                 <br />
                 <br />
                 <br />
                 {/* 개인정보 처리의 위탁 */}
                 <h2>個人情報処理の委託</h2>
+                <h4>
+                    会社はサービス提供に関する契約を履行し、利用者の便宜を図るために、個人情報処理業務を外部専門業者に委託しており、受託者に対しては「委託契約書」などを通じて、
+                    関連法規および指針の遵守、情報保護および秘密保持、第三者提供禁止、事故発生時の責任負担、委託期間終了時の個人情報の返却/破棄義務などの責任に関する事項を規定し、
+                    受託者が個人情報を安全に処理しているかどうかを監督しています。
+                </h4>
                 <br />
                 <table>
                     <thead>
-                        <th>処理委託業者</th>
-                        <th>委託業務及び利用目的</th>
-                        <th>保有及び利用期間</th>
+                        <tr>
+                            <th style={{ width: "20%" }}>処理委託業者</th>
+                            <th style={{ width: "20%" }}>
+                                委託業務及び利用目的
+                            </th>
+                            <th style={{ width: "20%" }}>収集項目</th>
+                            <th style={{ width: "40%" }}>保有及び利用期間</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>ブートペイ</td>
-                            <td>費用決済代行</td>
+                            <td style={{ textAlign: "center" }}>ブートペイ</td>
+                            <td style={{ textAlign: "center" }}>
+                                費用決済代行
+                            </td>
+                            <td style={{ textAlign: "center" }}>
+                                決済手段情報 <br />
+                                (生年月日/事業者登録番号, <br />
+                                クレジットカード会社名, <br />
+                                クレジットカード番号, <br />
+                                クレジットカード有効期限, <br />
+                                クレジットカード暗証番号の最初の2桁)
+                            </td>
                             <td style={{ textAlign: "center" }}>
                                 <strong>
                                     会員退会時または委託契約終了時まで
@@ -277,6 +381,131 @@ function Policy20240401() {
                 <br />
                 <br />
                 <br />
+                <h2>個人情報の破棄</h2>
+                <h4>
+                    利用者の個人情報は原則として、個人情報の収集および利用目的が達成された場合には、遅滞なく破棄します。
+                    <br />
+                    個人情報破棄手続きおよび方法は以下のとおりです。
+                    <br />
+                    <br />
+                    1. 破棄手続き
+                    <br />
+                    利用者が会員登録などのために入力した情報は、目的が達成された後、別のDBに移され(紙の場合は別の書類棚)、
+                    内部方針およびその他の関連法令による情報保護理由に従い、一定期間保存された後、破棄されます。この個人情報は法律による場合を除いて、
+                    保持される以外の他の目的には利用されません。
+                    <br />
+                    <br />
+                    2. 破棄方法
+                    <br />
+                    紙に出力された個人情報は、シュレッダーで粉砕するか、焼却によって破棄します。
+                    <br />
+                    電子的ファイル形式で保存された個人情報は、記録を再生できない技術的手段を用いて削除します。
+                </h4>
+                <hr />
+                <br />
+                <h4>
+                    電子商取引等における消費者保護に関する法律、電子文書および
+                    電子取引基本法、通信秘密保護法などの法令において、一定期間情報の
+                    保管を規定する場合は以下のとおりです。会社はこの期間中、
+                    法令の規定に従って個人情報を保管し、本情報を他の目的には
+                    決して利用しません。
+                    <br />
+                    <br />
+                    電子商取引等における消費者保護に関する法律
+                    <br />
+                    契約または申し込みの撤回等に関する記録：5年間保管
+                    <br />
+                    代金決済および商品等の供給に関する記録：5年間保管
+                    <br />
+                    消費者の不満または紛争処理に関する記録：3年間保管
+                    <br />
+                    <br />
+                    電子文書および電子取引基本法
+                    <br />
+                    公認電子住所を通じた電子文書流通に関する記録：10年間保管
+                    <br />
+                    <br />
+                    通信秘密保護法
+                    <br />
+                    ログイン記録：3か月
+                </h4>
+                <br />
+                <br />
+                <br />
+                <h2>情報主体の権利</h2>
+
+                <h4>
+                    利用者は、サービスが保有している自分の個人情報を提供することを
+                    要求する権利があります。
+                    <br />
+                    個人情報にアクセスするには、「マイページ」をクリックすると、
+                    個人情報または基本設定を更新できます。
+                    <br />
+                    利用者は、自分の個人情報を修正、ブロック、完了、削除し、
+                    利用を制限し、データを他の組織に移管するよう要求する権利があります。
+                    <br />
+                    利用者は、自分の個人情報の処理に関する追加情報を要求する権利があります。
+                    また、特定の状況下では、サービスのデータ処理に異議を唱える権利があり、
+                    データ処理に同意を求められた場合、同意を撤回する権利があります。
+                    <br />
+                    <br />
+                    上記の権利に関するサポートが必要な場合は、以下の
+                    個人情報担当者(hbmoon@cloudraw.kr)にお問い合わせください。
+                    <br />
+                </h4>
+
+                <br />
+                <br />
+                <br />
+                <h2>個人情報保護のための努力</h2>
+
+                <h4>
+                    会社は利用者の個人情報保護のために以下の努力をしています。
+                </h4>
+                <br />
+                <h4>
+                    1. 個人情報保護内部管理計画の策定・実施
+                    <br />
+                    個人情報保護責任者の指定など、個人情報保護組織の構成と運営に
+                    関する事項を含む個人情報内部管理計画を策定し、毎年内部管理計画が
+                    適切に実施されているかを点検しています。
+                    <br />
+                    <br />
+                    2. 個人情報の暗号化
+                    <br />
+                    会社は、パスワード、決済手段などの個人情報を法律で要求される基準に
+                    従って暗号化処理しており、重要なデータはファイルや転送データを
+                    暗号化するなどの別のセキュリティ措置を講じて利用者の個人情報を
+                    保護しています。
+                    <br />
+                    <br />
+                    3. ハッキングなどに備えた対策
+                    <br />
+                    会社は、ハッキングやコンピュータウイルスによって会員の個人情報が
+                    漏洩または損傷されるのを防ぐために最善を尽くしています。
+                    個人情報の損傷に備えて資料を定期的にバックアップしており、
+                    最新のウイルス対策プログラムを使用して利用者の個人情報や資料が
+                    漏洩したり損傷しないように防止しており、暗号化通信などを通じて
+                    ネットワーク上で個人情報を安全に送信できるようにし、その他の
+                    システム的にセキュリティを確保するための可能なすべての技術的装置を
+                    整えるよう努力しています。
+                    <br />
+                    <br />
+                    4. 個人情報保護専任機関の運営
+                    <br />
+                    会社は社内の個人情報保護専任機関を通じて、会社の個人情報処理方針の
+                    実施状況および担当者の遵守状況を確認し、問題が発見された場合は
+                    直ちに修正し、改善できるよう努力しています。
+                    <br />
+                    <br />
+                    ただし、利用者本人の不注意やインターネット上の問題によりID、パスワード
+                    などの個人情報が漏洩して発生した問題について、会社は一切の責任を
+                    負いません。
+                </h4>
+
+                <br />
+                <br />
+                <br />
                 {/* 권익침해 구제방법 */}
                 <h2>権益侵害の救済方法</h2>
                 <h4>
@@ -287,9 +516,11 @@ function Policy20240401() {
                 <br />
                 <table>
                     <thead>
-                        <th style={{ width: "100vh" }} colSpan={2}>
-                            個人情報保護責任者(CPO)
-                        </th>
+                        <tr>
+                            <th style={{ width: "100vh" }} colSpan={2}>
+                                個人情報保護責任者(CPO)
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -346,6 +577,7 @@ function Policy20240401() {
                 <br />
                 <br />
                 <br />
+
                 {/* 개인정보 처리방침의 변경 */}
                 <h2>個人情報処理方針の変更</h2>
                 <h4>この個人情報処理方針は2023年2月1日から適用されます。</h4>
@@ -355,4 +587,4 @@ function Policy20240401() {
     )
 }
 
-export default Policy20240401
+export default Policy20250501

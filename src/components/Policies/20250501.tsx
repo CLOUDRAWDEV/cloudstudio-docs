@@ -242,18 +242,6 @@ function Policy20250501() {
                     <tbody>
                         <tr>
                             <td style={{ textAlign: "center" }}>
-                                생년월일/사업자등록번호
-                            </td>
-                            <td>결제 수단 소유자 확인</td>
-                            <td rowSpan={3} style={{ textAlign: "center" }}>
-                                <strong>회원 탈퇴 시 까지</strong>
-                                <br />
-                                단, 관계법령에 정함이 있는 경우 해당 법률에서
-                                정한 기간동안 보유 및 이용 가능
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
                                 결제수단 정보
                                 <br />
                                 (생년월일/사업자등록번호, <br />
@@ -263,6 +251,12 @@ function Policy20250501() {
                                 신용카드 비밀번호 앞 2자리)
                             </td>
                             <td>서비스 이용에 따른 비용 결제</td>
+                            <td style={{ textAlign: "center" }}>
+                                <strong>회원 탈퇴 시 까지</strong>
+                                <br />
+                                단, 관계법령에 정함이 있는 경우 해당 법률에서
+                                정한 기간동안 보유 및 이용 가능
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -5,12 +5,16 @@ import Policy20240401 from "../components/Policies/20240401"
 // import Policy20230201 from "@site/src/components/Policies/20230201"
 import Policy20230201 from "../components/Policies/20230201"
 import Layout from "@theme/Layout"
+import Policy20250501 from "@site/i18n/en/docusaurus-plugin-content-pages/Policies/20250501"
 
 export default function Personal() {
-    const [current, setCurrent] = useState("20240401")
+    const [current, setCurrent] = useState("20250501")
     const [policyComponent, setPolicyComponent] = useState(null)
     useEffect(() => {
         switch (current) {
+            case "20250501":
+                setPolicyComponent(<Policy20250501 />)
+                break
             case "20240401":
                 setPolicyComponent(<Policy20240401 />)
                 break
@@ -29,6 +33,7 @@ export default function Personal() {
                         setCurrent(e.target.value)
                     }}
                 >
+                    <option value={"20250501"}>2025.05.01</option>
                     <option value={"20240401"}>2024.04.01</option>
                     <option value={"20230201"}>2023.02.01</option>
                 </select>
