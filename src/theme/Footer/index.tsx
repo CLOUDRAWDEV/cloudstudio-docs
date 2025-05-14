@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react"
 import footerStyles from "/src/scss/_footer.module.scss"
 import Link from "@docusaurus/Link"
+import { useLocation } from "@docusaurus/router"
 
 export default function Footer(props) {
     const [currentLocale, setCurrentLocale] = useState("ko") // 기본 언어를 한국어로 설정
+    const { pathname } = useLocation()
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -11,8 +13,8 @@ export default function Footer(props) {
             const locale = path.startsWith("/ja")
                 ? "ja"
                 : path.startsWith("/en")
-                ? "en"
-                : "ko"
+                    ? "en"
+                    : "ko"
             setCurrentLocale(locale)
         }
     }, [])
@@ -25,7 +27,7 @@ export default function Footer(props) {
             brn: "BRN : 886-86-02497",
             ceo: "CEO GyeongSu Kim",
             address:
-                "716, Bd, Yeoksam-Height, 151, Teheran-ro, Gangnam-gu, Seoul, Korea",
+                "717, Bd, Yeoksam-Height, 151, Teheran-ro, Gangnam-gu, Seoul, Korea",
         },
         ja: {
             terms: "サービス利用規約",
@@ -35,7 +37,7 @@ export default function Footer(props) {
             brn: "事業者登録番号 886-86-02497",
             ceo: "CEO GyeongSu Kim",
             address:
-                "716, Bd, Yeoksam-Height, 151, Teheran-ro, Gangnam-gu, Seoul, Korea",
+                "717, Bd, Yeoksam-Height, 151, Teheran-ro, Gangnam-gu, Seoul, Korea",
         },
         ko: {
             terms: "서비스 이용약관",
@@ -44,72 +46,75 @@ export default function Footer(props) {
             companyName: "(주)클라우드로",
             brn: "사업자등록번호 : 886-86-02497",
             ceo: "대표이사 김경수",
-            address: "서울시 강남구 테헤란로 151 (역삼하이츠빌딩), 716",
+            address: "서울시 강남구 테헤란로 151 (역삼하이츠빌딩), 717",
         },
     }
 
     const currentTexts = texts[currentLocale] || texts.ko // 기본적으로 영어 사용
     return (
-        <footer className={footerStyles.footer}>
-            <section className={footerStyles.footer__nav}>
-                <section className={footerStyles.footer__nav__menu}>
-                    <div>
-                        <h3>Company</h3>
-                        <ul>
-                            <li>
-                                <Link to="https://www.cloudraw.kr/">
-                                    <h4>About</h4>
-                                </Link>
-                            </li>
-                            {/*<li><Link to="https://cstudio.app/payments"><h4>Pricing</h4></Link></li>*/}
-                            <li>
-                                <Link to="/policy/service">
-                                    <h4>{currentTexts.terms}</h4>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/policy/personal">
-                                    <h4 style={{ fontWeight: "800" }}>
-                                        {currentTexts.privacy}
-                                    </h4>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/policy/refund">
-                                    <h4>{currentTexts.refund}</h4>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Community</h3>
-                        <ul>
-                            <li>
-                                <Link to="https://blog.cloudraw.kr">
-                                    <h4>Blog</h4>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="https://www.youtube.com/channel/UCHoqm5luu1MvzPQRHVSwH9w">
-                                    <h4>Youtube</h4>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
+        <>
+            {pathname === "/" && (<footer className={footerStyles.footer}>
+                <section className={footerStyles.footer__nav}>
+                    <section className={footerStyles.footer__nav__menu}>
+                        <div>
+                            <h3>Company</h3>
+                            <ul>
+                                <li>
+                                    <Link to="https://www.cloudraw.kr/">
+                                        <h4>About</h4>
+                                    </Link>
+                                </li>
+                                {/*<li><Link to="https://cstudio.app/payments"><h4>Pricing</h4></Link></li>*/}
+                                <li>
+                                    <Link to="/policy/service">
+                                        <h4>{currentTexts.terms}</h4>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/policy/personal">
+                                        <h4 style={{ fontWeight: "800" }}>
+                                            {currentTexts.privacy}
+                                        </h4>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/policy/refund">
+                                        <h4>{currentTexts.refund}</h4>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Community</h3>
+                            <ul>
+                                <li>
+                                    <Link to="https://blog.cloudraw.kr">
+                                        <h4>Blog</h4>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="https://www.youtube.com/channel/UCHoqm5luu1MvzPQRHVSwH9w">
+                                        <h4>Youtube</h4>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <h1>
+                        Draw<p>Your Cloud Infra.</p>
+                    </h1>
                 </section>
-                <h1>
-                    Draw<p>Your Cloud Infra.</p>
-                </h1>
-            </section>
-            <section className={footerStyles.footer__address}>
-                <h5>
-                    {currentTexts.companyName} | {currentTexts.brn} |{" "}
-                    {currentTexts.ceo} | {currentTexts.address}
-                </h5>
-                <h5 className={footerStyles.footer__address__copy}>
-                    Copyright ⓒ 2021 Cloudraw. Inc.
-                </h5>
-            </section>
-        </footer>
+                <section className={footerStyles.footer__address}>
+                    <h5>
+                        {currentTexts.companyName} | {currentTexts.brn} |{" "}
+                        {currentTexts.ceo} | {currentTexts.address}
+                    </h5>
+                    <h5 className={footerStyles.footer__address__copy}>
+                        Copyright ⓒ 2021 Cloudraw. Inc.
+                    </h5>
+                </section>
+            </footer>)}
+        </>
+
     )
 }
