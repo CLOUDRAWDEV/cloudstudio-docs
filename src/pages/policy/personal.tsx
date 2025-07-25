@@ -4,12 +4,16 @@ import Policy20240401 from "@site/src/components/Policies/20240401"
 import Policy20230201 from "@site/src/components/Policies/20230201"
 import Layout from "@theme/Layout"
 import Policy20250501 from "@site/src/components/Policies/20250501"
+import Policy20250801 from "@site/src/components/Policies/20250801"
 
 export default function Personal() {
-    const [current, setCurrent] = useState("20250501")
+    const [current, setCurrent] = useState("20250801")
     const [policyComponent, setPolicyComponent] = useState(null)
     useEffect(() => {
         switch (current) {
+            case "20250801":
+                setPolicyComponent(<Policy20250801/>)
+                break
             case "20250501":
                 setPolicyComponent(<Policy20250501/>)
                 break
