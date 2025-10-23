@@ -1,0 +1,172 @@
+---
+title: 원격점검
+sidebar_position: 2
+tags: [점검, 원격점검]
+---
+
+import styles from "../../src/scss/_asset.module.scss"
+import compliance1 from "/docs/compliance/img/compliance1.png"
+import remoteInspect2 from "/docs/compliance/img/remoteInspect2.png"
+import remoteInspect3 from "/docs/compliance/img/compliance3.png"
+import remoteInspect4 from "/docs/compliance/img/remoteInspect4.png"
+import compliance5 from "/docs/compliance/img/compliance5.png"
+import remoteInspect6 from "/docs/compliance/img/remoteInspect6.png"
+import compliance7 from "/docs/compliance/img/compliance7.png"
+import remoteInspect8 from "/docs/compliance/img/remoteInspect8.png"
+import compliance9 from "/docs/compliance/img/compliance9.png"
+import compliance10 from "/docs/compliance/img/compliance10.png"
+import compliance11 from "/docs/compliance/img/compliance11.png"
+import remoteInspect12 from "/docs/compliance/img/remoteInspect12.png"
+import remoteInspect13 from "/docs/compliance/img/remoteInspect13.png"
+import remoteInspect14 from "/docs/compliance/img/remoteInspect14.png"
+import compliance15 from "/docs/compliance/img/compliance15.png"
+import compliance16 from "/docs/compliance/img/compliance16.png"
+import remoteInspect17 from "/docs/compliance/img/remoteInspect17.png"
+import compliance18 from "/docs/compliance/img/compliance18.png"
+import compliance19 from "/docs/compliance/img/compliance19.png"
+import compliance20 from "/docs/compliance/img/compliance20.png"
+import compliance21 from "/docs/compliance/img/compliance21.png"
+import remoteInspect22 from "/docs/compliance/img/remoteInspect22.png"
+import remoteInspect23 from "/docs/compliance/img/remoteInspect23.png"
+import remoteInspect24 from "/docs/compliance/img/remoteInspect24.png"
+import remoteInspect25 from "/docs/compliance/img/remoteInspect25.png"
+import remoteInspect26 from "/docs/compliance/img/remoteInspect26.png"
+import remoteInspect27 from "/docs/compliance/img/remoteInspect27.png"
+import remoteInspect28 from "/docs/compliance/img/remoteInspect28.png"
+import remoteInspect29 from "/docs/compliance/img/remoteInspect29.png"
+import remoteInspect30 from "/docs/compliance/img/remoteInspect30.png"
+import remoteInspect5 from "/docs/compliance/img/remoteInspect5.png"
+import remoteInspect7 from "/docs/compliance/img/remoteInspect7.png"
+
+# 원격점검
+
+## 원격점검 권한
+
+원격점검 권한 조회를 위해서는 `ⓘ 버튼`을 클릭합니다.
+
+<img width="200" src={remoteInspect29} alt="조회하기 이미지" />
+<p></p>
+<img width="400" src={remoteInspect30} alt="조회하기 이미지" />
+<p></p>
+
+## 실행 방법
+
+1. 원격점검을 위해 `점검>점검 관리>원격점검` 탭을 클릭합니다.
+2. 그룹목록에서 점검하려는 `그룹을 선택`합니다.
+
+:::info
+
+원격점검은 선택한 그룹을 기준으로 진행됩니다. 원격점검 전 `그룹을 먼저 생성`해주세요.
+[그룹생성방법](/docs/compliance/group)
+
+:::
+
+3. `원격점검 탭`을 클릭합니다.
+
+    <img width="400" src={remoteInspect2} alt="이미지" />
+
+4. `점검하기 버튼`을 클릭합니다.
+
+    <img width="200" src={remoteInspect3} alt="이미지" />
+
+5. 점검 리소스가 Bastion 서버를 새로 생성할지, 기존 서버를 사용할지를 선택합니다.
+
+    <img width="400" src={remoteInspect5} alt="이미지" />
+
+    5-1. 기존 서버를 사용한다면 사용하려는 서버의 정보를 입력합니다.
+
+    <img width="400" src={remoteInspect7} alt="이미지" />
+
+6. 점검 제목을 입력(무엇에 관한 점검인지)한 후 `점검 시작하기` 버튼을 클릭합니다.
+
+    <img width="400" src={remoteInspect4} alt="이미지" />
+
+<p>&nbsp;</p>
+
+### 점검 결과 상세
+
+테이블 한 칼럼마다 상세 결과를 확인 할 수 있습니다. 확인하고 싶은 칼럼을 클릭합니다.
+
+<img width="800" src={remoteInspect8} alt="이미지" />
+
+<p>&nbsp;</p>
+
+**상세결과 테이블**<br/>
+3-1. 제목<br/>
+3-2. 항목명<br/>
+3-3. 상세 설명<br/>
+3-4. 점검 결과<br/>
+3-5. 점검 방법<br/>
+
+<img width="800" src={remoteInspect28} alt="이미지" />
+
+:::caution
+
+상세정보를 수정한 후 수정사항 저장하기 버튼을 누르지 않고 페이지를 이동하면 **변경사항이 반영되지 않습니다.**
+
+:::
+
+<p>&nbsp;</p>
+
+## 레포트 생성
+
+점검이 완료 되면 테이블로된 결과를 확인할 수 있습니다. 테이블에서 `영역 Scope, 항목명, 점검 기준, 중요도, 점검결과, 점검 결과 상세`의 6가지 항목을 확인할 수 있습니다.
+`점검기준`에 대한 자세한 내용은 [여기](/docs/compliance/result)에서 확인할 수 있습니다.
+CS Checker에서는 엑셀과 워드 두 종류의 보고서를 제공합니다.
+
+### 보고서
+
+1. 보고서 파일을 다운받기 위해 `보고서 버튼`을 클릭합니다.
+
+    <img width="200" src={remoteInspect12} alt="이미지" />
+
+2. 컴플라이언스를 선택한 후 `생성하기 버튼`을 클릭합니다.
+
+    <img width="400" src={remoteInspect13} alt="이미지" />
+
+3. 엑셀 파일을 열어 점검 내용을 확인합니다.
+
+    <br />
+    3-1. 표지
+    <br />
+
+    <img width="800" src={remoteInspect22} alt="이미지" />
+    <br />
+    3-2. 자산목록
+    <br />
+
+    <img width="800" src={remoteInspect23} alt="이미지" />
+    <br />
+    3-3. postgres [자원형식] 점검항목
+    <br />
+
+    <img width="800" src={remoteInspect24} alt="이미지" />
+    <br />
+    3-4. 취약점 점검 리소스별 통계 [자원형식]
+    <br />
+
+    <img width="800" src={remoteInspect25} alt="이미지" />
+    <br />
+
+    3-5. 취약점 점검 항목별 통계 [자원형식]
+
+    <br />
+
+    <img width="800" src={remoteInspect26} alt="이미지" />
+    <br />
+    3-6. 상세결과 [자원명]
+    <br />
+
+    <img width="800" src={remoteInspect27} alt="이미지" />
+
+## 점검이력확인
+
+1. 점검이력에서 `점검 제목, 점검 실행 날짜 및 시간, 점검자`를 확인할 수 있습니다.
+
+    <img width="200" src={remoteInspect14} alt="이미지" />
+
+:::inforemo
+
+이동하고 싶은 이력을 눌러 해당 점검 내용을 확인할 수 있습니다.
+
+:::

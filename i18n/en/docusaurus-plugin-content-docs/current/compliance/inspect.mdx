@@ -1,0 +1,175 @@
+---
+title: Console Inspection
+sidebar_position: 2
+tags: [Inspection, Console Inspection]
+---
+
+import styles from "../../scss/_asset.module.scss"
+import compliance1 from "./img/compliance1.png"
+import inspect2 from "./img/inspect2.png"
+import compliance3 from "./img/compliance3.png"
+import compliance4 from "./img/compliance4.png"
+import compliance6 from "./img/compliance6.png"
+import inspect8 from "./img/inspect8.png"
+import compliance9 from "./img/compliance9.png"
+import compliance12 from "./img/compliance12.png"
+import compliance13 from "./img/compliance13.png"
+import inspect14 from "./img/inspect14.png"
+import compliance15 from "./img/compliance15.png"
+import compliance16 from "./img/compliance16.png"
+import compliance17 from "./img/compliance17.png"
+import compliance18 from "./img/compliance18.png"
+import inspect19 from "./img/inspect19.png"
+import compliance20 from "./img/compliance20.png"
+import compliance21 from "./img/compliance21.png"
+import compliance22 from "./img/compliance22.png"
+import compliance23 from "./img/compliance23.png"
+
+# Console Inspection
+
+## Console Inspection Permission Inquiry
+
+To inquire about console inspection permissions, click the `ⓘ button`.
+
+<img width="400" src={compliance22} alt="조회하기 이미지" />
+<p></p>
+<img width="400" src={compliance23} alt="조회하기 이미지" />
+<p></p>
+
+# Console Inspection
+
+## How to Execute
+
+1. Click the `Inspection > Inspection Management > Console Inspection` tab to access console inspection.
+2. Select the `group you want to inspect` from the group list.
+
+:::info
+
+Console inspections are performed based on the selected group. Please `create a group first` before starting console inspections.
+[How to Create a Group](/docs/compliance/group)
+
+:::
+
+3. Click the `Console Inspection tab`.
+
+    <img width="300" src={inspect2} alt="img" />
+    <br />
+
+4. Click the `Start Inspection Button`.
+
+    <img width="200" src={compliance3} alt="img" />
+
+5. Enter an inspection title (to specify what the inspection is about), then click the `Start Inspection Button`. The inspection title can be viewed and edited in the inspection details.
+
+    <img width="400" src={compliance4} alt="img" />
+
+<p>&nbsp;</p>
+
+### Inspection Result Details
+
+You can view detailed results for each column in the table. Click on the column you want to review.
+
+<img width="800" src={inspect8} alt="img" />
+
+<p>&nbsp;</p>
+
+**Console Inspection**<br/>
+Displays the inspection method (e.g., if the result is vulnerable, it specifies how to resolve the issue).
+
+**Inspection Results**<br/>
+In the inspection results, `Y` means compliant, `N` means vulnerable, `N/A` means not inspectable, and `P` means average.
+
+<img width="800" src={compliance6} alt="img" />
+<br />
+
+**Certification Criteria**<br/>
+You can manage the items corresponding to each certification criterion. For
+example, in the image below, the certification criteria are (ISMS, ISO). You can
+check the desired items using the checkboxes and add them.
+
+<img width="400" src={compliance9} alt="img" />
+
+**Consultant Opinion Field**<br/>
+A field where consultants can write their opinions regarding the inspection results.
+
+**Detailed Results Table**<br/>
+In the detailed results table, you can view all assets. If a vulnerable item belongs to the overall items, you can move it to the vulnerable tab by clicking the checkbox.
+
+**Export Detailed Results as an Image File**<br/>
+Click the "Export as Image File Button" to save the results as a PNG file.
+
+<img width="300" src={compliance16} alt="img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+If you navigate away from the page without clicking the Save Changes button after editing the details, **the changes will not be applied.**
+
+:::
+
+<p>&nbsp;</p>
+
+## Report Generation
+
+Once the inspection is complete, you can view the results in a table. The table includes six columns: `Scope, Item Name, Inspection Criteria, Priority, Inspection Result, and Inspection Result Details`.
+For more detailed information about `Inspection Criteria` refer to [here](/docs/compliance/result).
+CS Checker provides two types of reports: Excel and Word.
+
+### Excel Report
+
+1. To download the Excel file, click the `Excel Report Button`.
+
+    <img width="200" src={compliance12} alt="img" />
+
+2. Select the compliance and click the `Generate Button`.
+
+    <img width="400" src={compliance13} alt="img" />
+
+3. Open the Excel file to review the inspection details.
+    <img width="800" src={compliance17} alt="img" />
+
+### Word Report
+
+1. To download the Word file, click the `Word Report Button`.
+
+    <img width="200" src={compliance18} alt="img" />
+
+2. When the popup opens, enter the required information.
+
+    2-1. Select Compliance<br />
+    2-2. Enter the Report Title<br />
+    2-3. Choose the Inspection Schedule<br />
+    2-4. Enter the Inspector<br />
+    2-5. Click the Generate button
+
+    <img width="400" src={inspect19} alt="img" />
+
+3. Open the Word file to review the inspection details.
+    <img width="500" src={compliance20} alt="img" />
+
+<p>&nbsp;</p>
+
+## Excel Upload
+
+If you upload the modified Excel report to CS Checker, the changes will be applied.
+
+<img width="400" src={compliance21} alt="img" />
+
+<p>&nbsp;</p>
+
+## Inspection History Check
+
+1. Click the `Inspection History Button`.
+
+    <img width="200" src={compliance15} alt="img" />
+
+2. In the inspection history, you can check the `Inspection Title, Inspection Execution Date & Time, and Inspector`.
+
+    <img width="400" src={inspect14} alt="img" />
+
+:::info
+
+You can click on the history you want to navigate to and review the inspection details. You can also delete an inspection by clicking the button.
+
+:::

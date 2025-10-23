@@ -1,0 +1,188 @@
+---
+title: 콘솔점검
+sidebar_position: 2
+tags: [점검, 콘솔점검]
+---
+
+import styles from "../../src/scss/_asset.module.scss"
+import compliance1 from "/docs/compliance/img/compliance1.png"
+import compliance2 from "/docs/compliance/img/compliance2.png"
+import inspect2 from "/docs/compliance/img/inspect2.png"
+import compliance3 from "/docs/compliance/img/compliance3.png"
+import compliance4 from "/docs/compliance/img/compliance4.png"
+import compliance5 from "/docs/compliance/img/compliance5.png"
+import compliance6 from "/docs/compliance/img/compliance6.png"
+import compliance7 from "/docs/compliance/img/compliance7.png"
+import inspect8 from "/docs/compliance/img/inspect8.png"
+import compliance9 from "/docs/compliance/img/compliance9.png"
+import compliance10 from "/docs/compliance/img/compliance10.png"
+import compliance11 from "/docs/compliance/img/compliance11.png"
+import compliance12 from "/docs/compliance/img/compliance12.png"
+import compliance13 from "/docs/compliance/img/compliance13.png"
+import compliance14 from "/docs/compliance/img/compliance14.png"
+import inspect14 from "/docs/compliance/img/inspect14.png"
+import compliance15 from "/docs/compliance/img/compliance15.png"
+import compliance16 from "/docs/compliance/img/compliance16.png"
+import compliance17 from "/docs/compliance/img/compliance17.png"
+import compliance18 from "/docs/compliance/img/compliance18.png"
+import inspect19 from "/docs/compliance/img/inspect19.png"
+import compliance20 from "/docs/compliance/img/compliance20.png"
+import compliance21 from "/docs/compliance/img/compliance21.png"
+import compliance22 from "/docs/compliance/img/compliance22.png"
+import compliance23 from "/docs/compliance/img/compliance23.png"
+
+# 콘솔점검
+
+## 콘솔점검 권한
+
+콘솔점검 권한 조회를 위해서는 `ⓘ 버튼`을 클릭합니다.
+
+<img width="400" src={compliance22} alt="조회하기 이미지" />
+<p></p>
+<img width="400" src={compliance23} alt="조회하기 이미지" />
+<p></p>
+
+## 실행 방법
+
+1. 콘솔점검을 위해 `점검>점검 관리>콘솔점검` 탭을 클릭합니다.
+2. 그룹목록에서 점검하려는 `그룹을 선택`합니다.
+
+:::info
+
+콘솔점검은 선택한 그룹을 기준으로 진행됩니다. 콘솔점검 전 `그룹을 먼저 생성`해주세요.
+[그룹생성방법](/docs/compliance/group)
+
+:::
+
+3.  `콘솔점검 탭`을 클릭합니다.
+
+    <img width="200" src={compliance2} alt="이미지" />
+
+    <p></p>
+
+4.  `점검하기 버튼`을 클릭합니다.
+
+    <img width="200" src={compliance3} alt="이미지" />
+
+<p></p>
+
+5. 점검제목을 입력(무엇에 관한 점검인지)한 후 `점검 시작하기 버튼`을 클릭합니다. 점검 제목은 점검 상세에서 확인 및 수정 할 수 있습니다.
+
+    <img width="400" src={compliance4} alt="이미지" />
+
+<p>&nbsp;</p>
+
+### 점검 결과 상세
+
+테이블 한 칼럼마다 상세 결과를 확인 할 수 있습니다. 확인하고 싶은 칼럼을 클릭합니다.
+
+<img width="800" src={inspect8} alt="이미지" />
+<img width="800" src={inspect8} alt="이미지" />
+
+<p>&nbsp;</p>
+
+**콘솔점검**<br/>
+점검방법을 보여줍니다. (예: 점검결과가 취약인 경우, 어떻게 해결해야하는지 명시)
+
+**점검결과**<br/>
+점검결과에서 `Y`는 양호, `N`은 취약, `N/A`는 점검불가, `P`는 보통을 의미합니다.
+
+<img width="800" src={compliance6} alt="이미지" />
+
+<p></p>
+
+**인증 기준**<br/>
+각 인증기준에 해당하는 항목을 관리할 수 있습니다. 아래 이미지를 예로 들면 인증기준은 (ISMS, ISO)입니다. 체크박스로 원하는 항목을 체크한 후 추가 할 수 있습니다.
+
+<img width="400" src={compliance9} alt="이미지" />
+
+<p></p>
+
+**컨설턴트 의견 작성란**<br/>
+점검결과에 대해 컨설턴트 의견을 작성하는 칸입니다.
+
+<p></p>
+
+**상세결과 테이블**<br/>
+상세결과 테이블에서 전체 자산을 확인할 수 있습니다. 만약 취약항목인데 전체항목에 속해 있디면 체크박스를 클릭하여 취약 탭으로 이동시킬 수 있습니다.
+
+<p></p>
+
+**상세결과 이미지파일로 내보내기**<br/>
+이미지파일로 내보내기 버튼을 클릭하여 png 파일로 내보낼 수 있습니다.
+
+<img width="300" src={compliance16} alt="이미지" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+상세정보를 수정한 후 수정사항 저장하기 버튼을 누르지 않고 페이지를 이동하면 **변경사항이 반영되지 않습니다.**
+
+:::
+
+<p>&nbsp;</p>
+
+## 레포트 생성
+
+점검이 완료 되면 테이블로된 결과를 확인할 수 있습니다. 테이블에서 `영역 Scope, 항목명, 점검 기준, 중요도, 점검결과, 점검 결과 상세`의 6가지 항목을 확인할 수 있습니다.
+`점검기준`에 대한 자세한 내용은 [여기](/docs/compliance/result)에서 확인할 수 있습니다.
+CS Checker에서는 엑셀과 워드 두 종류의 보고서를 제공합니다.
+
+### 엑셀 보고서
+
+1. 엑셀파일을 다운받기 위해 `엑셀보고서 버튼`을 클릭합니다.
+
+    <img width="200" src={compliance12} alt="이미지" />
+
+2. 컴플라이언스를 선택한 후 `생성하기 버튼`을 클릭합니다.
+
+    <img width="400" src={compliance13} alt="이미지" />
+
+3. 엑셀 파일을 열어 점검 내용을 확인합니다.
+    <img width="800" src={compliance17} alt="이미지" />
+
+### 워드 보고서
+
+1. 워드파일을 다운받기 위해 `워드보고서 버튼`을 클릭합니다.
+
+    <img width="200" src={compliance18} alt="이미지" />
+
+2. 팝업이 열리면 정보를 입력합니다.
+
+    2-1. 컴플라이언스 선택<br />
+    2-2. 보고서 제목 입력<br />
+    2-3. 점검 일정 선택<br />
+    2-4. 점검자 입력<br />
+    2-5. 생성하기 버튼 클릭
+
+    <img width="400" src={inspect19} alt="이미지" />
+
+3. 워드 파일을 열어 점검 내용을 확인합니다.
+    <img width="500" src={compliance20} alt="이미지" />
+
+<p>&nbsp;</p>
+
+## 엑셀 업로드
+
+수정한 엑셀 보고서를 CS Checker에 업로드하면 수정사항이 반영됩니다.
+
+<img width="400" src={compliance21} alt="이미지" />
+
+<p>&nbsp;</p>
+
+## 점검이력확인
+
+1.  점검이력 버튼을 클릭합니다.
+
+    <img width="200" src={compliance15} alt="이미지" />
+
+2.  점검이력에서 `점검 제목, 점검 실행 날짜 및 시간, 점검자`를 확인할 수 있습니다.
+
+    <img width="400" src={inspect14} alt="이미지" />
+
+:::info
+
+이동하고 싶은 이력을 눌러 해당 점검 내용을 확인할 수 있고 휴지통 버튼을 클릭하여 점검을 삭제 할 수도 있습니다.
+
+:::
