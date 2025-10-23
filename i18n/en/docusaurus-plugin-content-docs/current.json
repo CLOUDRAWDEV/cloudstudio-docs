@@ -12,11 +12,11 @@
         "description": "The label for category 캔버스 in sidebar mySidebar"
     },
     "sidebar.mySidebar.category.보안진단": {
-        "message": "Security diagnosis",
+        "message": "Security Inpsection",
         "description": "The label for category 보안진단 in sidebar mySidebar"
     },
     "sidebar.mySidebar.category.보안진단 항목": {
-        "message": "Security diagnosis items",
+        "message": "Security Inpsection items",
         "description": "The label for category 보안진단 항목 in sidebar mySidebar"
     },
     "sidebar.mySidebar.category.자격증명": {
@@ -38,6 +38,14 @@
     "sidebar.mySidebar.category.생성형 AI": {
         "message": "Generative AI",
         "description": "The label for category 생성형 AI in sidebar mySidebar"
+    },
+    "sidebar.mySidebar.category.자산": {
+        "message": "Asset",
+        "description": "The label for category 자산 in sidebar mySidebar"
+    },
+    "sidebar.mySidebar.category.점검": {
+        "message": "Inspection",
+        "description": "The label for category Inspection AI in sidebar mySidebar"
     },
     "sidebar.mySidebar.category.Azure": {
         "message": "Azure",

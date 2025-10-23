@@ -1,0 +1,98 @@
+---
+title: Asset Inquiry and Asset Modification
+sidebar_position: 1
+tags: [Asset Inquiry, Asset Modification, Batch Input, Asset Transfer, Excel]
+---
+
+import styles from "../../scss/_asset.module.scss"
+import inquiry1 from "./img/inquiry1.png"
+import inquiry2 from "./img/inquiry2.png"
+import inquiry3 from "./img/inquiry3.png"
+import inquiry4 from "./img/inquiry4.png"
+import inquiry5 from "./img/inquiry5.png"
+import inquiry6 from "./img/inquiry6.png"
+import inquiry7 from "./img/inquiry7.png"
+import inquiry8 from "./img/inquiry8.png"
+import inquiry9 from "./img/inquiry9.png"
+import inquiry10 from "./img/inquiry10.png"
+import inquiry11 from "./img/inquiry11.png"
+import inquiry12 from "./img/inquiry12.png"
+
+# Asset Inquiry and Asset Modification
+
+To inquire about or modify assets, click `Assets>Asset Register`.
+
+## Asset Ledger permission inspection
+
+To inquire about asset ledger permissions, click the `ⓘ button`.
+
+<img width="200" src={inquiry11} alt="조회하기 이미지" />
+<p></p>
+<img width="400" src={inquiry12} alt="조회하기 이미지" />
+<p></p>
+
+## Asset Inquiry
+
+1. Click `Inquiry` at the top right.
+
+    <img width="400" src={inquiry1} alt="Inquire button image" />
+
+2. Assets are retrieved based on the `held credentials`. After checking the list of credentials to be retrieved, click the `Inquiry Button` to load the assets. (`Authorized` indicates permission to retrieve credentials.)
+
+    <img width="400" src={inquiry2} alt="Query img" />
+
+<p>&nbsp;</p>
+
+## Asset Modification
+
+Assets are divided into six categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
+Uncategorized is a category that groups assets that do not fall under Server, Storage, Information Security System, Network, or DBMS.
+Assets can be modified within each category.
+
+1. Click the tab to navigate to the desired asset category.
+2. After querying the assets, `click on the empty cells in the table` to enter information.
+
+    <img width="400" src={inquiry4} alt="Query img" />
+
+3. After entering all the values, click the `Save icon Button`. If you want to revert to the previous values, click the `Back icon Button` to go back.
+
+    <img width="200" src={inquiry5} alt="Query img" />
+
+<p>&nbsp;</p>
+
+### Batch Input
+
+1. Select the assets for batch input and click the `Batch Input Button`.
+
+    <img width="200" src={inquiry3} alt="Query img" />
+
+2. Select the column name to be batch-modified. (e.g., Management Number, Asset Description, Domain, Ownership Department, Administrator, Person in Charge) <br /> After entering the input value, click the Batch Input button to complete.
+
+    <img width="400" src={inquiry6} alt="Query img" />
+
+<p>&nbsp;</p>
+
+### Asset Transfer
+
+1. Select the assets to be moved and click the `Asset Transfer Button`.
+
+    <img width="200" src={inquiry3} alt="Query img" />
+
+2. In the current tab, select the tab where you want to move the assets and review the list of assets to be moved.
+
+    <img width="400" src={inquiry7} alt="Query img" />
+
+3. Click the `Move Button` to complete the asset transfer.
+
+<p>&nbsp;</p>
+
+### Excel Export
+
+CS Checker provides an asset register. You can export the same information you see on the web into an Excel file.
+
+1. Click the `Excel Download Button` to download the Excel file.
+
+    <img width="200" src={inquiry8} alt="Query img" />
+
+2. In Excel, you can view assets from all categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
+    <img width="700" src={inquiry10} alt="Query img" />

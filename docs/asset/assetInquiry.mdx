@@ -1,0 +1,100 @@
+---
+title: 자산조회 및 자산수정
+sidebar_position: 1
+tags: [자산조회, 자산수정, 일괄입력, 자산이동, 엑셀]
+---
+
+import styles from "../../src/scss/_asset.module.scss"
+import inquiry1 from "/docs/asset/img/inquiry1.png"
+import inquiry2 from "/docs/asset/img/inquiry2.png"
+import inquiry3 from "/docs/asset/img/inquiry3.png"
+import inquiry4 from "/docs/asset/img/inquiry4.png"
+import inquiry5 from "/docs/asset/img/inquiry5.png"
+import inquiry6 from "/docs/asset/img/inquiry6.png"
+import inquiry7 from "/docs/asset/img/inquiry7.png"
+import inquiry8 from "/docs/asset/img/inquiry8.png"
+import inquiry9 from "/docs/asset/img/inquiry9.png"
+import inquiry10 from "/docs/asset/img/inquiry10.png"
+import inquiry11 from "/docs/asset/img/inquiry11.png"
+import inquiry12 from "/docs/asset/img/inquiry12.png"
+
+# 자산조회 및 자산수정
+
+자산조회 및 수정을 위해 `자산>자산대장`을 클릭합니다.
+
+## 자산 대장 권한
+
+자산 대장 권한 조회를 위해서는 `ⓘ 버튼`을 클릭합니다.
+
+<img width="200" src={inquiry11} alt="조회하기 이미지" />
+<p></p>
+<img width="400" src={inquiry12} alt="조회하기 이미지" />
+<p></p>
+
+## 자산조회
+
+1. 우측 상단 `조회하기`를 클릭합니다.
+
+    <img width="400" src={inquiry1} alt="조회하기 이미지" />
+
+<p></p>
+
+2. 자산은 `보유 크레덴셜을 기준`으로 전체자산이 조회됩니다. 조회될 크레덴셜 목록을 확인한 후 `조회하기 버튼`을 클릭하여 자산을 불러옵니다. (`권한있음`은 크레덴셜 조회 권한을 나타냅니다.)
+
+    <img width="400" src={inquiry2} alt="조회하기 이미지" />
+
+<p>&nbsp;</p>
+
+## 자산수정
+
+자산은 `서버, 저장소, 정보보호시스템, 네트워크, DBMS, 미분류` 총 6가지의 카테고리가 있습니다.
+미분류는 서버, 저장소, 정보보호시스템, 네트워크, DBMS에 해당되지 않는 자산을 모아둔 카테고리입니다.
+각 카테고리마다 자산을 수정할 수 있습니다.
+
+1. 탭을 클릭하여 원하는 자산 카테고리로 이동합니다.
+2. 자산조회 후 테이블에서 `값이 없는 칸을 클릭`하여 정보를 입력합니다.
+
+    <img width="400" src={inquiry4} alt="조회하기 이미지" />
+
+3. 값을 모두 입력한 후 `저장하기 아이콘 버튼`을 클릭합니다. 이전 값으로 돌아가고 싶다면 `돌아가기 아이콘 버튼`을 클릭하여 돌아갈 수 있습니다.
+
+    <img width="200" src={inquiry5} alt="조회하기 이미지" />
+
+<p>&nbsp;</p>
+
+### 일괄입력
+
+1. 일괄입력 할 자산을 선택한 후 `일괄입력 버튼`을 클릭합니다.
+
+    <img width="200" src={inquiry3} alt="조회하기 이미지" />
+
+2. 일괄수정할 컬럼명을 선택합니다. (관리번호, 자산설명, 도메인, 소유부서, 관리자, 담당자) <br /> 입력값을 작성한 후 `일괄입력 버튼`을 클릭하여 마무리합니다.
+
+    <img width="400" src={inquiry6} alt="조회하기 이미지" />
+
+<p>&nbsp;</p>
+
+### 자산이동
+
+1. 이동시킬 자산을 선택한 후 `자산이동 버튼`을 클릭합니다.
+
+    <img width="200" src={inquiry3} alt="조회하기 이미지" />
+
+2. 현재 탭에서 자산을 이동시키고 싶은 탭을 선택한 후 이동시킬 자산 목록을 확인합니다.
+
+    <img width="400" src={inquiry7} alt="조회하기 이미지" />
+
+3. `이동하기 버튼`을 클릭하여 자산이동을 마무리합니다.
+
+<p>&nbsp;</p>
+
+### 엑셀 추출
+
+cs checker는 자산대장을 제공합니다. 자산대장을 통해 웹에서 보는 것과 같은 정보를 엑셀로 추출할 수 있습니다.
+
+1. `엑셀 다운로드 버튼`을 클릭하여 엑셀을 다운받습니다.
+
+    <img width="200" src={inquiry8} alt="조회하기 이미지" />
+
+2. 엑셀에서 `서버, 저장소, 정보보호시스템, 네트워크, DBMS, 미분류` 모든 카테고리의 자산을 확인할 수 있습니다.
+    <img width="700" src={inquiry10} alt="조회하기 이미지" />
