@@ -18,7 +18,7 @@ const config = {
     projectName: "cloudstudio-docs",
     i18n: {
         defaultLocale: "ko",
-        locales: ["ko", "en", "ja"],
+        locales: ["ko", "en", "ja"]
     },
 
     presets: [
@@ -34,23 +34,22 @@ const config = {
                         defaultSidebarItemsGenerator,
                         ...args
                     }) => {
-                        const sidebarItems = await defaultSidebarItemsGenerator(
-                            args
-                        )
+                        const sidebarItems =
+                            await defaultSidebarItemsGenerator(args)
                         return sidebarItems
-                    },
+                    }
                 },
                 blog: {
                     routeBasePath: "release",
                     blogSidebarTitle: "Release Note",
                     blogSidebarCount: "ALL",
-                    path: "blog",
+                    path: "blog"
                 },
                 theme: {
-                    customCss: require.resolve("./src/scss/_custom.scss"),
-                },
-            }),
-        ],
+                    customCss: require.resolve("./src/scss/_custom.scss")
+                }
+            })
+        ]
     ],
 
     plugins: [
@@ -61,8 +60,8 @@ const config = {
                 id: "docs-faq",
                 path: "docs-faq",
                 routeBasePath: "docs-faq",
-                sidebarPath: require.resolve("./sidebars.js"),
-            },
+                sidebarPath: require.resolve("./sidebars.js")
+            }
         ]
     ],
 
@@ -75,9 +74,9 @@ const config = {
                 language: ["en"],
                 searchBarShortcutHint: true,
                 searchResultContextMaxLength: 20,
-                highlightSearchTermsOnTargetPage: true,
-            },
-        ],
+                highlightSearchTermsOnTargetPage: true
+            }
+        ]
     ],
 
     themeConfig:
@@ -89,39 +88,39 @@ const config = {
                     alt: "cloudstudio Logo",
                     src: "img/cloudstudio_logo.png",
                     srcDark: "img/cloudstudio_logo_white.png",
-                    className: "navbarLogo",
+                    className: "navbarLogo"
                 },
                 items: [
                     {
                         to: "/docs/category/시작하기",
                         label: "Docs",
                         position: "left",
-                        activeBaseRegex: `/docs/`,
+                        activeBaseRegex: `/docs/`
                     },
                     {
                         to: "/release",
                         label: "Release",
                         position: "left",
-                        activeBaseRegex: `/release/`,
+                        activeBaseRegex: `/release/`
                     },
                     {
                         href: "https://cstudio.app/",
                         label: "CloudStudio",
                         position: "right",
-                        className: "btnTrial",
+                        className: "btnTrial"
                     },
                     {
                         type: "localeDropdown",
-                        position: "right",
-                    },
-                ],
+                        position: "right"
+                    }
+                ]
             },
             footer: {},
             prism: {
                 theme: lightCodeTheme,
-                darkTheme: darkCodeTheme,
-            },
-        }),
+                darkTheme: darkCodeTheme
+            }
+        })
 }
 
 module.exports = config

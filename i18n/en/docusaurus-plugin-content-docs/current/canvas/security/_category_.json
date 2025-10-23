@@ -1,7 +1,7 @@
 {
-  "label": "Security Diagnosis",
-  "position": 1,
-  "link": {
-    "type": "generated-index"
-  }
+    "label": "Security Inpsection",
+    "position": 1,
+    "link": {
+        "type": "generated-index"
+    }
 }
