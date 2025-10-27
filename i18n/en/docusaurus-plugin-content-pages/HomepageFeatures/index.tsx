@@ -7,9 +7,10 @@ export default function HomepageFeatures(): JSX.Element {
             <div className="container">
                 <div className={styles.mainWrap}>
                     <div className={styles.mainLogo} />
-                    <img style={{ width: "80%", height: "auto" }}
-                         src={"./img/cloudstudio_img_en.png"}
-                         alt={"landing"}
+                    <img
+                        style={{ width: "80%", height: "auto" }}
+                        src={"./img/cloudstudio_img_en.png"}
+                        alt={"landing"}
                     />
                     <div style={{ height: "24px" }} />
                 </div>
