@@ -1,0 +1,55 @@
+---
+title: Windows App Service
+sidebar_position: 1
+tags: [Template, Häufig verwendete Ressourcen, App Service, Azure]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-windows_app_service.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure App Service ist ein PaaS-Service, mit dem Sie Web-Apps, mobile Backends und RESTful APIs in der von Ihnen gewählten Programmiersprache erstellen und hosten können, ohne die Infrastruktur verwalten zu müssen.
+App Service bietet Auto Scaling und hohe Verfügbarkeit und unterstützt sowohl Windows- als auch Linux-Betriebssysteme.
+Es ist möglich, automatisch aus GitHub, Azure DevOps oder Git-Repositories bereitzustellen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Service Plan**](https://docs.cstudio.app/docs/resource/azure/AppService/ServicePlan)
+
+## Ressourcen-Einstellwerte
+
+-   `linked_service_plan_name` : Planrichtlinie für den App Service anwenden
+-   `delegated_subnet_name` : Subnetzname für die Delegierung des virtuellen Netzwerks
+-   `client_cert_enabled` : Client-Zertifikat aktivieren - `true`, `false`
+-   `auth_settings_enabled` : Authentifizierung aktivieren, um sicherzustellen, dass alle Kommunikation in der App authentifiziert wird - `true`, `false`
+-   `detailed_error_messages_enabled` : Detaillierte Fehlermeldungen auf der Fehlerseite anzeigen, wenn ein HTTP-Fehler auftritt - `true`, `false`
+-   `failed_request_tracing_enabled` : Detailliertes Verfolgungsprotokoll für fehlgeschlagene Anfragen aktivieren - `true`, `false`
+-   `retention_in_days` : Aufbewahrungsdauer der HTTP-Anforderungsprotokolle (Tage) - `0`~`99999`
+-   `retention_in_mb` : Speichergröße für die Aufbewahrung von HTTP-Anforderungsprotokollen (MB) - `25`~`100`
+-   `ftps_state` : TLS/SSL für FTP aktivieren, um die Sicherheit zu gewährleisten, wenn FTP verwendet wird - `Disabled`, `FtpsOnly`, `AllAllowed`
+-   `http2_enabled` : Die neueste Version des HTTP-Protokolls für die Sicherheit verwenden - `true`, `false`
+-   `tag` : Tag zum Kategorisieren von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
+-   [Azurerm App Service Kosten(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
+-   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)

@@ -1,0 +1,61 @@
+---
+title: ApiGatewayHttp
+sidebar_position: 0
+tags: [AWS, Ressourcen, ApiGatewayHttp]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+    }
+/>
+
+## Ressourcen-Übersicht
+
+HTTP API ist eine Art von API Gateway, das darauf abzielt, APIs auf der Grundlage des HTTP-Protokolls einfach und leicht zu erstellen.
+HTTP API ist einfacher und kostengünstiger als das traditionelle REST API und eignet sich hauptsächlich für serverlose Webanwendungen und einfache Mikrodienste.
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Verwandte Ressourcen
+
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+
+## Ressourceneinstellungens
+
+-   `integration` : Name der API Gateway-Integration
+    -   `http_integration`
+        -   `integration_type` : Typ der API Gateway-Integration - `Http`, `Lambda`
+        -   `integration_method` : AHTTP-Methode der API Gateway-Integration
+        -   `integration_url` : Die normalisierte URL für die HTTP-Integration angeben
+    -   `lambda_integration`
+        -   `integration_type` : Typ der API Gateway-Integration - `Http`, `Lambda`
+        -   `integration_method` : HTTP-Methode der API Gateway-Integration
+        -   `linked_lambda_name` : Name der Lambda-Funktion für die Lambda-Proxy-Integration
+-   `route`
+
+    -   `route_method` : HTTP-Methode für die HTTP-API
+    -   `route_path` : Ressourcenpfad für die HTTP-API
+    -   `target_integration` : Name der API Gateway-Integration, mit der die Route verbunden werden soll - `http_integration`, `lambda_integration`
+
+-   `deployment`
+
+    -   `description` : Beschreibung der API Gateway-Entwicklung
+
+-   `stage`
+    -   `dev`
+        -   `enable_deployment` : API Gateway-Stage bereitstellen
+        -   `auto_deployment` : Automatische Bereitstellung aktivieren
+    -   `test`
+        -   `enable_deployment` : API Gateway-Stage bereitstellen
+        -   `auto_deployment` : Automatische Bereitstellung aktivieren
+        -   `deployment_name` : Name der zu verbindenden API Gateway-Bereitstellung
+    -   `prod`
+        -   `enable_deployment` : API Gateway-Stage bereitstellen

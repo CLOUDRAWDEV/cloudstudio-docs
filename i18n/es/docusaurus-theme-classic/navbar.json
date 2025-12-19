@@ -1,0 +1,14 @@
+{
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Release": {
+    "message": "Release",
+    "description": "Navbar item with label Release"
+  },
+  "item.label.CloudStudio": {
+    "message": "CloudStudio",
+    "description": "Navbar item with label CloudStudio"
+  }
+}

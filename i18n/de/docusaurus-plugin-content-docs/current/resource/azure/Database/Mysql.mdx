@@ -1,0 +1,68 @@
+---
+title: Mysql
+sidebar_position: 2
+tags: [Azure, Ressourcen, Database, Mysql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mysql.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Database for MySQL ist ein vollständig verwalteter relationaler Datenbankdienst, der auf der weit verbreiteten Open-Source-MySQL-Datenbank-Engine basiert und von Microsoft Azure bereitgestellt wird.
+Ohne sich um die zugrunde liegende Infrastruktur sorgen zu müssen, können Sie MySQL-Datenbanken einfach in der Cloud bereitstellen, verwalten und skalieren.
+Mit Azure Database for MySQL übernimmt Microsoft Aufgaben wie Patches, Backups und Monitoring, sodass Sie MySQL-Datenbanken mit minimalem Verwaltungsaufwand erstellen und verwalten können.
+Darüber hinaus können Sie Funktionen wie hohe Verfügbarkeit, automatische Backups und zeitgesteuerte Wiederherstellung nutzen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+## Ressourcen-Einstellwerte
+
+-   `version` : Verwendete MySQL-Version - `5.7`, `5.6`, `8.0`
+
+-   `sku_name` : Name der MySQL-Preisstufen, Kombination von Tier + Compute-Generation + Core-Anzahl - `azureDatabaseSku`
+
+-   `storage_mb` : Kapazität des MySQL-Servers (MB) - `5120` ~ `16777216`
+
+-   `admin_username` : Administrator-Benutzername des Servers, wenn der Erstellmodus default ist
+
+-   `admin_password` : Administrator-Login-Passwort des Servers, wenn der Erstellmodus default ist
+
+-   `public_network_access_enabled` : Zulassen des öffentlichen Netzwerkzugriffs auf den Server - `true` , `false`
+
+-   `ssl_enforcement_enabled` : Anwendung verschlüsselter Verbindungen (SSL) - `true` , `false`
+
+-   `minimal_tls_version` : Minimale unterstützte TLS-Version des Servers - `TLS1_2` , `TLS1_1` , `TLS1_0` , `TLSEnforcementDisabled`
+
+-   `threat_detection_enabled` : Erkennung abnormaler Aktivitäten, die auf ungewöhnliche und potenziell schädliche Versuche hinweisen - `true` , `false`
+
+-   `database`
+
+    -   `charset` : Zeichensatz der MySQL-Datenbank - `azureMysqlChartSet`
+    -   `collation` : Datenordnungsregeln der Microsoft SQL-Datenbank - `azureMysqlCol`
+
+-   `firewall_rule`
+    -   `start_ip_address` : Start-IP-Adresse der Firewallregel
+    -   `end_ip_address` : End-IP-Adresse der Firewallregel
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Mysql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/mysql/single-server/overview)
+-   [Azure Mysql Kosten](https://azure.microsoft.com/ko-kr/pricing/details/mysql/server/)
+-   [Azure Mysql(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_server)

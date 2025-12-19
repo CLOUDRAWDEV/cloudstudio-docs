@@ -1,0 +1,61 @@
+---
+title: RedisCache
+sidebar_position: 0
+tags: [Azure, Ressourcen, RedisCache, RedisCache]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/redis_cache-redis_cache.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Redis Cache ist ein vollständig verwalteter In-Memory-Datenspeicher, der auf der Open-Source-Redis-Cache-Engine basiert. 
+Er wird als Dienst auf der Microsoft Azure-Cloud-Plattform bereitgestellt und wird zum Erstellen von skalierbaren und reaktionsschnellen Anwendungen verwendet.
+Azure Redis Cache kann zum Speichern und Abrufen von Daten verwendet werden, auf die häufig und schnell zugegriffen werden muss, wie z. B. Sitzungsdaten, Benutzereinstellungen und Anwendungszustände. 
+Es unterstützt Datenstrukturen wie Strings, Hashes, Listen, Sets und sortierte Sets.
+Azure Redis Cache bietet Funktionen wie Datenspeicherung, hohe Verfügbarkeit und automatische Skalierung, was ihn zu einer weit verbreiteten Lösung für die Erstellung von Anwendungen macht, die schnellen und zuverlässigen Datenzugriff erfordern. 
+Es lässt sich auch in andere Azure-Dienste wie Azure App Service, Azure Functions und Azure Logic Apps integrieren.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `sku_name` : Preisschichtnamen für Redis-Cache - `Basic`,`Standard`,`Premium`,`Enterprise`
+
+-   `cache_type` : Preisstufengruppe und Größe des Redis Caches für die Bereitstellung - `azureRedisCacheSku`
+
+-   `version` : Redis Version - `6`
+
+-   `enable_non_ssl_port` : Ob der non-SSL-Port für Redis aktiviert werden - `true`,`false`
+
+-   `minimum_tls_version` : Minimale TLS-Version für Redis - `1.0`,`1.1`,`1.2`
+
+-   `public_network_access_enabled` : Öffentlichen Zugriff auf Redis-Cache über öffentliche IP-Adresse zulassen - `true`,`false`
+
+-   `redis_firewall_rule`
+
+    -   `start_ip` : Start-IP-Bereich
+    -   `end_ip` : End-IP-Bereich
+    -   `included_redis_cache_name` : Redis Cache Name, auf den die Firewall-Regel angewendet werden soll
+
+-   `tag` : Tag zum Kategorisieren der Ressource - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure RedisCache(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview)
+-   [Azure RedisCache Kosten](https://azure.microsoft.com/ko-kr/pricing/details/cache/)
+-   [Azure RedisCache(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache)

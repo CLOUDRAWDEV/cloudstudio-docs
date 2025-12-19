@@ -1,0 +1,54 @@
+---
+title: MonitorLogProfile
+sidebar_position: 3
+tags: [Azure, Ressourcen, Monitor, MonitorLogProfile]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_log_profile.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Monitor Log Profile ist eine Funktion von Microsoft Azure, mit der der Speicherort und die Verarbeitung von Protokolldaten festgelegt werden können.
+Mit einer einzigen Benutzeroberfläche können benutzerdefinierte Protokolle sowie Anwendungsprotokolle aus verschiedenen Azure-Diensten und anderen Quellen gesammelt und analysiert werden.
+Ein Log-Profil ist eine Sammlung von Einstellungen, die bestimmen, wie Azure Monitor mit Protokolldaten umgeht.
+Es definiert Speicher-, Aufbewahrungsdauer- und Protokollkategorien, die für ein bestimmtes Azure-Abonnement oder eine Ressourcengruppe erfasst werden müssen.
+Log-Profile können auch Einstellungen für die Datenaufbewahrung und Aggregation enthalten, wie etwa Filter und Daten-Sampling, um sicherzustellen, dass nur relevante Daten gesammelt werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subscription**](https://docs.cstudio.app/docs/resource/azure/Base/Subscription)
+
+### Verbundene Ressourcen
+
+-   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+
+## Ressourcen-Einstellwerte
+
+-   `categories` : Liste der Protokolltypen - `Action`,`Delete`, `write`
+
+-   `locations` : Liste der Azure-Standorte, an denen das Aktivitätsprotokoll gespeichert oder gestreamt wird
+
+-   `retention_enabled` : Aktivierung der Aufbewahrungsrichtlinie - `true`, `false`
+
+-   `retention_day` : Anzahl der Tage, an denen die Daten gemäß der Aufbewahrungsrichtlinie aufbewahrt werden (0 bedeutet unbegrenzt)
+
+-   `linked_storage_account_name` : Name des Storage-Kontos, in dem das Aktivitätsprotokoll gespeichert wird
+
+---
+
+## Referenzmaterial
+
+-   [Azure MonitorLogProfile(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+-   [Azure MonitorLogProfile Kosten](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
+-   [Azure MonitorLogProfile(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_log_profile)

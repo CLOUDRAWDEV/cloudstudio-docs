@@ -18,7 +18,7 @@ const config = {
     projectName: "cloudstudio-docs",
     i18n: {
         defaultLocale: "ko",
-        locales: ["ko", "en", "ja"]
+        locales: ["ko", "en", "ja", "de", "it", "es"]
     },
 
     presets: [
@@ -34,8 +34,9 @@ const config = {
                         defaultSidebarItemsGenerator,
                         ...args
                     }) => {
-                        const sidebarItems =
-                            await defaultSidebarItemsGenerator(args)
+                        const sidebarItems = await defaultSidebarItemsGenerator(
+                            args
+                        )
                         return sidebarItems
                     }
                 },

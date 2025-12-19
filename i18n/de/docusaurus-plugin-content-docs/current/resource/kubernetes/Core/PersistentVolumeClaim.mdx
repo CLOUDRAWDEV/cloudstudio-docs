@@ -1,0 +1,62 @@
+---
+title: PersistentVolumeClaim
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Core, PersistentVolumeClaim]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ressource zur Anforderung eines PersistentVolume (PV) in Kubernetes.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+
+### Verbundene Ressourcen
+
+-   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : PersistentVolumeClaim Ressourcenname
+-   `namespace` : Der Namespace, in dem die PersistentVolumeClaim-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die von Kubernetes verwendet werden, um erforderliche Informationen anzuzeigen
+-   `labels` : Werte, die vom Benutzer zur Unterscheidung von Objekten beliebig festgelegt werden
+-   `spec` : Definiert die spezifische Spezifikation der PersistentVolumeClaim (PVC)
+    -   `spec.storage_class_name` : Gibt den Namen der zu verwendenden StorageClass an
+    -   `spec.volume_name` : Der Name des PersistentVolume (PV), mit dem das PVC verbunden wird
+    -   `spec.request_storage` : Der Speicherplatz, den das PVC vom PV anfordert
+    -   `spec.access_modes` : Die gewünschten Zugriffsmodi des PVs (muss mit den Zugriffsmodi des PV übereinstimmen oder sie enthalten) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
+
+
+
+---
+
+## Referenzmaterial
+
+-   [PersistentVolumeClaim(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+-   [PersistentVolumeClaim(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)

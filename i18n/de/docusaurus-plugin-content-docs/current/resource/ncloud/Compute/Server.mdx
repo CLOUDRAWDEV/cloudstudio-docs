@@ -1,0 +1,48 @@
+---
+title: Server
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Compute, Server]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies sind Computing-Ressourcen, die die Flexibilität der Virtualisierung bieten, ohne dass eine tatsächliche Hardwareverwaltung erforderlich ist. Durch die Erstellung von Servern in einer Cloud-Umgebung ist es in Bezug auf Zeit und Kosten effizient und eignet sich besonders für Situationen, in denen der Betrieb der Infrastruktur eine Belastung darstellt oder vorübergehend viele Serverressourcen benötigt werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**BlockStorage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIP)
+-   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `include_subnet_name` : Name des Subnetzes, in dem sich der Server befindet
+-   `server_image_product_code` : Code des Betriebssystem-Images, das verwendet wird
+-   `server_product_code` : Code für die Hardwarekonfiguration des Servers
+-   `login_key_name` : Name des zu verwendenden login_key
+-   `init_script` : Name des zu verwendenden init_script
+-   `is_encrypted_base_block_storage_volume` : Ob die Speicherung verschlüsselt wird
+-   `linked_network_interface_name` : Dem Server zugewiesene Netzwerkschnittstelle
+
+
+---
+
+## Referenzmaterial
+
+-   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

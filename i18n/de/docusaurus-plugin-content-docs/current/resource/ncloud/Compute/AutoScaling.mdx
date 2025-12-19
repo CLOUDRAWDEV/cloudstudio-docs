@@ -1,0 +1,59 @@
+---
+title: Auto Scaling
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Compute, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es handelt sich um einen Dienst, der die Anzahl der virtuellen Server automatisch basierend auf einem festgelegten Zeitplan oder den Überwachungsergebnissen erhöht oder verringert, um flexibel auf Veränderungen der Nachfrage zu reagieren. Server werden basierend auf vordefinierten Schwellenwerten überwacht und die Anzahl der Server wird automatisch angepasst, um den Service stabil zu betreiben.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Network Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroupp)
+
+## Ressourcen-Einstellwerte
+
+-   `server_image_product_code` : Verwendeter Betriebssystem-Image-Code(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
+-   `server_product_code` : Code für die Hardwarekonfiguration des Servers (HICPU: High CPU, STAND: Standard, HIMEM: High Memory / C Anzahl der Kerne, M Speicher (GB))
+-   `login_key_name` : Name des öffentlichen Anmeldeschlüssels für die Verschlüsselung
+-   `init_script`
+    -   `content` : Inhalt des Skripts, das beim Erstellen des Servers automatisch ausgeführt wird
+-   `group`
+    -   `min_size` : Minimale Größe der Auto-Scaling-Gruppe, Bereich von 0 bis 30
+    -   `max_size` : Maximale Größe der Auto-Scaling-Gruppe, Bereich von 0 bis 30
+    -   `linked_acg_names` : Liste der ACG-Namen, auf die Auto-Scaling angewendet wird
+    -   `included_subnet_name` : Subnetzname für die Erstellung des Servers
+-   `policy`
+    -   `adjustment_type_code` : Scaling-Einstellcode: Mittlere Änderung (CHANG) / Prozentsatzänderung (PRCNT) / Festwert (EXACT) - `CHANG`, `PRCNT`, `EXACT`
+    -   `scaling_adjustment` : Scaling-Einstellwert
+-   `schedule`
+    -   `min_size` : Minimale Größe der Auto-Scaling-Gruppe
+    -   `max_size` : Maximale Größe der Auto-Scaling-Gruppe
+    -   `desired_capacity` : Erwartete Größe der Auto-Scaling-Gruppe
+    -   `start_time` : Startdatum und Uhrzeit des Zeitplans
+    -   `end_time` : Enddatum und Uhrzeit des Zeitplans
+
+---
+
+## Referenzmaterial
+
+-   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
+-   [ncloud_auto_scaling_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

@@ -1,0 +1,54 @@
+---
+title: Redis
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Database, Redis]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Cloud DB for Redis ist ein vollständig verwalteter Cloud-Cache-Dienst, der es ermöglicht, Redis-Caches mit nur wenigen Einstellungen und Klicks einfach zu erstellen. Durch die optimierten Einstellungen von Naver wird ein stabiler Betrieb gewährleistet, und im Falle einer Störung erfolgt eine automatische Wiederherstellung.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Untergeordnete Ressourcen
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `server_name_prefix` : Name des Redis-Cache-Servers
+-   `redis_mode` : Konfigurationsmodus von Redis - `CLUSTER`, `SIMPLE`
+-   `image_product_code` : Produktcode des Redis-Server-Images für die Konfiguration des Redis-Instanz-Specs
+-   `target_config_group_name` : Zu verbindende Config Group
+-   `product_code` : Produktcode zur Bestimmung der Server-Spezifikationen für die zu erstellende Redis-Instanz
+-   `data_storage_type` : Art des Datenspeichers - `SSD`, `HDD`
+-   `shard_count` : Die Anzahl der zu erstellenden Shards entspricht der Anzahl der Master-Nodes - `3~10`
+-   `shard_copy_count` : Im Redis-Cluster, das aus Master- und Slave-Nodes besteht, bestimmt die Anzahl der Replikate pro Shard, wie viele Slave-Nodes jedem Master-Node zugewiesen werden. Für Hochverfügbarkeit (HA) ist mindestens ein Slave-Node erforderlich. Wenn Replikate hinzugefügt werden, wird jedem Master-Node jeweils ein Slave-Node zugewiesen
+-   `enable_high_availability` : Ob die Hochverfügbarkeitsfunktion verwendet wird
+-   `enable_backup` : Ob die Backup-Funktion aktiviert wird, hängt davon ab, ob die Hochverfügbarkeitsfunktion verwendet wird. Wenn die Hochverfügbarkeitsfunktion aktiviert ist, wird die Backup-Funktion automatisch aktiviert
+-   `port` : Redis-Zugangsport - `6379`
+
+    
+
+---
+
+## Referenzmaterial
+
+-   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)
+

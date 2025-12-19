@@ -1,0 +1,42 @@
+---
+title: Ecr Repository
+sidebar_position: 0
+tags: [AWS, Ressourcen, Ecr, EcrRepository]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Elastic Container Registry (Amazon ECR) ist ein sicherer, skalierbarer und vertrauenswürdiger von AWS verwalteter Container-Image-Registry-Dienst. Amazon ECR unterstützt private Repositories mit ressourcenbasierten Berechtigungen, die durch AWS IAM verwaltet werden. Daher können bestimmte Benutzer oder Amazon EC2-Instanzen auf Container-Repositorys und -Images zugreifen. Mit dem gewünschten CLI können Docker-Images, Open Container Initiative (OCI)-Images und OCI-kompatible Artefakte gepusht, gepullt und verwaltet werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungen
+
+-   `image_tag_mutability` : Einstellen, ob Tags des Repositories geändert werden können - `IMMUTABLE`, `MUTABLE`
+-   `scan_on_push` : Festlegen, ob das Image nach dem Pushen in das Repository gescannt wird - `true`, `false`
+-   `encryption_type` : Verschlüsselungstyp, der für das Repository verwendet wird - `KMS`, `AES256`
+-   `kms_key_name` : ARN-Name des KMS-Schlüssels, der verwendet wird
+-   `target_principal_arn` : ARN des Ziels, auf das die Richtlinie angewendet wird
+
+---
+
+## Referenzmaterial
+
+-   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
+-   [Amazon Elastic Container Registry(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
+-   [aws_ecr_repository(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)

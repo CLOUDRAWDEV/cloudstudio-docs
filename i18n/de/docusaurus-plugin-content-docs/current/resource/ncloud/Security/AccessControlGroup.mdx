@@ -1,0 +1,56 @@
+---
+title: AccessControlGroup
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Security, AccessControlGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+    }
+/>
+
+## ## Ressourcenübersicht
+
+Dies ist ein IP-/Port-basierter Filter-Firewall-Service, mit dem die Netzwerkzugriffssteuerung und -verwaltung zwischen Servern durchgeführt werden kann.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Verbundene Ressourcen
+
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vpc_name` : Name der VPC, in der das ACG erstellt wird
+-   `acg_description` : Beschreibung des ACG
+-   `inbound_rule`
+    -   `name` : Name der Inbound-Regel
+    -   `protocol` : Protokoll des eingehenden Verkehrs - `TCP`, `UDP`, `ICMP`
+    -   `rule_apply_method` : Methode zur Anwendung der Inbound-Regel - `ip_block`, `source_name`
+    -   `ip_block` : Ziel des eingehenden Verkehrs, IP-Bereich im CIDR-Format
+    -   `port_range` : Portbereich, auf den die Inbound-Regel angewendet wird, Bereich von 1 bis 65535 (z.B. 100-200)
+
+-   `outbound_rule`
+    -   `name` : Name der Outbound-Regel
+    -   `protocol` : Protokoll des ausgehenden Verkehrs - `TCP`, `UDP`, `ICMP`
+    -   `rule_apply_method` : Methode zur Anwendung der Outbound-Regel - `ip_block`, `source_name`
+    -   `ip_block` : Ziel des ausgehenden Verkehrs, IP-Bereich im CIDR-Format
+    -   `port_range` : Portbereich, auf den die Outbound-Regel angewendet wird, Bereich von 1 bis 65535 (z.B. 100-200)
+    
+---
+
+## Referenzmaterial
+
+-   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
+-   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

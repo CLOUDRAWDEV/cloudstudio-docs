@@ -1,0 +1,81 @@
+---
+title: Cloudfront Distribution
+sidebar_position: 0
+tags: [AWS, Ressourcen, Cloudfront, CloudfrontDistribution]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon CloudFront beschleunigt die Bereitstellung von statischen und dynamischen Webinhalten wie .html, .css, .php, Bildern und Mediendateien. Wenn ein Benutzer Inhalt anfordert, liefert CloudFront den Inhalt über ein globales Netzwerk von Edge-Standorten mit geringer Latenz und hoher Leistung.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+### Verbundene Ressourcen
+
+-   [**Cloudfront Cache Policy**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**Waf Web Acl**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
+
+## Ressourceneinstellungen
+
+-   `enabled` :Ob die Verteilung aktiviert ist, um Benutzeranforderungen für den Inhalt zu akzeptieren - `true`, `false`
+-   `origin` : Identifier des Origin
+-   `cache_policy` : Name der Cache-Policy
+    -   `min_ttl` : Minimale Zeit (Sekunden), die ein Objekt im CloudFront-Cache verbleiben soll
+    -   `max_ttl` : Maximale Zeit (Sekunden), die ein Objekt im CloudFront-Cache bleiben darf
+    -   `default_ttl` : Standardzeit (Sekunden), die ein Objekt im CloudFront-Cache verbleiben soll
+    -   `cookie_behavior` : Ob Cookies der Endbenutzeranforderung in den Cache-Schlüssel aufgenommen werden und automatisch in die Anfragen aufgenommen werden, die CloudFront an den Origin sendet - `whitelist`,`all`,`none`,`allExcept`
+    -   `cookies_items` : Liste der Namen der Cookie-Items
+    -   `header_behavior` : Ob HTTP-Header in den Cache-Schlüssel aufgenommen werden und automatisch in die Anfragen aufgenommen werden, die CloudFront an den Origin sendet - `whitelist`,`none`
+    -   `headers_items` : Liste der Namen der Header-Items
+    -   `query_string_behavior` : Ob die URL-Abfragezeichenfolge der Endbenutzeranforderung in den Cache-Schlüssel aufgenommen wird und automatisch in die Anfragen aufgenommen wird, die CloudFront an den Origin sendet - `whitelist`,`all`,`none`,`allExcept`
+    -   `query_strings_items` : Liste der Namen der query-items
+-   `cache_behavior`
+
+    -   `path_pattern` : Muster zur Angabe der Anfragen, die auf das Cache-Behavior angewendet werden sollen
+    -   `compress` : Ob CloudFront den Inhalt für Webanforderungen automatisch komprimiert - `true`, `false`
+    -   `viewer_protocol_policy` : Gibt das Protokoll an, das verwendet werden kann, um auf die Datei des Ursprungs zuzugreifen, die durch das TargetOriginId angegeben wird, wenn die Anfrage mit dem Pfad-Muster des PathPattern übereinstimmt - `allow-all`,`https-only`,`redirect-to-https`
+    -   `allowed_methods` : Steuert die HTTP-Methoden, die von CloudFront verarbeitet und an den Amazon S3-Bucket oder benutzerdefinierten Origin weitergeleitet werden - `GET`,`HEAD`,`OPTIONS`,`PATCH`,`POST`,`PUT`,`DELETE`
+    -   `cached_methods` : Steuert, ob die Antwort auf eine Anfrage mit der angegebenen HTTP-Methode in CloudFront zwischengespeichert wird - `GET`,`HEAD`,`OPTIONS`,`PATCH`,`POST`,`PUT`,`DELETE`
+    -   `origin_name` : Name des Ursprungs, an den die Anfrage in CloudFront weitergeleitet wird, wenn das Pfadmuster übereinstimmt
+    -   `linked_cache_policy_name` : Cache Policy ID, die mit dem Cache-Behavior verbunden werden soll Policy ID
+
+-   `restriction`
+
+    -   `type` : Methode zur Einschränkung der Inhaltsverteilung nach Ländern - `whitelist`,`blacklist`,`none`
+    -   `locations` : ISO 3166-1-alpha-2-Codes, die verwendet werden, um zu steuern, ob Inhalte in CloudFront verteilt werden oder nicht
+
+-   `viewer_certificate`
+
+    -   `default_certificate_enabled` : Wenn Endbenutzer Objekte über HTTPS anfordern und den CloudFront-Domainnamen für die Verteilung verwenden - `true`, `false`
+
+-   `price_class` : Preisstufe der CloudFront-Verteilung - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : Maximale HTTP-Version, die von der CloudFront-Verteilung unterstützt wird - `http1.1`, `http2`
+-   `is_ipv6_enabled` : Ob IPv6 in der CloudFront-Verteilung erlaubt ist - `true`, `false`
+
+-   `logging`
+
+    -   `logging_enabled` : Aktivierung des Protokollierens - `true`, `false`
+
+-   `linked_waf_web_acl_name` : Name der WAF-Web-ACL, die verwendet wird, wenn die Sicherheitsfunktionen aktiviert sind
+
+## Referenzmaterial
+
+-   [Amazon CloudFront(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront 가격(AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)
+-   [Amazon CloudFront Distribution(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)

@@ -1,0 +1,74 @@
+---
+title: MssqlServer
+sidebar_position: 0
+tags: [Azure, Ressourcen, Server, Mssql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure SQL Database ist ein vollständig verwalteter relationaler Datenbankdienst, der auf der weit verbreiteten Microsoft SQL Server-Engine basiert und von Microsoft Azure bereitgestellt wird.
+Ohne die Notwendigkeit, Hardware- oder Software-Infrastrukturen zu verwalten, können Sie SQL Server-Datenbanken in der Cloud erstellen und verwalten.
+Mit Azure SQL Database können Sie Funktionen wie automatische Patches, Backups, Hochverfügbarkeit und Notfallwiederherstellung nutzen.
+Außerdem bietet es Funktionen wie intelligente Leistungsüberwachung, automatische Anpassung und erweiterte Sicherheitsfunktionen, um die Leistung der Datenbank zu optimieren und wichtige Daten zu schützen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+
+## Ressourcen-Einstellwerte
+
+-   `version` : Verwendete Microsoft SQL Server-Version - `2.0`, `12.0`
+
+-   `admin_username` : Administrator-Benutzername des Servers
+
+-   `admin_password` : Administrator-Login-Passwort des Servers
+
+-   `minimum_tls_version` : Minimale unterstützte TLS-Version auf dem Server - `1.0`, `1.1`, `1.2`
+
+-   `public_network_access_enabled` : Zulassung von öffentlichem Netzwerkzugriff auf den Server - `true`, `false`
+
+-   `firewall_rule`
+
+    -   `start_ip_address` : Start-IP-Adresse der Firewallregel
+    -   `end_ip_address` : End-IP-Adresse der Firewallregel
+
+-   `security_alert_policy`
+
+    -   `alert_policy_state` : Aktivierungsstatus der anzuwendenden Richtlinie
+    -   `disabled_alerts` : Liste der zu deaktivierenden Sicherheitswarnungen - `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`
+    -   `alert_retention_days` : Aufbewahrungszeitraum für Bedrohungserkennungsprotokolle - `0` ~ `3265`
+    -   `alert_email_account_admins` : Aktivierung der Sicherheitswarnungen per E-Mail - `true` , `false`
+    -   `alert_email_addresses` : Liste der E-Mail-Adressen für Sicherheitswarnungen
+
+-   `auditing_policy`
+
+    -   `enable_storage_destination` : Aktivierung des Storage-Kontos - `true` , `false`
+    -   `enable_log_analytics_destination` : Aktivierung von Log Analytics - `true` , `false`
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Mssql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
+-   [Azure Mssql Kosten](https://azure.microsoft.com/ko-kr/pricing/details/azure-sql-database/single/)
+-   [Azure Mssql(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server)

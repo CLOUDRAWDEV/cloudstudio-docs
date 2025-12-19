@@ -1,0 +1,45 @@
+---
+title: CloudTrail
+sidebar_position: 0
+tags: [AWS, Ressourcen, CloudTrail]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Mit AWS CloudTrail können Sie den Status Ihrer AWS-Bereitstellung in der Cloud überwachen, indem Sie eine Aufzeichnung der API-Aufrufe für Ihr Konto abrufen, einschließlich der API-Aufrufe, die über die AWS Management Console, AWS SDKs, Befehlszeilenwerkzeuge und andere AWS-Dienste durchgeführt wurden. Sie können auch sehen, welcher Benutzer und welches Konto die AWS-APIs für CloudTrail-unterstützte Dienste aufgerufen hat, von welcher Quell-IP-Adresse der Aufruf kam und wann der Aufruf stattgefunden hat. Mit der API können Sie CloudTrail in Ihre Anwendung integrieren, die Erstellung von Protokollen für Ihre Organisation automatisieren, den Status der Protokollierung überwachen und steuern, wie Administratoren das CloudTrail-Logging aktivieren und deaktivieren.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+
+## Ressourceneinstellungen
+
+-   `linked_s3_bucket_name` : Name des S3-Buckets, der für die publish der Logdateien festgelegt wurde
+-   `s3_key_prefix` : S3-Schlüssel-Präfix, das nach dem angegebenen Bucket-Namen für die Logdateien verwendet wird
+-   `multi_region_enabled` : Aktivierung der Multi-Region-Protokollierung
+-   `global_service_events` : Ob CloudTrail Ereignisse von globalen Diensten wie IAM in den Logdateien veröffentlicht - `true`, `false`
+
+---
+
+## Referenzmaterial
+
+-   [Amazon CloudTrail(AWS)](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+-   [Amazon CloudTrail Preis(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
+-   [Amazon CloudTrail(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)

@@ -1,0 +1,78 @@
+---
+title: KubernetesCluster
+sidebar_position: 1
+tags: [Azure, Ressourcen, Container, KubernetesCluster]
+---
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+AKS (Azure Kubernetes Service) ist ein verwalteter Kubernetes-Dienst, mit dem Sie Cluster schnell bereitstellen und verwalten können. In diesem Schnellstart führen Sie die folgenden Schritte aus.
+
+## Ressourcen-Einstellwerte
+
+-   `dns_prefix` : DNS-Präfix zur Verwendung mit dem gehosteten Kubernetes-API-Server FQDN
+
+-   `sku_tier` : Preisgestaltungsebene für die Nutzung des Kubernetes-Clusters - `Free`, `Paid`
+
+-   `enable_public_network_access` : - `true`, `false`
+
+-   `api_server_authorized_ip_ranges` : Erlaubte IP-Adressbereiche zum Schutz des Zugriffs auf den API-Server
+-   `default_node_pool`
+
+    -   `node_pool_name` : Name des Node Pools, der im Kubernetes-Cluster erstellt werden soll
+    -   `enable_auto_scaling` : Aktivieren der automatischen Skalierung für das Cluster, damit es mit der richtigen Anzahl von Knoten ausgeführt wird
+    -   `node_count` : Anzahl der Knoten im Node Pool - `1`~ `1000`
+    -   `vm_size` : Größe der virtuellen Maschinen, die im Node Pool für Knoten verwendet werden
+    -   `os_disk_size_gb` : Größe der OS-Disk der virtuellen Maschinen (GB) - `0`~ `114000`
+    -   `max_pods` : Maximale Anzahl der Pods, die auf einem Knoten ausgeführt werden können - `10`~ `250`
+    -   `enable_node_public_ip` : Aktivieren der Verwendung öffentlicher IP-Adressen pro Knoten - `true`, `false`
+
+-   `authentication_authorization` : Aktivierung der rollenbasierten Zugriffskontrolle zur Einschränkung des Zugriffs auf Cluster-Ressourcen - `local_accounts`, `azure_rbac`, `kubernetes_rbac`
+
+-   `network_policy` : Netzwerkrichtlinien zur Einschränkung des Zugriffs auf bestimmte Pods - `calico`, `azure`
+
+-   `network_plugin` : Konfiguration des Standard-Virtual-Netzwerks mit kubenet oder Azure CNI - `kubenet`, `azure`
+
+-   `included_subnet_name` : Name des Subnetzes, in dem der Kubernetes-Cluster bereitgestellt wird
+
+-   `load_balancer_sku` : Preisgestaltungsebene des Load Balancers - `standard`, `basic`
+
+-   `pod_cidr` : CIDR für die Verwendung von Pod-IP-Adressen
+
+-   `outbound_type` : Outbound-Routing-Typ - `loadBalancer`, `userDefinedRouting`
+
+-   `cluster_node_pool`
+
+    -   `node_mode` : System- oder Benutzermodus für den Node Pool - `User`, `System`
+    -   `node_os_type` : OS-Typ der VMs im Node Pool - `Linux`, `Windows`
+    -   `enable_auto_scaling` : Aktivierung der automatischen Skalierung für das Cluster, damit es mit der richtigen Anzahl von Knoten ausgeführt wird - `true`, `false`
+    -   `node_count` : Anzahl der Knoten im Node Pool, Benutzermodus - `1`~ `1000`
+    -   `max_node_count` : Maximale Anzahl von Knoten im Node Pool - `0`~ `1000`
+    -   `min_node_count` : Minimale Anzahl von Knoten im Node Pool - `0`~ `1000`
+    -   `vm_size` : Größe der virtuellen Maschinen, die im Node Pool für Knoten verwendet werden
+    -   `os_disk_size_gb` : Größe der OS-Disk der virtuellen Maschinen (GB) - `4`~ `11400`
+    -   `max_pods` : Maximale Anzahl der Pods, die auf einem Knoten ausgeführt werden können
+    -   `enable_node_public_ip` : Aktivierung der Verwendung öffentlicher IP-Adressen pro Knoten - `true`, `false`
+    -   `public_ip_prefix_name` : Ressourcen-ID des öffentlichen IP-Adresspräfixes für die Knoten dieses Node Pools
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure KubernetesCluster(Microsoft)](https://learn.microsoft.com/ko-kr/azure/aks/intro-kubernetes)
+-   [Azure KubernetesCluster Kosten](https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/)
+-   [Azure KubernetesCluster(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)

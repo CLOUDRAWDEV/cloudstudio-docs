@@ -1,0 +1,50 @@
+---
+title: Elasticache Cluster
+sidebar_position: 0
+tags: [AWS, Ressourcen, Elasticache, ElasticacheCluster]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon ElastiCache Cluster ist ein cloudbasierter In-Memory-Datenspeicher, der eine schnelle und skalierbare Caching-Lösung bietet. Das ElastiCache-Cluster kann im Cluster-Modus oder im Einzelknoten-Modus mit Redis oder Memcached als Engine ausgeführt werden. Das ElastiCache-Cluster wird verwendet, um die Leistung von Anwendungen zu verbessern, indem es Daten schneller abruft und verarbeitet. Es bietet automatische Backups, Wiederherstellung, Skalierung und Monitoring-Funktionen, sodass Benutzer ihre Daten sicher speichern können.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/ElastiCache/ElasticacheCluster)
+
+## Ressourceneinstellungen
+
+-   `engine` : Name der Cache-Engine, die im Cache-Cluster verwendet werden soll - `redis`, `memcached`
+-   `engine_version` : Version der Cache-Engine
+-   `port` : Portnummer, die beim Verbinden mit jedem Cache-Knoten verwendet wird. Memcached verwendet standardmäßig Port 11211, Redis verwendet Port 6379
+-   `parameter_group_name` : Name der Parametergruppe, die mit dem Cache-Cluster verbunden werden soll
+-   `node_type` : Instanzklasse, die für das Cache-Cluster verwendet wird
+-   `num_cache_nodes` : Anzahl der anfänglichen Cache-Knoten im Cache-Cluster - `1`~`40`
+-   `az_mode` : Ob die Memcached Node-Gruppe Knoten in einer einzelnen Availability Zone oder über mehrere Availability Zones in der Cluster-Region erstellt wird - `single-az`, `cross-az`
+-   `included_subnet_names` : Name des Subnetzes, das in die Subnet-Gruppe aufgenommen wird, in der das ElastiCache-Cluster bereitgestellt wird
+-   `snapshot_retention_limit` : Aufbewahrungsdauer von automatischen Cache-Cluster-Snapshots, bevor ElastiCache diese löscht
+
+---
+
+## Referenzmaterial
+
+-   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
+-   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

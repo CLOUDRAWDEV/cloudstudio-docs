@@ -1,0 +1,60 @@
+---
+title: WindowsserverVirtualMachine
+sidebar_position: 4
+tags: [Azure, Ressourcen, Compute, WindowsserverVirtualMachine]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/compute-windowsserver_virtual_machine.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure WindowsServer Virtual Machine ist eine virtuelle Maschine (VM), die das WindowsServer-Betriebssystem auf der Azure-Cloud-Computing-Plattform von Microsoft ausführt.
+Durch das Ausführen von WindowsServer-VMs auf Azure können Benutzer ihre bevorzugte Linux-Distribution verwenden und gleichzeitig die Skalierbarkeit, Zuverlässigkeit und globale Reichweite der Microsoft-Cloud-Plattform nutzen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vnet_name` : Name des virtuellen Netzwerks, das das Subnetz enthält
+-   `size` : Größe der virtuellen Maschine zur Ausführung der Workloads festlegen
+-   `source_image`
+    -   `enabled_custom_image` : Verwendung der Benutzerbild-ID - `true`, `false`
+    -   `publisher` : Anbieter des für die VM-Erstellung verwendeten Abbilds
+    -   `Offer` : ID des für die VM-Erstellung verwendeten Abbilds
+    -   `sku` : Preismodell des Abbilds, das für die VM-Erstellung verwendet wird
+-   `computer_name` : Host-Name der virtuellen Maschine
+-   `admin_username` : Administrator-Benutzername für die VM
+-   `admin_password` : Administrator-Passwort für die VM
+-   `on_disk_caching` : Cache-Typ für die Verwendung der internen OS-Disk
+-   `storage_account_type` : Speichertyp für die Sicherung der internen OS-Disk
+-   `disk_size_gb` : Größe der internen OS-Disk (GB) - `1`~`32767`
+-   `disk_attachment` : Name der Festplattenverbindung
+-   `linked_network_interface_names` : Name des Netzwerk-Interfaces
+-   `primary_network_interface_name` : Name des Netzwerk-Interfaces, mit dem die virtuelle Maschine verbunden ist
+-   `tag` : Tag zur Kategorisierung der Ressource - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure WindowsserverVirtualMachine(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/overview)
+-   [Azure WindowsserverVirtualMachine Kosten](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/)
+-   [Azure WindowsserverVirtualMachine(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)

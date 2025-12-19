@@ -1,0 +1,60 @@
+---
+title: ConfigMap
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Core, ConfigMap]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es ist eine Kubernetes-Ressource, die verwendet wird, um Anwendungsstellinformationen zu trennen und in einem Pod an Container zu übergeben.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : ConfigMap-Ressourcenname
+-   `namespace` : Der Namespace, in dem die ConfigMap-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die verwendet werden, um Informationen an das Kubernetes-System zu übermitteln
+-   `labels` : Vom Benutzer festgelegte Werte, um Objekte zu unterscheiden
+-   `data` : Allgemeine Daten als Key-Value-Paare - Wird zum Speichern von Konfigurationsinformationen wie Konfigurationsdateien und Umgebungsvariablen im Textformat verwendet
+    -   `data.name` : Der Key-Wert der Daten
+    -   `data.value` : Der Value-Wert der Daten
+-   `binary_data` : Binärdaten für bestimmte Schlüssel - Wird zum Speichern von Binärdateien oder anderen binären Formaten verwendet
+    -   `data.name` : Der Key-Wert der Binärdaten
+    -   `data.value` : Der Value-Wert der Binärdaten
+
+
+---
+
+## Referenzmaterial
+
+-   [ConfigMap(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
+-   [ConfigMap(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)

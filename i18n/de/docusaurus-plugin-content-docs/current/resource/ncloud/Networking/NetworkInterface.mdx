@@ -1,0 +1,44 @@
+---
+title: NetworkInterface
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Networking, NetworkInterface]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies ist ein Service, der Netzwerkinterfaces für Server erstellt. Server, auf denen Netzwerkinterfaces angewendet werden, können über Subnetze unabhängige Netzwerkkommunikation durchführen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
+## Ressourcen-Einstellwerte
+
+-   `included_subnet_name` : Der Name des Subnetzes, in dem das Netzwerkinterface enthalten ist
+-   `linked_acg_names` : Eine Liste der ACG-Namen, auf die das Netzwerkinterface angewendet werden soll
+
+
+---
+
+## Referenzmaterial
+
+
+-   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

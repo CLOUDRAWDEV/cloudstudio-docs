@@ -1,0 +1,40 @@
+---
+title: Elasticache User
+sidebar_position: 0
+tags: [AWS, Ressourcen, Elasticache, ElasticacheUser]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+AWS Elasticache User ist ein IAM-Benutzer, der erforderlich ist, um das Elasticache-Cluster zu nutzen. Der Elasticache User hat die Berechtigung, das Elasticache-Cluster zu erstellen, zu bearbeiten und zu löschen. Der Elasticache User wird in AWS IAM erstellt und wird in der Regel den Anwendungen oder Entwicklern zugewiesen, die Elasticache verwenden. Der Elasticache User ist verantwortlich für die Sicherheit und den Zugriffskontroll des Elasticache-Clusters und schützt so die Anwendungen und Daten. Der Elasticache User kann mit anderen Ressourcen im AWS-Konto verwendet werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungen
+
+-   `user_id` : Benutzer-ID, erlaubt sind Buchstaben und Bindestriche (-), muss mit einem Buchstaben beginnen, darf nicht mit einem Bindestrich enden oder zwei aufeinanderfolgende Bindestriche enthalten, maximal 40 Zeichen
+-   `access_string` : String, der die Berechtigungen angibt, die auf den Benutzer angewendet werden sollen
+-   `authentication_type` : Authentifizierungsmethode, die der Benutzer für den Zugriff auf das Cluster verwenden soll
+
+---
+
+## Referenzmaterial
+
+-   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
+-   [Amazon ElastiCache for Redis Kosten(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

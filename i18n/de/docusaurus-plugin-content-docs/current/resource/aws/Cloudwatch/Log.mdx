@@ -1,0 +1,46 @@
+---
+title: Log
+sidebar_position: 0
+tags: [AWS, Ressourcen, Cloudwatch, Log]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Mit Amazon CloudWatch Logs können Sie System-, Anwendungs- und benutzerdefinierte Logdateien von Amazon Elastic Compute Cloud (Amazon EC2)-Instanzen, AWS CloudTrail, Route 53 und anderen Quellen überwachen, speichern und darauf zugreifen.
+CloudWatch Logs ermöglicht die zentrale Sammlung von Logs aus allen Systemen, Anwendungen und AWS-Diensten in einem skalierbaren, einzigen Service. Anschließend können Sie die Logs einfach anzeigen, nach bestimmten Fehlercodes oder Mustern suchen, nach bestimmten Feldern filtern oder sie sicher für zukünftige Analysen aufbewahren. Mit CloudWatch Logs können Sie alle Logs, unabhängig von der Quelle, in einem konsistenten, zeitlich sortierten einzelnen Ereignisfluss sehen, Abfragen und Sortierungen nach anderen Dimensionen vornehmen, nach bestimmten Feldern gruppieren, benutzerdefinierte Berechnungen mit einer leistungsstarken Abfragesprache erstellen und Logdaten visualisieren.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungen
+
+-   `retention_in_days` : Dauer, für die Logs in der Log-Gruppe gespeichert werden
+-   `kms_key_name` : Name des KMS-Key, der zur Verschlüsselung der Logdaten verwendet wird
+-   `log_stream_name` : Name des Log Streams
+-   `metric_filter` : Name des Metric-Filters der Log-Gruppe, maximal 512 Zeichen
+    -   `pattern` : Gültiges CloudWatch Logs Filtermuster zur Extraktion von Metrikdaten aus den gesammelten Logereignissen
+    -   `metric_name` : Name der CloudWatch-Metrik, in der die überwachten Loginformationen veröffentlicht werden sollen, maximal 255 Zeichen, gültige Zeichen sind alle Zeichen außer Doppelpunkt(:), Sternzeichen(*), Dollarzeichen($) und Leerzeichen()
+    -   `metric_namespace` : Ziel-Namespace der CloudWatch-Metrik, maximal 255 Zeichen, gültige Zeichen sind alle Zeichen außer Doppelpunkt(:), Sternzeichen(*), Dollarzeichen($) und Leerzeichen()
+    -   `metric_value` : Elemente, die in der Metrik veröffentlicht werden sollen, gültige Metrikwerte sind Fließkommazahlen (z.B. 1, 99.9), numerische Feldbezeichner (z.B. 1 USD, 2 USD) oder benannte Feldbezeichner (z.B. $requestSize im durch Symbole getrennten Filtermuster oder $.status im JSON-basierten Filtermuster - alphanumerische und/oder Unterstrichzeichen hinter dem Dollarzeichen($) oder dem Dollarzeichen und Punkt($.) sind gültig)
+
+---
+
+## Referenzmaterial
+
+-   [Amazon CloudWatch Log(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)
+-   [Amazon CloudWatch Preis(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)

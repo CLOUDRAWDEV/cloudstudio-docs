@@ -1,0 +1,46 @@
+---
+title: Vpn Gateway
+sidebar_position: 0
+tags: [AWS, Ressourcen, Vpc, VpnGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Virtual Private Gateway ist der VPN-Gateway auf der Amazon-Seite der Site-to-Site VPN-Verbindung. Erstellen Sie ein Virtual Private Gateway und verbinden Sie es mit der VPC, für die Sie eine Site-to-Site VPN-Verbindung einrichten möchten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+-   [**Vpc Customer Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
+
+## Ressourcen-Einstellwerte
+
+-   `linked_vpc_name` : Name der VPC, die das VPN-Gateway enthalten wird
+-   `vpn_connection` : Name der VPN-Verbindung
+    -   `linked_customer_gateway` : Name des Customer Gateways, das mit dem VPN-Gateway verbunden wird
+    -   `static_routes_only` : Geben Sie an, ob nur statisches Routing zwischen den Gateways verwendet werden soll - `true`, `false`
+
+---
+
+## Referenzmaterial
+
+-   [Funktionsweise von AWS Site-to-Site VPN(AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)

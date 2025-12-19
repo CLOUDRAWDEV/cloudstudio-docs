@@ -1,0 +1,180 @@
+---
+title: Neues Projekt erstellen
+sidebar_position: 7
+tags: [project, Projekt erstellen, Leeres Projekt, Vorlage, Importieren, import, starten]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import createProject01 from "../start/img/create-project-01.png"
+import createProject02 from "../start/img/create-project-02.png"
+import createProject03 from "../start/img/create-project-03.png"
+import createProject04 from "../start/img/create-project-04.png"
+import createProject05 from "../start/img/create-project-05.png"
+import createProject06 from "../start/img/create-project-06.png"
+import createProject07 from "../start/img/create-project-07.png"
+import import04 from "/docs/start/img/import.gif"
+
+<hr />
+<br />
+
+In Cloud Studio wird eine einzelne Leinwand 📄 als Projekt bezeichnet. 
+Um ein Projekt zu erstellen, muss zuerst ein 📁 Ordner erstellt werden, in dem das Projekt verwaltet werden kann.
+
+Anweisungen zum Erstellen eines Ordners finden Sie hier. [Hier](/docs/start/create-folder)
+
+<p>&nbsp;</p>
+
+## Drei Methoden zur Erstellung eines Projekts
+
+Es gibt `drei Möglichkeiten`, ein Cloud Studio-Projekt zu erstellen.
+
+-   [Mit einer bereitgestellten Vorlage erstellen](#create-template)
+-   [Leeres Projekt erstellen](#create-empty)
+-   [Bestehende Infrastruktur importieren(import)](#create-import)
+
+**Wenn Sie eine Vorlage verwenden, können Sie schnell Cloud-Infrastrukturen in Kategorien wie Landing Zone, MSA, Load Balancer, Ubuntu Virtual Machine, CDN usw. erstellen. Weitere Details zu den Vorlagen finden Sie <Link to= "">hier</Link>.
+
+**Wenn Sie die Leinwand ohne Vorlage selbst konfigurieren möchten, verwenden Sie die Option Leeres Projekt erstellen. Fügen Sie die gewünschten Ressourcen per Drag & Drop auf der leeren Leinwand hinzu, um die Cloud-Infrastruktur zu erstellen.
+
+**Wenn Sie bestehende Infrastruktur in die Leinwand importieren möchten, greifen Sie auf die Leinwand zu und klicken Sie auf `Datei > Importieren`, um die Infrastruktur zu laden.
+
+<p>&nbsp;</p>
+
+### Mit einer bereitgestellten Vorlage erstellen {#create-template}
+
+1.  Klicken Sie auf der Vorlagen-Seite auf die Schaltfläche `Projekt erstellen`, um das Pop-up zur Projekterstellung zu öffnen.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="Bild" />
+</div>
+
+<br />
+
+2.  Geben Sie den Projektnamen ein. Der `Projektname` muss die `folgenden Bedingungen` erfüllen.
+
+> -   Nur englische Buchstaben, koreanische Zeichen und Zahlen sind erlaubt
+> -   Ohne Leerzeichen
+> -   2 bis 20 Zeichen
+
+<div className={styles.imgWrap}>
+    <img src={createProject01} alt="Projekt-Popup-Bild" width={800} />
+</div>
+
+<br />
+
+3. Wählen Sie den `Ordner` aus, in dem das Projekt gespeichert werden soll.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="Projektordner-Bild" />
+</div>
+
+<br />
+
+4.  Geben Sie eine `Beschreibung` des Projekts ein. Es können bis zu 100 Zeichen eingegeben werden.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="Projektordner-Bild" />
+</div>
+
+<br />
+
+5.  Wählen Sie den `CSP Anbieter` und die `Kategorie` aus.
+
+<div className={styles.imgWrap}>
+    <img src={createProject04} alt="Projektordner-Bild" width={800} />
+</div>
+
+<br />
+
+<details>
+    <summary>Was ist CSP?</summary>
+    <h4>
+        CSP steht für Cloud Service Provider und bezeichnet Anbieter, die öffentliche Cloud-Infrastrukturen und Plattformdienste bereitstellen. Die CSPs, die von Cloud Studio angeboten werden, sind Microsoft Azure, NAVER CLOUD PLATFORM von Naver und Amazon Web Services von Amazon. 
+    </h4>
+</details>
+
+<br />
+
+6.  Klicken Sie auf die Schaltfläche `Projekt erstellen`.
+
+:::info
+
+Weitere Details zu den bereitgestellten Vorlagen finden Sie  <Link to= "">hier</Link>.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Leeres Projekt erstellen {#create-empty}
+
+1.  Klicken Sie auf der Seite Meine Vorlage auf die Schaltfläche Projekt erstellen, um das Pop-up zur Projekterstellung zu öffnen.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="Bild" />
+</div>
+
+<br />
+
+2.  Geben Sie den Projektnamen ein. Der `Projektname` muss die folgenden `Bedingungen` erfüllen.
+
+> -   Nur englische Buchstaben, koreanische Zeichen und Zahlen sind erlaubt
+> -   Ohne Leerzeichen
+> -   2 bis 20 Zeichen
+
+<div className={styles.imgWrap}>
+    <img src={createProject07} alt="Projekt-Popup-Bild" width={800} />
+</div>
+
+<br />
+
+3. Wählen Sie den `Ordner` aus, in dem das Projekt gespeichert werden soll.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="Projektordner-Bild" />
+</div>
+
+<br />
+
+4.  Geben Sie eine `Beschreibung` des Projekts ein. Es können bis zu 100 Zeichen eingegeben werden.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="Projektordner-Bild" />
+</div>
+
+<br />
+
+5.  Klicken Sie auf die Schaltfläche `Projekt erstellen`.
+
+<div className={styles.imgWrap}>
+    <img src={createProject06} alt="Bild" />
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Bestehende Infrastruktur importieren(Import) {#create-import}
+
+Um bestehende Infrastruktur zu importieren, müssen Sie auf die Leinwand zugreifen. Zuerst erstellen Sie ein leeres Projekt. Eine Anleitung zur Erstellung eines leeren Projekts finden Sie hier. [hier](#create-empty)
+
+<br />
+
+<div className={styles.imgWrap}>
+    <img src={import04} width={800} />
+</div>
+
+<br />
+
+1.  Klicken Sie auf `Leeres Projekt`, um die Leinwand-Seite zu betreten.
+2.  Klicken Sie auf `Datei > Importieren`.
+3.  Wenn das Pop-up-Fenster erscheint, wählen Sie die gewünschte `Berechtigung` aus den registrierten Anmeldeinformationen aus.
+4.  Klicken Sie auf die Schaltfläche `Ressourcen abrufen` und wählen Sie die gewünschte `Ressourcengruppe` aus der Liste der Ressourcen.
+5.  Klicken Sie auf die Schaltfläche `Importieren`, um den Import der bestehenden Infrastruktur abzuschließen.
+
+<p>&nbsp;</p>
+
+:::caution
+
+Für den Import der Infrastruktur müssen die Anmeldeinformationen unbedingt registriert sein.
+
+:::

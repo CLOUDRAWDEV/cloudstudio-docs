@@ -1,0 +1,33 @@
+---
+title: Nas Volume
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Storage, NasVolume]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies ist ein Speicherdienst, bei dem mehrere Server über ein Netzwerk verbunden werden, um Daten zu teilen. Es ist ideal für Szenarien, in denen mehrere Benutzer Daten über das Netzwerk gemeinsam nutzen müssen.
+
+## Ressourcen-Einstellwerte
+
+-   `volume_name_postfix` : Name des NAS-Volumes, alphanumerisch, 3 bis 20 Zeichen
+-   `volume_size` : Volumengröße (in 100 GB-Schritten), im Bereich von 500 bis 10,000
+-   `volume_allotment_protocol_type` : Protokolltyp, 마Server, auf dem das Volume gemountet werden kann: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+
+---
+
+## Referenzmaterial
+
+-   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
+-   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

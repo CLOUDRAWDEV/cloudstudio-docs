@@ -1,0 +1,78 @@
+---
+title: StorageAccount
+sidebar_position: 0
+tags: [Azure, Ressourcen, Storage, StorageAccount]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Storage Account ist eine von Microsoft Azure angebotene Cloud-basierte Speicherlösung. 
+Sie bietet eine skalierbare und hochverfügbare Datenplattform für Anwendungen, virtuelle Maschinen und andere Dienste, die in der Azure-Cloud ausgeführt werden. 
+Azure Storage Account unterstützt verschiedene Arten von Speicherdiensten, darunter Blob Storage, File Storage, Queue Storage und Table Storage. 
+Blob Storage wird verwendet, um unstrukturierte Daten wie Texte, Bilder, Videos und andere Binärdaten zu speichern.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Backup**](https://docs.cstudio.app/docs/resource/azure/RecoveryServices/Backup)
+
+## Ressourcen-Einstellwerte
+
+-   `account_kind` : Typ des Speicher-Kontos - `StorageV2`,`Storage`
+
+-   `account_tier` : Leistungsebene für die Nutzung des Speicherkontos - `Standard`,`Premium`
+-   `account_replication_type` : Datenspeicherreplikationstyp des Speicherkontos - `LRS`,`GRS`,`RAFRS`,`ZRS`,`GZRS`,`RAGZRS`
+
+-   `access_tier` : Wenn der Kontotyp BlobStorage/FileStorage/StorageV2 ist, gibt die Zugriffsebene den Datenverwendungsmodus an - `Hot`,`Cool`
+
+-   `min_tls_version` : Unterstützte minimale TLS-Version für das Speicherkonto - `TLS1_1`,`TLS1_2`,`TLS1_0`
+
+-   `enable_https_traffic_only` : Wenn sichere Übertragung erforderlich ist, wird die Azure Storage REST API nur über HTTPS aufgerufen - `true`,`false`
+
+-   `network_rules`
+
+    -   `default_action` : Standardaktion, die auf Netzwerkregeln angewendet wird - `Deny`,`Allow`
+    -   `bypass` : Ob der Verkehr für Logging/Metriken/Azure-Dienste umgangen wird - `AzureServices`,`Logging`,`Metrics`,`None`
+    -   `ip_rules` : IP-Adressbereich, auf den Netzwerkregeln angewendet werden
+
+-   `storage_container`
+
+    -   `container_access_type` : Zugriffsebene des Speicherkontainers - `private`,`blob`,`container`
+
+-   `storage_queue`
+
+    -   `name` : Queue-Name
+
+-   `storage_share`
+
+    -   `quota` : Maximale Dateifreigabegröße in GB - `1` ~ `5120`
+
+-   `storage_table`
+
+    -   `name` : Tabellenname
+
+-   `tag` : Ein Tag zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure StorageAccount(Microsoft)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)
+-   [Azure StorageAccount Kosten](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/)
+-   [Azure StorageAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)

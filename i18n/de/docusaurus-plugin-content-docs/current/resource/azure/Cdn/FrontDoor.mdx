@@ -1,0 +1,76 @@
+---
+title: FrontDoor
+sidebar_position: 1
+tags: [Azure, Ressourcen, Cdn, FrontDoor]
+---
+
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cdn-frontdoor.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Front Door ist Microsofts neuestes Cloud CDN (Content Delivery Network), das schnellen, zuverlässigen und sicheren Zugriff auf statische und dynamische Webinhalte zwischen globalen Benutzern und Anwendungen bietet.
+Azure Front Door verwendet Microsofts globales Edge-Netzwerk, das Hunderte von globalen und lokalen POPs (Points of Presence) umfasst und Inhalte sowohl für Unternehmens- als auch Endverbraucherbenutzer in der Nähe bereitstellt.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `sku` : SKU für das Front Door-Profil angeben - `Standard_AzureFrontDoor` , `Premium_AzureFrontDoor`
+
+-   `endpoint_names` : Liste der zu verwendenden Endpunktnamen
+
+-   `origin_group`
+
+    -   `restore_traffic_time_in_minutes` : Geben Sie die Zeit an, die vergehen muss, bevor der Verkehr zu einem anderen Endpunkt verschoben wird, wenn der Endpunkt abnormal wird oder ein neuer Endpunkt hinzugefügt wird. `0` ~ `50`
+    -   `session_affinity_enabled` : Geben Sie an, ob die Sitzungspräferenz auf dem Host aktiviert werden soll. - `true` , `false`
+    -   `health_probe_path` : Geben Sie den relativen Pfad zur Überprüfung des Status an
+    -   `health_probe_protocol` : Geben Sie das Protokoll an, das für den Statusprobe verwendet werden soll - `Http` , `Https`
+    -   `health_probe_method` : Geben Sie den Typ der Statusprobe-Anfrage an - `HEAD` , `GET`
+    -   `health_probe_interval_in_seconds` : Geben Sie das Intervall (Sekunden) zwischen den Statusproben an `5` ~ `31536000`
+    -   `load_balancing_latency_in_milliseconds` : Geben Sie die zusätzliche Latenzzeit in Millisekunden an, die im niedrigsten Latenzzeit-Bucket enthalten sein kann - `0` ~ `1000`
+    -   `load_balancing_sample_size` : Geben Sie die Anzahl der Lastenausgleichsproben an - `0` ~ `255`
+    -   `load_balancing_sample_required` : Geben Sie die Anzahl der Proben an, die innerhalb des Zeitraums erfolgreich sein müssen - `0` ~ `255`
+
+-   `origin`
+
+    -   `origin_group_name` : Name der Gruppe, die den Origin enthält
+    -   `host_name` : Hostname des Ursprungs (IPv4-Adresse, IPv6-Adresse oder Domainname)
+    -   `origin_host_header` : Der Host-Header-Wert, der mit jeder Anfrage an den Ursprung gesendet wird (IPv4-Adresse, IPv6-Adresse oder Domainname)
+    -   `certificate_name_check_enabled` : Geben Sie an, ob ein Zertifikat angewendet werden soll - `true` , `false`
+    -   `enabled` : Geben Sie an, ob der Ursprung aktiviert werden soll - `true` , `false`
+    -   `priority` : Geben Sie die Priorität des Ursprungs in der für das Load Balancing vorgesehenen Origin-Gruppe an, wobei niedrigere Prioritäten bei einem normalen Ursprung verwendet werden und höhere Prioritäten nicht für das Load Balancing verwendet werden - `1` ~ `5`
+    -   `weight` : Geben Sie das Gewicht des Ursprungs in der für das Load Balancing vorgesehenen Origin-Gruppe an - `1` ~ `1000`
+    -   `http_port` : HTTP-Portwert - `1` ~ `65535`
+
+-   `route`
+    -   `endpoint_name` : Name des zu bestimmenden Front Door-Endpunkts
+    -   `origin_group_name` : Name der Gruppe, die den Ursprung enthält
+    -   `origin_names` : Name der zu bestimmenden Ursprünge
+    -   `patterns_to_match` : Routing-Pfad-Muster
+    -   `supported_protocols` : Protokoll, das für Front Door angegeben werden soll - `Http` , `Https`
+    -   `forwarding_protocol` : Protokoll, das für die Weiterleitung des Verkehrs an das Backend verwendet werden soll - `HttpOnly`, `HttpsOnly`, `MatchRequest`
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure FrontDoor(Microsoft)](https://learn.microsoft.com/ko-kr/azure/frontdoor/front-door-overview)
+-   [Azure FrontDoor Kosten](https://azure.microsoft.com/en-us/pricing/details/frontdoor/)
+-   [Azure FrontDoor(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint)

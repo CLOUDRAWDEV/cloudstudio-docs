@@ -1,0 +1,75 @@
+---
+title: NetworkSecurityGroup
+sidebar_position: 7
+tags: [Azure, Ressourcen, Network, NetworkSecurityGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_security_group.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure NSG (Netzwerksicherheitsgruppe) ist ein Netzwerkfilter in Azure, der den Zugriff auf Ressourcen im VNet (virtuelles Netzwerk) von Azure steuert. Es fungiert als Firewall, die Netzwerkverkehr gemäß einer definierten Regelreihe erlaubt oder ablehnt.
+Ein NSG kann mit einem Subnetz, einer Netzwerkschnittstelle oder einer virtuellen Maschine im VNet verbunden werden. Wenn ein NSG mit einer Ressource verbunden ist, filtert es den eingehenden und ausgehenden Verkehr dieser Ressource.
+NSGs können mehrere eingehende und ausgehende Sicherheitsregeln enthalten, denen Prioritäten zugewiesen werden können, sodass der Netzwerkverkehr detailliert kontrolliert werden kann.
+Ein NSG ist ein wichtiger Bestandteil der Azure-Netzwerksicherheit und bietet eine zusätzliche Schutzschicht für Ressourcen im virtuellen Netzwerk. Es ermöglicht die Filterung des Netzwerkverkehrs auf Subnetzebene, wodurch die Exposition gegenüber potenziellen Bedrohungen eingeschränkt werden kann.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windowsserver Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsserverVirtualMachine)
+-   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/docs/resource/azure/Network/BastionHost)
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+## Ressourcen-Einstellwerte
+
+-   `security_rules`
+
+    -   `http`
+        -   `priority` : Regelpriorität, Bereich von 100 bis 4096 - `100`~ `4096`
+        -   `direction` : Gibt an, ob die Regel auf eingehenden oder ausgehenden Datenverkehr angewendet wird - `Inbound`, `Outbound`
+        -   `access` : Erlaubt den Netzwerkverkehr - `Allow`, `Deny`
+        -   `protocol` : Das Netzwerkprotokoll, auf das die Regel angewendet wird - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
+        -   `source_port_ranges` : Quellport oder Portbereich, eine Zahl oder Bereich von 0 bis 65535
+        -   `destination_port_ranges` : Zielport oder Portbereich, eine Zahl oder Bereich von 0 bis 65535
+        -   `source_address_prefixes` : CIDR oder Bereich von Quell-IP-Adressen
+        -   `destination_address_prefixes` : CIDR oder Bereich von Ziel-IP-Adressen
+        -   `description` : Beschreibung der Sicherheitsregel
+    -   `https`
+        -   `priority` : Regelpriorität, Bereich von 100 bis 4096 - `100`~ `4096`
+        -   `direction` : Gibt an, ob die Regel auf eingehenden oder ausgehenden Datenverkehr angewendet wird - `Inbound`, `Outbound`
+        -   `access` : Erlaubt den Netzwerkverkehr - `Allow`, `Deny`
+        -   `protocol` : Das Netzwerkprotokoll, auf das die Regel angewendet wird - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
+        -   `source_port_ranges` : Quellport oder Portbereich, eine Zahl oder Bereich von 0 bis 65535
+        -   `destination_port_ranges` : Zielport oder Portbereich, eine Zahl oder Bereich von 0 bis 65535
+        -   `source_address_prefixes` : CIDR oder Bereich von Quell-IP-Adressen
+        -   `destination_address_prefixes` : CIDR oder Bereich von Ziel-IP-Adressen
+        -   `description` : Beschreibung der Sicherheitsregel
+
+-   `linked_subnet_names` : Namen der Subnetze, mit denen die Network Security Group verbunden werden soll
+
+-   `linked_network_interface_names` : Namen der Netzwerkschnittstellen, mit denen die Network Security Group verbunden werden soll
+-   `tag` : Tag zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure NetworkSecurityGroup(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
+-   [Azure NetworkSecurityGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)

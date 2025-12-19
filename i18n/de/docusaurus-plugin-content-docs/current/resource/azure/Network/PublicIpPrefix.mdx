@@ -1,0 +1,41 @@
+---
+title: PublicIpPrefix
+sidebar_position: 10
+tags: [Azure, Ressourcen, Network, PublicIpPrefix]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Public IP Prefix (Öffentliche IP-Präfixe) ist eine Ressource, die eine Reihe von zusammenhängenden öffentlichen IP-Adressbereichen bereitstellt.
+Dies ist nützlich, wenn in bestimmten Szenarien eine große Anzahl öffentlicher IP-Adressen benötigt wird.
+Mit Public IP Prefix können Sie eine große Anzahl öffentlicher IP-Adressen für Ressourcen wie Azure-VMs, Load Balancer, Application Gateways und andere Internet-exponierte Ressourcen einfach verwalten.
+
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `prefix_length` : `28`~`31`
+-   `tag` : Tags zur Kategorisierung von Ressourcen - Maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Public Ip(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
+-   [Azure Public Ip Prefix(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix)

@@ -1,0 +1,44 @@
+---
+title: Route53
+sidebar_position: 0
+tags: [AWS, Ressourcen, Route53]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-route53.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Route 53 ist ein DNS-Webservice mit hoher Verfügbarkeit und Skalierbarkeit.
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+### Verknüpfte Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+## Ressourcenkonfigurationswerte
+
+-   `linked_vpc_names` : Name der VPC, die mit der Route53 Zone verbunden wird
+-   `record` : Name des Records, der in der Route53 Zone erstellt wird
+    -   `type` : Typ des Records - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+    -   `ttl` : TTL des Records
+    -   `records` : Liste der Strings für den Record
+
+---
+
+## Referenzmaterial
+
+-   [Amazon Route 53(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
+-   [Amazon Route 53 Kosten(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
+-   [aws-route53(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)

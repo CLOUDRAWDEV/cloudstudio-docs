@@ -1,0 +1,55 @@
+---
+title: VirtualNetworkPeering
+sidebar_position: 16
+tags: [Azure, Ressourcen, Network, VirtualNetworkPeering]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_peering.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Virtual Network Peering ermöglicht es, zwei virtuelle Netzwerke in Microsoft Azure zu verbinden, unabhängig davon, ob sie sich in derselben Azure-Region befinden oder nicht.
+Virtuelles Netzwerk-Peering ist eine netzwerkübergreifende Verbindung, die es zwei virtuellen Netzwerken ermöglicht, Datenverkehr zu routen, als ob sie im selben Netzwerk wären.
+Ein wesentlicher Vorteil der Verwendung von Virtual Network Peering besteht darin, dass Sie die Netzwerk-Infrastruktur erweitern können, ohne ein neues virtuelles Netzwerk erstellen zu müssen.
+Dies kann besonders nützlich sein, wenn unterschiedliche Workloads miteinander kommunizieren müssen oder Ressourcen in verschiedenen Regionen geteilt werden sollen.
+Darüber hinaus ist Virtual Network Peering einfach zu konfigurieren und zu verwalten und kann helfen, die Netzwerkarchitektur zu vereinfachen und die Komplexität des Netzwerkomfelds zu reduzieren.
+
+## Verwandte Ressourcen
+
+### Verbundene Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+
+## Ressourcen-Einstellwerte
+
+-   `peering1`
+    -   `name` : Peering Name
+    -   `linked_vnet_name` : Der Name des virtuellen Netzwerks, das mit dem Peering verbunden wird
+    -   `traffic_to_remote_vnet` : Steuerung, ob VMs im Remote-Virtual Network auf VMs im lokalen Virtual Network zugreifen können - `true`, `false`
+    -   `traffic_forwarded_from_remote_vnet` : Steuerung, ob weitergeleiteter Traffic von VMs im Remote-Virtual Network zugelassen wird - `true`, `false`
+-   `peering2`
+    -   `name` : Der Peering-Name
+    -   `linked_vnet_name` : Der Name des virtuellen Netzwerks, das mit dem Peering verbunden wird
+    -   `traffic_to_remote_vnet` : Steuerung, ob VMs im Remote-Virtual Network auf VMs im lokalen Virtual Network zugreifen können - `true`, `false`
+    -   `traffic_forwarded_from_remote_vnet` : Steuerung, ob weitergeleiteter Traffic von VMs im Remote-Virtual Network zugelassen wird - `true`, `false`
+-   `allow_gateway_transit` : Ob die Verlinkung des Remote-Virtual Networks für das Virtual Network verwendet werden kann
+    -   `Verwendung deaktivieren` : 0
+    -   `Erstes virtuelles Netzwerk` : 1
+    -   `Zweites virtuelles Netzwerk` : 2
+
+---
+
+## Referenzmaterial
+
+-   [Azure VirtualNetworkPeering(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+-   [Azure VirtualNetworkPeering Kosten](https://azure.microsoft.com/ko-kr/pricing/details/virtual-network/)
+-   [Azure VirtualNetworkPeering(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering)

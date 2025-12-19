@@ -1,0 +1,46 @@
+---
+title: Directory Service
+sidebar_position: 0
+tags: [AWS, Ressourcen, DirectoryService, DirectoryService]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+AWS Directory Service bietet mehrere Möglichkeiten, wie andere AWS-Dienste Microsoft Active Directory (AD) nutzen können. Ein Verzeichnis speichert Informationen über Benutzer, Gruppen und Geräte, und Administratoren können diese verwenden, um den Zugriff auf Informationen und Ressourcen zu verwalten. AWS Directory Service bietet eine Vielzahl von Verzeichnisoptionen für Kunden, die Microsoft AD oder LDAP (Lightweight Directory Access Protocol) -kompatible Anwendungen in der Cloud verwenden möchten. Es bietet auch die gleichen Auswahlmöglichkeiten für Entwickler, die ein Verzeichnis benötigen, um Benutzer, Gruppen, Geräte und Zugriffsrechte zu verwalten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+
+## Ressourceneinstellungen
+
+-   `password` : Passwort des Verzeichnisadministrators oder des Connector-Benutzers
+-   `type` : `SimpleAD`,`MicrosoftAD`
+-   `size` : Größe des Verzeichnisses - `Small`,`Large`
+-   `included_vpc_name` : Name der VPC, in der sich das Verzeichnis befindet
+-   `included_subnet_names` : Name des Subnetzes des Verzeichnisservers (Subnets müssen in verschiedenen Availability Zones (AZs) bereitgestellt werden)
+
+---
+
+## Referenzmaterial
+
+-   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
+-   [AWS Direct Service Preis(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

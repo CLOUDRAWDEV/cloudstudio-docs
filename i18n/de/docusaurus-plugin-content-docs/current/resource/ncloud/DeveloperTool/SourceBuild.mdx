@@ -1,0 +1,63 @@
+---
+title: SourceBuild
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, DeveloperTool, SourceBuild]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+SourceBuild ist ein Service, der es ermöglicht, Quellcode, der in verschiedenen Programmiersprachen entwickelt wurde, einfach zu erstellen. SourceBuild kann unabhängige Build-Server in Echtzeit erstellen und mehrere Build-Anfragen gleichzeitig verarbeiten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+### Untergeordnete Ressourcen
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `source_type` : Build-Target-Typ - `SourceCommit`
+-   `source_branch` : Name des Branches, der gebaut werden soll
+-   `linked_repository_name` : Name des Repositories, das gebaut werden soll
+-   `env` : Inhalt der Build-Umgebungskonfiguration
+    -   `env_compute_spec` : Spezifikationen der Computing-Umgebung, die für das Build verwendet werden soll - `2cpu-4memory`,`4cpu-8memory`,`8cpu-16memory`
+    -   `env_platform_type` : Art des Computing-Umgebungs-Images, das für das Build verwendet werden soll - `SourceBuild`,`ContainerRegistry`,`PublicRegistry`
+    -   `env_platform_os_spec` : Verwendetes OS-Spezifikationen - `ubuntu-archiX64-16.04`
+    -   `env_platform_runtime_name` : Name der Build-Runtime - `base`,`java`,`dotnet`,`android_java`,`python`
+    -   `env_platform_runtime_version` : Version der Build-Runtime - `1.0-1.0.0`,`2.0-1.0.0`,`3.0-1.0.0`,`4.0-1.0.0`,`5.0-1.0.0`
+    -   `env_timeout` : Maximale Wartezeit (in Minuten) vom Start bis zum Abschluss des Builds, 5~540
+    -   `env_use_docker` : Ob Docker-Engine verwendet werden soll 
+    -   `env_var` : Umgebungsvariablen, die im Build-Prozess verwendet werden 
+-   `build_command` : Ausführbare Befehle im Zusammenhang mit dem Build 
+    -   `pre_build_command` : Befehle, die vor dem Build ausgeführt werden
+    -   `in_build_command` : Befehle, die während des Builds ausgeführt werden
+    -   `post_build_command` : Befehle, die nach dem Build ausgeführt werden
+-   `enable_cloud_log_analytics` : Ob Build-Protokolle für die Cloud-Log-Analyse gespeichert werden sollen
+-   `enable_file_safer` : Ob File Safer für Sicherheitsprüfung genutzt werden soll
+-   `artifact` : Einstellungen zum Speichern der Build-Ergebnisse
+    -   `save_build_results` : Ob die Build-Ergebnisse gespeichert werden sollen
+-   `upload` : Einstellungen zum Hochladen von Images nach Abschluss des Builds
+    -   `upload_build_results` : Ob die Build-Umgebung gespeichert werden soll
+
+
+    
+
+---
+
+## Referenzmaterial
+
+-   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
+-   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

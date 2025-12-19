@@ -1,0 +1,96 @@
+---
+title: Registrierung von Github
+sidebar_position: 1
+tags: [plugin, plugin, git, github]
+last_update:
+    date: 09/30/2024
+---
+
+import github01 from "../img/github01.png"
+import github02 from "../img/github02.png"
+import github03 from "../img/github03.png"
+import github04 from "../img/github04.png"
+import github05 from "../img/github05.png"
+import github06 from "../img/github06.png"
+import github07 from "../img/github07.png"
+import styles from "/src/scss/_markdown.module.scss"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2024.09.30
+</span>
+
+<hr />
+<br />
+
+## Registrierung von Github
+
+Um die Versionskontrolle des Canvas in Cloud Studio durchzuführen, ist die Integration eines VCS (Version Control System) erforderlich.<br/>
+Zur Verknüpfung des Terraform Cloud-Kontos für die Validierung und Bereitstellung von Projekten muss zuvor das VCS-Konto integriert werden.<br/>
+Auf dieser Seite wird beschrieben, wie Sie ein Github-Konto mit einem VCS verbinden.
+
+<br />
+
+<details>
+    <summary>Github ?</summary>
+    <h5>
+        Github ist eine Plattform, auf der Softwareentwicklungsprojekte gehostet und verwaltet werden können.
+    </h5>
+</details>
+
+<p>&nbsp;</p>
+
+1. [Github](https://github.com/) Nach der Anmeldung und Registrierung klicken Sie auf das `Profil-Symbol - Einstellungen` oben rechts.
+
+<img width="100%" src={github01} alt="otp img" />
+
+<p>&nbsp;</p>
+
+2. Klicken Sie unten in der linken Seitenleiste auf `Developer settings`.
+
+<img width="100%" src={github02} alt="otp img" />
+
+<p>&nbsp;</p>
+
+3. Klicken Sie in der linken Seitenleiste auf `Personal access tokens - Tokens (classic)` und wählen Sie dann rechts `Generate new token - Generate new token (classic)`.
+
+<img width="100%" src={github03} alt="otp img" />
+
+<p>&nbsp;</p>
+
+4. Wählen Sie im Abschnitt Select scopes unten die Berechtigung `repo` aus und klicken Sie auf die Schaltfläche `Generate token`, um den Token zu erstellen.
+
+<img width="100%" src={github04} alt="otp img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+Der generierte Token kann später nicht erneut eingesehen werden. Speichern Sie ihn daher unbedingt separat.
+
+:::
+
+<p>&nbsp;</p>
+
+5. Klicken Sie in Cloud Studio auf `Meine Informationen - Plugin-Verwaltung` und dann auf die Schaltfläche +, um das VCS-Konto zu verbinden.
+
+<img width="100%" src={github05} alt="otp img" />
+
+<p>&nbsp;</p>
+
+6. Wählen Sie `Github` als VCS aus, geben Sie den `Benutzernamen` und den generierten `Token` Ihres Github-Kontos ein und klicken Sie auf die Schaltfläche `Registrieren`.
+
+<img width="100%" src={github06} alt="otp img" />
+
+<p>&nbsp;</p>
+
+7. Sobald der `Benutzername` und der generierte `Token` eines gültigen Github-Kontos eingegeben sind, wird die Github-Integration erfolgreich abgeschlossen.
+
+<img width="100%" src={github07} alt="otp img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+Für die Integration der Github Enterprise-Version müssen die gehosteten `Http URL` und `API URL` zusätzlich eingegeben werden.
+
+:::

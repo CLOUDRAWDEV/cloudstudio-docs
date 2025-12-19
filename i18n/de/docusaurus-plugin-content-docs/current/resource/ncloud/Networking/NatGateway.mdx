@@ -1,0 +1,38 @@
+---
+title: Nat Gateway
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Network, NatGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies ist ein Service, der mehrere Server mit einer öffentlichen IP verbindet und direkten Zugriff von außen blockiert. Er ermöglicht es Servern mit privaten IPs, mit externen Servern zu kommunizieren, während er direkten Zugriff von außen blockiert, um die Sicherheit zu gewährleisten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vpc_name` : VPC-Name, in dem das Nat Gateway erstellt wird
+-   `zone` : Die physische Region, in der das Nat Gateway platziert wird - `KR-1`, `KR-2`
+
+---
+
+## Referenzmaterial
+
+-   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
+-   [ncloud_nat_gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)

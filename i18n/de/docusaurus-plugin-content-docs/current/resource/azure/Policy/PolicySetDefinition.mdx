@@ -1,0 +1,52 @@
+---
+title: PolicySetDefinition
+sidebar_position: 1
+tags: [Azure, Ressourcen, Policy, PolicySetDefinition]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/policy-policy_set_definition.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Policy Set Definition ist eine Sammlung von ein oder mehreren Richtlinien, die zur einfacheren Verwaltung und Zuweisung gruppiert wurden. Sie können eine Richtliniensammlung erstellen, die auf mehrere Ressourcentypen, Ressourcengruppen oder Abonnements angewendet werden kann.
+Mit der Definition einer Richtliniensammlung können Sie diese auf Ressourcen oder Ressourcengruppen als eine einzige Aufgabe anwenden, ohne jede Richtlinie einzeln zuzuweisen. Dadurch wird die Verwaltung von Richtlinien vereinfacht und sichergestellt, dass alle Ressourcen den Standards und Richtlinien Ihrer Organisation entsprechen.
+Richtliniensammlungsdefinitionen können im JSON-Format definiert werden und Parameter, Metadaten und Richtliniendefinitionen enthalten. Sie können auch auf andere Richtliniensammlungsdefinitionen oder Richtliniendefinitionen verweisen, um komplexe Richtlinien zu erstellen, die auf mehrere Ressourcen und Ressourcengruppen angewendet werden können.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subscription**](https://docs.cstudio.app/docs/resource/azure/Base/Subscription)
+
+### Untergeordnete Ressourcen
+
+-   [**Policy Definition**](https://docs.cstudio.app/docs/resource/azure/Policy/PolicyDefinition)
+
+### Verbundene Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `type` : Neuen Satz von Richtlinien erstellen oder vorhandene verwenden - `Custom`, `BuiltIn`
+
+-   `display_name` : Der angezeigte Name der Richtliniendefinition
+
+-   `included_definition_name` : Die Namen der Richtliniendefinitionen, die in der Richtlinienset-Definition enthalten sind
+
+---
+
+## Referenzmaterial
+
+-   [Azure PolicySetDefinition(Microsoft)](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
+-   [Azure PolicySetDefinition Kosten](https://azure.microsoft.com/en-us/pricing/details/azure-policy/)
+-   [Azure PolicySetDefinition(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition)

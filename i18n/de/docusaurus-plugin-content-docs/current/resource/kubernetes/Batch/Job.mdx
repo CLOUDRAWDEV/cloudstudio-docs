@@ -1,0 +1,96 @@
+---
+title: Job
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Batch, Job]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es ist eine Kubernetes-Ressource, die für das Ausführen von einmaligen Aufgaben verwendet wird.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Job-Ressourcenname
+-   `namespace` : Der Namespace, in dem die Job-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die verwendet werden, um erforderliche Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Vom Benutzer definierte Werte, die verwendet werden, um Objekte zu kategorisieren
+-   `template_labels` : Label, die auf den Pods angewendet werden, die auf jedem Knoten erstellt werden
+-   `restart_policy` : Gibt an, wie mit einem Container im Pod verfahren wird, wenn er fehlschlägt oder die Aufgabe abgeschlossen ist
+-   `backoff_limit` : Die Anzahl der Versuche, bevor die Aufgabe als fehlgeschlagen markiert wird. Der Standardwert ist 6
+-   `wait_for_completion` : Blockiert das Erstellen oder Aktualisieren der Aufgabe, bis der Status der Aufgabe entweder abgeschlossen oder fehlerhaft ist. Der Standardwert ist True
+
+-   `timeouts` : Die erlaubte Zeit, bis die Aufgabe als fehlgeschlagen gilt
+    -   `create` : Die Zeit, die gewartet wird, bis die neue Aufgabe erfolgreich abgeschlossen wurde. Der Standardwert ist 1 Minute  
+    -   `update` : Die Zeit, die gewartet wird, bis eine bestehende Aufgabe erfolgreich abgeschlossen wurde. Der Standardwert ist 1 Minute
+
+-   `containers` : Definiert die Vorlage für Container, die zu den Pods gehören. Nachdem die Standardeinstellungen angewendet wurden, können detaillierte Einstellungen vorgenommen werden.
+    -   `name` : Definiert den Namen des Containers
+        -   `image` : Der Docker-Image-Name, der verwendet werden soll
+        -   `args` : Die Befehlsargumente, die im Container ausgeführt werden
+        -   `command` : Der Befehl, der im Container ausgeführt wird
+        -   `port` : Die Liste von Ports, die im Container exponiert werden
+
+        -   `resources` : Definiert die Menge an Rechenressourcen für den Container
+            -   `name` : Definiert die minimale/maximale Menge der Rechenressourcen, die angegeben werden sollen   - `limits`, `requests`     
+            -   `cpu` : Die Menge an CPU, die angegeben werden soll    
+            -   `memory` : Die Menge an Arbeitsspeicher, die angegeben werden soll
+
+        -   `probe` : Definiert, wie der Zustand des Pods diagnostiziert werden soll 
+            -   `name` : Wählt die Methode der Probe - `startup`,`liveness`,`readiness`
+            -   `http_get_path` : Der Pfad, um auf den HTTP-Server zuzugreifen
+            -   `http_get_port` : Die Portnummer, die im Container verwendet wird
+            -   `http_header` : Benutzerdefinierte Header, die in der Anfrage gesetzt werden
+            -   `initial_delay_seconds` : Die Zeit (in Sekunden), die nach dem Start des Containers gewartet wird, bevor die Probe gestartet wird
+            -   `period_seconds` : Die Häufigkeit (in Sekunden), mit der die Probe ausgeführt wird
+
+        -   `env` : Umgebungsvariablen und Volumes für Container
+            -   `name` : Der Name der Umgebungsvariablen
+            -   `value` : Der Wert, der der Umgebungsvariablen zugewiesen wird
+
+        -   `volume_mount` : Volumes, die in das Dateisystem des Containers gemountet werden - Detaillierte Einstellungen
+            -   `name` : Der Name des Volume-Mounts
+            -   `path` 
+                -   `mount_path` : Der Pfad im Container, an dem das Volume gemountet werden soll
+                -   `sub_path` : Der Unterpfad im Container, an dem das Volume gemountet werden soll
+            
+-   `volume` : Eine Liste von Volumes, die den Containern des Pods zugeordnet werden können
+    -   `name` : Der Name des Volumes
+        -   `type` : Der Typ des Volumes, das gemountet werden soll - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
+        -   `target_name` : Der Name des PersistentVolumeClaims
+        -   `default_mode` : Der Modus der erstellten Dateien, der von 0 bis 0777 reicht. Der Standardwert ist 0644
+        -   `read_only` : Wenn true, wird das Volume als schreibgeschützt gemountet. Andernfalls ist es schreib- und lesbar
+
+-   `image_pull_secrets` : Geheimnisse im gleichen Namespace, die die Berechtigungen zum Abrufen von Container-Images enthalten
+
+
+---
+
+## Referenzmaterial
+
+-   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)

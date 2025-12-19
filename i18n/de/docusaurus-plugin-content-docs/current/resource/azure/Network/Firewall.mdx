@@ -1,0 +1,93 @@
+---
+title: Firewall
+sidebar_position: 3
+tags: [Azure, Ressourcen, Network, Firewall]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-firewall.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Firewall ist ein cloudnativer und intelligenter Netzwerkschutzdienst, der den besten Bedrohungsschutz für Cloud-Workloads bietet, die in Azure ausgeführt werden. 
+Es handelt sich um eine vollständig zustandsbehaftete Firewall als Dienst, die mit Hochverfügbarkeit und unbegrenzter Cloud-Skalierbarkeit ausgestattet ist.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+-   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+
+## Ressourcen-Einstellwerte
+
+-   `included_subnet_name` : Name des Subnetzes, in dem die Firewall platziert wird
+
+-   `sku_tier` : Preismodell der Firewall - `Basic`, `Standard`, `Premium`
+
+-   `sku_name` : Name der Preismodellstufe der Firewall -`AZFW_VNet`, `AZFW_Hub`
+
+-   `linked_public_ip_name` : Name der öffentlichen IP, die mit der Firewall verbunden wird
+
+-   `ip_config_name` : IP-Konfigurationsname
+
+-   `network_rule_collection`
+
+    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000 - `100`~ `65000`
+    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Allow`,`Deny`
+
+-   `network_rules`
+
+    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+    -   `destination_ports` : Liste der Ziel-Ports
+    -   `destination_address` : Liste der Ziel-IP-Adressen oder -Bereiche
+    -   `protocols` : Liste der Protokolle, die die Regel bilden - `TCP`,`UDP`,`ICMP`,`Any`
+
+-   `application_rule_collection`
+
+    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000, 100 ~ 65000의 범위 - `100` ~ `65000`
+    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Allow`,`Deny`
+
+-   `application_rules`
+
+    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+    -   `target_fqdns` : Liste der FQDNs zum Filtern von ausgehendem Verkehr mit beliebigen TCP/UDP-Protokollen
+    -   `protocol_port` : Port für die Protokollverbindung - `1` ~ `65502`
+    -   `protocol_type` : Protokollverbindungstyp - `Http`, `Https`, `Mssql`
+
+-   `nat_rule_collection`
+
+    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000 - `100` ~ `65000`
+    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Dnat`, `Snat`
+
+-   `nat_rules`
+
+    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+    -   `destination_ports` : Zielports: Liste der Zielports
+    -   `translated_port` : Übersetzter Port: Der Port für den Service, der die Firewall verwendet
+    -   `translated_address` : Übersetzte Adresse: Die Adresse des Services, der die Firewall verwendet
+    -   `protocols` : Liste der Protokolle, die die Regel konstituieren - `TCP`, `UDP`, `ICMP`, `Any`
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Firewall(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall Kosten](https://azure.microsoft.com/en-us/pricing/details/azure-firewall/)
+-   [Azure Firewall(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)

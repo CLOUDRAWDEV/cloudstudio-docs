@@ -1,0 +1,45 @@
+---
+title: Subnet
+sidebar_position: 12
+tags: [Azure, Ressourcen, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-subnet.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+In Microsoft Azure ist ein Subnetz der IP-Adressbereich eines VNet (virtuelles Netzwerk). Es handelt sich um eine logische Unterteilung eines IP-Netzwerks, die es ermöglicht, den Netzwerkverkehr zu segmentieren und Netzwerkrressourcen zu verwalten.
+Ein Subnetz ist ein kleineres Netzwerk innerhalb eines größeren Netzwerks und wird verwendet, um den Verkehr zwischen verschiedenen Teilen eines virtuellen Netzwerks zu isolieren.
+Jedes Subnetz in Azure kann seine eigene NSG (Netzwerksicherheitsgruppe) haben, um eine Sicherheitsgrenze für die Ressourcen innerhalb dieses Subnetzes zu schaffen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vnet_name` : Name des Virtual Networks, das das Subnetz enthält
+-   `address_prefixes` : Subnetz verwendet einen IP-Adressbereich, der als CIDR-Format innerhalb des Adressraums des Virtual Networks angegeben wird 
+-   `private_link_endpoint_enabled` : Legt fest, ob ein Private Endpoint mit dem Subnetz verbunden werden soll - `true`, `false`
+-   `delegation`
+    -   `service_name` : Name des Dienstes, der delegiert werden soll
+    -   `actions` : Liste von Aktionen, die delegiert werden sollen
+
+---
+
+## Referenzmaterial
+
+-   [Azure Subnet(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal)
+-   [Azure Subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)

@@ -1,0 +1,45 @@
+---
+title: BackupVault
+sidebar_position: 0
+tags: [AWS, Ressourcen, Backup, BackupVault]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Im AWS Backup ist das Backup Vault ein Container zum Speichern und Verwalten von Backups.
+Beim Erstellen des Backup Vault müssen Sie einen AWS KMS-Verschlüsselungsschlüssel angeben, um einige Backups in diesem Vault zu verschlüsseln.
+
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+## Verwandte Ressourcen
+
+
+## Ressourceneinstellungen
+
+-   `kms_key_name` : Serverseitiger Verschlüsselungsschlüssel, der zum Schutz des Backups verwendet wird
+-   `lock_configuration` : AWS Backup Vault Lock Konfigurationsressource
+    -   `lock_configuration.enabled_lock` : Ob Vault Lock verwendet wird - `false`, `true`
+        -   `lock_configuration.enabled_lock.lock_mode` : Vault Lock-Typ - `Governance`,`Compliance`
+        -   `lock_configuration.enabled_lock.min_retention_days` : Mindestaufbewahrungsdauer des Wiederherstellungspunkts im Vault - `1~36500`
+        -   `lock_configuration.enabled_lock.max_retention_days` : Maximalaufbewahrungsdauer des Wiederherstellungspunkts im Vault - `1~36500`
+
+---
+
+## Referenzmaterial
+
+-   [Amazon BackupVault(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/create-a-vault.html)
+-   [Amazon BackupVault(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_vault)
