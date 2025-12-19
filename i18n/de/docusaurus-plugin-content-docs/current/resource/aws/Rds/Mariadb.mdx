@@ -1,0 +1,59 @@
+---
+title: Mariadb
+sidebar_position: 0
+tags: [AWS, Ressourcen, Rds, Mariadb]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mariadb.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+MariaDB ist eine beliebte Open-Source-Relationdatenbank, die von den ursprünglichen Entwicklern von MySQL erstellt wurde. Mit Amazon RDS können Sie MariaDB-Server in der Cloud einfach einrichten, betreiben und skalieren. Amazon RDS ermöglicht es Ihnen, eine skalierbare MariaDB-Cloud-Datenbank mit kostengünstiger und skalierbarer Hardwarekapazität in nur wenigen Minuten bereitzustellen.
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**MariaDB**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+
+## Ressourcenkonfigurationswerte
+
+-   `database_name` : Initial Database Name
+-   `engine_version` : Die Version von MariaDB, die für RDS verwendet werden soll
+-   `instance_class` : Die Preisklasse der RDS-Datenbank
+-   `storage_type` : Der Speichertyp der RDS-Instanz
+-   `allocated_storage` : Die Speichergröße (in Gigabyte) der RDS-Instanz
+-   `max_allocated_storage` : Das maximale Limit, bis zu dem Amazon RDS den Speicher der DB-Instanz automatisch erweitern kann
+-   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung - `true`, `false`
+-   `username` : Der Benutzername für die RDS-Datenbank
+-   `password` : Das Passwort für den Benutzer der RDS-Datenbank
+-   `included_subnet_names` : Das Passwort für den Benutzer der RDS-Datenbank
+-   `subnet_group_name` : Der Name der Subnetzgruppe, die für RDS verwendet werden soll
+-   `publicly_accessible` : Ob die Instanz öffentlich zugänglich ist - `true`, `false`
+-   `monitoring`
+    -   `performance_insights_enabled` : Aktivierung der Leistungsanalysen
+-   `encryption`
+    -   `storage_encrypted` : Gibt an, ob die DB-Instanz verschlüsselt ist - `true`, `false`
+    -   `kms_key_name` : Der Name des KMS-Schlüssels, der für die Verschlüsselung verwendet wird
+-   `backup`
+    -   `backup_retention_period` : Der Zeitraum, für den Backups aufbewahrt werden - `1`~`35`
+    -   `final_snapshot_enabled` : Ob vor dem Löschen der DB-Instanz ein endgültiges DB-Snapshot erstellt werden soll - `true`, `false`
+    -   `final_snapshot_name` : Der Name des endgültigen Snapshots
+
+---
+
+## Referenzmaterial
+
+-   [Amazon Relational Database Service(Amazon RDS)(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Welcome.html)
+-   [Amazon RDS for MariaDB Kosten(AWS)](https://aws.amazon.com/ko/rds/mariadb/pricing/?nc=sn&loc=4)

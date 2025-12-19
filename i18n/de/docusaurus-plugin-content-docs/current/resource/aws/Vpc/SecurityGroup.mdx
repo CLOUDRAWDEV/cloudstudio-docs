@@ -1,0 +1,58 @@
+---
+title: Security Group
+sidebar_position: 0
+tags: [AWS, Ressourcen, Vpc, SecurityGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Sicherheitsgruppen steuern den Datenverkehr, der mit verbundenen Ressourcen erreicht und verlassen kann. Zum Beispiel, wenn eine Sicherheitsgruppe mit einer EC2-Instanz verbunden wird, steuert sie den eingehenden und ausgehenden Datenverkehr für diese Instanz. Eine Sicherheitsgruppe kann nur mit Ressourcen im VPC verbunden werden, in dem die Sicherheitsgruppe erstellt wurde.
+Wenn ein VPC erstellt wird, wird es mit einer Standard-Sicherheitsgruppe bereitgestellt. Für jedes VPC können zusätzliche Sicherheitsgruppen erstellt werden.
+Die Verwendung von Sicherheitsgruppen verursacht keine zusätzlichen Kosten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Verbundene Ressourcen
+
+-
+
+## Ressourcen-Einstellwerte
+
+-   `description` : Beschreibung der Sicherheitsgruppe
+-   `included_vpc_name` : Name der VPC, die die Sicherheitsgruppe enthält
+-   `ingress` : Name der Ingress-Regel der Sicherheitsgruppe
+    -   `rule_name` : Name der Ingress-Regel der Sicherheitsgruppe
+    -   `description` : Beschreibung der Ingress-Regel
+    -   `from_port` : Eingehende Portnummer der Ingress-Regel
+    -   `to_port` : Ausgehende Portnummer der Ingress-Regel
+    -   `protocol` : Protokoll der Ingress-Regel - `tcp`, `udp`, `icmp`, `all`
+    -   `cidr_block` : CIDR, auf das die Ingress-Regel angewendet wird
+-   `egress` : Name der Egress-Regel der Sicherheitsgruppe
+    -   `rule_name` : Name der Ingress-Regel der Sicherheitsgruppe
+    -   `description` : Beschreibung der Egress-Regel
+    -   `from_port` : Eingehende Portnummer der Egress-Regel
+    -   `to_port` : Ausgehende Portnummer der Egress-Regel
+    -   `protocol` : Protokoll der Egress-Regel - `tcp`, `udp`, `icmp`, `all`
+    -   `cidr_block` : CIDR, auf das die Egress-Regel angewendet wird
+
+---
+
+## Referenzmaterial
+
+-   [Verkehrskontrolle für Ressourcen mit Sicherheitsgruppen(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [aws_security_group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

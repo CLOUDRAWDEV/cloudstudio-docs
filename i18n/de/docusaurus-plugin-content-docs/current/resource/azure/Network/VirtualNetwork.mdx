@@ -1,0 +1,47 @@
+---
+title: VirtualNetwork
+sidebar_position: 14
+tags: [Azure, Ressourcen, Network, VirtualNetwork]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Virtual Network (VNet) ist eine Netzwerktechnologie, die auf der Microsoft Azure Cloud-Computing-Plattform bereitgestellt wird.
+Damit können Sie eine logisch isolierte Netzwerkumgebung in der Cloud erstellen, um Azure-Ressourcen wie virtuelle Maschinen sicher miteinander, mit dem Internet und On-Premises-Netzwerken zu verbinden.
+Mit Azure Virtual Network können Sie mehrere Subnetze erstellen und Network Security Groups (NSGs) definieren, um den eingehenden und ausgehenden Traffic zu steuern.
+Mit Azure VPN Gateway oder Azure ExpressRoute können Sie das virtuelle Netzwerk auch sicher mit einem On-Premises-Netzwerk verbinden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Untergeordnete Ressourcen
+
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+## Ressourcen-Einstellwerte
+
+-   `vnet_address_space` : IP-Adressbereich, der für das virtuelle Netzwerk verwendet wird, mehrere Adressen können unterstützt werden
+-   `enable_ddos_protection` : DDoS-Schutzplan für das virtuelle Netzwerk aktivieren -`true`, `false`
+-   `tag` : Tag zur Kategorisierung der Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure VirtualNetwork(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
+-   [Azure VirtualNetwork Kosten](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
+-   [Azure VirtualNetwork(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)

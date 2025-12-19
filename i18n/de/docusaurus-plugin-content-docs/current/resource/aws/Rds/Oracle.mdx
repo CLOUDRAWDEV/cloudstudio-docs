@@ -1,0 +1,64 @@
+---
+title: Oracle
+sidebar_position: 0
+tags: [AWS, Ressourcen, Rds, Oracle]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-oracle.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon RDS for Oracle ist eine vollständig verwaltete kommerzielle Datenbank, die eine einfache Einrichtung, den Betrieb und die Skalierung von Oracle-Bereitstellungen in der Cloud ermöglicht. Amazon RDS übernimmt zeitaufwendige Datenbankverwaltungsaufgaben wie Bereitstellung, Backup, Software-Patching, Überwachung und Hardware-Skalierung, sodass sich Kunden ausschließlich auf Innovation und Anwendungsentwicklung konzentrieren können.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+
+## Ressourcenkonfigurationswerte
+
+-   `database_name` : Anfangsname der Datenbank
+-   `license`
+-   `engine` : Oracle-Engine-Typ der RDS-Instanz - `oracle-ee`, `oracle-se2`
+-   `engine_version` : Oracle-Version für RDS
+-   `instance_class` : Preisstufe der RDS-Datenbank
+-   `storage_type` : Speichertyp der RDS-Instanz
+-   `allocated_storage` : Speicherkapazität der RDS-Instanz (Gigabytes)
+-   `max_allocated_storage` : Obergrenze für die automatische Speichererweiterung von Amazon RDS für die DB-Instanz
+-   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung - `true`, `false`
+-   `username` : Benutzername für RDS
+-   `password` : Passwort für RDS Benutzer
+-   `included_subnet_names` : Subnet-Name zur Verbindung mit der RDS-Subnetzgruppe
+-   `subnet_group_name` : Name der Subnetzgruppe für RDS
+-   `publicly_accessible` : Ob die Instanz öffentlich zugänglich ist - `true`, `false`
+
+-   `monitoring`
+    -   `performance_insights_enabled` : Aktivierung von Performance Insights
+-   `encryption`
+    -   `storage_encrypted` : Festlegung, ob die DB-Instanz verschlüsselt wird - `true`, `false`
+    -   `kms_key_name` : Name des KMS-Schlüssels für die Verschlüsselung
+-   `backup`
+    -   `backup_retention_period` : Aufbewahrungsdauer der Backup-Daten - `1`~`35`
+    -   `final_snapshot_enabled` : Entscheidung, ob vor dem Löschen der DB-Instanz ein endgültiger DB-Snapshot erstellt werden soll - `true`, `false`
+    -   `final_snapshot_name` : Name des endgültigen Snapshots - `true`, `false`
+
+---
+
+## Referenzmaterial
+
+-   [Amazon RDS for Oracle Funktionen(Amazon RDS)(AWS)](https://aws.amazon.com/ko/rds/oracle/features/?nc=sn&loc=2&dn=1)
+-   [Amazon RDS for Oracle Kosten(AWS)](https://aws.amazon.com/ko/rds/oracle/pricing/)

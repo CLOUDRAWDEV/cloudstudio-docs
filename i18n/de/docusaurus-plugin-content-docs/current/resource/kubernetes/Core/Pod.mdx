@@ -1,0 +1,91 @@
+---
+title: Pod
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Core, Pod]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es ist der kleinste Bereitstellungseinheit von Kubernetes, die mehrere Container zusammen ausführt.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+
+### Verbundene Ressourcen
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Pod-Ressourcenname
+-   `namespace` : Der Namespace, in dem die Pod-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die verwendet werden, um Informationen für das Kubernetes-System bereitzustellen
+-   `labels` : Benutzerdefinierte Werte, die verwendet werden, um Objekte zu unterscheiden
+-   `containers` : Definiert eine Vorlage für die Container, die zu einem Pod gehören - Basiswerte werden festgelegt und nachträglich können Detailwerte angepasst werden.
+    -   `containers.name` : Definiert den Namen des Containers
+        -   `image` : Der Name des Docker-Images, das verwendet wird
+        -   `args` : Befehle, die im Container ausgeführt werden
+        -   `command` : Befehle, die im Container ausgeführt werden
+        -   `port` : Liste der Ports, die im Container freigegeben werden
+
+        -   `resources` : Definiert die Menge der Rechenressourcen für den Container - Detailkonfiguration
+            -   `name` : Definiert den minimalen und maximalen Ressourcenbedarf   - `Limits`, `requests`     
+            -   `cpu` : Definiert die Menge an CPU 
+            -   `memory` : Definiert die Menge an Arbeitsspeicher
+
+        -   `probe` : Definiert, wie der Zustand des Pods diagnostiziert wird - Detailkonfiguration
+            -   `name` : Wählt die Probe-Methode - `startup`,`liveness`,`readiness`
+            -   `http_get_path` : Der Pfad, um auf den HTTP-Server zuzugreifen
+            -   `http_get_port` : Der Port, über den der Container erreichbar ist
+            -   `http_header` : Benutzerdefinierte Header für die Anfrage
+            -   `initial_delay_seconds` : Zeit in Sekunden, bevor die Probe nach dem Start des Containers beginnt
+            -   `period_seconds` : Häufigkeit der Probe in Sekunden
+
+        -   `env` : Block von Key-Value-Paaren für Umgebungsvariablen des Containers - Detailkonfiguration
+            -   `name` : Name der Umgebungsvariable
+            -   `value` : Wert, der der Umgebungsvariable zugewiesen wird
+
+        -   `volume_mount` : Volumes, die im Dateisystem des Containers gemountet werden - Detailkonfiguration
+            -   `name` : Name des Volume-Mounts
+            -   `path` 
+                -   `mount_path` : Pfad im Container, an dem das Volume gemountet werden soll
+                -   `sub_path` : Zusätzlicher Pfad im Container, an dem das Volume gemountet werden soll
+            
+-   `volume` : Liste der Volumes, die den Containern eines Pods zugeordnet werden können
+    -   `name` : Name des Volumes
+        -   `type` : Art des Volumes, das gemountet werden soll - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
+        -   `target_name` : Name des PersistentVolumeClaim
+        -   `default_mode` : Der Modus für die erstellten Dateien - zwischen 0 und 0777, der Standardwert ist 0644
+        -   `read_only` : Gibt an, ob das Volume schreibgeschützt true oder schreib-/lesbar gemountet werden soll
+
+-   `image_pull_secrets` : Geheimnisse im selben Namespace, die für das Abrufen von Container-Images erforderlich sind
+
+
+
+---
+
+## Referenzmaterial
+
+-   [Pod(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/)
+-   [Pod(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod)

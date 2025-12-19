@@ -1,0 +1,65 @@
+---
+title: NetworkFirewallRuleGroup
+sidebar_position: 0
+tags: [AWS, Ressourcen, Vpc, NetworkFirewallRuleGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Wiederverwendbare Kriterienreihe zur Überprüfung und Verarbeitung von Netzwerkverkehr
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `description` : Beschreibung der Netzwerk-Firewall-Regelgruppe
+-   `rule_group_type` : Regelgruppentyp - `STATEFUL`,`STATELESS`
+-   `generated_rules_type` : Regelgruppenformat - `StandardStatefulRules`,`DomainList`,`SuricataRuleStrings`
+-   `rule_evaluation_order` : `STRICT_ORDER`,`DEFAULT_ACTION_ORDER`
+-   `capacity` : Erwartete Anzahl der Regeln, die während des Lebenszyklus in diese Regelgruppe aufgenommen werden - `1-30000`
+-   `ip_set` : IP-Set-Variable
+    -   `name` : Name der IP-Set-Variable
+    -   `cidrs` : Wert der IP-Set-Variable
+-   `port_set` : Port-Variable 
+    -   `name` : Name der Port-Variable
+    -   `cidrs` : Wert der Port-Variable
+-   `stateful_rule` : Standard-stateful Regel 
+    -   `name` : Name der Standard-stateful Regel
+    -   `protocol` : Zu überprüfendes Übertragungsprotokoll - `IP`,`TCP`,`UDP`,`ICMP`,`HTTP`
+    -   `source_ip_or_cidr` : Zu überprüfende Quell-IP-Adresse und Adressbereich
+    -   `source_port` : Zu überprüfender Quellport oder Portbereich
+    -   `target_ip_or_cidr` : Zu überprüfende Ziel-IP-Adresse und Adressbereich
+    -   `target_ip_or_cidr` : Zu überprüfende Ziel-IP-Adresse und Adressbereich
+    -   `traffic_direction` : Zu überprüfende Verkehrsrichtung - `ANY`,`FORWARD`
+    -   `action` : Aktion, die die Netzwerk-Firewall ausführt, wenn Pakete mit den Regel-Einstellungen übereinstimmen - `ALERT`,`DROP`,`PASS`,`REJECT`
+-   `encryption_configuration.
+    -   `enabled_custom_configuration` : Daten mit AWS verwalteten Schlüsseln verschlüsseln - `false`,`true`
+
+
+---
+
+## Referenzmaterial
+
+-   [NetworkFirewallRuleGroup(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
+-   [NetworkFirewallRuleGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)

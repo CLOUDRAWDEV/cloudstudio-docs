@@ -1,0 +1,44 @@
+---
+title: Block Storage
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Storage, BlockStorage]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies ist ein zusätzlicher HDD- oder SSD-Speicherservice, der über den Standard-Speicher des Servers hinaus bereitgestellt wird. Er kann in kurzer Zeit erstellt und sofort mit dem Server verbunden werden und kann bei Bedarf auch schnell wieder zurückgegeben werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
+## Ressourcen-Einstellwerte
+
+-   `linked_server_name` : Name des Servers, an den der Block-Speicher angeschlossen werden soll
+-   `storage_size` : Größe des Block-Speichers (GB), im Bereich von 10 bis 2000
+-   `storage_disk_type` : Art des Block-Speichers, SSD oder HDD - `SSD`, `HDD`
+-   `snapshot_name` : Name des zu erstellenden Snapshots
+
+---
+
+## Referenzmaterial
+
+-   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
+-   [ncloud_block_storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)

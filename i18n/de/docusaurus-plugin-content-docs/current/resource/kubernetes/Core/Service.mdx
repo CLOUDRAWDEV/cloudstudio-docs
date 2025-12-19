@@ -1,0 +1,59 @@
+---
+title: Service
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Core, Service]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein abstrahiertes Kubernetes-Ressourcenobjekt, das einen einzelnen Einstiegspunkt für Pods bereitstellt und die Kommunikation zwischen diesen Pods verwaltet.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Service Ressourcenname
+-   `namespace` : Der Namespace, in dem die Service-Ressource bereitgestellt wird
+-   `annotations` : Schlüssel-Wert-Paare, die verwendet werden, um benötigte Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Vom Benutzer festgelegte Werte, um Objekte zu unterscheiden
+-   `selector` : Der Selector verwendet Schlüssel-Wert-Paare von Labels, um den Dienstverkehr an Pods weiterzuleiten, die mit diesen Labels übereinstimmen
+-   `type` : Bestimmt den Typ des Dienstes - `ClusterIP`,`NodePort`,`LoadBalancer`
+-   `session_affinity` : Eine Richtlinie, die sicherstellt, dass die Anfragen eines Clients nur an bestimmte Pods weitergeleitet werden - `None`,`clientIP`
+-   `port` : Liste der Ports, die vom Service freigegeben werden
+    -   `name` : Name der Portkonfiguration
+        -   `protocol` : Das IP-Protokoll des Ports - `TCP`,`UDP`
+        -   `port` : Die Portnummer, die vom Service freigegeben wird
+        -   `target_port` : Die Portnummer, die vom Zielpod des Service zugänglich ist
+
+
+---
+
+## Referenzmaterial
+
+-   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

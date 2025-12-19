@@ -1,0 +1,67 @@
+---
+title: ExpressRouteCircuit
+sidebar_position: 2
+tags: [Azure, Ressourcen, Network, ExpressRouteCircuit]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+ExpressRoute Circuit ist ein Service von Microsoft Azure, der es Benutzern ermöglicht, eine private Verbindung zwischen ihrer On-Premises-Infrastruktur und den Azure-Rechenzentren herzustellen. 
+Da der Verkehr über eine private Verbindung anstelle des öffentlichen Internets geroutet wird, bietet er eine sicherere und stabilere Verbindung im Vergleich zu herkömmlichen internetbasierten Verbindungen.
+ExpressRoute Circuit ist im Wesentlichen eine dedizierte private Netzwerkverbindung, mit der Benutzer auf Azure-Dienste wie virtuelle Maschinen, Speicher und Datenbanken zugreifen können, als ob diese Teil ihrer eigenen On-Premises-Infrastruktur wären. 
+Dies ermöglicht es Organisationen, ihre Infrastruktur in die Cloud zu erweitern und gleichzeitig Azure-Dienste zu nutzen, ohne ihre Netzwerke dem öffentlichen Internet auszusetzen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `service_provider` : ISP Anbieter für ExpressRoute -`KINX`, `KT`, `SKTTelecom`, `LGCNS`, ` LGUplus`,   `SejongTelecom`
+
+-   `peering_location` : Der Peering-Standort, an dem der ISP die Verbindung bereitstellt, hat eine andere Bedeutung als der Azure-Standort - `Seoul`, `Busan`
+
+-   `bandwidth_in_mbps` : Datenübertragungsbandbreite (Mbps) -`50`, `100`, `200`, `500`, ` 1000````,   `2000`,  `5000``,  `10000```
+
+-   `sku_tier` : Preismodell für den ExpressRoute-Schaltkreis - `Basic`, `Local`, `Standard`, `Premium`
+
+-   `sku_family` : Abrechnungsmodell für ausgehende Datenübertragungen - `MeteredData`, `UnlimitedData`
+
+-   `authorization_name` : Der Name der Authentifizierung für die Nutzung des Schaltkreises
+
+-   `circuit_peering`
+
+    -   `AzurePrivatePeering`
+        -   `enabled_peering` : Aktivierung des Peering-Typs für diesen Schaltkreis
+        -   `peer_asn` : 16-Bit ASN, öffentlich oder privat - `0`~`65535`
+        -   `primary_peer_address` : IPv4-Subnetz /30 für den primären Link
+        -   `secondary_peer_address` : IPv4-Subnetz /30 für den sekundären Link
+        -   `vlan_id` : Gültige VLAN-ID für die Peering-Konfiguration
+        -   `advertised_public_prefixes` : Liste aller öffentlichen IPv4-Präfixe, die über die BGP-Sitzung verbreitet wurden
+    -   `AzurePublicPeering`
+        -   `enabled_peering` : Aktivierung des Circuit-Peerings für diesen Typ
+    -   `MicrosoftPeering`
+        -   `enabled_peering` : Aktivierung des Circuit-Peerings für diesen Typ
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - Maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure ExpressRouteCircuit(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings#circuits)
+-   [Azure ExpressRouteCircuit Kosten](https://azure.microsoft.com/en-us/pricing/details/expressroute/)
+-   [Azure ExpressRouteCircuit(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/express_route_circuit)

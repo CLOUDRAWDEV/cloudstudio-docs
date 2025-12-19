@@ -1,0 +1,55 @@
+---
+title: ActionGroup
+sidebar_position: 0
+tags: [Azure, Ressourcen, Monitor, ActionGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/monitor-action_group.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Die Azure Monitor-Aktionsgruppe ist eine Funktion von Microsoft Azure, mit der eine Reihe von Aktionen definiert werden kann, die ausgeführt werden sollen, wenn eine Warnung ausgelöst wird. Eine Aktionsgruppe kann als Sammlung von Benachrichtigungseinstellungen und Aktionen betrachtet werden, die mit einer bestimmten Warnung verbunden sind.
+Wenn eine Warnung ausgelöst wird, kann Azure Monitor automatisch eine Reihe von Aktionen ausführen, die in der verbundenen Aktionsgruppe definiert sind.
+Die Aktionsgruppe kann so konfiguriert werden, dass verschiedene Arten von Aktionen ausgeführt werden, wie z.B. das Senden einer E-Mail, das Senden einer SMS, das Tätigen eines Anrufs oder das Auslösen eines Webhooks.
+Es können mehrere Aktionen angegeben werden, die parallel oder nacheinander ausgeführt werden, und es können Eskalationsrichtlinien festgelegt werden, um sicherzustellen, dass die Warnung angemessen behandelt wird.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `short_name` : Name der Aktionsgruppe, der in E-Mail- und SMS-Benachrichtigungen angezeigt wird
+
+-   `enabled` : Aktivierung der Aktionsgruppe
+
+-   `email`
+
+    -   `email_address` : E-Mail-Adresse, an die die Benachrichtigungen gesendet werden
+    -   `use_common_alert_schema` : Aktivierung oder Deaktivierung des gemeinsamen Warnschemas - `true`, `false`
+
+-   `sms`
+
+    -   `country_code` : Ländervorwahl für die SMS-Benachrichtigung
+    -   `phone_number` : Telefonnummer, an die die Benachrichtigungen gesendet werden
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure ActionGroup(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+-   [Azure ActionGroup Kosten](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
+-   [Azure ActionGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_action_group)

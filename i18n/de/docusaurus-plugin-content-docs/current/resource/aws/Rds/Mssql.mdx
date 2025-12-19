@@ -1,0 +1,62 @@
+---
+title: Mssql
+sidebar_position: 0
+tags: [AWS, Ressourcen, Rds, Mssql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mssql.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+SQL Server ist ein relationales Datenbankmanagementsystem, das von Microsoft entwickelt wurde. Mit Amazon RDS für SQL Server können Sie SQL Server-Deployments in der Cloud einfach einrichten, betreiben und skalieren. Mit Amazon RDS können Sie mehrere Versionen von SQL Server (2014, 2016, 2017 und 2019) in wenigen Minuten bereitstellen, einschließlich Express, Web, Standard und Enterprise, mit kosteneffizienter und skalierbarer Rechenleistung. Außerdem übernimmt Amazon RDS zeitaufwendige Datenbankverwaltungsaufgaben wie Bereitstellung, Backups, Software-Patches, Überwachung und Hardware-Skalierung, sodass Kunden sich ausschließlich auf die Anwendungsentwicklung konzentrieren können.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+
+## Ressourcenkonfigurationswerte
+
+-   `engine` : MsSQL-Engine-Typen für die Verwendung mit RDS - `sqlserver-ex`, `sqlserver-ee`, `sqlserver-web`, `sqlserver-se`
+-   `engine_version` : SQL Server Version für RDS
+-   `instance_class` : Preisstufenkategorie der RDS-Datenbank
+-   `storage_type` : Speichertyp der RDS-Instanz
+-   `allocated_storage` : Speichergröße der RDS-Instanz (in Gigabyte)
+-   `max_allocated_storage` : Maximale Grenze für die automatische Speichererweiterung der DB-Instanz durch Amazon RDS
+-   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung - `true`, `false`
+-   `username` : Benutzername für RDS
+-   `password` : Passwort des RDS-Benutzers
+-   `included_subnet_names` : Subnetz-Namen, die mit der RDS-Subnetzgruppe verbunden werden sollen
+-   `publicly_accessible` : Ob öffentlicher Zugriff auf die Instanz möglich ist - `true`, `false`
+-   `subnet_group_name` : Name der Subnetzgruppe, die mit der RDS-Instanz verwendet werden soll
+
+-   `monitoring`
+    -   `performance_insights_enabled` :  Aktivierung der Performance Insights
+-   `encryption`
+    -   `storage_encrypted` : Gibt an, ob die DB-Instanz verschlüsselt ist - `true`, `false`
+    -   `kms_key_name` : Name des KMS-Schlüssels, der für die Verschlüsselung verwendet werden soll
+-   `backup`
+    -   `backup_retention_period` : Zeitraum, für den Backups aufbewahrt werden - `1`~`35`
+    -   `final_snapshot_enabled` : Ob ein endgültiges Snapshot erstellt werden soll, bevor die DB-Instanz gelöscht wird - `true`, `false`
+    -   `final_snapshot_name` : Name des endgültigen Snapshots
+
+---
+
+## Referenzmaterial
+
+-   [Amazon RDS for SQL Server(AWS)](https://aws.amazon.com/ko/rds/sqlserver/)
+-   [Amazon RDS for SQL Server Kosten(AWS)](https://aws.amazon.com/ko/rds/sqlserver/pricing/?nc=sn&loc=4)

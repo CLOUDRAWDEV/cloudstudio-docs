@@ -1,0 +1,43 @@
+---
+title: ContainerRegistry
+sidebar_position: 0
+tags: [Azure, Ressourcen, Container, ContainerRegistry]
+---
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Container Registry ist ein verwalteter Registrierungsdienst, der auf dem Open-Source Docker Registry 2.0 basiert.
+Er ermöglicht es, Azure Container Registry zu erstellen und zu verwalten, um Container-Images und verwandte Artefakte zu speichern und zu verwalten.
+
+## Ressourcen-Einstellwerte
+
+-   `sku` : SKU-Typen für die Leistung und Skalierbarkeit des Container Registry - `Basic`, `Standard`, `Premium`
+
+-   `admin_enabled` : Administrator aktivieren - `true`, `false`
+
+-   `public_network_access_enabled` : Öffentlichen Netzwerkzugriff zulassen - `true`, `false`
+
+-   `network_rule_set` : Kann nur erstellt werden, wenn der SKU-Typ Premium ist
+    -   `default_action` : Aktionen für Anfragen, die nicht mit der Regel übereinstimmen - `Deny`, `Allow`
+    -   `ip_ranges` : IP-Adresse CIDR der Anfragen, die mit der Regel übereinstimmen
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure ContainerRegistry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/container-registry-intro)
+-   [Azure ContainerRegistry Kosten](https://azure.microsoft.com/en-us/pricing/details/container-registry/)
+-   [Azure ContainerRegistry(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

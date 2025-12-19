@@ -1,0 +1,74 @@
+---
+title: Sentinel
+sidebar_position: 0
+tags: [Azure, Ressourcen, Sentinel]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Sentinel ist ein cloud-natives SIEM (Security Information and Event Management) Service, das von Microsoft Azure bereitgestellt wird. 
+Es bietet unternehmensweite, intelligente Sicherheitsanalysen und Bedrohungsinformationen, um die IT-Infrastruktur und Vermögenswerte einer Organisation vor Cyber-Bedrohungen zu schützen.
+Azure Sentinel sammelt Daten aus verschiedenen Quellen wie Servern, Netzwerken, Anwendungen und Geräten und bietet eine integrierte Ansicht der Sicherheitsbedrohungen im gesamten Unternehmen. 
+Mit fortgeschrittenen Analyse- und maschinellen Lernalgorithmen erkennt und reagiert es in Echtzeit auf Bedrohungen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+
+## Ressourcen-Einstellwerte
+
+-   `linked_workspace_name` : Sentinel mit dem Log Analytics Workspace verbinden
+
+-   `connect_security_center` : Ob Microsoft Defender für Cloud Data Connector mit Sentinel verbunden werden soll - `true`,`false`
+-   `connect_threat_intelligence` : Ob der Datenkonnektor der Threat Intelligence Platform (Vorschau) mit Sentinel verbunden werden soll - `true`,`false`
+
+-   `connect_advanced_threat_protection` : Ob Microsoft Defender for Identity Data Connector mit Sentinel verbunden werden soll - `true`,`false`
+
+-   `connect_microsoft_defender` : Ob Microsoft Defender Data Connector für Endpunkte mit Sentinel verbunden werden soll - `true`,`false`
+
+-   `connect_office_365` : Ob Office 365 Data Connector mit Sentinel verbunden werden soll - `true`,`false`
+
+-   `connect_cloud_app_security` - `true`,`false`
+
+-   `fusion_rule_rule_guid` : Ob Microsoft Defender für Cloud Apps Data Connector mit Sentinel verbunden werden soll
+
+-   `behavior_analytics_rule_guid` : GUID-Liste der Sentinel ML-Verhaltensanalyseregel
+
+-   `alert_rule_incident`
+
+    -   `display_name` : Anzeigename der Sentinel MS Security Incident Alert Rule
+    -   `product` : Microsoft Sicherheitsdienst, bei dem Warnungen erstellt werden
+    -   `severity` : Schweregradstufe, bei der eine MS-Sicherheitsvorfall-Warnung ausgelöst wird - `High`,`Medium`,`Low`,`Informational`
+
+-   `alert_rule_scheduled`
+
+    -   `display_name` : Anzeigename der geplanten Sentinel-Abfrageregel
+    -   `severity` : Schweregrad der Sentinel geplanten Alarmregel - `High`,`Medium`,`Low`,`Informational`
+    -   `query` : Abfragesyntax der geplanten Alarmregel in Sentinel
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Sentinel(Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
+-   [Azure Sentinel Kosten](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/)
+-   [Azure Sentinel(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution)

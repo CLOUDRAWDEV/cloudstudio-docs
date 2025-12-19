@@ -1,0 +1,58 @@
+---
+title: Subnet
+sidebar_position: 0
+tags: [AWS, Ressourcen, Vpc, Subnet]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Subnetz ist der IP-Adressbereich eines VPCs. In einem bestimmten Subnetz können AWS-Ressourcen wie EC2-Instanzen erstellt werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Untergeordnete Ressource
+
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+-   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Ecs Cluster**](https://docs.cstudio.app/docs/resource/aws/Ecs/EcsCluster)
+-   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticache Cluster**](https://docs.cstudio.app/docs/resource/aws/Elasticache/ElasticacheCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Rds Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+-   [**Rds Mariadb**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Rds Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Rds Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+-   [**Rds Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Rds Postgresql**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**Vpc Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vpc_name` : Name der VPC, in der das Subnetz bereitgestellt werden soll
+-   `cidr_block` : IP-Adressbereich (CIDR) des Subnetzes
+-   `availability_zone` : Verfügbarkeitszone, in der das Subnetz bereitgestellt werden soll
+-   `pip_enable` : Zuweisung einer öffentlichen IP
+
+
+---
+
+## Referenzmaterial
+
+-   [Subnetz des VPC(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
+-   [aws_subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

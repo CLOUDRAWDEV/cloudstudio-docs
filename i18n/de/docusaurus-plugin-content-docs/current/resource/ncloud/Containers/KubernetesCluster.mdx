@@ -1,0 +1,58 @@
+---
+title: Kubernetes Cluster
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Containers, KubernetesCluster]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es handelt sich um einen Kubernetes-Dienst, eine Open-Source-Plattform zur Automatisierung der Containerisierung, Bereitstellung und Verwaltung von Anwendungen. Sie automatisiert Aufgaben wie die Bereitstellung, Verwaltung und Skalierung von Containern und steigert so die Arbeitseffizienz.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Untergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+
+## Ressourcen-Einstellwerte
+
+-   `zone` : Physischer Standort, an dem der Cluster erstellt wird - `KR-1`, `KR-2`
+-   `included_vpc_name` : Name des VPC, in dem der Cluster erstellt wird
+-   `hypervisor_code` : Hypervisor-Code und Cluster-Version - `XEN`
+-   `version` : Cluster-Version - `1.26.10-nks.1`, `1.27.9-nks.1`
+-   `maximum_number_of_nodes` : Maximale Anzahl der Cluster-Knoten (10 oder 50)
+-   `enable_public_subnet_network` : Ob eine Verbindung mit dem öffentlichen Subnetz hergestellt werden soll
+-   `subnet_names` : Liste der Subnetz-Namen zur Cluster-Konfiguration (maximal 3)
+-   `lb_private_subnet_name` : Name des privaten Subnetzes, in dem sich der private Load Balancer für den Cluster befindet
+-   `lb_public_subnet_name` : Name des privaten Subnetzes, in dem sich der private Load Balancer für den Cluster befindet
+-   `login_key_name` : Name des zu verwendenden login_key
+-   `enable_audit_log` : Ob die audit log-Funktion aktiviert wird
+-   `node_pool` : Name des Node Pools
+    -   `node_count` : Anzahl der Knoten im Cluster
+    -   `software_code` : Server-Image-Code der Knoten
+    -   `product_code` : Code für die Hardwarekonfiguration der Knoten
+    -   `node_pool_subnet_name` : Name des Subnetzes, in dem der Node Pool erstellt wird
+-   `enable_autoscale` : Ob die Auto-Scaling-Funktion aktiviert wird
+
+---
+
+## Referenzmaterial
+
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/product/containers/kubernetes)
+-   [ncloud_nks_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

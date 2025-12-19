@@ -1,0 +1,61 @@
+---
+title: Role
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, RBAC, Role]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Kubernetes-Ressource, die eine Rolle erstellt, die nur auf den angegebenen Namespace angewendet wird
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+
+### Verbundene Ressourcen
+
+-   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/RoleBinding)
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Name der Role-Ressource
+-   `namespace` : Namespace, in dem die Role-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die verwendet werden, um die erforderlichen Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Der Benutzer kann einen beliebigen Wert festlegen, um das Objekt zu unterscheiden
+-   `rule` : Policy-Rolle für die betreffende Rolle
+    -   `name` : Name der Policy-Rolle
+    -   `api_groups` : API-Gruppe, die die Ressourcen enthält, auf denen die Aktion erlaubt ist
+    -   `resources` : Liste der Ressourcen, auf die diese Regel angewendet wird
+    -   `resource_names` : Wenn der einzelne Instanz der Ressource ausgewählt wird, angeben – wenn leer, wird die gesamte Ressource eingeschlossen
+    -   `verbs` : Liste der Verben, die auf alle Ressourcen in einer Regel angewendet werden
+
+
+
+
+
+
+---
+
+## Referenzmaterial
+
+-   [Role(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [Role(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role)

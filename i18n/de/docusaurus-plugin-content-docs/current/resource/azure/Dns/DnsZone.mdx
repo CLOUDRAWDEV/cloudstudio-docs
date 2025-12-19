@@ -1,0 +1,72 @@
+---
+title: DnsZone
+sidebar_position: 0
+tags: [Azure, Ressourcen, Dns, DnsZone]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure DNS-Zonen sind ein von Microsoft Azure bereitgestellter Dienst, der es ermöglicht, DNS-Domänen in der Cloud zu hosten und DNS-Einträge zu verwalten.
+Mit Azure DNS können Sie DNS-Einträge wie A, AAAA, CNAME, MX und TXT verwalten und DNS-Einstellungen wie SOA (Start of Authority), NS (Nameserver) und PTR (Pointer)-Einträge konfigurieren.
+Durch die Verwendung von Azure DNS-Zonen erhalten Sie eine hochverfügbare und skalierbare DNS-Lösung, die in andere Azure-Dienste wie Virtual Machines, Load Balancer und App Services integriert werden kann.
+Zusätzlich können sie auch in Verbindung mit lokalen Ressourcen verwendet werden, um eine integrierte und konsistente DNS-Verwaltungsumgebung zu bieten.
+Azure DNS-Zonen unterstützen sowohl öffentliche als auch private DNS-Zonen. Öffentliche DNS-Zonen werden verwendet, um Domainnamen auf IP-Adressen abzubilden, die über das Internet zugänglich sind, während private DNS-Zonen verwendet werden, um Domainnamen auf private IP-Adressen abzubilden, die nur innerhalb eines virtuellen Netzwerks zugänglich sind.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `dns_a_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `records` : Liste der IPv4-Adressen
+
+-   `dns_aaaa_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `records` : Liste der IPv6-Adressen
+
+-   `dns_cname_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `record` : Alias zum Verknüpfen von Subdomains mit anderen Einträgen
+
+-   `dns_ns_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `records` : Liste der Nameserver-Einträge
+
+-   `dns_ptr_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `records` : Liste der Domainnamen für Pointer-Eintrags-Typen
+
+-   `dns_txt_record`
+
+    -   `ttl` : DNS-Eintrag Time To Live (TTL) in Sekunden - `0` ~ `2147483647`
+    -   `records` : Liste der Text-Eintrags-Typen
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - Maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure DnsZone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Azure DnsZone Kosten](https://azure.microsoft.com/en-us/pricing/details/dns/)
+-   [Azure DnsZone(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone)

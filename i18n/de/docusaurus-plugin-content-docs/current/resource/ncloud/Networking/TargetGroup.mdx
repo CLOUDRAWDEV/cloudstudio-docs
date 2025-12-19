@@ -1,0 +1,56 @@
+---
+title: TargetGroup
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Network, TargetGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dies ist eine Ressource, die eine Sammlung von Zielen darstellt, die die Anfragen des Load Balancers verarbeiten sollen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Verbundene Ressourcen
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+
+
+## Ressourcen-Einstellwerte
+
+-   `included_vpc_name` : Der Name des VPC, in dem die Zielgruppe existiert
+-   `protocol` : Der Protokolltyp, der auf den Datenverkehr angewendet wird - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Die Portnummer, auf der der Datenverkehr empfangen wird
+-   `algorithm_type` : Der Algorithmustyp, der für das Load Balancing verwendet wird, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Das Protokoll, das für die Überprüfung des Zielstatus verwendet wird, RR/SIPHS/LC - `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : Die HTTP-Methode, die verwendet wird, wenn das Zielstatusprotokoll HTTP/HTTPS ist - `HEAD`, `GET`
+-   `health_check_port` : Die Portnummer, die für die Überprüfung des Zielstatus verwendet wird
+-   `health_check_cycle` : Der Intervall (in Sekunden) für die Zielstatusüberprüfung, im Bereich von 5 bis 300
+-   `health_check_up_threshold` : Der Schwellenwert für einen Zielstatus als gesund, die Anzahl der Überprüfungen, die erforderlich sind, damit ein nicht gesunder Zielstatus wieder als gesund betrachtet wird, im Bereich von 2 bis 10
+-   `health_check_down_threshold` : Der Schwellenwert für einen Zielstatus als nicht gesund, die Anzahl der Überprüfungen, die erforderlich sind, damit ein gesunder Zielstatus als nicht gesund betrachtet wird, im Bereich von 2 bis 10
+-   `linked_server_names` : Eine Liste der Servernamen, die verbunden werden sollen
+
+
+
+---
+
+## Referenzmaterial
+
+
+-   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

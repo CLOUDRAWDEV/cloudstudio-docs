@@ -1,0 +1,61 @@
+---
+title: ClusterRoleBinding
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, RBAC, ClusterRoleBinding]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Kubernetes-Ressource, die eine Rolle referenziert, die auf Cluster-Ebene und in allen Namespaces auf den Benutzer angewendet wird
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+
+### Verbundene Ressourcen
+
+-   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRole)
+
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Name der ClusterRoleBinding-Ressource
+-   `annotations` : Key-Value-Paare, die verwendet werden, um die erforderlichen Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Der Benutzer kann einen beliebigen Wert festlegen, um das Objekt zu unterscheiden
+-   `role_name` : Geben Sie den Namen der Rolle an, die mit dem Subjekt gebunden werden soll
+-   `subject` : Festlegung des Subjekts, dem die Rolle zugewiesen werden soll 
+    -   `name` : Geben Sie den Namen des Subjekts ein, das gebunden werden soll
+    -   `namespace` : Geben Sie das Namespace des Subjekts ein, das gebunden werden soll
+    -   `api_group` : API-Gruppe, die die Genehmigungsentscheidung trifft - `rbac.authorization.k8s.io`,`User`,`Group`
+    -   `kind` : Wählen Sie den Typ des Subjekts aus, das gebunden werden soll- `ServiceAccount`,`User`,`Group`
+
+
+
+
+
+
+
+---
+
+## Referenzmaterial
+
+-   [ClusterRoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)
+`

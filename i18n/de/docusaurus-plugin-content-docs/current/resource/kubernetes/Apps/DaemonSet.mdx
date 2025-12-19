@@ -1,0 +1,89 @@
+---
+title: DaemonSet
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Apps, Daemonset]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+DaemonSet ist eine Kubernetes-Ressource, die sicherstellt, dass auf allen (oder einigen) Knoten Kopien von Pods ausgeführt werden. Wenn ein neuer Knoten zum Cluster hinzugefügt wird, wird auf diesem Knoten automatisch ein Pod hinzugefügt.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : Name der DaemonSet-Ressource
+-   `namespace` : Der Namespace, in dem die DaemonSet-Ressource bereitgestellt wird
+-   `annotations` : Schlüssel-Wert-Paare, die verwendet werden, um Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Werte, die vom Benutzer festgelegt werden, um Objekte zu unterscheiden
+-   `template_labels` : Die Labels, die für die Pods gesetzt werden, die auf jedem Knoten erstellt werden
+-   `containers` : Vorlagen für Container, die den Pods zugewiesen sind – grundlegende Einstellungen werden festgelegt und dann können spezifische Details konfiguriert werden.
+    -   `containers.name` : Der Name des Containers, der definiert wird
+        -   `image` : Der Name des Docker-Images, das verwendet werden soll
+        -   `args` : Die Befehle, die im Container ausgeführt werden sollen
+        -   `command` : Die Befehle, die im Container ausgeführt werden sollen
+        -   `port` : Die Liste von Ports, die im Container exponiert werden
+
+        -   `resources` : Mengen an Rechenressourcen für den Container festlegen – Detailkonfiguration
+            -   `name` : Festlegung der minimalen/maximalen Rechenressourcenmenge   - `Limits`, `requests`     
+            -   `cpu` : Menge an CPU, die festgelegt werden soll    
+            -   `memory` : Menge an Arbeitsspeicher, die festgelegt werden soll
+
+        -   `probe` : Definiert die Methode zur Diagnose des Pod-Zustands – Detailkonfiguration
+            -   `name` : Wählen Sie die Art der Probe - `startup`,`liveness`,`readiness`
+            -   `http_get_path` : Pfad zum Zugreifen auf den HTTP-Server
+            -   `http_get_port` : Portnummer, über die der Container zugänglich ist
+            -   `http_header` : Benutzerdefinierte Header, die in der Anfrage festgelegt werden sollen
+            -   `initial_delay_seconds` : Die Zeit (in Sekunden), die nach dem Starten des Containers gewartet werden muss, bevor die Probe beginnt
+            -   `period_seconds` : Häufigkeit der Probeausführung (in Sekunden)
+
+        -   `env` : Block von Schlüssel-Wert-Paaren, die für die Containerumgebung festgelegt werden – Detailkonfiguration
+            -   `name` : Name der Umgebungsvariablen
+            -   `value` : Wert, der der Umgebungsvariablen zugewiesen werden soll
+
+        -   `volume_mount` : Volumes, die im Container-Dateisystem des Pods montiert werden – Detailkonfiguration
+            -   `name` : Name des Volume-Mounts
+            -   `path` 
+                -   `mount_path` : Der Pfad im Container, an dem das Volume gemountet werden soll
+                -   `sub_path` : Der spezifische Unterpfad im Container, an dem das Volume gemountet werden soll
+            
+-   `volume` : Liste der Volumes, die Container im Pod mounten können
+    -   `name` : Name des Volumes
+        -   `type` : Typ des zu mountenden Volumes - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
+        -   `target_name` : Name des PersistentVolumeClaim
+        -   `default_mode` : Modus, der für die erstellten Dateien verwendet werden soll - von 0 bis 0777, Standardwert ist 0644
+        -   `read_only` : Wenn true, wird das Volume nur lesend gemountet, andernfalls ist es lesend/schreibend
+
+-   `image_pull_secrets` : Geheimnis im gleichen Namespace, das die Berechtigungen zum Abrufen des Containers enthält
+
+
+---
+
+## Referenzmaterial
+
+-   [DaemonSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+-   [DaemonSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/daemonset)

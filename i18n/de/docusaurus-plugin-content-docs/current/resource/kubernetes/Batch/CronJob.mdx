@@ -1,0 +1,96 @@
+ 6179---
+title: CronJob
+sidebar_position: 0
+tags: [Kubernetes, Ressourcen, Batch, CronJob]
+---
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Es ist eine Kubernetes-Ressource, die regelmäßig Aufgaben gemäß einem Zeitplan erstellt.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+
+
+## Ressourcen-Einstellwerte
+
+-   `service_name` : CronJob Ressourcenname
+-   `namespace` : Der Namespace, in dem die CronJob-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Paare, die verwendet werden, um wichtige Informationen im Kubernetes-System anzuzeigen
+-   `labels` : Benutzerdefinierte Werte, die verwendet werden, um Objekte zu kennzeichnen
+-   `template_labels` : Labels, die für Pods, die auf jedem Knoten erstellt werden, konfiguriert werden
+-   `concurrency_policy` : Gibt an, wie die gleichzeitige Ausführung von Jobs gehandhabt wird - `Allow`,`Forbid`,`Replace`
+-   `failed_jobs_history_limit` : Gibt an, wie die gleichzeitige Ausführung von Jobs gehandhabt wird
+-   `schedule` : Der Zeitplan für die Durchführung des Jobs
+-   `timezone` : Die Zeitzone für den Zeitplan
+-   `starting_deadline_seconds` : Die Frist (in Sekunden) für den Beginn eines Jobs, wenn der geplante Zeitpunkt aus irgendeinem Grund verpasst wurde
+-   `successful_jobs_history_limit` : Gibt an, wie viele erfolgreich abgeschlossene Jobs gespeichert werden sollen - der Standardwert ist 3
+
+-   `containers` : Vorlage für Container definieren, die zu einem Pod gehören – grundlegende Einstellungen festlegen und nach der Anwendung detaillierte Einstellungen vornehmen.
+    -   `containers.name` : Der Name des Containers
+        -   `image` : Der Name des Docker-Images, das verwendet wird
+        -   `args` : Die auszuführenden Befehle im Container
+        -   `command` : Die auszuführenden Befehle im Container
+        -   `port` : Die Liste der Ports, die vom Container exponiert werden
+
+        -   `resources` : Definiert die Menge der Rechenressourcen für den Container - Detaileinstellungen 
+            -   `name` : Definiert die minimalen/maximalen Rechenressourcen   - `Limits`, `requests`     
+            -   `cpu` : Definiert die Menge an CPU  
+            -   `memory` : Definiert die Menge an Speicher
+
+        -   `probe` : Definiert, wie der Status des Pods diagnostiziert wird - Detaileinstellungen 
+            -   `name` : Wählt die Probe-Methode aus - `startup`,`liveness`,`readiness`
+            -   `http_get_path` : Der Pfad zum Zugriff auf den HTTP-Server
+            -   `http_get_port` : Der Port, der vom Container für den Zugriff auf den HTTP-Server verwendet wird
+            -   `http_header` : Benutzerdefinierte Header für die Anfrage
+            -   `initial_delay_seconds` : Die Zeit in Sekunden, die nach dem Start des Containers verstreichen muss, bevor die Probe gestartet wird
+            -   `period_seconds` : Die Häufigkeit, mit der die Probe durchgeführt wird (in Sekunden)
+
+        -   `env` : Block von Schlüssel-Wert-Paaren für Umgebungsvariablen im Container - Detaillierte Einstellungen
+            -   `name` : Umgebungsvariablenname festlegen
+            -   `value` : Wert der Umgebungsvariable festlegen
+
+        -   `volume_mount` : Container-Dateisystem mit Pod-Volumes verbinden - Detaillierte Einstellungen
+            -   `name` : Volume-Mount-Name festlegen
+            -   `path` 
+                -   `mount_path` : Pfad im Container, an dem das Volume gemountet werden soll
+                -   `sub_path` : Unterpfad im Container, an dem das Volume gemountet werden soll
+            
+-   `volume` : Liste der Volumes, die von Containern im Pod verwendet werden können
+    -   `name` : Volume-Name
+        -   `volume_type` : Art des Volumes, das gemountet werden soll - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
+        -   `target_name` : Name des Persistent Volume Claims
+        -   `default_mode` : Modus für die erstellte Datei - zwischen 0 und 0777, Standard ist 0644
+        -   `read_only` : Wenn true, wird das Volume schreibgeschützt gemountet, andernfalls ist es lesbar und beschreibbar
+
+-   `image_pull_secrets` : Secret im gleichen Namespace, das die Berechtigungen zum Abrufen von Images für Container enthält
+
+
+
+---
+
+## Referenzmaterial
+
+-   [CronJob(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+-   [CronJob(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)

@@ -1,0 +1,59 @@
+---
+title: Config
+sidebar_position: 0
+tags: [AWS, Ressourcen, Config]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/config-aws_config.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ressource zum Aufzeichnen von Ressourcenkonfigurationsinformationen eines Kontos, um Beziehungen zwischen Ressourcen zu erkennen
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**Sns Topic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+
+## Ressourceneinstellungen
+
+-   `enable_config_recorder` : Ob der Konfigurationsaufzeichner aktiviert oder deaktiviert werden soll - `false`, `true`
+-   `role_name` : Name der IAM-Role, die von AWS Config verwendet wird
+-   `recording_method`
+-   `recording_method.enable_all_supported` : Ob AWS Config Konfigurationsänderungen für alle unterstützten regionalen Ressourcentypen aufzeichnet - `false`,`true`
+-   `recording_method.exclude_resource_types` : Liste der AWS-Ressourcentypen, für die Konfigurationsänderungen in AWS Config aufgezeichnet werden sollen
+-   `recording_method.include_global_resource_types` : Ob alle unterstützten globalen Ressourcentypen zusammen mit den von AWS Config aufgezeichneten Ressourcen enthalten sind - `false`,`true`
+-   `linked_s3_bucket_name` : Name des S3-Buckets, der zur Speicherung der Konfigurationsaufzeichnungen verwendet wird
+-   `s3_key_prefix` : Prefix des S3-Buckets, der verwendet werden soll
+-   `enable_sns_topic` : Ob AWS Config Benachrichtigungen an das SNS-Topic weiterleitet
+-   `delivery_frequency` : Häufigkeit, mit der AWS Config regelmäßig Konfigurations-Snapshots sendet
+-   `config_rule`
+-   `config_rule.name` : Name der Config-Rule
+-   `config_rule.rule_owner` : Ob AWS oder der Kunde die AWS Config-Regeln besitzt und verwaltet - `AWS`,`customLambda`,`customPolicy`
+-   `config_rule.source_identifier` : Vordefinierte Identifikatoren für AWS Config-Management-Regeln
+
+---
+
+## Referenzmaterial
+
+-   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_delivery_channel)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder_status)

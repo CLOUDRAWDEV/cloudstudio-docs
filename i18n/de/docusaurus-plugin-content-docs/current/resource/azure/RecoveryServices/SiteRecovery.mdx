@@ -1,0 +1,87 @@
+---
+title: SiteRecovery
+sidebar_position: 1
+tags: [Azure, Ressourcen, RecoveryServices, SiteRecovery]
+---
+
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/recovery_services-site_recovery.png"
+    }
+/>
+
+## Ressourcenübersicht
+Azure Site Recovery ist eine von Microsoft Azure bereitgestellte Notfallwiederherstellungslösung, die dabei hilft, Anwendungen und Workloads zu schützen und wiederherzustellen, die auf physischen oder virtuellen Maschinen ausgeführt werden, unabhängig davon, ob sie sich vor Ort oder bei einem anderen Cloud-Anbieter befinden.
+Mit Azure Site Recovery können Sie Anwendungen und Daten an ein sekundäres Azure-Region oder eine andere Hilfsstelle replizieren, um während ungeplanter Ausfallzeiten wie Stromausfällen, Naturkatastrophen oder anderen Unterbrechungsereignissen eine Failover-Unterstützung bereitzustellen.
+Azure Site Recovery bietet auch Unterstützung für geplante Wartungsereignisse, sodass Sie Workloads mit minimaler Ausfallzeit an einen anderen Standort migrieren können.
+
+
+
+
+## Ressourcen-Einstellwerte
+- ```sku``` : Preismodell für die Verwendung von Recovery Services Vault - ```Standard```,  ```RS0```
+
+- ```soft_delete_enabled``` : Aktivierung der Soft-Delete-Funktion für die Datenwiederherstellung - ```true```,  ```false```
+
+- ```role_assignment```
+    + ```scope``` : Ressourcenumfang, auf den die Rollenzuweisung angewendet wird
+    + ```role_definition_name``` : Name der zugewiesenen Standardrolle
+
+
+- ```recovery_fabric```
+    + ```location``` : Azure-Region, in der sich das Recovery Fabric befindet
+ 
+
+- ```protection_container```
+    + ```recovery_fabric_name``` : Name des Recovery Fabrics, das mit dem Schutzcontainer verbunden ist
+ 
+- ```replication_policy```
+    + ```recovery_point_retention``` : Zeitraum, in dem Wiederherstellungspunkte gespeichert werden (in Minuten)
+    + ```snapshot_frequency``` : Häufigkeit der Erstellung von Anwendungs-Snapshots zur Gewährleistung der Anwendungs-Konsistenz (in Minuten)
+
+- ```container_mapping```
+    + ```source_fabric_name``` : Name des Source Fabrics, das mit dem zuzuordnenden Protection Container verbunden ist
+    + ```source_container_name``` : Name des Source Protection Containers
+    + ```target_fabric_name``` : Name des Target Fabrics, das mit dem zuzuordnenden Protection Container verbunden ist
+    + ```target_container_name``` : Name des Target Protection Containers
+    + ```replication_policy_name``` : Name der zu verwendenden Replikationsrichtlinie für die Zuordnung
+  
+- ```network_mapping```
+    + ```source_fabric_name``` : Name des Quell-Fabrics
+    + ```source_vnet_name``` : Name des Quell-Virtual Networks
+    + ```target_fabric_name``` : Name des Ziel-Fabrics
+    + ```target_vnet_name``` : Name des Ziel-Virtual Networks
+
+- ```public_ip```
+    + ```allocation_method``` : Methode zur Zuweisung der öffentlichen IP-Adresse - ```Static```,  ```Dynamic```
+    + ```sku``` : Methode zur Zuweisung der öffentlichen IP-Adresse  - ```Basic```,  ```Standard```
+
+
+- ```replicated_vm```
+    + ```source_fabric_name``` : Name des Quell-Fabrics
+    + ```source_vm_name``` : Name der Quell-VM, die repliziert werden soll
+    + ```source_container_name``` : Name des Quell-Schutzcontainers
+    + ```replication_policy_name``` : Name der zu verwendenden Replikationsrichtlinie
+    + ```target_fabric_name``` : Name des Ziel-Fabrics, in dem die replizierte VM im Fall eines Failovers behandelt wird
+    + ```target_container_name``` : Name des Ziel-Schutzcontainers, in dem die VM im Fall eines Failovers repliziert wird
+    + ```storage_account_name``` : Name des Storage-Kontos, das für das Caching verwendet wird
+    + ```target_disk_type``` : Festplattentyp, der im Fall eines Failovers verwendet wird
+    + ```replica_disk_type``` : Festplattentyp für das Speichern der replizierten Daten - ```Standard_LRS```,  ```StandardSSD_LRS```,  ```Premium_LRS```
+    + ```source_nic_name``` : Name der Quell-Netzwerk-Schnittstelle
+    + ```target_subnet_name``` : Name des Ziel-Subnets, das im Fall eines Failovers verwendet wird
+    + ```target_pip_name``` : Name der öffentlichen IP, die im Fall eines Failovers verwendet wird
+
+
+<hr />
+
+## Referenzmaterial
+- [Azure SiteRecovery(Microsoft)](https://learn.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)
+- [Azure SiteRecovery Kosten](https://azure.microsoft.com/en-us/pricing/details/site-recovery/) 
+- [Azure SiteRecovery(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/site_recovery_fabric)
+

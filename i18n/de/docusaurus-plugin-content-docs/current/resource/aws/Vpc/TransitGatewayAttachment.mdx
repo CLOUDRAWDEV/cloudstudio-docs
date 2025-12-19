@@ -1,0 +1,48 @@
+---
+title: TransitGatewayAttachment
+sidebar_position: 0
+tags: [AWS, Ressource, VPC, TransitGatewayAttachment]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Dienste, die verwendet werden können, um ein VPC mit einem On-Premises-Netzwerk zu verbinden
+
+## Verwandte Ressourcen
+
+
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**TransitGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
+-   [**TransitGatewayAttachmentAccepter**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
+
+
+## Ressourcen-Einstellwerte
+
+-   `linked_tranit_gateway_name` : Name des Transit Gateways, das mit dem VPC verbunden wird
+-   `is_manual` : Ob die VPC-ID direkt eingegeben werden soll - `false`,`true`
+-   `linked_vpc_name` : Name des VPC, das mit dem Transit Gateway verbunden wird
+-   `subnet_names` : Name des Subnetzes, das mit dem Transit Gateway verbunden wird
+---
+
+## Referenzmaterial
+
+-   [TransitGatewayAttachment(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachment(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment)

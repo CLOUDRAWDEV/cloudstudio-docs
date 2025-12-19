@@ -1,0 +1,38 @@
+---
+title: InitScript
+sidebar_position: 0
+tags: [Ncloud, Ressourcen, Compute, Initscript]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Das Init-Skript ist eine Funktion, mit der ein zuvor erstelltes Skript beim Erstellen eines Servers automatisch ausgeführt wird. Es kann in verschiedenen Fällen genutzt werden, z. B. beim gleichzeitigen Erstellen mehrerer Server mit derselben Funktion, beim regelmäßigen Erstellen von Servern mit derselben Umgebung oder wenn eine Verwaltung der anfänglichen Serverumgebung für bestimmte Zwecke erforderlich ist.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+
+## Ressourcen-Einstellwerte
+
+-   `OS_type` : Verwendeter Serverinstanztyp - `LNX`, `WND`
+-   `Content` : Automatisch ausgeführtes Skript beim Erstellen des Servers, Beispiel) #!/bin/bash yum install -y httpd && systemctl start httpd
+
+---
+
+## Referenzmaterial
+
+-   [ncloud_InitScript(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)

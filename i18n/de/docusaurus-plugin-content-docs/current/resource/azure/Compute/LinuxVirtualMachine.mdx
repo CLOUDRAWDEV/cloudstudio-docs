@@ -1,0 +1,61 @@
+---
+title: LinuxVirtualMachine
+sidebar_position: 2
+tags: [Azure, Ressourcen, Compute, LinuxVirtualMachine]
+---
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/compute-linux_virtual_machine.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Linux Virtual Machine ist eine virtuelle Maschine (VM), die ein Linux-Betriebssystem auf der Azure-Cloud-Computing-Plattform von Microsoft ausführt.
+Durch das Ausführen einer Linux-VM auf Azure können Benutzer ihre bevorzugte Linux-Distribution nutzen und gleichzeitig die Skalierbarkeit, Zuverlässigkeit und globale Reichweite der Microsoft-Cloud-Plattform nutzen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+
+## Ressourcen-Einstellwerte
+
+-   `included_vnet_name` : Name des Virtual Networks, das Subnet enthält
+-   `size` : Konfiguration der VM-Größe für die Ausführung der Workloads
+-   `source_image`
+    -   `enabled_custom_image` : Verwendung der benutzerdefinierten Image-ID - `true`, `false`
+    -   `publisher` : Anbieter des für die VM-Erstellung verwendeten Images
+    -   `Offer` : ID des für die VM-Erstellung verwendeten Images
+    -   `sku` : Preisstaffel des für die VM-Erstellung verwendeten Images
+-   `enable_ssh_key_authentication` : Verwendung von SSH-Schlüsseln zur Authentifizierung des Administrator-Kontos
+-   `admin_username` : Administrator-Benutzername für die VM
+-   `admin_password` : Administrator-Passwort für die VM
+-   `on_disk_caching` : Caching-Typ für die Verwendung des internen OS-Disks
+-   `storage_account_type` : Speichertyp für die Sicherung des internen OS-Disks
+-   `disk_size_gb` : Größe des internen OS-Disks (GB) - `1`~`32767`
+-   `disk_attachment` : Name der Festplattenverbindung
+-   `linked_network_interface_names` : Name der Netzwerkschnittstelle
+-   `primary_network_interface_name` : Name der Netzwerkschnittstelle, die mit der Virtual Machine verbunden ist
+-   `tag` : Tag zur Kategorisierung der Ressourcen – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure LinuxVirtualMachine(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/overview)
+-   [Azure LinuxVirtualMachine Kosten](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
+-   [Azure LinuxVirtualMachine(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)

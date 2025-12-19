@@ -1,0 +1,57 @@
+---
+title: MonitorAutoscaleSetting
+sidebar_position: 2
+tags: [Azure, Ressourcen, Monitor, MonitorAutoscaleSetting]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Monitor Auto-Scaling ist eine Funktion von Microsoft Azure, die es ermöglicht, Ressourcen basierend auf vordefinierten Regeln und Metriken automatisch zu skalieren.
+Durch die Nutzung des Auto-Scaling können Ressourcen wie virtuelle Maschinen, App-Dienste und AKS (Azure Kubernetes Service) Cluster erweitert oder reduziert werden, um den sich ändernden Anforderungen gerecht zu werden und gleichzeitig die Kosten zu optimieren.
+
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windowsserver Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsserverVirtualMachineScaleSet)
+
+## Ressourcen-Einstellwerte
+
+-   `target_resource_name` : Name der Ressource, auf die die Auto-Scaling-Einstellungen angewendet werden sollen
+
+-   `scale_condition`
+
+    -   `min_instance_count` : Minimale Anzahl der Instanzen - `0` ~ `1000`
+    -   `max_instance_count` : Maximale Anzahl der Instanzen - `1` ~ `1000`
+    -   `default_instance_count` : Standardanzahl der Instanzen, die skaliert werden sollen, wenn keine Ressourcenspezifikationen abgerufen werden können und die aktuelle Kapazität unter der Standardkapazität liegt - `1` ~ `1000`
+    -   `schedule_type` : Zeitplanmethode, die auf die Skalierungsoperationen angewendet wird - `start_end_dates`, `repeat_days`
+    -   `timezone` : Zeitzone, in der der Zeitplan wirkt
+    -   `start_date` : Startdatum des Zeitplans
+    -   `end_date` : Enddatum des Zeitplans
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure MonitorActivityLogAlert(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+-   [Azure MonitorActivityLogAlert Kosten](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
+-   [Azure MonitorActivityLogAlert(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_autoscale_setting)

@@ -1,0 +1,47 @@
+---
+title: Dynamodb
+sidebar_position: 0
+tags: [AWS, Ressourcen, Dynamodb]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon DynamoDB ist ein vollständig verwalteter NoSQL-Datenbankdienst, der schnelle und vorhersehbare Leistung mit nahtloser Skalierbarkeit bietet. Mit Amazon DynamoDB können Sie Datenbanktabellen erstellen, in denen Sie beliebige Datenmengen speichern oder abrufen können, und sie können jeglichen Anfragetraffic bewältigen. Amazon DynamoDB verteilt automatisch die Daten und den Traffic einer Tabelle auf ausreichend viele Server, sodass der angegebene Anforderungsdurchsatz und das gespeicherte Datenvolumen verarbeitet werden, während gleichzeitig eine konsistente und schnelle Leistung erhalten bleibt.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungen
+
+-   `billing_mode` : Abrechnungsmodell für Lese- und Schreibkapazität in DynamoDB und Kapazitätsverwaltung - `PROVISIONED`,`PAY_PER_REQUEST`
+-   `read_capacity` : DynamoDB-Tabellenleseinheiten
+-   `write_capacity` : Schreibeinheiten der DynamoDB-Tabelle
+-   `hash_key` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird
+-   `hash_key_type` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird - `S`, `N`, `B`
+-   `range_key` :Eigenschaft, die als Range (Sortier) Schlüssel verwendet wird
+-   `range_key_type` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird - `S`, `N`, `B`
+-   `point_in_time_recovery_enabled` : Aktivierung der Point-in-Time-Wiederherstellungsoption - `true`, `false`
+-   `server_side_encryption` : Serverseitiger Verschlüsselungsname
+    -   `encryption_enabled` : Aktivierung der Speicherung von verschlüsselten Daten mit dem AWS-verwalteten KMS-Kundenschlüssel - `true`, `false`
+
+---
+
+## Referenzmaterial
+
+-   [Amazon DynamoDB(AWS)](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/Introduction.html)
+-   [Amazon DynamoDB(AWS)](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)
+-   [Amazon DynamoDB(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_contributor_insights)

@@ -1,0 +1,51 @@
+---
+title: ClientVpnEndpoint
+sidebar_position: 0
+tags: [AWS, Ressourcen, Vpc, ClientVpnEndpoint]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Managed client-based VPN service that enables secure access to AWS resources and on-premises network resources
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+## Ressourcenkonfigurationswerte
+
+-   `description` : Kurze Beschreibung des Client-VPN-Endpunkts
+-   `client_cidr_block` : IP-Adressbereich, der für die Zuweisung von Client-IP-Adressen verwendet wird
+-   `serer_acm_certificate_name` : Name des Serverzertifikats
+-   `authentication` : Verwendete Authentifizierungsmethode
+-   `authentication.option_types` : Verwendete Authentifizierungsmethode - `certificate-authentication`,`directory-service-authentication`,`federated-authentication`
+-   `connection_logging.enalbed` : Verwendung von Protokolldetails für Client-Verbindungen - `false`,`true`
+-   `transport_protocol` : Transportprotokoll, das in der TLS-Sitzung verwendet wird - `tcp`,`udp`
+-   `enabled_split_tunnel` : Aktivierung des Split-Tunnels - `false`,`true`
+-   `vpn_port` : VPN-Port
+-   `enabled_self_service_portal` : Aktivierung des Self-Service-Portals - `false`,`true`
+-   `session_timeout_hours` : Sitzungszeitüberschreitung - `8`,`10`,`12`,`24`
+-   `included_vpc_name` : Name der VPC
+-   `linked_security_group_names` : Name der Sicherheitsgruppe, die auf den Endpunkt angewendet wird
+-   `linked_subnet_names` : Name des Subnetzes, mit dem verbunden wird
+
+---
+
+## Referenzmaterial
+
+-   [AWS Client Vpn Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
+-   [AWS Client Vpn Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)

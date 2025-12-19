@@ -1,0 +1,80 @@
+---
+title: CosmosdbMongo
+sidebar_position: 2
+tags: [Azure, Ressourcen, Cosmosdb, CosmosdbMongo]
+---
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_mongo.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Cosmos DB ist eine verteilte Multi-Modell-Datenbank, die von Microsoft Azure bereitgestellt wird und NoSQL-Dokument-, Schlüssel-Wert-, Graph- und Spaltenfamilien-Datenmodelle unterstützt.
+Es ist eine weltweit verteilte Datenbank, die Daten über mehrere Regionen hinweg repliziert, um geringe Latenz und hohe Verfügbarkeit zu gewährleisten.
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcen-Einstellwerte
+
+-   `capabilities_list` : Liste der verwendbaren Cosmos DB-APIs - `EnableServerless`, `EnableAggregationPipeline`
+
+-   `enable_multiple_write_locations` : Aktivierung von Multi-Region-Schreiboperationen zur Nutzung des bereitgestellten Durchsatzes für Datenbanken und Container weltweit - `true`, `false`
+
+-   `public_network_access_enabled` : Aktivierung der öffentlichen Verbindung zum Konto über eine öffentliche IP-Adresse oder Service-Endpunkt - `true`, `false`
+
+-   `enable_automatic_failover` : Aktivierung der automatischen Fehlertoleranz - `true`, `false`
+
+-   `virtual_network_filter_enabled` : Aktivierung des Filters, der nur den Zugriff auf das Konto von einem bestimmten Subnetz im virtuellen Netzwerk erlaubt - `true`, `false`
+
+-   `network_acl_bypass_for_azure_services` : Aktivierung des ACL-Bypass für Azure-Dienste - `true`, `false`
+
+-   `geo_location`
+
+    -   `failover_priority` : Fehlerbehandlungspriorität in der Region - `0`~ `0`
+    -   `zone_redundant` : Automatische Zonenkopie zur Fehlerbehebung aktivieren - `true`~ `false`
+
+-   `consistency_policy`
+
+    -   `consistency_level` : Konsistenzebene der Cassandra DB zur Einstellung der Verfügbarkeit und Leistung der Datenbank - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
+    -   `max_interval_in_seconds` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte Staleness-Zeit (Sekunden) - `5`~ `86400`
+    -   `max_staleness_prefix` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte maximale Anzahl an Stale Requests - `10`~`2147483647`
+
+-   `backup`
+
+    -   `type` : Backup-Policy-Typ - `Continuous`, `Periodic`
+    -   `interval_in_minutes` : Häufigkeit des Backups pro Minute im Bereich von 60 bis 1440 - `60`~ `1440`
+    -   `retention_in_hours` : Dauer der Speicherung des Backups (Stunden), im Bereich von 8 bis 720 - `8`~`720`
+
+-   `mongo_database`
+
+    -   `throughput` : Durchsatz der Mongo-Datenbank - `400`~ `1000000`
+    -   `enable_autoscale` : Ob Auto-Skalierung auf den Cassandra-Schlüsselraum angewendet werden soll - `true`, `false`
+
+-   `mongo_collection`
+
+    -   `ttl_seconds` : Standard Time To Live (TTL) der MongoDB Collection (Sekunden)
+    -   `shard_key` : Name des Shard-Schlüssels für die MongoDB Collection
+    -   `throughput` : Durchsatz der MongoDB Collection - `400`~ `100000`
+    -   `enable_autoscale` : Ob Auto-Skalierung auf den Cassandra-Schlüsselraum angewendet werden soll - `true`, `false`
+    -   `included_mongo_database_name` : Name der Mongo-Datenbank, in der die MongoDB Collection erstellt wird
+
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
+-   [Azure Cosmosdb Kosten](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
+-   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)

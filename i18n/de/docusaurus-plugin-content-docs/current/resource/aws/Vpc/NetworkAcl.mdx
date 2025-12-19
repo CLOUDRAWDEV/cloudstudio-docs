@@ -1,0 +1,54 @@
+---
+title: Network Acl
+sidebar_position: 0
+tags: [AWS, Ressource, Vpc, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Die Netzwerkzugriffskontrollliste (ACL) erlaubt oder verweigert bestimmten eingehenden oder ausgehenden Datenverkehr auf Subnetzebene. Sie können die Standard-Netzwerk-ACL für die VPC verwenden oder eine benutzerdefinierte Netzwerk-ACL für die VPC erstellen, die ähnlich wie die Sicherheitsgrupperegeln funktioniert, um eine zusätzliche Sicherheitsebene für die VPC hinzuzufügen. Die Verwendung von Netzwerk-ACLs verursacht keine zusätzlichen Kosten.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Verbundene Ressourcen
+
+-   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+## Ressourcen Einstellwerte
+
+-   `included_vpc_name` : Name der VPC, die die Netzwerk-ACL enthält
+-   `linked_subnet_names` : Name des Subnetzes, auf das die Netzwerk-ACL angewendet wird
+-   `ingress` : Name der Ingress-Regel der Netzwerk-ACL
+    -   `protocol` : Protokoll der Ingress-Regel - `tcp`, `udp`, `ssh`, `icmp`, `all`
+    -   `action` : Aktion, die auf das Protokoll der Ingress-Regel angewendet wird - `allow`, `deny`
+    -   `cidr_block` : CIDR, auf das die Ingress-Regel angewendet wird
+    -   `from_port` : Eingehende Portnummer der Ingress-Regel
+    -   `to_port` : Ausgehende Portnummer der Ingress-Regel
+-   `egress` : Name der Ingress-Regel der Netzwerk-ACL
+    -   `protocol` : Protokoll der Egress-Regel - `tcp`, `udp`, `ssh`, `icmp`, `all`
+    -   `action` : Aktion, die auf das Protokoll der Egress-Regel angewendet wird - `allow`, `deny`
+    -   `cidr_block` : CIDR, auf das die Egress-Regel angewendet wird
+    -   `from_port` : Eingehende Portnummer der Egress-Regel
+    -   `to_port` : Ausgehende Portnummer der Egress-Regel
+
+---
+
+## Referenzmaterial
+
+-   [Verwenden von Netzwerk-ACLs zur Steuerung des Datenverkehrs für Subnetze(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

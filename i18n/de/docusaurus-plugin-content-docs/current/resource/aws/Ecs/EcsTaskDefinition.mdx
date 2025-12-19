@@ -1,0 +1,61 @@
+---
+title: EcsTaskDefinition
+sidebar_position: 0
+tags: [AWS, Ressourcen, Ecs, EcsTaskDefinition]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+
+## Ressourceneinstellungen
+
+-   `app_environment` : Starttyp, der für die Aufgabe erforderlich ist - `EC2`,`Fargate`
+-   `os_architecture` : Betriebssystemfamilie, die beim Registrieren der Aufgaben-Definition verwendet wird
+-   `task_cpu` : Anzahl der CPU-Einheiten, die von der Aufgabe verwendet werden
+-   `task_memory` : Menge des von der Aufgabe verwendeten Speichers (MiB)
+-   `network_mode` : Netzwerkmodus, der für den Container der Aufgabe verwendet wird - `awsvpc`,`none`,`bridge`,`host`
+-   `container` : Name des Containers, der im ECS-Cluster ausgeführt wird
+    -   `image_url` : Image des Containers, der im ECS-Cluster ausgeführt wird
+    -   `essential_enabled` : Ob andere Objekte im Zusammenhang mit dem Container ebenfalls gestoppt werden sollen, wenn der Container stoppt, oder ob sie normal weiterlaufen sollen - `false`,`true`
+    -   `port_mapping` : Name der Portweiterleitung
+        -   `name` : 
+        -   `container_port` : Portnummer, die der Container verwenden soll, um Datenverkehr an die Host Container Instance zu senden oder von ihr zu empfangen
+        -   `protocol` : Protokoll, das für die Portweiterleitung verwendet wird - `tcp`,`udp`
+        -   `app_protocol` : Anwendungsprotokoll, das für die Verbindung des Dienstes verwendet wird - `http`,`http2`,`grpc`,`none`
+    -   `cpu` : CPU-Kapazität des Containers, der im ECS-Cluster läuft
+    -   `memory` : Speicherkapazität des Containers, der im ECS-Cluster läuft
+
+-   `volume`
+    -   `name` : Name des Volumes, das mit der Task-Definition verbunden wird
+-   `volume_mount`
+    -   `name` : Name des Volumes, das mit der Task-Definition verbunden wird
+    -   `container_name` : Name des Containers, an den das Volume angebunden wird
+    -   `volume_name` : Name des Volumes, das eingebunden werden soll
+    -   `container_path` : Pfad des Containers, an dem das Volume eingebunden wird
+    -   `read_only` : Ob der Container nur schreibgeschützt auf das Volume zugreifen kann - `false`,`true`
+
+
+  
+
+## Referenzmaterial
+
+-   [Amazon Ecs Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
+-   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

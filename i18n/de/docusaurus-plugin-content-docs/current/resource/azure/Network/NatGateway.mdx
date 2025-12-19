@@ -1,0 +1,51 @@
+---
+title: NatGateway
+sidebar_position: 4
+tags: [Azure, Ressourcen, Network, NatGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure NAT (Network Address Translation) Gateway ist ein verwalteter Netzwerkdienst von Microsoft Azure, der es den Ressourcen im virtuellen Netzwerk (VNet) ermöglicht, auf das Internet zuzugreifen, während die Quell-IP-Adresse verborgen bleibt. 
+Durch die Verwendung des Azure NAT Gateways können private IP-Adressen vor dem Internet verborgen werden, während den Ressourcen im VNet eine Internetverbindung bereitgestellt wird. Dies hilft, den direkten Zugriff auf die Ressourcen aus dem Internet zu verhindern und die Sicherheit zu verbessern. 
+Darüber hinaus kann es helfen, die Anzahl der öffentlichen IP-Adressen zu reduzieren, die für den Zugriff auf Ressourcen im VNet benötigt werden.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+
+## Ressourcen-Einstellwerte
+
+-   `linked_subnet_name` : Name des Subnetzes, das mit dem NAT Gateway verbunden wird
+
+-   `linked_public_ip_name` : Name der öffentlichen IP-Adresse, mit der das NAT Gateway verbunden wird
+
+-   `idle_timeout_in_minutes` : Timeout in Minuten für das Entfernen von inaktiven Verbindungen im NAT Gateway - `4`~ `120`
+
+-   `tag` : Tag zur Kategorisierung von Ressourcen - Maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure NatGateway(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview)
+-   [Azure NatGateway Kosten](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
+-   [Azure NatGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway)

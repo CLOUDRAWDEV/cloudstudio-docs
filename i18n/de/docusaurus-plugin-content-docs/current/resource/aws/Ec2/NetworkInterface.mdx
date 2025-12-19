@@ -1,0 +1,43 @@
+---
+title: NetworkInterface
+sidebar_position: 0
+tags: [AWS, Ressourcen, Ec2, NetworkInterface]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Logische Netzwerkkonfigurationseinheit, die eine virtuelle Netzwerkkarte in einer VPC darstellt
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+
+## Ressourceneinstellungen
+
+-   `private_ips` : Liste der privaten IP-Adressen
+-   `linked_security_group_names` : Name der Security Group, die für das Netzwerk-Interface verwendet wird
+-   `linked_eip_names` : Name der zu verwendenden Elastic IP
+
+---
+
+## Referenzmaterial
+
+-   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
+-   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

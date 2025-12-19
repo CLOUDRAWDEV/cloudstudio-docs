@@ -1,0 +1,64 @@
+---
+title: Mysql
+sidebar_position: 0
+tags: [AWS, Ressourcen, Rds, Mysql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mysql.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Durch die Nutzung von MySQL auf AWS zur Einrichtung von RDS kann der Betrieb und die Verwaltung der Datenbank erleichtert werden. RDS ist hoch skalierbar und ermöglicht es, den Instanztyp je nach Bedarf zu ändern, um die Leistung zu verbessern. Darüber hinaus bietet RDS automatische Backup- und Wiederherstellungsfunktionen für Datenbankinstanzen, um Datenverluste zu verhindern. Zusätzlich gewährleistet die von AWS bereitgestellte Sicherheitsfunktion die Datensicherheit.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+
+## Ressourcenkonfigurationswerte
+
+-   `database_name` : Anfangsname der Datenbank
+-   `engine_version` : MySQL-Version für RDS
+-   `instance_class` : Preisstufe der RDS-Datenbank
+-   `storage_type` : Speichertyp der RDS-Instanz
+-   `allocated_storage` : Speicherkapazität der RDS-Instanz (Gigabyte)
+-   `max_allocated_storage` : Obergrenze für die automatische Speichererweiterung von Amazon RDS für die DB-Instanz
+-   `multi_az_enabled` : Multi-AZ-Bereitstellung aktivieren - `true`, `false`
+-   `username` : Benutzername für RDS
+-   `password` : Passwort für RDS
+-   `skip_final_snapshot` : Entscheidung, ob vor dem Löschen der DB-Instanz ein endgültiger DB-Snapshot erstellt werden soll - `true`, `false`
+-   `included_subnet_names` : Subnet-Name zur Verbindung mit der RDS-Subnetzgruppe
+-   `subnet_group_name` : Name der Subnetzgruppe für RDS
+-   `publicly_accessible` : Ob die Instanz öffentlich zugänglich ist - `true`, `false`
+
+-   `monitoring`
+    -   `performance_insights_enabled` : Aktivierung von Performance Insights
+-   `encryption`
+    -   `storage_encrypted` : Festlegung, ob die DB-Instanz verschlüsselt wird - `true`, `false`
+    -   `kms_key_name` : Name des KMS-Schlüssels für die Verschlüsselung
+-   `backup`
+    -   `backup_retention_period` : Aufbewahrungsdauer der Backup-Daten - `1`~`35`
+    -   `final_snapshot_enabled` : Entscheidung, ob vor dem Löschen der DB-Instanz ein endgültiger DB-Snapshot erstellt werden soll - `true`, `false`
+    -   `final_snapshot_name` : Name des endgültigen Snapshots
+
+---
+
+## Referenzmaterial
+
+-   [Erstellung und Verbindung einer MySQL-Datenbank mit Amazon RDS(Amazon RDS)(AWS)](https://aws.amazon.com/ko/getting-started/hands-on/create-mysql-db/)
+-   [Amazon RDS Kosten(AWS)](https://aws.amazon.com/ko/rds/pricing/?nc2=type_a)
+-   [rds-mysql(Terraform)](https://registry.terraform.io/modules/infrablocks/rds-mysql/aws/latest)

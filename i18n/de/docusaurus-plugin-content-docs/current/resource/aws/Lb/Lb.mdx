@@ -1,0 +1,62 @@
+---
+title: Lb
+sidebar_position: 0
+tags: [AWS, Ressourcen, Lb]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Elastic Load Balancing verteilt eingehenden Anwendungstraffic automatisch auf mehrere Ziele, wie EC2-Instanzen. Es überwacht auch den Status der registrierten Ziele und leitet den Traffic nur an Ziele weiter, die sich in gutem Zustand befinden. Elastic Load Balancing unterstützt drei Arten von Load Balancern: Application Load Balancer, Network Load Balancer und Classic Load Balancer.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Verknüpfte Ressourcen
+
+-   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+
+## Verknüpfte Ressourcen
+
+-   `load_balancer_type` : ELB-Typ - `application`, `network`, `gateway`
+-   `internal` : Bestimmt, ob der ELB als internet-facing oder internal bereitgestellt wird - `true`, `false`
+-   `included_vpc_name` : Name des VPC, in dem die Zielgruppe erstellt wird
+
+-   `linked_subnet_names` : Liste der Subnetz-Namen, die mit dem LB verbunden werden sollen
+-   `security_group_names` : Liste der Sicherheitsgruppen-Namen, die dem LB zugewiesen werden sollen, nur gültig für den Application Load Balancer
+
+-   `drop_invalid_header` : Liste der Sicherheitsgruppen-Namen, die dem LB zugewiesen werden sollen, nur gültig für den Application Load Balancer - `true`, `false`
+-   `target_group` : Name der Zielgruppe, bis zu 32 alphanumerische Zeichen einschließlich Bindestrich (-) sind erlaubt, der Name darf jedoch nicht mit einem Bindestrich beginnen oder enden
+
+    -   `protocol` : Zu verwendendes Protokoll zur Weiterleitung des Traffics an das Ziel - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+    -   `port` : Der Port, auf dem der Traffic empfangen wird
+    -   `instance_names` : Liste der Namen der Ziel-Instanzen
+
+-   `listener` : Der Name des ELB-Listeners
+    -   `protocol` : Das Protokoll, das zur Weiterleitung des Traffics an das Ziel verwendet wird - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+    -   `port` : Der Port, auf dem der Traffic empfangen wird
+    -   `default_action_type` : Der Typ der Weiterleitungsaktion - `forward`, `redirect`, `fixed-response`
+    -   `target_group_name` : Der Name der Zielgruppe, an die der Traffic weitergeleitet werden soll
+
+---
+
+## Referenzmaterial
+
+-   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing Kosten(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

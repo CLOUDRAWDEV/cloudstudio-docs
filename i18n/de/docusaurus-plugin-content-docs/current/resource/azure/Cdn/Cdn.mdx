@@ -1,0 +1,64 @@
+---
+title: Cdn
+sidebar_position: 0
+tags: [Azure, Ressourcen, Cdn]
+---
+
+
+
+<hr />
+<br />
+
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cdn-cdn.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+CDN (Content Delivery Network) ist ein verteiltes Netzwerk von Servern, das Webinhalte effizient an Benutzer liefert.  
+CDN speichert gecachte Inhalte auf Edge-Servern an POP (Point-of-Presence)-Standorten in der Nähe des Endbenutzers, um die Latenz zu minimieren.
+
+Azure CDN bietet Entwicklern eine globale Lösung, die Inhalte an physisch strategisch platzierte Knoten weltweit cached, um hochbandbreitige Inhalte schnell an Benutzer zu liefern.
+
+Azure CDN verwendet CDN-POPs und verschiedene Netzwerkoptimierungen, um nicht gecachte dynamische Inhalte zu beschleunigen, wie beispielsweise die Routenoptimierung, die das BGP (Border Gateway Protocol) umgeht.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Linux App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Function App**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxLinuxFunctionApp)
+-   [**Windows Function App**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+
+## Ressourcen-Einstellwerte
+
+-   `sku` : Preisstufe des CDN-Profils
+
+-   `cdn_profile_location` : Name des CDN-Endpunkts
+
+-   `cdn_endpoint` : App Service oder Speicherkonto, für das CDN aktiviert werden soll
+    -   `cdn_endpoint_name` : App Service oder Speicherkonto, für das CDN aktiviert werden soll
+    -   `is_http_allowed` : Ob HTTP-Verkehr für den CDN-Endpunkt erlaubt ist
+    -   `is_https_allowed` : Ob HTTPS-Verkehr für den CDN-Endpunkt erlaubt ist
+    -   `type` : Ressourcentyp, der mit dem CDN-Endpunkt verbunden ist
+    -   `host_name` : Domainname der Ressource, die mit dem CDN-Endpunkt verbunden wird
+-   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzmaterial
+
+-   [Azure Cdn(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cdn/cdn-overview)
+-   [Azure Cdn Kosten](https://azure.microsoft.com/en-us/pricing/details/cdn/)
+-   [Azure Cdn(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_endpoint)
