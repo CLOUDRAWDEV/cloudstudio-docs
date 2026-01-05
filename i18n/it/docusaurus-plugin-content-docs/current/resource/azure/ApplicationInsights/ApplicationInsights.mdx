@@ -1,0 +1,48 @@
+---
+title: ApplicationInsights
+sidebar_position: 0
+tags: [Azure, ApplicationInsight, ApplicationInsight]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/application_insights-application_insights.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Application Insights è un servizio basato su cloud fornito da Microsoft che aiuta gli sviluppatori a monitorare e analizzare le applicazioni in tempo reale.
+Questo strumento consente agli sviluppatori di rilevare e diagnosticare problemi nelle applicazioni, nonché di ottenere informazioni in tempo reale sulle prestazioni dell'applicazione.
+Utilizzando Application Insights, gli sviluppatori possono tracciare le prestazioni e l'utilizzo dell'applicazione, inclusi il numero di richieste al secondo, i tempi di risposta e i tassi di errore.
+Inoltre, possono ottenere visibilità sulle dipendenze e sui servizi esterni utilizzati dall'applicazione, il che permette di risolvere rapidamente ed efficacemente eventuali problemi.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/it/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+
+## Impostazioni della risorsa
+
+-   `type` : Tipo di piattaforma dell'Application Insights da creare - `ios`,`java`,`Node.js`,`other`,`MobileCenter`,`phone`,`store`,`web`
+-   `retention_in_days` : Numero di giorni di conservazione dei dati - `30`,`60`,`90`,`120`,`180`,`270`,`365`,`550`,`730`
+-   `linked_workspace_name` : Nome del Log Analytics Workspace in cui verranno memorizzati i dati raccolti da Application Insights
+-   `tag` : Tag per classificare le risorse in categorie - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Materiale di riferimento
+
+-   [Azure ApplicationInsights(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
+-   [Azurerm ApplicationInsights (Microsoft)](https://azure.microsoft.com/en-us/pricing/details/monitor/)
+-   [Azurerm ApplicationInsights(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights)

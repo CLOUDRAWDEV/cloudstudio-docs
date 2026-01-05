@@ -1,0 +1,89 @@
+---
+title: DaemonSet
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Apps, Daemonset]
+---
+
+
+<hr />
+<br />
+
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+DaemonSet è una risorsa Kubernetes che garantisce che tutte (o alcune) delle macchine del cluster eseguano una copia di un pod. Quando un nodo viene aggiunto al cluster, il pod viene aggiunto automaticamente anche a quel nodo.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+
+## Impostazioni della risorsa
+
+-   `service_name` : Nome delle risorse DaemonSet
+-   `namespace` : Namespace in cui verrà distribuita la risorsa DaemonSet
+-   `annotations` : Key-value utilizzati per visualizzare le informazioni necessarie nel sistema Kubernetes
+-   `labels` : Valori personalizzati assegnati dall'utente per distinguere gli oggetti
+-   `template_labels` : Etichetta (Label) che verrà impostata per i Pod creati su ciascun nodo
+-   `containers` : Definisce il template per i container appartenenti al Pod - le impostazioni predefinite vengono configurate e successivamente si possono definire i dettagli specifici.
+    -   `containers.name` : Definisce il nome del container
+        -   `image` : Nome dell'immagine Docker da utilizzare
+        -   `args` : Comandi da eseguire all'interno del container
+        -   `command` : Comandi da eseguire all'interno del container
+        -   `port` : Elenco delle porte che il container esporrà
+
+        -   `resources` : Definisce la quantità di risorse computazionali per il container - Impostazioni dettagliate
+            -   `name` : Definisce la quantità minima/massima delle risorse computazionali - `Limits`, `requests`     
+            -   `cpu` : Quantità di CPU da assegnare   
+            -   `memory` : Quantità di memoria da assegnare
+
+        -   `probe` : Metodo per diagnosticare lo stato del Pod - Impostazioni dettagliate
+            -   `name` : Selezione del metodo Probe - `startup`,`liveness`,`readiness`
+            -   `http_get_path` : Percorso per accedere al server HTTP
+            -   `http_get_port` : Numero di porta da cui il container accederà
+            -   `http_header` : Header personalizzati da impostare nella richiesta
+            -   `initial_delay_seconds` : Tempo (in secondi) prima che il probe inizi, dopo che il container è stato avviato
+            -   `period_seconds` : Frequenza con cui viene eseguito il probe (in secondi)
+
+        -   `env` : Blocco di coppie key-value da configurare nell'ambiente del container - Impostazioni dettagliate
+            -   `name` : Nome della variabile di ambiente
+            -   `value` : Valore da assegnare alla variabile di ambiente
+
+        -   `volume_mount` : Volume del Pod da montare nel file system del container - Impostazioni dettagliate
+            -   `name` : Nome del volume da montare
+            -   `path` 
+                -   `mount_path` : Percorso nel container in cui montare il volume
+                -   `sub_path` : Percorso nel container in cui montare il volume
+            
+-   `volume` : Elenco dei volumi che i container nel Pod possono montare
+    -   `name` : Nome del volume
+        -   `type` : Tipo di volume da montare - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
+        -   `target_name` : Nome del PersistentVolumeClaim
+        -   `default_mode` : Modalità da usare sui file creati - tra 0 e 0777, valore predefinito è 0644
+        -   `read_only` : Se impostato su true, il volume sarà montato in modalità sola lettura, altrimenti sarà montato in modalità lettura/scrittura
+
+-   `image_pull_secrets` : Secret che contiene i permessi necessari per recuperare le immagini dal container nel namespace corrente
+
+
+---
+
+## Materiale di riferimento
+
+-   [DaemonSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+-   [DaemonSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/daemonset)

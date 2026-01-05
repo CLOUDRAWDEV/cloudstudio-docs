@@ -1,0 +1,57 @@
+---
+title: SecurityCenter
+sidebar_position: 0
+tags: [Azure, Security, Defender, SecurityCenter]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Security Center è un servizio integrato di gestione della sicurezza progettato per valutare continuamente lo stato di sicurezza delle risorse cloud e rilevare e prevenire le minacce.  
+Integrandosi con i piani Microsoft Defender, consente la gestione centralizzata delle valutazioni delle vulnerabilità, delle raccomandazioni di sicurezza e della protezione dalle minacce.
+
+## Risorse associate
+
+### Risorsa principale
+
+-   [**Subscription**](https://docs.cstudio.app/it/docs/resource/azure/Base/Subscription)
+
+### Risorse collegate
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/it/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+
+## Valori di configurazione della risorsa
+
+-   `linked_log_analytics_workspace` : Nome del Log Analytics Workspace utilizzato per archiviare i dati di sicurezza
+
+#### Assessment Policy (`assessment_policy`)
+
+-   `assessment_policy.display_name` : Nome visualizzato della valutazione di Security Center
+-   `assessment_policy.severity` : Livello di gravità della valutazione di Security Center - `Low`, `Medium`, `High`
+-   `assessment_policy.description` : Descrizione della valutazione di Security Center
+
+#### Assessment (`assessment`)
+
+-   `assessment.policy_name` : Nome della policy di valutazione della sicurezza applicata alla risorsa
+-   `assessment.status_code` : Codice di stato della valutazione - `Healthy`, `Unhealthy`, `NotApplicable`
+
+#### Subscription Pricing (`subscription_pricing`)
+
+-   `subscription_pricing.pricing_tier` : Abilitazione delle funzionalità di sicurezza avanzate - `Free`, `Standard`
+-   `subscription_pricing.pricing_resource_type` : Tipo di risorsa a cui applicare le funzionalità di sicurezza avanzate
+
+## Materiale di riferimento
+
+-   [Panoramica di Microsoft Defender for Cloud (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
+-   [Valutazioni di sicurezza di Security Center (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
+-   [Prezzi di Defender for Cloud (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)

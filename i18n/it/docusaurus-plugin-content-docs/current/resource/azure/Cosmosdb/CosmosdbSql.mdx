@@ -1,0 +1,87 @@
+---
+title: CosmosdbSql
+sidebar_position: 3
+tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Cosmos DB SQL API è un servizio di database NoSQL completamente gestito che consente di archiviare ed eseguire query su dati in formato JSON supportati dall’API SQL.  
+Fornisce scalabilità ed elevata disponibilità grazie alla distribuzione globale, al failover automatico, ai backup e alle politiche di coerenza.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private EndPoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `capabilities_list` : Elenco delle API di Cosmos DB da utilizzare
+-   `enable_multiple_write_locations` : Abilitazione della scrittura multi-area – `true`, `false`
+-   `public_network_access_enabled` : Abilitazione dell’accesso pubblico all’account tramite IP pubblico o endpoint di servizio – `true`, `false`
+-   `enable_automatic_failover` : Abilitazione del failover automatico – `true`, `false`
+-   `virtual_network_filter_enabled` : Abilitazione del filtro per consentire l’accesso solo a subnet specifiche della rete virtuale – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Abilitazione del bypass ACL per i servizi Azure – `true`, `false`
+
+#### Impostazioni di area (`geo_location`)
+
+-   `geo_location.failover_priority` : Priorità di failover dell’area
+-   `geo_location.zone_redundant` : Abilitazione della replica tra zone per la tolleranza agli errori – `true`, `false`
+
+#### Politica di coerenza (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Livello di coerenza per la disponibilità e le prestazioni del database
+-   `consistency_policy.max_interval_in_seconds` : Intervallo massimo di staleness consentito (secondi) quando si utilizza Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Numero massimo di richieste stale consentite quando si utilizza Bounded Staleness
+
+#### Impostazioni di backup (`backup`)
+
+-   `backup.type` : Tipo di criterio di backup – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Frequenza di esecuzione del backup (minuti) – `60` ~ `1440`
+-   `backup.retention_in_hours` : Periodo di conservazione dei backup (ore) – `8` ~ `720`
+
+#### Impostazioni del database SQL (`sql_database`)
+
+-   `sql_database.throughput` : Throughput del database Cosmos DB SQL – `400` ~ `1000000`
+-   `sql_database.enable_autoscale` : Abilitazione dell’Auto Scaling – `true`, `false`
+
+#### Impostazioni del contenitore SQL (`sql_container`)
+
+-   `sql_container.partition_key_version` : Versione della chiave di partizione – `1`, `2`
+-   `sql_container.partition_key_paths` : Elenco dei percorsi della chiave di partizione utilizzati nel contenitore SQL
+-   `sql_container.throughput` : Throughput del contenitore SQL – `400` ~ `1000000`
+-   `sql_container.indexing_mode` : Tipo di indicizzazione – `consistent`, `none`
+-   `sql_container.included_path` : Elenco dei percorsi inclusi nell’indicizzazione
+-   `sql_container.excluded_path` : Elenco dei percorsi esclusi dall’indicizzazione
+-   `sql_container.unique_key_path` : Elenco dei percorsi di chiave univoca per aggiungere un livello di integrità dei dati
+-   `sql_container.enable_autoscale` : Abilitazione dell’Auto Scaling – `true`, `false`
+-   `sql_container.included_sql_database_name` : Nome del database SQL in cui verrà creato il contenitore SQL
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria – massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

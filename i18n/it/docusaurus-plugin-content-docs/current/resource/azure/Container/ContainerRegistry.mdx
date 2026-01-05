@@ -1,0 +1,73 @@
+---
+title: ContainerRegistry
+sidebar_position: 0
+tags: [Azure, ContainerRegistry, Container]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Container Registry è un servizio di registro di container privato progettato per archiviare e gestire in modo sicuro  
+immagini di container e artefatti OCI.  
+Si integra strettamente con carichi di lavoro basati su Docker e Kubernetes e consente una configurazione dettagliata  
+di sicurezza, prestazioni e controllo degli accessi di rete.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private EndPoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+-   `sku` :  
+    Tipo di SKU per le prestazioni e la scalabilità del Container Registry
+
+    -   `Basic`
+    -   `Standard`
+    -   `Premium`
+
+-   `admin_enabled` :  
+    Abilitazione dell’account amministratore – `true`, `false`
+
+-   `public_network_access_enabled` :  
+    Abilitazione dell’accesso alla rete pubblica – `true`, `false`
+
+### Impostazioni delle regole di rete (`network_rule_set`)
+
+> Configurabile solo quando lo SKU è impostato su `Premium`.
+
+-   `network_rule_set.default_action` :  
+    Azione predefinita per le richieste che non corrispondono ad alcuna regola
+
+    -   `Allow`
+    -   `Deny`
+
+-   `network_rule_set.ip_ranges` :  
+    Elenco degli indirizzi IP CIDR per le richieste che corrispondono alle regole
+
+### Tag
+
+-   `tag` :  
+    Tag per classificare la risorsa per categoria – massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure Container Registry (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/)
+-   [Terraform azurerm_container_registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

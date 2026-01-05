@@ -1,7 +1,7 @@
 ---
 title: Subnet
-sidebar_position: 12
-tags: [Azure, Ressourcen, Network, Subnet]
+sidebar_position: 1
+tags: [Azure, Network, Subnet]
 ---
 
 <hr />
@@ -11,35 +11,60 @@ tags: [Azure, Ressourcen, Network, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-subnet.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-In Microsoft Azure ist ein Subnetz der IP-Adressbereich eines VNet (virtuelles Netzwerk). Es handelt sich um eine logische Unterteilung eines IP-Netzwerks, die es ermöglicht, den Netzwerkverkehr zu segmentieren und Netzwerkrressourcen zu verwalten.
-Ein Subnetz ist ein kleineres Netzwerk innerhalb eines größeren Netzwerks und wird verwendet, um den Verkehr zwischen verschiedenen Teilen eines virtuellen Netzwerks zu isolieren.
-Jedes Subnetz in Azure kann seine eigene NSG (Netzwerksicherheitsgruppe) haben, um eine Sicherheitsgrenze für die Ressourcen innerhalb dieses Subnetzes zu schaffen.
+Ein Subnet ist ein Netzwerk, das innerhalb eines Virtual Networks erstellt wird, um Azure-Ressourcen im Virtual Network bereitzustellen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [**Virtual Network**](https://docs.cstudio.app/de/docs/resource/azure/Network/VirtualNetwork)
 
-## Ressourcen-Einstellwerte
+### Untergeordnete Ressourcen
 
--   `included_vnet_name` : Name des Virtual Networks, das das Subnetz enthält
--   `address_prefixes` : Subnetz verwendet einen IP-Adressbereich, der als CIDR-Format innerhalb des Adressraums des Virtual Networks angegeben wird 
--   `private_link_endpoint_enabled` : Legt fest, ob ein Private Endpoint mit dem Subnetz verbunden werden soll - `true`, `false`
--   `delegation`
-    -   `service_name` : Name des Dienstes, der delegiert werden soll
-    -   `actions` : Liste von Aktionen, die delegiert werden sollen
+-   [**Linux App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Function App**](https://docs.cstudio.app/de/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**Windows Function App**](https://docs.cstudio.app/de/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Mysql Flexible**](https://docs.cstudio.app/de/docs/resource/azure/Database/MysqlFlexible)
+-   [**Postgresql Flexible**](https://docs.cstudio.app/de/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/de/docs/resource/azure/Container/KubernetesCluster)
+-   [**Application Gateway**](https://docs.cstudio.app/de/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/de/docs/resource/azure/Network/BastionHost)
+-   [**Virtual Network Gateway**](https://docs.cstudio.app/de/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**Network Interface**](https://docs.cstudio.app/de/docs/resource/azure/Network/NetworkInterface)
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Public Ip**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+-   [**Firewall**](https://docs.cstudio.app/de/docs/resource/azure/Network/Firewall)
+
+### Verbundene Ressourcen
+
+-   [**Nat Gateway**](https://docs.cstudio.app/de/docs/resource/azure/Network/NatGateway)
+-   [**Network Security Group**](https://docs.cstudio.app/de/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**Private Dns Resolver**](https://docs.cstudio.app/de/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+
+## Ressourceneinstellungen
+
+-   `included_vnet_name` : Name des Virtual Networks, das das Subnet enthält
+-   `address_prefixes` : IP-Adressbereich für das Subnet, ein eindeutiger im CIDR-Format angegebener Adressbereich innerhalb des Adressraums des Virtual Networks
+-   `private_link_endpoint_enabled` : Gibt an, ob ein Private Endpoint mit dem Subnet verbunden werden soll - `true`, `false`
+
+#### Delegierungseinstellungen (`delegation`)
+
+-   `delegation.service_name` : Name des zu delegierenden Dienstes
+-   `delegation.actions` : Liste der zu delegierenden Aktionen
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Subnet(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal)
--   [Azure Subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+-   [Azure Virtual Network – Subnet-Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
+-   [Übersicht zur Subnet-Delegierung (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
+-   [Private Endpoint – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)

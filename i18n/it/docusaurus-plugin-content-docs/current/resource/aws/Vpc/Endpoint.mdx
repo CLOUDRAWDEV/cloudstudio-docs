@@ -1,0 +1,48 @@
+---
+title: Endpoint
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc, Endpoint]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio che consente di connettersi privatamente ai servizi AWS supportati e ai servizi VPC endpoint
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Risorse inferiori
+
+-   [**Endpoint Service**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+## Impostazioni della risorsa
+
+-   `service_range` : Categoria del servizio da utilizzare con il servizio endpoint - `awsService`,`endpointService`
+-   `aws_service_name` : Nome del servizio AWS da utilizzare con il servizio endpoint
+-   `vpc_endpoint_type` : Tipo di endpoint del servizio da utilizzare con altri endpoint - `gateway`, `interface`, `gatewayloadbalancer`
+-   `included_vpc_name` : Nome del VPC in cui creare l'endpoint
+-   `route_table_names` : ID di una o più tabelle di routing da collegare all'endpoint
+-   `policy_access` : Intervallo di accesso della politica da collegare all'endpoint per controllare l'accesso al servizio - `Full`, `Custom`
+
+---
+
+## Materiale di riferimento
+
+-   [AWS EndPoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
+-   [AWS EndPoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)

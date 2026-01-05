@@ -1,0 +1,58 @@
+---
+title: SourceDeployStage
+sidebar_position: 0
+tags: [Ncloud, Recurso, DeveloperTool, SourceDeployStage]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Permite añadir, modificar o eliminar una etapa de despliegue (Deploy Stage) en un proyecto de SourceDeploy ya creado, o bien generar un destino de despliegue para etapas que no lo tengan asignado.
+
+
+
+## Recursos relacionados
+
+### Recurso superior
+
+### Recursos subordinados
+
+
+
+## Valores de configuración del recurso
+
+-   `included_source_deploy_name` : Nombre del proyecto SourceDeploy
+-   `target_type` : Tipo de destino de despliegue - `Server`, `AutoScalingGroup`, `KubernetesService`, `ObjectStorage`
+-   `linked_server_list` : Lista de nombres de servidores a vincular
+-   `included_subnet_names` : Lista de nombres de subred para componer el clúster, máximo 3
+-   `scenario` : Escenario de despliegue que se ejecutará en el entorno
+    -   `deploy_scenario_description` : Descripción del proyecto de SourceDeploy
+    -   `deploy_scenario_strategy` : Estrategia de despliegue - `normal`, `blueGreen`, `rolling`, `canary`
+    -   `deploy_scenario_file_type` : Tipo de archivo del escenario de despliegue - `SourceBuild`, `ObjectStorage`, `later`
+    -   `linked_source_build_project` : Nombre del proyecto SourceBuild vinculado
+    -   `rollback` : Indica si se debe realizar rollback en caso de fallo durante el despliegue
+    -   `pre_deploy_user` : Usuario que ejecuta el comando antes del despliegue
+    -   `pre_deploy_command` : Comando a ejecutar antes del despliegue
+    -   `source_path_command` : Ruta de origen de los archivos a desplegar
+    -   `deploy_path_command` : Ruta de destino del despliegue
+    -   `post_deploy_user` : Usuario que ejecuta el comando después del despliegue
+    -   `post_deploy_command` : Comando a ejecutar después del despliegue
+
+---
+
+
+## Documentación de referencia
+
+
+-   [Source Deploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
+-   [ncloud_source_deploy_stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)

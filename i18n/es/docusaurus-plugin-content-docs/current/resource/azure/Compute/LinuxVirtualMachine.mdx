@@ -1,0 +1,107 @@
+---
+title: LinuxVirtualMachine
+sidebar_position: 0
+tags: [Azure, LinuxVirtualMachine, VirtualMachine, Compute]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-linux_virtual_machine.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure Linux Virtual Machine es una máquina virtual (VM) que ejecuta un sistema operativo Linux en la plataforma de computación en la nube Microsoft Azure.  
+Puede configurar el tamaño de la VM (SKU), la imagen del sistema operativo, los métodos de autenticación (contraseña/clave SSH), la configuración de discos, las conexiones de interfaces de red y los scripts de inicialización de Cloud-init para ejecutar cargas de trabajo de servidor.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Virtual Network**](https://docs.cstudio.app/es/docs/resource/azure/Network/VirtualNetwork)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+### Recursos conectados
+
+-   [**Availability Set**](https://docs.cstudio.app/es/docs/resource/azure/Compute/Availabilityset)
+-   [**Disk**](https://docs.cstudio.app/es/docs/resource/azure/Compute/Disk)
+-   [**Network Interface**](https://docs.cstudio.app/es/docs/resource/azure/Network/NetworkInterface)
+-   [**Backup**](https://docs.cstudio.app/es/docs/resource/azure/RecoveryServices/Backup)
+-   [**Metric**](https://docs.cstudio.app/es/docs/resource/azure/Monitor/Metric)
+-   [**Private Load Balancer**](https://docs.cstudio.app/es/docs/resource/azure/LoadBalancer/PrivateLoadBalancer)
+-   [**Public Load Balancer**](https://docs.cstudio.app/es/docs/resource/azure/LoadBalancer/PublicLoadBalancer)
+-   [**Application Gateway**](https://docs.cstudio.app/es/docs/resource/azure/Network/ApplicationGateway)
+
+## Valores de configuración del recurso
+
+-   `included_vnet_name` : Nombre de la Virtual Network a la que pertenece la Virtual Machine
+
+-   `linked_availability_set_name` : Nombre del Availability Set aplicado a la Virtual Machine
+
+-   `size` : Configuración del tamaño de la Virtual Machine para ejecutar cargas de trabajo
+
+### Configuración de la imagen (`source_image`)
+
+-   `source_image.type` : Uso de un ID de imagen personalizada - `recommended`, `custom_id`, `custom_input`
+
+-   `source_image.image_id` : ID de la imagen utilizada para crear la VM
+
+-   `source_image.image` : Imagen utilizada para crear la VM
+
+-   `source_image.publisher` : Editor de la imagen utilizada para crear la VM
+
+-   `source_image.offer` : ID de la oferta de la imagen utilizada para crear la VM
+
+-   `source_image.sku` : Nivel de precios (SKU) de la imagen utilizada para crear la VM
+
+### Configuración de autenticación
+
+-   `enable_ssh_key_authentication` : Indica si se utiliza una clave SSH para la autenticación del administrador - `true`, `false`
+
+-   `admin_username` : Nombre de usuario administrador de la VM - de 1 a 64 caracteres
+
+-   `admin_password` : Contraseña del administrador de la VM - de 12 a 72 caracteres
+
+-   `ssh_public_key` : Clave pública SSH para la VM - hasta 600 caracteres
+
+### Configuración del disco del SO
+
+-   `os_disk_caching` : Tipo de caché del disco del SO - `ReadWrite`, `ReadOnly`, `None`
+
+-   `storage_account_type` : Tipo de almacenamiento del disco del SO - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+
+-   `disk_size_gb` : Tamaño del disco del SO (GB) - `32` ~ `32767`
+
+### Conexión de discos adicionales (`disk_attachment`)
+
+-   `disk_attachment.lun` : Número de unidad lógica (LUN) del disco
+
+-   `disk_attachment.host_caching` : Configuración de caché del disco - `None`, `ReadOnly`, `ReadWrite`
+
+### Configuración de red
+
+-   `linked_network_interface_names` : Lista de nombres de Network Interface
+
+-   `primary_network_interface_name` : Nombre de la Network Interface conectada a la Virtual Machine
+
+### Script de inicialización
+
+-   `cloudinit_config` : Contenido del script que se ejecuta automáticamente al crear el servidor
+
+### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso - máximo 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Azure Virtual Machines (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/)
+-   [Azure Linux Virtual Machine (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
+-   [Terraform cloudinit_config](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/cloudinit_config)

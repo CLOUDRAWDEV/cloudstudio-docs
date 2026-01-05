@@ -1,0 +1,77 @@
+---
+title: CosmosdbCassandra
+sidebar_position: 0
+tags: [Azure, CosmosDB, Cassandra, Database]
+---
+
+<hr />
+<br />
+
+## Descripción general del recurso
+
+Azure Cosmos DB Cassandra es un servicio de base de datos NoSQL distribuido compatible con la API de Apache Cassandra.  
+Ofrece distribución global, escalado automático, alta disponibilidad y múltiples modelos de consistencia, lo que permite operar fácilmente aplicaciones basadas en la API de Cassandra en el entorno de Azure.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Private EndPoint**](https://docs.cstudio.app/es/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valores de configuración del recurso
+
+-   `capabilities_list` : Lista de capacidades (API) de Cosmos DB a utilizar
+-   `enable_multiple_write_locations` : Habilitar escrituras en múltiples regiones
+-   `public_network_access_enabled` : Permitir el acceso a la cuenta a través de la red pública
+-   `enable_automatic_failover` : Habilitar la conmutación por error automática
+-   `virtual_network_filter_enabled` : Restringir el acceso únicamente a subredes específicas de la red virtual
+-   `network_acl_bypass_for_azure_services` : Permitir la omisión de ACL para servicios de Azure
+
+#### Configuración regional (`geo_location`)
+
+-   `geo_location.failover_priority` : Prioridad de conmutación por error de la región
+-   `geo_location.zone_redundant` : Habilitar la redundancia entre zonas de disponibilidad
+
+#### Política de consistencia (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Nivel de consistencia de la base de datos Cassandra
+-   `consistency_policy.max_interval_in_seconds` : Tiempo máximo de retraso permitido (segundos) al usar Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Número máximo de solicitudes obsoletas permitidas al usar Bounded Staleness
+
+#### Configuración de copias de seguridad (`backup`)
+
+-   `backup.type` : Tipo de política de copia de seguridad (`Continuous`, `Periodic`)
+-   `backup.interval_in_minutes` : Intervalo de ejecución de la copia de seguridad (minutos)
+-   `backup.retention_in_hours` : Período de retención de la copia de seguridad (horas)
+
+#### Keyspace de Cassandra (`cassandra_keyspace`)
+
+-   `cassandra_keyspace.throughput` : Rendimiento del keyspace de Cassandra
+-   `cassandra_keyspace.enable_autoscale` : Habilitar el escalado automático del rendimiento
+
+#### Tabla de Cassandra (`cassandra_table`)
+
+-   `cassandra_table.throughput` : Rendimiento de la tabla de Cassandra
+-   `cassandra_table.column` : Lista de nombres y tipos de columnas (formato `nombre:tipo`)
+-   `cassandra_table.partition_key` : Nombre de la clave de partición
+-   `cassandra_table.cluster_key_name` : Nombre de la clave de clúster
+-   `cassandra_table.cluster_key_order` : Criterio de ordenación de la clave de clúster
+-   `cassandra_table.enable_autoscale` : Habilitar el escalado automático del rendimiento de la tabla
+-   `cassandra_table.included_cosmosdb_keyspace_name` : Nombre del keyspace de Cassandra donde se creará la tabla
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Azure Cosmos DB Cassandra API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/cassandra/introduction)
+-   [Terraform azurerm_cosmosdb_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Terraform azurerm_cosmosdb_cassandra_keyspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_keyspace)
+-   [Terraform azurerm_cosmosdb_cassandra_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_table)

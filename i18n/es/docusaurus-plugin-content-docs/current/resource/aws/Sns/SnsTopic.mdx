@@ -1,0 +1,44 @@
+---
+title: SnsTopic
+sidebar_position: 0
+tags: [AWS, Recurso, Sns, SnsTopic]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/sns-sns_topic.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Punto de acceso lógico que actúa como canal de comunicación en AWS SNS.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Recurso conectado
+
+-   [**Metric**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/Metric)
+-   [**Config**](https://docs.cstudio.app/docs/resource/aws/Config/Config)
+
+## Valores de configuración del recurso
+
+-   `display_name` : Nombre visible del SNS Topic
+-   `type` : Tipo de SNS Topic - `FIFO`, `Standard`
+-   `kms_key_name` : Nombre de la clave KMS a utilizar en el SNS Topic
+
+---
+
+## Documentación de referencia
+
+-   [Sns Topic(AWS)]https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
+-   [Sns Topic(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)

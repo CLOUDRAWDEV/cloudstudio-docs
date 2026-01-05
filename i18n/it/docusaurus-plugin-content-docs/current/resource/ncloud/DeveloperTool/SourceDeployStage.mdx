@@ -1,0 +1,57 @@
+---
+title: SourceDeployStage
+sidebar_position: 0
+tags: [Ncloud, Risorsa, DeveloperTool, SourceDeployStage]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È possibile aggiungere, modificare o eliminare le fasi di distribuzione (Deploy Stage) nel progetto SourceDeploy creato, o creare un target di distribuzione per una fase di distribuzione che non ha un target di distribuzione.
+
+
+
+## Risorse correlate
+
+### Risorse superiori
+
+### Risorse inferiori
+
+
+
+## Impostazioni della risorsa
+
+-   `included_source_deploy_name` : Nome del progetto SourceDeploy
+-   `target_type` : Tipo di target di distribuzione - `Server`,`AutoScalingGroup`,`KubernetesService`,`ObjectStorage`
+-   `linked_server_list` : Elenco dei nomi dei server da collegare
+-   `included_subnet_names` : Elenco dei nomi delle subnet per configurare il cluster, massimo 3
+-   `scenario` : Scenario di distribuzione che può essere eseguito
+    -   `deploy_scenario_description` : Descrizione del progetto SourceDeploy
+    -   `deploy_scenario_strategy` : Strategia di distribuzione - `normal`,`blueGreen`,`rolling`,`canary`
+    -   `deploy_scenario_file_type` : Tipo di file dello scenario di distribuzione - `SourceBuild`,`ObjectStorage`,`later`
+    -   `linked_source_build_project` : Nome del progetto SourceBuild
+    -   `rollback` : Se eseguire il rollback in caso di fallimento della distribuzione
+    -   `pre_deploy_user` : Account da eseguire prima della distribuzione
+    -   `pre_deploy_command` : Comando da eseguire prima della distribuzione
+    -   `source_path_command` : Percorso del file sorgente da distribuire
+    -   `deploy_path_command` : Percorso dove distribuire i file
+    -   `post_deploy_user` : Account da eseguire dopo la distribuzione
+    -   `post_deploy_command` : Comando da eseguire dopo la distribuzione
+  
+
+---
+
+## Materiale di riferimento
+
+-   [Source Deploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
+-   [ncloud_source_deploy_stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)

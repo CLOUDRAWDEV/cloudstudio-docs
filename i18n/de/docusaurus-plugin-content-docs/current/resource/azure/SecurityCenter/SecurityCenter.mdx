@@ -1,7 +1,7 @@
 ---
 title: SecurityCenter
 sidebar_position: 0
-tags: [Azure, Ressourcen, SecurityCenter]
+tags: [Azure, Security, Defender, SecurityCenter]
 ---
 
 <hr />
@@ -11,45 +11,47 @@ tags: [Azure, Ressourcen, SecurityCenter]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Security Center ist ein cloudbasierter Dienst von Microsoft, der es Organisationen ermöglicht, Sicherheitsbedrohungen in Hybrid-Cloud-Workloads zu verhindern, zu erkennen und darauf zu reagieren. 
-Es bietet ein zentrales Dashboard, das Einblick in den Sicherheitsstatus aller Ressourcen sowohl in Microsoft Azure als auch in On-Premise-Umgebungen bietet. 
-Azure Security Center überwacht kontinuierlich die Umgebung und stellt Sicherheitsrichtlinien, Schwachstellenbewertungen, Bedrohungsinformationen und Sicherheitswarnungen bereit, um vor Bedrohungen zu schützen und potenzielle Schwachstellen zu identifizieren.
+Azure Security Center ist ein integrierter Sicherheitsverwaltungsdienst, der den Sicherheitsstatus von Cloud-Ressourcen kontinuierlich bewertet und Bedrohungen erkennt und verhindert.  
+Durch die Integration mit Microsoft Defender-Plänen ermöglicht er die zentrale Verwaltung von Schwachstellenbewertungen, Sicherheitsempfehlungen und Bedrohungsschutz.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Subscription**](https://docs.cstudio.app/docs/resource/azure/Base/Subscription)
+-   [**Subscription**](https://docs.cstudio.app/de/docs/resource/azure/Base/Subscription)
 
 ### Verbundene Ressourcen
 
--   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
--   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `linked_log_analytics_workspace` : Name des Log Analytics Workspace zum Speichern von Daten
+-   `linked_log_analytics_workspace` : Name des Log Analytics Workspace zur Speicherung von Sicherheitsdaten
 
--   `assessment_policy`
+#### Assessment Policy (`assessment_policy`)
 
-    -   `display_name`: Anzeige Name der Security Center Bewertung
-    -   `severity`: Schweregrad der Security Center Bewertung
-    -   `description`: Beschreibung der Security Center Bewertung
+-   `assessment_policy.display_name` : Anzeigename der Security Center-Bewertung
+-   `assessment_policy.severity` : Schweregrad der Security Center-Bewertung - `Low`, `Medium`, `High`
+-   `assessment_policy.description` : Beschreibung der Security Center-Bewertung
 
--   `assessment`
+#### Assessment (`assessment`)
 
--   `linked_advanced_threat_protection` : Security Center Advanced Threat Protection-Name
+-   `assessment.policy_name` : Name der auf die Ressource angewendeten Sicherheitsbewertungsrichtlinie
+-   `assessment.status_code` : Statuscode der Bewertung - `Healthy`, `Unhealthy`, `NotApplicable`
 
----
+#### Subscription Pricing (`subscription_pricing`)
 
-## Referenzmaterial
+-   `subscription_pricing.pricing_tier` : Aktivierung erweiterter Sicherheitsfunktionen - `Free`, `Standard`
+-   `subscription_pricing.pricing_resource_type` : Ressourcentyp, auf den erweiterte Sicherheitsfunktionen angewendet werden
 
--   [Azure SecurityCenter(Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
--   [Azure SecurityCenter Kosten](https://azure.microsoft.com/ko-kr/pricing/details/defender-for-cloud/)
--   [Azure SecurityCenter(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_workspace)
+## Referenzmaterialien
+
+-   [Microsoft Defender for Cloud Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
+-   [Security Center Sicherheitsbewertungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
+-   [Defender for Cloud Preise (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)

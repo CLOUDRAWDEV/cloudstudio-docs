@@ -1,0 +1,53 @@
+---
+title: OamSourceAccount
+sidebar_position: 0
+tags: [AWS, Risorsa, Cloudwatch, OamSourceAccount]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+AWS CloudWatch OAM Source Accounts configura gli account sorgente che saranno condivisi con l'account di monitoraggio centrale.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**Oam Monitoring Account**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/OamMonitoringAccount)
+
+## Impostazioni della risorsa
+
+-   `is_manual` : Se inserire manualmente l'ARN dell'account sorgente OAM da collegare - `false`, `true`
+-   `linked_oam_monitoring_account_name` : Nome dell'account di monitoraggio OAM da collegare
+-   `resource_types` : Tipo di dati che si desidera condividere con l'account di monitoraggio
+    -   `AWS::Logs::LogGroup`
+    -   `AWS::Cloudwatch::LogGroup`
+    -   `AWS::Logs::LogGroup`
+    -   `AWS::Logs::LogGroup`
+    -   `AWS::Logs::LogGroup`
+-   `label_template` : Etichetta che aiuta a identificare l'account sorgente
+
+
+
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon CloudWatch OamMonitoringAccount(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureSourceAccount)
+-   [Amazon CloudWatch OamMonitoringAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
+

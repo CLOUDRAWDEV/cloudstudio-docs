@@ -1,0 +1,58 @@
+---
+title: ApiManagement
+sidebar_position: 0
+tags: [Azure, ApiManagement]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/api_management-api_management.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+API Management ist ein Dienst, der die Erstellung, Bereitstellung, Sicherheit, Überwachung und Verwaltung von APIs ganzheitlich unterstützt.  
+APIs, die von internen und externen Clients aufgerufen werden, werden über einen einheitlichen Endpunkt bereitgestellt. Durch die Anwendung von Authentifizierungs- und Autorisierungsrichtlinien, Anfrage-/Antworttransformationen, Aufrufbegrenzungen (Throttling) sowie Logging und Monitoring wird ein stabiler API-Betrieb ermöglicht.  
+Darüber hinaus können APIs in Form eines Portals veröffentlicht werden, um Dokumentation und Abonnementverwaltung gemeinsam bereitzustellen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcenkonfiguration
+
+-   `publisher_name` : Name des Herausgebers des API-Management-Dienstes
+
+-   `publisher_email` : E-Mail-Adresse des Herausgebers
+
+-   `sku_name` : SKU-Name (Preismodell) des API-Management-Dienstes – `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium`, `PremiumV2`
+
+-   `sku_capacity` : Kapazitätseinstellung (Anzahl der Instanzen) für die ausgewählte SKU
+
+-   `virtual_network_type` : Art der Anbindung von API Management an ein virtuelles Netzwerk – `None`, `External`, `Internal`
+
+-   `target_subnet_name` : Name des Subnetzes, in dem API Management bereitgestellt wird
+
+-   `apis` : Option zur Angabe der APIs, die im API-Management-Dienst registriert oder verwaltet werden sollen
+    -   `revision` : Revisionsnummer der API
+    -   `api_type` : Typ der API – `http`, `soap`, `graphql`
+    -   `display_name` : Name der API, der im Portal angezeigt wird
+    -   `path` : Pfad, der für den Zugriff auf den API-Endpunkt verwendet wird
+    -   `protocols` : Von der API unterstützte Kommunikationsprotokolle – `http`, `https`, `ws`, `wss`
+
+---
+
+## Referenzen
+
+-   [Azure API Management (Microsoft)](https://learn.microsoft.com/ko-kr/azure/api-management/api-management-key-concepts)
+-   [Azure API Management Preise](https://azure.microsoft.com/ko-kr/pricing/details/api-management/)
+-   [Azure API Management (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+-   [Azure API Management API (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management_api)

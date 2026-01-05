@@ -1,7 +1,7 @@
 ---
 title: DnsZone
 sidebar_position: 0
-tags: [Azure, リソース, Dns, DnsZone]
+tags: [Azure, DNS, DnsZone, Network]
 ---
 
 <hr />
@@ -11,18 +11,13 @@ tags: [Azure, リソース, Dns, DnsZone]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.webp"
     }
 />
 
 ## リソース概要
 
-Azure DNS 領域はクラウドで DNS ドメインをホストし、DNS レコードを管理できるように Microsoft Azure が提供するサービスです。
-A、AAA、CNAME、MX、および TXT のような DNS レコードを管理し、SOA(権限開始)、NS(ネームサーバ)、および PTR(ポインター)レコードのような DNS 設定を構成することができます。
-Azure DNS 領域を使用すると、Virtual Machines、Load Balancer、App Services のような他の Azure サービスと統合できる可用性と拡張性に優れた DNS ソリューションを持つことができます。
-オンプレミスリソースと一緒に使用して、統合された一貫した DNS 管理環境を提供することもできます。
-Azure DNS 領域はパブリックおよびプライベート DNS 領域の両方をサポートします。
-パブリック DNS 領域は、ドメイン名をインターネットを通じてアクセスできる IP アドレスにマッピングするために使用されますが、プライベート DNS 領域は、ドメイン名を仮想ネットワーク内でのみアクセスできるプライベート IP アドレスにマッピングするために使用されます。
+DNS Zone は、特定のドメインに対する DNS レコードをホストし、各 DNS レコードを作成および管理できる領域です。
 
 ## 関連リソース
 
@@ -32,42 +27,44 @@ Azure DNS 領域はパブリックおよびプライベート DNS 領域の両�
 
 ## リソース設定値
 
--   `dns_a_record`
+#### A レコード (`dns_a_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : IPv4 アドレスのリスト
+-   `dns_a_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_a_record.records` : IPv4 アドレスの一覧
 
--   `dns_aaaa_record`
+#### AAAA レコード (`dns_aaaa_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : IPv6 アドレスのリスト
+-   `dns_aaaa_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_aaaa_record.records` : IPv6 アドレスの一覧
 
--   `dns_cname_record`
+#### CNAME レコード (`dns_cname_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `record` : サブドメインを別のレコードにリンクするためのエイリアス
+-   `dns_cname_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_cname_record.record` : サブドメインを他のレコードに接続するためのエイリアス
 
--   `dns_ns_record`
+#### NS レコード (`dns_ns_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : NS レコードを構成する値のリスト
+-   `dns_ns_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_ns_record.records` : ネームサーバーレコードの一覧
 
--   `dns_ptr_record`
+#### PTR レコード (`dns_ptr_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : ポインタレコードタイプのドメイン名のリスト
+-   `dns_ptr_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_ptr_record.records` : ポインターレコードタイプのドメイン名一覧
 
--   `dns_txt_record`
+#### TXT レコード (`dns_txt_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : テキストタイプのレコード一リスト
+-   `dns_txt_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `dns_txt_record.records` : テキストタイプのレコード一覧
 
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+#### タグ
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure DnsZone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
--   [Azure DnsZone 価格](https://azure.microsoft.com/en-us/pricing/details/dns/)
--   [Azure DnsZone(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone)
+-   [Azure DNS 概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Azure DNS レコード管理（Microsoft）](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
+-   [Azure Private DNS Zone（Microsoft）](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)

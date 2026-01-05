@@ -1,0 +1,48 @@
+---
+title: Vpc
+sidebar_position: 0
+tags: [Ncloud, 리소스, Network, Vpc]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Es un entorno de red aislado que permite implementar una infraestructura de TI. Es un espacio de red privada dedicado al usuario, proporcionado en la nube pública.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### Recursos subordinados
+
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Container/KubernetesCluster)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Network/Subnet)
+-   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
+-   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Network/AccessControlGroup)
+-   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Network/NatGateway)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Network/RouteTable)
+-   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Network/LoadBalancer)
+
+## Valores de configuración del recurso
+
+-   `ipv4_cidr_block` : Rango de direcciones IP, dentro del rango privado (10.0.0.0/8,172.16.0.0/12,192.168.0.0/16), con prefijo entre /16 y /28
+
+---
+
+## Documentación de referencia
+
+-   [VPC Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-manage-vpc)
+-   [VPC (Virtual Private Cloud)(Ncloud)](https://www.ncloud.com/product/networking/vpc)
+-   [ncloud_vpc(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc)

@@ -1,0 +1,55 @@
+---
+title: Mysql
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Database, Mysql]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mysql.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+MySQL è un servizio di database cloud completamente gestito basato sul database relazionale MySQL. Consente di creare facilmente un database MySQL, gestirlo in modo stabile e recuperarlo automaticamente in caso di guasto.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Risorsa collegata
+
+-   [**Mysql**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
+
+
+## Impostazioni della risorsa
+
+-   `server_name_prefix` : Nome del server MySQL
+-   `user_name` : ID di accesso dell'utente MySQL
+-   `user_password` : Password dell'utente MySQL
+-   `host_ip` : IP del client a cui ci si vuole connettere
+-   `database_name` : Nome del database da creare
+-   `image_product_code` : Codice del prodotto dell'immagine del server MySQL con le specifiche dell'istanza di MySQL da creare
+-   `product_code` : Codice del prodotto che determina le specifiche hardware del server MySQL da creare
+-   `data_storage_type` : Tipo di storage dei dati - `SSD`, `HDD`
+-   `enable_high_availability` : Se abilitare la funzionalità di alta disponibilità
+-   `enable_backup` : Se abilitare la funzionalità di backup
+-   `backup_file_retention_period` : Periodo di conservazione dei file di backup, il backup viene effettuato quotidianamente e i file di backup sono memorizzati su uno storage separato - `1~30`
+-   `enable_automatic_backup` : Se abilitare la funzionalità di backup automatico
+-   `port` : Porta di accesso MySQL - `3306~20000`
+    
+
+---
+
+## Materiale di riferimento
+
+-   [Mysql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMysql)
+-   [ncloud_mysql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mysql)

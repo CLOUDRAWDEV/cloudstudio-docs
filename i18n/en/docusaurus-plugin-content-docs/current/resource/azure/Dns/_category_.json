@@ -1,7 +1,7 @@
 {
-  "label": "Dns",
-  "position": 10,
-  "link": {
-    "type": "generated-index"
-  }
+    "label": "Dns",
+    "position": 13,
+    "link": {
+        "type": "generated-index"
+    }
 }

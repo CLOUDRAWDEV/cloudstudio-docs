@@ -1,0 +1,61 @@
+---
+title: ApiGatewayHttp
+sidebar_position: 0
+tags: [AWS, Risorsa, ApiGatewayHttp]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+    }
+/>
+
+## Panoramica Risorse
+
+L'HTTP API in API Gateway è un tipo di API Gateway progettato per creare API basate sul protocollo HTTP in modo semplice e leggero.
+L'HTTP API è più semplice e più economica rispetto al tradizionale REST API ed è principalmente adatta per applicazioni web serverless e microservizi semplici.
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Risorse correlate
+
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+
+## Impostazioni della risorsa
+
+-   `integration` : Nome di API Gateway Integration
+    -   `http_integration`
+        -   `integration_type` : Tipo di API Gateway Integration - `Http`, `Lambda`
+        -   `integration_method` : API Gateway Integration의 HTTP Method
+        -   `integration_url` : Specifica dell'URL normalizzato per l'integrazione HTTP
+    -   `lambda_integration`
+        -   `integration_type` : Tipo di API Gateway Integration - `Http`, `Lambda`
+        -   `integration_method` : API Gateway Integration의 HTTP Method
+        -   `linked_lambda_name` : Nome della funzione Lambda per l'integrazione Lambda Proxy
+-   `route`
+
+    -   `route_method` : Metodo HTTP per l'HTTP API
+    -   `route_path` : Percorso della risorsa per l'HTTP API
+    -   `target_integration` : Nome dell'integrazione API Gateway a cui collegare la route - `http_integration`, `lambda_integration`
+
+-   `deployment`
+
+    -   `description` : Descrizione API Gateway Development
+
+-   `stage`
+    -   `dev`
+        -   `enable_deployment` : Distribuzione API Gateway Stage
+        -   `auto_deployment` : Attivazione della distribuzione automatica
+    -   `test`
+        -   `enable_deployment` : Distribuzione API Gateway Stage
+        -   `auto_deployment` : Attivazione della distribuzione automatica
+        -   `deployment_name` : Nome API Gateway Deployment da collegare
+    -   `prod`
+        -   `enable_deployment` : Distribuzione API Gateway Stageß

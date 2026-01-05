@@ -1,0 +1,50 @@
+---
+title: Istiod
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Helm, Istiod]
+---
+
+
+<hr />
+<br />
+
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istiod.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È il chart Helm per Istio.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+
+
+
+## Impostazioni della risorsa
+
+-   `service_name` : Nome del rilascio del chart Helm di Istio
+-   `namespace` : Namespace in cui verrà distribuito il chart Helm di Istio - specificato come `istio-system`
+-   `version` : Versione del chart Helm di Istio da utilizzare
+-   `set` : Modifica dinamica dei valori del chart di base di Istio
+
+
+---
+
+## Materiale di riferimento
+
+-   [Helm install(Istio)](https://istio.io/latest/docs/setup/install/helm/)
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
+

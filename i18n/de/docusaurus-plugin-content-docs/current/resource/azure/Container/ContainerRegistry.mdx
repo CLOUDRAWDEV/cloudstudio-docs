@@ -1,43 +1,73 @@
 ---
 title: ContainerRegistry
 sidebar_position: 0
-tags: [Azure, Ressourcen, Container, ContainerRegistry]
+tags: [Azure, ContainerRegistry, Container]
 ---
 
 <hr />
 <br />
 
-
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Container Registry ist ein verwalteter Registrierungsdienst, der auf dem Open-Source Docker Registry 2.0 basiert.
-Er ermöglicht es, Azure Container Registry zu erstellen und zu verwalten, um Container-Images und verwandte Artefakte zu speichern und zu verwalten.
+Azure Container Registry ist ein privater Container-Registry-Dienst zur sicheren Speicherung und Verwaltung von  
+Container-Images und OCI-Artefakten.  
+Der Dienst ist eng mit Docker- und Kubernetes-basierten Workloads integriert und ermöglicht eine  
+feingranulare Konfiguration von Sicherheit, Leistung und Netzwerkzugriffskontrollen.
 
-## Ressourcen-Einstellwerte
+## Zugehörige Ressourcen
 
--   `sku` : SKU-Typen für die Leistung und Skalierbarkeit des Container Registry - `Basic`, `Standard`, `Premium`
+### Übergeordnete Ressourcen
 
--   `admin_enabled` : Administrator aktivieren - `true`, `false`
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
--   `public_network_access_enabled` : Öffentlichen Netzwerkzugriff zulassen - `true`, `false`
+### Verbundene Ressourcen
 
--   `network_rule_set` : Kann nur erstellt werden, wenn der SKU-Typ Premium ist
-    -   `default_action` : Aktionen für Anfragen, die nicht mit der Regel übereinstimmen - `Deny`, `Allow`
-    -   `ip_ranges` : IP-Adresse CIDR der Anfragen, die mit der Regel übereinstimmen
--   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
+
+## Ressourceneinstellungen
+
+-   `sku` :  
+    SKU-Typ für Leistung und Skalierbarkeit der Container Registry
+
+    -   `Basic`
+    -   `Standard`
+    -   `Premium`
+
+-   `admin_enabled` :  
+    Aktivierung des Administratorkontos – `true`, `false`
+
+-   `public_network_access_enabled` :  
+    Zulassen des Zugriffs über öffentliche Netzwerke – `true`, `false`
+
+### Netzwerkrichtlinieneinstellungen (`network_rule_set`)
+
+> Nur konfigurierbar, wenn die SKU auf `Premium` gesetzt ist.
+
+-   `network_rule_set.default_action` :  
+    Standardaktion für Anfragen, die keiner Regel entsprechen
+
+    -   `Allow`
+    -   `Deny`
+
+-   `network_rule_set.ip_ranges` :  
+    Liste der IP-Adress-CIDRs für Anfragen, die mit den Regeln übereinstimmen
+
+### Tags
+
+-   `tag` :  
+    Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure ContainerRegistry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/container-registry-intro)
--   [Azure ContainerRegistry Kosten](https://azure.microsoft.com/en-us/pricing/details/container-registry/)
--   [Azure ContainerRegistry(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)
+-   [Azure Container Registry (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/)
+-   [Terraform azurerm_container_registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

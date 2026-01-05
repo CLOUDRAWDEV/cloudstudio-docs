@@ -1,7 +1,7 @@
 ---
 title: BastionHost
-sidebar_position: 1
-tags: [Azure, Ressourcen, Network, BastionHost]
+sidebar_position: 8
+tags: [Azure, Network, BastionHost]
 ---
 
 <hr />
@@ -11,44 +11,23 @@ tags: [Azure, Ressourcen, Network, BastionHost]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Bastion ist ein Dienst, mit dem Sie über den Browser und das Azure Portal oder über bereits auf Ihrem lokalen Computer installierte Standard-SSH- oder RDP-Clients eine Verbindung zu virtuellen Maschinen herstellen können.
-Der Azure Bastion-Dienst wird innerhalb des virtuellen Netzwerks als vollständig verwalteter PaaS-Dienst bereitgestellt. Er ermöglicht eine sichere und nahtlose RDP/SSH-Verbindung zu virtuellen Maschinen direkt über das Azure Portal über TLS.
-Durch die Verbindung über Azure Bastion benötigen Sie keine öffentliche IP-Adresse, Agenten oder spezielle Client-Software, um auf die virtuelle Maschine zuzugreifen.
+Ein Bastion Host ist ein Azure-PaaS-Netzwerkdienst, der **sicheren RDP- und SSH-Zugriff** auf virtuelle Maschinen innerhalb eines Virtual Networks bereitstellt, ohne öffentliche IP-Adressen direkt den VMs zuzuweisen.  
+Er unterstützt browserbasierten Zugriff und ermöglicht die Einrichtung eines zentralisierten Zugriffspunkts ohne das Öffnen von Verwaltungsports, wodurch sowohl die Sicherheit als auch die Betriebseffizienz verbessert werden.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
 
-## Ressourcen-Einstellwerte
-
--   `included_subnet_name` : Subnetzname, in dem der Bastion Host platziert werden soll
-
--   `sku` : SKU des Bastion Hosts - `Basic`, `Standard`
-
--   `linked_public_ip_name` : Name der öffentlichen IP, die mit dem Bastion Host verbunden wird
-
--   `ip_config_name` : Name der IP-Konfiguration
-
--   `tag` : Tag, um die Ressource in Kategorien zu unterteilen - maximal 512 Zeichen, `key`:`value`
-
----
-
-## Referenzmaterial
-
--   [Azure BastionHost(Microsoft)](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
--   [Azure BastionHost Kosten](https://azure.microsoft.com/en-us/pricing/details/azure-bastion/)
--   [Azure BastionHost(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host)
+## R

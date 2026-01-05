@@ -1,0 +1,134 @@
+---
+title: Editar el lienzo
+sidebar_position: 6
+tags: [lienzo, barra de herramientas, lista de recursos, errores, edición del lienzo, dibujar, empezar]
+last_update:
+    date: 02/01/2023
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import dragDrop from "../start/img/gif/drag&drop.gif"
+import lineConnection from "../start/img/gif/line-connection.gif"
+import error from "../start/img/gif/error.gif"
+import edit from "../start/img/gif/option-edit.gif"
+import undo from "./img/undo.png"
+import redo from "./img/redo.png"
+import list from "./img/list.png"
+import ratio from "./img/ratio.png"
+import grid from "./img/grid.png"
+import connect from "../start/img/connect.png"
+import basic from "../start/img/basic.png"
+import group from "../start/img/group.png"
+import back from "../start/img/back.png"
+import front from "../start/img/front.png"
+import tools from "../start/img/tools.png"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    última actualización: 2023.02.01
+</span>
+
+<hr />
+<br />
+
+El lienzo es el <highlight color="#206FD6">servicio principal de Cloud Studio</highlight> que permite dibujar infraestructura en la nube, gestionar versiones y desplegarla, utilizando recursos mediante `Drag & Drop`. 
+La infraestructura construida en el lienzo puede ser utilizada como una simple arquitectura visual o desplegada directamente en el CSP deseado.
+
+✂️ ¡Edita libremente el lienzo!
+
+<p>&nbsp;</p>
+
+## Arrastrar y Soltar recursos {#drag-drop}
+
+`Arrastrar y soltar` es la función más simple para configurar el lienzo.
+Desde la `lista de recursos` a la izquierda, simplemente arrastra y suelta el recurso deseado en el lienzo.
+Los recursos que no puedan conectarse entre sí serán rechazados con una línea roja.
+
+<div className={styles.imgWrap}>
+    <img src={dragDrop} alt="imagen de drag and drop" width={800} />
+</div>
+
+<br />
+
+:::info
+
+La `lista de recursos` es un panel a la izquierda del lienzo donde se agrupan los recursos disponibles.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Conectar recursos {#resource-connect}
+
+Conecta los recursos arrastrados al lienzo con una línea entre aquellos que puedan ser conectados.
+
+<div className={styles.imgWrap}>
+    <img src={lineConnection} alt="imagen de conexión de recursos" width={800} />
+</div>
+
+<br />
+<br />
+
+### Tipos de recursos
+
+Los recursos se dividen en los siguientes `cuatro` tipos. Consulta la lista de recursos a continuación para conectar los recursos en el lienzo.
+
+| Imagen                                            | Nombre   | Descripción                                              |
+| ------------------------------------------------- | -------- | -------------------------------------------------------- |
+| <img width="40px" src={ basic } alt="imagen" />   | Básico   | Muestra los recursos que pueden formar parte de un grupo. |
+| <img width="40px" src={ connect } alt="imagen" /> | Conexión | Muestra los recursos que pueden conectarse a este recurso.|
+| <img width="40px" src={ group } alt="imagen" />   | Grupo    | Muestra los recursos que pueden pertenecer a este grupo.  |
+| <img width="40px" src={ tools } alt="imagen" />   | Herramientas | Muestra las herramientas disponibles en el lienzo. |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Editar opciones de recursos {#option-edit}
+
+Haz `doble clic` en un recurso para abrir el `panel de edición` y cambiar la configuración de ese recurso.
+Haz clic en el `icono de ver detalles` para ver la descripción del recurso.
+❓ Si pasas el ratón sobre el `icono de interrogación`, podrás ver la descripción de cada opción. Consulta la descripción para ajustar los valores según sea necesario.
+
+<div className={styles.imgWrap}>
+    <img src={edit} alt="imagen de edición de opciones" width={800} />
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Corregir errores {#error-correction}
+
+🔴 El punto rojo indica que hay un error en el recurso. <highlight color="#FF7272">Si hay errores, no podrás guardar ni desplegar el lienzo.</highlight>
+Para solucionar el error, haz `doble clic` en el recurso con error para abrir la ventana de errores del lienzo.
+En la ventana de errores, haz doble clic en un error específico para ser dirigido al lugar del error. Revisa la causa del error y corrígelo.
+
+<div className={styles.imgWrap}>
+    <img src={error} alt="imagen de corrección de errores" width={800} />
+</div>
+
+<p>&nbsp;</p>
+
+### Tipos de errores
+
+| Tipo  | Descripción                                              |
+| ----- | -------------------------------------------------------- |
+| value | Error que ocurre cuando el valor de entrada es incorrecto |
+| group | Error que ocurre cuando no se pertenece a un grupo       |
+| line  | Error que ocurre cuando un recurso necesario no está conectado |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Uso de la Caja de Herramientas {#toolbox}
+
+La caja de herramientas ubicada en la parte superior ofrece diversas funciones para personalizar el lienzo.
+
+| Imagen                                                       | Acción        | Función                                               |
+| ------------------------------------------------------------ | ------------- | ---------------------------------------------------- |
+| <img width="40px" src={ undo } alt="Imagen de deshacer" />   | Deshacer      | Retrocede un paso.                                   |
+| <img width="40px" src={ redo } alt="Imagen de rehacer" />    | Rehacer       | Avanza un paso.                                      |
+| <img width="40px" src={ front } alt="Imagen" />              | Enviar atrás  | Si dos recursos se superponen, envía el recurso seleccionado atrás. |
+| <img width="40px" src={ back } alt="Imagen" />               | Enviar al frente | Si dos recursos se superponen, envía el recurso seleccionado al frente. |
+| <img width="40px" src={ list } alt="Imagen de lista de recursos" /> | Lista de recursos | Botón para mostrar u ocultar la lista de recursos. |
+| <img width="100px" src={ ratio } alt="Imagen de proporción de pantalla" />   | Proporción de pantalla | Ajusta la proporción de la pantalla del lienzo. |
+| <img width="100px" src={ grid } alt="Imagen de la cuadrícula" />       | Cuadrícula    | Permite desactivar la cuadrícula del lienzo.         |                    |

@@ -1,0 +1,58 @@
+---
+title: Subnet
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc, Subnet]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Il subnet è un intervallo di indirizzi IP all'interno di un VPC. Puoi creare risorse AWS, come ad esempio un'istanza EC2, in un subnet specifico.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Risorse inferiori
+
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+-   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Ecs Cluster**](https://docs.cstudio.app/docs/resource/aws/Ecs/EcsCluster)
+-   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticache Cluster**](https://docs.cstudio.app/docs/resource/aws/Elasticache/ElasticacheCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Rds Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+-   [**Rds Mariadb**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Rds Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Rds Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+-   [**Rds Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Rds Postgresql**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**Vpc Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
+
+## Impostazioni della risorsa
+
+-   `included_vpc_name` : Nome del VPC in cui verrà distribuito il subnet
+-   `cidr_block` : Intervallo IP (CIDR) del subnet
+-   `availability_zone` : Zona di disponibilità in cui verrà distribuito il subnet
+-   `pip_enable` : Assegnazione di un IP pubblico (abilitazione)
+
+
+---
+
+## Materiale di riferimento
+
+-   [VPC의 서브넷(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
+-   [aws_subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

@@ -1,7 +1,7 @@
 ---
 title: StorageAccount
 sidebar_position: 0
-tags: [Azure, リソース, Storage, StorageAccount]
+tags: [Azure, Storage, StorageAccount]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, リソース, Storage, StorageAccount]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.webp"
     }
 />
 
 ## リソース概要
 
-Azure リポジトリアカウントは、Microsoft Azure が提供するクラウドベースのリポジトリソリューションです。
-Azure クラウドで実行されるアプリケーション、仮想マシン、およびその他のサービスのための拡張可能で可用性の高いデータストレージプラットフォームを提供します。
-Azure リポジトリアカウントは、Blob リポジトリ、ファイルリポジトリ、キューリポジトリ、テーブルリポジトリなど、様々なタイプのリポジトリサービスをサポートします。
-Blob リポジトリは、テキスト、画像、ビデオ、およびその他のバイナリデータなどの非構造化データを保存するために使用されます。
+Azure Storage Account は、Blob、File、Queue、Table などのストレージ サービスを単一のアカウントで提供する基本的なストレージ リソースです。  
+スケーラブルなデータ保存、高可用性、セキュアなネットワーク アクセス制御により、さまざまなアプリケーション ワークロードをサポートします。
 
 ## 関連リソース
 
@@ -31,48 +29,46 @@ Blob リポジトリは、テキスト、画像、ビデオ、およびその他
 ### 接続リソース
 
 -   [**Backup**](https://docs.cstudio.app/ja/docs/resource/azure/RecoveryServices/Backup)
+-   [**Metric**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/Metric)
+-   [**Eventhub**](https://docs.cstudio.app/ja/docs/resource/azure/LogAnalytics/Eventhub)
+-   [**Private Endpoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
 
 ## リソース設定値
 
--   `account_kind` : Storage Account のタイプ - `StorageV2`,`Storage`
+-   `account_kind` : Storage Account の種類 - `StorageV2`, `Storage`
+-   `account_tier` : Storage Account のパフォーマンス階層 - `Standard`, `Premium`
+-   `account_replication_type` : Storage Account のデータ レプリケーション タイプ - `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, `RAGZRS`
+-   `access_tier` : データ使用パターンの階層 - `Hot`, `Cool`
+-   `min_tls_version` : Storage Account でサポートされる最小 TLS バージョン - `TLS1_0`, `TLS1_1`, `TLS1_2`
+-   `enable_https_traffic_only` : HTTPS 経由のアクセスのみを許可するかどうか - `true`, `false`
+-   `tag` : リソースを分類するためのタグ
 
--   `account_tier` : Storage Account 使用のための性能階層 - `Standard`,`Premium`
--   `account_replication_type` : Storage Account のデータ複製タイプ - `LRS`,`GRS`,`RAFRS`,`ZRS`,`GZRS`,`RAGZRS`
+#### Networking (`networking`)
 
--   `access_tier` : アカウントのタイプが BlobStorage/FileStorage/Storage V2 の場合、データ使用パターン指定階層 - `Hot`,`Cool`
+-   `networking.public_network_access` : パブリック ネットワーク アクセス ポリシー - `All`, `Selected`, `Disabled`
+-   `networking.ip_rules` : ネットワーク ルールを適用する IP アドレス範囲の一覧
+-   `networking.bypass` : トラフィックのバイパス対象 - `AzureServices`, `Logging`, `Metrics`
 
--   `min_tls_version` : Storage Account に対してサポートされる最小 TLS バージョン - `TLS1_1`,`TLS1_2`,`TLS1_0`
+#### Storage Container (`storage_container`)
 
--   `enable_https_traffic_only` : セキュリティ転送が必要な場合、HTTPS を通じて Azure Storage REST API 作業を呼び出し - `true`,`false`
+-   `storage_container.container_access_type` : Storage Container のアクセス レベル - `private`, `blob`, `container`
 
--   `network_rules`
+#### Storage Queue (`storage_queue`)
 
-    -   `default_action` : Network Rules に適用する default action - `Deny`,`Allow`
-    -   `bypass` : Logging/Metrics/AzureServices に対してトラフィック迂回の可否 - `AzureServices`,`Logging`,`Metrics`,`None`
-    -   `ip_rules` : Network Rules を適用する IP アドレス範囲
+-   `storage_queue.name` : Queue 名
 
--   `storage_container`
+#### Storage Share (`storage_share`)
 
-    -   `container_access_type` : Storage Container へのアクセスレベル - `private`,`blob`,`container`
+-   `storage_share.quota` : ファイル共有の最大容量（GB）
 
--   `storage_queue`
+#### Storage Table (`storage_table`)
 
-    -   `name` : Queue 名
-
--   `storage_share`
-
-    -   `quota` : ファイル共有 GB 単位の最大容量 - `1` ~ `5120`
-
--   `storage_table`
-
-    -   `name` : テーブル名
-
--- `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `storage_table.name` : Table 名
 
 ---
 
 ## 参考資料
 
--   [Azure StorageAccount(Microsoft)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)
--   [Azure StorageAccount 価格](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/)
--   [Azure StorageAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+-   [Azure Storage Account 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-account-overview)
+-   [Azure Storage レプリケーション オプション (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-redundancy)
+-   [Azure Storage ネットワーク セキュリティ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-network-security)

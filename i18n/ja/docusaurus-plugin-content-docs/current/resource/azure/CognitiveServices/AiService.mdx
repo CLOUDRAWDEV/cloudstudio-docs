@@ -1,0 +1,80 @@
+---
+title: AiService
+sidebar_position: 1
+tags: [Azure, AiService, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-ai_service.webp"
+    }
+/>
+
+## リソース概要
+
+AI Service は、AI モデルおよび分析機能を API 形式で提供し、アプリケーションへ容易に AI 機能を統合できるサービスです。  
+モデルのデプロイ、認証方式、ネットワークアクセス制御、マネージド ID 連携により、安全で拡張性の高い AI サービス運用環境を提供します。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+## リソース設定値
+
+-   `sku_name` : AI Service 利用時の価格レベル
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `local_authentication_enabled` : API キーによるローカル認証の有効化 – `true`, `false`
+
+-   `custom_subdomain_name` : トークンベース認証およびエンドポイント用カスタムサブドメイン名
+
+-   `fqdns` : 使用を許可する完全修飾ドメイン名（FQDN）一覧
+
+### マネージド ID 設定 (`identity`)
+
+-   `identity.identity_type` : 使用するマネージド ID の種類
+
+    -   `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+
+-   `identity.identity_ids` : ユーザー割り当てマネージド ID の ID 一覧
+
+### ネットワークアクセス制御 (`network_acls`)
+
+-   `network_acls.default_action` : 既定のネットワーク制御ポリシー – `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : 許可する IP / CIDR 一覧
+
+-   `outbound_network_access_restricted` : 外部へのアウトバウンド通信制限 – `true`, `false`
+
+-   `public_network_access` : パブリックインターネット経由のアクセス許可 – `Enabled`, `Disabled`
+
+### モデルデプロイ設定 (`deployment`)
+
+-   `deployment.model_name` : デプロイするモデル名
+
+-   `deployment.model_version` : 使用するモデルバージョン
+
+-   `deployment.sku_name` : 割り当てる処理容量（SKU）
+
+    -   `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`,  
+        `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, `ProvisionedManaged`
+
+-   `deployment.version_upgrade_option` : モデルのバージョンアップ方式
+    -   `OnceCurrentVersionExpired`, `OnceNewDefaultVersionAvailable`, `NoAutoUpgrade`
+
+---
+
+## 参考資料
+
+-   [Azure AI Services (Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/)
+-   [Azure Cognitive Services 価格](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+-   [Azure Cognitive Services Deployment (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_deployment)

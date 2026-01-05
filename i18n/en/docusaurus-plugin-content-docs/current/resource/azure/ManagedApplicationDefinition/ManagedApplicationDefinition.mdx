@@ -1,0 +1,73 @@
+---
+title: ManagedApplicationDefinition
+sidebar_position: 0
+tags: [Azure, ManagedApplication, ManagedApplicationDefinition]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/managed_application_definition-managed_application_definition.webp"
+    }
+/>
+
+## Resource Overview
+
+A Managed Application Definition is a resource that stores the definition of a **managed application** that users can deploy through the Azure Marketplace or an internal organizational catalog.  
+By packaging ARM templates and UI definitions together, it standardizes the input screens and permission scope provided to users during deployment.
+
+## Related Resources
+
+### Parent Resource
+
+-   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Configuration Values
+
+#### Basic Information
+
+-   `description` : Description of the Managed Application Definition
+-   `display_name` : Name displayed in the user interface
+
+#### Lock Level (`lock_level`)
+
+Defines the level of operations that users are allowed to perform on deployed resources.
+
+-   `None` : No restrictions
+-   `CanNotDelete` : Deletion not allowed
+-   `ReadOnly` : Read-only
+
+#### Package File URI (`package_file_uri`)
+
+-   URI of the `.zip` file containing the ARM template and metadata for deployment
+-   Must include the following files
+    -   `mainTemplate.json`
+    -   `createUiDefinition.json`
+-   `mainTemplate.json` must include at least a minimal `parameters` section
+
+#### Authorization (`authorization`)
+
+Defines the roles that will be automatically assigned during application deployment.
+
+-   `authorization.service_principal_id` : ID of the Service Principal to which the role will be assigned
+-   `authorization.role_definition_id` : Resource ID of the Role Definition
+
+---
+
+## Usage Scenarios
+
+-   Deployment of SaaS or solution packages for the Azure Marketplace
+-   Providing standardized internal architectures as Managed Applications
+-   Delivering infrastructure to customers or internal users with restricted operational permissions
+
+---
+
+## References
+
+-   [Azure Managed Applications Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/overview)
+-   [createUiDefinition.json Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/create-uidefinition-overview)
+-   [Managed Application Definition ARM Resource (Microsoft)](https://learn.microsoft.com/ko-kr/azure/templates/microsoft.solutions/applicationdefinitions)

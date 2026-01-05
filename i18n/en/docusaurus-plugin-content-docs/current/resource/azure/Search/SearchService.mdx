@@ -1,0 +1,52 @@
+---
+title: SearchService
+sidebar_position: 0
+tags: [Azure, Search, CognitiveSearch, SearchService]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/search-search_service.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Search Service is a fully managed search service that provides capabilities such as searching, filtering, and ranking across large-scale text, documents, and data.  
+Based on search indexes, it delivers fast query processing and scalable search performance, and it can control the service access scope through security and network access policies.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Connected Resources
+
+-   [**Private Endpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+
+## Resource Setting Values
+
+-   `sku_name` : Pricing tier for using Search Service - `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1`, `storage_optimized_l2`
+-   `public_network_access_enabled` : Whether to allow resource access via the public internet - `true`, `false`
+-   `allowed_ips` : IP allow list that permits access to Search Service from specific IPs or CIDR ranges
+-   `local_authentication_enabled` : Whether to use local authentication with API keys - `true`, `false`
+-   `authentication_failure_mode` : Behavior mode that determines whether to block requests or allow them in a limited way when client authentication fails - `http401WithBearerChallenge`, `http403`
+-   `partition_count` : Number of partitions used to distribute and store index data - `1`, `2`, `3`, `4`, `6`, `12`
+-   `replica_count` : Number of replicas to handle search queries
+
+#### Private Link (`private_link`)
+
+-   `private_link.target_ai_service_name` : Name of the target AI Service resource for which to create a Private Link connection
+-   `private_link.request_message` : Description or message to send to the approver when requesting a Private Link connection
+
+## Reference Materials
+
+-   [Azure Cognitive Search Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-what-is-azure-search)
+-   [Azure Cognitive Search Pricing and SKU (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-sku-tier)
+-   [Azure Cognitive Search Network Security (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-security-overview)

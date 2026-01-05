@@ -1,7 +1,7 @@
 ---
 title: VirtualNetworkGateway
-sidebar_position: 15
-tags: [Azure, Ressourcen, Network, VirtualNetworkGateway]
+sidebar_position: 12
+tags: [Azure, Network, VirtualNetworkGateway, VPN]
 ---
 
 <hr />
@@ -11,42 +11,43 @@ tags: [Azure, Ressourcen, Network, VirtualNetworkGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_gateway.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Virtual Network Gateway ist ein von Microsoft Azure bereitgestellter Dienst, der es ermöglicht, eine sichere Cross-Premises-Verbindung zwischen einem Azure Virtual Network und einer On-Premises-Infrastruktur oder anderen Azure Virtual Networks herzustellen.
-Es fungiert als Brücke zwischen On-Premises-Infrastrukturen und Azure Virtual Networks, sodass Rechenzentren in die Cloud erweitert und hybride Lösungen erstellt werden können.
-Azure Virtual Network Gateway bietet zwei Arten von VPN-Verbindungen: Site-to-Site VPN und Point-to-Site VPN.
-Site-to-Site VPN wird verwendet, um On-Premises-Netzwerke mit Azure Virtual Networks zu verbinden. Point-to-Site VPN wird verwendet, um einzelne Computer mit einem Azure Virtual Network zu verbinden.
-Azure Virtual Network Gateway unterstützt außerdem verschiedene Routingtypen wie BGP (Border Gateway Protocol), statisches Routing und dynamisches Routing. Es bietet auch Funktionen wie Hochverfügbarkeit, aktive-aktive Konfiguration und Unterstützung für mehrere Virtual Network Gateways.
+Virtual Network Gateway ist ein Netzwerk-Gateway, das **verschlüsselte Kommunikationspfade für Datenverkehr** zwischen einem Azure Virtual Network und einem On-Premises-Netzwerk oder einem anderen Virtual Network bereitstellt.  
+Es kann über VPN oder ExpressRoute verbunden werden und ist eine zentrale Komponente für hybride Netzwerkkonfigurationen sowie sichere dedizierte Verbindungen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
 
-## Ressourcen-Einstellwerte
+### Verbundene Ressourcen
 
--   `included_subnet_name` : Virtuelles Netzwerk-Gateway, über das der Datenverkehr gesendet und empfangen wird
--   `gateway_type` : Typ des virtuellen Netzwerk-Gateways -`Vpn`, `ExpressRoute`
--   `vpn_type` : VPN-Verbindungsart für die VPN-Konfiguration -`RouteBased`, `PolicyBased`
--   `sku` : Preisstaffel des virtuellen Netzwerk-Gateways
--   `generation` : Generation des virtuellen Netzwerk-Gateways - `Generation1`, `Generation2`, `None`
--   `enable_active_active_mode` : `true`, `false`
--   `enable_configure_bgp` : `true`, `false`
--   `ip_configuration` : Name der IP-Konfiguration
--   `tag` : Tag zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   [**Public Ip**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+
+## Ressourceneinstellungen
+
+-   `included_subnet_name` : Name des Subnets, über das der Virtual Network Gateway Datenverkehr sendet und empfängt
+-   `gateway_type` : Typ des Virtual Network Gateways - `Vpn`, `ExpressRoute`
+-   `vpn_type` : Typ der VPN-Verbindung - `RouteBased`, `PolicyBased`
+-   `sku` : Preisstufe des Virtual Network Gateways
+-   `generation` : Generation des Virtual Network Gateways - `Generation1`, `Generation2`
+-   `enabled_active_active_mode` : Gibt an, ob der Active-Active-Modus aktiviert ist
+-   `enabled_configure_bgp` : Gibt an, ob BGP aktiviert ist
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
+
+#### IP-Konfiguration (`ip_configuration`)
+
+-   `ip_configuration.linked_public_ip_name` : Name der Public IP, die dem Virtual Network Gateway zugeordnet wird
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure VirtualNetworkGateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
--   [Azure VirtualNetworkGateway Kosten](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)
--   [Azure VirtualNetworkGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_gateway)
+-   [Azure Virtual Network Gateway – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [Konfigurationsoptionen für VPN Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)

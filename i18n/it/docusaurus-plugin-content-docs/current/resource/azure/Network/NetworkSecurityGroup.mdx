@@ -1,0 +1,61 @@
+---
+title: NetworkSecurityGroup
+sidebar_position: 2
+tags: [Azure, Network, NetworkSecurityGroup, Security]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_security_group.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Network Security Group è una risorsa di sicurezza che controlla il traffico di rete in ingresso e in uscita verso le risorse di Azure all’interno di una Virtual Network in base a regole.  
+Tramite regole di sicurezza basate su priorità, è possibile consentire o bloccare il traffico in base a protocollo, porta e intervallo di indirizzi IP, applicando le regole associandole a un Subnet o a una Network Interface.  
+Questo consente di controllare in modo preciso l’ambito di accesso alla rete delle applicazioni e di rafforzare il livello di sicurezza.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Network Interface**](https://docs.cstudio.app/it/docs/resource/azure/Network/NetworkInterface)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/azure/Network/Subnet)
+
+## Valori di configurazione della risorsa
+
+-   `linked_subnet_names` : Nomi dei Subnet da associare al Network Security Group
+-   `linked_network_interface_names` : Nomi delle Network Interface da associare al Network Security Group
+
+#### Regole di sicurezza (`security_rules`)
+
+-   `security_rules.priority` : Priorità della regola - `100` ~ `4096`
+-   `security_rules.direction` : Direzione del traffico a cui si applica la regola - `Inbound`, `Outbound`
+-   `security_rules.access` : Indica se consentire o negare il traffico di rete - `Allow`, `Deny`
+-   `security_rules.protocol` : Protocollo di rete a cui si applica la regola - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
+-   `security_rules.source_port_ranges` : Porta o intervallo di porte di origine - numero intero o `0` ~ `65535`
+-   `security_rules.destination_port_ranges` : Porta o intervallo di porte di destinazione - numero intero o `0` ~ `65535`
+-   `security_rules.source_address_prefixes` : CIDR o intervallo di indirizzi IP di origine
+-   `security_rules.destination_address_prefixes` : CIDR o intervallo di indirizzi IP di destinazione
+-   `security_rules.description` : Descrizione della regola di sicurezza
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, formato `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica sui Network Security Groups (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview)
+-   [Regole di sicurezza NSG (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview#security-rules)

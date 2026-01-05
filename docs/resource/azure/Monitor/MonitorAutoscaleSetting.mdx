@@ -1,7 +1,7 @@
 ---
 title: MonitorAutoscaleSetting
-sidebar_position: 2
-tags: [Azure, 리소스, Monitor, MonitorAutoscaleSetting]
+sidebar_position: 0
+tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
 ---
 
 <hr />
@@ -11,14 +11,14 @@ tags: [Azure, 리소스, Monitor, MonitorAutoscaleSetting]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.webp"
     }
 />
 
 ## 리소스 개요
 
-Azure Monitor 자동 크기 조정은 미리 정의된 규칙 및 메트릭을 기반으로 리소스의 자동 크기 조정을 가능하게 하는 Microsoft Azure의 기능입니다.
-자동 크기 조정을 사용하여 가상 머신, 앱 서비스 및 AKS(Azure Kubernetes Service) 클러스터와 같은 리소스를 확장하거나 축소하여 변화하는 요구 사항을 충족하고 비용을 최적화할 수 있습니다.
+Monitor Autoscale Setting은 애플리케이션의 로드를 처리하기 위해 **리소스 인스턴스 수를 자동으로 조정**하는 Azure Monitor 기반 자동 크기 조정 기능입니다.  
+CPU, 메모리, 디스크, 네트워크 등의 메트릭과 일정 조건을 기준으로 리소스를 유연하게 확장하거나 축소할 수 있습니다.
 
 ## 연관 리소스
 
@@ -29,21 +29,71 @@ Azure Monitor 자동 크기 조정은 미리 정의된 규칙 및 메트릭을 �
 ### 연결 리소스
 
 -   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
--   [**Windowsserver Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsserverVirtualMachineScaleSet)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
 
 ## 리소스 설정 값
 
--   `target_resource_name` : 자동 크기 조정 설정을 적용할 리소스 이름
+#### 대상 리소스
 
--   `scale_condition`
+-   `linked_target_resource_name` : 자동 크기 조정 설정을 적용할 리소스 이름 (읽기 전용)
 
-    -   `min_instance_count` : 최소 인스턴스 수 - `0` ~ `1000`
-    -   `max_instance_count` : 최대 인스턴스 수 - `1` ~ `1000`
-    -   `default_instance_count` : 리소스 메트릭을 읽을 수 없고 현재 용량이 기본 용량 미만인 경우 스케일 아웃할 기본 인스턴스 수 - `1` ~ `1000`
-    -   `schedule_type` : 크기 조정 작업에 적용할 스케줄 방식 - `start_end_dates`, `repeat_days`
-    -   `timezone` : 스케줄이 작용하는 시간대
-    -   `start_date` : 스케줄 시작 날짜
-    -   `end_date` : 스케줄 끝나는 날짜
+---
+
+#### 크기 조정 조건 (`scale_condition`)
+
+자동 크기 조정 엔진이 실행될 때 적용되는 스케일 프로필을 정의합니다.
+
+##### 인스턴스 수 설정
+
+-   `scale_condition.min_instance_count` : 최소 인스턴스 수 - `0` ~ `1000`
+-   `scale_condition.max_instance_count` : 최대 인스턴스 수 - `1` ~ `1000`
+-   `scale_condition.default_instance_count` : 메트릭을 읽을 수 없고 현재 용량이 기본 용량 미만인 경우 유지할 기본 인스턴스 수
+
+---
+
+##### 크기 조정 규칙 (`scale_condition.rule`)
+
+메트릭 기반으로 크기 조정이 발생하는 조건을 정의합니다.
+
+-   `rule.metric_name` : 규칙이 모니터링하는 메트릭 이름
+-   `rule.operator` : 메트릭 값과 임계 값을 비교하는 연산자
+    -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
+-   `rule.metric_threshold` : 크기 조정 작업 시작 여부를 평가하는 메트릭 값
+
+##### 메트릭 평가 설정
+
+-   `rule.time_window` : 메트릭 데이터를 수집하는 시간 범위(분) - `5` ~ `720`
+-   `rule.time_grain` : 메트릭 샘플링 시간 단위(분) - `1` ~ `720`
+-   `rule.time_grain_statistic` : 여러 인스턴스의 메트릭 집계 방식 - `Average`, `Min`, `Max`
+-   `rule.time_aggregation` : 샘플링된 메트릭을 집계하는 방식
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
+
+##### 크기 조정 동작
+
+-   `rule.scale_direction` : 크기 조정 방향 - `Increase`, `Decrease`
+-   `rule.scale_operation` : 크기 조정 작업 유형
+    -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
+-   `rule.scale_instance_count` : 크기 조정 작업에 연관된 인스턴스 수 - `1` ~ `1000`
+-   `rule.scale_cooldown` : 다음 크기 조정 전까지 대기 시간(분) - `1` ~ `10080`
+
+---
+
+#### 스케줄 설정
+
+일정 기반으로 크기 조정 작업을 적용할 수 있습니다.
+
+-   `schedule_type` : 크기 조정 작업에 적용할 스케줄 방식
+    -   `start_end_dates`, `repeat_days`
+-   `timezone` : 스케줄이 작용하는 시간대
+-   `start_date` : 스케줄 시작 날짜
+-   `end_date` : 스케줄 끝나는 날짜
+-   `repeat_days` : 스케줄이 적용되는 요일
+-   `start_time` : 스케줄 시작 시간
+-   `end_time` : 스케줄 끝나는 시간
+
+---
+
+#### 태그
 
 -   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
@@ -51,6 +101,6 @@ Azure Monitor 자동 크기 조정은 미리 정의된 규칙 및 메트릭을 �
 
 ## 참고 자료
 
--   [Azure MonitorActivityLogAlert(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
--   [Azure MonitorActivityLogAlert 가격](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
--   [Azure MonitorActivityLogAlert(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_autoscale_setting)
+-   [Azure Autoscale 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
+-   [Autoscale 설정 구성(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
+-   [Azure Monitor 메트릭(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)

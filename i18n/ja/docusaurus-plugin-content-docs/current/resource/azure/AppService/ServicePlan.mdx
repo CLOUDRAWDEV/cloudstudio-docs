@@ -1,7 +1,7 @@
 ---
-title: Service Plan
-sidebar_position: 2
-tags: [Azure, リソース, ServicePlan]
+title: ServicePlan
+sidebar_position: 0
+tags: [Azure, ServicePlan]
 ---
 
 <hr />
@@ -11,33 +11,32 @@ tags: [Azure, リソース, ServicePlan]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.webp"
     }
 />
 
 ## リソース概要
 
-App Service Plan은 App Service에서 실행되는 앱의 성능과 용량을 결정하는 요소입니다.
-서비스 플랜은 컴퓨팅 리소스를 관리하는 단위로, CPU, 메모리, 인스턴스 수 등을 설정할 수 있으며, 이 리소스는 여러 앱에서 공유할 수 있습니다.
+Service Plan は、App Service が実行されるコンピューティングリソース（サーバーインスタンス、CPU／メモリ、スケーリング、OS など）を定義する料金プラン／ホスティングプランです。  
+Web アプリ、API アプリ、バックエンドアプリなどを App Service にデプロイする際、各アプリがどの仕様および価格レベルで実行されるかを Service Plan によって決定します。
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
 ## リソース設定値
 
--   `kind` : AApp Service に適用するオペレーティングシステムのタイプ- `Linux`,`Windows`
--   `sku_tier` : App Service 料金プランの価格設定階層(SKU)
+-   `kind` : App Service が使用するオペレーティングシステム – `Linux`, `Windows`
+-   `sku_tier` : App Service プランの価格レベル
 
 ---
 
 ## 参考資料
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service 価格(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure App Service Plan（Microsoft）](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
+-   [Azure App Service の価格](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
+-   [Azure App Service Plan（Terraform）](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)

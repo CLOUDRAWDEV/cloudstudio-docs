@@ -1,0 +1,39 @@
+---
+title: Dx Connection
+sidebar_position: 0
+tags: [AWS, recurso, DirectConnection, DxConnection]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS Direct Connect permite conectar tu red interna a una ubicación de AWS Direct Connect mediante un cable de fibra óptica Ethernet estándar. Un extremo del cable se conecta a tu router y el otro extremo al router de AWS Direct Connect. Esta conexión te permite crear interfaces virtuales públicas que omiten a los proveedores de servicios de Internet para enviar datos a servicios como Amazon S3 o a una Amazon VPC a través de rutas de red públicas de AWS. La ubicación de AWS Direct Connect proporciona acceso a servicios públicos de AWS en la región conectada mediante una única conexión a una región pública o a AWS GovCloud (US), así como acceso público a servicios en cualquier otra región pública de AWS.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Valores de configuración del recurso
+
+-   `bandwidth` : Ancho de banda de la conexión Direct Connect – `50Mbps`, `100Mbps`, `200Mbps`, `300Mbps`, `400Mbps`, `500Mbps`, `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`  
+-   `location` : Ubicación de AWS Direct Connect donde se establece la conexión
+
+---
+
+## Documentación de referencia
+
+-   [Amazon Direct Connect(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
+-   [Precios de Amazon Direct Connect(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
+-   [Amazon Direct Connect(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)

@@ -1,0 +1,74 @@
+---
+title: StorageAccount
+sidebar_position: 0
+tags: [Azure, Storage, StorageAccount]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Storage Account è una risorsa di archiviazione di base che fornisce servizi di storage come Blob, File, Queue e Table all'interno di un unico account.  
+Supporta un'ampia gamma di carichi di lavoro applicativi grazie a un'archiviazione dei dati scalabile, un'elevata disponibilità e un controllo sicuro dell'accesso alla rete.
+
+## Risorse associate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Backup**](https://docs.cstudio.app/it/docs/resource/azure/RecoveryServices/Backup)
+-   [**Metric**](https://docs.cstudio.app/it/docs/resource/azure/Monitor/Metric)
+-   [**Eventhub**](https://docs.cstudio.app/it/docs/resource/azure/LogAnalytics/Eventhub)
+-   [**Private Endpoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+-   `account_kind` : Tipo di Storage Account - `StorageV2`, `Storage`
+-   `account_tier` : Livello di prestazioni dello Storage Account - `Standard`, `Premium`
+-   `account_replication_type` : Tipo di replica dei dati dello Storage Account - `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, `RAGZRS`
+-   `access_tier` : Livello basato sul modello di utilizzo dei dati - `Hot`, `Cool`
+-   `min_tls_version` : Versione minima TLS supportata dallo Storage Account - `TLS1_0`, `TLS1_1`, `TLS1_2`
+-   `enable_https_traffic_only` : Consentire l'accesso solo tramite HTTPS - `true`, `false`
+-   `tag` : Tag per classificare la risorsa
+
+#### Networking (`networking`)
+
+-   `networking.public_network_access` : Criterio di accesso alla rete pubblica - `All`, `Selected`, `Disabled`
+-   `networking.ip_rules` : Elenco degli intervalli di indirizzi IP per applicare le regole di rete
+-   `networking.bypass` : Destinazioni di bypass del traffico - `AzureServices`, `Logging`, `Metrics`
+
+#### Storage Container (`storage_container`)
+
+-   `storage_container.container_access_type` : Livello di accesso dello Storage Container - `private`, `blob`, `container`
+
+#### Storage Queue (`storage_queue`)
+
+-   `storage_queue.name` : Nome della coda
+
+#### Storage Share (`storage_share`)
+
+-   `storage_share.quota` : Capacità massima della condivisione file (GB)
+
+#### Storage Table (`storage_table`)
+
+-   `storage_table.name` : Nome della tabella
+
+---
+
+## Materiale di riferimento
+
+-   [Panoramica di Azure Storage Account (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-account-overview)
+-   [Opzioni di replica di Azure Storage (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-redundancy)
+-   [Sicurezza di rete di Azure Storage (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-network-security)

@@ -1,0 +1,59 @@
+---
+title: Mariadb
+sidebar_position: 0
+tags: [AWS, Risorsa, Rds, Mariadb]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mariadb.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+MariaDB è un popolare database relazionale open source creato dagli sviluppatori originali di MySQL. Con Amazon RDS, è possibile configurare, gestire e scalare facilmente la distribuzione di un server MariaDB nel cloud. Amazon RDS consente di distribuire un database MariaDB scalabile nel cloud con capacità hardware economiche e facilmente scalabili, in pochi minuti.
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**MariaDB**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+
+## Impostazioni della risorsa
+
+-   `database_name` : Nome del database iniziale
+-   `engine_version` : Versione di MariaDB da utilizzare su RDS
+-   `instance_class` : Livello di prezzo per il DB RDS
+-   `storage_type` : Tipo di storage per l'istanza RDS
+-   `allocated_storage` : Capacità di storage per l'istanza RDS (in Gigabyte)
+-   `max_allocated_storage` : Limite superiore per l'espansione automatica dello storage dell'istanza DB da parte di Amazon RDS
+-   `multi_az_enabled` : Abilitazione della distribuzione Multi-AZ - `true`, `false`
+-   `username` : Nome utente per RDS
+-   `password` : Password dell'utente per RDS
+-   `included_subnet_names` : Nomi delle Subnet da collegare al gruppo di Subnet RDS
+-   `subnet_group_name` : Nome del gruppo di Subnet da utilizzare su RDS
+-   `publicly_accessible` : Se l'istanza è accessibile pubblicamente - `true`, `false`
+-   `monitoring`
+    -   `performance_insights_enabled` : Abilitazione delle performance insights
+-   `encryption`
+    -   `storage_encrypted` : Specifica se l'istanza DB è criptata - `true`, `false`
+    -   `kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+-   `backup`
+    -   `backup_retention_period` : Periodo di conservazione dei backup - `1`~`35`
+    -   `final_snapshot_enabled` : Se creare uno snapshot finale prima della cancellazione dell'istanza DB - `true`, `false`
+    -   `final_snapshot_name` : Nome dello snapshot finale
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon Relational Database Service(Amazon RDS)(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Welcome.html)
+-   [Amazon RDS for MariaDB 요금(AWS)](https://aws.amazon.com/ko/rds/mariadb/pricing/?nc=sn&loc=4)

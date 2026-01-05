@@ -1,0 +1,51 @@
+---
+title: ClientVpnEndpoint
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc, ClientVpnEndpoint]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio VPN gestito basato su client che consente l'accesso sicuro alle risorse AWS e alle risorse della rete on-premise
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+## Impostazioni della risorsa
+
+-   `description` : Breve descrizione dell'endpoint VPN client
+-   `client_cidr_block` : Intervallo di indirizzi IP assegnati agli indirizzi IP client
+-   `serer_acm_certificate_name` : Nome del certificato del server
+-   `authentication` : Metodo di autenticazione da utilizzare
+-   `authentication.option_types` : Metodi di autenticazione disponibili - `certificate-authentication`,`directory-service-authentication`,`federated-authentication`
+-   `connection_logging.enalbed` : Dettagli dei log per le connessioni client - `false`,`true`
+-   `transport_protocol` : Protocollo di trasporto utilizzato nella sessione TLS - `tcp`,`udp`
+-   `enabled_split_tunnel` : Attivazione del tunnel diviso - `false`,`true`
+-   `vpn_port` : Porta VPN
+-   `enabled_self_service_portal` : Attivazione del portale self-service - `false`,`true`
+-   `session_timeout_hours` : Timeout della sessione - `8`,`10`,`12`,`24`
+-   `included_vpc_name` : Nome del VPC
+-   `linked_security_group_names` : Nomi dei gruppi di sicurezza da applicare all'endpoint
+-   `linked_subnet_names` : 연결할 Nomi delle subnet da collegare
+
+---
+
+## Materiale di riferimento
+
+-   [AWS Client Vpn Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
+-   [AWS Client Vpn Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)

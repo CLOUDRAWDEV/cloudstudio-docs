@@ -1,0 +1,63 @@
+---
+title: NetworkFirewallRuleGroup
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, NetworkFirewallRuleGroup]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Conjunto reutilizable de criterios para inspeccionar y procesar tráfico de red.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Recurso conectado
+
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+
+## Valores de configuración del recurso
+
+
+-   `description` : Descripción del grupo de reglas del firewall de red
+-   `rule_group_type` : Tipo de grupo de reglas - `STATEFUL`, `STATELESS`
+-   `generated_rules_type` : Formato del grupo de reglas - `StandardStatefulRules`, `DomainList`, `SuricataRuleStrings`
+-   `rule_evaluation_order` : Orden de evaluación de reglas - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `capacity` : Cantidad esperada de reglas que se incluirán en este grupo a lo largo de su ciclo de vida - `1-30000`
+-   `ip_set` : Variable de conjunto de IPs
+    -   `name` : Nombre de la variable de conjunto de IPs
+    -   `cidrs` : Valores del conjunto de IPs
+-   `port_set` : Variable de puertos
+    -   `name` : Nombre de la variable de puerto
+    -   `cidrs` : Valores del conjunto de puertos
+-   `stateful_rule` : Reglas estándar con estado
+    -   `name` : Nombre de la regla con estado
+    -   `protocol` : Protocolo de transporte a inspeccionar - `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`
+    -   `source_ip_or_cidr` : Dirección IP o rango de origen a inspeccionar
+    -   `source_port` : Puerto o rango de puertos de origen a inspeccionar
+    -   `target_ip_or_cidr` : Dirección IP o rango de destino a inspeccionar
+    -   `traffic_direction` : Dirección del tráfico a inspeccionar - `ANY`, `FORWARD`
+    -   `action` : Acción que debe realizar el firewall de red si el paquete coincide con la regla - `ALERT`, `DROP`, `PASS`, `REJECT`
+-   `encryption_configuration`
+    -   `enabled_custom_configuration` : Cifrado de datos usando claves administradas por AWS - `false`, `true`
+
+
+---
+
+## Documentación de referencia
+
+-   [NetworkFirewallRuleGroup(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
+-   [NetworkFirewallRuleGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)

@@ -1,0 +1,50 @@
+---
+title: Vpc
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon Virtual Private Cloud (Amazon VPC) te permite tener un control total sobre tu entorno de red virtual, incluida la colocación, conectividad y seguridad de los recursos. Comienza configurando un VPC desde la consola de servicios de AWS. Luego, añade recursos como instancias de Amazon Elastic Compute Cloud (EC2) e instancias de Amazon Relational Database Service (RDS) dentro del VPC. Finalmente, define cómo se comunican los VPC dentro de una misma cuenta, zona de disponibilidad o región de AWS. En el siguiente ejemplo, el tráfico de red se comparte entre dos VPC dentro de la misma región.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Recurso subordinado
+
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Lb/)
+-   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
+-   [**Vpc Network Acl**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkAcl)
+-   [**Vpc Route Table**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+-   [**Vpc FlowLog**](https://docs.cstudio.app/docs/resource/aws/Vpc/FlowLog)
+-   [**Ec2 Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Ec2/TransitGateway)
+-   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/)
+
+## Valores de configuración del recurso
+
+-   `cidr_block` : Rango de direcciones IP (CIDR) del VPC
+
+---
+
+## Documentación de referencia
+
+-   [Amazon Virtual Private Cloud (Amazon VPC) (AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Precios de Amazon VPC (AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
+-   [aws_vpc (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

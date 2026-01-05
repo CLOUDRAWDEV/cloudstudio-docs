@@ -1,0 +1,101 @@
+---
+title: KeyVault
+sidebar_position: 0
+tags: [Azure, KeyVault, Security, KeyManagement]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/key_vault-key_vault.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Key Vault è un servizio di sicurezza cloud che archivia in modo sicuro informazioni sensibili come segreti, chiavi e certificati, e fornisce un accesso controllato a tali dati.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private Endpoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `sku_name` : Livello di prezzo per selezionare la scala e le funzionalità di Key Vault - `standard`, `premium`
+-   `enabled_for_disk_encryption` : Consente ad Azure Disk Encryption di recuperare segreti e chiavi dal vault - `true`, `false`
+-   `soft_delete_retention_days` : Numero di giorni di conservazione degli elementi eliminati - `7` ~ `90`
+-   `purge_protection_enabled` : Abilita la protezione dall’eliminazione definitiva per prevenire la perdita di dati - `true`, `false`
+
+#### Controllo dell’accesso alla rete (`network_acl`)
+
+-   `network_acl_bypass` : Indica se consentire il bypass del firewall per i servizi attendibili - `AzureServices`, `None`
+-   `network_acl_action` : Azione predefinita quando le regole IP non corrispondono - `Deny`, `Allow`
+-   `network_acl_ip_rules` : Elenco di indirizzi IP o intervalli CIDR autorizzati ad accedere a Key Vault
+
+#### Criteri di accesso (`access_policies`)
+
+-   `access_policies.object_id` : ID oggetto utilizzato per identificare il soggetto che accede al vault
+-   `access_policies.key_permissions` : Elenco delle autorizzazioni per le chiavi
+-   `access_policies.secret_permissions` : Elenco delle autorizzazioni per i segreti
+-   `access_policies.certificate_permissions` : Elenco delle autorizzazioni per i certificati
+
+#### Key Vault Secret (`key_vault_secret`)
+
+-   `key_vault_secret.secret_value` : Valore del segreto di Key Vault
+-   `key_vault_secret.content_type` : Tipo di contenuto del segreto
+-   `key_vault_secret.enabled_activation_date` : Indica se il segreto è abilitato per l’attivazione - `true`, `false`
+-   `key_vault_secret.activation_date` : Data e ora UTC di attivazione del segreto
+-   `key_vault_secret.enabled_expiration_date` : Indica se il segreto ha una data di scadenza - `true`, `false`
+-   `key_vault_secret.expiration_date` : Data e ora UTC di scadenza del segreto
+
+#### Key Vault Key (`key_vault_key`)
+
+-   `key_vault_key.type` : Tipo di chiave - `RSA`, `RSA-HSM`, `EC`, `EC-HSM`
+-   `key_vault_key.rsa_key_size` : Dimensione della chiave RSA - `2048`, `3072`, `4096`
+-   `key_vault_key.elliptic_curve` : Valore della curva per le chiavi di tipo EC
+-   `key_vault_key.permitted_operations` : Elenco delle operazioni JSON Web Key consentite
+-   `key_vault_key.enabled_activation_date` : Indica se la chiave è abilitata per l’attivazione - `true`, `false`
+-   `key_vault_key.activation_date` : Data e ora UTC di attivazione della chiave
+-   `key_vault_key.enabled_expiration_date` : Indica se la chiave ha una data di scadenza - `true`, `false`
+-   `key_vault_key.expiration_date` : Data e ora UTC di scadenza della chiave
+
+#### Key Vault Certificate (`key_vault_certificate`)
+
+-   `key_vault_certificate.import_existing_certificate` : Indica se importare un certificato esistente - `true`, `false`
+-   `key_vault_certificate.contents` : Contenuto del certificato in formato Base64
+-   `key_vault_certificate.password` : Password del certificato
+-   `key_vault_certificate.issuer_name` : Nome dell’emittente del certificato - `Self`, `Unknown`
+-   `key_vault_certificate.subject` : Nome distinto X.500
+-   `key_vault_certificate.validity_period_in_months` : Periodo di validità del certificato (in mesi)
+-   `key_vault_certificate.content_type` : Tipo di contenuto del certificato
+-   `key_vault_certificate.enabled_export` : Indica se è consentita l’esportazione del certificato - `true`, `false`
+-   `key_vault_certificate.enabled_reuse_key` : Indica se è consentito il riutilizzo della chiave - `true`, `false`
+-   `key_vault_certificate.key_usage` : Elenco dei flag di utilizzo della chiave
+-   `key_vault_certificate.key_type` : Tipo di chiave utilizzata per il certificato
+-   `key_vault_certificate.rsa_key_size` : Dimensione della chiave RSA
+-   `key_vault_certificate.elliptic_curve` : Tipo di curva della chiave EC
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Key Vault (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
+-   [Criteri di accesso di Azure Key Vault (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/assign-access-policy)
+-   [Sicurezza di rete di Azure Key Vault (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/network-security)
+-   [Chiavi, segreti e certificati di Azure Key Vault (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/about-keys-secrets-certificates)

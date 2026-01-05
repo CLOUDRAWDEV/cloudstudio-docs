@@ -1,0 +1,49 @@
+---
+title: LbTargetGroup
+sidebar_position: 0
+tags: [AWS, Risorsa, Lb, LbTargetGroup]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb_target_group.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Un servizio che instrada le richieste a uno o più target registrati utilizzando il protocollo e il numero di porta specificati, come per esempio un'istanza EC2
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Risorse collegate
+
+-   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Lb**]https://docs.cstudio.app/docs/resource/aws/Lb)
+
+## Impostazioni della risorsa
+
+-   `target_type` : Tipo di target del LB - `Instance`, `Ip`, `Lambda`, `Alb`
+-   `protocol` : Protocollo utilizzato per instradare il traffico verso il target - `HTTP`,`HTTPS`,`TCP`,`TCP_UDP`,`TLS`
+-   `port` : Porta che riceve il traffico - `1~65535`
+-   `included_vpc_name` : Nome della VPC in cui creare il gruppo di target
+-   `linked_instance_names` : Elenco nomi delle Target Instance
+
+
+---
+
+## Materiale di riferimento
+
+-   [LB Target Group(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+-   [LB Target Group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)

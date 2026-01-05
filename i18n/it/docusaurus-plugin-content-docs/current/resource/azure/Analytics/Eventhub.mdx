@@ -1,0 +1,85 @@
+---
+title: Eventhub
+sidebar_position: 1
+tags: [Azure, Eventhub]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-eventhub.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Event Hubs è una piattaforma di streaming distribuita che consente la raccolta di eventi in tempo reale su larga scala (come log, telemetria IoT ed eventi applicativi) e la loro distribuzione verso pipeline di elaborazione streaming.  
+A livello di namespace è possibile configurare il throughput e le policy di accesso alla rete. All’interno del namespace vengono creati gli Event Hub (unità simili ai topic), consentendo una raccolta e una conservazione degli eventi scalabili basate su partizioni.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Configurazione della risorsa
+
+### Impostazioni del namespace
+
+-   `sku` : Tier da utilizzare – `Basic`, `Standard`, `Premium`
+
+-   `capacity` : Capacità del namespace / unità di throughput per lo SKU Standard – `1` ~ `16`
+
+-   `enable_auto_inflate` : Indica se abilitare la scalabilità automatica per il namespace di Event Hub – `true`, `false`
+
+-   `maximum_throughput_units` : Numero massimo di unità di throughput quando Auto Inflate è abilitato – `1` ~ `40`
+
+-   `minimum_tls_version` : Versione minima di TLS supportata per il namespace di Event Hub – `1.0`, `1.1`, `1.2`
+
+-   `enable_local_authentication` : Indica se abilitare l’autenticazione SAS per il namespace di Event Hub – `true`, `false`
+
+-   `enable_public_network_access` : Indica se consentire l’accesso alla rete pubblica al namespace di Event Hub – `true`, `false`
+
+### Controllo dell’accesso alla rete (`network_rulesets`)
+
+-   `network_rulesets.default_action` : Azione predefinita per l’accesso alla rete – `Allow`, `Deny`
+
+-   `network_rulesets.virtual_network_rule.target_subnet_name` : Nome della subnet da collegare
+
+-   `network_rulesets.virtual_network_rule.ignore_missing_virtual_network_service_endpoint` : Indica se ignorare gli endpoint di servizio di rete virtuale mancanti – `true`, `false`
+
+### Impostazioni di Event Hub (`eventhub`)
+
+-   `eventhub.default.partition_count` : Numero attuale di shard (partizioni) dell’Event Hub – `1` ~ `100`
+
+-   `eventhub.default.message_retention` : Numero di giorni di conservazione degli eventi nell’Event Hub – `1` ~ `90`
+
+-   `eventhub.default.enabled_capture` : Indica se Capture è abilitato – `true`, `false`
+
+-   `eventhub.default.encoding` : Codifica utilizzata per Capture – `Avro`, `AvroDeflate`
+
+-   `eventhub.default.time_window` : Intervallo di tempo (in minuti) durante il quale viene eseguito Capture – `1` ~ `15`
+
+-   `eventhub.default.size_window` : Quantità di dati accumulati nell’Event Hub prima dell’attivazione di un’operazione di Capture – `11` ~ `524`
+
+-   `eventhub.default.skip_empty_archives` : Indica se evitare l’esportazione di file vuoti quando non sono presenti eventi nella finestra temporale di Capture – `true`, `false`
+
+-   `eventhub.default.capture_file_name_format` : Regola di denominazione per l’archiviazione dei file catturati in Blob Storage
+
+-   `eventhub.default.linked_storage_account` : Nome del container all’interno dell’account di Blob Storage in cui devono essere archiviati i messaggi
+
+-   `eventhub.default.target_storage_container_name` : Account di Blob Storage in cui devono essere archiviati i messaggi
+
+---
+
+## Riferimenti
+
+-   [Azure Event Hubs (Microsoft)](https://learn.microsoft.com/ko-kr/azure/event-hubs/event-hubs-about)
+-   [Prezzi di Azure Event Hubs](https://azure.microsoft.com/ko-kr/pricing/details/event-hubs/)
+-   [Azure Event Hub Namespace (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace)
+-   [Azure Event Hub (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub)
+-   [Azure Event Hub Namespace Network Rule Set (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace_network_rule_set)

@@ -1,0 +1,48 @@
+---
+title: CustomChart
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Helm, CustomChart]
+---
+
+
+<hr />
+<br />
+
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È una risorsa che consente di distribuire un chart Helm di base configurato con i valori desiderati dall'utente.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+### Risorse collegate
+
+
+
+## Impostazioni della risorsa
+
+-   `service_name` : Nome del rilascio del chart Helm personalizzato
+-   `namespace` : Namespace in cui verrà distribuito il chart Helm personalizzato
+-   `repository` : Repository per memorizzare e condividere i chart Helm (specifica il repository in cui è memorizzato il chart personalizzato)
+-   `chart` : Nome del chart Helm personalizzato da specificare
+-   `version` : Versione del chart Helm personalizzato da specificare
+-   `set` : Modifica dinamica dei valori del chart di base
+
+---
+
+## Materiale di riferimento
+
+
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

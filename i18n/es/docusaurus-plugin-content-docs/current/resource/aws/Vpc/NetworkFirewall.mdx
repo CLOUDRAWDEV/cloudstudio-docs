@@ -1,0 +1,50 @@
+---
+title: NetworkFirewall
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, NetworkFirewall]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de AWS que permite configurar protección en todas las cuentas y recursos de AWS dentro de una organización.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Recurso conectado
+
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+
+## Valores de configuración del recurso
+
+-   `description` : Descripción del firewall
+-   `included_vpc_name` : Nombre del VPC donde se ubicará el firewall
+-   `linked_subnet_names` : Subredes públicas dedicadas al endpoint del firewall
+-   `linked_network_firewall_policy_name` : Nombre de la política de firewall que se conectará
+-   `enabled_delete_protection` : Activar protección contra eliminación del firewall - `false`, `true`
+-   `enabled_subnet_change_protection` : Activar protección contra cambios en la conexión de subred - `false`, `true`
+-   `encryption_configuration.enabled_custom_configuration` : Cifrar datos usando claves administradas por AWS - `false`, `true`
+
+
+---
+
+## Documentación de referencia
+
+-   [Network Firewall (AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
+-   [Network Firewall (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)

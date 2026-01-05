@@ -1,0 +1,50 @@
+---
+title: PrivateLinkService
+sidebar_position: 17
+tags: [Azure, Network, PrivateLinkService]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_link_service.webp"
+    }
+/>
+
+## Resource Overview
+
+Private Link Service is a network service that allows users to **securely expose internal services (based on Load Balancer)** to external customers using the Private Endpoint model.  
+It connects through the Azure backbone network without using a public IP, and enables fine-grained control over service exposure through access control and approval policies.
+
+## Related Resources
+
+### Parent Resource
+
+-   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Configuration Values
+
+-   `auto_approval_subscription_ids` : List of subscription IDs for which Private Endpoint connections are automatically approved without prior approval
+-   `visibility_subscription_ids` : List of subscription IDs that can discover the Private Link Service and send connection requests
+
+#### Load Balancer IP Configuration (`lb_ip_configuration`)
+
+-   `lb_ip_configuration.target_lb_name` : Name of the target Load Balancer to connect
+-   `lb_ip_configuration.target_ip_config_name` : Name of the Frontend IP Configuration of the Load Balancer
+
+#### NAT IP Configuration (`nat_ip_configuration`)
+
+-   `nat_ip_configuration.target_subnet_name` : Name of the target Subnet where the NAT IP configuration will be applied
+-   `nat_ip_configuration.private_ip_address` : Static Private IP address to use as the NAT IP
+-   `nat_ip_configuration.private_ip_address_version` : Private IP version - `IPv4`
+-   `nat_ip_configuration.enable_primary` : Whether to use this NAT IP configuration as the primary one - `true`, `false`
+
+---
+
+## References
+
+-   [Azure Private Link Service Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)

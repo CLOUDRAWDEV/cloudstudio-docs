@@ -1,0 +1,56 @@
+---
+title: SesCluster
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Bigdata&Analytics, SesCluster]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È una risorsa che fornisce un ambiente per gestire facilmente i cluster Elasticsearch e OpenSearch, consentendo di scegliere tra diversi tipi di server e capacità di archiviazione per configurare, distribuire, gestire e scalare facilmente il cluster.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse collegate
+
+
+## Impostazioni della risorsa
+
+-   `os_image_code` : Tipo di OS da utilizzare
+-   `search_engine` : Elementi principali del nodo del Search Engine
+    -   `version_code` : Codice della versione del Search Engine da utilizzare
+    -   `user_name` : SNome utente del Search Engine
+    -   `user_password` : Password dell'utente del Search Engine
+    -   `dashboard_port` : SPorta del dashboard del Search Engine (1024 ~ 65535)
+-   `manager_node` : Elementi principali del nodo manager
+    -   `enable_dual_manager` : Se abilitare la ridondanza del nodo manager
+    -   `manager_node_product_code` : Codice prodotto del nodo manager da utilizzare
+    -   `manager_node_subnet_name` : Nome del subnet in cui posizionare il nodo manager
+-   `data_node` : Elementi principali del nodo dati
+    -   `data_node_product_code` : Codice prodotto del nodo dati da utilizzare
+    -   `data_node_subnet_name` : Nome del subnet in cui posizionare il nodo dati
+    -   `data_node_count` : Numero di nodi dati (3 ~10)
+    -   `data_node_storage_size` : Capacità di archiviazione del nodo dati (100~2000)
+-   `enable_master_node` : Se abilitare l'uso del nodo master
+-   `login_key_name` : Nome della chiave pubblica di login per la cifratura
+
+---
+
+## Materiale di riferimento
+
+-   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
+-   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

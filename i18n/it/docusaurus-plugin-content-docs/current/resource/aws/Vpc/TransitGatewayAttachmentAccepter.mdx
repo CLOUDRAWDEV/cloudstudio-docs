@@ -1,0 +1,43 @@
+---
+title: TransitGatewayAttachmentAccepter
+sidebar_position: 0
+tags: [AWS, Risorsa, VPC, TransitGatewayAttachmentAccepter]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa che determina se consentire la condivisione delle risorse tra account diversi
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegatex
+
+-   [**TransitGatewayAttachment**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachment)
+
+## Impostazioni della risorsa
+
+-   `is_manual` : Se inserire manualmente l'ID dell'Attachment del Transit Gateway da collegare - `false`,`true`
+-   `linked_transit_gateway_attachment_name` : Nome dell'altro Attachment del Transit Gateway per il quale è consentita la condivisione
+
+
+---
+
+## Materiale di riferimento
+
+-   [TransitGatewayAttachmentAccepter(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachmentAccepter(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

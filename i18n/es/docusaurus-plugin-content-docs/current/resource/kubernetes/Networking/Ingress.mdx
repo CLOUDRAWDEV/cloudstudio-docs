@@ -1,0 +1,65 @@
+---
+title: Ingress
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Networking, Ingress]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes relacionado con reglas que permiten que conexiones entrantes lleguen a endpoints definidos en el backend
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+
+### Recursos conectados
+
+-   [**IngressClass**]
+-   [**NginxIngress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
+
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del recurso Ingress
+-   `namespace` : Namespace en el que se desplegará el recurso Ingress
+-   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
+-   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
+-   `tls` : Aplicación de TLS
+    -   `hosts` : Lista de hosts incluidos en el certificado TLS
+    -   `secret_name` : Nombre del Secret de Kubernetes relacionado con el certificado TLS
+-   `ingress_class_name` : Nombre de la clase de Ingress a conectar
+-   `host` : Dirección del hostname al que se aplicarán las reglas de enrutamiento
+-   `backend` : Información del backend al que se enruta
+    -   `name` : Nombre de la regla de enrutamiento
+        -   `path` : Ruta que se conectará al backend
+        -   `path_type` : Determina cómo se interpreta la coincidencia de ruta - `Prefix`, `ImplementationSpecific`, `Exact`
+        -   `port` : Número de puerto del servicio - `1~65535`
+
+
+
+
+
+
+---
+
+## Documentación de referencia
+
+-   [Ingress(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+-   [Ingress(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress)

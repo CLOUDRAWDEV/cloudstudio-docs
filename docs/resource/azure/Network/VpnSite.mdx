@@ -1,0 +1,51 @@
+---
+title: VpnSite
+sidebar_position: 22
+tags: [Azure, Network, VpnSite]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-vpn_site.webp"
+    }
+/>
+
+## 리소스 개요
+
+Azure VpnSite는 **온프레미스 네트워크를 Virtual WAN 환경에 연결하기 위한 VPN 사이트 정의 리소스**입니다.  
+온프레미스 VPN 디바이스 정보와 주소 공간, 링크 정보를 기반으로 Site-to-Site VPN 연결의 논리적 대상을 구성합니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**Virtual Wan**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualWan)
+-   [**VPN Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetworkGateway)
+
+## 리소스 설정 값
+
+-   `linked_virtual_wan_name` : VPN Site가 연결될 Virtual WAN 이름
+-   `device_vendor` : 온프레미스 VPN 디바이스 제조사
+-   `address_cidrs` : VPN Site에서 사용하는 IP 주소 범위 목록(CIDR)
+
+#### Link (`link`)
+
+-   `link.speed_in_mbps` : 해당 링크의 최대 회선 속도(Mbps)
+-   `link.ip_address` : VPN 디바이스에 할당된 공인 IP 주소
+-   `link.provider_name` : 회선 제공업체 이름
+-   `link.autonomous_system_number` : BGP 사용 시 온프레미스 라우터의 ASN 번호
+-   `link.peering_address` : BGP 피어링에 사용하는 로컬 라우터 IP 주소
+
+## 참고 자료
+
+-   [Azure VPN Site 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-site-about)
+-   [Azure Virtual WAN VPN 아키텍처(Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

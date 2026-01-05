@@ -1,7 +1,7 @@
 ---
 title: MssqlServer
 sidebar_position: 0
-tags: [Azure, Ressourcen, Server, Mssql]
+tags: [Azure, MssqlServer, MSSQL, SQLServer, Database]
 ---
 
 <hr />
@@ -11,64 +11,71 @@ tags: [Azure, Ressourcen, Server, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure SQL Database ist ein vollständig verwalteter relationaler Datenbankdienst, der auf der weit verbreiteten Microsoft SQL Server-Engine basiert und von Microsoft Azure bereitgestellt wird.
-Ohne die Notwendigkeit, Hardware- oder Software-Infrastrukturen zu verwalten, können Sie SQL Server-Datenbanken in der Cloud erstellen und verwalten.
-Mit Azure SQL Database können Sie Funktionen wie automatische Patches, Backups, Hochverfügbarkeit und Notfallwiederherstellung nutzen.
-Außerdem bietet es Funktionen wie intelligente Leistungsüberwachung, automatische Anpassung und erweiterte Sicherheitsfunktionen, um die Leistung der Datenbank zu optimieren und wichtige Daten zu schützen.
+Azure SQL Server (Microsoft SQL Server) ist eine vollständig verwaltete PaaS-Datenbank-Engine, die den Großteil der Datenbankverwaltungsaufgaben wie Upgrades, Patches, Backups und Überwachung ohne Benutzereingriff übernimmt.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Untergeordnete Ressourcen
+
+-   [**MssqlDatabase**](https://docs.cstudio.app/de/docs/resource/azure/Database/MssqlDatabase)
 
 ### Verbundene Ressourcen
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
--   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
 
-## Ressourcen-Einstellwerte
+## Ressourcenkonfigurationswerte
 
--   `version` : Verwendete Microsoft SQL Server-Version - `2.0`, `12.0`
+#### Grundeinstellungen
 
--   `admin_username` : Administrator-Benutzername des Servers
+-   `version` : Zu verwendende Microsoft SQL Server-Version – `2.0`, `12.0`
+-   `admin_username` : Administrator-Benutzername des Servers; nur alphanumerische Zeichen erlaubt, muss mit einem Buchstaben beginnen, reservierte Wörter sind nicht zulässig
+-   `admin_password` : Administrator-Anmeldekennwort des Servers; muss mindestens drei der folgenden Zeichenarten enthalten: Kleinbuchstaben, Großbuchstaben, Zahlen, Sonderzeichen; darf keine drei oder mehr aufeinanderfolgenden alphanumerischen Zeichen des Anmeldenamens enthalten; `8` ~ `128` Zeichen
+-   `minimum_tls_version` : Minimal unterstützte TLS-Version des Servers – `1.2`, `Disabled`
+-   `public_network_access_enabled` : Zulassen des öffentlichen Netzwerkzugriffs auf den Server – `true`, `false`
 
--   `admin_password` : Administrator-Login-Passwort des Servers
+#### Firewall-Regeln (`firewall_rule`)
 
--   `minimum_tls_version` : Minimale unterstützte TLS-Version auf dem Server - `1.0`, `1.1`, `1.2`
+-   `firewall_rule.start_ip_address` : Start-IP-Adresse der Firewall-Regel
+-   `firewall_rule.end_ip_address` : End-IP-Adresse der Firewall-Regel
 
--   `public_network_access_enabled` : Zulassung von öffentlichem Netzwerkzugriff auf den Server - `true`, `false`
+#### Sicherheitswarnrichtlinie (`security_alert_policy`)
 
--   `firewall_rule`
+-   `security_alert_policy.alert_policy_state` : Aktivierungsstatus der anzuwendenden Richtlinie – `Enabled`, `Disabled`
+-   `security_alert_policy.disabled_alerts` : Liste der zu deaktivierenden Sicherheitswarnungen
+-   `security_alert_policy.alert_retention_days` : Aufbewahrungsdauer der Bedrohungserkennungs-Auditprotokolle (Tage) – `0` ~ `3265`
+-   `security_alert_policy.alert_email_account_admins` : Aktivieren des Versands von Sicherheitswarnungen per E-Mail an Kontoadministratoren – `true`, `false`
+-   `security_alert_policy.alert_email_addresses` : Liste der E-Mail-Adressen zum Empfang von Sicherheitswarnungen
 
-    -   `start_ip_address` : Start-IP-Adresse der Firewallregel
-    -   `end_ip_address` : End-IP-Adresse der Firewallregel
+#### Überwachungsrichtlinie (`auditing_policy`)
 
--   `security_alert_policy`
+-   `auditing_policy.enable_storage_destination` : Aktivieren eines Storage-Kontos als Ziel – `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Name des Storage-Kontos
+-   `auditing_policy.storage_access_key_is_second` : Verwendung des sekundären Zugriffsschlüssels für die Überwachung – `true`, `false`
+-   `auditing_policy.storage_retention_days` : Aufbewahrungsdauer der Protokolle im Storage-Konto
+-   `auditing_policy.enable_log_analytics_destination` : Aktivieren der Überwachungsrichtlinie für Log Analytics Workspace – `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Name der Log Analytics Workspace-Überwachungsrichtlinie
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Name der Log Analytics Workspace-Diagnoseeinstellung
 
-    -   `alert_policy_state` : Aktivierungsstatus der anzuwendenden Richtlinie
-    -   `disabled_alerts` : Liste der zu deaktivierenden Sicherheitswarnungen - `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`
-    -   `alert_retention_days` : Aufbewahrungszeitraum für Bedrohungserkennungsprotokolle - `0` ~ `3265`
-    -   `alert_email_account_admins` : Aktivierung der Sicherheitswarnungen per E-Mail - `true` , `false`
-    -   `alert_email_addresses` : Liste der E-Mail-Adressen für Sicherheitswarnungen
+#### Tags
 
--   `auditing_policy`
-
-    -   `enable_storage_destination` : Aktivierung des Storage-Kontos - `true` , `false`
-    -   `enable_log_analytics_destination` : Aktivierung von Log Analytics - `true` , `false`
-
--   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Mssql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
--   [Azure Mssql Kosten](https://azure.microsoft.com/ko-kr/pricing/details/azure-sql-database/single/)
--   [Azure Mssql(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server)
+-   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Sicherheitswarnrichtlinien (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
+-   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)

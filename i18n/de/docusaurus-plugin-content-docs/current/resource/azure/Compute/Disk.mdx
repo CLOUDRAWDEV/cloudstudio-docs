@@ -1,7 +1,7 @@
 ---
 title: Disk
-sidebar_position: 1
-tags: [Azure, Ressourcen, Compute, Disk]
+sidebar_position: 5
+tags: [Azure, Compute, Disk]
 ---
 
 <hr />
@@ -11,34 +11,48 @@ tags: [Azure, Ressourcen, Compute, Disk]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/compute-disk.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-disk.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Virtual Machines (Virtuelle Maschinen) sind virtuelle Server, die in der Cloud ausgeführt werden.
-Virtuelle Maschinen enthalten eine oder mehrere Festplatten, die verwendet werden, um das Betriebssystem (OS) und Daten der virtuellen Maschine zu speichern.
-Festplatten fungieren als permanenter Speicher für die virtuelle Maschine.
+Azure Disk ist eine verwaltete Blockspeicher-Ressource, die von Azure Virtual Machines verwendet wird.  
+Sie kann als Betriebssystemdatenträger (OS Disk) oder als Datenträger (Data Disk) genutzt werden,  
+und je nach Leistungs- und Kostenanforderungen stehen verschiedene Speichertypen zur Auswahl.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
 ### Verbundene Ressourcen
 
-## Ressourcen-Einstellwerte
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
 
--   `storage_type` : Speichertyp für die Sicherung der Festplatte
--   `size_gb` : Festplattengröße (GB) - `1` ~ `32767`
--   `enabled_public_network_access` : Erlauben des öffentlichen Netzwerkzugriffs auf die Festplatte - `true`, `false`
--   `tag` : Tag zur Kategorisierung der Ressourcen – maximal 512 Zeichen, `key`:`value`
+## Ressourcenkonfigurationswerte
+
+-   `storage_type` :  
+    Speichertyp zur Sicherung des Datenträgers
+
+    -   `Standard_LRS`
+    -   `StandardSSD_LRS`
+    -   `Premium_LRS`
+
+-   `size_gb` :  
+    Größe des Datenträgers (GB) – `1` ~ `32767`
+
+-   `enabled_public_network_access` :  
+    Gibt an, ob öffentlicher Netzwerkzugriff auf den Datenträger erlaubt ist – `true`, `false`
+
+-   `tag` :  
+    Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Compute Disk(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
--   [Azure Compute Disk(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/disk_access)
+-   [Azure Managed Disks (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
+-   [Terraform azurerm_managed_disk](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk)

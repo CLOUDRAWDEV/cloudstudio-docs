@@ -1,0 +1,59 @@
+---
+title: CdssCluster
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Bigdata&Analytics, CdssCluster]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È un servizio che consente di distribuire, proteggere, gestire e scalare facilmente un cluster Apache Kafka, una piattaforma open source per la creazione di pipeline di dati in streaming in tempo reale e applicazioni.
+
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+
+### Risorse collegate
+
+
+
+## Impostazioni della risorsa
+
+-   `kafka_version_code` : Versione di Kafka da utilizzare in CDSS
+-   `linked_config_group_name` : Nome del gruppo di configurazione CDSS da utilizzare
+-   `os_image` : Tipo di immagine del sistema operativo da utilizzare
+-   `cmak` : Informazioni di configurazione di CMAK (Cluster Manager for Apache Kafka)
+    -   `user_name` : ID di accesso CMAK
+    -   `user_password` : Password dell'ID di accesso CMAK
+-   `manager_node` : Informazioni di configurazione del nodo che gestisce il cluster Apache Kafka tramite CMAK
+    -   `manager_node_subnet_name` : Nome del subnet in cui si trova il nodo manager
+    -   `manager_node_product_name` : Codice prodotto dell'hardware del nodo manager
+-   `broker_node` : Informazioni di configurazione del nodo server dove i dati reali vengono memorizzati
+    -   `broker_node_subnet_name` : Nome del subnet in cui si trova il nodo broker
+    -   `broker_node_product_code` : Codice prodotto dell'hardware del nodo broker
+    -   `broker_node_count` : Numero di nodi broker
+    -   `broker_node_storage_size` : Capacità di archiviazione del nodo broker - `100~2000`
+
+
+    
+
+---
+
+## Materiale di riferimento
+
+-   [CdssCluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
+-   [ncloud_cdss_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)

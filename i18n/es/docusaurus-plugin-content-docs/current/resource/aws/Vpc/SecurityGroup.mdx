@@ -1,0 +1,58 @@
+---
+title: Security Group
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, SecurityGroup]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Un grupo de seguridad controla el tráfico que puede entrar o salir de los recursos a los que está asociado. Por ejemplo, al asociar un grupo de seguridad a una instancia EC2, puedes controlar el tráfico entrante (inbound) y saliente (outbound) de esa instancia. Los grupos de seguridad solo se pueden asociar a recursos dentro del mismo VPC en el que fueron creados.  
+Cuando se crea un VPC, este viene con un grupo de seguridad predeterminado. También puedes crear grupos de seguridad adicionales para cada VPC.  
+No se incurre en cargos adicionales por el uso de grupos de seguridad.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Recurso conectado
+
+-
+
+## Valores de configuración del recurso
+
+-   `description` : Descripción del Security Group
+-   `included_vpc_name` : Nombre del VPC al que pertenece el Security Group
+-   `ingress` : Nombre de la regla Ingress del Security Group
+    -   `rule_name` : Nombre de la regla Ingress del Security Group
+    -   `description` : Descripción de la regla Ingress
+    -   `from_port` : Puerto de origen de la regla Ingress
+    -   `to_port` : Puerto de destino de la regla Ingress
+    -   `protocol` : Protocolo de la regla Ingress - `tcp`, `udp`, `icmp`, `all`
+    -   `cidr_block` : CIDR al que se aplicará la regla Ingress
+-   `egress` : Nombre de la regla Egress del Security Group
+    -   `rule_name` : Nombre de la regla Ingress del Security Group
+    -   `description` : Descripción de la regla Egress
+    -   `from_port` : Puerto de origen de la regla Egress
+    -   `to_port` : Puerto de destino de la regla Egress
+    -   `protocol` : Protocolo de la regla Egress - `tcp`, `udp`, `icmp`, `all`
+    -   `cidr_block` : CIDR al que se aplicará la regla Egress
+
+---
+
+## Documentación de referencia
+
+-   [Control del tráfico hacia recursos mediante Security Groups (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [aws_security_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

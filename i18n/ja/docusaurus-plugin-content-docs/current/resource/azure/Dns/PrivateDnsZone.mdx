@@ -1,7 +1,7 @@
 ---
 title: PrivateDnsZone
 sidebar_position: 1
-tags: [Azure, リソース, Dns, PrivateDnsZone]
+tags: [Azure, DNS, PrivateDnsZone, Network]
 ---
 
 <hr />
@@ -11,15 +11,14 @@ tags: [Azure, リソース, Dns, PrivateDnsZone]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/dns-private_dns_zone.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-private_dns_zone.webp"
     }
 />
 
 ## リソース概要
 
-Azure プライベート DNS は、ユーザ指定の DNS ソリューションを追加しなくても、仮想ネットワークのドメイン名を管理し、確認できる安定的で信頼できる DNS サービスを提供します。
-プライベート DNS 領域を使用すると、現在 Azure で提供されている名前の代わりに、ユーザ固有のユーザ指定ドメイン名を使用することができます。
-プライベート DNS 領域に含まれているレコードはインターネットで確認できません。 プライベート DNS 領域に対する DNS 確認は、接続された仮想ネットワークでのみ動作します。
+Private DNS Zone は、Azure 仮想ネットワーク内部でのみ使用されるプライベートドメイン名に対する DNS レコードを管理するための領域です。  
+仮想ネットワークとリンク（VNet Link）することで、内部リソース間の名前解決を安全に実行できます。
 
 ## 関連リソース
 
@@ -33,41 +32,43 @@ Azure プライベート DNS は、ユーザ指定の DNS ソリューション�
 
 ## リソース設定値
 
--   `private_dns_a_record`
+#### A レコード (`private_dns_a_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : IPv4 アドレスのリスト
+-   `private_dns_a_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `private_dns_a_record.records` : IPv4 アドレスの一覧
 
--   `private_dns_aaaa_record`
+#### AAAA レコード (`private_dns_aaaa_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : IPv6 アドレスのリスト
+-   `private_dns_aaaa_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `private_dns_aaaa_record.records` : IPv6 アドレスの一覧
 
--   `private_dns_cname_record`
+#### CNAME レコード (`private_dns_cname_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `record` : サブドメインを別のレコードにリンクするためのエイリアス
+-   `private_dns_cname_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `private_dns_cname_record.record` : サブドメインを他のレコードに接続するためのエイリアス
 
--   `private_dns_ptr_record`
+#### PTR レコード (`private_dns_ptr_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : ポインタレコードタイプのドメイン名のリスト
+-   `private_dns_ptr_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `private_dns_ptr_record.records` : ポインターレコードタイプのドメイン名一覧
 
--   `private_dns_txt_record`
+#### TXT レコード (`private_dns_txt_record`)
 
-    -   `ttl` : DNS Record の Time To Live(秒) - `0` ~ `2147483647`
-    -   `records` : テキストタイプのレコード一リスト
+-   `private_dns_txt_record.ttl` : DNS レコードの Time To Live（秒） - `0` ~ `2147483647`
+-   `private_dns_txt_record.records` : テキストタイプのレコード一覧
 
--   `vnet_link`
+#### 仮想ネットワークリンク (`vnet_link`)
 
-    -   `linked_vnet_name` : DNS Record의 Time To Live(초)
+-   `vnet_link.linked_vnet_name` : Private DNS Zone にリンクされた仮想ネットワーク名
 
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+#### タグ
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure PrivateDnsZone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
--   [Azure PrivateDnsZone 価格](https://azure.microsoft.com/en-us/pricing/details/dns/)
--   [Azure PrivateDnsZone(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
+-   [Azure Private DNS 概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
+-   [Azure Private DNS ゾーンと仮想ネットワークリンク（Microsoft）](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-virtual-network-links)
+-   [Azure Private Endpoint と Private DNS（Microsoft）](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

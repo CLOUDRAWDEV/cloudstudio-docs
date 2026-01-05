@@ -1,7 +1,7 @@
 ---
 title: Subnet
-sidebar_position: 12
-tags: [Azure, リソース, Network, Subnet]
+sidebar_position: 1
+tags: [Azure, Network, Subnet]
 ---
 
 <hr />
@@ -11,35 +11,60 @@ tags: [Azure, リソース, Network, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-subnet.webp"
     }
 />
 
 ## リソース概要
 
-Microsoft Azure では、サブネットは VNet（仮想ネットワーク）の IP アドレス範囲です。 ネットワークトラフィックを分割し、ネットワークリソースを管理できる IP ネットワークの論理的区分です。
-サブネットはより大きなネットワーク内のより小さなネットワークであり、仮想ネットワークの異なる部分間でトラフィックを隔離するために使用されます。
-Azure の各サブネットには独自の NSG(ネットワークセキュリティグループ)がある可能性があるため、そのサブネットのリソースに対するセキュリティ境界を作ることができます。
+Subnet は、Azure リソースを Virtual Network にデプロイするために、Virtual Network 内に作成されるネットワークです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
 -   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
+
+### 下位リソース
+
+-   [**Linux App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Function App**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**Windows Function App**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Mysql Flexible**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MysqlFlexible)
+-   [**Postgresql Flexible**](https://docs.cstudio.app/ja/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/ja/docs/resource/azure/Container/KubernetesCluster)
+-   [**Application Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/ja/docs/resource/azure/Network/BastionHost)
+-   [**Virtual Network Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**Network Interface**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NetworkInterface)
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Firewall**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Firewall)
+
+### 接続リソース
+
+-   [**Nat Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NatGateway)
+-   [**Network Security Group**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**Private Dns Resolver**](https://docs.cstudio.app/ja/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
 
 ## リソース設定値
 
--   `included_vnet_name` : Subnet が含まれている Virtual Network 名
--   `address_prefixes` : Subnet 使用のための IP アドレス範囲、Virtual Network のアドレス空間内に CIDR 形式で指定された固有のアドレス範囲
--   `private_link_endpoint_enabled` : Subnet に Private Endpoint を接続するかどうかを設定 - `true`, `false`
--   `delegation`
-    -   `service_name` : 委任するサービスの名前
-    -   `actions` : 委任するアクションのリスト
+-   `included_vnet_name` : Subnet が含まれる Virtual Network の名前
+-   `address_prefixes` : Subnet で使用する IP アドレス範囲。Virtual Network のアドレス空間内で、CIDR 形式で指定された一意のアドレス範囲
+-   `private_link_endpoint_enabled` : Subnet に Private Endpoint を接続するかどうかの設定 - `true`, `false`
+
+#### 委任設定 (`delegation`)
+
+-   `delegation.service_name` : 委任するサービスの名前
+-   `delegation.actions` : 委任するアクションの一覧
 
 ---
 
 ## 参考資料
 
--   [Azure Subnet(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal)
--   [Azure Subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+-   [Azure Virtual Network サブネットの概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
+-   [サブネットの委任（Delegation）の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
+-   [Private Endpoint の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)

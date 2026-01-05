@@ -1,0 +1,39 @@
+---
+title: Internet Gateway
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, InternetGateway]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Internet Gateway es un componente redundante del VPC, altamente disponible y escalable horizontalmente, que permite la comunicación entre el VPC e Internet. Es compatible con tráfico IPv4 e IPv6, sin riesgos de disponibilidad ni limitaciones de ancho de banda en el tráfico de red.
+Cuando los recursos tienen una dirección IPv4 pública o una dirección IPv6, el Internet Gateway permite que los recursos en subredes públicas (por ejemplo, instancias EC2) se conecten a Internet. Del mismo modo, los recursos en Internet pueden iniciar conexiones a recursos en la subred utilizando direcciones IPv4 públicas o IPv6. Por ejemplo, se puede usar un Internet Gateway para conectar una instancia EC2 de AWS a una computadora local.
+El Internet Gateway proporciona un destino para el tráfico enrutado hacia Internet en las tablas de enrutamiento del VPC. En el caso de la comunicación IPv4, el Internet Gateway también realiza traducción de direcciones de red (NAT). Para comunicaciones que usan IPv6, no se necesita NAT ya que las direcciones IPv6 son públicas.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+## Valores de configuración del recurso
+
+-   `included_vpc_name` : Nombre del VPC en el que se desplegará el Internet Gateway
+
+---
+
+## Documentación de referencia
+
+-   [Conexión a Internet mediante un Internet Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [aws_internet_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)

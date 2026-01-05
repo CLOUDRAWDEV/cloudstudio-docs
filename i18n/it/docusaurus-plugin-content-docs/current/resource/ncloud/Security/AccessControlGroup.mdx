@@ -1,0 +1,56 @@
+---
+title: AccessControlGroup
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Security, AccessControlGroup]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio di firewall basato su filtraggio IP/Port che consente di controllare e gestire l'accesso alla rete tra i server.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse collegate
+
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+
+## Impostazioni della risorsa
+
+-   `included_vpc_name` : Nome della VPC in cui verrà creato l'ACG
+-   `acg_description` : Descrizione dell'ACG
+-   `inbound_rule`
+    -   `name` : Nome della regola in ingresso
+    -   `protocol` : Protocollo del traffico in ingresso - `TCP`, `UDP`, `ICMP`
+    -   `rule_apply_method` : Metodo di applicazione della regola in ingresso - `ip_block`, `source_name`
+    -   `ip_block` : Destinazione del traffico in ingresso, intervallo IP in formato CIDR
+    -   `port_range` : Intervallo di porte su cui applicare la regola in ingresso, intervallo da 1 a 65535 (per intervallo: 100-200)
+
+-   `outbound_rule`
+    -   `name` : Nome della regola in uscita
+    -   `protocol` : Protocollo del traffico in uscita - `TCP`, `UDP`, `ICMP`
+    -   `rule_apply_method` : Metodo di applicazione della regola in uscita - `ip_block`, `source_name`
+    -   `ip_block` : Destinazione del traffico in uscita, intervallo IP in formato CIDR
+    -   `port_range` : Intervallo di porte su cui applicare la regola in uscita, intervallo da 1 a 65535 (per intervallo: 100-200)
+    
+---
+
+## Materiale di riferimento
+
+-   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
+-   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

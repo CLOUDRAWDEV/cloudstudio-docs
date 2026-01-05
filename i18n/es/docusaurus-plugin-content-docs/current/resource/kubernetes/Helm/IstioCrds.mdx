@@ -1,0 +1,49 @@
+---
+title: IstioCrds
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Helm, IstioCrds]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_crds.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Chart de Helm para las Custom Resource Definitions (CRDs) de Istio
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+
+
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del release del chart de Helm de los CRDs de Istio
+-   `namespace` : Namespace donde se desplegará el chart de Helm de los CRDs de Istio - se especifica como `istio-system`
+-   `version` : Versión del chart de Helm de los CRDs de Istio que se utilizará
+-   `set` : Modificación dinámica de valores por defecto del chart de los CRDs de Istio
+
+
+---
+
+## Documentación de referencia
+
+-   [Helm install(Istio)](https://istio.io/latest/docs/setup/install/helm/)
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

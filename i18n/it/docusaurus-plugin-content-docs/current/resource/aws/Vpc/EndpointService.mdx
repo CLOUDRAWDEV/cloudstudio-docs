@@ -1,0 +1,47 @@
+---
+title: EndpointService
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc, EndpointService]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio che consente di connettersi privatamente ai servizi AWS supportati e ai servizi VPC endpoint
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse inferiori
+
+-   [**LB**](https://docs.cstudio.app/docs/resource/aws/Lb/Lb)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
+
+## Impostazioni della risorsa
+
+-   `acceptance_required` : Se il proprietario del servizio deve accettare la richiesta di connessione dell'endpoint VPC al servizio - `false`,`true`
+-   `loadbalancer_type` : Tipo di load balancer da collegare al servizio endpoint - `network`, `gateway`
+-   `linked_lb_names` : Nomi di una o più risorse Lb collegate al servizio endpoint
+-   `manual_lb_arns` : Nome delle risorse Amazon (ARN) di uno o più dispositivi di bilanciamento del carico per il servizio endpoint
+-   `supported_ip_address_types` : Tipi di indirizzi IP supportati - `ipv4`
+-   `activate_private_dns_name` : Nome DNS privato del servizio
+
+---
+
+## Materiale di riferimento
+
+-   [AWS EndPointService (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/configure-endpoint-service.html)
+-   [AWS EndPointSerivce (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)

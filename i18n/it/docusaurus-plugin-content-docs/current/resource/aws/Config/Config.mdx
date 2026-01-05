@@ -1,0 +1,59 @@
+---
+title: Config
+sidebar_position: 0
+tags: [AWS, Risorsa, Config]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/config-aws_config.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una risorsa che registra le informazioni di configurazione delle risorse di un account AWS per identificare le relazioni tra le risorse.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**Sns Topic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+
+## Impostazioni della risorsa
+
+-   `enable_config_recorder` : Se attivare o disattivare il registratore di configurazione - `false`, `true`
+-   `role_name` : Nome del ruolo IAM da utilizzare in AWS Config
+-   `recording_method`
+-   `recording_method.enable_all_supported` : Se AWS Config deve registrare le modifiche alla configurazione per tutti i tipi di risorse nelle regioni supportate - `false`, `true`
+-   `recording_method.exclude_resource_types` : Elenco dei tipi di risorse AWS per cui AWS Config non deve registrare le modifiche alla configurazione
+-   `recording_method.include_global_resource_types` : Se includere tutti i tipi di risorse globali supportate nelle risorse registrate da AWS Config - `false`, `true`
+-   `linked_s3_bucket_name` : Nome del bucket S3 utilizzato per salvare i record di configurazione
+-   `s3_key_prefix` : Prefisso del bucket S3 da utilizzare
+-   `enable_sns_topic` : Se attivare un topic SNS per le notifiche di AWS Config
+-   `delivery_frequency` : Frequenza con cui AWS Config invia snapshot di configurazione
+-   `config_rule`
+-   `config_rule.name` : Nome della config rule
+-   `config_rule.rule_owner` : Se la regola di configurazione è gestita da AWS o da un cliente - `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.source_identifier` : Identificatore predefinito della regola di configurazione di AWS
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_delivery_channel)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder_status)

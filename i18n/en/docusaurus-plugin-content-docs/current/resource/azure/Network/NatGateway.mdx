@@ -1,7 +1,7 @@
 ---
 title: NatGateway
-sidebar_position: 4
-tags: [Azure, Resource, Network, NatGateway]
+sidebar_position: 3
+tags: [Azure, Network, NatGateway]
 ---
 
 <hr />
@@ -11,18 +11,17 @@ tags: [Azure, Resource, Network, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-Azure NAT (Network Address Translation) Gateway is a managed networking service provided by Microsoft Azure that enables resources within a Virtual Network (VNet) to access the internet while keeping their source IP addresses hidden. 
-By using Azure NAT Gateway, you can provide internet connectivity to resources within a VNet without exposing their private IP addresses to the internet. 
-This helps enhance security by preventing direct access to the resources from the internet. 
-Additionally, it can help reduce the number of public IP addresses required for accessing resources within the VNet.
+A NAT Gateway is a resource that provides **outbound internet connectivity** for one or more Subnets within a Virtual Network.  
+When associated with a Subnet, resources in that Subnet communicate outbound through the specified Public IP and do not expose inbound public endpoints.  
+By configuring the idle connection timeout, you can maintain long-lived connections or quickly clean up unnecessary idle connections.
 
-## Associated Resources
+## Related Resources
 
 ### Parent Resource
 
@@ -30,23 +29,19 @@ Additionally, it can help reduce the number of public IP addresses required for 
 
 ### Connected Resources
 
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
-## Resource Setting Values
+## Resource Configuration Values
 
--   `linked_subnet_name` : The name of Subnet to which to attach the Nat gateway
-
--   `linked_public_ip_name` : The Public IP name to connect to Nat Gateway
-
--   `idle_timeout_in_minutes` : The idle timeout in minutes - `4`~ `120`
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `linked_subnet_names` : Names of the Subnets to associate with the NAT Gateway
+-   `linked_public_ip_name` : Name of the Public IP to associate with the NAT Gateway
+-   `idle_timeout_in_minutes` : Timeout (in minutes) for removing idle flows on the NAT Gateway - `4` ~ `120`
+-   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure NatGateway(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview)
--   [Azure NatGateway Price](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
--   [Azure NatGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway)
+-   [Azure NAT Gateway Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
+-   [Load Balancer Outbound Connectivity and NAT Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)

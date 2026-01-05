@@ -1,87 +1,89 @@
 ---
 title: CosmosdbGremlin
 sidebar_position: 1
-tags: [Azure, Ressourcen, Cosmosdb, CosmosdbGremlin]
+tags: [Azure, CosmosdbGremlin, CosmosDB, Gremlin, Database]
 ---
 
 <hr />
 <br />
 
-
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_gremlin.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_gremlin.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Cosmos DB Gremlin ist ein vollständig verwalteter Graphdatenbankdienst, der von Microsoft Azure bereitgestellt wird.
-Gremlin ist eine Graph Traversal-Sprache, mit der Benutzer Graphdaten in Azure Cosmos DB durchsuchen und abfragen können.
-Es unterstützt eine breite Palette von Graphoperationen, einschließlich der Erstellung von Knoten und Kanten, dem Hinzufügen und Löschen von Attributen sowie der Durchführung komplexer Graph Traversals.
+Azure Cosmos DB Gremlin ist ein vollständig verwalteter NoSQL-Datenbankdienst zum Speichern und Abfragen von Graphdaten.  
+Er bietet globale Verteilung, automatische Skalierung, Sicherung und Hochverfügbarkeit, um skalierbare und leistungsstarke Anwendungen zu erstellen.
+
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
-## Ressourcen-Einstellwerte
+### Verbundene Ressourcen
 
--   `capabilities_list` : Liste der verwendbaren Cosmos DB-APIs - `EnableServerless`, `EnableAggregationPipeline`
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
 
--   `enable_multiple_write_locations` : Aktivierung von Multi-Region-Schreiboperationen zur Nutzung des bereitgestellten Durchsatzes für Datenbanken und Container weltweit - `true`, `false`
+## Ressourcenkonfigurationswerte
 
--   `public_network_access_enabled` : Aktivierung der öffentlichen Verbindung zum Konto über eine öffentliche IP-Adresse oder Service-Endpunkt - `true`, `false`
+#### Grundeinstellungen
 
--   `enable_automatic_failover` : Aktivierung der automatischen Fehlertoleranz - `true`, `false`
+-   `capabilities_list` : Liste der zu verwendenden Cosmos DB APIs
+-   `enable_multiple_write_locations` : Aktivierung von Schreibvorgängen in mehreren Regionen – `true`, `false`
+-   `public_network_access_enabled` : Öffentlichen Zugriff auf das Konto über öffentliche IP-Adressen oder Service-Endpunkte aktivieren – `true`, `false`
+-   `enable_automatic_failover` : Aktivierung des automatischen Failovers – `true`, `false`
+-   `virtual_network_filter_enabled` : Aktivierung eines Filters, der den Zugriff auf bestimmte Subnetze des virtuellen Netzwerks beschränkt – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Aktivierung der ACL-Umgehung für Azure-Dienste – `true`, `false`
 
--   `virtual_network_filter_enabled` : Aktivierung des Filters, der nur den Zugriff auf das Konto von einem bestimmten Subnetz im virtuellen Netzwerk erlaubt - `true`, `false`
+#### Regionaleinstellungen (`geo_location`)
 
--   `network_acl_bypass_for_azure_services` : Aktivierung des ACL-Bypass für Azure-Dienste - `true`, `false`
+-   `geo_location.failover_priority` : Failover-Priorität der Region
+-   `geo_location.zone_redundant` : Aktivierung der zonenredundanten Bereitstellung zur Fehlerabsicherung – `true`, `false`
 
--   `geo_location`
+#### Konsistenzrichtlinie (`consistency_policy`)
 
-    -   `failover_priority` : Fehlerbehandlungspriorität in der Region - `0`~ `0`
-    -   `zone_redundant` : Automatische Zonenkopie zur Fehlerbehebung aktivieren - `true`~ `false`
+-   `consistency_policy.consistency_level` : Konsistenzstufe zur Steuerung von Verfügbarkeit und Leistung der Datenbank
+-   `consistency_policy.max_interval_in_seconds` : Zulässige maximale Staleness-Zeit (Sekunden), wenn die Konsistenzstufe „Bounded Staleness“ ist
+-   `consistency_policy.max_staleness_prefix` : Zulässige maximale Anzahl veralteter Anforderungen bei „Bounded Staleness“
 
--   `consistency_policy`
+#### Backup-Einstellungen (`backup`)
 
-    -   `consistency_level` : Konsistenzebene der Cassandra DB zur Einstellung der Verfügbarkeit und Leistung der Datenbank - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte Staleness-Zeit (Sekunden) - `5`~ `86400`
-    -   `max_staleness_prefix` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte maximale Anzahl an Stale Requests - `10`~`2147483647`
+-   `backup.type` : Typ der Backup-Richtlinie – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Häufigkeit der Backups in Minuten – `60` ~ `1440`
+-   `backup.retention_in_hours` : Aufbewahrungsdauer der Backups in Stunden – `8` ~ `720`
 
--   `backup`
+#### Gremlin-Datenbankeinstellungen (`gremlin_database`)
 
-    -   `type` : Backup-Policy-Typ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : Häufigkeit des Backups pro Minute im Bereich von 60 bis 1440 - `60`~ `1440`
-    -   `retention_in_hours` : Dauer der Speicherung des Backups (Stunden), im Bereich von 8 bis 720 - `8`~`720`
+-   `gremlin_database.throughput` : Durchsatz der Gremlin-Datenbank – `400` ~ `1000000`
+-   `gremlin_database.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
 
--   `gremlin_database`
+#### Gremlin-Graph-Einstellungen (`gremlin_graph`)
 
-    -   `throughput` : Durchsatz des Gremlin-Datenbank - `400`~ `1000000`
-    -   `enable_autoscale` : Ob Auto-Skalierung auf den Cassandra-Schlüsselraum angewendet werden soll - `true`, `false`
+-   `gremlin_graph.partition_key_version` : Version des Partitionierungsschlüssels – `1`, `2`
+-   `gremlin_graph.partition_key_path` : Pfadwert des Partitionierungsschlüssels
+-   `gremlin_graph.throughput` : Durchsatz des Gremlin-Graphen – `400` ~ `1000000`
+-   `gremlin_graph.automatic` : Aktivierung der automatischen Indizierung – `true`, `false`
+-   `gremlin_graph.indexing_mode` : Indizierungsmodus – `consistent`, `lazy`, `none`
+-   `gremlin_graph.included_paths` : Liste der in die Indizierung einbezogenen Pfade
+-   `gremlin_graph.excluded_paths` : Liste der von der Indizierung ausgeschlossenen Pfade
+-   `gremlin_graph.conflict_resolution_mode` : Konfliktlösungsmodus – `LastWriterWins`, `Custom`
+-   `gremlin_graph.unique_key_paths` : Liste eindeutiger Schlüsselpfade zur Erweiterung der Datenintegrität
+-   `gremlin_graph.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
+-   `gremlin_graph.included_gremlin_database_name` : Name der Gremlin-Datenbank, in der der Gremlin-Graph erstellt wird
 
--   `gremlin_graph`
+#### Tags
 
-    -   `partition_key_version` : Festlegung der Partition-Schlüsselversion 1 oder 2 - `1`~ `2`
-    -   `partition_key_path` : Partition-Schlüsselpfadwert
-    -   `throughput` : Durchsatz des Gremlin-Diagramms - `400`~ `100000`
-    -   `automatic` : Aktivierung der automatischen Indizierung - `true`, `false`
-    -   `indexing_mode` : Einstellung des Indextyps - `consistent` , `lazy`, `none`
-    -   `included_paths` : Liste der Pfade, die in die Indizierung aufgenommen werden
-    -   `excluded_paths` : Liste der Pfade, die von der Indizierung ausgeschlossen sind
-    -   `conflict_resoulution_mode` : Konfliktbehandlungstyp - `LastWriterWins` , `Custom`
-    -   `unique_key_paths` : Liste der einzigartigen Schlüsselpfadwerte für die Hinzufügung der Datenintegritätsschicht
-    -   `enable_autoscale` : Durchsatz des Gremlin-Diagramms - `true`, `false`
-    -   `included_gremlin_database_name` : Name der Gremlin-Datenbank, in der das Gremlin-Diagramm erstellt wird
-
--   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb Kosten](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Cosmos DB API für Gremlin (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/gremlin/introduction)

@@ -1,0 +1,64 @@
+---
+title: Postgresql
+sidebar_position: 0
+tags: [AWS, Risorsa, Rds, Postgresql]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-postgresql.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Utilizzando PostgreSQL su AWS per costruire un RDS, la gestione e l'operazione del database diventano facili e scalabili. Inoltre, RDS offre funzionalità di backup e ripristino automatici per le istanze di database, prevenendo la perdita di dati, e garantisce la sicurezza dei dati grazie alle funzionalità di sicurezza fornite da AWS.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+
+## Impostazioni della risorsa
+
+-   `database_name` : Nome del database iniziale
+-   `engine_version` : Versione di PostgreSQL da utilizzare su RDS
+-   `instance_class` : Livello di prezzo per il DB RDS
+-   `storage_type` : Tipo di storage per l'istanza RDS - `gp2`, `io1`, `standard`
+-   `allocated_storage` : Capacità di storage per l'istanza RDS (in Gigabyte)
+-   `max_allocated_storage` : Limite superiore per l'espansione automatica dello storage dell'istanza DB da parte di Amazon RDS
+-   `multi_az_enabled` : Abilitazione della distribuzione Multi-AZ - `true`, `false`
+-   `username` : Nome utente per RDS
+-   `password` : Password dell'utente per RDS
+-   `skip_final_snapshot` : Determina se creare uno snapshot finale prima della cancellazione dell'istanza DB
+-   `included_subnet_names` : Nomi delle Subnet da collegare al gruppo di Subnet RDS
+-   `backup_retention_period` : Periodo di conservazione dei backup
+-   `storage_encrypted` : Specifica se l'istanza DB è criptata - `true`, `false`
+-   `publicly_accessible` : Se l'istanza è accessibile pubblicamente - `true`, `false`
+-   `monitoring`
+    -   `performance_insights_enabled` : Abilitazione delle performance insights
+-   `encryption`
+    -   `storage_encrypted` : Specifica se l'istanza DB è criptata - `true`, `false`
+    -   `kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+-   `backup`
+    -   `backup_retention_period` : Periodo di conservazione dei backup - `1`~`35`
+    -   `final_snapshot_enabled` : Se creare uno snapshot finale prima della cancellazione dell'istanza DB - `true`, `false`
+    -   `final_snapshot_name` : Nome dello snapshot finale - `true`, `false`
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon RDS for PostgreSQL(Amazon RDS)(AWS)](https://aws.amazon.com/ko/rds/postgresql/)
+-   [What is PostgreSQL?(AWS)](https://aws.amazon.com/ko/rds/postgresql/what-is-postgresql/)
+-   [Amazon RDS for PostgreSQL 요금](https://aws.amazon.com/ko/rds/postgresql/pricing/)

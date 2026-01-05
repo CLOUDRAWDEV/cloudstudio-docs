@@ -1,0 +1,105 @@
+---
+title: ApplicationGateway
+sidebar_position: 13
+tags: [Azure, Network, ApplicationGateway, LoadBalancer, WAF]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-application_gateway.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Application Gateway es un balanceador de carga administrado de Azure que realiza **balanceo de carga y enrutamiento de capa 7 (capa de aplicación)** en el front-end de aplicaciones web, basándose en tráfico HTTP/HTTPS.  
+Proporciona seguridad y escalabilidad para servicios web mediante funciones como enrutamiento basado en rutas, terminación SSL e integración con WAF.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+### Recursos conectados
+
+-   [**Linux App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Web Application Firewall Policy**](https://docs.cstudio.app/es/docs/resource/azure/Network/WebApplicationFirewallPolicy)
+-   [**Public Ip**](https://docs.cstudio.app/es/docs/resource/azure/Network/PublicIp)
+
+## Valores de configuración del recurso
+
+-   `included_subnet_name` : Nombre del Subnet donde se implementará Application Gateway
+-   `linked_waf_policy_name` : Nombre de la Web Application Firewall Policy a asociar
+-   `sku_tier` : Nivel de precios de Application Gateway
+-   `sku_name` : Nombre del SKU de Application Gateway
+-   `enabled_autoscaling` : Indica si el autoscaling basado en tráfico está habilitado
+-   `instance_count` : Número de instancias (para SKU V1)
+-   `min_instance_count` : Número mínimo de instancias para autoscaling
+-   `max_instance_count` : Número máximo de instancias para autoscaling
+-   `gateway_ip_config_name` : Nombre de la Gateway IP Configuration
+-   `frontend_ip_address_type` : Modo de IP del frontend - `Public`, `Private`, `Both`
+-   `tag` : Etiquetas utilizadas para clasificar el recurso
+
+#### Configuración de IP de frontend pública (`public_frontend_ip_configuration`)
+
+-   `public_frontend_ip_configuration.ip_config_name` : Nombre de la configuración de IP de frontend pública
+-   `public_frontend_ip_configuration.linked_public_ip_name` : Nombre de la Public IP a asociar
+
+#### Configuración de IP de frontend privada (`private_frontend_ip_configuration`)
+
+-   `private_frontend_ip_configuration.ip_config_name` : Nombre de la configuración de IP de frontend privada
+-   `private_frontend_ip_configuration.private_ip_address_allocation` : Método de asignación de IP privada - `Static`, `Dynamic`
+-   `private_frontend_ip_configuration.private_ip_address` : Dirección IP privada
+
+#### Pool de backend (`backend_pool`)
+
+-   `backend_pool.target.target_type` : Tipo de destino del backend - `ip`, `fqdn`, `vm`, `app_service`
+-   `backend_pool.target.target` : IP o FQDN del destino del backend
+-   `backend_pool.target.linked_target_name` : Nombre del recurso backend a conectar
+
+#### Listener HTTP (`http_listener`)
+
+-   `http_listener.frontend_ip_config` : Tipo de configuración de IP de frontend a utilizar
+-   `http_listener.frontend_port_name` : Nombre del puerto de frontend
+-   `http_listener.frontend_port` : Número del puerto de frontend
+-   `http_listener.protocol` : Protocolo entre el cliente y el gateway - `Http`, `Https`
+-   `http_listener.cert_name` : Nombre del certificado SSL cuando se utiliza HTTPS
+-   `http_listener.pfx_cert_data` : Datos del certificado PFX
+-   `http_listener.password` : Contraseña del certificado PFX
+
+#### Configuración HTTP del backend (`backend_http_settings`)
+
+-   `backend_http_settings.protocol` : Protocolo utilizado al reenviar al backend
+-   `backend_http_settings.port` : Puerto de escucha del backend
+-   `backend_http_settings.cookie_based_affinity` : Indica si la afinidad de sesión basada en cookies está habilitada
+-   `backend_http_settings.request_timeout` : Tiempo de espera de la solicitud (segundos)
+
+#### Regla de enrutamiento de solicitudes (`request_routing_rule`)
+
+-   `request_routing_rule.http_listener_name` : Nombre del listener HTTP a asociar
+-   `request_routing_rule.backend_pool_name` : Nombre del backend pool a asociar
+-   `request_routing_rule.backend_http_settings_name` : Nombre de la configuración HTTP del backend a asociar
+-   `request_routing_rule.priority` : Prioridad de la regla de enrutamiento
+
+#### Enrutamiento basado en rutas (`request_routing_rule.path_based_routing`)
+
+-   `path_based_routing.paths` : Lista de rutas
+-   `path_based_routing.backend_pool_name` : Nombre del backend pool asociado a la ruta
+-   `path_based_routing.backend_http_settings_name` : Nombre de la configuración HTTP del backend asociada a la ruta
+
+---
+
+## Referencias
+
+-   [Introducción a Azure Application Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/overview)
+-   [Componentes de Application Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/application-gateway-components)
+-   [Integración de WAF con Application Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/ag-overview)

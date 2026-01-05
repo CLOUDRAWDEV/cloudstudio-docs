@@ -1,0 +1,46 @@
+---
+title: Directory Service
+sidebar_position: 0
+tags: [AWS, Risorsa, DirectoryService, DirectoryService]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+AWS Directory Service offre diversi modi per utilizzare Microsoft Active Directory (AD) con altri servizi AWS. Il directory memorizza informazioni su utenti, gruppi e dispositivi, e gli amministratori lo utilizzano per gestire l'accesso alle informazioni e alle risorse. AWS Directory Service offre diverse opzioni di directory per i clienti che desiderano utilizzare un Microsoft AD esistente nel cloud o applicazioni compatibili con LDAP (Lightweight Directory Access Protocol). Offre anche le stesse opzioni di scelta per gli sviluppatori che necessitano di un directory per gestire utenti, gruppi, dispositivi e privilegi di accesso.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+
+## Impostazioni della risorsa
+
+-   `password` : La password dell'amministratore del directory o dell'utente del connettore
+-   `type` : `SimpleAD`,`MicrosoftAD`
+-   `size` : La dimensione del directory - `Small`,`Large`
+-   `included_vpc_name` : Il nome della VPC in cui si trova il directory
+-   `included_subnet_names` : I nomi delle subnet del server di directory (le subnet devono essere distribuite in due AZ diverse)
+
+---
+
+## Materiale di riferimento
+
+-   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
+-   [AWS Direct Service 가격(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

@@ -1,0 +1,44 @@
+---
+title: Waf Rule Group
+sidebar_position: 0
+tags: [AWS, Recurso, Waf, WafRuleGroup]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS WAF Rule Group es un conjunto de reglas utilizadas por el Web Application Firewall. Al utilizar un Rule Group, puedes agrupar múltiples reglas para aplicarlas a tu aplicación web, mejorando así la reutilización y eficiencia en la gestión. Los grupos de reglas controlan aspectos clave de la seguridad de las aplicaciones web y permiten permitir, bloquear o contar solicitudes.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+
+## Valores de configuración del recurso
+
+-   `scope` : Especifica si es para una distribución de AWS CloudFront o para una aplicación regional - `REGIONAL`, `CLOUDFRONT`
+-   `capacity` : Unidades de capacidad WCU requeridas para el grupo de reglas
+-   `cloudwatch_metrics_enabled` : Define si el recurso asociado debe enviar métricas a CloudWatch - `true`, `false`
+-   `metric_name` : Nombre de la métrica de CloudWatch. Puede contener letras mayúsculas, minúsculas, guiones (-) y guiones bajos (_), y tener entre 1 y 128 caracteres.
+-   `sampled_requests_enabled` : Define si AWS WAF debe almacenar muestras de solicitudes web que coincidan con las reglas - `true`, `false`
+
+---
+
+## Documentación de referencia
+
+-   [Funciones de AWS WAF (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [Precios de AWS WAF (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_rule_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_rule_group)

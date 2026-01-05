@@ -1,0 +1,41 @@
+---
+title: Waf Ipset
+sidebar_position: 0
+tags: [AWS, Risorsa, Waf, WafIpset]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+L'IPSet di AWS WAF è un elenco di indirizzi IP utilizzato dal Web Application Firewall di Amazon Web Services. Consente agli utenti di creare e gestire regole di accesso per gli indirizzi IP definiti. Utilizzando l'IPSet, è possibile consentire o bloccare le richieste provenienti da specifici indirizzi IP, migliorando così la sicurezza delle applicazioni web.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+## Impostazioni della risorsa
+
+-   `scope` : Specifica se è per una distribuzione AWS CloudFront o per un'applicazione regionale - `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : Specifica se utilizzare IPV4 o IPV6 - `IPV4`, `IPV6`
+-   `addresses` : Array di stringhe che specificano uno o più indirizzi IP o blocchi di indirizzi IP in notazione CIDR.
+
+---
+
+## Materiale di riferimento
+
+-   [AWS WAF 기능(AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS WAF 요금(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_ipset(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)

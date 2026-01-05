@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 6
-tags: [Azure, Resource, Network, NetworkInterface]
+sidebar_position: 4
+tags: [Azure, Network, NetworkInterface]
 ---
 
 <hr />
@@ -11,34 +11,45 @@ tags: [Azure, Resource, Network, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.webp"
     }
 />
 
 ## Resource Overview
 
-## Associated Resources
+A Network Interface is a network connectivity resource that enables a Virtual Machine to communicate with resources inside a Virtual Network, the Internet, and on-premises networks.  
+It belongs to a Subnet and is assigned an IP address, and a Public IP can be associated as needed to enable external communication.  
+A single Network Interface can have multiple IP configurations, allowing it to support various networking scenarios.
+
+## Related Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Network Security Group**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkSecurityGroup)
 
-## Resource Setting Values
+## Resource Configuration Values
 
--   `included_subnet_name` : Name of subnet where Network Interface included
--   `ip_configuration`
-    -   `is_primary` : Enalbed primary Ip Configuration - `true`, `false`
-    -   `private_ip_address_allocation` : Private Ip address allocation method
-    -   `enabled_public_ip` : Enabled using Public Ip - `true`, `false`
-    -   `linked_public_ip_name` : The name of Public Ip to use
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `included_subnet_name` : Name of the Subnet that includes the Network Interface
+
+#### IP Configuration (`ip_configuration`)
+
+-   `ip_configuration.is_primary` : Whether to enable the primary IP configuration - `true`, `false`
+-   `ip_configuration.private_ip_address_allocation` : Private IP address allocation method - `Dynamic`, `Static`
+-   `ip_configuration.private_ip_address` : Private IP address
+-   `ip_configuration.enabled_public_ip` : Whether to use a Public IP - `true`, `false`
+-   `ip_configuration.linked_public_ip_name` : Name of the Public IP to use
+
+-   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+
 ---
 
-## Reference Materials
+## References
 
--   [Azure NetworkInterface(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal#associate-or-dissociate-a-network-security-group)
--   [Azure NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+-   [Azure Network Interface Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface)
+-   [IP Configuration Settings (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/virtual-network-network-interface-addresses)

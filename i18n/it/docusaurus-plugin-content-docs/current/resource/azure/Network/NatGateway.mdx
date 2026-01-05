@@ -1,0 +1,47 @@
+---
+title: NatGateway
+sidebar_position: 3
+tags: [Azure, Network, NatGateway]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+NAT Gateway è una risorsa che fornisce **connettività Internet in uscita (Outbound)** per uno o più Subnet all’interno di una Virtual Network.  
+Quando viene associato a un Subnet, le risorse di quel Subnet comunicano verso l’esterno tramite la Public IP specificata e non espongono endpoint pubblici in ingresso (Inbound).  
+Configurando il timeout delle connessioni inattive (Idle), è possibile mantenere connessioni di lunga durata o eliminare rapidamente quelle non necessarie.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Public IP**](https://docs.cstudio.app/it/docs/resource/azure/Network/PublicIp)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/azure/Network/Subnet)
+
+## Valori di configurazione della risorsa
+
+-   `linked_subnet_names` : Nomi dei Subnet da associare al NAT Gateway
+-   `linked_public_ip_name` : Nome della Public IP da associare al NAT Gateway
+-   `idle_timeout_in_minutes` : Timeout (in minuti) per la rimozione dei flussi inattivi nel NAT Gateway - `4` ~ `120`
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure NAT Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
+-   [Connettività in uscita del Load Balancer e NAT Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)

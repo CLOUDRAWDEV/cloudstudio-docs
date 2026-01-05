@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 6
-tags: [Azure, 리소스, Network, NetworkInterface]
+sidebar_position: 4
+tags: [Azure, Network, NetworkInterface]
 ---
 
 <hr />
@@ -11,35 +11,45 @@ tags: [Azure, 리소스, Network, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.webp"
     }
 />
 
 ## 리소스 개요
 
+Network Interface는 Virtual Machine이 Virtual Network 내부 리소스, 인터넷, 온-프레미스 네트워크와 통신할 수 있도록 하는 네트워크 연결 리소스입니다.  
+Subnet에 소속되어 IP 주소를 할당받으며, 필요에 따라 Public IP를 연결해 외부 통신을 구성할 수 있습니다.  
+하나의 Network Interface에는 여러 IP Configuration을 정의할 수 있어 다양한 네트워크 시나리오를 지원합니다.
+
 ## 연관 리소스
 
 ### 상위 리소스
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
 ### 연결 리소스
 
--   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Network Security Group**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkSecurityGroup)
 
 ## 리소스 설정 값
 
 -   `included_subnet_name` : Network Interface가 포함된 Subnet 이름
--   `ip_configuration`
-    -   `is_primary` : 기본 ip configuration 활성화 - `true`, `false`
-    -   `private_ip_address_allocation` : 개인 ip 주소 할당 방식
-    -   `enabled_public_ip` : Public ip 사용 여부 - `true`, `false`
-    -   `linked_public_ip_name` : 사용할 Public ip 이름
+
+#### IP 구성 (`ip_configuration`)
+
+-   `ip_configuration.is_primary` : 기본 IP Configuration 활성화 여부 - `true`, `false`
+-   `ip_configuration.private_ip_address_allocation` : 개인 IP 주소 할당 방식 - `Dynamic`, `Static`
+-   `ip_configuration.private_ip_address` : 개인 IP 주소
+-   `ip_configuration.enabled_public_ip` : Public IP 사용 여부 - `true`, `false`
+-   `ip_configuration.linked_public_ip_name` : 사용할 Public IP 이름
+
 -   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 
 ## 참고 자료
 
--   [Azure NetworkInterface(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal#associate-or-dissociate-a-network-security-group)
--   [Azure NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+-   [Azure Network Interface 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface)
+-   [IP 구성 설정(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/virtual-network-network-interface-addresses)

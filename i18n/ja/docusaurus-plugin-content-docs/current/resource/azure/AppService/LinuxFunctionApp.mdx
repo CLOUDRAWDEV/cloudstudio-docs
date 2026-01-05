@@ -1,7 +1,7 @@
 ---
-title: Linux Function App
-sidebar_position: 1
-tags: [Azure, リソース, App Service, Linux]
+title: LinuxFunctionApp
+sidebar_position: 3
+tags: [Azure, FunctionApp, LinuxFunctionApp]
 ---
 
 <hr />
@@ -11,14 +11,14 @@ tags: [Azure, リソース, App Service, Linux]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-function_app.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-linux_function_app.webp"
     }
 />
 
 ## リソース概要
 
-Microsoft Azure が提供するサーバレスコンピューティングプラットフォームで、開発者がクラウドで関数という小さなコード断片を実行できるようにします。
-これにより、開発者はインフラ管理を気にすることなく、拡張可能で柔軟なプラットフォーム上でイベント基盤のアプリケーションを構築及びデプロイすることができます。
+Linux Function App は、イベント駆動型のサーバーレスコードを Linux 環境で実行できるように提供される、フルマネージドの Function App サービスです。  
+HTTP リクエスト、タイマー、メッセージキュー、イベントストリームなど、さまざまなトリガーに基づいてコードを実行でき、インフラ管理を行うことなくアプリケーションロジックに集中できるよう支援します。
 
 ## 関連リソース
 
@@ -29,24 +29,32 @@ Microsoft Azure が提供するサーバレスコンピューティングプラ�
 
 ### 接続リソース
 
--   [**Network Traffic Manager**](https://docs.cstudio.app/ja/docs/resource/azure/Network/TrafficManager)
+-   [**Service Plan**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/ServicePlan)
 
 ## リソース設定値
 
--   `kind` : App Service に適用するオペレーティングシステムタイプ`Linux`
--   `sku_tier` : App Service 料金プランの価格設定階層
--   `delegated_subnet_name` : 仮想ネットワーク委任のための Subnet 名
--   `function_app` : アプリサービスの名前
-    -   `storage_account_name` : Function App の使用のための汎用 Storage Account 名
-    -   `https_only` : 暗号化及び認証されたセキュリティ接続のため Function App に HTTPS によるアクセスのみ許容 - `true`, `false`
-    -   `detailed_error_messages_enabled` : HTTP エラー発生時、エラーページに詳しいエラーメッセージを含む - `true`, `false`
-    -   `auth_settings_enabled` : Function App の権限活性化 - `true`, `false`
-    -   `http2_enabled` : セキュリティのために最新バージョンの HTTP 活性化 - `true`, `false`
+-   `linked_service_plan_name` : Function App が実行される Service Plan の名前
+
+-   `delegated_subnet_name` : 仮想ネットワークの委任に使用する Subnet の名前
+
+-   `target_storage_account_name` : Function App の実行に必要なファイル、ログ、メタデータを保存するストレージアカウントの名前
+
+-   `https_only` : 暗号化および認証された安全な接続のため、HTTPS アクセスのみを許可するかどうか – `true`, `false`
+
+-   `auth_settings_enabled` : Function App に対する認証／認可機能を有効にするかどうか – `true`, `false`
+
+-   `http2_enabled` : HTTP/2 プロトコルを使用するかどうか – `true`, `false`
+
+-   `target_content_safety_name` : 連携する Azure Content Safety リソースの名前
+
+-   `target_ai_service_name` : 連携する Azure AI Service リソースの名前
+
+-   `target_search_service_name` : 連携する Azure Search Service リソースの名前
 
 <hr />
 
 ## 参考資料
 
--   [Azure functions(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
--   [Azurerm functions 価格(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/functions/)
--   [Azurerm linuxFunctionApp(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app)
+-   [Azure Functions（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Linux Function App（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Linux Function App（Terraform）](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app)

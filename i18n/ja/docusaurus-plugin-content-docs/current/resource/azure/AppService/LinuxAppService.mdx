@@ -1,7 +1,7 @@
 ---
-title: Linux App Service
-sidebar_position: 0
-tags: [Azure, リソース, App Service, Linux, Function App]
+title: LinuxAppService
+sidebar_position: 1
+tags: [Azure, AppService, LinuxAppService]
 ---
 
 <hr />
@@ -11,15 +11,14 @@ tags: [Azure, リソース, App Service, Linux, Function App]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-linux_app_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-linux_app_service.webp"
     }
 />
 
 ## リソース概要
 
-Azure App Service はインフラを管理する必要なく、選択したプログラミング言語でウェブアプリ、モバイルバックエンド、RESTful API をビルドし、ホスティングできる PaaS サービスです。
-App Service は Auto Scailing 及び高可用性を提供し、オペレーティングシステムとして Windows 及び Linux の両方をサポートします。
-Github, Azure DevOps または Git リポジトリから自動的にデプロイすることができます。
+Linux App Service は、Linux ベースの環境で Web アプリケーション、REST API、モバイルバックエンドをホスティングできる HTTP ベースのサービスです。  
+App Service Plan と連携して実行され、認証設定、ログ管理、ネットワーク統合、セキュリティプロトコル設定などを通じて、安定性と拡張性に優れたアプリケーション運用環境を提供します。
 
 ## 関連リソース
 
@@ -28,28 +27,32 @@ Github, Azure DevOps または Git リポジトリから自動的にデプロイ
 -   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
-### 接続リソース
-
--   [**Service Plan**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/ServicePlan)
-
 ## リソース設定値
 
--   `linked_service_plan_name` : App Service に適用する Plan ポリシー
--   `delegated_subnet_name` : 仮想ネットワーク委任のための Subnet 名
--   `client_cert_enabled` : クライアント証明書を結成化 - `true`, `false`
--   `auth_settings_enabled` : App で発生するすべての通信が認証できるように Authentication を結成化 - `true`, `false`
--   `detailed_error_messages_enabled` : HTTP エラー発生時、エラーページに詳しいエラーメッセージを含む - `true`, `false`
--   `failed_request_tracing_enabled` : 失敗したリクエストに対する詳細なトレース情報のロギングを結成化 - `true`, `false`
--   `retention_in_days` : HTTP リクエストに関連するログ記録保管日数(日) - `0`~`99999`
--   `retention_in_mb` : HTTP リクエストに関連するログ記録保管容量(MB) - `25`~`100`
--   `ftps_state` : FTP を使用する場合、セキュリティのため FTP に TLS/SSL を適用 - `Disabled`, `FtpsOnly`, `AllAllowed`
--   `http2_enabled` : セキュリティのために最新バージョンの HTTP プロトクルを使用 - `true`, `false`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `linked_service_plan_name` : App Service に適用する Service Plan の名前
+
+-   `delegated_subnet_name` : 仮想ネットワークの委任に使用する Subnet の名前
+
+-   `auth_settings_enabled` : アプリで発生するすべての通信に対して認証を必須とするための Authentication 有効化 여부 - `true`, `false`
+
+-   `detailed_error_messages_enabled` : HTTP エラー発生時に、エラーページへ詳細なエラーメッセージを表示するかどうか - `true`, `false`
+
+-   `failed_request_tracing_enabled` : 失敗したリクエストに対する詳細なトレース情報のログ記録を有効にするかどうか - `true`, `false`
+
+-   `retention_in_days` : HTTP リクエストに関連するログの保存日数（日） - `0` ~ `99999`
+
+-   `retention_in_mb` : HTTP リクエストに関連するログの保存容量（MB） - `25` ~ `100`
+
+-   `ftps_state` : FTP 使用時に TLS/SSL を適用するかどうか - `Disabled`, `FtpsOnly`, `AllAllowed`
+
+-   `http2_enabled` : 最新の HTTP プロトコル（HTTP/2）を使用するかどうか - `true`, `false`
+
+-   `tag` : リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service 価格(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure App Service（Microsoft）](https://learn.microsoft.com/ko-kr/azure/app-service/)
+-   [Azure Linux Web App（Microsoft）](https://learn.microsoft.com/ko-kr/azure/app-service/quickstart-nodejs)
+-   [Azure Linux Web App（Terraform）](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app)

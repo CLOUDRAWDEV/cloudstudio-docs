@@ -1,0 +1,62 @@
+---
+title: Lb
+sidebar_position: 0
+tags: [AWS, Risorsa, Lb]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Elastic Load Balancing distribuisce automaticamente il traffico delle applicazioni in arrivo a più destinazioni, come le istanze EC2. Inoltre, monitora lo stato delle destinazioni registrate e instrada il traffico solo verso le destinazioni con stato sano. Elastic Load Balancing supporta i seguenti tre tipi di bilanciatori di carico: Application Load Balancer, Network Load Balancer e Classic Load Balancer.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+### Risorse collegate
+
+-   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+
+## Impostazioni della risorsa
+
+-   `load_balancer_type` : Tipo di ELB - `application`, `network`, `gateway`
+-   `internal` : Configurazione dell'ELB come pubblico su Internet o come interno - `true`, `false`
+-   `included_vpc_name` : Nome del VPC in cui verrà creato il gruppo di destinazione
+
+-   `linked_subnet_names` : Elenco dei nomi dei sottoreti a cui collegare l'ELB
+-   `security_group_names` : Elenco dei nomi dei gruppi di sicurezza da assegnare all'ELB, valido solo per i bilanciatori di carico di tipo applicazione
+
+-   `drop_invalid_header` : Configurazione per rimuovere o mantenere le intestazioni HTTP non valide, true per rimuovere, false per instradare verso la destinazione - `true`, `false`
+-   `target_group` : Nome del gruppo di destinazioni, consente al massimo 32 caratteri alfanumerici, incluso il trattino (-), ma il nome non può iniziare o terminare con un trattino
+
+    -   `protocol` : Protocollo utilizzato per instradare il traffico verso le destinazioni - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+    -   `port` : Porta di ascolto per il traffico
+    -   `instance_names` : Elenco dei nomi delle istanze di destinazione
+
+-   `listener` : Nome del listener ELB
+    -   `protocol` : Protocollo utilizzato per instradare il traffico verso le destinazioni - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+    -   `port` : Porta di ascolto per il traffico
+    -   `default_action_type` : Tipo di azione di instradamento - `forward`, `redirect`, `fixed-response`
+    -   `target_group_name` : Nome del gruppo di destinazioni verso cui instradare il traffico
+
+---
+
+## Materiale di riferimento
+
+-   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing 요금(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
