@@ -1,7 +1,7 @@
 ---
 title: VirtualNetworkGateway
-sidebar_position: 15
-tags: [Azure, リソース, Network, VirtualNetworkGateway]
+sidebar_position: 12
+tags: [Azure, Network, VirtualNetworkGateway, VPN]
 ---
 
 <hr />
@@ -11,42 +11,43 @@ tags: [Azure, リソース, Network, VirtualNetworkGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Azure Virtual Network Gateway は、Azure の Virtual Network とオン·プレミスインフラまたはその他の Azure Virtual Network との間に安全なクロス·プレミス接続を設定できるようにする Microsoft Azure が提供するサービスです。
-オンプレミスインフラと Azure Virtual Network 間の架け橋の役割をしてデータセンターをクラウドに拡張し、ハイブリッドソリューションを作ることができます。
-Azure Virtual Network Gateway はサイト間 VPN と支店間 VPN という 2 つのタイプの VPN 接続を提供します。
-サイト間 VPN は、オン·プレミスネットワークを Azure Virtual Network に接続するために使用されます。 支店とサイト間の VPN は、個々のコンピュータを Azure 仮想ネットワークに接続するために使用されます。
-Azure Virtual Network Gateway は、BGP(Border Gateway Protocol)、静的ルーティング、および動的ルーティングをはじめとする様々なルーティングタイプもサポートします。 また、高可用性、アクティブ-アクティブ構成、複数の仮想ネットワーク ゲートウェイ サポートなどの機能も提供します。
+Virtual Network Gateway は、Azure Virtual Network とオンプレミス ネットワーク、または別の Virtual Network 間で **暗号化されたトラフィック通信経路** を提供するネットワーク ゲートウェイです。  
+VPN または ExpressRoute 方式で接続でき、ハイブリッド ネットワーク構成や安全な専用接続を実現するための中核コンポーネントです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+### 接続リソース
+
+-   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
 
 ## リソース設定値
 
--   `included_subnet_name` : Virtual Network Gateway を通じてトラフィックを送受信する Subnet の名前
--   `gateway_type` : Virtual Network Gateway のタイプ -`Vpn`, `ExpressRoute`
--   `vpn_type` : VPN 接続の種類を設定するための VPN 形式 -`RouteBased`, `PolicyBased`
--   `sku` : Virtual Network Gateway の価格設定階層(SKU)
--   `generation` : Virtual Network Gateway の世代 - `Generation1`, `Generation2`, `None`
--   `enable_active_active_mode` : `true`, `false`
--   `enable_configure_bgp` : `true`, `false`
--   `ip_configuration` : IP configuration 名
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `included_subnet_name` : Virtual Network Gateway を通じてトラフィックを送受信する Subnet 名
+-   `gateway_type` : Virtual Network Gateway の種類 - `Vpn`, `ExpressRoute`
+-   `vpn_type` : VPN 接続の種類 - `RouteBased`, `PolicyBased`
+-   `sku` : Virtual Network Gateway の価格レベル
+-   `generation` : Virtual Network Gateway の世代 - `Generation1`, `Generation2`
+-   `enabled_active_active_mode` : Active-Active モードの有効化 여부
+-   `enabled_configure_bgp` : BGP の有効化 여부
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
+
+#### IP 構成 (`ip_configuration`)
+
+-   `ip_configuration.linked_public_ip_name` : Virtual Network Gateway に関連付ける Public IP 名
 
 ---
 
 ## 参考資料
 
--   [Azure VirtualNetworkGateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
--   [Azure VirtualNetworkGateway 価格](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)
--   [Azure VirtualNetworkGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_gateway)
+-   [Azure Virtual Network Gateway の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [VPN Gateway の構成オプション（Microsoft）](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)

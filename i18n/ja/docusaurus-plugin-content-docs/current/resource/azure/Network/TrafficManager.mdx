@@ -1,7 +1,7 @@
 ---
 title: TrafficManager
-sidebar_position: 13
-tags: [Azure, リソース, Network, TrafficManager]
+sidebar_position: 11
+tags: [Azure, Network, TrafficManager]
 ---
 
 <hr />
@@ -11,15 +11,14 @@ tags: [Azure, リソース, Network, TrafficManager]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-traffic_manager.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-traffic_manager.webp"
     }
 />
 
 ## リソース概要
 
-Azure Traffic Manager は Microsoft Azure が提供するクラウドベースのトラフィック管理サービスで、
-ユーザーが Azure 仮想マシン、クラウドサービス、ウェブアプリ、さらにはオンプレミスエンドポイントのような外部リソースのような複数のエンドポイントから入ってくるトラフィックを制御してデプロイできるようにします。
-Traffic Manager を使用してユーザーは優先順位、性能、地理的位置、またはラウンドロビンのような様々なルーティング方法に基づいて使用可能な最高のエンドポイントにトラフィックを自動的に伝達し、アプリケーションの可用性、性能および復元力を改善することができます。
+Traffic Manager は DNS ベースで動作するグローバル トラフィック分散サービスで、**ユーザーの要求を最も適切なサービス エンドポイントへルーティング**します。  
+遅延、優先度、地理的な位置など、さまざまなルーティング方式をサポートしており、高可用性とパフォーマンス最適化を同時に実現できます。
 
 ## 関連リソース
 
@@ -29,36 +28,50 @@ Traffic Manager を使用してユーザーは優先順位、性能、地理的�
 
 ### 接続リソース
 
--   [**Network Traffic Manager**](https://docs.cstudio.app/ja/docs/resource/azure/Network/TrafficManager)
+-   [**Linux App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/WindowsAppService)
+-   [**Traffic Manager**](https://docs.cstudio.app/ja/docs/resource/azure/Network/TrafficManager)
 
 ## リソース設定値
 
--   `traffic_routing_method`
+-   `traffic_routing_method` : クライアント要求をエンドポイントに分散するルーティング方式
+    -   `Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
+-   `relative_domain_name` : Traffic Manager で使用するドメイン名
+-   `ttl` : DNS レコードの Time To Live 値
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
-    -   `description` : クライアントリクエストを適切なサービスエンドポイントに送信するためのルーティング方法 -`Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
+#### エンドポイント監視設定 (`endpoint_monitor_setting`)
 
--   `relative_domain_name` : Traffic Manager が使用するドメイン名
--   `ttl` : ローカル DNS ユーザーが使用するプロファイルの Time To Live 値 - `0`~ `2147483647`
--   `endpoint_monitor_setting`
+-   `endpoint_monitor_setting.protocol` : 監視に使用するプロトコル - `HTTP`, `HTTPS`, `TCP`
+-   `endpoint_monitor_setting.port` : 監視に使用するポート番号 - `0` ~ `65535`
+-   `endpoint_monitor_setting.path` : HTTP/HTTPS 使用時の監視パス
 
-    -   `protocol` : モニタリングに使用するプロトコル -`HTTP`, `HTTPS`, `TCP`
-    -   `port` : モニタリングに使用するポート番号 - `0`~ `65535`
-    -   `path` : プロトコル HTTP または HTTPS の場合、モニタリングに使用するパス
+#### Azure エンドポイント (`azure_endpoint`)
 
--   `azure_endpoint`
--   `nested_endpoint`
--   `nested_endpoint`
--   `external_endpoint`
-    -   `target_name` : エンドポイントを接続する target リソースの名前 - タイプによっては、リソース名またはドメインになることができます
-    -   `weight` : エンドポイントに分散されるトラフィックの量 - `1`~ `1000`
-    -   `priority` : エンドポイントの優先順位
-    -   `endpoint_location` : エンドポイントの Azure エリア
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `azure_endpoint.linked_resource_type` : Azure エンドポイントの種類
+-   `azure_endpoint.linked_target_name` : 接続する Azure リソース名
+-   `azure_endpoint.weight` : エンドポイントに分散されるトラフィックの比重
+-   `azure_endpoint.priority` : エンドポイントの優先度
+
+#### ネストされたエンドポイント (`nested_endpoint`)
+
+-   `nested_endpoint.linked_traffic_manager_name` : 接続する下位 Traffic Manager の名前
+-   `nested_endpoint.weight` : エンドポイントに分散されるトラフィックの比重
+-   `nested_endpoint.priority` : エンドポイントの優先度
+-   `nested_endpoint.endpoint_location` : エンドポイントの Azure リージョン
+-   `nested_endpoint.min_child_endpoints` : トラフィック転送に必要な最小オンライン エンドポイント数
+
+#### 外部エンドポイント (`external_endpoint`)
+
+-   `external_endpoint.target_name` : 外部エンドポイントの対象名（リソースまたはドメイン）
+-   `external_endpoint.weight` : エンドポイントに分散されるトラフィックの比重
+-   `external_endpoint.priority` : エンドポイントの優先度
+-   `external_endpoint.endpoint_location` : エンドポイントの Azure リージョン
 
 ---
 
 ## 参考資料
 
--   [Azure TrafficManager(Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
--   [Azure TrafficManager 価格](https://azure.microsoft.com/en-us/pricing/details/traffic-manager/)
--   [Azure TrafficManager(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/traffic_manager_profile)
+-   [Azure Traffic Manager の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
+-   [Traffic Manager のルーティング方法（Microsoft）](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-routing-methods)
+-   [Traffic Manager エンドポイントの監視（Microsoft）](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-monitoring)

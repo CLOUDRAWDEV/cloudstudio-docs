@@ -1,7 +1,7 @@
 ---
 title: LogAnalyticsWorkspace
 sidebar_position: 0
-tags: [Azure, Resource, LogAnalytics, LogAnalyticsWorkspace]
+tags: [Azure, LogAnalytics, LogAnalyticsWorkspace]
 ---
 
 <hr />
@@ -11,7 +11,7 @@ tags: [Azure, Resource, LogAnalytics, LogAnalyticsWorkspace]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/log_analytics-log_analytics_workspace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-log_analytics_workspace.webp"
     }
 />
 
@@ -19,7 +19,7 @@ tags: [Azure, Resource, LogAnalytics, LogAnalyticsWorkspace]
 
 Log Analytics is a tool used to edit and run log queries for data in the Azure Monitor log repository.
 You can create simple queries that return sets of records and then use Log Analytics functions to sort, filter, and analyze the data.
-Alternatively, you can write advanced queries to perform statistical analysis and visualize results from charts to identify specific trends. 
+Alternatively, you can write advanced queries to perform statistical analysis and visualize results from charts to identify specific trends.
 Log Analytics is used to create and test queries, whether they are interactive with query results or in combination with other Azure Monitor features such as query alerts or integrated document logs.
 
 ## Associated Resources
@@ -30,15 +30,13 @@ Log Analytics is used to create and test queries, whether they are interactive w
 
 ## Resource Setting Values
 
-- `retention_in_days`: The workspace data retention in days, ranging from `30` ~ `730`
+-   `retention_in_days`: The workspace data retention in days, ranging from `30` ~ `730`
 
-- `internet_query_enabled`: Enable querying over the public internet, `true` or `false`
+-   `internet_query_enabled`: Enable querying over the public internet, `true` or `false`
 
-- `internet_ingestion_enabled`: Enable ingestion over the public Internet, `true` or `false`
+-   `internet_ingestion_enabled`: Enable ingestion over the public Internet, `true` or `false`
 
-- `linked_automation_account_names`: List of readable resource names that will be linked to the workspace
-
-- `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
 
 ---
 

@@ -1,0 +1,61 @@
+---
+title: ApiGatewayHttp
+sidebar_position: 0
+tags: [AWS, recurso, ApiGatewayHttp]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+    }
+/>
+
+## Descripción general del recurso
+
+En API Gateway, el HTTP API es un tipo de API dentro de API Gateway diseñado para construir APIs basadas en el protocolo HTTP de manera simple y ligera.  
+HTTP API es más sencillo y rentable que el REST API tradicional, y es adecuado principalmente para aplicaciones web sin servidor (serverless) y microservicios simples.
+
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Recursos relacionados
+
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+
+## Valores de configuración del recurso
+
+-   `integration` : Nombre de la integración de API Gateway  
+    -   `http_integration`
+        -   `integration_type` : Tipo de integración de API Gateway - `Http`, `Lambda`
+        -   `integration_method` : Método HTTP de la integración
+        -   `integration_url` : URL normalizada para la integración HTTP
+    -   `lambda_integration`
+        -   `integration_type` : Tipo de integración de API Gateway - `Http`, `Lambda`
+        -   `integration_method` : Método HTTP de la integración
+        -   `linked_lambda_name` : Nombre de la función Lambda para integración proxy con Lambda
+-   `route`
+
+    -   `route_method` : Método HTTP para la API HTTP
+    -   `route_path` : Ruta de recurso para la API HTTP
+    -   `target_integration` : Nombre de la integración que se conectará a la ruta - `http_integration`, `lambda_integration`
+
+-   `deployment`
+
+    -   `description` : Descripción del despliegue de API Gateway
+
+-   `stage`
+    -   `dev`
+        -   `enable_deployment` : Despliegue de etapa API Gateway
+        -   `auto_deployment` : Habilitar despliegue automático
+    -   `test`
+        -   `enable_deployment` : Despliegue de etapa API Gateway
+        -   `auto_deployment` : Habilitar despliegue automático
+        -   `deployment_name` : Nombre del despliegue de API Gateway a conectar
+    -   `prod`
+        -   `enable_deployment` : Despliegue de etapa API Gateway

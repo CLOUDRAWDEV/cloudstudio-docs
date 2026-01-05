@@ -1,0 +1,52 @@
+---
+title: Subnet
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Subnet della VPC che consente una suddivisione dettagliata in base agli scopi della rete.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse inferiori
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Block Storage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
+
+### Risorse collegate
+
+-   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
+
+## Impostazioni della risorsa
+
+-   `subnet_cidr` : Intervallo di indirizzi IP della subnet all'interno dell'intervallo di indirizzi della VPC
+-   `zone` : Regione fisica in cui si trova la subnet - `KR-1`, `KR-2`
+-   `subnet_type` : Tipo di subnet, pubblico o privato - `PUBLIC`, `PRIVATE`
+-   `usage_type` : Impostazione per l'uso del load balancer  - `GEN`, `BM`
+-   `included_vpc_name` : Nome della VPC in cui si trova la subnet
+-   `linked_nacl_name` : Lista di controllo degli accessi alla rete (NACL) per il controllo dell'accesso alla subnet
+
+---
+
+## Materiale di riferimento
+
+-   [Subnet Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-subnetmanage-vpc)
+-   [ncloud_subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

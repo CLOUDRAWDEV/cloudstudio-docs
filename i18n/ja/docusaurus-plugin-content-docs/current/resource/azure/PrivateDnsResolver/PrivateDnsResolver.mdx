@@ -1,0 +1,61 @@
+---
+title: PrivateDnsResolver
+sidebar_position: 0
+tags: [Azure, Network, PrivateDnsResolver]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/private_dns_resolver-private_dns_resolver.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Private DNS Resolver は、**Virtual Network 内で Private DNS クエリを処理したり、オンプレミスおよび外部 DNS サーバーへクエリを転送するための管理型 DNS リゾルバーサービス**です。  
+インバウンド／アウトバウンド エンドポイントとフォワーディング ルールを使用して、ハイブリッド DNS 解決構成を構築できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
+
+### 接続リソース
+
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+## リソース設定値
+
+-   `included_vnet_name` : DNS Resolver を適用する Virtual Network の名前
+
+#### インバウンド リゾルバー (`inbound`)
+
+-   `inbound.linked_inbound_subnet_name` : インバウンド リゾルバー エンドポイントを配置するサブネット名
+-   `inbound.private_ip_allocation_method` : インバウンド エンドポイントの IP 割り当て方式 - `Dynamic`, `Static`
+-   `inbound.private_ip_address` : インバウンド エンドポイントで使用するプライベート IP アドレス
+
+#### アウトバウンド リゾルバー (`outbound`)
+
+-   `outbound.linked_outbound_subnet_name` : アウトバウンド リゾルバー エンドポイントを配置するサブネット名
+-   `target_outbound_endpoints` : DNS クエリ転送に使用するアウトバウンド リゾルバー エンドポイントの一覧
+
+#### DNS フォワーディング ルール (`rule`)
+
+-   `rule.domain_name` : ルールが適用されるドメイン名
+-   `rule.enable_forwarding_rule` : DNS フォワーディング ルールの有効化 여부 - `true`, `false`
+
+##### 対象 DNS サーバー (`rule.target_dns_servers`)
+
+-   `rule.target_dns_servers.ip_address` : DNS クエリを転送する対象 DNS サーバーの IP アドレス
+-   `rule.target_dns_servers.port` : DNS サーバーがリッスンしているポート番号
+
+## 参考資料
+
+-   [Azure Private DNS Resolver の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-overview)
+-   [Azure DNS フォワーディング構成 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-endpoints-rulesets)

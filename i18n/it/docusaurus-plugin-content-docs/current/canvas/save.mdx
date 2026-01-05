@@ -1,0 +1,104 @@
+---
+title: Salvataggio
+sidebar_position: 3
+tags: [Save, Salvataggio, Cronologia versioni, Gestione versioni, Salvataggio versioni, Iniziare]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import save01 from "/docs/start/img/save01.png"
+import save02 from "/docs/start/img/save02.png"
+import save03 from "/docs/start/img/save03.png"
+import save04 from "/docs/start/img/save04.png"
+import save05 from "/docs/start/img/save05.png"
+import save06 from "/docs/start/img/save06.png"
+
+<hr />
+<br />
+
+## Salvataggio {#save}
+
+Ci sono `due modalità` di salvataggio per il canvas:
+
+-   [Salvare](#save)
+-   [Salvataggio versione](#version)
+
+Il salvataggio riguarda `salvare lo stato attuale del canvas`. Salvare il canvas è come salvare un progetto.
+L'immagine visualizzata nella miniatura del progetto è l'immagine del canvas dopo il salvataggio.
+
+<div className={styles.imgWrap}>
+    <img src={save05} width="300px" alt="Immagine salvataggio" />
+</div>
+
+<br />
+
+Il processo di salvataggio è semplice. Clicca su `File > Salva`.
+
+<div className={styles.imgWrap}>
+    <img src={save01} width="200px" alt="Immagine salvataggio" />
+</div>
+
+<p>&nbsp;</p>
+
+:::caution
+
+Se ci sono errori 🔴 nel canvas, solo l'immagine verrà salvata. Assicurati di risolvere tutti gli errori prima di procedere al salvataggio. Puoi consultare questo link per sapere come risolvere gli errori [qui](/docs/canvas/edit-canvas.mdx).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Salvataggio versione e cronologia versioni {#version}
+
+Il salvataggio versione consente di tornare a uno stato specifico del canvas in un determinato momento. Una volta salvata una versione, puoi utilizzare la cronologia versioni per tornare al canvas dello stato desiderato.
+
+### Salvataggio versione {#version-save}
+
+1. Per salvare una versione, clicca su `Gestione versioni > Salvataggio versione`.
+
+<div className={styles.imgWrap}>
+    <img src={save02} width="200px" alt="Immagine salvataggio versione" />
+</div>
+
+<br />
+
+2. Inserisci un `messaggio tag`. Il messaggio inserito sarà visualizzato come `titolo versione` nella cronologia versioni.
+
+<div className={styles.imgWrap}>
+    <img src={save03} alt="Immagine salvataggio versione" />
+</div>
+
+<br />
+
+3. Clicca su `Salva`.
+
+<p>&nbsp;</p>
+
+### Cronologia versioni {#version-history}
+
+1. Per visualizzare la cronologia versioni, clicca su `Gestione versioni > Cronologia versioni`.
+
+<div className={styles.imgWrap}>
+    <img src={save06} width="200px" alt="Immagine salvataggio versione" />
+</div>
+
+<br />
+
+2. Visualizza le versioni salvate nella cronologia versioni.
+
+:::note
+
+-   <highlight color="#206FD6">Latest</highlight>: La versione più recente salvata.
+-   <highlight color="#AD28DC">Manual</highlight>: Cronologia del salvataggio versione.
+-   <highlight color="#02CDE8">Planed</highlight>: Cronologia delle ispezioni prima della distribuzione.
+-   <highlight color="#5C4AF6">Applied</highlight>: Cronologia delle versioni distribuite.
+
+:::
+
+<br />
+
+3. `Clicca` sulla versione del canvas a cui vuoi tornare.
+
+<div className={styles.imgWrap}>
+    <img src={save04} alt="Immagine salvataggio versione" />
+</div>

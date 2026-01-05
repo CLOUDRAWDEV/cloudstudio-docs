@@ -1,7 +1,7 @@
 ---
-title: Windows Function app
-sidebar_position: 3
-tags: [Template, Häufig verwendete Ressourcen, App Service, Azure]
+title: WindowsFunctionApp
+sidebar_position: 4
+tags: [Azure, FunctionApp, LinuxFunctionApp]
 ---
 
 <hr />
@@ -11,46 +11,50 @@ tags: [Template, Häufig verwendete Ressourcen, App Service, Azure]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-function_app.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-windows_function_app.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure App Service ist ein PaaS-Service, mit dem Sie Web-Apps, mobile Backends und RESTful APIs in der von Ihnen gewählten Programmiersprache erstellen und hosten können, ohne die Infrastruktur verwalten zu müssen.
-App Service bietet Auto Scaling und hohe Verfügbarkeit und unterstützt sowohl Windows- als auch Linux-Betriebssysteme.
-Es ist möglich, automatisch aus GitHub, Azure DevOps oder Git-Repositories bereitzustellen.
+Windows Function App ist ein vollständig verwalteter Function-App-Dienst, der die Ausführung ereignisgesteuerten, serverlosen Codes in einer Windows-Umgebung ermöglicht.  
+Code kann auf Basis verschiedener Trigger wie HTTP-Anfragen, Timer, Nachrichtenwarteschlangen oder Ereignisstreams ausgeführt werden, sodass Sie sich ohne Infrastrukturverwaltung ausschließlich auf die Anwendungslogik konzentrieren können.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**Network Traffic Manager**](https://docs.cstudio.app/docs/resource/azure/Network/TrafficManager)
+-   [**Service Plan**](https://docs.cstudio.app/de/docs/resource/azure/AppService/ServicePlan)
 
-## Ressourcen-Einstellwerte
+## Ressourcenkonfigurationswerte
 
--   `kind` : Betriebssystem für den App Service - `Windows`, `WindowsContainer`
--   `sku_tier` : Preisstufe des App Service-Tarifs
--   `delegated_subnet_name` : Subnetzname für die Delegierung des virtuellen Netzwerks
--   `app_service` : Name des App Services
-    -   `client_cert_enabled` : Client-Zertifikat aktivieren - `true`, `false`
-    -   `auth_settings_enabled` : Authentifizierung aktivieren, um sicherzustellen, dass alle Kommunikation in der App authentifiziert wird - `true`, `false`
-    -   `detailed_error_messages_enabled` : Detaillierte Fehlermeldungen auf der Fehlerseite anzeigen, wenn ein HTTP-Fehler auftritt - `true`, `false`
-    -   `failed_request_tracing_enabled` : Detailliertes Verfolgungsprotokoll für fehlgeschlagene Anfragen aktivieren - `true`, `false`
-    -   `retention_in_days` : Aufbewahrungsdauer der HTTP-Anforderungsprotokolle (Tage) - `0`~`99999`
-    -   `retention_in_mb` : Speichergröße für die Aufbewahrung von HTTP-Anforderungsprotokollen (MB) - `25`~`100`
-    -   `ftps_state` : TLS/SSL für FTP aktivieren, um die Sicherheit zu gewährleisten, wenn FTP verwendet wird - `Disabled`, `FtpsOnly`, `AllAllowed`
-    -   `http2_enabled` : Die neueste Version des HTTP-Protokolls für die Sicherheit verwenden - `true`, `false`
+-   `linked_service_plan_name` : Name des Service Plans, in dem die Function App ausgeführt wird
+
+-   `delegated_subnet_name` : Name des Subnetzes für die Delegierung im virtuellen Netzwerk
+
+-   `target_storage_account_name` : Name des Speicherkontos zum Ablegen von Dateien, Protokollen und Metadaten, die für die Ausführung der Function App erforderlich sind
+
+-   `https_only` : Gibt an, ob ausschließlich HTTPS-Zugriffe für verschlüsselte und authentifizierte Verbindungen zugelassen sind – `true`, `false`
+
+-   `auth_settings_enabled` : Gibt an, ob Authentifizierungs- und Autorisierungsfunktionen für die Function App aktiviert sind – `true`, `false`
+
+-   `http2_enabled` : Gibt an, ob das HTTP/2-Protokoll verwendet wird – `true`, `false`
+
+-   `target_content_safety_name` : Name der zu integrierenden Azure Content Safety-Ressource
+
+-   `target_ai_service_name` : Name der zu integrierenden Azure AI Service-Ressource
+
+-   `target_search_service_name` : Name der zu integrierenden Azure Search Service-Ressource
 
 <hr />
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service Kosten(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure Functions (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Windows Function App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Windows Function App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app)

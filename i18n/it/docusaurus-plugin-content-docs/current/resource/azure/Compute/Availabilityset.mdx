@@ -1,0 +1,53 @@
+---
+title: AvailabilitySet
+sidebar_position: 4
+tags: [Azure, AvailabilitySet, Compute]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-availability_set.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Availability Set è un gruppo logico di macchine virtuali progettato per aumentare la disponibilità delle applicazioni distribuendo le VM su più domini di errore (Fault Domain) e domini di aggiornamento (Update Domain).  
+Le VM incluse nello stesso Availability Set vengono posizionate su infrastrutture fisicamente separate per prevenire un singolo punto di errore (SPOF) anche in caso di guasti hardware o operazioni di manutenzione.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/it/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/it/docs/resource/azure/Compute/WindowsVirtualMachine)
+
+## Valori di configurazione della risorsa
+
+-   `update_domain_count` :  
+    Numero di domini di aggiornamento per il riavvio simultaneo dei gruppi di macchine virtuali – `1` ~ `20`
+
+-   `enabled_managed_disks` :  
+    Indica se consentire la creazione di macchine virtuali nell’Availability Set utilizzando dischi gestiti (Managed Disk) – `true`, `false`
+
+-   `fault_domain_count` :  
+    Numero di domini di errore configurati per condividere la stessa alimentazione e gli stessi switch di rete fisici – `1` ~ `3`
+
+-   `tag` :  
+    Tag per classificare la risorsa per categoria – massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure Availability Sets (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/availability-set-overview)
+-   [Terraform azurerm_availability_set](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/availability_set)

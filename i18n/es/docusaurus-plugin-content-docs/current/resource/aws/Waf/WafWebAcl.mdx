@@ -1,0 +1,43 @@
+---
+title: Waf Web Acl
+sidebar_position: 0
+tags: [AWS, Recurso, Waf, WafWebAcl]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS WAF Web ACL (Access Control List) es la capa superior de un conjunto de reglas aplicadas a una aplicación web. Utilizando una Web ACL, puedes combinar múltiples Rule Groups y reglas individuales, y definir el orden en que se procesan las solicitudes hacia la aplicación web. Esto permite fortalecer la seguridad de la aplicación y aplicar acciones como permitir, bloquear o contar solicitudes.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+
+## Valores de configuración del recurso
+
+-   `scope` : Especifica si es para una distribución de AWS CloudFront o una aplicación regional - `REGIONAL`, `CLOUDFRONT`
+-   `cloudwatch_metrics_enabled` : Indica si los recursos asociados deben enviar métricas a CloudWatch - `true`, `false`
+-   `metric_name` : Nombre de la métrica en CloudWatch. Solo puede contener letras mayúsculas, minúsculas, guiones (-) y guiones bajos (_), con una longitud de 1 a 128 caracteres.
+-   `sampled_requests_enabled` : Indica si AWS WAF debe almacenar muestras de solicitudes web que coincidan con las reglas - `true`, `false`
+
+---
+
+## Documentación de referencia
+
+-   [Funciones de AWS WAF (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [Precios de AWS WAF (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_web_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)

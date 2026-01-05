@@ -1,0 +1,50 @@
+---
+title: Instance
+sidebar_position: 0
+tags: [AWS, recurso, Ec2, Instance]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon Elastic Compute Cloud (Amazon EC2) proporciona capacidad de cómputo escalable en la nube de Amazon Web Services (AWS). Con Amazon EC2, no es necesario realizar una inversión inicial en hardware, lo que permite desarrollar y desplegar aplicaciones más rápidamente. Puedes lanzar cualquier número de servidores virtuales, configurar seguridad y redes, y gestionar el almacenamiento. Amazon EC2 permite escalar hacia arriba o hacia abajo para adaptarse a cambios en los requisitos o picos de uso, lo que reduce la necesidad de predecir el tráfico con precisión.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+## Valores de configuración del recurso
+
+-   `ami` : Imagen que contiene la información necesaria para ejecutar la instancia (proporcionada y soportada por AWS)  
+-   `instance_type` : Tipo de la instancia EC2  
+-   `included_subnet_name` : Nombre de la subred donde se desplegará la instancia EC2  
+-   `security_group_name` : Nombre del Security Group asignado a la NIC de la instancia EC2  
+-   `eip_enable` : Indica si se debe usar una EIP con la instancia EC2 – `true`, `false`  
+-   `eip_name` : Nombre de la EIP  
+-   `http_endpoint` : Configura si el servicio de metadatos está habilitado – `enabled`, `disabled`  
+-   `http_tokens` : Configura si se requieren tokens de sesión para el servicio de metadatos – `required`, `optional`  
+-   `root_volume_type` : Tipo de volumen raíz – `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`  
+-   `root_volume_size` : Tamaño del volumen raíz (GiB)  
+-   `ebs_block_device`  
+    -   `volume_size` : Tamaño del volumen EBS (GiB)  
+    -   `volume_type` : Tipo del volumen EBS
+
+---
+
+## 참고 자료
+
+-   [Amazon Ec2(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)
+-   [Precios de Amazon EC2 (AWS)](https://aws.amazon.com/ko/ec2/pricing/)
+-   [Amazon Ec2(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key)

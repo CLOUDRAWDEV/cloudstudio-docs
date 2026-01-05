@@ -1,0 +1,45 @@
+---
+title: CloudfrontCachePolicy
+sidebar_position: 0
+tags: [AWS, Risorsa, Cloudfront, CloudfrontCachePolicy]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+La Cloudfront Cache Policy è una politica di cache che configura la personalizzazione di CloudFront collegandosi al comportamento di cache della distribuzione CloudFront.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+
+### Risorse collegate
+
+-   [**CloudfrontDistribution**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+
+## Impostazioni della risorsa
+
+-   `min_ttl` : Tempo minimo (in secondi) che un oggetto deve rimanere nella cache di CloudFront
+-   `max_ttl` : Tempo massimo (in secondi) che un oggetto può rimanere nella cache di CloudFront
+-   `default_ttl` : Tempo predefinito (in secondi) che un oggetto deve rimanere nella cache di CloudFront
+-   `cookie_behavior` : Se i cookie devono essere inviati al server di origine - `whitelist`, `all`, `none`, `allExcept`
+-   `header_behavior` : Se l'oggetto deve essere memorizzato nella cache in base ai valori degli header specificati - `whitelist`, `none`
+-   `query_string_behavior` : Se devono essere memorizzate versioni diverse del contenuto in base ai parametri della stringa di query - `whitelist`, `all`, `none`, `allExcept`
+
+
+## Materiale di riferimento
+
+-   [Amazon CloudFront Cache Policy(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront Cache Policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)

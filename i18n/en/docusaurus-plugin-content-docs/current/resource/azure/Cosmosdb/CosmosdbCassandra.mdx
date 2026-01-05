@@ -1,84 +1,77 @@
 ---
 title: CosmosdbCassandra
 sidebar_position: 0
-tags: [Azure, Resource, Cosmosdb, CosmosdbCassandra]
+tags: [Azure, CosmosDB, Cassandra, Database]
 ---
 
 <hr />
 <br />
 
-
-## Resource Icon
-
-<img
-    src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_cassandra.png"
-    }
-/>
-
 ## Resource Overview
 
-Azure Cosmos DB for Apache Cassandra can be used as a data store for applications created for Apache Cassandra. 
-This compatibility means that existing Cassandra applications can communicate with the Cassandra API using existing Apache drivers that comply with CQLv4. 
-In most cases, you can switch from using Apache Cassandra to the Cassandra API simply by updating the connection string. 
-Using the Cassandra API allows you to interact with data stored in Azure Cosmos DB using CQL (Cassandra Query Language), Cassandra-based tools (such as cqlsh), and familiar Cassandra client drivers.
+Azure Cosmos DB Cassandra is a distributed NoSQL database service compatible with the Apache Cassandra API.  
+It provides global distribution, automatic scaling, high availability, and multiple consistency models, enabling Cassandra API–based applications to be easily operated in the Azure environment.
 
-### Parent Resource
+## Related Resources
+
+### Parent Resources
 
 -   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Setting Values
+### Connected Resources
 
--   `capabilities_list` : List of the Cosmos DB API which should be used - `EnableServerless`, `EnableAggregationPipeline`
+-   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
--   `enable_multiple_write_locations` : Enable multi-region writes to leverage provisioned throughput across global databases and containers - `true`, `false`
+## Resource Configuration Values
 
--   `public_network_access_enabled` : Enable connection to the account by public IP address or service endpoint - `true`, `false`
+-   `capabilities_list` : List of Cosmos DB capabilities (APIs) to use
+-   `enable_multiple_write_locations` : Whether to enable multi-region writes
+-   `public_network_access_enabled` : Whether to allow account access via the public network
+-   `enable_automatic_failover` : Whether to enable automatic failover
+-   `virtual_network_filter_enabled` : Whether to restrict access to specific virtual network subnets
+-   `network_acl_bypass_for_azure_services` : Whether to allow ACL bypass for Azure services
 
--   `enable_automatic_failover` : Enable automatic failover for the account - `true`, `false`
+#### Region Settings (`geo_location`)
 
--   `virtual_network_filter_enabled` : Enable filters so that only certain Subnets in the Virtual network can access the account - `true`, `false`
+-   `geo_location.failover_priority` : Failover priority of the region
+-   `geo_location.zone_redundant` : Whether to enable zone redundancy
 
--   `network_acl_bypass_for_azure_services` :Allow ACL bypass for Azure service - `true`, `false`
+#### Consistency Policy (`consistency_policy`)
 
--   `geo_location`
+-   `consistency_policy.consistency_level` : Consistency level of the Cassandra database
+-   `consistency_policy.max_interval_in_seconds` : Maximum allowed lag time (seconds) when using Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximum number of stale requests allowed when using Bounded Staleness
 
-    -   `failover_priority` : The failover priority of the region - `0`~ `0`
-    -   `zone_redundant` : Enable the zone redundancy in case of an error - `true`~ `false`
+#### Backup Settings (`backup`)
 
--   `consistency_policy`
+-   `backup.type` : Backup policy type (`Continuous`, `Periodic`)
+-   `backup.interval_in_minutes` : Backup execution interval (minutes)
+-   `backup.retention_in_hours` : Backup retention period (hours)
 
-    -   `consistency_level` : The consistency level of Cassandra DB to set availability and performance of database - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : If using Bounded Staleness, the time amount of staleness tolerated in seconds - `5`~ `86400`
-    -   `max_staleness_prefix` : If using Bounded Staleness, the number of stale requests tolerated - `10`~`2147483647`
+#### Cassandra Keyspace (`cassandra_keyspace`)
 
--   `backup`
+-   `cassandra_keyspace.throughput` : Throughput of the Cassandra keyspace
+-   `cassandra_keyspace.enable_autoscale` : Whether to enable automatic throughput scaling
 
-    -   `type` : The type of backup - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : The interval of backup in minutes, Between 60 and 1440 - `60`~ `1440`
-    -   `retention_in_hours` : The time in hours that the backup is retained, Between 8 and 720 - `8`~`720`
+#### Cassandra Table (`cassandra_table`)
 
--   `cassandra_keyspace`
+-   `cassandra_table.throughput` : Throughput of the Cassandra table
+-   `cassandra_table.column` : List of column names and types (`name:type` format)
+-   `cassandra_table.partition_key` : Partition key name
+-   `cassandra_table.cluster_key_name` : Cluster key name
+-   `cassandra_table.cluster_key_order` : Cluster key sort order
+-   `cassandra_table.enable_autoscale` : Whether to enable automatic table throughput scaling
+-   `cassandra_table.included_cosmosdb_keyspace_name` : Name of the Cassandra keyspace in which the table is created
 
-    -   `throughput` : The throughput of Cassandra keyspace - `400`~ `1000000`
-    -   `enable_autoscale` : Whether to apply auto scaling to Cassandra keyspace - `true`, `false`
+#### Tags
 
--   `cassandra_table`
-
-    -   `throughput`: The throughput of Cassandra table - `400`~ `1000000`
-    -   `column` : List of the name and type of column, 'name:type' format
-    -   `partition_key` : The name of partition key
-    -   `cluster_key_name` : The name of cluster key to be created
-    -   `cluster_key_order` : Order of the cluster key - `Asc` , `Desc`
-    -   `enable_autoscale` : Whether to apply auto scaling to Cassandra keyspace - `true`, `false`
-    -   `included_cosmosdb_keyspace_name` : The name of the Cosmos DB Cassandra keyspace to create the table within
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure CosmosdbCassandra(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure CosmosdbCassandra Price](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB Cassandra API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/cassandra/introduction)
+-   [Terraform azurerm_cosmosdb_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Terraform azurerm_cosmosdb_cassandra_keyspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_keyspace)
+-   [Terraform azurerm_cosmosdb_cassandra_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_table)

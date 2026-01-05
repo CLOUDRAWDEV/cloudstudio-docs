@@ -1,0 +1,64 @@
+---
+title: SourceBuild
+sidebar_position: 0
+tags: [Ncloud, Recurso, DeveloperTool, SourceBuild]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.png"
+    }
+/>
+
+## Descripción general del recurso
+
+SourceBuild es un servicio que permite compilar fácilmente código fuente desarrollado en diversos lenguajes. SourceBuild crea servidores de compilación independientes en tiempo real y puede gestionar múltiples solicitudes de compilación simultáneamente.
+
+## Recursos relacionados
+
+### Recurso superior
+
+### Recursos subordinados
+
+
+
+## Valores de configuración del recurso
+
+-   `source_type` : Tipo de origen para compilar - `SourceCommit`
+-   `source_branch` : Nombre de la rama que se desea compilar
+-   `linked_repository_name` : Nombre del repositorio que se desea compilar
+-   `env` : Configuración del entorno de compilación
+    -   `env_compute_spec` : Especificación de cómputo a usar - `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+    -   `env_platform_type` : Tipo de imagen del entorno de compilación - `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+    -   `env_platform_os_spec` : Especificación del sistema operativo a utilizar - `ubuntu-archiX64-16.04`
+    -   `env_platform_runtime_name` : Nombre del runtime para compilación - `base`, `java`, `dotnet`, `android_java`, `python`
+    -   `env_platform_runtime_version` : Versión del runtime - `1.0-1.0.0`, `2.0-1.0.0`, `3.0-1.0.0`, `4.0-1.0.0`, `5.0-1.0.0`
+    -   `env_timeout` : Tiempo máximo de espera desde el inicio hasta el fin de la compilación (en minutos), 5~540
+    -   `env_use_docker` : Indica si se utilizará el motor Docker
+    -   `env_var` : Variables de entorno para la compilación
+-   `build_command` : Comandos relacionados con la compilación
+    -   `pre_build_command` : Comando a ejecutar antes de la compilación
+    -   `in_build_command` : Comando a ejecutar durante la compilación
+    -   `post_build_command` : Comando a ejecutar después de la compilación
+-   `enable_cloud_log_analytics` : Indica si los logs de compilación se almacenarán en Cloud Log Analytics
+-   `enable_file_safer` : Indica si se aplicará verificación de seguridad mediante File Safer
+-   `artifact` : Configuración del almacenamiento del artefacto generado
+    -   `save_build_results` : Indica si se guardarán los resultados de la compilación
+-   `upload` : Configuración de carga del artefacto una vez completada la compilación
+    -   `upload_build_results` : Indica si se almacenarán los resultados en el entorno de despliegue
+
+
+
+
+---
+
+## Documentación de referencia
+
+
+-   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
+-   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

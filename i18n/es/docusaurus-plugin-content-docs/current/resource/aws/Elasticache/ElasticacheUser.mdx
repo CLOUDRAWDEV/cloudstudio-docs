@@ -1,0 +1,40 @@
+---
+title: Elasticache User
+sidebar_position: 0
+tags: [AWS, recurso, Elasticache, ElasticacheUser]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+    }
+/>
+
+## Descripción general del recurso
+
+ElastiCache User de AWS es un usuario IAM necesario para utilizar un clúster de ElastiCache. ElastiCache User tiene permisos para crear, modificar y eliminar clústeres de ElastiCache. ElastiCache User se crea en AWS IAM y normalmente se asigna a aplicaciones o desarrolladores que utilizan ElastiCache. ElastiCache User es responsable de la seguridad y el control de acceso a los clústeres de ElastiCache, lo que ayuda a proteger aplicaciones y datos. ElastiCache User puede ser utilizado junto con otros recursos en la cuenta de AWS.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Valores de configuración del recurso
+
+-   `user_id` : ID del usuario, permite letras y guiones (-), debe comenzar con una letra, no puede terminar con un guion ni tener dos guiones consecutivos, hasta un máximo de 40 caracteres  
+-   `access_string` : Cadena que describe los permisos que se aplican al usuario  
+-   `authentication_type` : Método de autenticación que el usuario utilizará para acceder al clúster
+
+---
+
+## Documentación de referencia
+
+-   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
+-   [Precios de Amazon ElastiCache para Redis (AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

@@ -1,7 +1,7 @@
 ---
 title: PolicyDefinition
 sidebar_position: 0
-tags: [Azure, リソース, Policy, PolicyDefinition]
+tags: [Azure, Policy, PolicyDefinition]
 ---
 
 <hr />
@@ -11,15 +11,14 @@ tags: [Azure, リソース, Policy, PolicyDefinition]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/policy-policy_definition.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/policy-policy_definition.webp"
     }
 />
 
 ## リソース概要
 
-Azure ポリシー定義はガバナンスポリシーを適用し監査する方法を提供します。ポリシー定義を使用してリソースプロパティ、タグ、またはリソースグループのルールを定義できます。
-たとえば、すべての仮想マシンが特定のタグを持つように要求したり、特定の地域での仮想マシンの生成を制限するポリシー定義を作成したりできます。
-ポリシー定義を作成した後は、リソース グループまたはサブスクリプションなどの Azure の範囲に割り当てることができます。これにより、その範囲内のすべてのリソースにポリシーが適用され、リソースがガバナンスポリシーに準拠していることを確認するためにコンプライアンスレポートが提供されます。
+Azure PolicyDefinition は、**リソースが遵守すべきルールや条件、および条件違反時に適用される効果を定義するポリシー定義リソース**です。  
+ポリシーの種類と適用モードに基づき、Azure リソース全体のコンプライアンス状態を一貫して管理できます。
 
 ## 関連リソース
 
@@ -34,18 +33,12 @@ Azure ポリシー定義はガバナンスポリシーを適用し監査する�
 
 ## リソース設定値
 
--   `type` : ポリシーのタイプ - `Custom`,`BuiltIn`,`NotSpecified`
-
--   `mode` : 評価するリソースタイプを指定するポリシーモード
-
--   `display_name` : ポリシー定義の表示名、1 ~ 128 文字
-
--   `linked_resource_group_name` : Policy を適用する Resource Group の MyPageID と名前
-
----
+-   `type` : ポリシー定義の種類 - `Custom`, `BuiltIn`, `NotSpecified`
+-   `mode` : ポリシー評価対象となるリソースタイプのモード
+-   `display_name` : ポリシー定義の表示名
+-   `linked_resource_group_name` : ポリシーを適用する Resource Group の情報
 
 ## 参考資料
 
--   [Azure PolicyDefinition(Microsoft)](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
--   [Azure PolicyDefinition 価格](https://azure.microsoft.com/en-us/pricing/details/azure-policy/)
--   [Azure PolicyDefinition(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_definition)
+-   [Azure Policy 定義の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure)
+-   [Azure Policy モードの説明 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure#mode)

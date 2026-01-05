@@ -1,74 +1,75 @@
 ---
 title: PostgresqlFlexible
-sidebar_position: 5
-tags: [Azure, リソース, Database, PostgresqlFlexible]
+sidebar_position: 3
+tags: [Azure, PostgresqlFlexible, PostgreSQL, FlexibleServer, Database]
 ---
 
 <hr />
 <br />
 
+## リソースアイコン
+
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-postgresql_flexible.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-postgresql_flexible.webp"
     }
 />
 
 ## リソース概要
 
-Azure Database for PostgreSQL 柔軟なサーバは柔軟なサーバアーキテクチャを提供する Azure の拡張可能な完全管理型オープンソース関係型データベースサービスです。
-PostgreSQL 環境構成に対するより多くの制御が必要な様々なワークロードおよびアプリケーションをサポートするように設計されました。
-柔軟なサーバーにより、お客様は特定の要件を満たすために、さまざまなコンピューティングおよびストレージ オプションから選択できます。
-単一ノードと高可用性構成の両方をサポートし、バックアップと災害復旧のための複数のオプションを提供します。
+Azure PostgreSQL Flexible Server は、オープンソースの Postgres データベースエンジンを基盤としたリレーショナルデータベースサービスです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ## リソース設定値
 
+#### 基本設定
+
 -   `version` : 使用する PostgreSQL のバージョン - `11`, `12`, `13`, `14`
+-   `sku_name` : PostgreSQL の価格レベル名（Tier + コンピューティング世代 + コア数の組み合わせ）
+-   `storage_mb` : PostgreSQL Flexible Server の最大容量（MB）
+-   `admin_username` : 作成モードが default の場合のサーバー管理者ユーザー名（英数字可、予約語不可、`1` ~ `16` 文字）
+-   `admin_password` : 作成モードが default の場合のサーバー管理者ログインパスワード（小文字／大文字／数字／特殊文字のうち 3 種類以上を含む。ログイン名の連続する英数字を 3 文字以上含めることは不可、`8` ~ `128` 文字）
+-   `availability_zone` : 可用性ゾーンの指定。使用可能な値は `1`, `2`, `3` - `1` ~ `3`
+-   `enable_high_availability` : PostgreSQL Flexible Server の高可用性を有効化するかどうか - `true`, `false`
+-   `high_availability_mode` : PostgreSQL Flexible Server の高可用性モード - `SameZone`, `ZoneRedundant`
+-   `standby_availability_zone` : スタンバイサーバーの可用性ゾーン。使用可能な値は `1`, `2`, `3`（可用性ゾーンと重複不可）- `1` ~ `3`
+-   `backup_retention_days` : PostgreSQL Flexible Server のバックアップ保持日数。使用可能な値は `1` ~ `35` 日 - `7` ~ `35`
+-   `geo_redundant_backup_enabled` : 地域冗長バックアップの有効化状態 - `true`, `false`
+-   `public_network_access_enabled` : サーバーへのパブリックネットワークアクセスを許可するかどうか - `true`, `false`
+-   `delegated_subnet_name` : 仮想ネットワーク委任のための Subnet 名
+-   `private_dns_zone_name` : PostgreSQL Flexible Server を作成するためのプライベート DNS ゾーン
 
--   `sku_name` : PostgreSQL 価格設定階層名、Tier+コンピューティング世代+コア数の組み合わせ - `azurePostgresqlFlexibleSku`
+#### サーバー構成（`configuration`）
 
--   `storage_mb` : Postgresql Flexible Server の最大容量(MB) - `storageMB`
+-   `configuration.name` : PostgreSQL サーバーのパラメーター設定名
+-   `configuration.param_value` : PostgreSQL Flexible Server 構成の値
 
--   `admin_username` : Creation mode がデフォルトの場合、サーバーの管理者ユーザー名
+#### データベース（`database`）
 
--   `admin_password` : Creation mode がデフォルトの場合、サーバーの管理者ログインパスワード
+-   `database.charset` : PostgreSQL データベースの文字セット
+-   `database.collation` : PostgreSQL データベースの照合順序
 
--   `availability_zone` : アベイラビリティ ゾーンを指定します。 指定できる値は 1、2、3 です。 - `1` ~ `3`
+#### ファイアウォール規則（`firewall_rule`）
 
--   `enable_high_availability` : Postgresql Flexible Server の高可用性活性化の可否 - `true` , `false`
+-   `firewall_rule.start_ip_address` : ファイアウォール規則に関連付ける開始 IP アドレス
+-   `firewall_rule.end_ip_address` : ファイアウォール規則に関連付ける終了 IP アドレス
 
--   `backup_retention_days` : Postgresql Flexible Server のバックアップ保存日数です。可能な値は 1 ~ 35 日です。 - `1` ~ `35`
+#### タグ
 
--   `geo_redundant_backup_enabled` - `true` , `false`
-
--   `public_network_access_enabled` : Server へのパブリックネットワークへのアクセスを許容 - `true` , `false`
-
--   `configuration`
-
-    -   `name` : Postgresql Flexible Server Configuration の名前
-    -   `param_value` : Postgresql Flexible Server Configuration の値
-
--   `database`
-
-    -   `charset` : PostgreSQL データベースの文字セット - `azurePostgresqlChartSet`
-    -   `collation` : PostgreSQL Database のデータ整列方式 - `azurePostgresqlFlexibleCol`
-
--   `firewall_rule`
-
-    -   `start_ip_address` : Firewall Rule に接続された開始 IP アドレス
-    -   `end_ip_address` : Firewall Rule に接続された終了 IP アドレス
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure PostgresqlFlexible(Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/overview)
--   [Azure PostgresqlFlexible 価格](https://azure.microsoft.com/ko-kr/pricing/details/postgresql/flexible-server/)
--   [Azure PostgresqlFlexible(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server)
+-   [Azure Database for PostgreSQL - Flexible Server（Microsoft）](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/overview)
+-   [Azure Database for PostgreSQL - Flexible Server ネットワーク（Microsoft）](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-networking)
+-   [Azure Database for PostgreSQL - Flexible Server 高可用性（Microsoft）](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-high-availability)
+-   [Azure Database for PostgreSQL - Flexible Server バックアップと復元（Microsoft）](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-backup-restore)
+-   [Azure Database for PostgreSQL - Flexible Server ファイアウォール規則（Microsoft）](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/how-to-manage-firewall-portal)

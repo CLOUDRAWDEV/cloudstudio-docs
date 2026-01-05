@@ -1,7 +1,7 @@
 ---
 title: Firewall
-sidebar_position: 3
-tags: [Azure, Ressourcen, Network, Firewall]
+sidebar_position: 14
+tags: [Azure, Network, Firewall]
 ---
 
 <hr />
@@ -11,83 +11,77 @@ tags: [Azure, Ressourcen, Network, Firewall]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Firewall ist ein cloudnativer und intelligenter Netzwerkschutzdienst, der den besten Bedrohungsschutz für Cloud-Workloads bietet, die in Azure ausgeführt werden. 
-Es handelt sich um eine vollständig zustandsbehaftete Firewall als Dienst, die mit Hochverfügbarkeit und unbegrenzter Cloud-Skalierbarkeit ausgestattet ist.
+Azure Firewall ist ein **verwalteter Netzwerk-Firewall-Dienst**, der innerhalb einer Virtual Network bereitgestellt wird und den ein- und ausgehenden Datenverkehr zentral steuert sowie Bedrohungsschutz bietet.  
+Über Network-, Application- und NAT-Regeln kann eine Filterung auf Ebene L3 bis L7 konfiguriert werden. Der Dienst wird häufig als gemeinsame Sicherheitsgrenze in Hub-and-Spoke- oder Single-VNet-Architekturen eingesetzt.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
--   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
 
-## Ressourcen-Einstellwerte
+## Konfigurationswerte der Ressource
 
--   `included_subnet_name` : Name des Subnetzes, in dem die Firewall platziert wird
+-   `sku_tier` : Preisstufe der Firewall – `Basic`, `Standard`, `Premium`
+-   `ip_config_name` : Name der IP-Konfiguration
+-   `included_subnet_name` : Name des Subnets, in dem die Firewall bereitgestellt wird
+-   `linked_firewall_subnet_public_ip_name` : Name der Public IP, die dem Firewall-Subnet zugeordnet wird
+-   `management_ip_config_name` : Name der Management-IP-Konfiguration
+-   `target_firewall_management_subnet_name` : Name des Firewall-Management-Subnets
+-   `linked_firewall_management_subnet_public_ip_name` : Name der Public IP, die dem Firewall-Management-Subnet zugeordnet wird
+-   `sku_name` : Firewall-SKU-Name – `AZFW_VNet`, `AZFW_Hub`
+-   `tag` : Tags zur Klassifizierung der Ressource
 
--   `sku_tier` : Preismodell der Firewall - `Basic`, `Standard`, `Premium`
+#### Network Rule Collection (`network_rule_collection`)
 
--   `sku_name` : Name der Preismodellstufe der Firewall -`AZFW_VNet`, `AZFW_Hub`
+-   `network_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `network_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Allow`, `Deny`
 
--   `linked_public_ip_name` : Name der öffentlichen IP, die mit der Firewall verbunden wird
+#### Network Rules (`network_rules`)
 
--   `ip_config_name` : IP-Konfigurationsname
+-   `network_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `network_rules.destination_ports` : Liste der Zielports
+-   `network_rules.destination_addresses` : Liste der Ziel-IP-Adressen oder -Bereiche
+-   `network_rules.protocols` : Liste der Protokolle für die Regel – `TCP`, `UDP`, `ICMP`, `Any`
 
--   `network_rule_collection`
+#### Application Rule Collection (`application_rule_collection`)
 
-    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000 - `100`~ `65000`
-    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Allow`,`Deny`
+-   `application_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `application_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Allow`, `Deny`
 
--   `network_rules`
+#### Application Rules (`application_rules`)
 
-    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
-    -   `destination_ports` : Liste der Ziel-Ports
-    -   `destination_address` : Liste der Ziel-IP-Adressen oder -Bereiche
-    -   `protocols` : Liste der Protokolle, die die Regel bilden - `TCP`,`UDP`,`ICMP`,`Any`
+-   `application_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `application_rules.target_fqdns` : Liste der FQDNs zur Filterung des ausgehenden Datenverkehrs
+-   `application_rules.protocol_port` : Port für die Protokollverbindung
+-   `application_rules.protocol_type` : Protokolltyp – `Http`, `Https`, `Mssql`
 
--   `application_rule_collection`
+#### NAT Rule Collection (`nat_rule_collection`)
 
-    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000, 100 ~ 65000의 범위 - `100` ~ `65000`
-    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Allow`,`Deny`
+-   `nat_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `nat_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Dnat`, `Snat`
 
--   `application_rules`
+#### NAT Rules (`nat_rules`)
 
-    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
-    -   `target_fqdns` : Liste der FQDNs zum Filtern von ausgehendem Verkehr mit beliebigen TCP/UDP-Protokollen
-    -   `protocol_port` : Port für die Protokollverbindung - `1` ~ `65502`
-    -   `protocol_type` : Protokollverbindungstyp - `Http`, `Https`, `Mssql`
-
--   `nat_rule_collection`
-
-    -   `priority` : Priorität der Regelkollektion, Bereich von 100 bis 65000 - `100` ~ `65000`
-    -   `action` : Aktion, die für übereinstimmenden Verkehr angewendet wird - `Dnat`, `Snat`
-
--   `nat_rules`
-
-    -   `source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
-    -   `destination_ports` : Zielports: Liste der Zielports
-    -   `translated_port` : Übersetzter Port: Der Port für den Service, der die Firewall verwendet
-    -   `translated_address` : Übersetzte Adresse: Die Adresse des Services, der die Firewall verwendet
-    -   `protocols` : Liste der Protokolle, die die Regel konstituieren - `TCP`, `UDP`, `ICMP`, `Any`
-
--   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   `nat_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `nat_rules.destination_ports` : Liste der Zielports
+-   `nat_rules.translated_port` : Übersetzter Port
+-   `nat_rules.translated_address` : Übersetzte Adresse
+-   `nat_rules.protocols` : Liste der Protokolle für die Regel – `TCP`, `UDP`, `ICMP`, `Any`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Firewall(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
--   [Azure Firewall Kosten](https://azure.microsoft.com/en-us/pricing/details/azure-firewall/)
--   [Azure Firewall(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+-   [Azure Firewall – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall – Logik der Regelverarbeitung (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)

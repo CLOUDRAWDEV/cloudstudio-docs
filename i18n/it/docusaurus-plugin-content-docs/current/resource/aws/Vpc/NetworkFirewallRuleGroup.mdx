@@ -1,0 +1,65 @@
+---
+title: NetworkFirewallRuleGroup
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc, NetworkFirewallRuleGroup]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Set di criteri riutilizzabili per ispezionare e gestire il traffico di rete
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+
+
+
+## Impostazioni della risorsa
+
+-   `description` : Descrizione del gruppo di regole del firewall di rete
+-   `rule_group_type` : Tipo di gruppo di regole - `STATEFUL`,`STATELESS`
+-   `generated_rules_type` : Tipo di formato del gruppo di regole - `StandardStatefulRules`,`DomainList`,`SuricataRuleStrings`
+-   `rule_evaluation_order` : `STRICT_ORDER`,`DEFAULT_ACTION_ORDER`
+-   `capacity` : Numero di regole che ci si aspetta siano incluse in questo gruppo di regole durante il ciclo di vita - `1-30000`
+-   `ip_set` : Variabile IP Set
+    -   `name` : Nome della variabile IP Set
+    -   `cidrs` : Valori della variabile IP Set
+-   `port_set` : Variabile Port Set
+    -   `name` : Nome della variabile Port Set
+    -   `cidrs` : Valori della variabile Port Set
+-   `stateful_rule` : Regola standard stateful
+    -   `name` : Nome della regola stateful standard
+    -   `protocol` : Protocollo di trasporto da ispezionare - `IP`,`TCP`,`UDP`,`ICMP`,`HTTP`
+    -   `source_ip_or_cidr` : Indirizzo IP di origine o intervallo di indirizzi da ispezionare
+    -   `source_port` : Porta di origine o intervallo di porte da ispezionare
+    -   `target_ip_or_cidr` : Indirizzo IP di destinazione o intervallo di indirizzi da ispezionare
+    -   `target_ip_or_cidr` : Indirizzo IP di destinazione o intervallo di indirizzi da ispezionare
+    -   `traffic_direction` : Direzione del traffico da ispezionare - `ANY`,`FORWARD`
+    -   `action` : Azione che il firewall di rete deve eseguire quando il pacchetto corrisponde alla regola - `ALERT`,`DROP`,`PASS`,`REJECT`
+-   `encryption_configuration.
+    -   `enabled_custom_configuration` : Abilitazione della crittografia dei dati utilizzando una chiave gestita da AWS - `false`,`true`
+
+
+---
+
+## Materiale di riferimento
+
+-   [NetworkFirewallRuleGroup(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
+-   [NetworkFirewallRuleGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)

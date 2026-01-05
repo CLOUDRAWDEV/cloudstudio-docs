@@ -1,86 +1,87 @@
 ---
-title: CosmodbSql
+title: CosmosdbSql
 sidebar_position: 3
-tags: [Azure, Ressourcen, Cosmosdb, CosmodbSql]
+tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
 ---
 
 <hr />
 <br />
 
-
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Cosmos DB SQL (Structured Query Language) ist eine Abfragesprache, die in Azure Cosmos DB verwendet wird, einem global verteilten Multi-Modell-Datenbankdienst, der von Microsoft bereitgestellt wird.
-Mit Cosmos DB SQL können SQL-Abfragen auf JSON-Dokumente in Cosmos DB-Containern ausgeführt werden.
-Durch die Verwendung vertrauter SQL-Funktionen und Ausdrücke können CRUD (Erstellen, Lesen, Aktualisieren und Löschen)-Operationen durchgeführt, Daten gefiltert und sortiert sowie aggregiert werden.
-Darüber hinaus unterstützt Cosmos DB SQL mehrere fortgeschrittene Funktionen wie gespeicherte Prozeduren, Trigger und benutzerdefinierte Funktionen, die es ermöglichen, Abfrageoperationen anzupassen und komplexe Aufgaben mit den Daten auszuführen.
+Azure Cosmos DB SQL API ist ein vollständig verwalteter NoSQL-Datenbankdienst, mit dem Daten im von der SQL API unterstützten JSON-Format gespeichert und abgefragt werden können.  
+Er bietet Skalierbarkeit und hohe Verfügbarkeit durch globale Verteilung, automatisches Failover, Backups und flexible Konsistenzrichtlinien.
+
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
-## Ressourcen-Einstellwerte
+### Verbundene Ressourcen
 
--   `capabilities_list` : Liste der verwendbaren Cosmos DB-APIs - `EnableServerless`, `EnableAggregationPipeline`
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
 
--   `enable_multiple_write_locations` : Aktivierung von Multi-Region-Schreiboperationen zur Nutzung des bereitgestellten Durchsatzes für Datenbanken und Container weltweit - `true`, `false`
+## Ressourcenkonfigurationswerte
 
--   `public_network_access_enabled` : Aktivierung der öffentlichen Verbindung zum Konto über eine öffentliche IP-Adresse oder Service-Endpunkt - `true`, `false`
+#### Grundeinstellungen
 
--   `enable_automatic_failover` : Aktivierung der automatischen Fehlertoleranz - `true`, `false`
+-   `capabilities_list` : Liste der zu verwendenden Cosmos DB APIs
+-   `enable_multiple_write_locations` : Aktivierung von Schreibvorgängen in mehreren Regionen – `true`, `false`
+-   `public_network_access_enabled` : Öffentlichen Zugriff auf das Konto über öffentliche IPs oder Service-Endpunkte aktivieren – `true`, `false`
+-   `enable_automatic_failover` : Automatisches Failover aktivieren – `true`, `false`
+-   `virtual_network_filter_enabled` : Zugriff auf das Konto nur für bestimmte Subnetze eines virtuellen Netzwerks zulassen – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : ACL-Bypass für Azure-Dienste aktivieren – `true`, `false`
 
--   `virtual_network_filter_enabled` : Aktivierung des Filters, der nur den Zugriff auf das Konto von einem bestimmten Subnetz im virtuellen Netzwerk erlaubt - `true`, `false`
+#### Regionaleinstellungen (`geo_location`)
 
--   `network_acl_bypass_for_azure_services` : Aktivierung des ACL-Bypass für Azure-Dienste - `true`, `false`
+-   `geo_location.failover_priority` : Failover-Priorität der Region
+-   `geo_location.zone_redundant` : Automatische Zonenreplikation zur Fehlerabsicherung aktivieren – `true`, `false`
 
--   `geo_location`
+#### Konsistenzrichtlinie (`consistency_policy`)
 
-    -   `failover_priority` : Fehlerbehandlungspriorität in der Region - `0`~ `0`
-    -   `zone_redundant` : Automatische Zonenkopie zur Fehlerbehebung aktivieren - `true`~ `false`
+-   `consistency_policy.consistency_level` : Konsistenzstufe zur Steuerung von Verfügbarkeit und Leistung der Datenbank
+-   `consistency_policy.max_interval_in_seconds` : Maximal zulässige Staleness-Zeit (Sekunden) bei Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximal zulässige Anzahl veralteter Anforderungen bei Bounded Staleness
 
--   `consistency_policy`
+#### Backup-Einstellungen (`backup`)
 
-    -   `consistency_level` : Konsistenzebene der Cassandra DB zur Einstellung der Verfügbarkeit und Leistung der Datenbank - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte Staleness-Zeit (Sekunden) - `5`~ `86400`
-    -   `max_staleness_prefix` : Wenn die Konsistenzebene Bounded Staleness ist, erlaubte maximale Anzahl an Stale Requests - `10`~`2147483647`
+-   `backup.type` : Typ der Backup-Richtlinie – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Intervall für die Backup-Ausführung (Minuten) – `60` ~ `1440`
+-   `backup.retention_in_hours` : Aufbewahrungsdauer der Backups (Stunden) – `8` ~ `720`
 
--   `backup`
+#### SQL-Datenbankeinstellungen (`sql_database`)
 
-    -   `type` : Backup-Policy-Typ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : Häufigkeit des Backups pro Minute im Bereich von 60 bis 1440 - `60`~ `1440`
-    -   `retention_in_hours` : Dauer der Speicherung des Backups (Stunden), im Bereich von 8 bis 720 - `8`~`720`
+-   `sql_database.throughput` : Durchsatz der Cosmos DB SQL-Datenbank – `400` ~ `1000000`
+-   `sql_database.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
 
--   `sql_database`
+#### SQL-Container-Einstellungen (`sql_container`)
 
-    -   `throughput` : Durchsatz der Cosmos DB SQL-Datenbank - `400`~ `1000000`
-    -   `enable_autoscale` : Ob Auto-Skalierung auf den Cassandra-Schlüsselraum angewendet werden soll - `true`, `false`
+-   `sql_container.partition_key_version` : Version des Partition Keys – `1`, `2`
+-   `sql_container.partition_key_paths` : Liste der Partition-Key-Pfade für den SQL-Container
+-   `sql_container.throughput` : Durchsatz des SQL-Containers – `400` ~ `1000000`
+-   `sql_container.indexing_mode` : Indexierungsmodus – `consistent`, `none`
+-   `sql_container.included_path` : Liste der in die Indexierung einbezogenen Pfade
+-   `sql_container.excluded_path` : Liste der von der Indexierung ausgeschlossenen Pfade
+-   `sql_container.unique_key_path` : Liste der Unique-Key-Pfade zur zusätzlichen Sicherstellung der Datenintegrität
+-   `sql_container.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
+-   `sql_container.included_sql_database_name` : Name der SQL-Datenbank, in der der SQL-Container erstellt wird
 
--   `sql_container`
+#### Tags
 
-    -   `partition_key_version` : Festlegung der Partition-Schlüsselversion 1 oder 2 - `1`, `2`
-    -   `partition_key_path` : Definieren des Partition-Schlüssels, der im SQL-Container verwendet werden soll
-    -   `throughput` : Durchsatz der MongoDB Collection - `400`~ `100000`
-    -   `indexing_mode` : Einstellung des Indextyps - `consistent`, `none`
-    -   `included_path` : Liste der Pfade, die in die Indizierung aufgenommen werden
-    -   `excluded_path` : Liste der Pfade, die von der Indizierung ausgeschlossen sind
-    -   `unique_key_path` : Liste der einzigartigen Schlüsselpfadwerte für die Hinzufügung der Datenintegritätsschicht
-    -   `enable_autoscale` : Ob Auto-Skalierung auf den Cassandra-Schlüsselraum angewendet werden soll - `true`, `false`
-    -   `included_sql_database_name` : Name der SQL-Datenbank, in der der SQL-Container erstellt wird
-
--   `tag` : Tags zur Kategorisierung von Ressourcen - maximal 512 Zeichen, `key`:`value`
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb Kosten](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

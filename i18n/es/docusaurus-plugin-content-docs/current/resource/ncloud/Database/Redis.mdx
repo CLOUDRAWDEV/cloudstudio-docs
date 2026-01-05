@@ -1,0 +1,54 @@
+---
+title: Redis
+sidebar_position: 0
+tags: [Ncloud, Recurso, Database, Redis]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Cloud DB for Redis es un servicio de caché en la nube totalmente gestionado que permite crear Redis Cache fácilmente con unos pocos ajustes y clics. Opera de manera estable gracias a configuraciones optimizadas por Naver y ofrece recuperación automática en caso de fallos.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+### Recursos subordinados
+
+
+
+## Valores de configuración del recurso
+
+-   `server_name_prefix` : Nombre del servidor Redis Cache
+-   `redis_mode` : Tipo de modo de configuración de Redis - `CLUSTER`, `SIMPLE`
+-   `image_product_code` : Código del producto de la imagen del servidor Redis que define la especificación de la instancia
+-   `target_config_group_name` : Nombre del Config Group a enlazar
+-   `product_code` : Código del producto que determina la especificación del servidor de instancia Redis a crear
+-   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
+-   `shard_count` : Número de shards a crear. Equivale al número de nodos master - `3~10`
+-   `shard_copy_count` : Número de réplicas por shard en un clúster Redis compuesto por nodos master y slave. Para alta disponibilidad (HA), es obligatorio tener nodos slave. Al añadir réplicas, se asigna un nodo slave a cada nodo master.
+-   `enable_high_availability` : Indica si se habilita la función de alta disponibilidad
+-   `enable_backup` : Indica si se habilita la función de backup. Si se habilita la alta disponibilidad, el backup queda activado automáticamente
+-   `port` : Puerto de conexión a Redis - `6379`
+
+
+
+---
+
+## Documentación de referencia
+
+
+-   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

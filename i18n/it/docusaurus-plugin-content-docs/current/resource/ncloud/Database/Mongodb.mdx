@@ -1,0 +1,55 @@
+---
+title: Mongodb
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Database, Mongodb]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Cloud DB for MongoDB è un servizio che consente di creare facilmente un database MongoDB e di gestirlo automaticamente. Grazie alle impostazioni ottimizzate di Naver, offre un'operazione stabile e si recupera automaticamente in caso di guasto, essendo un servizio di database cloud completamente gestito.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+
+### Risorse inferiori
+
+
+
+
+## Impostazioni della risorsa
+
+-   `server_name_prefix` : Nome del server MongoDB
+-   `user_name` : ID di accesso dell'utente MongoDB
+-   `user_password` : Password dell'utente MongoDB
+-   `cluster_type_code` : Codice del tipo di cluster MongoDB che determina il tipo di cluster - `Stand Alone`, `Stand Replica Set`, `Shared Cluster`
+-   `image_product_code` : Codice del prodotto dell'immagine della versione MongoDB
+-   `member_port` : Numero di porta TCP per accedere al server MongoDB Member - `10000-65535`
+-   `member_server_count` : Numero di server MongoDB Member, il numero di server membri per ogni replica set è definito - `3-7`
+-   `mongos_server_count` : Numero di server MongoDB Mongos - `2-5`
+-   `backup_file_retention_period` : Periodo di conservazione dei file di backup, il backup viene effettuato quotidianamente e i file di backup sono memorizzati su uno storage separato - `1~30`
+-   `data_storage_type` : Tipo di storage dei dati - `SSD`, `HDD`
+-   `compress_code` : Codice dell'algoritmo di compressione dei dati MongoDB, che consente di scegliere l'algoritmo di compressione dei dati - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+
+    
+
+---
+
+## Materiale di riferimento
+
+-   [MongoDB(Ncloud)](https://www.ncloud.com/product/database/cloudDbMongoDB)
+-   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

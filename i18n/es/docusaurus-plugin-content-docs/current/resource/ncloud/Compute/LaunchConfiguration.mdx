@@ -1,0 +1,44 @@
+---
+title: LaunchConfiguration
+sidebar_position: 0
+tags: [Ncloud, Recurso, Compute, LaunchConfiguration]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Plantilla que define las especificaciones del servidor virtual que se creará automáticamente durante la ejecución del Auto Scaling cuando se requiera expansión.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+
+## Valores de configuración del recurso
+
+-   `server_image_product_code` : Código de la imagen del sistema operativo a utilizar (CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Base de datos / SVR:Servidor, EN:Edición en inglés)
+-   `server_product_code` : Código de configuración del hardware del servidor (HICPU:Alta CPU, STAND:Estándar, HIMEM:Alta memoria / C núcleos, M memoria en GB)
+-   `login_key_name` : Recurso necesario para acceder, cifrar y descifrar la instancia del servidor
+-   `init_script`
+    -   `content` : Contenido del script que se ejecutará automáticamente al crear el servidor
+-   `is_encrypted_volume` : Indica si el Basic Block Storage estará cifrado
+
+
+---
+
+
+## Documentación de referencia
+
+-   [ncloud_launch_configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

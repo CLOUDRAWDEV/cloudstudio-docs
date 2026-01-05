@@ -1,7 +1,7 @@
 ---
 title: PublicIpPrefix
-sidebar_position: 10
-tags: [Azure, Ressourcen, Network, PublicIpPrefix]
+sidebar_position: 7
+tags: [Azure, Network, PublicIpPrefix]
 ---
 
 <hr />
@@ -11,31 +11,29 @@ tags: [Azure, Ressourcen, Network, PublicIpPrefix]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Public IP Prefix (Öffentliche IP-Präfixe) ist eine Ressource, die eine Reihe von zusammenhängenden öffentlichen IP-Adressbereichen bereitstellt.
-Dies ist nützlich, wenn in bestimmten Szenarien eine große Anzahl öffentlicher IP-Adressen benötigt wird.
-Mit Public IP Prefix können Sie eine große Anzahl öffentlicher IP-Adressen für Ressourcen wie Azure-VMs, Load Balancer, Application Gateways und andere Internet-exponierte Ressourcen einfach verwalten.
+Ein Public IP Prefix ist eine Netzwerkressource in Azure, mit der ein **zusammenhängender Bereich öffentlicher IP-Adressen** im Voraus reserviert und verwaltet werden kann.  
+Durch die Zuweisung mehrerer Public IPs aus einem konsistenten Adressblock bietet er Vorhersagbarkeit und Betriebskomfort bei der Verwaltung von Firewall-Regeln oder der Integration externer Systeme.
 
+## Zugehörige Ressourcen
 
-## Verwandte Ressourcen
+### Übergeordnete Ressource
 
-### Übergeordnete Ressourcen
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+## Ressourceneinstellungen
 
-## Ressourcen-Einstellwerte
-
--   `prefix_length` : `28`~`31`
--   `tag` : Tags zur Kategorisierung von Ressourcen - Maximal 512 Zeichen, `key`:`value`
+-   `prefix_length` : Bitlänge des Public IP Prefix - `28` ~ `31`
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Public Ip(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
--   [Azure Public Ip Prefix(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix)
+-   [Azure Public IP Prefix – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix)
+-   [Einschränkungen für Public IP Prefix (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix#limitations)

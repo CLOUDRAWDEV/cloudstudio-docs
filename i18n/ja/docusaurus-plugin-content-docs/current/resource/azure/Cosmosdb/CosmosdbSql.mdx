@@ -1,7 +1,7 @@
 ---
-title: CosmodbSql
+title: CosmosdbSql
 sidebar_position: 3
-tags: [Azure, リソース, Cosmosdb, CosmodbSql]
+tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
 ---
 
 <hr />
@@ -11,75 +11,77 @@ tags: [Azure, リソース, Cosmosdb, CosmodbSql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.webp"
     }
 />
 
 ## リソース概要
 
-Cosmos DB SQL(Structured Query Language)は、Microsoft が提供する世界的に分散されたマルチモデルデータベースサービスである Azure Cosmos DB で使用されるクエリ言語です。
-Cosmos DB SQL を使用すると、Cosmos DB コンテナの JSON 文書に対して SQL クエリを実行することができます。
-おなじみの SQL 関数と式を使用して CRUD(作成、読み取り、アップデート、および削除)作業を行い、データをフィルタリングおよびソートし、データを集計することができます。
-また、Cosmos DB SQL は、クエリー動作をカスタマイズし、データに対して複雑な作業を実行できる保存プロシージャ、トリガー、およびユーザ定義関数などの複数の高度な機能をサポートします。
+Azure Cosmos DB SQL API は、SQL API がサポートする JSON 形式のデータを保存およびクエリできる完全マネージド型 NoSQL データベースサービスです。  
+グローバル分散、自動フェールオーバー、バックアップ、整合性ポリシーなどにより、高いスケーラビリティと可用性を提供します。
+
+## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
 
 ## リソース設定値
 
--   `capabilities_list` : 使用する Cosmos DB の API リスト - `EnableServerless`, `EnableAggregationPipeline`
+#### 基本設定
 
--   `enable_multiple_write_locations` : 世界中のデータベースとコンテナに対してプロビジョニングされたスループットを活用するためのマルチゾーン書き込みを活性化 - `true`, `false`
+-   `capabilities_list` : 使用する Cosmos DB の API 一覧
+-   `enable_multiple_write_locations` : マルチリージョン書き込みの有効化 여부 - `true`, `false`
+-   `public_network_access_enabled` : 公開 IP アドレスまたはサービス エンドポイントを介したアカウントへの公開接続を有効化 - `true`, `false`
+-   `enable_automatic_failover` : 自動フェールオーバーの有効化 - `true`, `false`
+-   `virtual_network_filter_enabled` : 特定の仮想ネットワーク Subnet のみがアカウントにアクセスできるようにするフィルターの有効化 - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Azure サービスに対する ACL バイパスの有効化 - `true`, `false`
 
--   `public_network_access_enabled` : パブリック IP アドレスまたはサービス エンドポイントを介して公開的にアカウントへの接続を活性化 - `true`, `false`
+#### リージョン設定（`geo_location`）
 
--   `enable_automatic_failover` : 自動フェイルオーバーを活性化 - `true`, `false`
+-   `geo_location.failover_priority` : リージョンのフェールオーバー優先順位
+-   `geo_location.zone_redundant` : 障害対策として自動ゾーン冗長を有効化 - `true`, `false`
 
--   `virtual_network_filter_enabled` : 仮想ネットワーク上の特定 Subnet のみがアカウントにアクセスできるようにフィルタを活性化 - `true`, `false`
+#### 整合性ポリシー（`consistency_policy`）
 
--   `network_acl_bypass_for_azure_services` : Azure サービスの ACL bypass を活性化 - `true`, `false`
+-   `consistency_policy.consistency_level` : データベースの可用性とパフォーマンスを制御する整合性レベル
+-   `consistency_policy.max_interval_in_seconds` : 整合性レベルが Bounded Staleness の場合に許容される最大遅延時間（秒）
+-   `consistency_policy.max_staleness_prefix` : 整合性レベルが Bounded Staleness の場合に許容される最大 Stale リクエスト数
 
--   `geo_location`
+#### バックアップ設定（`backup`）
 
-    -   `failover_priority` : リージョンのフェイルオーバー処理優先順位 - `0`~ `0`
-    -   `zone_redundant` : エラーに備えて自動的に zone 複製を許容 - `true`~ `false`
+-   `backup.type` : バックアップポリシーの種類 - `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : バックアップ実行間隔（分） - `60` ~ `1440`
+-   `backup.retention_in_hours` : バックアップの保持期間（時間） - `8` ~ `720`
 
--   `consistency_policy`
+#### SQL データベース設定（`sql_database`）
 
-    -   `consistency_level` : データベースの可用性と性能設定のための Cassandra DB の一貫性レベル - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合、許容される Staleness 時間(秒) - `5`~ `86400`
-    -   `max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合、許容される最大 Stale Request 数 - `10`~`2147483647`
+-   `sql_database.throughput` : Cosmos DB SQL データベースのスループット - `400` ~ `1000000`
+-   `sql_database.enable_autoscale` : 自動スケーリングの有効化 여부 - `true`, `false`
 
--   `backup`
+#### SQL コンテナー設定（`sql_container`）
 
-    -   `type` : バックアップ ポリシー タイプ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : バックアップを実行する毎分の頻度、60 ~ 1440 の範囲 - `60`~ `1440`
-    -   `retention_in_hours` : バックアップを保存する期間(時間)、8~720 の範囲 - '8'~'720'
+-   `sql_container.partition_key_version` : パーティションキーのバージョン - `1`, `2`
+-   `sql_container.partition_key_paths` : SQL コンテナーで使用するパーティションキーのパス一覧
+-   `sql_container.throughput` : SQL コンテナーのスループット - `400` ~ `1000000`
+-   `sql_container.indexing_mode` : インデックスの種類 - `consistent`, `none`
+-   `sql_container.included_path` : インデックスに含めるパスの一覧
+-   `sql_container.excluded_path` : インデックスから除外するパスの一覧
+-   `sql_container.unique_key_path` : データ整合性レイヤーを追加するための一意キーのパス一覧
+-   `sql_container.enable_autoscale` : 自動スケーリングの有効化 여부 - `true`, `false`
+-   `sql_container.included_sql_database_name` : SQL コンテナーが作成される SQL データベース名
 
--   `sql_database`
+#### タグ
 
-    -   `throughput` : Cosmos DB SQL データベースの処理量 - `400`~ `1000000`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-
--   `sql_container`
-
-    -   `partition_key_version` : パーティションキーのバージョン 1 と 2 の中から指定 - `1`, `2`
-    -   `partition_key_path` : SQL コンテナで使用する partition key を定義
-    -   `throughput` : MongoDB Collection のスループット - `400`~ `100000`
-    -   `indexing_mode` : インデックスタイプの設定 - `consistent`, `none`
-    -   `included_path` : インデックスに含めるパスのリスト
-    -   `excluded_path` : インデックスから除外されたパスのリスト
-    -   `unique_key_path` : ユニークキーに使用するパスのリスト
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-    -   `included_sql_database_name` : SQL コンテナが生成される SQL データベース名
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb 価格](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

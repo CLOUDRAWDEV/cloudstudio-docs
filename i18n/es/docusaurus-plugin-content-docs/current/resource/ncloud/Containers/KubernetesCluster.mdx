@@ -1,0 +1,58 @@
+---
+title: Kubernetes Cluster
+sidebar_position: 0
+tags: [Ncloud, Recurso, Containers, KubernetesCluster]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de Kubernetes, una plataforma de código abierto que automatiza la contenerización, el despliegue y la gestión de aplicaciones. Automatiza tareas necesarias para usar contenedores como el despliegue, la administración y la escalabilidad, mejorando así la eficiencia operativa.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Recursos subordinados
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+
+## Valores de configuración del recurso
+
+-   `zone` : Zona física donde se creará el clúster - `KR-1`, `KR-2`
+-   `included_vpc_name` : Nombre del VPC donde se desplegará el clúster
+-   `hypervisor_code` : Código del hipervisor y versión del clúster - `XEN`
+-   `version` : Versión del clúster - `1.26.10-nks.1`, `1.27.9-nks.1`
+-   `maximum_number_of_nodes` : Número máximo de nodos del clúster, 10 o 50
+-   `enable_public_subnet_network` : Indica si se conectará a una subred pública
+-   `subnet_names` : Lista de nombres de subred que compondrán el clúster, máximo 3
+-   `lb_private_subnet_name` : Nombre de la subred privada donde se ubicará el Load Balancer privado conectado al clúster
+-   `lb_public_subnet_name` : Nombre de la subred pública donde se ubicará el Load Balancer público conectado al clúster
+-   `login_key_name` : Nombre de la login key a utilizar
+-   `enable_audit_log` : Indica si se activará la función de audit log
+-   `node_pool` : Nombre del Node Pool
+    -   `node_count` : Número de nodos en el clúster
+    -   `software_code` : Código de la imagen del servidor de los nodos
+    -   `product_code` : Código de la configuración de hardware del nodo
+    -   `node_pool_subnet_name` : Nombre de la subred donde se creará el Node Pool
+-   `enable_autoscale` : Indica si se activará la función de autoescalado
+
+---
+
+## Documentación de referencia
+
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/product/containers/kubernetes)
+-   [ncloud_nks_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

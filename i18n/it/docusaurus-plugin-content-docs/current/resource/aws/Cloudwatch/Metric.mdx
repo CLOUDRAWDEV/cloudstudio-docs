@@ -1,0 +1,46 @@
+---
+title: Metric
+sidebar_position: 0
+tags: [AWS, Risorsa, Cloudwatch, Metric]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Le metriche di AWS CloudWatch rappresentano coppie nome-valore che indicano i valori misurati raccolti dalle risorse monitorate. Ad esempio, è possibile raccogliere metriche come l'utilizzo della CPU, l'input e l'output di rete da un'istanza EC2. Queste metriche vengono salvate come Metriche CloudWatch e vengono utilizzate per dashboard, notifiche e analisi. Inoltre, è possibile creare Metriche personalizzate per monitorare i dati raccolti dalle applicazioni e dai servizi. Le Metriche CloudWatch sono integrate e utilizzate con diversi servizi forniti da AWS.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Impostazioni della risorsa
+
+-   `comparison_operator` : Operazione aritmetica da utilizzare quando si confrontano le statistiche specificate con la soglia
+-   `evaluation_periods` : Numero di periodi durante i quali i dati vengono confrontati con la soglia specificata
+-   `metric_name` : Nome della metrica associata all'allarme
+-   `namespace` : Namespace della metrica associata all'allarme
+-   `period` : Periodo (in secondi) su cui vengono applicate le statistiche specificate
+-   `statistic` : Statistica da applicare alla metrica correlata dell'allarme
+-   `threshold` : Valore con cui confrontare le statistiche specificate
+-   `alarm_description` : Descrizione dell'allarme
+-   `insufficient_data_actions` : Elenco delle azioni da eseguire quando l'allarme passa dallo stato "insufficient_data" a un altro stato
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+-   [Amazon CloudWatch 가격(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)

@@ -1,0 +1,58 @@
+---
+title: Efs
+sidebar_position: 0
+tags: [AWS, Risorsa, Efs]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/efs-efs.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È possibile creare un file system, montarlo su un'istanza EC2, leggere i dati dall'istanza EC2 e scrivere sul file system o condividere file.
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+
+
+## Impostazioni della risorsa
+
+-   `create_token` : Nome unico utilizzato come riferimento quando si crea un Elastic File System per garantire la creazione del file system
+-   `availability_zone_name` : Zona di disponibilità AWS in cui verrà creato il file system
+-   `enabled_encrypted` : Se la crittografia del file system è abilitata o meno - `false`,`true`
+-   `throughput_mode` : Modalità di throughput del file system - `provisioned`,`elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : Throughput (in MiB/s) da allocare per il file system - `1-3414`
+-   `performance_mode` : Modalità di performance del file system - `generalPurpose`, `maxIO`
+-   `lifecycle_policy` : Gestione del ciclo di vita, riducendo automaticamente i costi in base ai cambiamenti nei modelli di accesso
+    -   `transition_to_ia` : Tempo necessario per spostare i file nella classe di archiviazione IA - `1`,`7`,`14`,`30`,`60`
+    -   `ransition_to_primary_storage_class` : Politica utilizzata per spostare i file dalla classe di archiviazione di accesso alla classe di archiviazione primaria - `None`,`FirstAccess`
+-   `mount_target_subnets` : Elenco delle subnet in cui aggiungere i target di montaggio
+-   `file_system_policy` : Politica del file system in formato JSON per il file system EFS
+-   `enable_backup_policy` : Se la politica di backup è abilitata o meno - `false`,`true`
+-   `enable_replica` : Se la replica deve essere creata o meno - `false`,`true`
+-   `access_point` : Punto di accesso per il file system EFS che rende più facile gestire l'accesso dell'applicazione a un set di dati condiviso
+    -   `root_directory_path` : Percorso nel file system EFS da esporre come Root Directory per i client NFS che accedono al file system tramite il punto di accesso
+    -   `posix_user_uid` : ID utente POSIX utilizzato per tutte le operazioni sul file system tramite questo punto di accesso - inferiore a `4294967295`
+    -   `posix_user_gid` : ID gruppo POSIX utilizzato per tutte le operazioni sul file system tramite questo punto di accesso - inferiore a `4294967295`
+    -   `posix_user_secondary_gids` : ID gruppi POSIX secondari utilizzati per tutte le operazioni sul file system tramite questo punto di accesso
+    -   `root_owner_uid` : ID utente POSIX da applicare alla Root Directory - inferiore a `4294967295`
+    -   `root_owner_gid` : ID gruppo POSIX da applicare alla Root Directory - inferiore a `4294967295`
+    -   `root_permissions` : Permessi POSIX applicabili alla Root Directoryin formato ottale che rappresentano i bit di modalità del file
+
+
+
+## Materiale di riferimento
+
+-   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
+-   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

@@ -1,0 +1,64 @@
+---
+title: Gestión de despliegue
+sidebar_position: 5
+tags: [deploy, verificación de despliegue, despliegue, resultados de verificación, credenciales, empezar]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import deploy01 from "/docs/start/img/deploy01.png"
+import deploy02 from "/docs/start/img/deploy02.png"
+import deploy03 from "/docs/start/img/deploy03.png"
+
+<hr />
+<br />
+
+Cloud Studio no solo proporciona una arquitectura de infraestructura visual, sino que también permite desplegar la infraestructura diseñada en el canvas directamente en el CSP. <br /> Gracias a esto, los usuarios pueden construir fácilmente su infraestructura en la nube.
+
+<p>&nbsp;</p>
+
+## Verificación de despliegue {#deploy-test}
+
+Esta es una etapa de validación virtual para verificar si hay errores de sintaxis en el IaC o si la configuración es correcta. No se realiza ningún despliegue real en el CSP.
+
+1. Para realizar una prueba de despliegue, haz clic en `Gestión de despliegue > Validación`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy03} width="200px" alt="imagen de despliegue" />
+</div>
+
+<br />
+
+2. En el menú de la izquierda, haz clic en el botón `Validar`.  
+3. Selecciona las `credenciales`.  
+4. Haz clic en el botón `Validar`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy02} alt="imagen de despliegue" />
+</div>
+
+<p>&nbsp;</p>
+
+:::info
+
+Antes de realizar la prueba de despliegue, es `obligatorio registrar las credenciales`.  
+Consulta [aquí](/docs/credential/createCredential.mdx) para ver cómo registrar tus credenciales.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Historial de despliegue {#tedeployst-history}
+
+El historial de despliegue muestra el `historial de la infraestructura que ha sido desplegada realmente`. Puedes consultar el `estado actual del despliegue` y el `historial reciente de despliegues`.
+
+1. Para consultar el historial de despliegue, haz clic en `Gestión de despliegue` > `Historial de despliegue`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy01} width="200px" alt="imagen de despliegue" />
+</div>
+
+<br />
+
+2. Revisa el historial reciente de despliegues.  
+   Para eliminar un historial, selecciónalo y haz clic en el botón `Eliminar`.

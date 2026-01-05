@@ -1,0 +1,69 @@
+---
+title: Elasticsearch
+sidebar_position: 0
+tags: [AWS, Risorsa, Elasticsearch]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+AWS ElasticSearch è un motore di ricerca distribuito e di analisi, progettato per fornire ricerche rapide e analisi dei dati. ElasticSearch è costruito sopra il motore di ricerca Apache Lucene ed è una soluzione open source veloce ed espandibile. ElasticSearch è utilizzato per una varietà di scopi, tra cui la raccolta dei dati, l'analisi dei log e il monitoraggio. ElasticSearch può essere eseguito all'interno di Amazon VPC ed è integrabile con servizi come AWS Lambda, Kinesis, e altri. ElasticSearch offre funzionalità di sicurezza e controllo degli accessi fornite da AWS, ed è integrato con Amazon CloudWatch per fornire funzionalità di monitoraggio e logging.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**Elastic Search**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+
+
+## Impostazioni della risorsa
+
+-   `elasticsearch_version` : Versione del dominio Elasticsearch
+-   `availability_zone_count` : Numero di zone di disponibilità - `2`,`3`
+-   `tls_security_policy` : Nome della politica di sicurezza TLS da applicare all'endpoint HTTPS - `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`
+-   `data_node`
+    -   `instance_type` : Tipo di istanza per i nodi dati nel cluster
+    -   `instance_count` : Numero di istanze nel cluster - `1`~`80`
+    -   `ebs_enabled` : Se i volumi EBS sono collegati ai nodi dati del dominio - `true`, `false`
+    -   `ebs_volume_type` : Tipo di volume EBS collegato ai nodi dati - `standard`, `gp2`, `io1`
+    -   `ebs_volume_size` : Dimensione del volume EBS collegato ai nodi dati (GiB) - `1`~`16384`
+-   `master_node`
+    -   `master_node_enabled` : Abilitazione del nodo master dedicato nel cluster - `true`, `false`
+    -   `master_instance_type` : Tipo di istanza per il nodo master dedicato nel cluster - `r5.large.search`
+    -   `master_node_count ` : Numero di nodi master dedicati nel cluster - `3`, `5`
+-   `custom_endpoint`
+    -   `custom_endpoint_enabled` : Abilitazione dell'endpoint personalizzato - `true`, `false`
+-   `network`
+    -   `network_type` : Tipo di accesso di rete - `vpc_access`, `public_access`
+    -   `included_subnet_names` : Elenco degli ID delle subnet VPC per l'endpoint del dominio Elasticsearch da creare
+    -   `security_group_names` : Elenco degli ID dei security group VPC da applicare all'endpoint del dominio Elasticsearch
+-   `fine_grained_access`
+    -   `fine_grained_access_enabled` : Abilitazione del controllo di accesso granulare - `true`, `false`
+    -   `master_user_type` : Tipo di utente master - `iam_arn`, `master_user`
+    -   `iam_arn` : IAM ARN per l'utente master predefinito
+-   `encryption`
+    -   `enforce_https` : Richiesta di HTTPS - `true`, `false`
+    -   `node_to_node_encryption_enabled` : Abilitazione della crittografia tra nodi - `true`, `false`
+    -   `data_at_rest_encryption_enabled` : Abilitazione della crittografia dei dati a riposo - `true`, `false`
+-   `kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia dei dati
+
+---
+
+## Materiale di riferimento
+
+-   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

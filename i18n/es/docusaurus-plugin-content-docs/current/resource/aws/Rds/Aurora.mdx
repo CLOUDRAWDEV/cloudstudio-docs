@@ -1,0 +1,62 @@
+---
+title: Aurora
+sidebar_position: 0
+tags: [AWS, recurso, Rds, Aurora]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-aurora.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon Aurora (Aurora) es un motor de base de datos relacional completamente gestionado, compatible con MySQL y PostgreSQL. Ya sabe cómo la velocidad y la confiabilidad de esta base de datos comercial avanzada se combinan con la simplicidad y la eficiencia de costos de las bases de datos de código abierto. El código, las herramientas y las aplicaciones utilizadas en las bases de datos MySQL y PostgreSQL existentes también son compatibles con Aurora. Para algunas cargas de trabajo, Aurora puede proporcionar hasta 5 veces el rendimiento de MySQL y hasta 3 veces el rendimiento de PostgreSQL sin modificar casi nada de las aplicaciones existentes.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Recursos conectados
+
+-   [**Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+
+## Valores de configuración del recurso
+
+-   `database_name` : Nombre de la base de datos inicial
+-   `engine` : Tipo de motor de Aurora para usar en RDS – `aurora`, `aurora-mysql`, `aurora-postgresql`
+-   `engine_version` : Versión del motor de Aurora para usar en RDS
+-   `instance_class` : Clase de precios para la instancia DB de RDS
+-   `engine_mode` : `aurora`, `multimaster`, `parallelquery`, `serverless`
+-   `multi_az_enabled` : Activar la implementación en múltiples AZ – `true`, `false`
+-   `master_username` : Nombre de usuario principal
+-   `master_password` : Contraseña del usuario principal
+-   `included_subnet_names` : Nombres de las subredes para conectar al grupo de subredes de RDS
+-   `subnet_group_name` : Nombre del grupo de subredes a utilizar en RDS
+-   `monitoring`
+    -   `performance_insights_enabled` : Activar las perspectivas de rendimiento
+-   `encryption`
+
+    -   `storage_encrypted` : Especificar si la instancia DB está cifrada – `true`, `false`
+    -   `kms_key_name` : Nombre de la clave KMS para usar en el cifrado
+
+-   `backup`
+    -   `backup_retention_period` : Período de retención de las copias de seguridad – `1`~`35`
+    -   `final_snapshot_enabled` : Especificar si generar una instantánea final antes de eliminar la instancia DB – `true`, `false`
+    -   `final_snapshot_name` : Nombre de la instantánea final
+
+---
+
+## Documentación de referencia
+
+-   [Amazon Aurora(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+-   [Precios de Amazon Aurora(AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
+-   [rds-aurora(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)

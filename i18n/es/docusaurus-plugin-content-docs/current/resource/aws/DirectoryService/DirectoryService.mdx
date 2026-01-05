@@ -1,0 +1,46 @@
+---
+title: Directory Service
+sidebar_position: 0
+tags: [AWS, recurso, DirectoryService, DirectoryService]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS Directory Service ofrece varias formas de utilizar Microsoft Active Directory (AD) con otros servicios de AWS. Un directorio almacena información sobre usuarios, grupos y dispositivos, y los administradores lo utilizan para gestionar el acceso a la información y a los recursos. AWS Directory Service proporciona diversas opciones de directorio para clientes que desean utilizar Microsoft AD existente o aplicaciones compatibles con LDAP (Lightweight Directory Access Protocol) en la nube. También ofrece las mismas opciones a los desarrolladores que necesitan un directorio para gestionar usuarios, grupos, dispositivos y permisos de acceso.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Recurso conectado
+
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+
+## Valores de configuración del recurso
+
+-   `password` : Contraseña del administrador del directorio o del usuario conector  
+-   `type` : `SimpleAD`, `MicrosoftAD`  
+-   `size` : Tamaño del directorio – `Small`, `Large`  
+-   `included_vpc_name` : Nombre del VPC donde se encuentra el directorio  
+-   `included_subnet_names` : Nombres de las subredes del servidor del directorio (las subredes deben estar desplegadas en dos zonas de disponibilidad diferentes)
+
+---
+
+## Documentación de referencia
+
+-   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
+-   [Precios de AWS Direct Service (AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

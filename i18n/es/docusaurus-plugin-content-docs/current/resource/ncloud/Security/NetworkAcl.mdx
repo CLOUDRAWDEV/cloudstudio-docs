@@ -1,0 +1,50 @@
+---
+title: Network Acl
+sidebar_position: 0
+tags: [Ncloud, 리소스, Security, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Es un servicio que permite gestionar la seguridad de red para los subnets.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+## Valores de configuración del recurso
+
+-   `included_vpc_name` : Nombre del VPC donde se creará el ACL
+-   `nacl_description` : Descripción del ACL
+-   `inbound_rule`
+    -   `priority` : Prioridad de la regla de entrada (inbound), entre 0 ~ 199
+    -   `protocol` : Protocolo del tráfico entrante - `TCP`, `UDP`, `ICMP`
+    -   `rule_action` : Acción para el tráfico entrante - `ALLOW`, `DROP`
+    -   `ip_block` : Fuente del tráfico entrante, rango IP en formato CIDR
+    -   `port_range` : Rango de puertos al que se aplicará la regla de entrada, entre 1 ~ 65535
+-   `outbound_rule` :
+    -   `priority` : Prioridad de la regla de salida (outbound), entre 0 ~ 199
+    -   `protocol` : Protocolo del tráfico saliente - `TCP`, `UDP`, `ICMP`
+    -   `rule_action` : Acción para el tráfico saliente - `ALLOW`, `DROP`
+    -   `ip_block` : Destino del tráfico saliente, rango IP en formato CIDR
+    -   `port_range` : Rango de puertos al que se aplicará la regla de salida, entre 1 ~ 65535 (para rangos: 100-200)
+
+---
+
+## Documentación de referencia
+
+-   [Network ACL(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-nacl-vpc)
+-   [ncloud_network_acl(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)

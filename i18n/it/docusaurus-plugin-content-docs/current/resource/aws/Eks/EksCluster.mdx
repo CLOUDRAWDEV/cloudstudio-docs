@@ -1,0 +1,65 @@
+---
+title: Eks Cluster
+sidebar_position: 0
+tags: [AWS, Risorsa, Eks, EksCluster]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/eks-eks_cluster.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon Elastic Kubernetes Service(Amazon EKS)는 Kubernetes 클러스터를 설치하고 운영할 필요 없이 AWS에서 Kubernetes를 손쉽게 실행할 수 있는 관리형 서비스입니다.
+
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+
+
+## Impostazioni della risorsa
+
+-   `version` : Versione del cluster EKS
+-   `cluster_role_arn` : Ruolo IAM che consente al piano di controllo Kubernetes di gestire le risorse AWS per conto dell'utente
+-   `enabled_encryption` : Attivazione della crittografia per la crittografia - `true`, `false`
+-   `included_subnet_names` : Nomi delle subnet da includere nel Subnet Group per il deployment dell'EKS Cluster
+-   `security_group_name` : Nome del security group da configurare per l'EKS Cluster
+-   `endpoint_access_type` : Tipo di accesso all'endpoint del server API EKS - `public`, `publicAndPrivate`, `private`
+-   `enabled_cluster_log_types` : Elenco dei log del Control Plane da abilitare - `api`, `audit`, `authenticator`, `controllerManager`, `scheduler`
+-   `add_ons`
+
+    -   `kube_proxy_version` : Versione del network proxy eseguito su ogni nodo - `v1.26.4-eksbuild.1`, `v1.26.2-eksbuild.1`, `v1.25.9-eksbuild.1`, `v1.25.6-eksbuild.2`, `v1.24.10-eksbuild.2`
+    -   `vpc_cni_version` : Amazon VPC CNI 플러그인 버전 - `v1.12.6-eksbuild.2`, `v1.12.6-eksbuild.1`, `v1.12.5-eksbuild.2`, `v1.12.0-eksbuild.2`
+    -   `core_dns_version` : Versione del servizio DNS fornito nel cluster - `v1.9.3-eksbuild.3`, `v1.9.3-eksbuild.2`, `v1.8.7-eksbuild.4`
+
+-   `node_group` : Nome del gruppo di nodi del cluster, caratteri consentiti: lettere, numeri, trattini (-), underscore (_)
+    -   `node_role_arn` : Ruolo IAM da utilizzare per i nodi
+    -   `enable_launch_template` : Configurazione del gruppo di nodi utilizzando un launch template - `true`, `false`
+    -   `min_node_count` : Numero minimo di nodi worker EKS
+    -   `max_node_count` : Numero massimo di nodi worker EKS
+    -   `desired_node_count` : Numero desiderato di nodi worker EKS
+    -   `max_node_unavailable` : Numero massimo di nodi worker non disponibili durante l'aggiornamento del gruppo di nodi
+    -   `max_percentage_unavailable` : Percentuale massima di nodi worker non disponibili durante l'aggiornamento del gruppo di nodi - `1`~`100`
+    -   `disk_size` : Dimensione del volume EBS collegato a ciascun nodo
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+-   [Amazon EKS 요금(AWS)](https://aws.amazon.com/ko/eks/pricing/)
+-   [aws_eks_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)

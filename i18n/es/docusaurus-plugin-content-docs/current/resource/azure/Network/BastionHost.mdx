@@ -1,0 +1,46 @@
+---
+title: BastionHost
+sidebar_position: 8
+tags: [Azure, Network, BastionHost]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Bastion Host es un servicio de red PaaS de Azure que proporciona **acceso seguro mediante RDP y SSH** a máquinas virtuales dentro de una Virtual Network sin exponer directamente direcciones IP públicas en las VM.  
+Admite acceso basado en navegador y permite configurar un punto de acceso centralizado sin abrir puertos de administración, lo que garantiza tanto una mayor seguridad como comodidad operativa.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+### Recursos conectados
+
+-   [**Public IP**](https://docs.cstudio.app/es/docs/resource/azure/Network/PublicIp)
+
+## Valores de configuración del recurso
+
+-   `included_subnet_name` : Nombre del Subnet donde se ubicará el Bastion Host
+-   `sku` : SKU del Bastion Host - `Basic`, `Standard`
+-   `linked_public_ip_name` : Nombre de la Public IP que se asociará al Bastion Host
+-   `ip_config_name` : Nombre de la configuración de IP utilizada por el Bastion Host
+-   `tag` : Etiquetas para clasificar el recurso - hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Introducción a Azure Bastion (Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview)
+-   [Comparación de SKU de Azure Bastion (Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview#sku)

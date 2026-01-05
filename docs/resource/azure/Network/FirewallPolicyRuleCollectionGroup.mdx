@@ -1,0 +1,77 @@
+---
+title: FirewallPolicyRuleCollectionGroup
+sidebar_position: 19
+tags: [Azure, Network, FirewallPolicyRuleCollectionGroup]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall_policy_rule_collection_group.webp"
+    }
+/>
+
+## 리소스 개요
+
+FirewallPolicyRuleCollectionGroup은 **Azure Firewall Policy 내부의 여러 규칙 컬렉션을 그룹 단위로 묶어 일괄 관리**하는 리소스입니다.  
+Application/NAT/Network Rule Collection을 하나의 그룹으로 구성하고, 그룹 우선순위(priority)를 기준으로 정책 내 처리 순서를 제어할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**FirewallPolicy**](https://docs.cstudio.app/docs/resource/azure/Network/FirewallPolicy)
+
+## 리소스 설정 값
+
+-   `included_firewall_policy_name` : 포함할 Azure Firewall Policy의 이름
+-   `priority` : Rule Collection Group의 처리 우선순위
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
+
+#### Application Rule Collection (`application_rule_collection`)
+
+-   `application_rule_collection.priority` : Application Rule Collection 내 우선순위
+-   `application_rule_collection.action` : Application Rule Collection이 수행할 동작 - `Allow`, `Deny`
+
+#### Application Rule Collection > Rule (`application_rule_collection.rule`)
+
+-   `application_rule_collection.rule.protocols` : 트래픽의 출발지 IP 주소 또는 주소 범위 목록
+-   `application_rule_collection.rule.source_addresses` : 트래픽의 출발지 IP 주소 또는 주소 범위 목록
+-   `application_rule_collection.rule.destination_fqdns` : 트래픽의 목적지 FQDN(정규화된 도메인 이름) 목록
+
+#### NAT Rule Collection (`nat_rule_collection`)
+
+-   `nat_rule_collection.priority` : NAT Rule Collection 내 우선순위
+-   `nat_rule_collection.action` : NAT 규칙이 수행할 동작 - `Dnat`
+
+#### NAT Rule Collection > Rule (`nat_rule_collection.rule`)
+
+-   `nat_rule_collection.rule.protocols` : 적용할 프로토콜 목록 - `TCP`, `UDP`
+-   `nat_rule_collection.rule.source_addresses` : 트래픽의 출발지 IP 주소 또는 주소 범위 목록
+-   `nat_rule_collection.rule.destination_address` : 트래픽의 목적지 IP 주소
+-   `nat_rule_collection.rule.destination_port` : 트래픽의 목적지 포트 번호
+-   `nat_rule_collection.rule.translated_address` : 트래픽이 변환될 목적지 IP 주소
+-   `nat_rule_collection.rule.translated_port` : 트래픽이 변환될 목적지 포트 번호
+
+#### Network Rule Collection (`network_rule_collection`)
+
+-   `network_rule_collection.priority` : Network Rule Collection 내 우선순위
+-   `network_rule_collection.action` : Network 규칙이 수행할 동작 - `Allow`
+
+#### Network Rule Collection > Rule (`network_rule_collection.rule`)
+
+-   `network_rule_collection.rule.protocols` : 적용할 프로토콜 목록 - `Any`, `TCP`, `UDP`, `ICMP`
+-   `network_rule_collection.rule.source_addresses` : 트래픽의 출발지 IP 주소 또는 주소 범위 목록
+-   `network_rule_collection.rule.destination_addresses` : 트래픽의 목적지 IP 주소 또는 주소 범위 목록
+-   `network_rule_collection.rule.destination_ports` : 트래픽의 목적지 포트 번호 목록
+
+---
+
+## 참고 자료
+
+-   [Azure Firewall Policy 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/policy-overview)
+-   [Azure Firewall 정책 규칙(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/rule-processing)

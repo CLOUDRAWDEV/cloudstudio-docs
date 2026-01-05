@@ -1,0 +1,59 @@
+---
+title: Service
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Core, Service]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso abstracto de Kubernetes que proporciona un único punto de entrada para los Pods y gestiona la comunicación entre ellos.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del recurso Service
+-   `namespace` : Namespace donde se desplegará el recurso Service
+-   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
+-   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
+-   `selector` : Redirecciona el tráfico del servicio a Pods utilizando key-value labels que coincidan con el selector
+-   `type` : Tipo de servicio - `ClusterIP`,`NodePort`,`LoadBalancer`
+-   `session_affinity` : Política para mantener las solicitudes del cliente dirigidas a un Pod específico - `None`,`clientIP`
+-   `port` : Lista de puertos expuestos por el servicio
+    -   `name` : Nombre de la configuración del puerto  
+        -   `protocol` : Protocolo IP del puerto - `TCP`,`UDP`
+        -   `port` : Número del puerto expuesto por el servicio
+        -   `target_port` : Número del puerto al que se accederá en el Pod destino del servicio
+
+
+---
+
+## Documentación de referencia
+
+-   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

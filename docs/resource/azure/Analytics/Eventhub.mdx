@@ -1,0 +1,85 @@
+---
+title: Eventhub
+sidebar_position: 1
+tags: [Azure, Eventhub]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-eventhub.webp"
+    }
+/>
+
+## 리소스 개요
+
+Event Hubs는 대규모 실시간 이벤트(로그, IoT 텔레메트리, 애플리케이션 이벤트 등)를 수집하고, 스트리밍 처리 파이프라인으로 전달할 수 있도록 지원하는 분산 스트리밍 플랫폼입니다.  
+Namespace 단위로 처리량(Throughput)과 네트워크 접근 정책을 구성하고, 그 하위에 Event Hub(토픽과 유사한 단위)를 생성하여 파티션(Partition) 기반으로 확장 가능한 이벤트 수집 및 보관을 수행합니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## 리소스 설정 값
+
+### Namespace 설정
+
+-   `sku` : 사용할 tier - `Basic`, `Standard`, `Premium`
+
+-   `capacity` : 표준 SKU namespace 용량/처리량 단위 - `1` ~ `16`
+
+-   `enable_auto_inflate` : Event Hub namespace에 대해 자동 확장을 사용할 지 여부 - `true`, `false`
+
+-   `maximum_throughput_units` : Auto Inflate가 활성화된 경우 최대 처리량 단위 수 - `1` ~ `40`
+
+-   `minimum_tls_version` : Event Hub namespace에 대해 지원되는 최소 TLS 버전 - `1.0`, `1.1`, `1.2`
+
+-   `enable_local_authentication` : Event Hub namespace에 SAS 인증 사용 여부 - `true`, `false`
+
+-   `enable_public_network_access` : Event Hub namespace에 대해 공용 네트워크 액세스 사용 여부 - `true`, `false`
+
+### 네트워크 접근 제어 (`network_rulesets`)
+
+-   `network_rulesets.default_action` : 기본 네트워크 액세스 동작 - `Allow`, `Deny`
+
+-   `network_rulesets.virtual_network_rule.target_subnet_name` : 연결할 서브넷 이름
+
+-   `network_rulesets.virtual_network_rule.ignore_missing_virtual_network_service_endpoint` : 가상 네트워크 서비스 엔드포인트 누락 시 무시 여부 - `true`, `false`
+
+### Event Hub 설정 (`eventhub`)
+
+-   `eventhub.default.partition_count` : Event Hub의 현재 샤드(파티션) 수 - `1` ~ `100`
+
+-   `eventhub.default.message_retention` : Event Hub에 대한 이벤트를 보존할 일 수 - `1` ~ `90`
+
+-   `eventhub.default.enabled_capture` : Capture 사용 여부 - `true`, `false`
+
+-   `eventhub.default.encoding` : Capture 설명에 사용되는 인코딩 - `Avro`, `AvroDeflate`
+
+-   `eventhub.default.time_window` : 캡처가 수행되는 시간 간격(분) - `1` ~ `15`
+
+-   `eventhub.default.size_window` : 캡처 작업이 발생하기 전에 Event Hub에 축적된 데이터 양 - `11` ~ `524`
+
+-   `eventhub.default.skip_empty_archives` : 캡처 시간 창에서 이벤트가 없을 경우 빈 파일을 내보내지 않을지 여부 - `true`, `false`
+
+-   `eventhub.default.capture_file_name_format` : 보관을 위한 Blob 명명 규칙
+
+-   `eventhub.default.linked_storage_account` : 메시지를 보관해야 하는 Blob 저장소 계정 내 컨테이너의 이름
+
+-   `eventhub.default.target_storage_container_name` : 메시지를 보관해야 하는 Blob 저장소 계정
+
+---
+
+## 참고 자료
+
+-   [Azure Event Hubs(Microsoft)](https://learn.microsoft.com/ko-kr/azure/event-hubs/event-hubs-about)
+-   [Azure Event Hubs 가격](https://azure.microsoft.com/ko-kr/pricing/details/event-hubs/)
+-   [Azure Event Hub Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace)
+-   [Azure Event Hub(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub)
+-   [Azure Event Hub Namespace Network Rule Set(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace_network_rule_set)

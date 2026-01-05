@@ -1,0 +1,46 @@
+---
+title: Log
+sidebar_position: 0
+tags: [AWS, recurso, Cloudwatch, Log]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon CloudWatch Logs permite supervisar, almacenar y acceder a archivos de logs del sistema, aplicaciones y personalizados desde instancias de Amazon EC2, AWS CloudTrail, Route 53 y otras fuentes. CloudWatch Logs centraliza los logs de todos los sistemas, aplicaciones y servicios de AWS que utilices, en un único servicio altamente escalable.  
+Después, puedes visualizar fácilmente los logs, buscar errores o patrones específicos, filtrarlos por campos concretos o almacenarlos de forma segura para análisis futuros. Con CloudWatch Logs, puedes ver todos los logs en un flujo de eventos único, ordenado cronológicamente, sin importar su origen. También puedes consultarlos y ordenarlos por diferentes dimensiones, agruparlos por campos específicos, crear cálculos personalizados con un potente lenguaje de consulta y visualizar los datos de logs.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Valores de configuración del recurso
+
+-   `retention_in_days` : Periodo de retención de los logs en el grupo de logs  
+-   `kms_key_name` : Nombre de la clave KMS utilizada para cifrar los datos de logs  
+-   `log_stream_name` : Nombre del stream de logs  
+-   `metric_filter` : Nombre del filtro de métricas para el grupo de logs, máximo 512 caracteres  
+    -   `pattern` : Patrón de filtro válido de CloudWatch Logs para extraer datos de métricas de los eventos de log recopilados  
+    -   `metric_name` : Nombre de la métrica de CloudWatch donde se publicará la información monitoreada del log, hasta 255 caracteres; válidos todos los caracteres excepto dos puntos (:), asteriscos (*), signos de dólar ($) y espacios  
+    -   `metric_namespace` : Namespace de destino de la métrica de CloudWatch, hasta 255 caracteres; válidos todos los caracteres excepto dos puntos (:), asteriscos (*), signos de dólar ($) y espacios  
+    -   `metric_value` : Valor que se publicará como métrica. Los valores válidos incluyen números flotantes (1, 99.9, etc.), identificadores de campo numérico (1 USD, 2 USD, etc.), o identificadores de campo con nombre (por ejemplo, `$requestSize` en patrones delimitados por símbolos o `$.status` en patrones basados en JSON — con `$` o `$.` seguido por caracteres alfanuméricos y/o guiones bajos `_`)
+
+---
+
+## Documentación de referencia
+
+-   [Amazon CloudWatch Log (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)  
+-   [Precios de Amazon CloudWatch (AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)  
+-   [Amazon CloudWatch Log (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)

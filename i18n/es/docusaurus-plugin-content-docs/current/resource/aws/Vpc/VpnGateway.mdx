@@ -1,0 +1,46 @@
+---
+title: Vpn Gateway
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, VpnGateway]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Un Virtual Private Gateway es el concentrador de VPN en el lado de Amazon para una conexión VPN Site-to-Site. Se crea un Virtual Private Gateway y se conecta al VPC donde se establecerá la conexión VPN Site-to-Site.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Recurso conectado
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+-   [**Vpc Customer Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
+
+## Valores de configuración del recurso
+
+-   `linked_vpc_name` : Nombre del VPC al que se asociará el VPN Gateway
+-   `vpn_connection` : Nombre de la conexión VPN
+    -   `linked_customer_gateway` : Nombre del Customer Gateway que se conectará al VPN Gateway
+    -   `static_routes_only` : Indicar si se deben usar solo rutas estáticas para el enrutamiento entre gateways - `true`, `false`
+
+---
+
+## Documentación de referencia
+
+-   [Cómo funciona AWS Site-to-Site VPN (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)

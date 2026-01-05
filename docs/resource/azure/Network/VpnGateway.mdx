@@ -1,0 +1,60 @@
+---
+title: VpnGateway
+sidebar_position: 23
+tags: [Azure, Network, VpnGateway]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-vpn_gateway.webp"
+    }
+/>
+
+## 리소스 개요
+
+Azure VpnGateway는 **Virtual Hub를 중심으로 온프레미스 네트워크 또는 다른 Azure 네트워크와의 VPN 연결을 제공하는 게이트웨이 리소스**입니다.  
+VpnSite와의 연결 설정을 통해 Site-to-Site VPN 터널을 구성하며, 보안 정책과 암호화 옵션을 세부적으로 제어할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**VpnSite**](https://docs.cstudio.app/docs/resource/azure/Network/VpnSite)
+
+## 리소스 설정 값
+
+-   `target_virtual_hub_name` : VPN Gateway가 연결될 Virtual Hub의 이름
+
+#### Connection (`connection`)
+
+-   `connection.linked_target_vpn_site` : 연결 대상 VpnSite 리소스 이름
+
+#### Link Names (`connection.link_names`)
+
+-   `connection.link_names.target_vpn_link_name` : VpnSite 내 연결할 특정 링크 이름
+-   `connection.link_names.connection_mode` : VPN 연결 방식 - `Default`, `InitiatorOnly`, `ResponderOnly`
+-   `connection.link_names.protocol` : VPN 터널링 프로토콜 - `IKEv1`, `IKEv2`
+-   `connection.link_names.enable_policy_based_traffic_selector` : Policy 기반 트래픽 선택자 사용 여부
+-   `connection.link_names.enable_ipsec_policy` : 사용자 정의 IPsec 정책 적용 여부
+-   `connection.link_names.dh_group` : Diffie-Hellman 그룹
+-   `connection.link_names.sa_lifetime_sec` : Security Association 수명(초)
+-   `connection.link_names.encryption_algorithm` : IPSec 데이터 암호화 알고리즘
+-   `connection.link_names.integrity_algorithm` : IPSec 데이터 무결성 알고리즘
+-   `connection.link_names.ike_encryption_algorithm` : IKE 키 교환 암호화 알고리즘
+-   `connection.link_names.ike_integrity_algorithm` : IKE 키 교환 무결성 알고리즘
+-   `connection.link_names.pfs_group` : Perfect Forward Secrecy(PFS) 그룹
+-   `connection.link_names.sa_data_size_kb` : Security Association 최대 데이터 전송량(KB)
+
+## 참고 자료
+
+-   [Azure VPN Gateway 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [Azure Virtual WAN VPN Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-gateway-about)

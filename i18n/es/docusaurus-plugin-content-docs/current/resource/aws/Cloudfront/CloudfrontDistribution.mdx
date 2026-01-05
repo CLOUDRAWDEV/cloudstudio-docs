@@ -1,0 +1,81 @@
+---
+title: Cloudfront Distribution
+sidebar_position: 0
+tags: [AWS, recurso, Cloudfront, CloudfrontDistribution]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon CloudFront acelera la distribución de contenido web estático y dinámico como archivos .html, .css, .php, imágenes y archivos multimedia. Cuando un usuario solicita contenido, CloudFront lo entrega a través de una red global de ubicaciones edge con baja latencia y alto rendimiento.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+
+### Recurso conectado
+
+-   [**Cloudfront Cache Policy**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**Waf Web Acl**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
+
+## Valores de configuración del recurso
+
+-   `enabled` : Indica si la distribución está habilitada para aceptar solicitudes de los usuarios finales – `true`, `false`
+-   `origin` : Identificador del origen
+-   `cache_policy` : Nombre de la política de caché
+    -   `min_ttl` : Tiempo mínimo (en segundos) que un objeto debe permanecer en la caché de CloudFront
+    -   `max_ttl` : Tiempo máximo (en segundos) que un objeto puede permanecer en la caché
+    -   `default_ttl` : Tiempo predeterminado (en segundos) que un objeto debe permanecer en la caché
+    -   `cookie_behavior` : Controla si las cookies del usuario final se incluyen en la clave de caché y se reenvían al origen – `whitelist`, `all`, `none`, `allExcept`
+    -   `cookies_items` : Lista de nombres de cookies
+    -   `header_behavior` : Controla si los encabezados HTTP se incluyen en la clave de caché y se reenvían al origen – `whitelist`, `none`
+    -   `headers_items` : Lista de nombres de encabezados
+    -   `query_string_behavior` : Controla si los parámetros de consulta URL se incluyen en la clave de caché y se reenvían al origen – `whitelist`, `all`, `none`, `allExcept`
+    -   `query_strings_items` : Lista de parámetros de consulta
+-   `cache_behavior`
+
+    -   `path_pattern` : Patrón de solicitud al que se aplica el comportamiento de caché
+    -   `compress` : Si CloudFront debe comprimir automáticamente el contenido para solicitudes web – `true`, `false`
+    -   `viewer_protocol_policy` : Protocolo que se puede usar para acceder a los archivos del origen según el patrón – `allow-all`, `https-only`, `redirect-to-https`
+    -   `allowed_methods` : Métodos HTTP que CloudFront acepta y reenvía al origen – `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`, `DELETE`
+    -   `cached_methods` : Métodos HTTP cuyos resultados CloudFront debe almacenar en caché – `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`, `DELETE`
+    -   `origin_name` : Nombre del origen al que se enruta la solicitud cuando coincide el patrón
+    -   `linked_cache_policy_name` : ID de la política de caché conectada al comportamiento de caché
+
+-   `restriction`
+
+    -   `type` : Método utilizado para restringir la distribución de contenido por país – `whitelist`, `blacklist`, `none`
+    -   `locations` : Códigos ISO 3166-1-alpha-2 para países donde permitir o bloquear la distribución
+
+-   `viewer_certificate`
+
+    -   `default_certificate_enabled` : Indica si se debe utilizar el nombre de dominio de CloudFront con HTTPS – `true`, `false`
+
+-   `price_class` : Clase de precios de la distribución de CloudFront – `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : Versión máxima de HTTP soportada por la distribución – `http1.1`, `http2`
+-   `is_ipv6_enabled` : Indica si se permite IPv6 – `true`, `false`
+
+-   `logging`
+
+    -   `logging_enabled` : Habilitar el registro (logging) – `true`, `false`
+
+-   `linked_waf_web_acl_name` : Nombre de la WAF WEB ACL que se utilizará para protección de seguridad
+
+## Documentación de referencia
+
+-   [Amazon CloudFront (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)  
+-   [Precios de Amazon CloudFront (AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)  
+-   [Amazon CloudFront Distribution (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)

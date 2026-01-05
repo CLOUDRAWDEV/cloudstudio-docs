@@ -1,68 +1,75 @@
 ---
 title: Backup
 sidebar_position: 0
-tags: [Azure, Ressourcen, RecoveryServices, Backup]
+tags: [Azure, RecoveryServices, Backup]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## Ressourcen-Symbol
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/recovery_services-backup.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/recovery_services-backup.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Backup ist eine cloudbasierte Backup-Lösung von Microsoft, mit der Daten und Anwendungen in der Cloud gesichert und geschützt werden können.
-Mit Azure Backup können Daten von On-Premise-Servern, virtuellen Maschinen, die in Azure ausgeführt werden, und anderen Cloud-Diensten gesichert werden.
-Azure Backup bietet flexible Backup-Zeitpläne und Aufbewahrungsrichtlinien, sodass Sie die Häufigkeit und Dauer der Aufbewahrung Ihrer Backups anpassen können.
-Es bietet auch Funktionen wie inkrementelle Backups, Verschlüsselung und Datenkomprimierung, um die Nutzung des Backup-Speichers zu optimieren und die Backup-Zeit zu reduzieren.
+Azure Backup ist eine **auf Recovery Services basierende Backup-Speichereinheit, die Sicherungsdaten für verschiedene Azure-Dienste wie IaaS-VMs und Azure SQL-Datenbanken speichert und die Wiederherstellung unterstützt**.  
+Über Sicherungsrichtlinien können Sicherungsintervalle, -zeiten und Aufbewahrungszeiträume definiert sowie virtuelle Maschinen und Dateifreigaben als geschützte Elemente registriert werden.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
-## Ressourcen-Einstellwerte
+### Verbundene Ressourcen
 
--   `sku` : Preismodell für die Verwendung von Recovery Services Vault - `Standard`,`RS0`
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
 
--   `soft_delete_enabled` : Aktivierung der Soft-Delete-Funktion für das Vault - `true`,`false`
+## Ressourcenkonfigurationswerte
 
--   `vm_backup_policy`
+-   `sku` : Preismodell für die Nutzung des Recovery Services Vault - `Standard`, `RS0`
+-   `soft_delete_enabled` : Aktivierung der Soft-Delete-Funktion im Vault - `true`, `false`
+-   `tag` : Tags zur Kategorisierung der Ressource
 
-    -   `backup_frequency` : Häufigkeit der Backups - `Daily`,`Weekly`
-    -   `backup_time` : Uhrzeit des Backups
-    -   `timezone` : Zeitzone für die Backup-Zeit
-    -   `retention_count` : Anzahl der zu behaltenden täglichen Backups - `7`~`9999`
+#### VM-Sicherungsrichtlinie (`vm_backup_policy`)
 
--   `protected_vm`
+-   `vm_backup_policy.backup_frequency` : Sicherungshäufigkeit - `Daily`, `Weekly`
+-   `vm_backup_policy.backup_time` : Zeitpunkt der Sicherung
+-   `vm_backup_policy.weekly_backup_days` : Wochentage für die Sicherung - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `vm_backup_policy.timezone` : Zeitzone der Sicherungszeit
+-   `vm_backup_policy.retention_count` : Anzahl der aufzubewahrenden täglichen Sicherungen - `7` ~ `9999`
 
--   `share_backup_policy`
+#### Geschützte VM (`protected_vm`)
 
-    -   `backup_frequency` : Häufigkeit der Backups - `Daily`,`Weekly`
-    -   `backup_time` : Uhrzeit des Backups
-    -   `timezone` : Zeitzone für die Backup-Zeit
-    -   `daily_retention_count` : Anzahl der zu behaltenden täglichen Backups - `1`~`200`
-    -   `enabled_weekly_backup` : Aktivierung des wöchentlichen Backups
+-   `protected_vm.backup_policy_name` : Name der angewendeten Sicherungsrichtlinie
 
--   `protected_share`
+#### Dateifreigabe-Sicherungsrichtlinie (`share_backup_policy`)
 
-    -   `source_storage_account_name` : Name des Speicherkontos der Dateifreigabe, die gesichert werden soll
-    -   `source_share_name` : Name der Dateifreigabe, die gesichert werden soll
-    -   `backup_policy_name` : Name der Backup-Politik, die für das Backup angewendet wird
+-   `share_backup_policy.backup_frequency` : Sicherungshäufigkeit - `Daily`, `Hourly`
+-   `share_backup_policy.backup_time` : Zeitpunkt der Sicherung
+-   `share_backup_policy.hourly_schedule` : Intervall für stündliche Sicherungen - `4`, `6`, `8`, `12`
+-   `share_backup_policy.hourly_duration` : Dauer der stündlichen Sicherungen - `4` ~ `23`
+-   `share_backup_policy.timezone` : Zeitzone der Sicherungszeit
+-   `share_backup_policy.daily_retention_count` : Anzahl der täglich aufzubewahrenden Sicherungen - `1` ~ `200`
+-   `share_backup_policy.enabled_weekly_backup` : Aktivierung der wöchentlichen Sicherung - `true`, `false`
+-   `share_backup_policy.weekly_backup_days` : Wochentage für wöchentliche Sicherungen
+-   `share_backup_policy.weekly_retention_count` : Anzahl der wöchentlich aufzubewahrenden Sicherungen - `1` ~ `200`
 
--   `tag` : Tag zur Kategorisierung der Ressource - maximal 512 Zeichen, `key`:`value`
+#### Geschützte Dateifreigabe (`protected_share`)
 
----
+-   `protected_share.source_storage_account_name` : Name des Storage Accounts mit der zu sichernden Dateifreigabe
+-   `protected_share.source_share_name` : Name der zu sichernden Dateifreigabe
+-   `protected_share.backup_policy_name` : Name der angewendeten Sicherungsrichtlinie
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure Backup(Microsoft)](https://learn.microsoft.com/en-us/azure/backup/backup-overview)
--   [Azure Backup Kosten](https://azure.microsoft.com/en-us/pricing/details/backup/)
--   [Azure Backup(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/recovery_services_vault)
+-   [Azure Backup – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-overview)
+-   [Recovery Services Vault – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-azure-recovery-services-vault-overview)
+-   [Konfiguration von Azure VM-Sicherungsrichtlinien (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-azure-arm-vms-prepare)

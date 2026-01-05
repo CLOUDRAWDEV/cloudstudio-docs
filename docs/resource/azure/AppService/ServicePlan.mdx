@@ -1,34 +1,30 @@
 ---
-title: Service Plan
-sidebar_position: 2
-tags: [Azure, 리소스, ServicePlan]
+title: ServicePlan
+sidebar_position: 0
+tags: [Azure, ServicePlan]
 ---
-
 
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.webp"
     }
 />
 
 ## 리소스 개요
 
-Azure App Service는 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹앱, 모바일 백 엔드 및 RESTful API를 빌드하고 호스팅할 수 있는 PaaS 서비스입니다.
-App Service는 Auto Scailing 및 고가용성을 제공하고, 운영체제로 Windows 및 Linux를 모두 지원합니다.
-Github, Azure DevOps 또는 Git 리포지토리에서 자동으로 배포할 수 있습니다.
+Service Plan은 App Service가 실행되는 컴퓨팅 리소스(서버 인스턴스, CPU/메모리, 스케일링, OS 등)를 정의하는 요금제/호스팅 플랜입니다.  
+웹 앱, API 앱, 백엔드 앱 등을 App Service로 배포할 때, 해당 앱이 어떤 사양과 가격 계층에서 실행될지 Service Plan을 통해 결정합니다.
 
 ## 연관 리소스
 
 ### 상위 리소스
 
 -   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
 ### 연결 리소스
 
@@ -41,6 +37,6 @@ Github, Azure DevOps 또는 Git 리포지토리에서 자동으로 배포할 수
 
 ## 참고 자료
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service 가격(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure App Service Plan(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
+-   [Azure App Service 가격](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
+-   [Azure App Service Plan(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)

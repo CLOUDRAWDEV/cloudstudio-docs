@@ -1,0 +1,48 @@
+---
+title: Transit Gateway
+sidebar_position: 0
+tags: [AWS, Risorsa, Ec2, TransitGateway]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-transit_gateway.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Il Transit Gateway è un hub di trasporto di rete che può essere utilizzato per connettere una Virtual Private Cloud (VPC) con una rete on-premises. Con l'espansione globale dell'infrastruttura cloud, il peer tra regioni collega insieme i Transit Gateway utilizzando l'infrastruttura globale di AWS. I dati sono automaticamente criptati e non vengono trasmessi tramite internet pubblico.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+## Impostazioni della risorsa
+
+-   `dns_support` : Abilitazione della risoluzione del sistema di nomi di dominio per il VPC connesso - `enable`, `disable`
+-   `vpn_ecmp_support` : Supporto per il routing ECMP (Equal-Cost Multi-Path) per la VPN connessa - `enable`, `disable`
+-   `default_route_table_association` : Associazione automatica dell'Attachment alla tabella di routing predefinita - `enable`, `disable`
+-   `default_route_table_propagation` :  Propagazione automatica dell'Attachment alla tabella di routing predefinita - `enable`, `disable`
+-   `multicast_support` : Abilitazione della creazione di domini multicast - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Blocchi CIDR del Transit Gateway
+-   `vpc_attachment`
+
+---
+
+## Materiale di riferimento
+
+-   [AWS Transit Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [AWS Transit Gateway 가격(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

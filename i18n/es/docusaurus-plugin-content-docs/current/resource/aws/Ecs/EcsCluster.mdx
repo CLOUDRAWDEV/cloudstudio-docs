@@ -1,0 +1,58 @@
+---
+title: EcsCluster
+sidebar_position: 0
+tags: [AWS, recurso, Ecs, EcsCluster]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_cluster.png"
+    }
+/>
+
+## Descripción general del recurso
+
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Recurso conectado
+
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+
+## Valores de configuración del recurso
+
+-   `set_container_insights` : Configura si se habilita Container Insights en el clúster – `Enabled`  
+-   `kms_key_name` : Nombre de la clave de AWS Key Management Service para cifrar datos entre cliente local y contenedores  
+-   `logging` : Configuración de logs para redirección de resultados de comandos – `OVERRIDE`, `NONE`, `DEFAULT`  
+-   `cloud_watch_encryption_enabled` : Habilita o no el cifrado en CloudWatch Logs – `false`, `true`  
+-   `capacity_providers` : Nombre del grupo de logs de CloudWatch al cual enviar los logs – `Fargate`, `Fargate_spot`  
+-   `service`
+    -   `name` : Nombre del servicio  
+    -   `computing_option` : Estrategia de distribución de tareas del servicio – `capacity_provider_strategy`, `launch_type`
+
+    -   `computing_option`
+        -   `capacity_provider_strategy`
+            -   `capacity_provider` : `Fargate`, `Fargate_spot`  
+            -   `base` : Número mínimo de tareas a ejecutar (hasta 100000)  
+            -   `weight` : Porcentaje relativo del total de tareas ejecutadas (hasta 1000)
+
+    -   `computing_option.launch_type` : Tipo de lanzamiento del servicio  
+        -   `launch_type`
+            -   `launch_type` : `ec2`, `Fargate`, `External`  
+            -   `task_definition_name` : Nombre de la ECS Task Definition utilizada por el servicio  
+            -   `desired_count` : Número de instancias de la definición de tarea que se desean ejecutar
+
+
+## Documentación de referencia
+
+-   [Amazon Ecs Cluster(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/clusters.html)
+-   [Amazon Ecs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)

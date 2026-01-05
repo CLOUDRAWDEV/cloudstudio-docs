@@ -1,0 +1,108 @@
+---
+title: Guardar
+sidebar_position: 3
+tags: [save, guardar, historial de versiones, gestión de versiones, guardar versión, empezar]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import save01 from "/docs/start/img/save01.png"
+import save02 from "/docs/start/img/save02.png"
+import save03 from "/docs/start/img/save03.png"
+import save04 from "/docs/start/img/save04.png"
+import save05 from "/docs/start/img/save05.png"
+import save06 from "/docs/start/img/save06.png"
+
+<hr />
+<br />
+
+## Guardar {#save}
+
+Existen `dos formas` de guardar el canvas:
+
+-   [Guardar](#save)  
+-   [Guardar versión](#version)
+
+Guardar se refiere a `guardar el estado actual del canvas`.  
+Guardar el canvas equivale a guardar el proyecto.  
+La imagen mostrada en la miniatura del proyecto es la del canvas guardado.
+
+<div className={styles.imgWrap}>
+    <img src={save05} width="300px" alt="imagen de guardar" />
+</div>
+
+<br />
+
+Guardar es muy simple. Haz clic en `Archivo > Guardar`.
+
+<div className={styles.imgWrap}>
+    <img src={save01} width="200px" alt="imagen de guardar" />
+</div>
+
+<p>&nbsp;</p>
+
+:::caution
+
+Si hay errores 🔴 en el canvas, **solo se guardará la imagen**.  
+Asegúrate de resolver todos los errores antes de guardar.  
+Consulta cómo corregir errores [aquí](/docs/canvas/edit-canvas.mdx).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Guardar versión e historial de versiones {#version}
+
+Guardar una versión permite `volver a un punto específico del canvas`.  
+Una vez guardada la versión, puedes restaurarla en cualquier momento desde el historial.
+
+### Guardar versión {#version-save}
+
+1. Para guardar una versión, haz clic en `Gestión de versiones > Guardar versión`.
+
+<div className={styles.imgWrap}>
+    <img src={save02} width="200px" alt="imagen de guardar versión" />
+</div>
+
+<br />
+
+2. Ingresa un `mensaje de etiqueta`. Este mensaje aparecerá como el `título de la versión` en el historial.
+
+<div className={styles.imgWrap}>
+    <img src={save03} alt="imagen de guardar versión" />
+</div>
+
+<br />
+
+3. Haz clic en `Guardar`.
+
+<p>&nbsp;</p>
+
+### Historial de versiones {#version-history}
+
+1. Para consultar el historial de versiones, haz clic en `Gestión de versiones > Historial de versiones`.
+
+<div className={styles.imgWrap}>
+    <img src={save06} width="200px" alt="imagen de historial de versiones" />
+</div>
+
+<br />
+
+2. Consulta las versiones previamente guardadas.
+
+:::note
+
+-   <highlight color="#206FD6">Latest</highlight>: Última versión guardada  
+-   <highlight color="#AD28DC">Manual</highlight>: Versión guardada manualmente  
+-   <highlight color="#02CDE8">Planed</highlight>: Historial de validaciones previas al despliegue  
+-   <highlight color="#5C4AF6">Applied</highlight>: Historial de despliegues completados  
+
+:::
+
+<br />
+
+3. Haz `clic` en el canvas al que deseas volver para restaurarlo.
+
+<div className={styles.imgWrap}>
+    <img src={save04} alt="imagen de historial de versiones" />
+</div>

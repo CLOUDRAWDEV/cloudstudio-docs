@@ -1,0 +1,52 @@
+---
+title: Subnet
+sidebar_position: 0
+tags: [Ncloud, 리소스, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Es una subred subordinada al VPC que permite segmentación según el propósito de red.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Recurso subordinado
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Block Storage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
+
+### Recursos conectados
+
+-   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
+
+## Valores de configuración del recurso
+
+-   `subnet_cidr` : Rango de direcciones IP del subnet dentro del rango de direcciones del VPC
+-   `zone` : Región física donde se ubicará el subnet - `KR-1`, `KR-2`
+-   `subnet_type` : Configuración de subnet pública o privada - `PUBLIC`, `PRIVATE`
+-   `usage_type` : Configuración de uso con load balancer - `GEN`, `BM`
+-   `included_vpc_name` : Nombre del VPC donde se ubicará el subnet
+-   `linked_nacl_name` : Lista de control de acceso a red para controlar el acceso al subnet
+
+---
+
+## Documentación de referencia
+
+-   [Subnet Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-subnetmanage-vpc)
+-   [ncloud_subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

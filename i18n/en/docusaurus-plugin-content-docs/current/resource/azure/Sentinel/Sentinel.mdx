@@ -1,7 +1,7 @@
 ---
 title: Sentinel
 sidebar_position: 0
-tags: [Azure, Resource, Sentinel]
+tags: [Azure, Security, Sentinel]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, Resource, Sentinel]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Sentinel is a cloud-native SIEM (Security Information and Event Management) service offered by Microsoft Azure. 
-It provides comprehensive security solutions with intelligent analytics and threat intelligence to protect IT infrastructure and assets from cyber threats. 
-Azure Sentinel collects data from various sources, including servers, networks, applications, and devices, to offer an integrated view of security threats across the organization. 
-It uses advanced analytics and machine learning algorithms to detect and respond to threats in real time.
+Azure Sentinel is a cloud-native SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response) solution that collects and analyzes security data from multiple sources to detect threats and automate incident response.  
+It is built on Log Analytics Workspace, allowing you to configure alert rules and integrate Microsoft security products and external data connectors to support unified security operations.
 
 ## Associated Resources
 
@@ -30,46 +28,37 @@ It uses advanced analytics and machine learning algorithms to detect and respond
 
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
 ## Resource Setting Values
 
--   `linked_workspace_name` : The name of the Log Analytics Workspace to connect the Sentinel to
+-   `linked_workspace_name` : Name of the Log Analytics Workspace to connect with Sentinel
+-   `connect_security_center` : Whether to connect the Microsoft Defender for Cloud Data Connector - `true`, `false`
+-   `connect_threat_intelligence` : Whether to connect the Threat Intelligence Platform (Preview) Data Connector - `true`, `false`
+-   `connect_advanced_threat_protection` : Whether to connect the Microsoft Defender for Identity Data Connector - `true`, `false`
+-   `connect_microsoft_defender` : Whether to connect the Microsoft Defender for Endpoint Data Connector - `true`, `false`
+-   `connect_office_365` : Whether to connect the Office 365 Data Connector - `true`, `false`
+-   `connect_cloud_app_security` : Whether to connect the Microsoft Defender for Cloud Apps Data Connector - `true`, `false`
+-   `fusion_rule_rule_guid` : List of Fusion Rule GUIDs
+-   `behavior_analytics_rule_guid` : List of ML Behavior Analytics Rule GUIDs
+-   `tag` : Tags used to categorize the resource
 
--   `connect_security_center` : Whether to connect the Microsoft Defender for Cloud Data Connector to Sentinel - `true`,`false`
+#### MS Security Incident Alert Rule (`alert_rule_incident`)
 
--   `connect_threat_intelligence` : Whether to connect the Threat Intelligence Platform(Preview) Data Connector to Sentinel - `true`,`false`
+-   `alert_rule_incident.display_name` : Display name of the MS Security Incident Alert Rule
+-   `alert_rule_incident.product` : Microsoft security service that generates the alert - `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection`, `Office 365 Advanced Threat Protection`
+-   `alert_rule_incident.severity` : Severity levels that generate incidents - `High`, `Medium`, `Low`, `Informational`
 
--   `connect_advanced_threat_protection` : Whether to connect the Microsoft Defender for Identity Data Connector to Sentinel - `true`,`false`
+#### Scheduled Alert Rule (`alert_rule_scheduled`)
 
--   `connect_microsoft_defender` : Whether to connect the Microsoft Defender Data Connector for endpoints to Sentinel - `true`,`false`
-
--   `connect_office_365` : Whether to connect the Office 365 Data Connector to Sentinel - `true`,`false`
-
--   `connect_cloud_app_security` - `true`, `false`
-
--   `fusion_rule_rule_guid` : Whether to connect the Microsoft Defender for Cloud Apps Data Connector to Sentinel
-
--   `behavior_analytics_rule_guid` : GUID list of Sentinel ML Behavior Analytics Rule
-
--   `alert_rule_incident`
-
-    -   `display_name` : The display name of this Sentinel MS Security Incident Alert Rule
-    -   `product` : The Microsoft Security Service from where the alert will be generated
-    -   `severity` : Only create incidents from alerts when alert severity level is contained in this list - `High`,`Medium`,`Low`,`Informational`
-
--   `alert_rule_scheduled` :
-
-    -   `display_name` : The friendly name of this Sentinel Scheduled Alert Rule
-    -   `severity` : The alert severity of this Sentinel Scheduled Alert Rule - `High`,`Medium`,`Low`,`Informational`
-    -   `query` : The query of this Sentinel Scheduled Alert Rule
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `alert_rule_scheduled.display_name` : Display name of the Scheduled Alert Rule
+-   `alert_rule_scheduled.severity` : Severity of the Scheduled Alert Rule - `High`, `Medium`, `Low`, `Informational`
+-   `alert_rule_scheduled.query` : Query statement of the Scheduled Alert Rule
 
 ---
 
 ## Reference Materials
 
--   [Azure Sentinel(Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
--   [Azure Sentinel Price](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/)
--   [Azure Sentinel(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution)
+-   [Microsoft Sentinel Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
+-   [Microsoft Sentinel Data Connectors (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/connect-data-sources)
+-   [Microsoft Sentinel Analytics Rules (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/detect-threats-built-in)

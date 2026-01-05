@@ -1,7 +1,7 @@
 ---
 title: TrafficManager
-sidebar_position: 13
-tags: [Azure, Ressourcen, Network, TrafficManager]
+sidebar_position: 11
+tags: [Azure, Network, TrafficManager]
 ---
 
 <hr />
@@ -11,53 +11,67 @@ tags: [Azure, Ressourcen, Network, TrafficManager]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-traffic_manager.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-traffic_manager.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Traffic Manager ist ein cloudbasierter Traffic-Management-Dienst von Microsoft Azure, der es Benutzern ermöglicht, den eingehenden Traffic von mehreren Endpunkten zu steuern und zu verteilen, einschließlich Azure-VMs, Cloud-Diensten, Web-Apps und sogar On-Premises-Endpunkten. 
-Mit Traffic Manager können Benutzer den Traffic automatisch zu den besten verfügbaren Endpunkten weiterleiten, basierend auf verschiedenen Routing-Methoden wie Priorität, Leistung, geografischer Lage oder Round Robin, um die Verfügbarkeit, Leistung und Resilienz von Anwendungen zu verbessern.
+Traffic Manager ist ein DNS-basierter globaler Dienst zur Verteilung von Netzwerkverkehr, der **Benutzeranffragen an den jeweils geeignetsten Service-Endpunkt weiterleitet**.  
+Er unterstützt verschiedene Routingmethoden wie Latenz, Priorität und geografische Standorte und ermöglicht dadurch gleichzeitig hohe Verfügbarkeit und Performance-Optimierung.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
 ### Verbundene Ressourcen
 
--   [**Network Traffic Manager**](https://docs.cstudio.app/docs/resource/azure/Network/TrafficManager)
+-   [**Linux App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/WindowsAppService)
+-   [**Traffic Manager**](https://docs.cstudio.app/de/docs/resource/azure/Network/TrafficManager)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `traffic_routing_method`
+-   `traffic_routing_method` : Routingmethode zur Verteilung von Clientanforderungen auf Endpunkte
+    -   `Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
+-   `relative_domain_name` : Von Traffic Manager verwendeter Domänenname
+-   `ttl` : Time-To-Live-Wert der DNS-Einträge
+-   `tag` : Tags zur Kategorisierung der Ressource – bis zu 512 Zeichen, `key`:`value`
 
-    -   `description` : Routing-Methoden zur Weiterleitung von Client-Anfragen an den entsprechenden Service-Endpunkt -`Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
+#### Einstellungen zur Endpunktüberwachung (`endpoint_monitor_setting`)
 
--   `relative_domain_name` : Der Domain-Name, den Traffic Manager verwenden soll
--   `ttl` : Time To Live-Wert des Profils, der von lokalen DNS-Benutzern verwendet wird - `0`~ `2147483647`
--   `endpoint_monitor_setting`
+-   `endpoint_monitor_setting.protocol` : Für die Überwachung verwendetes Protokoll – `HTTP`, `HTTPS`, `TCP`
+-   `endpoint_monitor_setting.port` : Für die Überwachung verwendete Portnummer – `0` ~ `65535`
+-   `endpoint_monitor_setting.path` : Überwachungspfad bei Verwendung von HTTP/HTTPS
 
-    -   `protocol` : Das Protokoll, das für das Monitoring verwendet werden soll -`HTTP`, `HTTPS`, `TCP`
-    -   `port` : Die Portnummer, die für das Monitoring verwendet werden soll - `0`~ `65535`
-    -   `path` : Der Pfad, der für das Monitoring verwendet wird, wenn das Protokoll HTTP oder HTTPS ist
+#### Azure-Endpunkt (`azure_endpoint`)
 
--   `azure_endpoint`
--   `nested_endpoint`
--   `nested_endpoint`
--   `external_endpoint`
-    -   `target_name` : Name der Zielressource, mit der der Endpunkt verbunden werden soll - Je nach Typ kann dies der Name der Ressource oder eine Domain sein
-    -   `weight` : Die Menge des Traffics, die an den Endpunkt verteilt wird - `1`~ `1000`
-    -   `priority` : Die Priorität des Endpunkts
-    -   `endpoint_location` : Der Azure-Standort des Endpunkts
--   `tag` : Ein Tag zur Kategorisierung der Ressource - maximal 512 Zeichen, `key`:`value`
+-   `azure_endpoint.linked_resource_type` : Typ des Azure-Endpunkts
+-   `azure_endpoint.linked_target_name` : Name der zu verbindenden Azure-Ressource
+-   `azure_endpoint.weight` : Gewichtung der Verkehrsverteilung für den Endpunkt
+-   `azure_endpoint.priority` : Priorität des Endpunkts
+
+#### Verschachtelter Endpunkt (`nested_endpoint`)
+
+-   `nested_endpoint.linked_traffic_manager_name` : Name des untergeordneten Traffic Managers
+-   `nested_endpoint.weight` : Gewichtung der Verkehrsverteilung für den Endpunkt
+-   `nested_endpoint.priority` : Priorität des Endpunkts
+-   `nested_endpoint.endpoint_location` : Azure-Region des Endpunkts
+-   `nested_endpoint.min_child_endpoints` : Mindestanzahl an online verfügbaren Endpunkten für die Verkehrsweiterleitung
+
+#### Externer Endpunkt (`external_endpoint`)
+
+-   `external_endpoint.target_name` : Zielname des externen Endpunkts (Ressource oder Domäne)
+-   `external_endpoint.weight` : Gewichtung der Verkehrsverteilung für den Endpunkt
+-   `external_endpoint.priority` : Priorität des Endpunkts
+-   `external_endpoint.endpoint_location` : Azure-Region des Endpunkts
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure TrafficManager(Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
--   [Azure TrafficManager Kosten](https://azure.microsoft.com/en-us/pricing/details/traffic-manager/)
--   [Azure TrafficManager(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/traffic_manager_profile)
+-   [Azure Traffic Manager – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
+-   [Routingmethoden von Traffic Manager (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-routing-methods)
+-   [Überwachung von Traffic-Manager-Endpunkten (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-monitoring)

@@ -1,0 +1,50 @@
+---
+title: PrivateLinkService
+sidebar_position: 17
+tags: [Azure, Network, PrivateLinkService]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_link_service.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Private Link Service es un servicio de red que permite **exponer de forma segura servicios internos del usuario (basados en Load Balancer)** a clientes externos mediante el modelo de **Private Endpoint**.  
+La conexión se realiza a través de la red backbone de Azure sin utilizar una IP pública, y permite gestionar de forma granular el alcance de la exposición del servicio mediante controles de acceso y políticas de aprobación.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+## Valores de configuración del recurso
+
+-   `auto_approval_subscription_ids` : Lista de ID de suscripción para los que las conexiones de Private Endpoint se aprueban automáticamente sin aprobación previa
+-   `visibility_subscription_ids` : Lista de ID de suscripción que pueden descubrir el Private Link Service y enviar solicitudes de conexión
+
+#### Configuración de IP del Load Balancer (`lb_ip_configuration`)
+
+-   `lb_ip_configuration.target_lb_name` : Nombre del Load Balancer de destino al que se conectará
+-   `lb_ip_configuration.target_ip_config_name` : Nombre de la configuración de IP frontal (Frontend IP Configuration) del Load Balancer
+
+#### Configuración de IP NAT (`nat_ip_configuration`)
+
+-   `nat_ip_configuration.target_subnet_name` : Nombre del Subnet de destino donde se aplicará la configuración de IP NAT
+-   `nat_ip_configuration.private_ip_address` : Dirección IP privada estática que se utilizará como IP NAT
+-   `nat_ip_configuration.private_ip_address_version` : Versión de la IP privada - `IPv4`
+-   `nat_ip_configuration.enable_primary` : Indica si esta configuración de IP NAT se utilizará como primaria - `true`, `false`
+
+---
+
+## Referencias
+
+-   [Descripción general de Azure Private Link Service (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)

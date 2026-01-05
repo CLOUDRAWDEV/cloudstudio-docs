@@ -1,0 +1,58 @@
+---
+title: Kubernetes Cluster
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Containers, KubernetesCluster]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È un servizio Kubernetes, una piattaforma open source che automatizza la containerizzazione, la distribuzione e la gestione delle applicazioni. Automatizza operazioni necessarie per l'uso dei container, come la distribuzione, la gestione e la scalabilità, migliorando l'efficienza del lavoro.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse inferiori
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+
+## Impostazioni della risorsa
+
+-   `zone` : Zona fisica in cui creare il cluster - `KR-1`, `KR-2`
+-   `included_vpc_name` : Nome del VPC in cui creare il cluster
+-   `hypervisor_code` : Codice del hypervisor per la versione del cluster - `XEN`
+-   `version` : Versione del cluster - `1.26.10-nks.1`, `1.27.9-nks.1`
+-   `maximum_number_of_nodes` : Numero massimo di nodi del cluster, 10 o 50
+-   `enable_public_subnet_network` : Se connettersi al subnet pubblico
+-   `subnet_names` : Elenco dei nomi dei subnet per configurare il cluster, massimo 3
+-   `lb_private_subnet_name` : Nome del subnet privato in cui si trova il load balancer privato associato al cluster
+-   `lb_public_subnet_name` : Nome del subnet pubblico in cui si trova il load balancer pubblico associato al cluster
+-   `login_key_name` : Nome della chiave di login da utilizzare
+-   `enable_audit_log` : Se abilitare la funzionalità di audit log
+-   `node_pool` : Nome del pool di nodi
+    -   `node_count` : Numero di nodi nel cluster
+    -   `software_code` : Codice dell'immagine del server per il nodo
+    -   `product_code` : Codice per la configurazione hardware del nodo
+    -   `node_pool_subnet_name` : Nome del subnet in cui sarà creato il node pool
+-   `enable_autoscale` : Se abilitare la funzionalità di auto-scaling
+
+---
+
+## Materiale di riferimento
+
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/product/containers/kubernetes)
+-   [ncloud_nks_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

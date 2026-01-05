@@ -1,0 +1,77 @@
+---
+title: TrafficManager
+sidebar_position: 11
+tags: [Azure, Network, TrafficManager]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-traffic_manager.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Traffic Manager è un servizio globale di distribuzione del traffico basato su DNS che **instrada le richieste degli utenti verso l’endpoint di servizio più appropriato**.  
+Supporta diversi metodi di routing, come latenza, priorità e posizione geografica, consentendo di configurare contemporaneamente alta disponibilità e ottimizzazione delle prestazioni.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Linux App Service**](https://docs.cstudio.app/it/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/it/docs/resource/azure/AppService/WindowsAppService)
+-   [**Traffic Manager**](https://docs.cstudio.app/it/docs/resource/azure/Network/TrafficManager)
+
+## Valori di configurazione della risorsa
+
+-   `traffic_routing_method` : Metodo di routing per distribuire le richieste dei client agli endpoint
+    -   `Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
+-   `relative_domain_name` : Nome di dominio da utilizzare in Traffic Manager
+-   `ttl` : Valore Time To Live dei record DNS
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+#### Impostazioni di monitoraggio degli endpoint (`endpoint_monitor_setting`)
+
+-   `endpoint_monitor_setting.protocol` : Protocollo utilizzato per il monitoraggio - `HTTP`, `HTTPS`, `TCP`
+-   `endpoint_monitor_setting.port` : Numero di porta utilizzato per il monitoraggio - `0` ~ `65535`
+-   `endpoint_monitor_setting.path` : Percorso di monitoraggio quando si utilizza HTTP/HTTPS
+
+#### Endpoint Azure (`azure_endpoint`)
+
+-   `azure_endpoint.linked_resource_type` : Tipo di endpoint Azure
+-   `azure_endpoint.linked_target_name` : Nome della risorsa Azure da collegare
+-   `azure_endpoint.weight` : Peso di distribuzione del traffico per l’endpoint
+-   `azure_endpoint.priority` : Priorità dell’endpoint
+
+#### Endpoint annidato (`nested_endpoint`)
+
+-   `nested_endpoint.linked_traffic_manager_name` : Nome del Traffic Manager secondario da collegare
+-   `nested_endpoint.weight` : Peso di distribuzione del traffico per l’endpoint
+-   `nested_endpoint.priority` : Priorità dell’endpoint
+-   `nested_endpoint.endpoint_location` : Regione Azure dell’endpoint
+-   `nested_endpoint.min_child_endpoints` : Numero minimo di endpoint online richiesti per l’instradamento del traffico
+
+#### Endpoint esterno (`external_endpoint`)
+
+-   `external_endpoint.target_name` : Nome di destinazione dell’endpoint esterno (risorsa o dominio)
+-   `external_endpoint.weight` : Peso di distribuzione del traffico per l’endpoint
+-   `external_endpoint.priority` : Priorità dell’endpoint
+-   `external_endpoint.endpoint_location` : Regione Azure dell’endpoint
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Traffic Manager (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
+-   [Metodi di routing di Traffic Manager (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-routing-methods)
+-   [Monitoraggio degli endpoint di Traffic Manager (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-monitoring)

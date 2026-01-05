@@ -1,0 +1,75 @@
+---
+title: Backup
+sidebar_position: 0
+tags: [Azure, RecoveryServices, Backup]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/recovery_services-backup.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure Backup es una **entidad de almacenamiento de copias de seguridad basada en Recovery Services que almacena datos de respaldo y admite la recuperación de diversos servicios de Azure, como máquinas virtuales IaaS y bases de datos Azure SQL**.  
+Mediante políticas de copia de seguridad, se pueden definir la frecuencia, el horario y los períodos de retención, y realizar copias de seguridad registrando máquinas virtuales y recursos compartidos de archivos como elementos protegidos.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Storage Account**](https://docs.cstudio.app/es/docs/resource/azure/Storage/StorageAccount)
+
+## Valores de configuración del recurso
+
+-   `sku` : Nivel de precios para usar Recovery Services Vault - `Standard`, `RS0`
+-   `soft_delete_enabled` : Habilitar eliminación suave en el vault - `true`, `false`
+-   `tag` : Etiquetas para clasificar el recurso
+
+#### Política de copia de seguridad de VM (`vm_backup_policy`)
+
+-   `vm_backup_policy.backup_frequency` : Frecuencia de la copia de seguridad - `Daily`, `Weekly`
+-   `vm_backup_policy.backup_time` : Hora en la que se realiza la copia de seguridad
+-   `vm_backup_policy.weekly_backup_days` : Días de la semana en que se realizan las copias
+-   `vm_backup_policy.timezone` : Zona horaria del horario de copia de seguridad
+-   `vm_backup_policy.retention_count` : Número de copias diarias a conservar - `7` ~ `9999`
+
+#### VM protegida (`protected_vm`)
+
+-   `protected_vm.backup_policy_name` : Nombre de la política de copia de seguridad aplicada
+
+#### Política de copia de seguridad de recursos compartidos (`share_backup_policy`)
+
+-   `share_backup_policy.backup_frequency` : Frecuencia de la copia de seguridad - `Daily`, `Hourly`
+-   `share_backup_policy.backup_time` : Hora de la copia de seguridad
+-   `share_backup_policy.hourly_schedule` : Intervalo de copia por hora - `4`, `6`, `8`, `12`
+-   `share_backup_policy.hourly_duration` : Duración de la copia por hora - `4` ~ `23`
+-   `share_backup_policy.timezone` : Zona horaria del horario de copia de seguridad
+-   `share_backup_policy.daily_retention_count` : Número de copias diarias a conservar - `1` ~ `200`
+-   `share_backup_policy.enabled_weekly_backup` : Habilitar copia de seguridad semanal - `true`, `false`
+-   `share_backup_policy.weekly_backup_days` : Días de la semana para la copia semanal
+-   `share_backup_policy.weekly_retention_count` : Número de copias semanales a conservar - `1` ~ `200`
+
+#### Recurso compartido protegido (`protected_share`)
+
+-   `protected_share.source_storage_account_name` : Nombre de la cuenta de almacenamiento del recurso compartido
+-   `protected_share.source_share_name` : Nombre del recurso compartido a respaldar
+-   `protected_share.backup_policy_name` : Nombre de la política de copia de seguridad aplicada
+
+## Referencias
+
+-   [Descripción general de Azure Backup (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-overview)
+-   [Descripción general de Recovery Services Vault (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-azure-recovery-services-vault-overview)
+-   [Configuración de políticas de copia de seguridad de VM en Azure (Microsoft)](https://learn.microsoft.com/ko-kr/azure/backup/backup-azure-arm-vms-prepare)

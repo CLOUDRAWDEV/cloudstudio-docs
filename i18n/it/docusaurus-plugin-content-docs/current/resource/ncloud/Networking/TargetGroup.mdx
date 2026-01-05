@@ -1,0 +1,56 @@
+---
+title: TargetGroup
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Network, TargetGroup]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa che rappresenta un insieme di target per gestire le richieste del load balancer.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse collegate
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+
+
+## Impostazioni della risorsa
+
+-   `included_vpc_name` : Nome della VPC in cui esiste il gruppo di destinazione
+-   `protocol` : Tipo di protocollo da applicare per il routing del traffico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Numero della porta per ricevere il traffico
+-   `algorithm_type` : Tipo di algoritmo da utilizzare per il bilanciamento del carico, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Tipo di protocollo da utilizzare per il controllo dello stato del target, per il bilanciamento del carico, RR/SIPHS/LC - `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : Metodo HTTP da utilizzare per il controllo dello stato del target, se il protocollo è HTTP/HTTPS, HEAD o GET - `HEAD`, `GET`
+-   `health_check_port` : Numero della porta per il controllo dello stato del target
+-   `health_check_cycle` : Ciclo di controllo dello stato del target (in secondi), intervallo tra 5 e 300 secondi
+-   `health_check_up_threshold` : Soglia di stato normale, numero di controlli necessari affinché un target non normale venga considerato normale, intervallo tra 2 e 10
+-   `health_check_down_threshold` : Soglia di errore, numero di controlli necessari affinché un target normale venga considerato non normale, intervallo tra 2 e 10
+-   `linked_server_names` : Elenco dei nomi dei server a cui connettersi
+
+
+
+---
+
+## Materiale di riferimento
+
+
+-   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

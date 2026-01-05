@@ -1,7 +1,7 @@
 ---
 title: ApplicationGateway
-sidebar_position: 0
-tags: [Azure, リソース, Network, ApplicationGateway]
+sidebar_position: 13
+tags: [Azure, Network, ApplicationGateway, LoadBalancer, WAF]
 ---
 
 <hr />
@@ -11,82 +11,95 @@ tags: [Azure, リソース, Network, ApplicationGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-application_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-application_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Azure Application Gateway はウェブアプリケーションに対するトラフィックを管理できるようにするウェブトラフィック負荷分散装置です。
-既存の負荷分散装置は転送階層(OSI 階層 4 - TCP および UDP)で動作し元の IP アドレスとポートに基づいてターゲット IP アドレスとポートにトラフィックをルーティングします。
-Application Gateway は URI 経路またはホストヘッダのような HTTP 要請の追加特性に基づいてルーティング決定を下すことができます。 たとえば、来る URL に基づくトラフィックをルーティングできます。
-したがって、/images が入ってくる URL にある場合、画像に対して構成されたサーバ（プーラーともいう）の特定のセットにトラフィックをルーティングすることができます。 /video が URL にある場合、そのトラフィックはビデオに最適化された別のプールにルーティングされます。
+Application Gateway は、HTTP/HTTPS トラフィックを基に、Web アプリケーションのフロントエンドで **L7（アプリケーション層）の負荷分散およびルーティングを実行する Azure マネージド ロード バランサー**です。  
+パスベース ルーティング、SSL 終端、WAF との連携などの機能により、Web サービスのセキュリティと拡張性を同時に提供します。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
+-   [**Linux App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Web Application Firewall Policy**](https://docs.cstudio.app/ja/docs/resource/azure/Network/WebApplicationFirewallPolicy)
 -   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
 
 ## リソース設定値
 
--   `included_subnet_name` : Application Gateway をデプロイする Vnet の名前
+-   `included_subnet_name` : Application Gateway をデプロイする Subnet 名
+-   `linked_waf_policy_name` : 接続する Web Application Firewall Policy 名
+-   `sku_tier` : Application Gateway の価格レベル
+-   `sku_name` : Application Gateway の SKU 名
+-   `enabled_autoscaling` : トラフィックベースのオートスケーリングを有効にするかどうか
+-   `instance_count` : インスタンス数（V1 SKU の場合）
+-   `min_instance_count` : オートスケーリング時の最小インスタンス数
+-   `max_instance_count` : オートスケーリング時の最大インスタンス数
+-   `gateway_ip_config_name` : Gateway IP Configuration 名
+-   `frontend_ip_address_type` : フロントエンド IP の方式 - `Public`, `Private`, `Both`
+-   `tag` : リソースを分類するためのタグ
 
--   `linked_waf_policy_name` : 接続する Web Application Firewall Policy の名前
+#### Public フロントエンド IP 構成 (`public_frontend_ip_configuration`)
 
--   `sku_tier` : Application Gateway 使用のための価格設定階層(SKU)
+-   `public_frontend_ip_configuration.ip_config_name` : Public フロントエンド IP 構成名
+-   `public_frontend_ip_configuration.linked_public_ip_name` : 接続する Public IP 名
 
--   `sku_name` : Application Gateway 使用のための価格設定階層名
+#### Private フロントエンド IP 構成 (`private_frontend_ip_configuration`)
 
--   `sku_capacity` : Application Gateway 使用のための価格設定階層名 - `1` ~ `32`
+-   `private_frontend_ip_configuration.ip_config_name` : Private フロントエンド IP 構成名
+-   `private_frontend_ip_configuration.private_ip_address_allocation` : Private IP の割り当て方式 - `Static`, `Dynamic`
+-   `private_frontend_ip_configuration.private_ip_address` : Private IP アドレス
 
--   `gateway_ip_config_name` : 使用する Gateway IP Configuration 名
+#### Backend Pool (`backend_pool`)
 
--   `frontend_ip_address_type` : Private と Public の間で使用するフロントエンド方式 - `Both`, `Private`, `Public`
+-   `backend_pool.target.target_type` : Backend 対象の種類 - `ip`, `fqdn`, `vm`, `app_service`
+-   `backend_pool.target.target` : Backend 対象の IP または FQDN
+-   `backend_pool.target.linked_target_name` : 接続する Backend リソース名
 
--   `public_frontend_ip_configuration`
+#### HTTP リスナー (`http_listener`)
 
-    -   `ip_config_name` : Frontend IP 構成名前
-    -   `linked_public_ip_name` : 接続するパブリック IP 名
+-   `http_listener.frontend_ip_config` : 使用する Frontend IP 構成の種類
+-   `http_listener.frontend_port_name` : Frontend Port 名
+-   `http_listener.frontend_port` : Frontend Port 番号
+-   `http_listener.protocol` : クライアントと Gateway 間のプロトコル - `Http`, `Https`
+-   `http_listener.cert_name` : HTTPS 使用時の SSL 証明書名
+-   `http_listener.pfx_cert_data` : PFX 証明書データ
+-   `http_listener.password` : PFX 証明書のパスワード
 
--   `private_frontend_ip_configuration`
+#### Backend HTTP 設定 (`backend_http_settings`)
 
-    -   `ip_config_name` : Private Ip Config の名前
-    -   `private_ip_address_allocation` : Private IP アドレスの割り当て方法 - `Static`, `Dynamic`
-    -   `private_ip_address` : Private IP アドレス
+-   `backend_http_settings.protocol` : Backend に転送する際に使用するプロトコル
+-   `backend_http_settings.port` : Backend の受信ポート
+-   `backend_http_settings.cookie_based_affinity` : クッキーベースのセッション維持を有効にするかどうか
+-   `backend_http_settings.request_timeout` : リクエストのタイムアウト（秒）
 
--   `backend_pool_names` : Application Gateway と接続する Backend Pool リスト
+#### リクエスト ルーティング ルール (`request_routing_rule`)
 
--   `http_listener`
-    -   `frontend_ip_config` : 使用する Frontend IP 構成の種類 - `Public`, `Private`
-    -   `frontend_port_name` : 使用する Frontend Port の名前
-    -   `frontend_port` : Frontend Port のポート番号 - `1`~ `65502`
-    -   `protocol` : クライアントと Application Gateway の間のプロトコル - `Http`, `Https`
--   `backend_http_settings`
-    -   `protocol` : リクエストを Backend Server にルーティングする時に使用するプロトコル - `Http`, `Https`
-    -   `port` : 使用する Frontend Port の名前- `1`~ `65535`
-    -   `cookie_based_affinity` : 後続のトラフィック処理のためのクッキーベースの好みの有効化 - `Enabled`, `Disabled`
-    -   `request_timeout` : リクエストタイムオーバーの設定(秒) - `1`~ `86400`
--   `request_routing_rule`
+-   `request_routing_rule.http_listener_name` : 接続する HTTP リスナー名
+-   `request_routing_rule.backend_pool_name` : 接続する Backend Pool 名
+-   `request_routing_rule.backend_http_settings_name` : 接続する Backend HTTP Settings 名
+-   `request_routing_rule.priority` : ルーティング ルールの優先度
 
-    -   `rule_type` : リクエストが配信される Backend Server Pool を定義するためのルーティング ルール タイプ - `Basic`, `PathBasedRouting`
-    -   `http_listener_name` : ルールを付加する HTTP リスナーの名前
-    -   `backend_address_pool_name` : ルールを付加する Backend Pool の名前
-    -   `backend_http_settings_name` : ルールを付加する Backend HTTP settings の名前
-    -   `priority` : Routing Rule の優先順位
+#### パスベース ルーティング (`request_routing_rule.path_based_routing`)
 
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `path_based_routing.paths` : パスの一覧
+-   `path_based_routing.backend_pool_name` : パスに接続する Backend Pool 名
+-   `path_based_routing.backend_http_settings_name` : パスに接続する Backend HTTP Settings 名
 
 ---
 
 ## 参考資料
 
--   [Azure ApplicationGateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/overview)
--   [Azure ApplicationGateway 価格](https://azure.microsoft.com/en-us/pricing/details/application-gateway/)
--   [Azure ApplicationGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_gateway)
+-   [Azure Application Gateway の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/application-gateway/overview)
+-   [Application Gateway の構成要素（Microsoft）](https://learn.microsoft.com/ko-kr/azure/application-gateway/application-gateway-components)
+-   [WAF と Application Gateway の統合（Microsoft）](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/ag-overview)

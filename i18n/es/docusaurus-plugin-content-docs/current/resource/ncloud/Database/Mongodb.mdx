@@ -1,0 +1,55 @@
+---
+title: Mongodb
+sidebar_position: 0
+tags: [Ncloud, Recurso, Database, Mongodb]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Cloud DB for MongoDB permite construir y gestionar automáticamente bases de datos MongoDB de forma sencilla. Es un servicio de base de datos en la nube totalmente gestionado, con configuración optimizada por Naver que garantiza una operación estable y recuperación automática en caso de fallos.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+
+### Recursos subordinados
+
+
+
+## Valores de configuración del recurso
+
+-   `server_name_prefix` : Nombre del servidor MongoDB
+-   `user_name` : ID de acceso del usuario a MongoDB
+-   `user_password` : Contraseña del usuario de MongoDB
+-   `cluster_type_code` : Código del tipo de clúster de MongoDB - `Stand Alone`, `Stand Replica Set`, `Shared Cluster`
+-   `image_product_code` : Código del producto de la imagen de versión de MongoDB
+-   `member_port` : Puerto TCP para acceder al servidor MongoDB Member - `10000-65535`
+-   `member_server_count` : Número de servidores Member de MongoDB; depende del tipo de réplica - `3-7`
+-   `mongos_server_count` : Número de servidores Mongos de MongoDB - `2-5`
+-   `backup_file_retention_period` : Período de retención de archivos de backup, realizado diariamente y almacenado en almacenamiento separado - `1~30`
+-   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
+-   `compress_code` : Código del algoritmo de compresión de datos en MongoDB - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+
+
+
+---
+
+## Documentación de referencia
+
+
+-   [MongoDB(Ncloud)](https://www.ncloud.com/product/database/cloudDbMongoDB)
+-   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

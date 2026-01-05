@@ -1,0 +1,52 @@
+---
+title: BackupPlan
+sidebar_position: 0
+tags: [AWS, Risorsa, Backup, BackupPlan]
+---
+
+<hr />
+<br />
+
+## Icona Risora
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.png"
+    }
+/>
+
+## Panoramica Risorse
+
+Espressione della politica che definisce quando e come eseguire il backup delle risorse AWS. Le risorse possono essere assegnate a un Piano di Backup, e AWS Backup eseguirà automaticamente il backup delle risorse e le manterrà in base al Piano di Backup.
+
+### Risorse superiori
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Risorse correlate
+
+## Impostazioni della risorsa
+
+- `rule`
+  - `rule_name` : Nome della regola di backup
+  - `backup_vault_name` : Nome del contenitore logico utilizzato per il salvataggio del backup
+  - `frequency_type` : Tempistica del ciclo di backup
+  - `frequency_hour` : Ora di inizializzazione del piano di backup - `1 o superiore`
+  - `start_time` : Ora di inizio del piano di backup
+  - `start_after_minutes` : Tempo totale necessario prima di avviare il backup - `60 o superiore`
+  - `complete_after_minutes` : Tempo (in minuti) in cui AWS Backup tenterà di eseguire il backup prima di annullare l'operazione e restituire un errore - `121 o superiore`
+  - `enabled_use_cold_storage` :  Se utilizzare o meno il cold storage
+  - `warm_storage_retention_days` : Numero di giorni specificato per spostare i punti di ripristino nel cold storage dopo la creazione - `1 ~ 36410`
+  - `cold_retention_days` : Numero di giorni specificato per eliminare i punti di ripristino dopo la creazione - `91 ~ 36500`
+
+- `resource_assignment`
+  - `name`
+  - `iam_role_arn` : ARN del ruolo IAM utilizzato da AWS Backup per l'autenticazione durante il ripristino e il backup delle risorse target
+  - `enabled_contain_all` : Se includere tutte le risorse - `false`, `true`
+
+---
+
+## Materiale di riferimento
+
+-   [Amazon BackupPlan(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
+-   [Amazon BackupPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)

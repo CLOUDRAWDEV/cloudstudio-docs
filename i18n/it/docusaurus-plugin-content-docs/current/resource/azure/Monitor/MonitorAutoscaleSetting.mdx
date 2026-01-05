@@ -1,0 +1,106 @@
+---
+title: MonitorAutoscaleSetting
+sidebar_position: 0
+tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Monitor Autoscale Setting è una funzionalità di scalabilità automatica basata su Azure Monitor che **regola automaticamente il numero di istanze delle risorse** per gestire il carico dell’applicazione.  
+Le risorse possono essere scalate in modo flessibile verso l’alto o verso il basso in base a metriche come CPU, memoria, disco e rete, nonché a condizioni basate su pianificazione.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/it/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/it/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+
+## Valori di configurazione della risorsa
+
+#### Risorsa di destinazione
+
+-   `linked_target_resource_name` : Nome della risorsa a cui viene applicata l’impostazione di scalabilità automatica (sola lettura)
+
+---
+
+#### Condizione di scalabilità (`scale_condition`)
+
+Definisce il profilo di scalabilità applicato quando viene eseguito il motore di autoscaling.
+
+##### Impostazioni del numero di istanze
+
+-   `scale_condition.min_instance_count` : Numero minimo di istanze - `0` ~ `1000`
+-   `scale_condition.max_instance_count` : Numero massimo di istanze - `1` ~ `1000`
+-   `scale_condition.default_instance_count` : Numero predefinito di istanze da mantenere quando le metriche non possono essere lette e la capacità corrente è inferiore alla capacità predefinita
+
+---
+
+##### Regole di scalabilità (`scale_condition.rule`)
+
+Definisce le condizioni in base alle quali vengono attivate le azioni di scalabilità basate sulle metriche.
+
+-   `rule.metric_name` : Nome della metrica monitorata dalla regola
+-   `rule.operator` : Operatore utilizzato per confrontare il valore della metrica con la soglia
+    -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
+-   `rule.metric_threshold` : Valore della metrica utilizzato per valutare se avviare un’azione di scalabilità
+
+##### Impostazioni di valutazione delle metriche
+
+-   `rule.time_window` : Intervallo di tempo (minuti) durante il quale vengono raccolti i dati delle metriche - `5` ~ `720`
+-   `rule.time_grain` : Intervallo di campionamento delle metriche (minuti) - `1` ~ `720`
+-   `rule.time_grain_statistic` : Metodo di aggregazione delle metriche tra più istanze - `Average`, `Min`, `Max`
+-   `rule.time_aggregation` : Metodo utilizzato per aggregare le metriche campionate
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
+
+##### Azioni di scalabilità
+
+-   `rule.scale_direction` : Direzione della scalabilità - `Increase`, `Decrease`
+-   `rule.scale_operation` : Tipo di operazione di scalabilità
+    -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
+-   `rule.scale_instance_count` : Numero di istanze associate all’operazione di scalabilità - `1` ~ `1000`
+-   `rule.scale_cooldown` : Periodo di attesa prima della successiva azione di scalabilità (minuti) - `1` ~ `10080`
+
+---
+
+#### Impostazioni di pianificazione
+
+Consente di applicare le azioni di scalabilità in base a una pianificazione.
+
+-   `schedule_type` : Tipo di pianificazione applicata alle azioni di scalabilità
+    -   `start_end_dates`, `repeat_days`
+-   `timezone` : Fuso orario in cui la pianificazione è applicata
+-   `start_date` : Data di inizio della pianificazione
+-   `end_date` : Data di fine della pianificazione
+-   `repeat_days` : Giorni della settimana in cui la pianificazione è applicata
+-   `start_time` : Ora di inizio della pianificazione
+-   `end_time` : Ora di fine della pianificazione
+
+---
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Autoscale (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
+-   [Configurazione delle impostazioni di Autoscale (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
+-   [Metriche di Azure Monitor (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)

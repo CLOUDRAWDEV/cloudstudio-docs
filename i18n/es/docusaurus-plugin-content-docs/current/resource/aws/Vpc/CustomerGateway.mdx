@@ -1,0 +1,39 @@
+---
+title: Customer Gateway
+sidebar_position: 0
+tags: [AWS, Recurso, Vpc, CustomerGateway]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS Transit Gateway conecta Amazon Virtual Private Cloud (VPC) con redes on-premise a través de un hub central. Esta conexión elimina relaciones de peering complejas y simplifica la red. Transit Gateway actúa como un router en la nube altamente escalable.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+## Valores de configuración del recurso
+
+-   `bgp_asn` : ASN (Número de Sistema Autónomo) del protocolo BGP (Border Gateway Protocol) del gateway
+-   `ip_address` : Dirección IP de la interfaz externa con capacidad de enrutamiento por Internet del gateway
+
+---
+
+## Documentación de referencia
+
+-   [AWS Transit Gateway (AWS)](https://aws.amazon.com/ko/transit-gateway/?nc2=type_a)
+-   [Precios de AWS Transit Gateway (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
+-   [aws_customer_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/customer_gateway)

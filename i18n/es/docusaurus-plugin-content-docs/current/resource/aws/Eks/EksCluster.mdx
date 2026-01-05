@@ -1,0 +1,73 @@
+---
+title: Eks Cluster
+sidebar_position: 0
+tags: [AWS, recurso, Eks, EksCluster]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/eks-eks_cluster.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon Elastic Kubernetes Service (Amazon EKS) es un servicio gestionado que permite ejecutar Kubernetes en AWS sin necesidad de instalar ni operar clústeres de Kubernetes manualmente.
+
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Recurso conectado
+
+-   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+
+
+## Valores de configuración del recurso
+
+-   `version` : Versión del clúster EKS  
+-   `cluster_role_arn` : Rol IAM que permite al plano de control de Kubernetes gestionar recursos de AWS en nombre del usuario  
+-   `enabled_encryption` : Activar cifrado para secretos – `true`, `false`  
+-   `included_subnet_names` : Nombres de las subredes que se incluirán en el grupo de subredes del clúster EKS  
+-   `security_group_name` : Nombre del grupo de seguridad que se asignará al clúster EKS  
+-   `endpoint_access_type` : Tipo de acceso al endpoint del servidor API de EKS – `public`, `publicAndPrivate`, `private`  
+-   `enabled_cluster_log_types` : Tipos de logging del plano de control que se activarán – `api`, `audit`, `authenticator`, `controllerManager`, `scheduler`  
+-   `add_ons`
+
+    -   `kube_proxy_version` : Versión del proxy de red ejecutado en cada nodo – `v1.26.4-eksbuild.1`, `v1.26.2-eksbuild.1`, `v1.25.9-eksbuild.1`, `v1.25.6-eksbuild.2`, `v1.24.10-eksbuild.2`  
+    -   `vpc_cni_version` : Versión del plugin Amazon VPC CNI – `v1.12.6-eksbuild.2`, `v1.12.6-eksbuild.1`, `v1.12.5-eksbuild.2`, `v1.12.0-eksbuild.2`  
+    -   `core_dns_version` : Versión del servicio DNS dentro del clúster – `v1.9.3-eksbuild.3`, `v1.9.3-eksbuild.2`, `v1.8.7-eksbuild.4`  
+
+-   `node_group` : Nombre del grupo de nodos del clúster (puede incluir letras, números, guiones y guiones bajos)  
+    -   `node_role_arn` : Rol IAM utilizado por los nodos  
+    -   `enable_launch_template` : Usar plantilla de lanzamiento para configurar el grupo de nodos – `true`, `false`  
+    -   `min_node_count` : Número mínimo de nodos trabajadores en EKS  
+    -   `max_node_count` : Número máximo de nodos trabajadores en EKS  
+    -   `desired_node_count` : Número deseado de nodos trabajadores en EKS  
+    -   `max_node_unavailable` : Máximo número de nodos trabajadores que pueden estar inactivos durante una actualización del grupo de nodos  
+    -   `max_percentage_unavailable` : Porcentaje máximo de nodos inactivos durante una actualización – `1`~`100`  
+    -   `disk_size` : Tamaño del volumen EBS adjunto a cada nodo
+
+---
+
+## Documentación de referencia
+
+-   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+-   [Precios de Amazon EKS (AWS)](https://aws.amazon.com/ko/eks/pricing/)
+-   [aws_eks_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)
+
+---
+
+## Documentación de referencia
+
+-   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+-   [Amazon EKS 요금(AWS)](https://aws.amazon.com/ko/eks/pricing/)
+-   [aws_eks_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)

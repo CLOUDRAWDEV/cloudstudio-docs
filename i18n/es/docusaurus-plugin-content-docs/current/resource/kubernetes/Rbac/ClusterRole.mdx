@@ -1,0 +1,59 @@
+---
+title: ClusterRole
+sidebar_position: 0
+tags: [Kubernetes, Recurso, RBAC, ClusterRole]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que crea un rol aplicado a nivel de clúster y en todos los namespaces
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+
+### Recursos conectados
+
+-   [**ClusterRolebinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRolebinding)
+
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del recurso ClusterRole
+-   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
+-   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
+-   `rule` : Reglas de políticas asociadas a este clusterrole
+    -   `name` : Nombre de la política
+    -   `api_groups` : API Group que contiene los recursos permitidos por la política
+    -   `resources` : Lista de recursos a los que se aplica esta regla
+    -   `resource_names` : Especifica instancias individuales del recurso si es necesario - si está vacío, se aplica a todos los recursos
+    -   `non_resource_urls` : Se usa para definir reglas en formato de URL en lugar de recursos - puede usarse para URLs de health check
+    -   `verbs` : Lista de verbos aplicables a todos los recursos incluidos en la regla
+
+
+
+
+
+
+---
+
+## Documentación de referencia
+
+-   [ClusterRole(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [ClusterRole(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

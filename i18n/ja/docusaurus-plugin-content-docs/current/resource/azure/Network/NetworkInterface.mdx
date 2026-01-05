@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 6
-tags: [Azure, リソース, Network, NetworkInterface]
+sidebar_position: 4
+tags: [Azure, Network, NetworkInterface]
 ---
 
 <hr />
@@ -11,35 +11,45 @@ tags: [Azure, リソース, Network, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.webp"
     }
 />
 
 ## リソース概要
 
+Network Interface は、Virtual Machine が Virtual Network 内のリソース、インターネット、およびオンプレミス ネットワークと通信できるようにするネットワーク接続リソースです。  
+Subnet に属して IP アドレスが割り当てられ、必要に応じて Public IP を関連付けることで外部通信を構成できます。  
+1 つの Network Interface に複数の IP 構成を定義できるため、さまざまなネットワーク シナリオに対応できます。
+
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
--   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Network Security Group**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NetworkSecurityGroup)
 
 ## リソース設定値
 
--   `included_subnet_name` : Network Interface が含まれている Subnet 名
--   `ip_configuration`
-    -   `is_primary` : 基本 Ip Configuration を有効にする - `true`, `false`
-    -   `private_ip_address_allocation` : プライベート IP アドレスの割り当て方法
-    -   `enabled_public_ip` : Public Ip 使用の可否 - `true`, `false`
-    -   `linked_public_ip_name` : 使用する Public Ip の名前
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `included_subnet_name` : Network Interface が含まれる Subnet の名前
+
+#### IP 構成 (`ip_configuration`)
+
+-   `ip_configuration.is_primary` : プライマリ IP 構成を有効にするかどうか - `true`, `false`
+-   `ip_configuration.private_ip_address_allocation` : プライベート IP アドレスの割り当て方式 - `Dynamic`, `Static`
+-   `ip_configuration.private_ip_address` : プライベート IP アドレス
+-   `ip_configuration.enabled_public_ip` : Public IP を使用するかどうか - `true`, `false`
+-   `ip_configuration.linked_public_ip_name` : 使用する Public IP の名前
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure NetworkInterface(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal#associate-or-dissociate-a-network-security-group)
--   [Azure NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+-   [Azure Network Interface の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface)
+-   [IP 構成の設定（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/virtual-network-network-interface-addresses)

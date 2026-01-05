@@ -1,0 +1,97 @@
+---
+title: Issuer
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Manifest, Issuer]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que puede aceptar solicitudes de firma de certificados y generar certificados firmados por una Autoridad Certificadora (CA).
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del recurso Issuer
+-   `acme` : Define una cuenta registrada en el servidor ACME (Entorno Automatizado de Gestión de Certificados) 
+    -   `acme.server` : Dirección del endpoint del servidor ACME
+    -   `acme.email` : Dirección de correo a la que Let's Encrypt enviará notificaciones sobre problemas o vencimientos del certificado
+    -   `acme.private_key_secret_ref` : Nombre del Secret de Kubernetes que almacena la clave del cliente para comunicarse con el servidor ACME
+-   `solver_type` : Define el método de resolución para el Challenge de emisión de certificados - `DNS`,`HTTP`
+
+**Solver-Type : DNS**
+-   `dns_solvers` : Configuraciones aplicables cuando se selecciona `DNS` como solver
+-   `name` : Nombre de la configuración dns_solver
+    -   `provider` : Selección del tipo de desafío DNS-01 - `AzureDNS`,`Route53`,`ACMEDNS` 
+
+    ***AzureDNS***
+    -   `azure_dns` : Configuraciones utilizadas cuando se selecciona AzureDNS como tipo de desafío DNS-01
+        -   `name` : Nombre de la configuración AzureDNS
+            -   `client_id` : ID de cliente de la aplicación Azure Service Principal
+            -   `client_secret_name` : Nombre del Secret de Kubernetes que contiene el client secret de la aplicación Azure Service Principal
+            -   `client_secret_key` : Nombre de la clave dentro del Secret a utilizar
+            -   `subscription_id` : ID de la suscripción de Azure
+            -   `tenant_id` : Tenant ID de la suscripción de Azure
+            -   `resource_group_name` : Grupo de recursos al que pertenece la zona DNS de Azure
+            -   `hosted_zone_name` : Nombre de la zona alojada en Azure DNS Zone
+
+    ***Route53***        
+    -   `route_53` : Configuraciones utilizadas cuando se selecciona Route53 como tipo de desafío DNS-01
+        -   `name` : Nombre de la configuración de Route53
+            -   `region` : Región de AWS donde se utiliza el servicio Route 53
+            -   `access_key_id` : ID de clave de acceso de AWS
+            -   `access_key_secret_name` : Nombre del Secret de Kubernetes que contiene el valor del access_key_id (puede omitirse si se especifica `access_key_id`)
+            -   `access_key_secret_key` : Nombre de la clave dentro del Secret a utilizar (puede omitirse si se especifica `access_key_id`)
+            -   `access_key_secret_key` : Nombre del Secret que contiene la clave secreta de acceso de AWS
+            -   `secret_access_key_secret_key` : Nombre de la clave dentro del Secret que contiene la clave secreta de acceso de AWS
+            -   `role` : Rol de AWS IAM con permisos para administrar DNS en Route53
+
+    ***ACMEDNS***          
+    -   `acme_dns` : Configuraciones utilizadas cuando se selecciona ACMEDNS como tipo de desafío DNS-01
+        -   `name` : Nombre de la configuración de ACMEDNS
+            -   `host` : Dirección endpoint del servidor acme-dns
+            -   `account_secret_ref_name` : Nombre del Secret de Kubernetes que almacena la información de cuenta para el servidor acme-dns
+            -   `account_secret_ref_key` : Nombre de la clave dentro del Secret utilizada para almacenar la información de cuenta del servidor acme-dns
+
+**Solver-Type : HTTP-01**
+-   `http_solvers` : Configuraciones aplicables cuando se selecciona `HTTP` como solver
+-   `name` : Nombre de la configuración http_solver
+    -   `provider` : Selección del tipo de desafío HTTP-01 - `Ingress`,`Gateway`
+
+    ***Ingress***
+    -   `ingress` : Configuración utilizada cuando se selecciona Ingress como método de resolución HTTP-01
+        -   `name` : Nombre de la configuración Ingress para el desafío HTTP-01
+            -   `ingress_class_name` : Nombre de la clase de Ingress que se utilizará
+    ***Gateway***
+    -   `Gateway` : Configuración utilizada cuando se utiliza Gateway para resolver el desafío HTTP-01
+        -   `name` : Nombre de la configuración Gateway para el desafío HTTP-01
+            -   `namespace` : Namespace al que pertenece el recurso Gateway a conectar
+            
+
+---
+
+## Documentación de referencia
+
+
+-   [Issuer(CertManager)](https://cert-manager.io/docs/concepts/issuer/)

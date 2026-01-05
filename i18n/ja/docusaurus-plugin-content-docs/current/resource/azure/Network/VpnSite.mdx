@@ -1,0 +1,51 @@
+---
+title: VpnSite
+sidebar_position: 22
+tags: [Azure, Network, VpnSite]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-vpn_site.webp"
+    }
+/>
+
+## リソース概要
+
+Azure VpnSite は、**オンプレミスネットワークを Virtual WAN 環境に接続するための VPN サイト定義リソース**です。  
+オンプレミス VPN デバイスの情報、アドレス空間、リンク情報を基に、Site-to-Site VPN 接続の論理的な対象を構成します。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Virtual Wan**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualWan)
+-   [**VPN Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetworkGateway)
+
+## リソース設定値
+
+-   `linked_virtual_wan_name` : VPN Site が接続される Virtual WAN の名前
+-   `device_vendor` : オンプレミス VPN デバイスの製造元
+-   `address_cidrs` : VPN Site で使用される IP アドレス範囲（CIDR）の一覧
+
+#### Link (`link`)
+
+-   `link.speed_in_mbps` : 該当リンクの最大回線速度（Mbps）
+-   `link.ip_address` : VPN デバイスに割り当てられたパブリック IP アドレス
+-   `link.provider_name` : 回線提供事業者名
+-   `link.autonomous_system_number` : BGP 使用時のオンプレミスルーターの ASN
+-   `link.peering_address` : BGP ピアリングに使用されるローカルルーター IP アドレス
+
+## 参考資料
+
+-   [Azure VPN Site の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-site-about)
+-   [Azure Virtual WAN VPN アーキテクチャ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

@@ -1,7 +1,7 @@
 ---
 title: Firewall
-sidebar_position: 3
-tags: [Azure, Resource, Network, Firewall]
+sidebar_position: 14
+tags: [Azure, Network, Firewall]
 ---
 
 <hr />
@@ -11,83 +11,77 @@ tags: [Azure, Resource, Network, Firewall]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best threat protection for cloud workloads running on Azure. 
-It is a fully stateful firewall service with built-in high availability and unlimited cloud scalability.
+Azure Firewall is a **managed network firewall service** deployed within a Virtual Network that centrally controls inbound and outbound traffic and provides threat protection.  
+It supports L3–L7 level filtering through Network, Application, and NAT rules, and is commonly used as a shared security boundary in hub-and-spoke or single VNet architectures.
 
-## Associated Resources
+## Related Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
-## Resource Setting Values
+## Resource Configuration Values
 
--   `included_subnet_name` : The name of Subnet to which to attach Firewall
+-   `sku_tier` : Pricing tier of the Firewall - `Basic`, `Standard`, `Premium`
+-   `ip_config_name` : Name of the IP Configuration
+-   `included_subnet_name` : Name of the Subnet where the Firewall will be deployed
+-   `linked_firewall_subnet_public_ip_name` : Name of the Public IP to associate with the Firewall Subnet
+-   `management_ip_config_name` : Name of the Management IP Configuration
+-   `target_firewall_management_subnet_name` : Name of the Firewall Management Subnet
+-   `linked_firewall_management_subnet_public_ip_name` : Name of the Public IP to associate with the Firewall Management Subnet
+-   `sku_name` : Firewall SKU name - `AZFW_VNet`, `AZFW_Hub`
+-   `tag` : Tags used to classify the resource
 
--   `sku_tier` : The SKU of Firewall - `Basic`, `Standard`, `Premium`
+#### Network Rule Collection (`network_rule_collection`)
 
--   `sku_name` : Sku name of the Firewall -`AZFW_VNet`, `AZFW_Hub`
+-   `network_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `network_rule_collection.action` : Action applied to matching traffic - `Allow`, `Deny`
 
--   `linked_public_ip_name` : The Public IP name to connect to Firewall
+#### Network Rules (`network_rules`)
 
--   `ip_config_name` : The name of IP configuration
+-   `network_rules.source_addresses` : List of source IP addresses or ranges
+-   `network_rules.destination_ports` : List of destination ports
+-   `network_rules.destination_addresses` : List of destination IP addresses or ranges
+-   `network_rules.protocols` : List of protocols for the rule - `TCP`, `UDP`, `ICMP`, `Any`
 
--   `network_rule_collection`
+#### Application Rule Collection (`application_rule_collection`)
 
-    -   `priority` : The priority of the Rule collection, Between 100 and 65000 - `100`~ `65000`
-    -   `action` : Actions to apply Rule to matching traffic - `Allow`,`Deny`
+-   `application_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `application_rule_collection.action` : Action applied to matching traffic - `Allow`, `Deny`
 
-- `network_rules`
+#### Application Rules (`application_rules`)
 
-    - `source_addresses` : The list of source IP Addresses or IP ranges
-    - `destination_ports` : The list of destination ports
-    - `destination_addresses` : The list of destination IP addresses or IP ranges
-    - `protocols` : The list of protocols that configure the Rule - `TCP`,`UDP`,`ICMP`,`Any`
+-   `application_rules.source_addresses` : List of source IP addresses or ranges
+-   `application_rules.target_fqdns` : List of FQDNs for outbound traffic filtering
+-   `application_rules.protocol_port` : Port used for the protocol connection
+-   `application_rules.protocol_type` : Protocol type - `Http`, `Https`, `Mssql`
 
-- `application_rule_collection`
+#### NAT Rule Collection (`nat_rule_collection`)
 
-    - `priority` : The priority of the Rule collection, Between 100 and 65000 - `100` ~ `65000`
-    - `action` : Actions to apply Rule to matching traffic - `Allow`,`Deny`
+-   `nat_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `nat_rule_collection.action` : Action applied to matching traffic - `Dnat`, `Snat`
 
-- `application_rules`
+#### NAT Rules (`nat_rules`)
 
-    - `source_addresses` : The list of source IP Addresses or IP ranges
-    - `target_fqdns` : The list of FQDNs to filter outbound traffic with any TCP/UDP porotocol
-    - `protocol_port` : The port for the connection - `1` ~ `65502`
-    - `protocol_type` : The type of connectio - `Http`, `Https`, `Mssql`
-
-- `nat_rule_collection`
-
-    - `priority` : The priority of the Rule collection, Between 100 and 65000 - `100` ~ `65000`
-    - `action` : Actions to apply Rule to matching traffic - `Dnat`, `Snat`
-
-- `nat_rules`
-
-    - `source_addresses` : The list of source IP Addresses or IP ranges
-    - `destination_ports` : The list of destination ports
-    - `translated_port` : The port of the service behind the Firewall
-    - `translated_address` : The address of the service behind the Firewall
-    - `protocols` : The list of protocols that configure the Rule - `TCP`, `UDP`, `ICMP`, `Any`
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `nat_rules.source_addresses` : List of source IP addresses or ranges
+-   `nat_rules.destination_ports` : List of destination ports
+-   `nat_rules.translated_port` : Translated port
+-   `nat_rules.translated_address` : Translated address
+-   `nat_rules.protocols` : List of protocols for the rule - `TCP`, `UDP`, `ICMP`, `Any`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure Firewall(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
--   [Azure Firewall Price](https://azure.microsoft.com/en-us/pricing/details/azure-firewall/)
--   [Azure Firewall(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+-   [Azure Firewall Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall Rule Processing Logic (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)

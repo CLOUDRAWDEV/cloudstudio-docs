@@ -1,7 +1,7 @@
 ---
 title: NetworkSecurityGroup
-sidebar_position: 7
-tags: [Azure, リソース, Network, NetworkSecurityGroup]
+sidebar_position: 2
+tags: [Azure, Network, NetworkSecurityGroup, Security]
 ---
 
 <hr />
@@ -11,16 +11,15 @@ tags: [Azure, リソース, Network, NetworkSecurityGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_security_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_security_group.webp"
     }
 />
 
 ## リソース概要
 
-Azure NSG（ネットワークセキュリティグループ）は、Azure の VNet（仮想ネットワーク）からリソースへのアクセスを制御するネットワーキングフィルタです。定義されたルール セットに従ってネットワーク トラフィックを許可または拒否するファイアウォールとして機能します。
-NSG を VNet のサブネット、ネットワーク インターフェイス、または仮想マシンと接続できます。 NSG がリソースに接続されると、そのリソースへのインバウンドおよびアウトバウンドトラフィックをフィルタリングします。
-NSG は優先順位を指定できる複数のインバウンドおよびアウトバウンドセキュリティルールを含むことができるため、ネットワークトラフィックを詳細に制御することができます。
-NSG は仮想ネットワークリソースに対する追加の保護層を提供する Azure ネットワークセキュリティの重要な構成要素です。これにより、サブネットレベルでネットワークトラフィックをフィルタリングし、潜在的な脅威への露出を制限できます。
+Network Security Group は、Virtual Network 内の Azure リソースに対するインバウンドおよびアウトバウンドのネットワークトラフィックを、ルールに基づいて制御するセキュリティリソースです。  
+優先度ベースのセキュリティルールにより、プロトコル、ポート、IP アドレス範囲単位でトラフィックの許可または拒否を設定でき、Subnet または Network Interface に関連付けて適用できます。  
+これにより、アプリケーションのネットワークアクセス範囲を明確に制御し、セキュリティレベルを強化できます。
 
 ## 関連リソース
 
@@ -30,46 +29,33 @@ NSG は仮想ネットワークリソースに対する追加の保護層を提�
 
 ### 接続リソース
 
--   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Windowsserver Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsserverVirtualMachine)
--   [**Application Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/ApplicationGateway)
--   [**Bastion Host**](https://docs.cstudio.app/ja/docs/resource/azure/Network/BastionHost)
 -   [**Network Interface**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NetworkInterface)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ## リソース設定値
 
--   `security_rules`
+-   `linked_subnet_names` : Network Security Group を関連付ける Subnet の名前
+-   `linked_network_interface_names` : Network Security Group を関連付ける Network Interface の名前
 
-    -   `http`
-        -   `priority` : ルールの優先順位、100 ~ 4096 の範囲 - `100`~ `4096`
-        -   `direction` : Rule がインバウンドまたはアウトバウンドトラフィックに適用されるかどうかの可否 - `Inbound`, `Outbound`
-        -   `access` : ネットワークトラフィックを許容 - `Allow`, `Deny`
-        -   `protocol` : ルールが適用されるネットワークプロトコル - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
-        -   `source_port_ranges` : Source Port もしくは Port の範囲、定数または 0 ~ 65535 の範囲
-        -   `destination_port_ranges` : Destination Port もしくは Port 範囲、定数または 0 ~ 65535 の範囲
-        -   `source_address_prefixes` : CIDR または Source IP の範囲を指定
-        -   `destination_address_prefixes` : CIDR または Destination IP の範囲を指定
-        -   `description` : Security Rule の説明
-    -   `https`
-        -   `priority` : ルールの優先順位、100 ~ 4096 の範囲 - `100`~ `4096`
-        -   `direction` : Rule がインバウンドまたはアウトバウンドトラフィックに適用されるかどうかの可否 - `Inbound`, `Outbound`
-        -   `access` : ネットワークトラフィックを許容 - `Allow`, `Deny`
-        -   `protocol` : ルールが適用されるネットワークプロトコル - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
-        -   `source_port_ranges` : Source Port もしくは Port の範囲、定数または 0 ~ 65535 の範囲
-        -   `destination_port_ranges` : Destination Port もしくは Port 範囲、定数または 0 ~ 65535 の範囲
-        -   `source_address_prefixes` : CIDR または Source IP の範囲を指定
-        -   `destination_address_prefixes` : CIDR または Destination IP の範囲を指定
-        -   `description` : Security Rule の説明
+#### セキュリティルール (`security_rules`)
 
--   `linked_subnet_names` : Network Security Group を接続する Subnet の名前
+-   `security_rules.priority` : ルールの優先度 - `100` ~ `4096`
+-   `security_rules.direction` : ルールが適用されるトラフィックの方向 - `Inbound`, `Outbound`
+-   `security_rules.access` : ネットワークトラフィックを許可するかどうか - `Allow`, `Deny`
+-   `security_rules.protocol` : ルールが適用されるネットワークプロトコル - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
+-   `security_rules.source_port_ranges` : 送信元ポートまたはポート範囲 - 整数または `0` ~ `65535`
+-   `security_rules.destination_port_ranges` : 宛先ポートまたはポート範囲 - 整数または `0` ~ `65535`
+-   `security_rules.source_address_prefixes` : CIDR または送信元 IP アドレス範囲
+-   `security_rules.destination_address_prefixes` : CIDR または宛先 IP アドレス範囲
+-   `security_rules.description` : セキュリティルールの説明
 
--   `linked_network_interface_names` : Network Security Group を接続する Network Interface 名
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+#### タグ
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure NetworkSecurityGroup(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview)
--   [Azure NetworkSecurityGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+-   [Network Security Groups の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview)
+-   [NSG セキュリティルール（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview#security-rules)

@@ -1,0 +1,111 @@
+---
+title: Metric
+sidebar_position: 1
+tags: [Azure, Monitor, Metric, Alert]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-metric.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Metric è una risorsa di configurazione che valuta le condizioni sulla base di **dati numerici basati sul tempo (metriche)** che rappresentano le prestazioni o lo stato delle risorse monitorate, e genera avvisi quando vengono soddisfatte le soglie definite.  
+Configurando insieme le risorse di destinazione, le condizioni delle metriche (criteria) e i metodi di notifica (action group), è possibile automatizzare il monitoraggio e gli avvisi.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/it/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/it/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux App Service**](https://docs.cstudio.app/it/docs/resource/azure/Web/LinuxWebApp)
+-   [**Windows App Service**](https://docs.cstudio.app/it/docs/resource/azure/Web/WindowsWebApp)
+-   [**Storage Account**](https://docs.cstudio.app/it/docs/resource/azure/Storage/StorageAccount)
+-   [**MSSQL Database**](https://docs.cstudio.app/it/docs/resource/azure/Database/MssqlDatabase)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/it/docs/resource/azure/Containers/KubernetesCluster)
+
+## Valori di configurazione della risorsa
+
+#### Risorse di destinazione (`target_resources`)
+
+Specifica l’elenco delle risorse di destinazione a cui verrà applicata la regola di avviso.
+
+-   `target_resources.resource_type` : Specifica il tipo di risorsa Azure della risorsa di destinazione
+    -   `windows_virtual_machine`, `linux_virtual_machine`, `windows_app_service`, `linux_app_service`, `storage_account`, `mssql_database`, `kubernetes_cluster`
+-   `target_resources.resource_name` : Nome della risorsa di destinazione
+-   `target_resources.mssql_server_name` : Se la risorsa di destinazione è `mssql_database`, nome del server MSSQL che contiene il database (sola lettura)
+
+---
+
+#### Descrizione (`description`)
+
+-   `description` : Descrizione della regola di avviso
+
+---
+
+#### Criteri (`criteria`)
+
+Definisce quali valori delle metriche e a quali condizioni verrà generato un avviso.
+
+-   `criteria.metric_namespace` : Namespace a cui appartiene la metrica monitorata
+-   `criteria.metric_name` : Nome della metrica da monitorare
+-   `criteria.aggregation` : Metodo utilizzato per aggregare i dati delle metriche
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Total`
+-   `criteria.operator` : Operatore utilizzato per confrontare il valore della metrica con la soglia
+    -   `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `Equal`
+-   `criteria.threshold` : Valore soglia che attiva l’avviso
+
+---
+
+#### Gruppo di azioni (`action_group`)
+
+Configura il gruppo di azioni che invia notifiche come email, Webhook, Azure Function o notifiche push dell’app mobile di Azure quando viene attivato un avviso.
+
+-   `action_group.short_name` : Nome breve utilizzato per identificare il gruppo di azioni
+-   `action_group.enable_action_group` : Indica se abilitare il gruppo di azioni - `true`, `false`
+
+##### Destinatario push dell’app mobile di Azure (`action_group.azure_app_push_receiver`)
+
+-   `azure_app_push_receiver.email_address` : Indirizzo email dell’utente che riceverà le notifiche dell’app mobile di Azure
+
+##### Destinatario Azure Function (`action_group.azure_function_receiver`)
+
+-   `azure_function_receiver.target_function_app_id` : ID della Function App in cui è distribuita la funzione
+-   `azure_function_receiver.function_name` : Nome della Azure Function da invocare
+-   `azure_function_receiver.http_trigger_url` : URL da invocare quando la funzione utilizza un trigger HTTP
+-   `azure_function_receiver.enable_common_alert_schema` : Indica se utilizzare lo schema di avviso comune - `true`, `false`
+
+##### Destinatario Webhook (`action_group.webhook_receiver`)
+
+-   `webhook_receiver.service_uri` : URL del servizio Webhook da chiamare quando viene attivato un avviso
+-   `webhook_receiver.enable_common_alert_schema` : Indica se utilizzare lo schema di avviso comune - `true`, `false`
+
+##### Destinatario email (`action_group.email_receiver`)
+
+-   `email_receiver.email_address` : Indirizzo email che riceverà l’avviso
+-   `email_receiver.enable_common_alert_schema` : Indica se utilizzare lo schema di avviso comune - `true`, `false`
+
+---
+
+#### Selezione del gruppo di azioni (`action_group_name`)
+
+-   `action_group_name` : Specifica il nome del gruppo di azioni da eseguire quando viene attivato un avviso
+
+---
+
+## Riferimenti
+
+-   [Panoramica sugli avvisi di metriche di Azure Monitor (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/alerts-metric-overview)
+-   [Creare un avviso di metriche (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/tutorial-metric-alert)

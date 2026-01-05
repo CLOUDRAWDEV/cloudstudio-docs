@@ -1,0 +1,43 @@
+---
+title: DxGateway
+sidebar_position: 0
+tags: [AWS, recurso, DirectConnect, DxGateway]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_gateway.png"
+    }
+/>
+
+## Descripción general del recurso
+
+DxGateway permite acceder a VPCs en regiones de AWS a través de una conexión Direct Connect.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+
+### Recursos secundarios
+
+-   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)  
+-   [**Vpn Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpnGateway)
+
+
+## Valores de configuración del recurso
+
+-   `side_asn` : ASN (Número de Sistema Autónomo) del lado de Amazon – `64512 ~ 4294967294`
+
+---
+
+## Documentación de referencia
+
+-   [Amazon DxGateway(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/direct-connect-gateways-intro.html)
+-   [Amazon DxGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_gateway)

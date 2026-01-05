@@ -1,0 +1,61 @@
+---
+title: PrivateDnsResolver
+sidebar_position: 0
+tags: [Azure, Network, PrivateDnsResolver]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/private_dns_resolver-private_dns_resolver.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Private DNS Resolver is a **managed DNS resolver service that processes Private DNS queries within a Virtual Network or forwards queries to on-premises and external DNS servers**.  
+By using inbound and outbound endpoints along with forwarding rules, you can build a hybrid DNS resolution architecture.
+
+## Related Resources
+
+### Parent Resources
+
+-   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+
+### Connected Resources
+
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+
+## Resource Configuration Values
+
+-   `included_vnet_name` : Name of the Virtual Network to which the DNS Resolver is applied
+
+#### Inbound Resolver (`inbound`)
+
+-   `inbound.linked_inbound_subnet_name` : Name of the subnet where the inbound resolver endpoint is deployed
+-   `inbound.private_ip_allocation_method` : IP allocation method for the inbound endpoint - `Dynamic`, `Static`
+-   `inbound.private_ip_address` : Private IP address used by the inbound endpoint
+
+#### Outbound Resolver (`outbound`)
+
+-   `outbound.linked_outbound_subnet_name` : Name of the subnet where the outbound resolver endpoint is deployed
+-   `target_outbound_endpoints` : List of outbound resolver endpoints used for DNS query forwarding
+
+#### DNS Forwarding Rule (`rule`)
+
+-   `rule.domain_name` : Domain name to which the rule applies
+-   `rule.enable_forwarding_rule` : Whether to enable the DNS forwarding rule - `true`, `false`
+
+##### Target DNS Servers (`rule.target_dns_servers`)
+
+-   `rule.target_dns_servers.ip_address` : IP address of the target DNS server to forward queries to
+-   `rule.target_dns_servers.port` : Port number on which the DNS server is listening
+
+## References
+
+-   [Azure Private DNS Resolver Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-overview)
+-   [Azure DNS Forwarding Configuration (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-endpoints-rulesets)

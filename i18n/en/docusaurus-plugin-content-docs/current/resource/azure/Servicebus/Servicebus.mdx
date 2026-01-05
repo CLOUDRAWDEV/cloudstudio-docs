@@ -1,0 +1,58 @@
+---
+title: Servicebus
+sidebar_position: 0
+tags: [Azure, Messaging, ServiceBus]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/servicebus-servicebus.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Service Bus is a fully managed enterprise messaging service that supports asynchronous messaging between applications.  
+Through queue and topic/subscription models, it enables reliable message delivery, reduces coupling between distributed systems, and supports large-scale event processing scenarios.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Setting Values
+
+-   `sku` : Pricing tier of Service Bus - `Basic`, `Standard`, `Premium`
+-   `capacity` : Capacity unit used to control throughput performance in the Premium SKU
+-   `premium_messaging_partitions` : Number of partitions used in the Premium messaging tier - `1`, `2`, `4`
+-   `default_action` : Default action when applying network rules - `Allow`, `Deny`
+-   `public_network_access_enabled` : Whether to allow access to Service Bus from the public network - `true`, `false`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.target_subnet_name` : Name of the target subnet to which network rules are applied
+-   `network_rules.ignore_missing_vnet_service_endpoint` : Whether to ignore missing VNet service endpoints on the subnet - `true`, `false`
+
+#### Topic (`topic`)
+
+-   `topic.status` : Topic activation status - `Active`, `Disabled`
+-   `topic.enable_partitioning` : Whether to enable message partitioning - `true`, `false`
+
+#### Subscription (`subscription`)
+
+-   `subscription.target_topic_name` : Name of the target Topic to which the subscription is connected
+-   `subscription.max_delivery_count` : Maximum number of delivery attempts for a message
+
+---
+
+## Reference Materials
+
+-   [Azure Service Bus Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Azure Service Bus Messaging Patterns (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Azure Service Bus Network Security (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

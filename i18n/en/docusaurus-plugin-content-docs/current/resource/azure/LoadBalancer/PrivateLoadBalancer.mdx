@@ -1,7 +1,7 @@
 ---
 title: PrivateLoadBalancer
 sidebar_position: 0
-tags: [Azure, 리소스, LoadBalancer, PrivateLoadBalancer]
+tags: [Azure, LoadBalancer, PrivateLoadBalancer, Network]
 ---
 
 <hr />
@@ -11,66 +11,72 @@ tags: [Azure, 리소스, LoadBalancer, PrivateLoadBalancer]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/load_balancer-private_load_balancer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/load_balancer-private_load_balancer.webp"
     }
 />
 
 ## Resource Overview
 
-A Load Balancer refers to the efficient distribution of incoming network traffic across a group of backend resources or servers. 
-Azure Load Balancer operates at Layer 4 of the OSI (Open Systems Interconnection) model, serving as a single point of contact for clients. 
-The Load Balancer distributes inbound traffic arriving at its front end to instances in the backend pool. This distribution is governed by configured load-balancing rules and health probes. 
-Backend pool instances can be Azure Virtual Machines or instances from a Virtual Machine Scale Set. 
-A Private Load Balancer is used when only a private IP address is required at the front end and is employed to distribute traffic within a virtual network. 
-In hybrid scenarios, access to the Load Balancer's front end from an on-premises network is possible.
+A Private Load Balancer is a load balancing service that distributes incoming frontend traffic to backend pool instances in order to prevent traffic overload.
 
-## Associated Resources
+## Related Resources
 
 ### Parent Resource
 
 -   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Setting Values
+### Connected Resources
 
--   `sku` : The SKU to select the scale and features of the Azure Load Balancer - `standard`, `Basic`
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
 
--   `private_lb_frontend_ip_config`
+## Resource Configuration Values
 
-    -   `subnet_name` : The name of Subnet which should be associated with the IP configuration
+#### Basic Settings
 
--   `virtual_network_name` : The name of Virtual Machine which forward traffic
+-   `sku` : Pricing tier for selecting the scale and features of the Azure Load Balancer - `Standard`, `Basic`
+-   `virtual_network_name` : Name of the Virtual Network to which the Load Balancer delivers traffic
 
--   `backend_pool` : Name of the Load Balancer's backend pool
+#### Frontend IP Configuration (`private_lb_frontend_ip_config`)
 
-    -   `linked_virtual_machine_names` : Names of the virtual machines to which the Load Balancer will route traffic
+-   `private_lb_frontend_ip_config.subnet_name` : Name of the subnet associated with the IP configuration
 
--   `health_probe`
+#### Backend Pool (`backend_pool`)
 
-    -   `protocol` : The type of Backend endpoint protocol which health probe uses - `Http`, `Https`, `Tcp`
-    -   `port` : The port which health probe uses to check backend endpoint - `0` ~ `65535`
-    -   `request_path` : The path to use for GET when using Http(s) probes
-    -   `interval_in_seconds` : Specifies the number of seconds between checking response of the backend pool instance by health probes - `5` ~ `2147483646`
+-   `backend_pool` : Name of the Load Balancer backend pool
+-   `backend_pool.linked_virtual_machine_names` : Names of the Virtual Machines to which the Load Balancer delivers traffic (must belong to the selected Virtual Network)
 
--   `rule`
+#### Health Probe (`health_probe`)
 
-    -   `protocol` : The transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : the port for the external endpoint - `0` ~ `65534` - `0` ~ `65534`
-    -   `backend_port` : The port used for internal connections on the endpoint, 0 ~ 65535 - `0` ~ `65535`
-    -   `disable_outbound_snat` : Enable SNAT for outbound connections - `true`, `false`
-    -   `frontend_ip_configuration_name` : The name of the frontend IP configuration to which the rule is associated
-    -   `backend_pool_name` : The name of the Backend Address Pool to which the Load Balancer will forward traffic
+-   `health_probe.protocol` : Protocol type of the backend endpoint used by the health probe - `Http`, `Https`, `Tcp`
+-   `health_probe.port` : Port on which the health probe checks the backend endpoint - `1` ~ `65535`
+-   `health_probe.request_path` : Path used for GET requests when using Http(s) probes
+-   `health_probe.interval_in_seconds` : Interval (in seconds) at which the health probe checks the response of backend pool instances - `5` ~ `2147483646`
 
--   `nat_rule`
+#### Load Balancing Rule (`rule`)
 
-    -   `protocol` : The transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : The port for the external endpoint, Range between 0 and 65534 - `0` ~ `65534`
-    -   `backend_port` : The port used for internal connections on the endpoint, Range between 0 and 65535 - `0` ~ `65535`
-    -   `frontend_ip_configuration_name` : The name of the frontend IP configuration to which the nat rule is associated
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `rule.protocol` : Transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
+-   `rule.frontend_port` : Port of the external endpoint - `0` ~ `65534`
+-   `rule.backend_port` : Port used for internal connections - `0` ~ `65535`
+-   `rule.disable_outbound_snat` : Enables SNAT for the rule for outbound connections - `true`, `false`
+-   `rule.frontend_ip_config_name` : Name of the frontend IP configuration associated with the rule
+-   `rule.backend_pool_name` : Name of the backend address pool to which the Load Balancer delivers traffic
+
+#### NAT Rule (`nat_rule`)
+
+-   `nat_rule.protocol` : Transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
+-   `nat_rule.frontend_port` : Port of the external endpoint - `0` ~ `65534`
+-   `nat_rule.backend_port` : Port used for internal connections - `0` ~ `65535`
+-   `nat_rule.frontend_ip_config_name` : Name of the frontend IP configuration associated with the NAT rule
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+
 ---
 
-## Reference Materials
+## References
 
--   [Azure PrivateLoadBalancer(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
--   [Azure PrivateLoadBalancer Price](https://azure.microsoft.com/en-us/pricing/details/load-balancer/)
--   [Azure PrivateLoadBalancer(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb)
+-   [Azure Load Balancer Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
+-   [Load Balancer Health Probes (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-custom-probe-overview)
+-   [Load Balancer Rules and NAT Rules (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview#load-balancing-rules)

@@ -1,0 +1,121 @@
+---
+title: Registrar Terraform Cloud
+sidebar_position: 2
+tags: [Terraform Cloud, Terraform Cloud]
+last_update:
+    date: 09/30/2024
+---
+
+import terraformcloud01 from "./img/terraformcloud01.png"
+import terraformcloud02 from "./img/terraformcloud02.png"
+import terraformcloud03 from "./img/terraformcloud03.png"
+import terraformcloud04 from "./img/terraformcloud04.png"
+import terraformcloud05 from "./img/terraformcloud05.png"
+import terraformcloud06 from "./img/terraformcloud06.png"
+import terraformcloud07 from "./img/terraformcloud07.png"
+import terraformcloud08 from "./img/terraformcloud08.png"
+import terraformcloud09 from "./img/terraformcloud09.png"
+import styles from "/src/scss/_markdown.module.scss"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2024.09.30
+</span>
+
+<hr />
+<br />
+
+## Registrar Terraform Cloud
+
+Para validar o desplegar la infraestructura diseñada en el canvas de Cloud Studio, es necesario vincular una cuenta de Terraform Cloud.  
+Además, para vincular la cuenta de Terraform Cloud, primero debes realizar la [vinculación con la cuenta de Github](/docs/plugin/vcs/add-github) o [vinculación con la cuenta de Gitlab](/docs/plugin/vcs/add-gitlab).
+
+<br />
+
+<details>
+    <summary>¿Qué es Terraform Cloud?</summary>
+    <h5>
+        Terraform Cloud es un servicio gestionado de Terraform que permite automatizar y colaborar en la infraestructura.  
+        Gestiona el almacenamiento remoto del estado, así como las operaciones de plan y apply desde un punto central, 
+        facilitando la colaboración entre equipos.
+    </h5>
+</details>
+
+<p>&nbsp;</p>
+
+1. Regístrate e inicia sesión en [Terraform Cloud](https://app.terraform.io/session), luego haz clic en `icono de perfil - Account settings` desde la barra lateral izquierda.
+
+<img width="100%" src={terraformcloud01} alt="otp img" />
+
+<p>&nbsp;</p>
+
+2. En la parte inferior de la barra lateral izquierda, haz clic en `Tokens` y luego en el botón `Create an API token` a la derecha.
+
+<img width="100%" src={terraformcloud02} alt="otp img" />
+
+<p>&nbsp;</p>
+
+3. Introduce una `descripción` para identificar este token más adelante, configura su `fecha de expiración`, y haz clic en `Generate token`.
+
+<img width="100%" src={terraformcloud03} alt="otp img" />
+
+<p>&nbsp;</p>
+
+4. Visualiza el token generado.
+
+<img width="100%" src={terraformcloud04} alt="otp img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+El token generado **no podrá ser consultado de nuevo**, así que asegúrate de guardarlo por separado.
+
+:::
+
+<p>&nbsp;</p>
+
+5. Regresa a la pantalla principal de [Terraform Cloud](https://app.terraform.io/app/organizations) y haz clic en `Create organization`.
+
+<img width="100%" src={terraformcloud05} alt="otp img" />
+
+<p>&nbsp;</p>
+
+6. Introduce el `nombre de la organización` y haz clic en el botón `Create organization`.
+
+<img width="100%" src={terraformcloud06} alt="otp img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+El `nombre de la organización` debe ser único a nivel global.
+
+:::
+
+<p>&nbsp;</p>
+
+7. En Cloud Studio, haz clic en `Mi información - Gestión de plugins` y luego haz clic en el botón `+` para vincular una cuenta de Terraform Cloud.
+
+<img width="100%" src={terraformcloud07} alt="otp img" />
+
+<p>&nbsp;</p>
+
+:::caution
+
+Para poder vincular la cuenta de Terraform Cloud, debes haber vinculado previamente una cuenta de [Github](/docs/plugin/vcs/add-github) o [Gitlab](/docs/plugin/vcs/add-gitlab).
+
+:::
+
+<p>&nbsp;</p>
+
+8. Introduce el `Token` de Terraform Cloud generado y haz clic en el botón `Registrar`.
+
+<img width="100%" src={terraformcloud08} alt="otp img" />
+
+<p>&nbsp;</p>
+
+9. Después de la vinculación, selecciona la `Organización` que creaste en Terraform Cloud para completar todo el proceso.
+
+<img width="100%" src={terraformcloud09} alt="otp img" />
+
+<p>&nbsp;</p>

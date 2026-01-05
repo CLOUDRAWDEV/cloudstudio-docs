@@ -1,0 +1,61 @@
+---
+title: PersistentVolume
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Core, PersistentVolume]
+---
+
+
+<hr />
+<br />
+
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que proporciona almacenamiento conectado en red dentro del clúster.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+
+### Recursos conectados
+
+-   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+
+## Valores de configuración del recurso
+
+-   `service_name` : Nombre del recurso PersistentVolume
+-   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
+-   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
+-   `spec` : Especificaciones detalladas del Persistent Volume
+    -   `spec.storage_class_name` : Nombre del storageClass a utilizar
+    -   `spec.storage_capacity` : Capacidad de almacenamiento a configurar
+    -   `spec.volume_driver` : Controlador de volumen a utilizar
+    -   `spec.volume_handle` : Identificador que conecta el PV al recurso de almacenamiento real
+    -   `spec.persistent_volume_reclaim_policy` : Política de recuperación cuando se libera el claim - `retain`,`delete`,`recycle`
+    -   `spec.read_only` : Determina si el volumen se monta en modo solo lectura - `false`,`true`
+    -   `spec.volume_attributes` : Atributos del volumen a utilizar
+    -   `spec.access_modes` : Métodos permitidos para montar el volumen - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
+    -   `spec.mount_options` : Opciones de montaje adicionales
+-   `node_stage_secret_ref` : Secret de Kubernetes que contiene la autenticación del usuario que accede al almacenamiento
+    -   `node_stage_secret_ref.name` : Nombre del Secret
+    -   `node_stage_secret_ref.namespace` : Namespace donde se encuentra el Secret
+
+
+---
+
+## Documentación de referencia
+
+-   [PersistentVolume(Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
+-   [PersistentVolume(Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

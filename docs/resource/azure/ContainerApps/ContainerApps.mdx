@@ -1,0 +1,122 @@
+---
+title: ContainerApps
+sidebar_position: 0
+tags: [Azure, ContainerApps, Container, Serverless]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container_apps-container_apps.webp"
+    }
+/>
+
+## 리소스 개요
+
+Azure Container Apps는 컨테이너 기반 애플리케이션을 서버리스 방식으로 실행할 수 있는 관리형 실행 환경입니다.  
+연결된 Container Apps Environment를 기반으로 리비전 관리, 초기화 컨테이너, 스토리지 볼륨 연결, 인그레스(외부 접근) 설정 등을 구성하여 애플리케이션을 배포하고 운영할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Container Apps Environment**](https://docs.cstudio.app/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
+
+## 리소스 설정 값
+
+-   `included_container_apps_environment` : 연결된 Container Apps Environment의 리소스 ID
+
+-   `revision_mode` : 컨테이너 앱의 버전 관리 방식 - `Single`, `Multiple`
+
+-   `max_replicas` : 자동 스케일링 시 생성 가능한 최대 컨테이너 인스턴스 수 - `1` ~ `300`
+
+-   `min_replicas` : 항상 유지할 최소 컨테이너 인스턴스 수 - `1` ~ `300`
+
+### 초기화 컨테이너 설정 (`init_container`)
+
+-   `init_container.args` : 컨테이너 시작 시 전달되는 인자 목록
+
+-   `init_container.command` : 컨테이너에서 실행할 명령어
+
+-   `init_container.cpu_memory` : 컨테이너에 할당할 CPU 및 메모리 리소스 설정 - `CPU/Memory` 형식
+
+-   `init_container.image` : 초기화 컨테이너에서 사용할 컨테이너 이미지
+
+### 볼륨 설정 (`volume`)
+
+-   `volume.storage_type` : 연결할 스토리지의 종류 - `AzureFile`, `EmptyDir`, `Secret`
+
+### 컨테이너 설정 (`container`)
+
+-   `container.args` : 컨테이너 시작 시 전달되는 인자 목록
+
+-   `container.command` : 컨테이너에서 실행할 명령어
+
+-   `container.cpu_memory` : 컨테이너에 할당할 CPU 및 메모리 리소스 설정 - `CPU/Memory` 형식
+
+-   `container.image` : 컨테이너에서 사용할 컨테이너 이미지
+
+#### Liveness Probe 설정 (`container.liveness_probe`)
+
+-   `container.liveness_probe.failure_count_threshold` : 프로브 실패로 간주하기 전 허용되는 연속 실패 횟수 - `1` ~ `30`
+
+-   `container.liveness_probe.enable_header` : 사용자 정의 헤더 활성화 여부 - `true`, `false`
+
+-   `container.liveness_probe.header` : 전송할 사용자 정의 헤더 설정 - `header_name`:`header_value`
+
+-   `container.liveness_probe.host` : 프로브 요청을 보낼 호스트 이름
+
+-   `container.liveness_probe.initial_delay` : 컨테이너 시작 후 첫 프로브까지의 대기 시간(초) - `0` ~ `60`
+
+-   `container.liveness_probe.interval_seconds` : 프로브 실행 간격(초) - `1` ~ `240`
+
+-   `container.liveness_probe.path` : HTTP 프로브 요청 시 호출할 경로
+
+-   `container.liveness_probe.port` : 프로브 요청을 수신할 컨테이너 포트 번호 - `1` ~ `65535`
+
+-   `container.liveness_probe.timeout` : 응답 대기 최대 시간(초) - `1` ~ `240`
+
+-   `container.liveness_probe.transport` : 프로브 전송 프로토콜 - `TCP`, `HTTP`, `HTTPS`
+
+#### 볼륨 마운트 설정 (`container.volume_mounts`)
+
+-   `container.volume_mounts.target_volume_name` : 마운트할 볼륨 이름
+
+-   `container.volume_mounts.path` : 컨테이너 내 볼륨이 마운트될 경로
+
+### 인그레스 설정 (`ingress`)
+
+-   `ingress.enable_insecure_connections` : HTTP를 통한 보안되지 않은 연결 허용 여부 - `true`, `false`
+
+-   `ingress.enable_external_connections` : 컨테이너 앱 외부에서 접근 가능 여부 - `true`, `false`
+
+-   `ingress.transport` : 컨테이너 앱과 통신할 때 사용하는 프로토콜 - `auto`, `http`, `http2`, `tcp`
+
+#### IP 제한 설정 (`ingress.ip_security_restriction`)
+
+-   `ingress.ip_security_restriction.action` : 해당 IP 범위에 대해 허용/거부 여부 - `true`, `false`
+
+-   `ingress.ip_security_restriction.ip_address_range` : 적용할 IP 주소 범위
+
+-   `ingress.target_port` : 컨테이너 내부에서 수신할 포트 번호
+
+-   `ingress.exposed_port` : 외부에 노출되는 포트 번호
+
+#### 트래픽 분산 설정 (`ingress.traffic_weight`)
+
+-   `ingress.traffic_weight.enable_using_latest_revision` : 항상 최신 리비전으로 트래픽을 라우팅할지 여부 - `true`, `false`
+
+-   `ingress.traffic_weight.revision_suffix` : 리비전을 구분하기 위한 접미사
+
+-   `ingress.traffic_weight.percentage` : 해당 리비전에 할당되는 트래픽 비율
+
+---
+
+## 참고 자료
+
+-   [Azure Container Apps(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-apps/)
+-   [Terraform azurerm_container_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app)

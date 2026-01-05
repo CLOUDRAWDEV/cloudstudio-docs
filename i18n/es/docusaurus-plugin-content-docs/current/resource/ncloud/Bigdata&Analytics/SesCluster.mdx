@@ -1,0 +1,56 @@
+---
+title: SesCluster
+sidebar_position: 0
+tags: [Ncloud, Recurso, Bigdata&Analytics, SesCluster]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso que proporciona un entorno para gestionar fácilmente clústeres de Elasticsearch y OpenSearch, permitiendo seleccionar diferentes tipos de servidor y capacidad de almacenamiento para configurar, desplegar, operar y escalar el clúster de forma sencilla.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+
+### Recursos conectados
+
+
+## Valores de configuración del recurso
+
+-   `os_image_code` : Tipo de sistema operativo a utilizar
+-   `search_engine` : Parámetros principales del nodo Search Engine
+    -   `version_code` : Código de versión del Search Engine a utilizar
+    -   `user_name` : Nombre de usuario del Search Engine
+    -   `user_password` : Contraseña del usuario del Search Engine
+    -   `dashboard_port` : Puerto del panel de control del Search Engine (1024 ~ 65535)
+-   `manager_node` : Parámetros principales del nodo de gestión
+    -   `enable_dual_manager` : Activar redundancia del nodo gestor
+    -   `manager_node_product_code` : Código del producto del nodo gestor a utilizar
+    -   `manager_node_subnet_name` : Nombre de la subred donde se ubicará el nodo gestor
+-   `data_node` : Parámetros principales del nodo de datos
+    -   `data_node_product_code` : Código del producto del nodo de datos a utilizar
+    -   `data_node_subnet_name` : Nombre de la subred donde se ubicará el nodo de datos
+    -   `data_node_count` : Número de nodos de datos (3 ~ 10)
+    -   `data_node_storage_size` : Capacidad de almacenamiento de los nodos de datos (100 ~ 2000)
+-   `enable_master_node` : Activar o no el uso del nodo maestro
+-   `login_key_name` : Nombre de la clave pública de inicio de sesión para cifrado
+
+---
+
+## Documentación de referencia
+
+-   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
+-   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

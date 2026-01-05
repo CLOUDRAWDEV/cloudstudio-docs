@@ -1,7 +1,7 @@
 ---
 title: MssqlServer
 sidebar_position: 0
-tags: [Azure, Resource, Server, Mssql]
+tags: [Azure, MssqlServer, MSSQL, SQLServer, Database]
 ---
 
 <hr />
@@ -11,65 +11,71 @@ tags: [Azure, Resource, Server, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.webp"
     }
 />
 
 ## Resource Overview
 
+Azure SQL Server (Microsoft SQL Server) is a fully managed PaaS database engine that handles most database management tasks—such as upgrades, patching, backups, and monitoring—without user intervention.
 
-Azure SQL Database is a fully managed relational database service provided by Microsoft Azure, based on the widely used Microsoft SQL Server engine. 
-It allows you to create and manage SQL Server databases in the cloud without the need to manage hardware or software infrastructure.
-With Azure SQL Database, you can benefit from features such as automatic patching, backups, high availability, and disaster recovery. 
-It also offers advanced functionalities like intelligent performance monitoring, automatic tuning, and advanced security features to optimize database performance and protect critical data.
+## Related Resources
 
-## Associated Resources
-
-### Parent Resource
+### Parent Resources
 
 -   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
+### Child Resources
+
+-   [**MssqlDatabase**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlDatabase)
+
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 -   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Setting Values
+## Resource Configuration Values
 
--   `version` : The version of Microsoft SQL Server to use - `2.0`, `12.0`
+#### Basic Settings
 
--   `admin_username` : The administrator login for the Microsoft SQL Server
+-   `version` : Microsoft SQL Server version to use – `2.0`, `12.0`
+-   `admin_username` : Administrator username for the server; alphanumeric characters only, must start with a letter, reserved words are not allowed
+-   `admin_password` : Administrator login password for the server; must include at least three of the following: lowercase letters, uppercase letters, numbers, and special characters; cannot contain three or more consecutive alphanumeric characters from the login name; `8` ~ `128` characters
+-   `minimum_tls_version` : Minimum supported TLS version for the server – `1.2`, `Disabled`
+-   `public_network_access_enabled` : Allow public network access to the server – `true`, `false`
 
--   `admin_password` : The password associated with the administrator login
+#### Firewall Rules (`firewall_rule`)
 
--   `minimum_tls_version` : The minimum TLS version to support on the server - `1.0`, `1.1`, `1.2`
+-   `firewall_rule.start_ip_address` : Starting IP address associated with the firewall rule
+-   `firewall_rule.end_ip_address` : Ending IP address associated with the firewall rule
 
--   `public_network_access_enabled` : Allow public network access for the Server - `true`, `false`
+#### Security Alert Policy (`security_alert_policy`)
 
--   `firewall_rule`
+-   `security_alert_policy.alert_policy_state` : Enabled state of the policy to apply – `Enabled`, `Disabled`
+-   `security_alert_policy.disabled_alerts` : List of security alerts to disable
+-   `security_alert_policy.alert_retention_days` : Retention period (days) for threat detection audit logs – `0` ~ `3265`
+-   `security_alert_policy.alert_email_account_admins` : Enable sending security alerts to account administrators by email – `true`, `false`
+-   `security_alert_policy.alert_email_addresses` : List of email addresses to receive security alerts
 
-    -   `start_ip_address` : The Start IP Address asscociated with the Firewall Rule
-    -   `end_ip_address` : The End IP Address asscociated with the Firewall Rule
+#### Auditing Policy (`auditing_policy`)
 
--   `security_alert_policy`
+-   `auditing_policy.enable_storage_destination` : Enable Storage account as the audit destination – `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Name of the Storage account
+-   `auditing_policy.storage_access_key_is_second` : Use the secondary access key for auditing – `true`, `false`
+-   `auditing_policy.storage_retention_days` : Number of days to retain logs in the Storage account
+-   `auditing_policy.enable_log_analytics_destination` : Enable auditing to a Log Analytics workspace – `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Name of the Log Analytics workspace for auditing
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Name of the Log Analytics diagnostic setting
 
-    -   `alert_policy_state` : The activation state of policy to be applied
-    -   `disabled_alerts` : List of notifications to be disabled - `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`
-    -   `alert_retention_days` : The number of days to keep in the threat detection audit logs - `0` ~ `3265`
-    -   `alert_email_account_admins` : Enable sending alerts to e-mail - `true`, `false`
-    -   `alert_email_addresses` : List of e-mail addresses to which the alert is sent
+#### Tags
 
--   `auditing_policy`
-
-    -   `enable_storage_destination` : Enable Storage account as destination - `true`, `false`
-    -   `enable_log_analytics_destination` : Enalbed Auditing policy by Log analytics workspace - `true`, `false`
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   `tag` : Tags used to categorize the resource – maximum 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure Mssql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
--   [Azure Mssql Price](https://azure.microsoft.com/ko-kr/pricing/details/azure-sql-database/single/)
--   [Azure Mssql(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server)
+-   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Security Alert Policy (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
+-   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)

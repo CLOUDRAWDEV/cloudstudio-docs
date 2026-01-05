@@ -1,0 +1,58 @@
+---
+title: ApiManagement
+sidebar_position: 0
+tags: [Azure, ApiManagement]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/api_management-api_management.webp"
+    }
+/>
+
+## 리소스 개요
+
+API Management는 API의 생성, 배포, 보안, 모니터링 및 관리를 통합적으로 지원하는 서비스입니다.  
+내부/외부 클라이언트가 호출하는 API를 단일 엔드포인트로 제공하고, 인증/인가 정책 적용, 요청/응답 변환, 호출 제한(Throttle), 로깅 및 모니터링 등을 통해 안정적인 API 운영을 지원합니다.  
+또한 API를 포털 형태로 게시하여 문서화와 구독자 관리를 함께 수행할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## 리소스 설정 값
+
+-   `publisher_name` : API Management 서비스의 발행자 이름
+
+-   `publisher_email` : 발행자의 이메일 주소
+
+-   `sku_name` : API Management 서비스의 SKU(요금제) 이름 - `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium`, `PremiumV2`
+
+-   `sku_capacity` : 선택한 SKU에 대한 용량(인스턴스 수) 설정
+
+-   `virtual_network_type` : API Management가 가상 네트워크에 연결되는 방식 - `None`, `External`, `Internal`
+
+-   `target_subnet_name` : API Management가 배포될 서브넷 이름
+
+-   `apis` : API Management 서비스에 등록하거나 관리할 API 목록을 지정하는 옵션
+    -   `revision` : API의 리비전 번호
+    -   `api_type` : API의 유형 - `http`, `soap`, `graphql`
+    -   `display_name` : Portal에 표시될 API의 이름
+    -   `path` : API 엔드포인트에 접근할 때 사용할 경로
+    -   `protocols` : API가 지원하는 통신 프로토콜 - `http`, `https`, `ws`, `wss`
+
+---
+
+## 참고 자료
+
+-   [Azure API Management(Microsoft)](https://learn.microsoft.com/ko-kr/azure/api-management/api-management-key-concepts)
+-   [Azure API Management 가격](https://azure.microsoft.com/ko-kr/pricing/details/api-management/)
+-   [Azure API Management(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+-   [Azure API Management API(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management_api)

@@ -1,0 +1,62 @@
+---
+title: PersistentVolumeClaim
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Core, PersistentVolumeClaim]
+---
+
+
+<hr />
+<br />
+
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+È una risorsa Kubernetes utilizzata per richiedere un Persistent Volume (PV).
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+
+### Risorse collegate
+
+-   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+
+
+## Impostazioni della risorsa
+
+-   `service_name` : Nome della risorsa PersistentVolumeClaim
+-   `namespace` : Namespace in cui la risorsa PersistentVolume sarà distribuita
+-   `annotations` : Coppie chiave-valore utilizzate per visualizzare informazioni necessarie nel sistema Kubernetes
+-   `labels` : Valori personalizzati definiti dall'utente per distinguere gli oggetti
+-   `spec` : Definisce le specifiche dettagliate del PVC (PersistentVolumeClaim)
+    -   `spec.storage_class_name` : Nome della storage class da utilizzare
+    -   `spec.volume_name` : Nome del PersistentVolume (PV) a cui il PVC sarà associato
+    -   `spec.request_storage` : Capacità di storage richiesta per il PV
+    -   `spec.access_modes` : Modalità di accesso richieste per il PV - (Deve corrispondere o includere le modalità di accesso del PV) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
+
+
+
+---
+
+## Materiale di riferimento
+
+-   [PersistentVolumeClaim(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+-   [PersistentVolumeClaim(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)

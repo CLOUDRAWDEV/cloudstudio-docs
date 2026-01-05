@@ -1,0 +1,46 @@
+---
+title: VirtualWan
+sidebar_position: 20
+tags: [Azure, Network, VirtualWan]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_wan.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Virtual WAN は、複数のリージョンに分散されたネットワークリソースを中央で接続・管理するための **グローバルネットワークハブサービス** です。  
+Site-to-Site VPN、Point-to-Site VPN、ExpressRoute 接続を単一の制御ポイントから統合的に管理でき、大規模なマルチリージョンネットワークアーキテクチャに適しています。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 下位リソース
+
+-   [**Virtual Hub**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualHub)
+
+### 接続リソース
+
+-   [**Vpn Site**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VpnSite)
+
+## リソース設定値
+
+-   `type` : Virtual WAN の種類
+    -   `Basic`
+    -   `Standard`
+
+## 参考資料
+
+-   [Azure Virtual WAN の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-wan-about)
+-   [Azure Virtual WAN アーキテクチャ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

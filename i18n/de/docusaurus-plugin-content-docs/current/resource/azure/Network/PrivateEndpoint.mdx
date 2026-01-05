@@ -1,60 +1,62 @@
 ---
 title: PrivateEndpoint
-sidebar_position: 8
-tags: [Azure, Ressourcen, Network, PrivateEndpoint]
+sidebar_position: 5
+tags: [Azure, Network, PrivateEndpoint]
 ---
 
 <hr />
-<br />
+<br />ㅇ
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-private_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_endpoint.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure Private Endpoint ist eine Funktion von Azure, die es ermöglicht, sicher auf Azure-Dienste (z. B. Azure Storage, Azure SQL Database und Azure Cosmos DB) über ein privates Netzwerk innerhalb eines virtuellen Netzwerks zuzugreifen.
-Dies ermöglicht den sicheren Zugriff auf diese Dienste über private Endpunkte im virtuellen Netzwerk, anstatt über das öffentliche Internet.
-Durch die Verwendung von Azure Private Endpoint wird der Zugriff auf den Dienst einer privaten IP-Adresse des virtuellen Netzwerks zugeordnet, und der Datenverkehr zwischen dem virtuellen Netzwerk und dem Dienst wird über einen privaten Link geroutet.
-Auf diese Weise bleibt der Datenverkehr innerhalb der Grenzen des virtuellen Netzwerks und wird nicht dem öffentlichen Internet ausgesetzt.
+Ein Private Endpoint ist eine Netzwerkressource, die **private Konnektivität (Private Link)** zu Azure-Diensten innerhalb eines Virtual Networks bereitstellt, ohne eine öffentliche IP-Adresse zu verwenden.  
+Der Dienstendpunkt wird über eine dem Subnet zugewiesene Private IP bereitgestellt, wodurch ein sicherer Kommunikationspfad ohne Nutzung des Internets ermöglicht wird.  
+Durch die Integration mit einer Private DNS Zone kann der FQDN des Dienstes innerhalb des internen Netzwerks nahtlos aufgelöst werden.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Container Registry**](https://docs.cstudio.app/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/docs/resource/azure/KeyVault)
--   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
--   [**Redis Cache**](https://docs.cstudio.app/docs/resource/azure/RedisCache/)
--   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+-   [**Linux App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/de/docs/resource/azure/AppService/WindowsAppService)
+-   [**Container Registry**](https://docs.cstudio.app/de/docs/resource/azure/Container/ContainerRegistry)
+-   [**Cosmosdb Cassandra**](https://docs.cstudio.app/de/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
+-   [**Cosmosdb Gremlin**](https://docs.cstudio.app/de/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
+-   [**Cosmosdb Mongo**](https://docs.cstudio.app/de/docs/resource/azure/Cosmosdb/CosmosdbMongo)
+-   [**Cosmosdb Sql**](https://docs.cstudio.app/de/docs/resource/azure/Cosmosdb/CosmosdbSql)
+-   [**Cosmosdb Table**](https://docs.cstudio.app/de/docs/resource/azure/Cosmosdb/CosmosdbTable)
+-   [**Mssql Server**](https://docs.cstudio.app/de/docs/resource/azure/Database/MssqlServer)
+-   [**Mysql Flexible**](https://docs.cstudio.app/de/docs/resource/azure/Database/MysqlFlexible)
+-   [**Key Vault**](https://docs.cstudio.app/de/docs/resource/azure/KeyVault/)
+-   [**Redis Cache**](https://docs.cstudio.app/de/docs/resource/azure/RedisCache/)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `included_subnet_name` : Subnetzname mit zugewiesenem Private IP-Adresse für den Private Endpoint
--   `linked_connection_resource_name` : Der Name der Ressource, mit der der Private Endpoint verbunden wird
--   `subresource_names` : Liste der Subresource-Namen, mit denen der Private Endpoint verbunden werden kann
--   `dns_zone_group_name` : Der Name der DNS-Zonengruppe, mit der der Private Endpoint verbunden werden soll
--   `private_dns_zone_names` : Liste der Namen der privaten DNS-Zonen, mit denen der Private Endpoint und die Ressource verbunden werden sollen
--   `connection_name` : Der Verbindungsname zwischen dem Private Endpoint und der Ressource
--   `manual_connection` : Erforderliche manuelle Genehmigung des externen Ressourceneigentümers
--   `tag` : Ein Tag zur Kategorisierung der Ressource - maximal 512 Zeichen, `key`:`value`
+-   `included_subnet_name` : Name des Subnets, das die dem Private Endpoint zugewiesene Private IP-Adresse enthält
+-   `connection_name` : Name der Verbindung zwischen dem Private Endpoint und der Ressource
+-   `linked_connection_resource_name` : Name der Ressource, mit der der Private Endpoint verbunden wird
+-   `subresource_name` : Name der Subressource, mit der der Private Endpoint verbunden wird
+-   `dns_zone_group_name` : Name der Private DNS Zone-Gruppe, die dem Private Endpoint zugeordnet wird
+-   `private_dns_zone_names` : Liste der Private DNS Zone-Namen, die dem Private Endpoint zugeordnet werden
+-   `manual_connection` : Gibt an, ob eine manuelle Genehmigung durch den externen Ressourceneigentümer erforderlich ist - `true`, `false`
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure PrivateEndpoint(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
--   [Azure PrivateEndpoint Kosten](https://azure.microsoft.com/en-us/pricing/details/private-link/)
--   [Azure PrivateEndpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint)
+-   [Azure Private Endpoint – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
+-   [Private Endpoint DNS-Konfiguration (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

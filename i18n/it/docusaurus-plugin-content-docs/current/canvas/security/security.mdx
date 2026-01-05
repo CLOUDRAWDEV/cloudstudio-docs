@@ -1,0 +1,75 @@
+---
+title: Panoramica della Diagnosi di Sicurezza
+sidebar_position: 1
+tags: [Security, Diagnosi di sicurezza, Canvas]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import security01 from "/docs/canvas/img/security01.gif"
+import security02 from "/docs/canvas/img/security-result01.png"
+import security03 from "/docs/canvas/img/security-result02.png"
+
+<hr />
+<br />
+La diagnosi di sicurezza è una funzionalità che consente di controllare eventuali problematiche di sicurezza 
+prima che l'infrastruttura del cloud disegnata dall'utente venga esportata definitivamente. Gli utenti possono 
+trovare facilmente `errori umani e vulnerabilità` attraverso la diagnosi di sicurezza.
+
+Per eseguire la diagnosi di sicurezza, segui `questa procedura`:
+
+<div className={styles.imgWrap}>
+    <img src={security01} width="800px" alt="이미지" />
+</div>
+
+<br />
+
+1. `Salva` il canvas.
+2. Clicca su `Strumenti > Diagnosi vulnerabilità`.
+3. Controlla i `risultati della diagnosi` nei dettagli
+4. Per visualizzare le risorse relative a ciascun passaggio, clicca su `Vedi dettagli risultato`.
+5. Per modificare l'infrastruttura, trova i servizi con `rischio o alto` nella colonna di destra.
+6. Se trovi un servizio, clicca sull'`icona della freccia` per vedere le soluzioni. `Current code` mostra il codice attuale del canvas, mentre `Recommend code` mostra il codice consigliato che include le raccomandazioni di sicurezza.
+7. Chiudi la finestra della diagnosi di sicurezza e modifica la parte corrispondente nel canvas.
+
+<br />
+
+### Fase di Minaccia della Sicurezza
+
+<div className={styles.imgWrap}>
+    <img src={security02} width="500px" alt="Immagine" />
+</div>
+<p>&nbsp;</p>
+<br />
+
+La fase di minaccia della sicurezza è suddivisa in cinque livelli: `Rischio, Avviso, Normale, Basso, Buono`. Il numero accanto a ciascun livello rappresenta il numero di risorse corrispondenti a quel livello. Ad esempio, se il numero accanto al livello Rischio è 1, significa che c'è una risorsa vulnerabile nella sicurezza nel canvas.
+È consigliabile correggere le infrastrutture con livelli di rischio e alto, ma non è obbligatorio.
+Per visualizzare le risorse corrispondenti a ciascun livello, clicca su `Vedi dettagli risultato`.
+
+| Livello di Minaccia della Sicurezza | Descrizione                                                                                                   |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Rischio                             | La sicurezza è estremamente vulnerabile, si consiglia di correggere il codice per infrastrutture importanti.  |
+| Avviso                              | La sicurezza è vulnerabile, si consiglia di correggere il codice per infrastrutture importanti.               |
+| Normale                             | La sicurezza è nella norma.                                                                                   |
+| Basso                               | La sicurezza è buona.                                                                                         |
+| Buono                               | La sicurezza è sicura, puoi procedere con la distribuzione.                                                   |
+
+<br />
+
+### Elementi di Diagnosi della Sicurezza
+
+Cloud Studio offre sei elementi di diagnosi della sicurezza che rispettano le normative di sicurezza.
+
+<div className={styles.imgWrap}>
+    <img src={security03} width="400px" alt="Immagine" />
+</div>
+
+<p>&nbsp;</p>
+
+| Elemento di Diagnosi della Sicurezza | Descrizione                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------ |
+| Verifica Utente e Autenticazione     | Mostra gli elementi relativi all'identificazione e autenticazione dell'utente. |
+| Controllo Accessi                    | Mostra gli elementi relativi al controllo degli accessi al sistema.            |
+| Sicurezza di Rete                    | Mostra gli elementi relativi alla sicurezza della rete.                        |
+| Protezione dei Dati                  | Mostra gli elementi relativi al backup e alla protezione dei dati.             |
+| Log e Monitoraggio                   | Mostra gli elementi relativi alla registrazione e al monitoraggio.             |
+| Crittografia                         | Mostra gli elementi relativi alla crittografia dei dati.                       |

@@ -1,0 +1,182 @@
+---
+title: Creare un nuovo progetto
+sidebar_position: 7
+tags: [project, creazione progetto, progetto vuoto, template, importazione, inizia]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import createProject01 from "../start/img/create-project-01.png"
+import createProject02 from "../start/img/create-project-02.png"
+import createProject03 from "../start/img/create-project-03.png"
+import createProject04 from "../start/img/create-project-04.png"
+import createProject05 from "../start/img/create-project-05.png"
+import createProject06 from "../start/img/create-project-06.png"
+import createProject07 from "../start/img/create-project-07.png"
+import import04 from "/docs/start/img/import.gif"
+
+<hr />
+<br />
+
+In Cloud Studio, ogni canvas viene chiamato un progetto 📄 
+Per creare un progetto, è necessario prima creare una cartella 📁 in cui gestirlo.
+
+Per maggiori dettagli su come creare una cartella, consulta questo link [qui] (/docs/start/create-folder)
+
+<p>&nbsp;</p>
+
+## Tre modi per creare un progetto
+
+Esistono tre metodi per creare un progetto in Cloud Studio:
+
+-   [Creare con un template fornito](#create-template)
+-   [Creare un progetto vuoto](#create-empty)
+-   [Importare un'infrastruttura esistente](#create-import)
+
+**Usando un template, è possibile creare rapidamente un'infrastruttura cloud in categorie desiderate come Landing Zone, MSA, Load Balancer, Ubuntu Virtual Machine, CDN, ecc. Per maggiori informazioni sui template, consulta <Link to= "">questo link</Link>.
+
+**Se desideri configurare manualmente il canvas senza template, puoi creare un progetto vuoto. Poi, puoi aggiungere le risorse che desideri tramite il Drag&Drop per costruire l'infrastruttura cloud.
+
+**Se desideri importare un'infrastruttura esistente, accedi al canvas e clicca su `File > Importa` per caricare l'infrastruttura.
+
+<p>&nbsp;</p>
+
+### Creare con un template fornito {#create-template}
+
+1.  Nella pagina del template, clicca sul pulsante `Crea progetto` per aprire la finestra popup di creazione del progetto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="Immagine" />
+</div>
+
+<br />
+
+2.  Inserisci il nome del progetto. Il nome del progetto deve rispettare le seguenti `condizioni`
+
+> -   Solo lettere (inglese e coreano) e numeri
+> -   Nessun spazio
+> -   Da 2 a 20 caratteri
+
+<div className={styles.imgWrap}>
+    <img src={createProject01} alt="Immagine popup del progetto" width={800} />
+</div>
+
+<br />
+
+3. Seleziona la `cartella` in cui desideri inserire il progetto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="Immagine cartella del progetto" />
+</div>
+
+<br />
+
+4.  Inserisci una `descrizione` per il progetto. La descrizione può essere lunga fino a 100 caratteri.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="Immagine cartella del progetto" />
+</div>
+
+<br />
+
+5.  Seleziona il `CSP (Provider)` e la `categoria` per il progetto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject04} alt="Immagine cartella del progetto" width={800} />
+</div>
+
+<br />
+
+<details>
+    <summary>Che cos'è CSP?</summary>
+    <h4>
+        CSP è l'abbreviazione di Cloud Service Provider, ossia il fornitore di infrastrutture cloud e piattaforme. 
+        I CSP offerti da Cloud Studio includono Microsoft Azure, 
+        NAVER CLOUD PLATFORM di Naver e Amazon Web Services di Amazon.
+    </h4>
+</details>
+
+<br />
+
+6.  Clicca sul pulsante `Crea progetto`.
+
+:::info
+
+Per maggiori dettagli sui template offerti, consulta <Link to= "">questo link</Link>.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Creare un progetto vuoto {#create-empty}
+
+1.  Nella pagina dei miei template, clicca sul pulsante `Crea progetto` per aprire la finestra popup di creazione del progetto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="Immagine" />
+</div>
+
+<br />
+
+2.  Inserisci il `nome del progetto`. Il nome del progetto deve rispettare le seguenti `condizioni`:
+
+> -   Solo lettere (inglese e coreano) e numeri
+> -   Nessun spazio
+> -   Da 2 a 20 caratteri
+
+<div className={styles.imgWrap}>
+    <img src={createProject07} alt="Immagine popup del progetto" width={800} />
+</div>
+
+<br />
+
+3. Seleziona la `cartella` in cui desideri inserire il progetto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="Immagine cartella del progetto" />
+</div>
+
+<br />
+
+4.  Inserisci una `descrizione` per il progetto. La descrizione può essere lunga fino a 100 caratteri.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="Immagine cartella del progetto" />
+</div>
+
+<br />
+
+5.  Clicca sul pulsante `Crea progetto`.
+
+<div className={styles.imgWrap}>
+    <img src={createProject06} alt="Immagine" />
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Importare un'infrastruttura esistente {#create-import}
+
+Per importare un'infrastruttura esistente, devi prima accedere al canvas. Per farlo, crea un `progetto vuoto`. Consulta [qui](#create-empty) per sapere come creare un progetto vuoto.
+
+<br />
+
+<div className={styles.imgWrap}>
+    <img src={import04} width={800} />
+</div>
+
+<br />
+
+1.  Clicca sul `progetto vuoto` per accedere alla pagina del canvas.
+2.  Clicca su `File > Importa`.
+3.  Nella finestra popup, seleziona la `credenziale` desiderata tra quelle registrate.
+4.  Clicca su `Esamina risorse`, poi scegli il `gruppo di risorse` che desideri importare.
+5.  Clicca su `Importa` per completare il processo di importazione dell'infrastruttura.
+
+<p>&nbsp;</p>
+
+:::caution
+
+Per importare un'infrastruttura, è necessario che le credenziali siano registrate.
+
+:::

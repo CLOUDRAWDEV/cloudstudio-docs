@@ -1,0 +1,57 @@
+---
+title: IngressClass
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Networking, IngressClass]
+---
+
+
+<hr />
+<br />
+
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una risorsa di Kubernetes per selezionare l'Ingress Controller da utilizzare per l'Ingress.
+
+## Risorse correlate
+
+### Risorse superiori
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+
+
+### Risorse collegate
+
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+
+
+
+## Impostazioni della risorsa
+
+-   `service_name` : Nome della risorsa IngressClass
+-   `annotations` : Key-value utilizzato per visualizzare le informazioni necessarie al sistema Kubernetes
+-   `labels` : Valori arbitrari definiti dall'utente per distinguere gli oggetti
+-   `controller` : Nome del controller che deve gestire l'IngressClass
+-   `parameters` : Informazioni sulla risorsa di riferimento
+    -   `name` : Nome della risorsa di riferimento
+    -   `kind` : Tipo della risorsa di riferimento
+    -   `namespace` : Namespace della risorsa di riferimento
+    -   `scope` : Indica l'ambito della risorsa - Cluster o Namespace
+    -   `api_group` : Gruppo API della risorsa di riferimento
+
+
+---
+
+## Materiale di riferimento
+
+-   [IngressClass(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
+-   [IngressClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress_class)

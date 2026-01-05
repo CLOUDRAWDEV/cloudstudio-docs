@@ -1,46 +1,42 @@
 ---
-title: Service Plan
-sidebar_position: 2
-tags: [Azure, Ressourcen, ServicePlan]
+title: ServicePlan
+sidebar_position: 0
+tags: [Azure, ServicePlan]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Azure App Service ist ein PaaS-Service, mit dem Sie Web-Apps, mobile Backends und RESTful APIs in der von Ihnen gewählten Programmiersprache erstellen und hosten können, ohne die Infrastruktur verwalten zu müssen.
-App Service bietet Auto Scaling und hohe Verfügbarkeit und unterstützt sowohl Windows- als auch Linux-Betriebssysteme.
-Es ist möglich, automatisch aus GitHub, Azure DevOps oder Git-Repositories bereitzustellen.
+Ein Service Plan ist ein Tarif- bzw. Hostingplan, der die Computing-Ressourcen definiert, auf denen App Services ausgeführt werden (Serverinstanzen, CPU/Arbeitsspeicher, Skalierung, Betriebssystem usw.).  
+Beim Bereitstellen von Web-Apps, API-Apps oder Backend-Anwendungen als App Service wird über den Service Plan festgelegt, mit welchen Spezifikationen und in welcher Preiskategorie die jeweilige Anwendung ausgeführt wird.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
 
 ### Verbundene Ressourcen
 
-## Ressourcen-Einstellwerte
+## Ressourcenkonfiguration
 
--   `kind` : Betriebssystem für den App Service - `Linux`,`Windows`
--   `sku_tier` : Preisstufe des App Service-Tarifs
+-   `kind` : Betriebssystem, das der App Service verwendet – `Linux`, `Windows`
+-   `sku_tier` : Preisstufe des App-Service-Tarifs
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service Kosten(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure App Service Plan (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
+-   [Azure App Service Preise](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
+-   [Azure App Service Plan (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)
