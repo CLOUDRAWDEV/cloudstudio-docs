@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, Security, AccessControlGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
     }
 />
 
@@ -35,6 +35,7 @@ tags: [Ncloud, 리소스, Security, AccessControlGroup]
 -   `included_vpc_name` : ACG를 생성할 VPC 이름
 -   `acg_description` : ACG에 대한 설명
 -   `inbound_rule`
+
     -   `name` : inbound rule에 대한 이름
     -   `protocol` : 인바운드 트래픽의 프로토콜 - `TCP`, `UDP`, `ICMP`
     -   `rule_apply_method` : 인바운드 규칙 적용 방법 - `ip_block`, `source_name`
@@ -47,7 +48,7 @@ tags: [Ncloud, 리소스, Security, AccessControlGroup]
     -   `rule_apply_method` : 아웃바운드 규칙 적용 방법 - `ip_block`, `source_name`
     -   `ip_block` : 아웃바운드 트래픽 목적지, CDIR 형식의 IP 대역
     -   `port_range` : 아웃바운드 규칙을 적용할 포트 범위, 1 ~ 65535의 범위(범위 설정시: 100-200)
-    
+
 ---
 
 ## 참고 자료
