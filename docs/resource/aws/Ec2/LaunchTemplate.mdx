@@ -1,0 +1,53 @@
+---
+title: LaunchTemplate
+sidebar_position: 4
+tags: [AWS, EC2, LaunchTemplate, AutoScaling]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-launch_template.webp" />
+
+## 리소스 개요
+
+Auto Scaling 수행 중 서버 확장 필요 시 자동으로 생성되는 가상 서버의 스펙을 구성하는 템플릿입니다.
+
+## 연관 리소스
+
+### 연결 리소스
+
+-   [**EC2 Instance**](https://docs.cstudio.app/docs/resource/aws/EC2/Instance)
+-   [**AutoScalingGroup**](https://docs.cstudio.app/docs/resource/aws/AutoScaling/AutoScalingGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/VPC/SecurityGroup)
+-   [**KMS Key**](https://docs.cstudio.app/docs/resource/aws/KMS/KmsKey)
+
+---
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `image_name` : 사용할 운영체제 이미지 코드/AMI (멀티 드롭다운)
+-   `instance_type` : EC2 인스턴스 타입 (멀티 드롭다운)
+-   `key_name` : 로그인 키 이름 (드롭다운)
+-   `linked_security_group_name` : 연결할 Security Group 이름 목록
+-   `block_device_mapping` : 스토리지 디바이스 구성 (map)
+    -   `volume_type` : EBS 볼륨 유형 (`standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`)
+    -   `volume_size` : EBS 볼륨 크기(GiB)
+    -   `iops` : EBS IOPS
+    -   `delete_on_termination` : 인스턴스 종료 시 볼륨 자동 삭제 여부 (`true`, `false`)
+    -   `snapshot_name` : 스냅샷 생성 시 이름
+    -   `encrypted` : EBS 암호화 여부 (`true`, `false`)
+    -   `kms_key_name` : 암호화 시 사용할 KMS 키 이름 (드롭다운)
+-   `user_data` : 인스턴스 시작 시 실행할 스크립트/명령
+-   `tag` : 리소스 분류 태그 - `key`:`value`
+
+---
+
+## 참고 자료
+
+-   [Launch templates (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+-   [Block device mappings (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)

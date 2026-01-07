@@ -1,0 +1,52 @@
+---
+title: BedrockActionGroup
+sidebar_position: 2
+tags: [AWS, Bedrock, BedrockActionGroup, Lambda, AI, Agent]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_action_group.webp" />
+
+## 리소스 개요
+
+AWS Bedrock 에이전트가 실행할 수 있는 특정 작업을 정의하고 관리하는 리소스입니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**BedrockAgent**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockAgent)
+
+### 연결 리소스
+
+-   [**AWS Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Compute/Lambda)
+
+---
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `target_bedrock_agent` : 액션 그룹이 연결될 대상 Bedrock 에이전트 지정
+-   `enable_action_group_state` : Bedrock Action Group의 상태 유지 기능 활성화 여부 - `ENABLED`, `DISABLED`
+-   `custom_control_method` : 사용자 정의 제어 방식 - `custom_control`, `lambda_function`
+-   `target_lambda_function` : 액션 실행 시 호출할 AWS Lambda 함수 지정
+
+#### 함수 정의 (`functions`)
+
+-   `functions.description` : 해당 함수가 수행하는 작업의 목적이나 기능 (최대 5000자)
+-   `functions.parameters` : 함수 실행에 필요한 입력값 정의
+    -   `parameters.type` : 매개변수의 데이터 유형 - `string`, `number`, `integer`, `boolean`, `array`
+    -   `parameters.description` : 매개변수의 의미나 용도
+    -   `parameters.required` : 필수 여부 - `true`, `false`
+
+---
+
+## 참고 자료
+
+-   [Amazon Bedrock Agents (AWS 공식 문서)](https://docs.aws.amazon.com/bedrock/)
+-   [AWS Lambda Functions](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)

@@ -1,6 +1,6 @@
 ---
 title: EcsTaskDefinition
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 ---
 
@@ -11,19 +11,17 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.webp"
     }
 />
 
 ## 리소스 개요
-
 
 ## 연관 리소스
 
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
-
 
 ## 리소스 설정 값
 
@@ -33,10 +31,11 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 -   `task_memory` : 작업에서 사용하는 메모리 양(MiB)
 -   `network_mode` : 작업의 컨테이너에 사용할 네트워킹 모드 - `awsvpc`,`none`,`bridge`,`host`
 -   `container` : ECS Cluster에서 동작할 Container 이름
+
     -   `image_url` : ECS Cluster에서 동작할 Container의 이미지
     -   `essential_enabled` : Container가 동작을 멈춘 경우, container 관련 다른 오브젝트도 같이 동작을 멈출지 정상적으로 동작할지 여부 - `false`,`true`
     -   `port_mapping` : 포트 맵핑 이름
-        -   `name` : 
+        -   `name` :
         -   `container_port` : Container가 Host Container Instance에 트래픽을 보내거나 받을 때 사용할 포트 번호
         -   `protocol` : 포트 맵핑에 사용할 프로토콜 - `tcp`,`udp`
         -   `app_protocol` : Service 연결에 사용하는 애플리케이션 프로토콜 - `http`,`http2`,`grpc`,`none`
@@ -51,9 +50,6 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
     -   `volume_name` : 탑재할 Volume 이름
     -   `container_path` : 볼륨을 탑재할 컨테이너의 경로
     -   `read_only` : Container가 Volume에 read-only 접근만 가능한지 여부 - `false`,`true`
-
-
-  
 
 ## 참고 자료
 
