@@ -1,0 +1,383 @@
+---
+title: Inspection Criteria
+sidebar_position: 3
+tags: [Inspection Criteria]
+---
+
+# Inspection Criteria
+
+<table>
+    <tr>
+        <th colspan="1">Scope Scope</th>
+        <th colspan="1">Item Name</th>
+        <th colspan="1">Inspection Criteria</th>
+    </tr>
+    <tr>
+        <td rowspan="9">Account Management</td>
+        <td>AD User Account Management</td>
+        <td>
+            <strong>Good Criteria:</strong> There are no multiple accounts with
+            administrative privileges, and no unnecessary accounts exist.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Multiple accounts with
+            administrative privileges exist, or unnecessary accounts are
+            present.
+        </td>
+    </tr>
+    <tr>
+        <td>AD User Profile and Directory Identification Management</td>
+        <td>
+            <strong>Good Criteria:</strong> Mandatory profile fields (ID, work
+            information, contact details, etc.) are completed.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Mandatory profile fields (ID,
+            work information, contact details, etc.) are not completed.
+        </td>
+    </tr>
+    <tr>
+        <td>AD Group Owner and Member Management</td>
+        <td>
+            <strong>Good Criteria:</strong> The group has an owner and members
+            assigned.
+            <br />
+            <strong>Vulnerable Criteria:</strong> The group does not have an
+            owner or members assigned.
+        </td>
+    </tr>
+    <tr>
+        <td>AD Guest Users</td>
+        <td>
+            <strong>Good Criteria:</strong> Guest user accounts (including
+            unnecessary accounts with expired usage) are not in use.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Guest user accounts (including
+            unnecessary accounts with expired usage) are in use.
+        </td>
+    </tr>
+    <tr>
+        <td>AD Password Reset Policy Management</td>
+        <td>
+            <strong>Good Criteria:</strong> The password reset policy is
+            configured according to mandatory configuration standards.
+            <br />
+            <strong>Vulnerable Criteria:</strong> The password reset policy is
+            not configured according to mandatory configuration standards.
+        </td>
+    </tr>
+    <tr>
+        <td>SSH Key Access Management</td>
+        <td>
+            <strong>Good Criteria:</strong> SSH key creation, modification, and
+            deletion are restricted to administrator and owner accounts only.
+            <br />
+            <strong>Vulnerable Criteria:</strong> SSH key creation,
+            modification, and deletion are not restricted to administrator and
+            owner accounts only.
+        </td>
+    </tr>
+    <tr>
+        <td>MFA (Multi-Factor Authentication) Configuration</td>
+        <td>
+            <strong>Good Criteria:</strong> MFA is enabled and in use for AD
+            user accounts.
+            <br />
+            <strong>Vulnerable Criteria:</strong> MFA is not enabled and in use
+            for AD user accounts.{" "}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            MFA (Multi-Factor Authentication) Account Lock Policy Management
+        </td>
+        <td>
+            <strong>Good Criteria:</strong> The account lock settings are
+            configured according to the policy.
+            <br />
+            <strong>Vulnerable Criteria:</strong> The account lock settings are
+            not configured according to the policy.
+        </td>
+    </tr>
+    <tr>
+        <td>Azure Password Policy Management</td>
+        <td>
+            <strong>Good Criteria:</strong> Password protection policies are
+            applied and used according to the policy.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Password protection policies
+            are not applied and used according to the policy.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="6">Permission Management</td>
+        <td>Subscription Access Control (IAM) Role Management</td>
+        <td>
+            <strong>Good Criteria:</strong> The access control roles set for the
+            subscription are granted as unique permissions (read-only) for each
+            service.
+            <br />
+            <strong>Vulnerable Criteria:</strong> The access control roles set
+            for the subscription are granted with full service permissions
+            (Owner, Contributor, User Access Administrator, Reader).
+        </td>
+    </tr>
+    <tr>
+        <td>Resource Group Access Control (IAM) Role Assignment </td>
+        <td>
+            <strong>Good Criteria:</strong> AZURE user permissions/groups are
+            assigned roles appropriately according to their purpose.
+            <br />
+            <strong>Vulnerable Criteria:</strong> AZURE user permissions/groups
+            are not assigned roles appropriately according to their purpose.
+        </td>
+    </tr>
+    <tr>
+        <td>AD User Role Permission Management</td>
+        <td>
+            <strong>Good Criteria:</strong> AD administrative roles are granted
+            appropriately according to business and service usage purposes.
+            <br />
+            <strong>Vulnerable Criteria:</strong> AD administrative roles are
+            not granted appropriately according to business and service usage
+            purposes.
+        </td>
+    </tr>
+    <tr>
+        <td>Instance Service Access Policy Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Access control (IAM) for instance
+            services is granted according to user roles.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Access control (IAM) for
+            instance services is not granted according to user roles.
+        </td>
+    </tr>
+    <tr>
+        <td>Network Service Access Policy Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Access control (IAM) for network
+            services is granted according to user roles.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Access control (IAM) for
+            network services is not granted according to user roles.
+        </td>
+    </tr>
+    <tr>
+        <td>Other Service Access Policy Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Access control (IAM) for other
+            services is granted according to user roles.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Access control (IAM) for other
+            services is not granted according to user roles.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="9">Virtual Resource Management</td>
+        <td>Virtual Network Resource Management</td>
+        <td>
+            <strong>Good Criteria:</strong> Public IP addresses do not exist for
+            resources that use only the internal network among connected
+            devices.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Public IP addresses exist for
+            resources that use only the internal network among connected
+            devices.
+        </td>
+    </tr>
+    <tr>
+        <td>Internal Virtual Network Security Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Access control (VPN, Bastion) is
+            applied when accessing internal resources.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Access control (VPN, Bastion)
+            is not applied when accessing internal resources.
+        </td>
+    </tr>
+    <tr>
+        <td>Security Group Inbound/Outbound ANY Setting Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Ports in the security group's
+            inbound/outbound rules are not allowed as "Any".
+            <br />
+            <strong>Vulnerable Criteria:</strong> Ports in the security group's
+            inbound/outbound rules are allowed as "Any".
+        </td>
+    </tr>
+    <tr>
+        <td>Security Group Inbound/Outbound Unnecessary Policy Management</td>
+        <td>
+            <strong>Good Criteria:</strong> There are no unnecessary policies
+            (Source, Destination) within the security group's inbound/outbound
+            rules.
+            <br />
+            <strong>Vulnerable Criteria:</strong>here are unnecessary policies
+            (Source, Destination) within the security group's inbound/outbound
+            rules.
+        </td>
+    </tr>
+    <tr>
+        <td>Firewall ANY Policy Setting Management</td>
+        <td>
+            <strong>Good Criteria:</strong> Firewall policy rules (Source,
+            Destination, Port) are not allowed as "Any".
+            <br />
+            <strong>Vulnerable Criteria:</strong> Firewall policy rules (Source,
+            Destination, Port) are allowed as "Any".
+        </td>
+    </tr>
+    <tr>
+        <td>Firewall Unnecessary Policy Management</td>
+        <td>
+            <strong>Good Criteria:</strong> There are no unnecessary rules in
+            the firewall policy.
+            <br />
+            <strong>Vulnerable Criteria:</strong> There are unnecessary rules in
+            the firewall policy.
+        </td>
+    </tr>
+    <tr>
+        <td>NAT Gateway Subnet Connection Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Only subnets that require public
+            network access are connected.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Subnets that do not require
+            public network access are connected
+        </td>
+    </tr>
+    <tr>
+        <td>Storage Account Security Settings </td>
+        <td>
+            <strong>Good Criteria:</strong> Secure transfer is enabled, TLS
+            version is set to 1.2, and public access is blocked.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Secure transfer is disabled,
+            TLS version is set to 1.2 or lower, and public access is blocked.
+        </td>
+    </tr>
+    <tr>
+        <td>Storage Account Shared Access Signature Policy Management </td>
+        <td>
+            <strong>Good Criteria:</strong> When using a shared access
+            signature, the allowed permissions and IP addresses are minimally
+            configured.
+            <br />
+            <strong>Vulnerable Criteria:</strong> When using a shared access
+            signature, the allowed permissions and IP addresses are not
+            minimally configured.
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="12">Operations Management</td>
+        <td>Database Encryption Settings Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Transparent data encryption and data
+            encryption features are enabled.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Transparent data encryption
+            and data encryption features are not enabled.
+        </td>
+    </tr>
+    <tr>
+        <td>Storage Encryption Settings </td>
+        <td>
+            <strong>Good Criteria:</strong> Encryption is configured using
+            service-managed keys and customer-managed keys.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Encryption is not configured
+            using service-managed keys and customer-managed keys.
+        </td>
+    </tr>
+    <tr>
+        <td>Disk Encryption Settings </td>
+        <td>
+            <strong>Good Criteria:</strong> Encryption is configured using
+            service-managed keys and customer-managed keys.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Encryption is not configured
+            using service-managed keys and customer-managed keys.
+        </td>
+    </tr>
+    <tr>
+        <td>Encryption Settings for Communication Channels </td>
+        <td>
+            <strong>Good Criteria:</strong> Encryption settings are applied
+            within the communication channels of cloud resources.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Encryption settings are not
+            applied within the communication channels of cloud resources.
+        </td>
+    </tr>
+    <tr>
+        <td>Key Vault Rotation Policy Management </td>
+        <td>
+            <strong>Good Criteria:</strong> The rotation policy for user-managed
+            keys is configured according to the standard (90 days).
+            <br />
+            <strong>Vulnerable Criteria:</strong> The rotation policy for
+            user-managed keys is not configured according to the standard
+            (exceeding 90 days).
+        </td>
+    </tr>
+    <tr>
+        <td>AD Audit Log Settings </td>
+        <td>
+            <strong>Good Criteria:</strong> An AD audit log retention policy
+            exists.
+            <br />
+            <strong>Vulnerable Criteria:</strong> An AD audit log retention
+            policy does not exist.{" "}
+        </td>{" "}
+    </tr>{" "}
+    <tr>
+        {" "}
+        <td>Instance Service Audit Log Settings</td>
+    </tr>
+    <tr>
+        <td>An instance service log retention policy exists. </td>
+        <td>
+            <strong>Good Criteria:</strong> An instance service log retention
+            policy does exist.
+            <br />
+            <strong>Vulnerable Criteria:</strong> An instance service log
+            retention policy does not exist.
+        </td>
+    </tr>
+    <tr>
+        <td>Network Service Audit Log Settings
+
+ </td>
+        <td>
+            <strong>Good Criteria:</strong> A network service log retention policy exists.  
+            <br />
+            <strong>Vulnerable Criteria:</strong> A network service log retention policy does not exist.  
+        </td>
+    </tr>
+    <tr>
+        <td>Other Service Audit Log Settings </td>
+        <td>
+            <strong>Good Criteria:</strong> A log retention policy exists for other services.
+            <br />
+            <strong>Vulnerable Criteria:</strong> A log retention policy does not exist for other services. 
+        </td>
+    </tr>
+    <tr>
+        <td>Resource Group Lock </td>
+        <td>
+            <strong>Good Criteria:</strong> Customer services (commercial) and operational services use the lock function by enabling it. 
+            <br />
+            <strong>Vulnerable Criteria:</strong> Customer services (commercial) and operational services do not use the lock function by enabling it.
+        </td>
+    </tr>
+    <tr>
+    <td>Database Encryption Settings Management </td>
+        <td>
+            <strong>Good Criteria:</strong> Transparent data encryption and data
+            encryption features are enabled.
+            <br />
+            <strong>Vulnerable Criteria:</strong> Transparent data encryption
+            and data encryption features are not enabled.
+        </td>
+    </tr>
+</table>

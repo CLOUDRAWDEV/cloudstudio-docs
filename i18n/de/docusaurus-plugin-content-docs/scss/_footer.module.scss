@@ -1,0 +1,22 @@
+@charset "utf-8";
+@import "./mixin";
+
+.footerWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background: $footerBackgroundColor;
+
+    h5 {
+        color: #ffffff;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    &__copyright {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

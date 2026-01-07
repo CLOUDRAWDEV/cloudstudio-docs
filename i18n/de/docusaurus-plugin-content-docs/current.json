@@ -31,6 +31,14 @@
         "message": "Plugins",
         "description": "The label for category 플러그인 in sidebar mySidebar"
     },
+    "sidebar.mySidebar.category.자산": {
+        "message": "Asset",
+        "description": "The label for category 자산 in sidebar mySidebar"
+    },
+    "sidebar.mySidebar.category.점검": {
+        "message": "Prüfung",
+        "description": "The label for category 점검 in sidebar mySidebar"
+    },
     "sidebar.mySidebar.category.VCS": {
         "message": "VCS",
         "description": "The label for category VCS in sidebar mySidebar"
