@@ -1,0 +1,41 @@
+---
+title: OpensearchServerlessCollection
+sidebar_position: 0
+tags: [AWS, OpenSearch, Serverless, OpensearchServerlessCollection, Search]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/opensearch-opensearch_serverless_collection.webp" />
+
+## 리소스 개요
+
+인프라 관리 없이 자동으로 확장되는 OpenSearch 클러스터 환경에서 데이터를 저장·검색할 수 있도록 하는 서버리스 형태의 OpenSearch 인덱스 그룹입니다.
+
+## 연관 리소스
+
+### 연결 리소스
+
+-   [**VPC**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
+-   [**IAM Role**](https://docs.cstudio.app/docs/resource/aws/IAM/IamRole)
+-   [**KMS Key**](https://docs.cstudio.app/docs/resource/aws/Security/KmsKey)
+
+---
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `collection_description` : 컬렉션에 대한 설명
+-   `standby_replicas` : 고가용성을 위해 대기 복제본 활성화 여부 - `ENABLED`, `DISABLED`
+-   `collection_type` : 컬렉션의 유형 - `VECTORSEARCH`, `TIMESERIES`, `SEARCH`
+
+---
+
+## 참고 자료
+
+-   [Amazon OpenSearch Serverless (AWS)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html)
+-   [Creating collections (OpenSearch Serverless) (AWS)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html)
