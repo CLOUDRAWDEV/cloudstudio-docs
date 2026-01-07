@@ -1,6 +1,6 @@
 ---
 title: Mongodb
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, 리소스, Database, Mongodb]
 ---
 
@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, Database, Mongodb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.webp"
     }
 />
 
@@ -25,11 +25,7 @@ Cloud DB for MongoDB는 MongoDB 데이터베이스를 손쉽게 구축하고 자
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-
 ### 하위 리소스
-
-
-
 
 ## 리소스 설정 값
 
@@ -42,10 +38,8 @@ Cloud DB for MongoDB는 MongoDB 데이터베이스를 손쉽게 구축하고 자
 -   `member_server_count` : MongoDB Member 서버의 수, 하나의 레플리카 세트 당 멤버 서버의 수가 정해짐 - `3-7`
 -   `mongos_server_count` : MongoDB Mongos 서버의 수 - `2-5`
 -   `backup_file_retention_period` : 백업 파일 보관 기간, 백업은 매일 단위로 진행되며, 백업 파일은 별도의 스토리지에 저장 - `1~30`
--   `data_storage_type` : 데이터 스토리지 종류  - `SSD`, `HDD`
--   `compress_code` : MongoDB에서 제공하는 데이터 압축 알고리즘을 선택할 수 있는 MongoDB 데이터 압축 알고리즘 코드  - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
-
-    
+-   `data_storage_type` : 데이터 스토리지 종류 - `SSD`, `HDD`
+-   `compress_code` : MongoDB에서 제공하는 데이터 압축 알고리즘을 선택할 수 있는 MongoDB 데이터 압축 알고리즘 코드 - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
 
 ---
 

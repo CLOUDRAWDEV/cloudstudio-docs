@@ -1,0 +1,65 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, 리소스, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## 리소스 개요
+
+PostgreSQL은 **오픈소스 관계형 데이터베이스(RDBMS)**로,  
+Ncloud에서는 고가용성(HA), 백업 자동화, 암호화 스토리지 기능이 포함된 완전 관리형 Database 서비스로 제공합니다.  
+복잡한 인프라 구성 없이 손쉽게 PostgreSQL 환경을 구축할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/VPC)
+
+### 연결 리소스
+
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/SecurityGroup)
+-   [**Login Key**](https://docs.cstudio.app/docs/resource/ncloud/Compute/LoginKey)
+
+---
+
+## 리소스 설정 값
+
+-   `server_name_prefix` : PostgreSQL 서버 이름 접두사 (3~30자, 영소문자/숫자/하이픈)
+-   `included_vpc_name` : PostgreSQL이 포함된 VPC 이름
+-   `included_subnet_name` : PostgreSQL이 포함된 Subnet 이름
+-   `enable_high_availability` : 고가용성 기능 사용 여부 (`true`, `false`)
+-   `user_name` : PostgreSQL 사용자 접근 ID
+-   `user_password` : PostgreSQL 사용자 접근 비밀번호
+-   `image_product_code` : PostgreSQL 인스턴스 이미지 코드  
+    (예: `SW.VPGSL.OS.LNX64.ROCKY.0810.PGSQL.B050`)
+-   `product_code` : PostgreSQL 인스턴스 서버 사양 코드  
+    (예: `SVR.VPGSL.DBSVR.HICPU.C002.M004.NET.SSD.B050.G002`)
+-   `data_storage_type` : 데이터 스토리지 종류 (`SSD`, `HDD`)
+-   `is_backup` : 백업 사용 여부 (`true`, `false`)
+-   `backup_file_retention_period` : 백업 파일 보관 기간 (1~30일)
+-   `enable_automatic_backup` : 백업 자동화 사용 여부 (`true`, `false`)
+-   `backup_time` : 특정 백업 실행 시간
+-   `port` : PostgreSQL 접속 포트 (`기본값: 5432`)
+-   `client_cidr` : 클라이언트 접근 허용 IP 범위 (CIDR)
+-   `database_name` : 기본 데이터베이스 이름
+-   `enable_storage_encryption` : 스토리지 암호화 기능 사용 여부 (`true`, `false`)
+
+---
+
+## 참고 자료
+
+-   [PostgreSQL (Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [ncloud_postgresql (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)
