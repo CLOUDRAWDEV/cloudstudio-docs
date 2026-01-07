@@ -1,0 +1,76 @@
+---
+title: BedrockAgent
+sidebar_position: 0
+tags: [AWS, Bedrock, Agent, LLM, AI]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_agent.webp" />
+
+## 리소스 개요
+
+AWS Bedrock 위에서 실행되는 AI 에이전트를 생성하고 관리하는 서비스입니다.
+
+## 연관 리소스
+
+### 하위 리소스
+
+-   [**BedrockActionGroup**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockActionGroup)
+
+### 연결 리소스
+
+-   [**Knowledge Base**](https://docs.cstudio.app/docs/resource/aws/Bedrock/KnowledgeBase)
+-   [**AWS Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Compute/Lambda)
+-   [**Bedrock Guardrail**](https://docs.cstudio.app/docs/resource/aws/Bedrock/Guardrail)
+
+---
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `foundation_model` : Bedrock에서 사용할 기본 LLM(기반 모델) 지정  
+    예: `amazon.titan-text-express-v1`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `qwen.qwen3-32b-v1`
+-   `description` : 해당 에이전트에 대한 설명 (최대 5000자)
+-   `idle_session_ttl_in_seconds` : 세션 유휴 종료 시간(초)
+-   `instruction` : 에이전트의 기본 지시문(시스템 프롬프트, 40~4000자)
+-   `customer_encryption_key_arn` : 사용자 지정 KMS 키(ARN)로 암호화 설정
+
+#### 가드레일 설정 (`guardrail_configuration`)
+
+-   `guardrail_use_method` : 가드레일 적용 방식 - `already_exists`, `create_new`
+-   `guardrail_identifier` : 사용할 가드레일 ID
+-   `target_bedrock_guardrail` : 연결할 Bedrock Guardrail 리소스
+-   `guardrail_version` : 사용할 가드레일 버전
+
+#### 지식 베이스 연결 (`target_bedrock_knowledge_base`)
+
+-   `target_bedrock_knowledge_base` : 지식 베이스와 연결할 Bedrock 에이전트 ARN
+-   `knowledge_base_association_description` : 연결 관계 설명
+-   `knowledge_base_state` : 지식 베이스 상태 - `ENABLED`, `DISABLED`
+
+#### 프롬프트 오버라이드 설정 (`prompt_override_configuration`)
+
+-   `prompt_configurations.prompt_creation_mode` : 자동 생성/수동 지정 - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_configurations.prompt_type` : 프롬프트 유형 - `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`
+-   `prompt_configurations.base_prompt_template` : 프롬프트 기본 템플릿 구조
+-   `prompt_configurations.prompt_state` : 프롬프트 활성 상태 - `ENABLED`, `DISABLED`
+-   `prompt_configurations.parser_mode` : 출력 해석 방식 - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_configurations.max_length` : 모델 응답 최대 길이
+-   `prompt_configurations.stop_sequences` : 모델이 중단할 문자열 시퀀스
+-   `prompt_configurations.temperature` : 생성 결과의 창의성 조절
+-   `prompt_configurations.top_p` : 확률 누적 기반 샘플링 제어
+-   `prompt_configurations.top_k` : 상위 K개 단어만 후보로 제한
+-   `override_lambda` : 프롬프트 동작을 커스터마이징하기 위한 Lambda 함수 지정
+
+---
+
+## 참고 자료
+
+-   [Amazon Bedrock Agents (AWS 공식 문서)](https://docs.aws.amazon.com/bedrock/)
+-   [Bedrock Guardrail 설정 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [Bedrock Knowledge Base 설정 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)

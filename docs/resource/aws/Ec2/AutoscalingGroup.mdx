@@ -1,0 +1,48 @@
+---
+title: AutoscalingGroup
+sidebar_position: 0
+tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
+
+## 리소스 개요
+
+애플리케이션 수요에 맞춰 EC2 인스턴스를 자동으로 생성/종료하여 리소스를 조정하는 Auto Scaling Group(ASG)입니다.
+
+## 연관 리소스
+
+### 연결 리소스
+
+-   [**LaunchTemplate**](https://docs.cstudio.app/docs/resource/aws/EC2/LaunchTemplate)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/VPC/Subnet)
+-   [**TargetGroup**](https://docs.cstudio.app/docs/resource/aws/ELB/TargetGroup)
+-   [**EC2 Instance**](https://docs.cstudio.app/docs/resource/aws/EC2/Instance)
+
+---
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `launch_template_name` : Auto Scaling Group에서 사용할 Launch Template 이름 (드롭다운)
+-   `subnet_ids` : Auto Scaling Group이 리소스를 생성할 Subnet ID 목록 (체크리스트)
+-   `linked_targetgroup_name` : 연결된 Target Group 이름 목록 (체크리스트)
+-   `desired_capacity` : 유지하려는 인스턴스 목표 개수
+-   `min_size` : 유지하려는 인스턴스 최소 개수
+-   `max_size` : 유지하려는 인스턴스 최대 개수
+-   `default_cooldown` : 스케일링 작업 후 다음 스케일링까지 대기 시간(초)
+-   `tags` : 리소스 분류 태그 - `key`:`value`
+
+---
+
+## 참고 자료
+
+-   [Auto Scaling groups (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+-   [Set up a launch template (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html)
+-   [Scaling cooldowns (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html)
