@@ -24,28 +24,38 @@ tags: [AWS, 리소스, Vpc, NetworkAcl]
 
 ### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**VPC**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
 
 ### 연결 리소스
 
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
 
 ## 리소스 설정 값
 
--   `included_vpc_name` : Network ACL이 포함된 VPC의 이름
--   `linked_subnet_names` : Network ACL을 적용할 Subnet 이름
--   `ingress` : Network ACL의 Ingress 규칙 이름
-    -   `protocol` : Ingress 규칙의 Protocol - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Ingress 규칙의 Protocol에 적용할 Action - `allow`, `deny`
-    -   `cidr_block` : Ingress 규칙을 적용할 CIDR
-    -   `from_port` : Ingress 규칙으로 들어오는 포트 번호
-    -   `to_port` : Ingress 규칙을 통해 나가는 포트 번호
--   `egress` : Network ACL의 Ingress 규칙 이름
-    -   `protocol` : Egress 규칙의 Protocol - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Egress 규칙의 Protocol에 적용할 Action - `allow`, `deny`
-    -   `cidr_block` : Egress 규칙을 적용할 CIDR
-    -   `from_port` : Egress 규칙으로 들어오는 포트 번호
-    -   `to_port` : Egress 규칙을 통해 나가는 포트 번호
+#### 기본 설정
+
+-   `included_vpc_name` : ACL을 생성할 VPC 이름
+-   `nacl_description` : ACL에 대한 설명
+
+#### 인바운드 규칙 (`inbound_rule`)
+
+-   `inbound_rule.priority` : 인바운드 규칙 우선순위 - `0` ~ `199`
+-   `inbound_rule.protocol` : 인바운드 트래픽 프로토콜 - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : 인바운드 트래픽 허용 여부 - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : 인바운드 트래픽 소스 CIDR 대역
+-   `inbound_rule.port_range` : 인바운드 규칙을 적용할 포트 범위 - `1` ~ `65535`
+
+#### 아웃바운드 규칙 (`outbound_rule`)
+
+-   `outbound_rule.priority` : 아웃바운드 규칙 우선순위 - `0` ~ `199`
+-   `outbound_rule.protocol` : 아웃바운드 트래픽 프로토콜 - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : 아웃바운드 트래픽 허용 여부 - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : 아웃바운드 트래픽 목적지 CIDR 대역
+-   `outbound_rule.port_range` : 아웃바운드 규칙을 적용할 포트 범위 - `1` ~ `65535`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

@@ -23,56 +23,70 @@ Amazon CloudFront는 .html, .css, .php, 이미지 및 미디어 파일과 같은
 
 ### 상위 리소스
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/Base)
 
 ### 연결 리소스
 
--   [**Cloudfront Cache Policy**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Waf Web Acl**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
+-   [**Cloudfront Cache Policy**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CachePolicy)
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/Storage/S3Bucket)
+-   [**Waf Web Acl**](https://docs.cstudio.app/docs/resource/aws/WAF/WebAcl)
+
+---
 
 ## 리소스 설정 값
 
--   `enabled` :콘텐츠에 대한 최종 사용자 요청을 수락하도록 배포가 활성화되어 있는지 여부 - `true`, `false`
--   `origin` : Origin의 식별자
--   `cache_policy` : Cache Policy 이름
-    -   `min_ttl` : 객체를 CloudFront 캐시에 유지하려는 최소 시간(초)
-    -   `max_ttl` : 객체가 CloudFront 캐시에 유지되는 최대 시간(초)
-    -   `default_ttl` : 객체를 CloudFront 캐시에 유지하려는 기본 시간(초)
-    -   `cookie_behavior` : 최종 사용자 요청의 쿠키가 캐시 키에 포함되고 CloudFront가 오리진으로 보내는 요청에 자동으로 포함되는지 여부를 결정 - `whitelist`,`all`,`none`,`allExcept`
-    -   `cookies_items` : Cookie Items 이름 리스트
-    -   `header_behavior` : HTTP 헤더가 캐시 키에 포함되고 CloudFront가 오리진으로 보내는 요청에 자동으로 포함되는지 여부를 결정 - `whitelist`,`none`
-    -   `headers_items` : Header Items 이름 리스트
-    -   `query_string_behavior` : 최종 사용자 요청의 URL 쿼리 문자열이 캐시 키에 포함되고 CloudFront가 오리진으로 보내는 요청에 자동으로 포함되는지 여부를 결정 - `whitelist`,`all`,`none`,`allExcept`
-    -   `query_strings_items` : query items 이름 리스트
--   `cache_behavior`
+#### 기본 설정
 
-    -   `path_pattern` : Cache Behavior에 적용할 요청을 지정하는 패턴
-    -   `compress` : CloudFront에서 웹 요청에 대한 콘텐츠를 자동으로 압축할지 여부 - `true`, `false`
-    -   `viewer_protocol_policy` : 요청이 PathPattern의 경로 패턴과 일치할 때 TargetOriginId에서 지정한 원본의 파일에 액세스하는 데 사용할 수 있는 프로토콜을 지정 - `allow-all`,`https-only`,`redirect-to-https`
-    -   `allowed_methods` : CloudFront에서 처리하고 Amazon S3 버킷 또는 사용자 지정 오리진으로 전달하는 HTTP 메서드를 제어 - `GET`,`HEAD`,`OPTIONS`,`PATCH`,`POST`,`PUT`,`DELETE`
-    -   `cached_methods` : CloudFront에서 지정된 HTTP 메서드를 사용하여 요청에 대한 응답을 캐시할지 여부를 제어 - `GET`,`HEAD`,`OPTIONS`,`PATCH`,`POST`,`PUT`,`DELETE`
-    -   `origin_name` : 경로 패턴이 일치할 때 Cloudfront에서 요청을 라우팅할 Origin 이름
-    -   `linked_cache_policy_name` : Cache Behavior에 연결할 Cache Policy ID
+-   `enabled` : 배포 활성화 여부 - `true`, `false`
+-   `price_class` : CloudFront 배포의 가격 등급 - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : 지원할 HTTP 최대 버전 - `http1.1`, `http2`
+-   `is_ipv6_enabled` : IPv6 사용 여부 - `true`, `false`
+-   `linked_waf_web_acl_name` : 보안 보호에 사용할 WAF Web ACL 이름
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
--   `restriction`
+#### 오리진 설정 (`origin`)
 
-    -   `type` : 국가별로 콘텐츠 배포를 제한하는 데 사용하려는 방법 - `whitelist`,`blacklist`,`none`
-    -   `locations` : CloudFront에서 콘텐츠를 배포하거나 배포하지 않도록 하려는 ISO 3166-1-alpha-2 코드
+-   `origin.origin_type` : 오리진 유형 - `s3`, `custom`
+-   `origin.linked_resource_name` : S3 오리진일 경우 연결할 S3 Bucket
+-   `origin.domain` : Custom 오리진일 경우 DNS 도메인 이름
+-   `origin.shield_enabled` : Origin Shield 활성화 여부 - `true`, `false`
+-   `origin.shield_region` : Origin Shield를 사용할 AWS 리전 코드
 
--   `viewer_certificate`
+#### 오리진 그룹 (`origin_group`)
 
-    -   `default_certificate_enabled` : 최종 사용자가 HTTPS를 사용하여 객체를 요청하도록 하고 배포에 CloudFront 도메인 이름을 사용하는 경우 - `true`, `false`
+-   `origin_group.first_origin_name` : 첫 번째 오리진 이름
+-   `origin_group.second_origin_name` : 두 번째 오리진 이름
+-   `origin_group.failover_criteria` : 장애 조치 기준 HTTP 상태 코드 목록
 
--   `price_class` : Cloudfront distribution의 가격 등급 - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
--   `http_version` : Cloudfront distribution에서 지원하는 HTTP의 최대 버전 - `http1.1`, `http2`
--   `is_ipv6_enabled` : Cloudfront distribution의 IPv6 허용 여부 - `true`, `false`
+#### 캐시 동작 (`cache_behavior`)
 
--   `logging`
+-   `cache_behavior.path_pattern` : 캐시 동작이 적용될 요청 경로 패턴
+-   `cache_behavior.compress` : 자동 압축 여부 - `true`, `false`
+-   `cache_behavior.viewer_protocol_policy` : 뷰어 접근 프로토콜 정책 - `allow-all`, `https-only`, `redirect-to-https`
+-   `cache_behavior.allowed_methods` : CloudFront가 처리할 HTTP 메서드 목록
+-   `cache_behavior.cached_methods` : 캐시할 HTTP 메서드 목록
+-   `cache_behavior.origin_name` : 요청을 전달할 오리진 이름
+-   `cache_behavior.linked_cache_policy_name` : 연결할 Cache Policy
 
-    -   `logging_enabled` : 로깅 활성화 - `true`, `false`
+#### 배포 제한 (`restriction`)
 
--   `linked_waf_web_acl_name` : 보안 보호를 활성화 할 경우 사용할 WAF WEB ACL 이름
+-   `restriction.type` : 국가별 배포 제한 방식 - `whitelist`, `blacklist`, `none`
+-   `restriction.locations` : ISO 3166-1 alpha-2 국가 코드 목록
+
+#### 인증서 설정 (`viewer_certificate`)
+
+-   `viewer_certificate.default_certificate_enabled` : 기본 CloudFront 인증서 사용 여부
+-   `viewer_certificate.acm_certificate_name` : 사용할 ACM 인증서 이름
+-   `viewer_certificate.iam_certificate_id` : 사용할 IAM 인증서 ID
+-   `viewer_certificate.legacy_client_support_enabled` : 레거시 HTTPS 방식 사용 여부
+-   `viewer_certificate.minimum_protocol_version` : 최소 SSL/TLS 프로토콜 버전
+
+#### 로깅 설정 (`logging`)
+
+-   `logging.logging_enabled` : 접근 로그 활성화 여부 - `true`, `false`
+-   `logging.logging_s3_bucket_name` : 로그 저장용 S3 Bucket
+-   `logging.logging_file_prefix` : 로그 파일 접두사
+-   `logging.logging_include_cookies` : 쿠키 포함 여부 - `true`, `false`
 
 ## 참고 자료
 

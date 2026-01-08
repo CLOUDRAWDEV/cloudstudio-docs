@@ -25,21 +25,43 @@ Amazon Virtual Private Cloud(Amazon VPC)를 사용하면 리소스 배치, 연�
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-### 하위 리소스
+### 내부 리소스
 
--   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Lb/)
--   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Network Acl**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkAcl)
--   [**Vpc Route Table**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
--   [**Vpc FlowLog**](https://docs.cstudio.app/docs/resource/aws/Vpc/FlowLog)
--   [**Ec2 Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Ec2/TransitGateway)
--   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/)
+-   [**Load Balancer**](https://docs.cstudio.app/docs/resource/aws/Network/Lb)
+-   [**Load Balancer Target Group**](https://docs.cstudio.app/docs/resource/aws/Network/LbTargetGroup)
+-   [**Client VPN Endpoint**](https://docs.cstudio.app/docs/resource/aws/Network/ClientVpnEndpoint)
+-   [**Network Firewall**](https://docs.cstudio.app/docs/resource/aws/Network/NetworkFirewall)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
+-   [**Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/InternetGateway)
+-   [**Network ACL**](https://docs.cstudio.app/docs/resource/aws/Network/NetworkAcl)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/aws/Network/RouteTable)
+-   [**Flow Log**](https://docs.cstudio.app/docs/resource/aws/Network/FlowLog)
+-   [**Auto Scaling Group**](https://docs.cstudio.app/docs/resource/aws/Compute/AutoscalingGroup)
+-   [**EFS**](https://docs.cstudio.app/docs/resource/aws/Storage/Efs)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Network/Endpoint)
+
+### 연결 리소스
+
+-   [**Resolver Endpoint**](https://docs.cstudio.app/docs/resource/aws/Network/ResolverEndpoint)
+-   [**Resolver Rule**](https://docs.cstudio.app/docs/resource/aws/Network/ResolverRule)
+-   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Network/Route53)
+-   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGateway)
+-   [**VPC Peering**](https://docs.cstudio.app/docs/resource/aws/Network/VpcPeering)
+-   [**VPN Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/VpnGateway)
+-   [**MSK Cluster**](https://docs.cstudio.app/docs/resource/aws/Analytics/MskCluster)
 
 ## 리소스 설정 값
 
--   `cidr_block` :VPC의 IP 대역(CIDR)
+#### 기본 설정
+
+-   `cidr_block` : VPC의 IP 대역(CIDR)
+-   `enabled_dns_support` : DNS 확인 지원 여부 - `true`, `false`
+-   `enabled_dns_hostnames` : DNS 호스트 이름 할당 지원 여부 - `true`, `false`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

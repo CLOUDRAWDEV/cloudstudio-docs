@@ -19,21 +19,32 @@ tags: [AWS, 리소스, Route53]
 
 Amazon Route 53은 가용성과 확장성이 우수한 도메인 이름 시스템(DNS) 웹 서비스입니다.
 
+## 연관 리소스
+
 ### 상위 리소스
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
 
 ### 연결 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
 
 ## 리소스 설정 값
 
--   `linked_vpc_names` : Route53 Zone을 연결할 VPC 이름
--   `record` : Route53 Zone에 생성할 Record의 이름
-    -   `type` : Record의 type - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
-    -   `ttl` : Record의 ttl
-    -   `records` : 레코드의 문자열 목록
+#### 기본 설정
+
+-   `routing_type` : Route53 Zone 라우팅 종류 - `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : Route53 Zone을 연결할 VPC 이름 목록
+
+#### Record (`record`)
+
+-   `record.type` : Record의 타입 - `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : Record의 TTL
+-   `record.records` : 레코드의 문자열 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

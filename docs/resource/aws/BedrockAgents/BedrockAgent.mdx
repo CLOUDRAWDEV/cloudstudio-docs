@@ -17,15 +17,15 @@ AWS Bedrock 위에서 실행되는 AI 에이전트를 생성하고 관리하는 
 
 ## 연관 리소스
 
-### 하위 리소스
+### 상위 리소스
 
--   [**BedrockActionGroup**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockActionGroup)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ### 연결 리소스
 
--   [**Knowledge Base**](https://docs.cstudio.app/docs/resource/aws/Bedrock/KnowledgeBase)
--   [**AWS Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Compute/Lambda)
--   [**Bedrock Guardrail**](https://docs.cstudio.app/docs/resource/aws/Bedrock/Guardrail)
+-   [**BedrockKnowledgeBase**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockKnowledgeBase)
+-   [**LambdaFunction**](https://docs.cstudio.app/docs/resource/aws/Compute/LambdaFunction)
+-   [**BedrockGuardrail**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockGuardrail)
 
 ---
 
@@ -33,7 +33,7 @@ AWS Bedrock 위에서 실행되는 AI 에이전트를 생성하고 관리하는 
 
 #### 기본 설정
 
--   `foundation_model` : Bedrock에서 사용할 기본 LLM(기반 모델) 지정  
+-   `foundation_model` : Bedrock에서 사용할 기본 LLM(기반 모델)  
     예: `amazon.titan-text-express-v1`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `qwen.qwen3-32b-v1`
 -   `description` : 해당 에이전트에 대한 설명 (최대 5000자)
 -   `idle_session_ttl_in_seconds` : 세션 유휴 종료 시간(초)

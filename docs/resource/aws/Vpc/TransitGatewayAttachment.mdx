@@ -27,16 +27,27 @@ VPC와 온프레미스 네트워크를 연결하는 데 사용할 수 있는 서
 
 ### 연결 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
--   [**TransitGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
--   [**TransitGatewayAttachmentAccepter**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
+-   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGateway)
+-   [**Transit Gateway Attachment Accepter**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGatewayAttachmentAccepter)
 
 ## 리소스 설정 값
 
--   `linked_tranit_gateway_name` : Vpc와 연결하는 Transit Gateway 이름
--   `is_manual` : 연결할 VPC ID를 직접 입력할지 여부 - `false`,`true`
+#### 기본 설정
+
+-   `linked_transit_gateway_name` : VPC와 연결할 Transit Gateway 이름
+-   `is_manual` : 연결할 VPC ID를 수동으로 입력할지 여부 - `true`, `false`
 -   `linked_vpc_name` : Transit Gateway를 연결할 VPC 이름
--   `subnet_names` : Transit Gateway를 연결할 Subnet 이름
+-   `subnet_names` : Transit Gateway와 연결할 Subnet 이름 목록
+
+#### 수동 연결 설정 (`manual`)
+
+-   `vpc_id` : Transit Gateway를 연결할 VPC ID
+-   `subnet_ids` : `vpc_id`로 지정한 VPC 내부의 Subnet ID 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

@@ -29,12 +29,16 @@ AWS CloudTrail을 사용하면 AWS Management Console, AWS SDK, 명령줄 도구
 
 -   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
 
+---
+
 ## 리소스 설정 값
 
--   `linked_s3_bucket_name` : 로그 파일 publish용으로 지정된 S3 버킷의 이름
--   `s3_key_prefix` : 로그 파일 전송을 위해 지정한 버킷 이름 뒤에 오는 S3 키 접두사
--   `multi_region_enabled` : 다중 리전 추적 활성화
--   `global_service_events` : Cloudtrail이 IAM과 같은 글로벌 서비스의 이벤트를 로그 파일에 게시하는지 여부 - `true`, `false`
+#### 기본 설정
+
+-   `linked_s3_bucket_name` : CloudTrail 로그 파일을 저장할 S3 버킷 이름
+-   `s3_key_prefix` : 로그 파일 저장 시 사용할 S3 객체 키 접두사
+-   `multi_region_enabled` : 다중 리전 추적 활성화 여부 - `true`, `false`
+-   `global_service_events` : IAM 등 글로벌 서비스 이벤트를 로그에 포함할지 여부 - `true`, `false`
 
 ---
 

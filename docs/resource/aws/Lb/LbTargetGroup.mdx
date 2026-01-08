@@ -24,21 +24,30 @@ tags: [AWS, 리소스, Lb, LbTargetGroup]
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
 
 ### 연결 리소스
 
--   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
--   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
--   [**Lb**]https://docs.cstudio.app/docs/resource/aws/Lb)
+-   [**Instance**](https://docs.cstudio.app/docs/resource/aws/Compute/Instance)
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Compute/LambdaFunction)
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Network/Lb)
 
 ## 리소스 설정 값
 
--   `target_type` : LB 대상의 종류 - `Instance`, `Ip`, `Lambda`, `Alb`
--   `protocol` : 트래픽을 대상으로 라우팅하는 데 사용할 프로토콜 - `HTTP`,`HTTPS`,`TCP`,`TCP_UDP`,`TLS`
--   `port` : 트래픽을 수신하는 포트 - `1~65535`
+#### 기본 설정
+
+-   `target_type` : LB 대상의 종류 - `instance`, `ip`, `lambda`, `alb`
+-   `protocol` : 트래픽을 대상으로 라우팅하는 데 사용할 프로토콜 - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `GENEVE`
+-   `port` : 트래픽을 수신하는 포트 - `1` ~ `65535`
 -   `included_vpc_name` : 대상 그룹을 생성할 VPC의 이름
 -   `linked_instance_names` : Target Instance의 이름 목록
+-   `ips` : Target IP 목록
+-   `linked_lambda_name` : Target Lambda의 이름
+-   `linked_application_lb_name` : Target ALB의 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 

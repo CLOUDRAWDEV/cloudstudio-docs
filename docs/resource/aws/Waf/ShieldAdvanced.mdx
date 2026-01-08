@@ -17,13 +17,25 @@ AWS Shield Advanced를 사용하여 DDoS 공격으로부터 AWS 리소스를 보
 
 ## 연관 리소스
 
-### 연결 리소스
+### 상위 리소스
 
--   [**EC2 Instance**](https://docs.cstudio.app/docs/resource/aws/EC2/Instance)
--   [**Elastic Load Balancer**](https://docs.cstudio.app/docs/resource/aws/ELB/LoadBalancer)
--   [**CloudFront**](https://docs.cstudio.app/docs/resource/aws/CloudFront/Distribution)
--   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/HostedZone)
--   [**WAF WebACL**](https://docs.cstudio.app/docs/resource/aws/WAF/WebACL)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `aggregation` : 보호 그룹 내 리소스 데이터를 결합하여 이벤트를 감지, 완화 및 보고하는 방식 - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : 보호 그룹에 포함할 보호된 리소스를 선택하는 기준 - `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Protection Group에 포함할 리소스 유형
+-   `health_check_ip_address` : 상태 확인 대상 엔드포인트의 IP 주소
+-   `health_check_fqdn` : 상태 확인 대상 엔드포인트의 정규화된 도메인 이름
+-   `health_check_type` : 상태 확인에 사용할 프로토콜 - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : 상태 확인 요청 간격(초) - `10`, `30`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

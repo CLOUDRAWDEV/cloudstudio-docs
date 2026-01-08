@@ -23,43 +23,67 @@ AWS ElasticSearch는 분산 검색 및 분석 엔진으로, 빠른 검색 및 �
 
 ### 상위 리소스
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
 
 ### 연결 리소스
 
--   [**Elastic Search**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `elasticsearch_version` : Elasticsearch Domain 버전
--   `availability_zone_count` : 가용 영역 개수 - `2`,`3`
--   `tls_security_policy` : HTTPS 끝점에 적용해야 하는 TLS 보안 정책의 이름 - `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`
--   `data_node`
-    -   `instance_type` : 클러스터에 있는 데이터 노드의 인스턴스 유형
-    -   `instance_count` : 클러스터의 인스턴스 수 - `1`~`80`
-    -   `ebs_enabled` : EBS 볼륨이 도메인의 데이터 노드에 연결되어 있는지 여부 - `true`, `false`
-    -   `ebs_volume_type` : 데이터 노드에 연결된 EBS 볼륨 유형 - `standard`, `gp2`, `io1`
-    -   `ebs_volume_size` : 데이터 노드에 연결된 EBS 볼륨의 크기(GiB) - `1`~`16384`
--   `master_node`
-    -   `master_node_enabled` : 클러스터의 전용 메인 노드 활성화 - `true`, `false`
-    -   `master_instance_type` : 클러스터에 있는 전용 기본 노드의 인스턴스 유형 - `r5.large.search`
-    -   `master_node_count ` : 클러스터의 전용 메인 노드 수 - `3`, `5`
--   `custom_endpoint`
-    -   `custom_endpoint_enabled` : 사용자 지정 엔드포인트 활성화 - `true`, `false`
--   `network`
-    -   `network_type` : 네트워크 엑세스 타입 - `vpc_access`, `public_access`
-    -   `included_subnet_names` : 생성할 Elasticsearch 도메인 엔드포인트의 VPC 서브넷 ID 목록
-    -   `security_group_names` : Elasticsearch 도메인 엔드포인트에 적용할 VPC 보안 그룹 ID 목록
--   `fine_grained_access`
-    -   `fine_grained_access_enabled` : 세분화된 접근 제어 활성화 - `true`, `false`
-    -   `master_user_type` : 마스터 사용자 타입 - `iam_arn`, `master_user`
-    -   `iam_arn` : 기본 사용자용 IAM ARN
--   `encryption`
-    -   `enforce_https` : HTTPS 요구 여부 - `true`, `false`
-    -   `node_to_node_encryption_enabled` : 노드 간 암호화 활성화 여부 - `true`, `false`
-    -   `data_at_rest_encryption_enabled` : 저장 데이터 암호화 활성화 여부 - `true`, `false`
--   `kms_key_name` : 데이터 암호화에 사용할 kms 키 이름
+-   `availability_zone_count` : 가용 영역 개수 - `2`, `3`
+-   `tls_security_policy` : HTTPS endpoint에 적용할 TLS 보안 정책
+-   `engine` : Elasticsearch 엔진 설정
+
+#### 데이터 노드 (`data_node`)
+
+-   `data_node.instance_type` : 데이터 노드 인스턴스 타입
+-   `data_node.instance_count` : 데이터 노드 개수
+-   `data_node.ebs_enabled` : 데이터 노드에 EBS 연결 여부 - `true`, `false`
+-   `data_node.ebs_volume_type` : EBS 볼륨 유형 - `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : EBS 볼륨 크기 (GiB)
+-   `data_node.ebs_volume_iops` : EBS IOPS
+-   `data_node.ebs_volume_throughput` : EBS 처리량 (MiB/s)
+
+#### 마스터 노드 (`master_node`)
+
+-   `master_node.master_node_enabled` : 전용 마스터 노드 활성화 여부 - `true`, `false`
+-   `master_node.master_instance_type` : 마스터 노드 인스턴스 타입
+-   `master_node.master_node_count` : 마스터 노드 개수
+
+#### 사용자 지정 엔드포인트 (`custom_endpoint`)
+
+-   `custom_endpoint.custom_endpoint_enabled` : 사용자 지정 엔드포인트 활성화 여부 - `true`, `false`
+-   `custom_endpoint.custom_host_name` : 사용자 지정 호스트 이름
+-   `custom_endpoint.acm_certificate_name` : ACM 인증서 이름
+
+#### 네트워크 설정 (`network`)
+
+-   `network.network_type` : 네트워크 접근 방식 - `vpc_access`, `public_access`
+-   `network.included_subnet_names` : Elasticsearch 도메인을 생성할 Subnet 이름 목록
+-   `network.linked_security_group_names` : 연결할 Security Group 이름 목록
+
+#### 세분화된 접근 제어 (`fine_grained_access`)
+
+-   `fine_grained_access.fine_grained_access_enabled` : 세분화된 접근 제어 활성화 여부 - `true`, `false`
+-   `fine_grained_access.master_user_type` : 마스터 사용자 타입 - `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : 마스터 사용자 IAM ARN
+-   `fine_grained_access.master_user_name` : 마스터 사용자 이름
+-   `fine_grained_access.master_user_password` : 마스터 사용자 비밀번호
+
+#### 암호화 설정 (`encryption`)
+
+-   `encryption.enforce_https` : HTTPS 강제 여부 - `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : 노드 간 암호화 활성화 여부 - `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : 저장 데이터 암호화 활성화 여부 - `true`, `false`
+-   `encryption.kms_key_name` : 암호화에 사용할 KMS 키 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

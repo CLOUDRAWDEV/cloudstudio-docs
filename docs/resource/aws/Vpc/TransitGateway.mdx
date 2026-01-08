@@ -27,17 +27,30 @@ Transit Gateway는 가상 사설 클라우드(VPC)와 온프레미스 네트워�
 
 ### 연결 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Dx Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/DxGateway)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/aws/Network/RouteTable)
+-   [**Customer Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/CustomerGateway)
+-   [**Transit Gateway Attachment**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGatewayAttachment)
 
 ## 리소스 설정 값
 
--   `dns_support` : 연결된 VPC에 대해 도메인 이름 시스템 확인 확성화 - `enable`, `disable`
--   `vpn_ecmp_support` : 연결된 VPN을 위한 ECMP(다중 경로) 라우팅 지원 - `enable`, `disable`
--   `default_route_table_association` : Attachment를 기본 라우팅 테이블과 자동 연결 - `enable`, `disable`
--   `default_route_table_propagation` : 기본 라우팅 테이블로 Attachment를 자동 전파 - `enable`, `disable`
--   `multicast_support` : 멀티캐스트 도메인 생성 활성화 - `enable`, `disable`
--   `transit_gateway_cidr_blocks` : Transit Gateway Cidr 블록
--   `vpc_attachment`
+#### 기본 설정
+
+-   `dns_support` : 연결된 VPC에 대해 DNS 확인 활성화 여부 - `enable`, `disable`
+-   `vpn_ecmp_support` : 연결된 VPN에 대해 ECMP(다중 경로) 라우팅 지원 여부 - `enable`, `disable`
+-   `default_route_table_association` : Attachment를 기본 라우팅 테이블에 자동 연결 - `enable`, `disable`
+-   `default_route_table_propagation` : Attachment를 기본 라우팅 테이블로 자동 전파 - `enable`, `disable`
+-   `multicast_support` : 멀티캐스트 도메인 생성 활성화 여부 - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Transit Gateway에 할당할 CIDR 블록 목록
+
+#### Direct Connect Gateway 설정 (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : 연결할 Direct Connect Gateway 이름
+-   `dx_gateway.allowed_prefixes` : 온프레미스 네트워크로 광고할 VPC Prefix(CIDR) 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

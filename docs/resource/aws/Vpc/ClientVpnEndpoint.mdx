@@ -24,24 +24,50 @@ AWS 리소스 및 온프레미스 네트워크의 리소스에 안전하게 액�
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
+
+### 연결 리소스
+
+-   [**Log**](https://docs.cstudio.app/docs/resource/aws/Monitor/Log)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
 
 ## 리소스 설정 값
 
--   `description` : 클라이언트 VPN 엔드포인트에 대한 간략한 설명
--   `client_cidr_block` : 클라이언트 IP 주소가 할당되는 IP 주소 범위
--   `serer_acm_certificate_name` : 서버 인증서 이름
--   `authentication` : 사용할 인증 방법
--   `authentication.option_types` : 사용할 인증 방법 - `certificate-authentication`,`directory-service-authentication`,`federated-authentication`
--   `connection_logging.enalbed` : 클라이언트 연결에 대한 로그 세부 정보 사용 - `false`,`true`
--   `transport_protocol` : TLS 세션에서 사용하는 전송 프로토콜 - `tcp`,`udp`
--   `enabled_split_tunnel` : 분할 터널 활성화 - `false`,`true`
--   `vpn_port` : VPN 포트
--   `enabled_self_service_portal` : 셀프 서비스 포털 활성화 - `false`,`true`
--   `session_timeout_hours` : 세션 제한 시간 - `8`,`10`,`12`,`24`
--   `included_vpc_name` : VPC 이름
--   `linked_security_group_names` : 엔드포인트에 적용할 보안 그룹 이름
--   `linked_subnet_names` : 연결할 Subnet 이름
+#### 기본 설정
+
+-   `description` : 클라이언트 VPN 엔드포인트에 대한 설명
+-   `client_cidr_block` : 클라이언트 IP 주소가 할당되는 CIDR 블록
+-   `server_acm_certificate_name` : 서버 인증서 이름
+-   `transport_protocol` : TLS 세션 전송 프로토콜 - `tcp`, `udp`
+-   `vpn_port` : VPN 포트 - `443`, `1194`
+-   `enabled_split_tunnel` : 분할 터널 활성화 여부 - `true`, `false`
+-   `enabled_self_service_portal` : 셀프 서비스 포털 활성화 여부 - `true`, `false`
+-   `session_timeout_hours` : 세션 제한 시간 - `8`, `10`, `12`, `24`
+
+#### 인증 설정 (`authentication`)
+
+-   `authentication.option_types` : 인증 방식 - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : 클라이언트 인증서 이름
+-   `authentication.active_directory_id` : Active Directory ID
+-   `authentication.saml_provider_arn` : SAML 공급자 ARN
+-   `authentication.self_service_saml_provider_arn` : 셀프 서비스 SAML 공급자 ARN
+
+#### 연결 로깅 (`connection_logging`)
+
+-   `connection_logging.enabled` : 클라이언트 연결 로그 활성화 여부 - `true`, `false`
+-   `connection_logging.linked_log_group_name` : CloudWatch Logs 로그 그룹 이름
+-   `connection_logging.log_stream_name` : CloudWatch Logs 로그 스트림 이름
+
+#### 네트워크 연결
+
+-   `included_vpc_name` : 연결 대상 VPC 이름
+-   `linked_security_group_names` : 적용할 보안 그룹 이름 목록
+-   `linked_subnet_names` : 연결할 Subnet 이름 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 
