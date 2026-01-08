@@ -4,10 +4,8 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
@@ -27,30 +25,16 @@ tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
-
 ### 연결 리소스
 
--   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRole)
-
-
+-   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
 
 ## 리소스 설정 값
 
--   `service_name` : ClusterRoleBinding 리소스 이름
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `role_name` : 주체를 바인딩할 Role 이름을 지정
--   `subject` : Role을 부여할 주체 설정 
-    -   `name` : 바인딩할 주체의 이름을 입력
-    -   `namespace` : 바인딩할 주체의 네임스페이스를 입력
-    -   `api_group` : 승인 결정을 내리는 API Group - `rbac.authorization.k8s.io`,`User`,`Group`
-    -   `kind` : 바인딩할 주체의 유형을 선택- `ServiceAccount`,`User`,`Group`
-
-
-
-
-
-
+-   `annotations` : ClusterRoleBinding 리소스에 대한 메타데이터 key-value
+-   `labels` : ClusterRoleBinding 객체를 구분하기 위한 사용자 정의 라벨
+-   `role_name` : 바인딩할 대상 ClusterRole의 이름
+-   `subject` : ClusterRole을 부여할 주체로 kind(ServiceAccount, User, Group), namespace(주체가 속한 네임스페이스), api_group(rbac.authorization.k8s.io) 정보를 포함
 
 ---
 
@@ -58,4 +42,4 @@ tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
 
 -   [ClusterRoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)
-`
+    `

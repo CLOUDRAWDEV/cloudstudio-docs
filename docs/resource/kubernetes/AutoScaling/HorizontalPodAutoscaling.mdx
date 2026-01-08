@@ -4,10 +4,8 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, AutoScaling, HorizontalPodAutoscaling]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
@@ -25,7 +23,6 @@ tags: [Kubernetes, 리소스, AutoScaling, HorizontalPodAutoscaling]
 
 ### 상위 리소스
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### 연결 리소스
@@ -35,18 +32,15 @@ tags: [Kubernetes, 리소스, AutoScaling, HorizontalPodAutoscaling]
 
 ## 리소스 설정 값
 
--   `service_name` : HPA 리소스 이름
+#### 기본 설정
+
 -   `namespace` : HPA 리소스가 배포될 네임스페이스
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `min_replicas` : HPA에서 설정할 수 있는 Pod 수의 최솟값 - 기본값은 1개
--   `max_replicas` : HPA에서 설정할 수 있는 Pod 수의 최댓값
--   `target_cpu_utilization_percentage` : 파드(Pod) 대한 목표 평균 CPU 사용률(요청된 CPU의 백분율로 표시)
--   `scale_target_ref` : 확장된 리소스에 대한 참조
-    -   `name` : 참조할 리소스의 이름
-    -   `kind` : 참조할 리소스의 종류 - `Deployment`, `StatefulSet`
-
-
+-   `annotations` : 쿠버네티스 시스템 메타데이터 key-value
+-   `labels` : HPA 리소스 식별용 라벨
+-   `min_replicas` : 자동 확장에서 유지할 최소 Pod 수
+-   `max_replicas` : 자동 확장에서 유지할 최대 Pod 수
+-   `target_cpu_utilization_percentage` : Pod 평균 CPU 사용률 목표 값
+-   `scale_target_ref` : 스케일링 대상이 되는 컨트롤러 리소스 참조 (Deployment, StatefulSet)
 
 ---
 

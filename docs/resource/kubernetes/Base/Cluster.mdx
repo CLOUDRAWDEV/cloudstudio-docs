@@ -4,10 +4,8 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Base, Cluster]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
@@ -25,22 +23,25 @@ tags: [Kubernetes, 리소스, Base, Cluster]
 
 ### 상위 리소스
 
--   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base)
+-   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Base)
 
-### 연결 리소스
+### 그룹 대상
 
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Namespace)
+-   [**Persistent Volume**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/PersistentVolume)
+-   [**Cluster Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Cert/ClusterIssuer)
+-   [**Ingress Class**](https://docs.cstudio.app/docs/resource/kubernetes/Network/IngressClass)
+-   [**Cluster Role**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**Cluster Role Binding**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRoleBinding)
+-   [**Storage Class**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
 
 ## 리소스 설정 값
 
--   `target_cluster` : 사용할 Cluster 선택
--   `Token` : Ncloud Kuberntes Service 연결용 토큰 - `Ncloud Kubernetes Service`만 사용
+#### 기본 설정
 
-
-
-
+-   `target_cluster` : 연결할 Ncloud Kubernetes 클러스터 선택
+-   `token` : Ncloud Kubernetes Service 연결에 사용되는 인증 토큰
 
 ---
 
 ## 참고 자료
-
-
