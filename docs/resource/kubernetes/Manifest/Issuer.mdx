@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Manifest, Issuer]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.webp"
     }
 />
 
@@ -31,14 +31,26 @@ tags: [Kubernetes, 리소스, Manifest, Issuer]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : Issuer 리소스가 배포될 네임스페이스
 -   `acme.server` : ACME 인증기관 서버 엔드포인트 주소
 -   `acme.email` : 인증서 만료 및 이슈 알림을 받을 이메일 주소
 -   `acme.private_key_secret_ref` : ACME 서버 통신에 사용할 클라이언트 키가 저장된 Secret 이름
--   `dns_solvers` : DNS-01 챌린지 사용 시 설정(AzureDNS, Route53, ACMEDNS)
--   `http_solvers.provider` : HTTP-01 챌린지 처리 방식(Ingress, Gateway)
+-   `dns_solvers` : DNS-01 챌린지 사용 시 설정- `AzureDNS`, `Route53`, `ACMEDNS`
+-   `http_solvers.provider` : HTTP-01 챌린지 처리 방식 - `Ingress`, `Gateway`
 -   `http_solvers.ingress_class_name` : HTTP-01 챌린지에 사용할 Ingress Class 이름
 -   `http_solvers.gateway_parent_refs` : Gateway 기반 HTTP-01 챌린지 설정 시 참조할 Gateway 정보
+
+#### HTTP 챌린지 설정 (http_solvers)
+
+-   `http_solvers.provider` : HTTP-01 챌린지 해결 방식 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : 사용할 Ingress Class 이름
+
+##### Gateway 설정
+
+-   `http_solvers.gateway_parent_refs.name` : 연결할 Gateway 리소스 이름
+-   `http_solvers.gateway_parent_refs.namespace` : Gateway 리소스가 속한 네임스페이스
 
 ---
 

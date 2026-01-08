@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, RBAC, ClusterRole]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.webp"
     }
 />
 
@@ -27,29 +25,17 @@ tags: [Kubernetes, 리소스, RBAC, ClusterRole]
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
-
 ### 연결 리소스
 
--   [**ClusterRolebinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRolebinding)
-
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRoleBinding)
 
 ## 리소스 설정 값
 
--   `service_name` : ClusterRole 리소스 이름
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `rule` : 해당 clusterrole에 대한 정책역할
-    -   `name` : 정책역할 이름
-    -   `api_groups` : 작업을 허용할 리소스가 포함된 API Group
-    -   `resources` : 이 규칙이 적용되는 리소스 목록
-    -   `resource_names` : 해당 리소스의 개별 인스턴스로 선택할 경우 지정 - 빈 값일 경우 해당 리소스 전체를 포함
-    -   `non_resource_urls` : 리소스가 아니라 url형식으로 rule을 지정할 때 사용 - 헬스체크용 url 지정 가능
-    -   `verbs` : Rule에 포함된 모든 리소스에 적용되는 동사 목록
+#### 기본 설정
 
-
-
-
-
+-   `annotations` : ClusterRole 리소스에 대한 메타데이터 key-value
+-   `labels` : ClusterRole 객체를 구분하기 위한 사용자 정의 라벨
+-   `rule` : ClusterRole에 적용될 권한 규칙 정의로 rule_type -`ApiGroup, ResourceUrl`, api_groups(작업을 허용할 리소스가 포함된 API Group), resources(규칙이 적용되는 리소스 목록), resource_names(특정 리소스 인스턴스로 제한할 경우 지정하며 비어 있으면 전체 리소스 적용), non_resource_urls(리소스가 아닌 URL 단위 접근 제어로 헬스체크 URL 등 지정 가능), verbs - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`로 구성됩니다.
 
 ---
 

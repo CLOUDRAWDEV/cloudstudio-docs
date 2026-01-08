@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Storage, StorageClass]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
     }
 />
 
@@ -31,11 +31,13 @@ tags: [Kubernetes, 리소스, Storage, StorageClass]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시하기 위한 key-value 메타데이터
 -   `labels` : StorageClass 객체를 구분하기 위해 사용자가 지정하는 라벨
 -   `storage_provisioner` : 스토리지를 실제로 생성하는 스토리지 프로비저너 유형
--   `reclaim_policy` : 볼륨 해제 시 적용할 회수 정책(Retain 또는 Delete)
--   `volume_binding_mode` : 볼륨 바인딩 및 동적 프로비저닝이 발생하는 시점(Immediate, WaitForFirstConsumer)
+-   `reclaim_policy` : 볼륨 해제 시 적용할 회수 정책 - `Retain`, `Delete`
+-   `volume_binding_mode` : 볼륨 바인딩 및 동적 프로비저닝이 발생하는 시점 - `Immediate`, `WaitForFirstConsumer`
 -   `allow_volume_expansion` : 생성된 볼륨의 크기 확장 허용 여부
 -   `parameters` : 스토리지 프로비저너에 전달되는 추가 파라미터
 -   `mount_options` : 동적으로 생성되는 PersistentVolume에 적용할 마운트 옵션

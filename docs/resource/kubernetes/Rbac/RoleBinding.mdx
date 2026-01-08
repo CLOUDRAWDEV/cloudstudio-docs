@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, RBAC, RoleBinding]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.webp"
     }
 />
 
@@ -33,14 +33,19 @@ tags: [Kubernetes, 리소스, RBAC, RoleBinding]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : RoleBinding 리소스가 적용될 네임스페이스
 -   `annotations` : RoleBinding 리소스에 대한 메타데이터 key-value
 -   `labels` : RoleBinding 객체를 구분하기 위한 사용자 정의 라벨
--   `role_type` : 바인딩할 역할의 유형(Role 또는 ClusterRole)
+-   `role_type` : 바인딩할 역할의 유형 - `Role`,`ClusterRole`
 -   `role_name` : 주체에 바인딩할 Role 또는 ClusterRole 이름
--   `subject.kind` : 권한을 부여할 주체의 유형(ServiceAccount, User, Group)
--   `subject.namespace` : 주체가 ServiceAccount인 경우 해당 네임스페이스
--   `subject.api_group` : 승인 결정을 내리는 API Group(rbac.authorization.k8s.io)
+
+#### 주체 설정 (subject)
+
+-   `subject.kind` : 바인딩할 주체 유형 - `ServiceAccount`, `User`, `Group`
+-   `subject.namespace` : 바인딩할 주체의 네임스페이스
+-   `subject.api_group` : 승인 결정을 내리는 API Group - `rbac.authorization.k8s.io`
 
 ---
 
@@ -48,4 +53,3 @@ tags: [Kubernetes, 리소스, RBAC, RoleBinding]
 
 -   [RoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [RoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role_binding)
-    `

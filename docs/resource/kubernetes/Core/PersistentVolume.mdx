@@ -1,6 +1,6 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
+sidebar_position: 2
 tags: [Kubernetes, 리소스, Core, PersistentVolume]
 ---
 
@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Core, PersistentVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
@@ -33,16 +33,18 @@ tags: [Kubernetes, 리소스, Core, PersistentVolume]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `annotations` : Kubernetes 시스템 메타데이터
 -   `labels` : PV 식별 및 분류용 사용자 정의 라벨
 -   `spec.storage_class_name` : 사용할 StorageClass 이름
--   `spec.storage_capacity` : 스토리지 용량 (예: 2Gi)
+-   `spec.storage_capacity` : 스토리지 용량
 -   `spec.volume_driver` : CSI 기반 볼륨 드라이버
 -   `spec.volume_handle` : 실제 스토리지 리소스 식별자
--   `spec.persistent_volume_reclaim_policy` : 클레임 해제 시 볼륨 처리 정책 (Retain / Delete / Recycle)
+-   `spec.persistent_volume_reclaim_policy` : 클레임 해제 시 볼륨 처리 정책 -`Retain / Delete / Recycle`
 -   `spec.read_only` : 볼륨 읽기 전용 여부
 -   `spec.volume_attributes` : 드라이버별 추가 볼륨 속성
--   `spec.access_modes` : 볼륨 접근 방식 (ReadOnlyMany, ReadWriteOnce, ReadWriteMany)
+-   `spec.access_modes` : 볼륨 접근 방식 - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
 -   `spec.mount_options` : 추가 마운트 옵션
 -   `node_stage_secret_ref` : 스토리지 접근 인증 정보가 담긴 Secret 참조
 
