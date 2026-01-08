@@ -27,12 +27,14 @@ NetworkPolicy는 라벨을 기준으로 Pod를 선택하고, 해당 Pod에 대�
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `annotations` : NetworkPolicy 리소스에 대한 메타데이터 key-value
 -   `labels` : NetworkPolicy 객체를 식별하기 위한 사용자 정의 레이블
 -   `match_expressions` : 라벨 셀렉터 조건식을 사용한 Pod 선택 규칙
 -   `match_labels` : key-value 형태로 Pod를 선택하기 위한 라벨 조건
--   `ingress` : 선택된 Pod로 들어오는 트래픽에 대한 허용 규칙(from IPBlock, NamespaceSelector, PodSelector, Port)
--   `egress` : 선택된 Pod에서 나가는 트래픽에 대한 허용 규칙(to IPBlock, NamespaceSelector, PodSelector, Port)
+-   `ingress` : 선택된 Pod로 들어오는 트래픽에 대한 허용 규칙 - `from IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `egress` : 선택된 Pod에서 나가는 트래픽에 대한 허용 규칙- `to IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
 -   `policy_types` : 적용할 정책 유형(Ingress, Egress)
 
 ---

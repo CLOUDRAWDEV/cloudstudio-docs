@@ -1,6 +1,6 @@
 ---
 title: PersistentVolumeClaim
-sidebar_position: 0
+sidebar_position: 3
 tags: [Kubernetes, 리소스, Core, PersistentVolumeClaim]
 ---
 
@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Core, PersistentVolumeClaim]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.webp"
     }
 />
 
@@ -37,14 +37,16 @@ PV를 요청하는 쿠버네티스 리소스입니다.
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : PVC 리소스가 생성될 네임스페이스
 -   `annotations` : Kubernetes 시스템 메타데이터
 -   `labels` : PVC 식별 및 분류용 사용자 정의 라벨
 -   `spec.storage_class_name` : 사용할 StorageClass 이름
 -   `spec.volume_name` : 바인딩할 PersistentVolume 이름
--   `spec.volume_mode` : 스토리지 제공 방식 (Filesystem / Block)
+-   `spec.volume_mode` : 스토리지 제공 방식 -`Filesystem / Block`
 -   `spec.request_storage` : 요청할 스토리지 용량
--   `spec.access_modes` : 요청하는 볼륨 접근 방식 (ReadOnlyMany, ReadWriteOnce, ReadWriteMany)
+-   `spec.access_modes` : 요청하는 볼륨 접근 방식 - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
 -   `wait_until_bound` : PVC가 PV에 바인딩될 때까지 대기 여부
 
 ---

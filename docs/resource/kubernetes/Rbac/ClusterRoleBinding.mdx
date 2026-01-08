@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.webp"
     }
 />
 
@@ -31,10 +31,12 @@ tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `annotations` : ClusterRoleBinding 리소스에 대한 메타데이터 key-value
 -   `labels` : ClusterRoleBinding 객체를 구분하기 위한 사용자 정의 라벨
 -   `role_name` : 바인딩할 대상 ClusterRole의 이름
--   `subject` : ClusterRole을 부여할 주체로 kind(ServiceAccount, User, Group), namespace(주체가 속한 네임스페이스), api_group(rbac.authorization.k8s.io) 정보를 포함
+-   `subject` : ClusterRole을 부여할 주체로 kind - `ServiceAccount`, `User`, `Group`, namespace(주체가 속한 네임스페이스), api_group -``rbac.authorization.k8s.io` 정보를 포함
 
 ---
 

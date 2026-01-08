@@ -1,6 +1,6 @@
 ---
 title: Service
-sidebar_position: 0
+sidebar_position: 6
 tags: [Kubernetes, 리소스, Core, Service]
 ---
 
@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Core, Service]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
     }
 />
 
@@ -35,15 +35,20 @@ tags: [Kubernetes, 리소스, Core, Service]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : Service 리소스가 배포될 네임스페이스
 -   `annotations` : Kubernetes 시스템 메타데이터
 -   `labels` : Service 식별 및 분류용 라벨
 -   `selector` : 트래픽을 전달할 Pod를 선택하기 위한 라벨 셀렉터
--   `type` : Service 타입 (ClusterIP, NodePort, LoadBalancer)
--   `session_affinity` : 동일 클라이언트 요청을 특정 Pod로 고정할지 여부
--   `port.protocol` : 서비스 포트에서 사용할 프로토콜(TCP/UDP)
--   `port.port` : 외부에 노출되는 서비스 포트
--   `port.target_port` : 실제 Pod에서 수신하는 포트
+-   `type` : Service 타입 - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : 동일 클라이언트 요청을 특정 Pod로 고정할지 여부 - `None`, `ClientIP`
+
+#### 포트 설정 (`port`)
+
+-   `port.protocol` : 서비스 포트에서 사용할 프로토콜 - `TCP`, `UDP`
+-   `port.port` : 외부에 노출되는 Service 포트 번호
+-   `port.target_port` : 실제 Pod에서 트래픽을 수신하는 포트 번호
 
 ---
 

@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, Networking, IngressClass]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.webp"
     }
 />
 
@@ -31,10 +31,15 @@ tags: [Kubernetes, 리소스, Networking, IngressClass]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `annotations` : 쿠버네티스 시스템에서 IngressClass 동작에 필요한 메타데이터 key-value
 -   `labels` : IngressClass 객체를 구분하기 위한 사용자 정의 레이블
 -   `controller` : 해당 IngressClass를 처리할 Ingress Controller의 식별자
--   `parameters.kind` : 참조할 파라미터 리소스 유형(IngressParameter, ClusterIngressParameter)
+
+#### 파라미터 설정 (parameters)
+
+-   `parameters.kind` : 참조할 파라미터 리소스 유형 -`IngressParameter`, `ClusterIngressParameter`
 -   `parameters.namespace` : 참조되는 파라미터 리소스의 네임스페이스
 -   `parameters.api_group` : 참조되는 파라미터 리소스가 속한 API Group
 

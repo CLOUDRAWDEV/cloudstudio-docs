@@ -1,6 +1,6 @@
 ---
 title: NginxIngress
-sidebar_position: 0
+sidebar_position: 6
 tags: [Kubernetes, 리소스, Helm, NginxIngress]
 ---
 
@@ -31,10 +31,12 @@ Nginx 인그레스 컨트롤러를 설치하기 위한 헬름 차트입니다.
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : Nginx Ingress Helm Chart 리소스가 배포될 네임스페이스
 -   `version` : 사용할 Nginx Ingress Helm Chart 버전
 -   `replica_count` : Ingress Controller Deployment의 복제본 수
--   `external_traffic_policy` : 외부 트래픽 처리 방식 (`Cluster`, `Local`)
+-   `external_traffic_policy` : 외부 트래픽 처리 방식 - `Cluster `, `Local`
 -   `ingress_class_name` : 해당 Ingress Controller가 관리할 Ingress Class 이름
 -   `set` : Nginx Ingress Controller 기본 Helm Chart의 값을 동적으로 변경하기 위한 key-value 설정
 

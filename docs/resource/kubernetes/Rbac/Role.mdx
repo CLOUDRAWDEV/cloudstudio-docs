@@ -11,7 +11,7 @@ tags: [Kubernetes, 리소스, RBAC, Role]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.webp"
     }
 />
 
@@ -31,13 +31,15 @@ tags: [Kubernetes, 리소스, RBAC, Role]
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `namespace` : Role 리소스가 적용될 네임스페이스
 -   `annotations` : Role 리소스에 대한 메타데이터 key-value
 -   `labels` : Role 객체를 구분하기 위한 사용자 정의 라벨
 -   `rule.api_groups` : 작업을 허용할 리소스가 포함된 API Group 목록
 -   `rule.resources` : 해당 규칙이 적용되는 리소스 목록
 -   `rule.resource_names` : 특정 리소스 인스턴스를 대상으로 제한할 경우 지정하며 비어 있으면 전체 리소스에 적용
--   `rule.verbs` : 지정된 리소스에 대해 허용할 동작(get, list, create, update, patch, watch, delete, deletecollection)
+-   `rule.verbs` : 지정된 리소스에 대해 허용할 동작 - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
 
