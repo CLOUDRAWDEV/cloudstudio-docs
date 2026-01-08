@@ -27,16 +27,20 @@ AWS CloudWatch Oam Monitoring Accounts는 중앙 모니터링 계정을 설정�
 
 ### 연결 리소스
 
--   [**Oam Source Account**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/OamSourceAccount)
+-   [**OamSourceAccount**](https://docs.cstudio.app/docs/resource/aws/CloudWatch/OamSourceAccount)
+
+---
 
 ## 리소스 설정 값
 
--   `oam_source_accounts` : 모니터링 계정과 데이터를 공유할 계정의 계정, 조직 경로 또는 조직 ID
--   `resource_types` : 공유하려는 데이터 유형
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
+#### 기본 설정
+
+-   `oam_source_accounts` : 모니터링 계정과 데이터를 공유할 소스 계정 목록(계정 ID, 조직 경로 또는 조직 ID)
+-   `resource_types` : 소스 계정으로부터 공유받을 데이터 유형 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+
+#### 태그 설정
+
+-   `tag` : 리소스를 분류하기 위한 태그 목록
 
 ---
 

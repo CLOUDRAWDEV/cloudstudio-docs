@@ -27,12 +27,19 @@ tags: [AWS, 리소스, VPC, TransitGatewayAttachmentAccepter]
 
 ### 연결 리소스
 
--   [**TransitGatewayAttachment**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachment)
+-   [**Transit Gateway Attachment**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGatewayAttachment)
 
 ## 리소스 설정 값
 
--   `is_manual` : 연결할 Transit gateway Attachment ID를 직접 입력할지 여부 - `false`,`true`
--   `linked_transit_gateway_attachment_name` : 공유를 허용할 다른 Transit Gateway Attachment의 Name
+#### 기본 설정
+
+-   `is_manual` : 연결할 Transit Gateway Attachment ID를 직접 입력할지 여부 - `true`, `false`
+-   `transit_gateway_attachment_id` : 공유를 허용할 Transit Gateway Attachment ID
+-   `linked_transit_gateway_attachment_name` : 공유를 허용할 Transit Gateway Attachment 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

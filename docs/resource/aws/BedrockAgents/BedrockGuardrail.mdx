@@ -17,57 +17,54 @@ AWS Bedrock 모델의 응답을 제어하기 위해 금칙어 차단, 민감정�
 
 ## 연관 리소스
 
-### 연결 리소스
+### 상위 리소스
 
--   [**BedrockAgent**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockAgent)
--   [**AWS KMS Key**](https://docs.cstudio.app/docs/resource/aws/Security/KMS)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ---
 
 ## 리소스 설정 값
 
-#### 기본 설정
+#### 기본 메시지 설정
 
--   `blocked_input_messaging` : 입력값이 차단 정책에 의해 제한될 때 표시할 메시지를 설정
--   `blocked_outputs_messaging` : 출력값이 차단 정책에 의해 제한될 때 표시할 메시지를 설정
--   `guardrail_description` : Guardrail의 목적이나 기능에 대한 설명 (최대 5000자)
--   `kms_key_arn` : 사용자가 지정한 KMS 키(ARN)로 Guardrail 데이터와 설정 정보를 암호화하도록 지정
+-   `blocked_input_messaging` : 입력이 차단될 때 사용자에게 표시할 메시지
+-   `blocked_outputs_messaging` : 출력이 차단될 때 사용자에게 표시할 메시지
+-   `guardrail_description` : Guardrail의 목적 및 설명
+-   `kms_key_arn` : Guardrail 데이터를 암호화할 사용자 지정 KMS 키 ARN
 
 #### 콘텐츠 정책 (`content_policy_config`)
 
--   `content_policy_config.type` : 적용할 콘텐츠 정책의 유형 - `HATE`, `INSULTS`, `SEXUAL`, `VIOLENCE`, `MISCONDUCT`
--   `content_policy_config.input_strength` : 입력(프롬프트)에 대한 정책 적용 강도 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
--   `content_policy_config.output_strength` : 출력(모델 응답)에 대한 정책 적용 강도 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+-   `content_policy_config.type` : 콘텐츠 정책 유형 - `HATE`, `INSULTS`, `SEXUAL`, `VIOLENCE`, `MISCONDUCT`
+-   `content_policy_config.input_strength` : 입력에 대한 정책 강도 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+-   `content_policy_config.output_strength` : 출력에 대한 정책 강도 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
 
 #### 주제 정책 (`topic_policy_config`)
 
--   `topic_policy_config.definition` : 제한하거나 제어할 주제의 정의 (최대 5000자)
--   `topic_policy_config.type` : 주제 정책의 유형 - `DENY`, `ALLOW`
--   `topic_policy_config.examples` : 정책이 적용될 주제의 예시
+-   `topic_policy_config.definition` : 제한 또는 허용할 주제 정의
+-   `topic_policy_config.type` : 정책 유형 - `DENY`, `ALLOW`
+-   `topic_policy_config.examples` : 정책이 적용될 주제 예시 목록
 
-#### 문맥 기반 검증 정책 (`contextual_grounding_policy_config`)
+#### 문맥 기반 검증 (`contextual_grounding_policy_config`)
 
--   `contextual_grounding_policy_config.threshold` : 문맥 일치 여부 기준 점수(임계값) - `0` ~ `1`
--   `contextual_grounding_policy_config.type` : 정책 유형 - `RELEVANCE`, `GROUNDING`
+-   `contextual_grounding_policy_config.threshold` : 문맥 일치 판단 임계값 (0~1)
+-   `contextual_grounding_policy_config.type` : 검증 방식 - `RELEVANCE`, `GROUNDING`
 
-#### 민감정보 보호 정책 (`sensitive_information_policy_config`)
+#### 민감 정보 보호 (`sensitive_information_policy_config`)
 
--   `sensitive_information_policy_config.pii_entities_config` : PII(개인식별정보) 보호 정책
-    -   `pii_entities_config.action` : 감지 시 수행할 조치 - `BLOCK`, `ANONYMIZE`, `NONE`
-    -   `pii_entities_config.type` : 감지할 PII 유형 (예: `EMAIL`, `PHONE`, `CREDIT_DEBIT_CARD_NUMBER`, `AWS_SECRET_KEY` 등)
--   `sensitive_information_policy_config.regexes_config` : 정규식(Regex) 기반 민감정보 탐지/차단 규칙
-    -   `regexes_config.action` : 감지 시 수행할 조치 - `BLOCK`, `ANONYMIZE`, `NONE`
-    -   `regexes_config.description` : 정규식이 탐지하려는 데이터의 의미나 용도
-    -   `regexes_config.pattern` : 감지할 민감정보 식별 정규식 패턴
+-   `sensitive_information_policy_config.pii_entities_config.action` : PII 감지 시 기본 조치 - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.pii_entities_config.type` : 감지할 PII 유형
+-   `sensitive_information_policy_config.regexes_config.action` : 정규식 감지 시 조치 - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.regexes_config.description` : 정규식 설명
+-   `sensitive_information_policy_config.regexes_config.pattern` : 정규식 패턴
 
-#### 금칙어/단어 정책 (`word_policy_config`)
+#### 단어 정책 (`word_policy_config`)
 
--   `word_policy_config.managed_word_lists_config.type` : AWS 관리형 단어 리스트 유형 - `PROFANITY`
--   `word_policy_config.words_config.text` : 사용자가 직접 정의한 금칙어/제한 단어(문구)
+-   `word_policy_config.managed_word_lists_config.type` : 관리형 금칙어 목록 유형 - `PROFANITY`
+-   `word_policy_config.words_config.text` : 사용자 정의 금칙어 또는 제한 단어
 
 #### 버전 관리 (`versions`)
 
--   `versions.description` : 해당 Guardrail 버전에 대한 설명 또는 변경 사항 요약 (최대 5000자)
+-   `versions.description` : Guardrail 버전별 변경 사항 또는 설명
 
 ---
 

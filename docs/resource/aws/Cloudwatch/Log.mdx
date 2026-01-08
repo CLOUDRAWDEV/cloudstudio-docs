@@ -26,16 +26,32 @@ CloudWatch Logs는 확장성이 뛰어난 단일 서비스에서 사용하는 �
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
+### 연결 리소스
+
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/docs/resource/aws/Network/ClientVpnEndpoint)
+-   [**FlowLog**](https://docs.cstudio.app/docs/resource/aws/Network/FlowLog)
+
+---
+
 ## 리소스 설정 값
 
--   `retention_in_days` : 로그 그룹에서 로그를 저장하고 있는 기간
--   `kms_key_name` : 로그 데이터를 암호화하기 위해 사용할 kms key의 이름
--   `log_stream_name` : 로그 Stream의 이름
--   `metric_filter` : 로그 그룹의 metric 필터의 이름, 최대 512자
-    -   `pattern` : 수집된 로그 이벤트에서 지표 데이터를 추출하기 위한 유효한 CloudWatch Logs 필터 패턴
-    -   `metric_name` : 모니터링되는 로그 정보를 게시해야 하는 CloudWatch 지표의 이름, 최대 255자로 지정, 콜론(:), 별표(\*), 달러 기호($) 및 공백( )을 제외한 모든 문자가 유효
-    -   `metric_namespace` : CloudWatch 지표의 대상 네임스페이스, 최대 255자로 지정, 콜론(:), 별표(\*), 달러 기호($) 및 공백( )을 제외한 모든 문자가 유효
-    -   `metric_value` : 측정항목에 게시할 항목, 유효한 지표 값은 부동 소수점 수(1, 99.9 등), 숫자 필드 식별자(1 USD, 2 USD 등) 또는 명명된 필드 식별자(예: 기호로 구분된 필터 패턴의 $requestSize 또는 JSON 기반 필터 패턴의 $.status - 달러 기호($) 또는 달러 기호와 점($.) 뒤에 영숫자 및/또는 밑줄(\_) 문자)
+#### 기본 설정
+
+-   `retention_in_days` : 로그 그룹에서 로그를 저장하는 기간(일)
+-   `kms_key_name` : 로그 데이터를 암호화하기 위해 사용할 KMS Key 이름
+-   `log_stream_names` : 로그 그룹 내에 생성할 로그 스트림 이름 목록
+
+#### 메트릭 필터 설정 (`metric_filter`)
+
+-   `metric_filter.pattern` : 로그 이벤트에서 지표 데이터를 추출하기 위한 CloudWatch Logs 필터 패턴
+-   `metric_filter.metric_name` : 추출된 지표가 게시될 CloudWatch Metric 이름
+-   `metric_filter.metric_namespace` : CloudWatch Metric이 게시될 네임스페이스
+-   `metric_filter.metric_value` : Metric에 게시할 값
+    -   숫자 값, 숫자 필드 식별자, `$requestSize`, `$.status` 와 같은 필드 참조 가능
+
+#### 태그 설정 (`tag`)
+
+-   `tag` : 리소스를 분류하기 위한 태그 목록
 
 ---
 

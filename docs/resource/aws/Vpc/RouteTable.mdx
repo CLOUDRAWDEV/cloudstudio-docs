@@ -23,25 +23,32 @@ AWS VPC(Virtual Private Cloud)의 Route Table은 VPC 내의 서브넷에 대한 
 
 ### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
 
 ### 연결 리소스
 
--   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
--   [**Vpc Peering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
+-   [**Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/InternetGateway)
+-   [**Instance**](https://docs.cstudio.app/docs/resource/aws/Compute/Instance)
+-   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/NatGateway)
+-   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGateway)
+-   [**Vpc Peering**](https://docs.cstudio.app/docs/resource/aws/Network/VpcPeering)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `included_vpc_name` : Route Table이 포함된 VPC의 이름
--   `subnet_names` : Route Table에 대한 설명
--   `linked_route` : Routeing 경로의 이름
-    -   `cidr_block` : Routeing할 Target Resource의 CIDR
-    -   `internet_gateway_name` : Routeing 경로를 지정할 Internet Gateway 이름
-    -   `ec2_instance_name` : Routeing 경로를 지정할 EC2 Instance 이름
-    -   `nat_gateway_name` : Routeing 경로를 지정할 NAT Gateway 이름
-    -   `vpc_peering_name` : Routeing 경로를 지정할 VPC Peering 이름
+-   `subnet_names` : Route Table을 연결할 Subnet 이름 목록
+
+#### 라우팅 경로 (`linked_route`)
+
+-   `linked_route.cidr_block` : 라우팅할 대상 리소스의 CIDR 블록
+-   `linked_route.resource_type` : 라우팅 대상 리소스 유형 - `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
+-   `linked_route.linked_resource_name` : 라우팅 대상 리소스 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

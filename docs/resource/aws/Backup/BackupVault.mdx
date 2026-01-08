@@ -20,20 +20,27 @@ tags: [AWS, 리소스, Backup, BackupVault]
 AWS Backup에서 Backup Vault는 백업을 저장하고 구성하는 컨테이너입니다.
 Backup Vault를 생성할 때, 이 볼트에 있는 일부 백업을 암호화하는 AWS KMS 암호화키를 지정해야 합니다.
 
-### 상위 리소스
-
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
-
 ## 연관 리소스
 
-## 리소스 설정 값
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+#### 기본 설정
 
 -   `kms_key_name` : 백업을 보호하는 데 사용되는 서버 측 암호화 키
--   `lock_configuration` : AWS Backup vault lock 구성 리소스
-    -   `lock_configuration.enabled_lock` : vault lock 사용 여부 - `false`,`true`
-        -   `lock_configuration.enabled_lock.lock_mode` : vault lock 유형 - `Governance`,`Compliance`
-        -   `lock_configuration.enabled_lock.min_retention_days` : vault가 복구 지점을 유지하는 최소 보존 기간 - `1~36500`
-        -   `lock_configuration.enabled_lock.max_retention_days` : vault가 복구 지점을 유지하는 최대 보존 기간 - `1~36500`
+
+#### Vault Lock 설정 (`lock_configuration`)
+
+-   `lock_configuration.enabled_lock` : vault lock 사용 여부 - `true`, `false`
+-   `lock_configuration.lock_mode` : vault lock 유형 - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : vault가 복구 지점을 유지하는 최소 보존 기간 - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : vault가 복구 지점을 유지하는 최대 보존 기간 - `1` ~ `36500`
+-   `lock_configuration.changeable_for_days` : lock 기한 전까지 일 수 - `3` ~ `36500`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 
