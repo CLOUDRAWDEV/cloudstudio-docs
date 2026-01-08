@@ -4,10 +4,8 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Core, PersistentVolumeClaim]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
@@ -25,34 +23,29 @@ PV를 요청하는 쿠버네티스 리소스입니다.
 
 ### 상위 리소스
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
 
 ### 연결 리소스
 
--   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Persistent Volume**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/PersistentVolume)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Workload/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Workload/Deployment)
+-   [**Daemon Set**](https://docs.cstudio.app/docs/resource/kubernetes/Workload/DaemonSet)
+-   [**Stateful Set**](https://docs.cstudio.app/docs/resource/kubernetes/Workload/StatefulSet)
 -   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
--   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
-
+-   [**Cron Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
 
 ## 리소스 설정 값
 
--   `service_name` : PersistentVolumeClaim 리소스 이름
--   `namespace` : PersistentVolume 리소스가 배포될 네임스페이스
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `spec` : PVC의 구체적인 스펙을 정의
-    -   `spec.storage_class_name` : 사용할 storageclass 이름 지정
-    -   `spec.volume_name` : PVC로 연결될 PV 이름
-    -   `spec.request_storage` : PV에 요구할 스토리지 용량
-    -   `spec.access_modes` : PV에 있어야 하는 원하는 액세스 모드 - (PV의 액세스 모드를 포함하거나 일치해야 합니다.) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
-
-
+-   `namespace` : PVC 리소스가 생성될 네임스페이스
+-   `annotations` : Kubernetes 시스템 메타데이터
+-   `labels` : PVC 식별 및 분류용 사용자 정의 라벨
+-   `spec.storage_class_name` : 사용할 StorageClass 이름
+-   `spec.volume_name` : 바인딩할 PersistentVolume 이름
+-   `spec.volume_mode` : 스토리지 제공 방식 (Filesystem / Block)
+-   `spec.request_storage` : 요청할 스토리지 용량
+-   `spec.access_modes` : 요청하는 볼륨 접근 방식 (ReadOnlyMany, ReadWriteOnce, ReadWriteMany)
+-   `wait_until_bound` : PVC가 PV에 바인딩될 때까지 대기 여부
 
 ---
 

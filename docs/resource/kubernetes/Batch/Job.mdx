@@ -4,10 +4,8 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Batch, Job]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
@@ -25,68 +23,26 @@ tags: [Kubernetes, 리소스, Batch, Job]
 
 ### 상위 리소스
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Namespace)
 
-### 연결 리소스
+### 연결 대상
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
-
+-   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Config/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Config/Secret)
 
 ## 리소스 설정 값
 
--   `service_name` : Job 리소스 이름
+#### 기본 설정
+
 -   `namespace` : Job 리소스가 배포될 네임스페이스
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `template_labels` : 노드별로 생성되는 파드(Pod) 설정될 Label
--   `restart_policy` : Pod 내에서 실행되는 컨테이너가 실패하거나 작업이 완료된 후에 어떻게 처리할지를 지정
--   `backoff_limit` : 작업을 실패로 표시하기 전의 재시도 횟수를 지정 - 기본값은 6
--   `wait_for_completion` : 작업 상태가 완료 또는 실패 조건이 될 때까지 작업 생성 또는 업데이트를 차단 - 기본값은 True
-
--   `timeouts` : 작업이 실패한 것으로 간주되기까지 허용되는 시간
-    -   `create` : 새 작업을 생성하고 작업이 성공적으로 완료되기까지 기다리는 시간 - 기본값 1m    
-    -   `update` : 기존 작업을 업데이트하고 성공적인 작업 완료를 기다리는 시간 - 기본값 1m
-
--   `containers` : 파드(Pod)에 속한 컨테이너에 대한 템플릿을 정의 - 기본 설정값을 세팅하고 적용한 후에 세부 설정값을 세팅할 수 있습니다.
-    -   `name` : 컨테이너의 이름을 정의
-        -   `image` : 사용할 Docker 이미지 이름
-        -   `args` : 컨테이너 내에서 실행될 명령어
-        -   `command` : 컨테이너 내에서 실행될 명령어
-        -   `port` : 컨테이너에서 노출할 포트 목록 
-
-        -   `resources` : 컨테이너의 컴퓨팅 리소스의 양을 지정  - 세부설정 
-            -   `name` : 최소/최대 컴퓨팅 리소스 양 지정   - `limits`, `requests`     
-            -   `cpu` : cpu의 양을 지정    
-            -   `memory` : 메모리의 양을 지정
-
-        -   `probe` : Pod의 상태를 진단하는 방법 정의  - 세부설정 
-            -   `name` : Probe 방법을 선택 - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : HTTP 서버에 액세스하기 위한 경로
-            -   `http_get_port` : 컨테이너에서 액세스할 포트 번호
-            -   `http_header` : 요청에 설정할 사용자 정의 헤더
-            -   `initial_delay_seconds` : 컨테이너가 시작된 후 프로브가 시작되기 전까지의 시간(초)
-            -   `period_seconds` : 프로브를 수행하는 빈도(초)
-
-        -   `env` : 컨테이너 환경에 설정할 key-vaule 쌍의 블록 - 세부 설정
-            -   `name` : env 변수 이름 설정
-            -   `value` : env 변수로 설정할 값
-
-        -   `volume_mount` : 컨테이너의 파일 시스템에 마운트할 파드(Pod) 볼륨 - 세부 설정
-            -   `name` : 볼륨 마운트 이름 설정
-            -   `path` 
-                -   `mount_path` : 볼륨을 마운트해야 하는 컨테이너 내의 경로
-                -   `sub_path` : 볼륨을 마운트해야 하는 컨테이너 내의 경로
-            
--   `volume` : 파드(Pod)에 속한 컨테이너가 탑재할 수 있는 볼륨 목록
-    -   `name` : 볼륨 이름
-        -   `type` : 마운트할 볼륨의 타입 - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : 영구 볼륨 클레임의 이름
-        -   `default_mode` : 생성된 파일에 사용할 모드 - 0 ~ 0777 사이, 기본값은 0644 
-        -   `read_only` : true인 경우 읽기 전용으로 마운트되고 그렇지 않은 경우 읽기/쓰기 가능
-
--   `image_pull_secrets` : Container에서 사용하는 이미지를 가져오는 데 필요한 권한이 담긴 동일한 네임스페이스에 있는 Secret
-
+-   `restart_policy` : 컨테이너 실패 또는 작업 완료 후 처리 방식 (Never / OnFailure)
+-   `backoff_limit` : 작업을 실패로 처리하기 전 재시도 횟수
+-   `wait_for_completion` : 작업 완료 또는 실패 시점까지 생성·업데이트 차단 여부
+-   `containers` : 실행될 컨테이너 스펙 정의
+-   `init_containers` : 메인 컨테이너 실행 전 선행 작업 정의
+-   `volume` : 컨테이너에서 마운트할 볼륨 설정
+-   `pod_security_context` : 파드 단위 보안 컨텍스트 설정
+-   `image_pull_secrets` : 이미지 Pull을 위한 Secret 참조
 
 ---
 

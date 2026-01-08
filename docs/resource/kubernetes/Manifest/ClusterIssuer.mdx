@@ -1,0 +1,47 @@
+---
+title: ClusterIssuer
+sidebar_position: 0
+tags: [Kubernetes, CertManager, Certificate, ClusterIssuer]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-cluster_issuer.webp"
+    }
+/>
+
+## 리소스 개요
+
+ClusterIssuer는 cert-manager에서 사용하는 클러스터 범위(Kubernetes cluster-scoped) 리소스로, 인증서 서명 요청(CSR)을 받아 인증기관(CA)으로부터 서명된 인증서를 발급받기 위한 설정 단위입니다. Issuer와 달리 특정 네임스페이스에 종속되지 않으며, 클러스터 전체의 Certificate 리소스에서 공통으로 참조할 수 있습니다. ACME 기반 인증기관(예: Let’s Encrypt)을 사용하며, HTTP-01 또는 DNS-01 챌린지를 통해 도메인 소유권을 검증합니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+
+### 연결 리소스
+
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Network/Ingress)
+
+## 리소스 설정 값
+
+-   `acme.server` : ACME 인증기관 서버 엔드포인트 주소
+-   `acme.email` : 인증서 만료 및 이슈 알림을 받을 이메일 주소
+-   `acme.private_key_secret_ref` : ACME 서버 통신에 사용할 클라이언트 키가 저장된 Secret 이름
+-   `dns_solvers` : DNS-01 챌린지 사용 시 설정(AzureDNS, Route53, ACMEDNS)
+-   `http_solvers.provider` : HTTP-01 챌린지 처리 방식(Ingress, Gateway)
+-   `http_solvers.ingress_class_name` : HTTP-01 챌린지에 사용할 Ingress Class 이름
+-   `http_solvers.gateway_parent_refs` : Gateway 기반 HTTP-01 챌린지 설정 시 참조할 Gateway 정보
+
+---
+
+## 참고 자료
+
+-   [ClusterIssuer(cert-manager)](https://cert-manager.io/docs/configuration/acme/)
+-   [ClusterIssuer API Reference](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.ClusterIssuer)
