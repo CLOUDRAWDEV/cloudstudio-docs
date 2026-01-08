@@ -19,11 +19,27 @@ tags: [Ncloud, 리소스, Storage, NasVolume]
 
 다수의 사용자가 데이터를 공유하도록, 여러 서버를 네트워크에 연결한 스토리지 서비스입니다. 네트워크로 연결하는 저장 공간으로 다수의 사용자가 데이터를 공유하는 데 적합합니다.
 
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### 연결 대상
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
 ## 리소스 설정 값
 
--   `volume_name_postfix` : NAS 볼륨 이름, 영숫자 허용, 3 ~ 20자
--   `volume_size` : 볼륨 사이즈(100GB), 500 ~ 10,000의 범위
--   `volume_allotment_protocol_type` : 프로토콜 타입, 마운트 가능 서버: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+#### 기본 설정
+
+-   `volume_name_postfix` : NAS 볼륨 이름 접미사 (영숫자, 3 ~ 20자)
+-   `volume_size` : 볼륨 크기(100GB 단위) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : 프로토콜 타입 - `NFS`, `CIFS`
+-   `cifs_user_name` : CIFS 인증용 사용자 ID
+-   `cifs_user_password` : CIFS 인증용 비밀번호
+-   `linked_instances` : NAS 볼륨을 연결할 서버 인스턴스 이름 목록
+-   `is_encrypted` : AES-256 기반 볼륨 단위 암호화 여부
 
 ---
 

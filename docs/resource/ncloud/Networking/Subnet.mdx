@@ -23,26 +23,37 @@ tags: [Ncloud, 리소스, Network, Subnet]
 
 ### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### 하위 리소스
+### 포함 대상 리소스
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
 -   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
--   [**Block Storage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
+-   [**Redis**](https://docs.cstudio.app/docs/resource/ncloud/Database/Redis)
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NAT Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
+-   [**MSSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mssql)
+-   [**MySQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
+-   [**MongoDB**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mongodb)
+-   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Postgresql)
 
 ### 연결 리소스
 
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
+-   [**Network ACL**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkAcl)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Container/KubernetesCluster)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
 
 ## 리소스 설정 값
 
--   `subnet_cidr` : VPC 주소 범위 내의 서브넷 IP 주소 범위
--   `zone` : 서브넷이 위치할 물리적 지역 - `KR-1`, `KR-2`
--   `subnet_type` : 퍼블릭 혹은 프라이빗 서브넷 설정 - `PUBLIC`, `PRIVATE`
--   `usage_type` : 로드 밸런서 사용 여부 설정 - `GEN`, `BM`
--   `included_vpc_name` : 서브넷이 위치할 VPC 이름
--   `linked_nacl_name` : 서브넷에 대한 접근 제어를 위한 Network access control list
+#### 기본 설정
+
+-   `subnet_cidr` : VPC CIDR 범위 내에서 할당할 Subnet IP 대역
+-   `zone` : Subnet이 위치할 가용 영역 (`KR-1`, `KR-2`)
+-   `subnet_type` : Subnet 유형 (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Subnet 사용 목적 (`General`, `LoadBalancer`, `BareMetal`, `NATGateway`)
+-   `included_vpc_name` : Subnet이 소속될 VPC 이름 (읽기 전용)
+-   `linked_nacl_name` : Subnet에 적용할 Network ACL 이름 (읽기 전용)
 
 ---
 

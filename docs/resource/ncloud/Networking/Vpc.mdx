@@ -25,19 +25,21 @@ IT 인프라 환경을 구현할 수 있는 격리된 네트워크 환경입니�
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
-### 하위 리소스
+### 하위 대상
 
+-   [**Cdss Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Database/CdssCluster)
+-   [**Ses Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Database/SesCluster)
+-   [**Hadoop**](https://docs.cstudio.app/docs/resource/ncloud/BigData/Hadoop)
+-   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/AccessControlGroup)
 -   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Container/KubernetesCluster)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Network/Subnet)
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Network/AccessControlGroup)
--   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Network/NatGateway)
--   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Network/RouteTable)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Network/LoadBalancer)
+-   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkAcl)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Target Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
 
 ## 리소스 설정 값
 
--   `ipv4_cidr_block` : IP 주소 범위, private 대역(10.0.0.0/8,172.16.0.0/12,192.168.0.0/16) 내, /16 ~ /28 범위
+-   `ipv4_cidr_block` : VPC에 할당할 IPv4 주소 범위 (Private 대역만 허용: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, CIDR 범위 /16 ~ /28)
 
 ---
 

@@ -1,0 +1,76 @@
+---
+title: BedrockAgent
+sidebar_position: 0
+tags: [AWS, Bedrock, Agent, LLM, AI]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_agent.webp" />
+
+## Resource Overview
+
+A service for creating and managing AI agents that run on AWS Bedrock.
+
+## Associated Resources
+
+### Child Resources
+
+-   [**BedrockActionGroup**](https://docs.cstudio.app/en/docs/resource/aws/Bedrock/BedrockActionGroup)
+
+### Connected Resources
+
+-   [**Knowledge Base**](https://docs.cstudio.app/en/docs/resource/aws/Bedrock/KnowledgeBase)
+-   [**AWS Lambda Function**](https://docs.cstudio.app/en/docs/resource/aws/Compute/Lambda)
+-   [**Bedrock Guardrail**](https://docs.cstudio.app/en/docs/resource/aws/Bedrock/Guardrail)
+
+---
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `foundation_model` : Specifies the base LLM (foundation model) to use in Bedrock  
+    Example: `amazon.titan-text-express-v1`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `qwen.qwen3-32b-v1`
+-   `description` : Description of the agent (up to 5000 characters)
+-   `idle_session_ttl_in_seconds` : Session idle timeout (seconds)
+-   `instruction` : Base instruction for the agent (system prompt, 40–4000 characters)
+-   `customer_encryption_key_arn` : Encryption configuration using a customer-managed KMS key (ARN)
+
+#### Guardrail Configuration (`guardrail_configuration`)
+
+-   `guardrail_use_method` : Guardrail application method - `already_exists`, `create_new`
+-   `guardrail_identifier` : Guardrail ID to use
+-   `target_bedrock_guardrail` : Bedrock Guardrail resource to connect
+-   `guardrail_version` : Guardrail version to use
+
+#### Knowledge Base Association (`target_bedrock_knowledge_base`)
+
+-   `target_bedrock_knowledge_base` : ARN of the Bedrock agent to associate with the knowledge base
+-   `knowledge_base_association_description` : Description of the association
+-   `knowledge_base_state` : Knowledge base state - `ENABLED`, `DISABLED`
+
+#### Prompt Override Configuration (`prompt_override_configuration`)
+
+-   `prompt_configurations.prompt_creation_mode` : Automatic or manual creation - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_configurations.prompt_type` : Prompt type - `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`
+-   `prompt_configurations.base_prompt_template` : Base prompt template structure
+-   `prompt_configurations.prompt_state` : Prompt activation state - `ENABLED`, `DISABLED`
+-   `prompt_configurations.parser_mode` : Output parsing mode - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_configurations.max_length` : Maximum response length
+-   `prompt_configurations.stop_sequences` : Sequences that stop model generation
+-   `prompt_configurations.temperature` : Controls creativity of generated output
+-   `prompt_configurations.top_p` : Controls nucleus (probability mass) sampling
+-   `prompt_configurations.top_k` : Limits candidates to top K tokens
+-   `override_lambda` : Lambda function for customizing prompt behavior
+
+---
+
+## Reference Materials
+
+-   [Amazon Bedrock Agents (AWS Official Documentation)](https://docs.aws.amazon.com/bedrock/)
+-   [Bedrock Guardrail Configuration Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [Bedrock Knowledge Base Configuration Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
