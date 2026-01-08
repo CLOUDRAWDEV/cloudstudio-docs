@@ -23,54 +23,56 @@ SourceCommit, SourceBuild, SourceDeploy 서비스를 통합하여 빠르고 안�
 
 ### 상위 리소스
 
-### 하위 리소스
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### 하위 대상
+
+-   [**Source Build**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**Source Deploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ## 리소스 설정 값
 
--   `default_task` : 파이프라인이 수행할 첫 번째 작업
+#### 기본 설정
 
-    -   `name` : 파이프라인이 수행할 첫 번째 작업 이름
-    -   `type` : task 종류 - `SourceBuild`,`SourceDeploy`
+-   `description` : 생성할 pipeline 프로젝트 설명 - 최대 500자
 
-    -   type이 SourceBuild일 경우
+#### 기본 작업 (`default_task`)
 
-        -   `target_source_build_project` : SourceBuild task의 프로젝트 이름
-        -   `repository_branch` : SourceBuild task의 타켓 repository 브랜치 이름
+-   `default_task.name` : 파이프라인이 수행할 첫 번째 작업 이름 - 영문/숫자/`-`/`_`, 1~50자
+-   `default_task.type` : Task 종류 - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : 연결할 SourceBuild 프로젝트 이름
+-   `default_task.target_source_deploy_project` : 연결할 SourceDeploy 프로젝트 이름
+-   `default_task.target_source_deploy_project_stage` : SourceDeploy 프로젝트의 Stage 이름
+-   `default_task.target_source_deploy_project_scenario` : SourceDeploy 프로젝트의 Scenario 이름
+-   `default_task.repository_branch` : SourceBuild task의 대상 repository 브랜치 이름
 
-    -   type이 SourceDeploy일 경우
-        -   `target_source_deploy_project` : SourceDeploy의 task의 프로젝트 이름
-        -   `target_source_deploy_project_stage` : SourceDeploy의 task의 프로젝트 stage 이름
-        -   `target_source_deploy_project_scenario` : SourceDeploy의 task의 프로젝트 scenario 이름
+#### 추가 작업 (`additional_task`)
 
--   `additional_task` : 파이프라인이 수행할 작업
+-   `additional_task.type` : Task 종류 - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : 연결할 SourceBuild 프로젝트 이름
+-   `additional_task.target_source_deploy_project` : 연결할 SourceDeploy 프로젝트 이름
+-   `additional_task.target_source_deploy_project_stage` : SourceDeploy 프로젝트의 Stage 이름
+-   `additional_task.target_source_deploy_project_scenario` : SourceDeploy 프로젝트의 Scenario 이름
+-   `additional_task.repository_branch` : SourceBuild task의 대상 repository 브랜치 이름
+-   `additional_task.pre_tasks` : 선행 실행할 task 리스트
 
-    -   `name` : 파이프라인이 수행할 작업 이름
-    -   `type` : task 종류 - `SourceBuild`,`SourceDeploy`
+#### Push 트리거 (`trigger_push_repository`)
 
-    -   type이 SourceBuild일 경우
-        -   `target_source_build_project` : SourceBuild task의 프로젝트 이름
-        -   `repository_branch` : SourceBuild task의 타켓 repository 브랜치 이름
-        -   `pre_tasks` : 사전에 실행할 task 리스트
-    -   type이 SourceDeploy일 경우
-        -   `target_source_deploy_project` : SourceDeploy의 task의 프로젝트 이름
-        -   `target_source_deploy_project_stage` : SourceDeploy의 task의 프로젝트 stage 이름
-        -   `target_source_deploy_project_scenario` : SourceDeploy의 task의 프로젝트 scenario 이름
-        -   `pre_tasks` : 사전에 실행할 task 리스트
+-   `trigger_push_repository.type_of_repository` : Trigger에 사용할 repository 유형 - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Trigger에 사용할 repository 이름
+-   `trigger_push_repository.branch_of_repository` : Trigger에 사용할 repository branch 이름
 
--   `trigger_push_repository` : 파이프라인이 동작할 트리거를 정의
+#### 스케줄 트리거 (`trigger_schedule`)
 
-    -   `type_of_repository` : trigger에 사용할 repository 유형 - `sourcecommit`
-    -   `name_of_repository` : trigger에 사용할 repository 이름
-    -   `branch_of_repository` : trigger에 사용할 repository 브랜치
+-   `trigger_schedule.day` : 배포 예약 요일 - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : 배포 예약 시간
+-   `trigger_schedule.timezone` : 배포 예약 시간대
+-   `trigger_schedule.execute_only_with_change` : 파이프라인 또는 SourceCommit 변경 시에만 실행 여부 - `true`, `false`
 
--   `trigger_schedule` : 파이파라인이 자동 실행되도록 예약 설정
+#### 파이프라인 체이닝 (`trigger_target_sourcecpipeline_id`)
 
-    -   `day` : 배포 예약을 할 요일
-    -   `time` : 배포 예약을 할 시간
-    -   `timezone` : 예정된 날짜에 배포 예약할 시간의 timezone
-    -   `execute_only_with_change` : Sourcepipeline 프로젝트 구성 또는 Sourcecommit 리포지토리가 변경된 경우 일정 트리거가 항상 시간 내에 실행되는지 또는 실행되는지 여부
-
--   `trigger_target_sourcecpipeline_id` : trigger 설정된 파이프라인이 실행완료 될 때 자동으로 실행될 파이프라인 아이디 리스트
+-   `trigger_target_sourcecpipeline_id` : 현재 파이프라인 실행 완료 후 자동으로 실행할 파이프라인 ID 리스트
 
 ---
 

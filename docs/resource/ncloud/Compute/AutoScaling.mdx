@@ -23,33 +23,42 @@ tags: [Ncloud, 리소스, Compute, AutoScaling]
 
 ### 상위 리소스
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/navercloud/Network/Subnet)
+
+### 하위 리소스
 
 ### 연결 리소스
 
--   [**Network Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroupp)
+-   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/navercloud/Compute/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/docs/resource/navercloud/LoadBalancer/TargetGroup)
 
 ## 리소스 설정 값
 
--   `server_image_product_code` : 사용할 운영체제 이미지 코드(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
--   `server_product_code` : 서버의 하드웨어 구성을 위한 코드(HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C 코어수,M 메모리(GB))
--   `login_key_name` : 암호화를 위한 공용 로그인 키 이름
--   `init_script`
-    -   `content` : 서버가 생성될 때 자동으로 실행할 스크립트 내용
--   `group`
-    -   `min_size` : Auto scaling 그룹의 최소 사이즈, 0 ~ 30의 범위
-    -   `max_size` : Auto scaling 그룹의 최대 사이즈, 0 ~ 30의 범위
-    -   `linked_acg_names` : uto scaling에 적용할 ACG의 이름 목록
-    -   `included_subnet_name` : 서버 생성을 위한 서브넷 이름
--   `policy`
-    -   `adjustment_type_code` : caling 설정 코드, 중감변경(CHANG)/비율변경(PRCNT)/고정값(EXACT) - `CHANG`, `PRCNT`, `EXACT`
-    -   `scaling_adjustment` : Scaling 설정 값
--   `schedule`
-    -   `min_size` : Auto scaling 그룹의 최소 사이즈
-    -   `max_size` : Auto scaling 그룹의 최대 사이즈
-    -   `desired_capacity` : Auto scaling 그룹의 기대 사이즈
-    -   `start_time` : 일정의 시작 날짜 및 시간
-    -   `end_time` : 일정의 종료 날짜 및 시간
+#### 기본 설정
+
+-   `linked_acg_names` : Auto scaling에 적용할 ACG의 이름 목록
+-   `included_subnet_name` : 서버 생성을 위한 서브넷 이름
+-   `launch_configuration_name` : 사용할 Launch configuration 이름
+-   `health_check_type_code` : 헬스 체크 유형, 서버 혹은 로드밸런서 - `SVR`, `LOADB`
+-   `health_check_grace_period` : 서버 인스턴스가 서비스에 포함된 후 상태 확인 보류 기간을 설정 - `1` ~ `2147486347`
+-   `linked_target_group_list` : 연결할 타겟 그룹의 이름 리스트
+-   `min_size` : Auto scaling 그룹의 최소 사이즈, 0 ~ 30의 범위 - `1` ~ `30`
+-   `max_size` : Auto scaling 그룹의 최대 사이즈, 0 ~ 30의 범위 - `1` ~ `30`
+
+#### Auto Scaling 정책 (`policy`)
+
+-   `policy.adjustment_type_code` : Scaling 설정 코드, 증감변경(CHANG)/비율변경(PRCNT)/고정값(EXACT) - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.scaling_adjustment` : Scaling 설정 값
+-   `policy.cooldown` : 추가적인 알람이 발생하더라도 이에 반응하지 않도록 설정된 시간(초) - `0` ~ `214748364`
+-   `policy.min_adjustment_step` : 인스턴스 수 조정 시 최소 변경 단위 - `0` ~ `214748364`
+
+#### Auto Scaling 일정 (`schedule`)
+
+-   `schedule.min_size` : Auto scaling 그룹의 최소 사이즈 - `1` ~ `30`
+-   `schedule.max_size` : Auto scaling 그룹의 최대 사이즈 - `1` ~ `30`
+-   `schedule.desired_capacity` : Auto scaling 그룹의 기대 사이즈 - `1` ~ `30`
+-   `schedule.start_time` : 일정의 시작 날짜 및 시간
+-   `schedule.end_time` : 일정의 종료 날짜 및 시간
 
 ---
 
