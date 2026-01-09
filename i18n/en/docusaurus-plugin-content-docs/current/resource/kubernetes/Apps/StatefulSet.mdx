@@ -1,93 +1,61 @@
 ---
 title: StatefulSet
 sidebar_position: 0
-tags: [Kubernetes, Resource, Apps, StatefulSet]
+tags: [Kubernetes, 리소스, Apps, StatefulSet]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods.
+A Kubernetes resource that manages the deployment and scaling of a set of Pods and provides guarantees about the ordering and uniqueness of these Pods.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Config/ConfigMap)
+-   [**Horizontal Pod Autoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**Persistent Volume Claim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the service that manages the statefulset
--   `namespace` : Namespace where StatefulSet resources will be deployed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `template_labels` : Label to be set in Pod
--   `pod_management_policy` : Control how pods are created when pods are replaced or scaled down on a node - `Parallel`,`OrderedReady`
--   `revision_history_limit` : Maximum number of revisions to be maintained in the StatefulSet's revision history, default is 10
--   `service_name` : Name of the service that manages the statefulset
--   `replicas` : Desired number of Pod replicas - default is 1
+#### Basic Settings
 
--   `containers` : Defines templates for containers belonging to a pod - You can set default values and apply them, and then configure detailed settings 
-    -   `containers.name` : Defines the name of the container
-        -   `image` : Docker image name to use
-        -   `args` : Commands to be executed in the container
-        -   `command` : Commands to be executed in the container
-        -   `port` : List of ports to expose in container
-
-        -   `resources` : Specifies the amount of resources in the container  - Detailed settings
-            -   `name` : Specify minimum/maximum amount of computing resources   - `Limits`, `requests`     
-            -   `cpu` : Specifies the amount of cpu(m)   
-            -   `memory` : Specifies the amount of memory(Mi)
-
-        -   `probe` : Define how to diagnose the health of a Pod  - Detailed settings
-            -   `name` : Probe method selection - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-
-        -   `env` : Block of key-value pairs to set in container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-
-        -   `volume_mount` : The pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path` 
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
-            
--   `volume` : List of volumes that containers in a pod can mount
-    - `name` : Volume name
-        -   `type` : Type of volume to mount - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : Name of persistent volume claim
-        -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-        -   `read_only` : If true, mounted read-only, otherwise read/write
-
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the Container
+-   `namespace` : Namespace where the StatefulSet resource will be deployed
+-   `annotations` : Kubernetes system metadata key-value pairs
+-   `labels` : Labels for identifying the StatefulSet resource
+-   `template_labels` : Labels applied to the Pods to be created
+-   `pod_management_policy` : Control policy for Pod creation and deletion order (`Parallel`, `OrderedReady`)
+-   `revision_history_limit` : Number of revision histories to retain
+-   `linked_service_name` : Name of the Headless Service that manages the StatefulSet
+-   `replicas` : Number of Pod replicas to maintain
+-   `pod_security_context` : Pod-level security and permission settings
+-   `init_containers` : Definitions of initialization containers executed before the main container
+-   `containers` : Definitions of containers included in the Pod
+-   `volume` : Volume definitions to be used by the Pod
+-   `dns_policy` : Pod DNS policy
+-   `enable_service_links` : Whether to automatically inject service environment variables
+-   `host_network` : Whether to use the host network
+-   `image_pull_secrets` : List of Secrets to use when pulling images
 
 ---
 
-## Reference Materials
+## References
 
--   [StatefulSet(Kubernetes)](https://kubernetes.io/en/docs/concepts/workloads/controllers/statefulset/)
--   [StatefulSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/en/docs/resources/stateful_set)
+-   [StatefulSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+-   [StatefulSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/stateful_set)

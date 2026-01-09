@@ -1,95 +1,52 @@
 ---
 title: Job
 sidebar_position: 0
-tags: [Kubernetes, Resource, Batch, Job]
+tags: [Kubernetes, 리소스, Batch, Job]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource used to execute one-time jobs.
+A Kubernetes resource used to run one-time tasks.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
-### Connected Resources
+### Connected Targets
 
--   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
-
+-   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the Job resource
--   `namespace` : Namespace where job resources will be distributed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `template_labels` : Label to be set in Pod created per node
--   `restart_policy` : Specifies what to do after a container running within a Pod fails or a task completes
--   `backoff_limit` : Block creating or updating a task when the task state ends or rejects - it is True
--   `wait_for_completion` : Blocks job creation or update until the job reaches completion or failure status - Default is True
+#### Basic Settings
 
--   `timeouts` : Time allowed before a task is considered failed
-    -   `create` : Time to create a new task and wait for the task to complete successfully - default 1m   
-    -   `update` : Time to update an existing task and wait for successful task completion - default 1m
-
--   `containers` : Defines templates for containers belonging to a pod - Default values can be set and applied, after which detailed settings can be configured
-    -   `containers.name` : Define container name
-        -   `image` : Specify the image to use for the container
-        -   `args` : Commands to be executed in the container
-        -   `command` : Commands to be executed in the container
-        -   `port` : List of ports to expose in container
-
-        -   `resources` : SSpecifies the amount of resources in the container - Detailed settings
-            -   `name` : Specify minimum/maximum amount of computing resources - `limits`, `requests`
-            -   `cpu` : Specifies the amount of cpu(m)
-            -   `memory` : Specifies the amount of memory(Mi)
-
-        -   `probe` : Define how to diagnose the health of a Pod - Detailed settings
-            -   `name` : Probe method selection - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-
-        -   `env` : Block of key-value pairs to set in container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-
-        -   `volume_mount` : The pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path`
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
-
--   `volume` : List of volumes that containers in a pod can mount
-    -   `name` : Volume name
-        -   `type` : Type of volume to mount - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Name of persistent volume claim
-        -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-        -   `read_only` : If true, mounted read-only, otherwise read/write
-
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the Container
+-   `namespace` : Namespace where the Job resource will be deployed
+-   `restart_policy` : Handling policy after container failure or Job completion (Never / OnFailure)
+-   `backoff_limit` : Number of retries before marking the Job as failed
+-   `wait_for_completion` : Whether to block creation or updates until the Job completes or fails
+-   `containers` : Definition of container specifications to be executed
+-   `init_containers` : Definition of pre-tasks executed before the main container
+-   `volume` : Volume configuration to be mounted in the container
+-   `pod_security_context` : Pod-level security context configuration
+-   `image_pull_secrets` : Secret references for pulling images
 
 ---
 
-## Reference Materials
+## References
 
 -   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/en/docs/resources/app_service)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
