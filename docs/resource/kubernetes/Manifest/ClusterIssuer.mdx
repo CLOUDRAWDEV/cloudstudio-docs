@@ -25,61 +25,55 @@ ClusterIssuer는 cert-manager에서 사용하는 클러스터 범위(Kubernetes 
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
-### 연결 리소스
-
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Network/Ingress)
-
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `namespace` : Issuer 리소스가 배포될 네임스페이스
-
 #### ACME 설정 (`acme`)
 
 -   `acme.server` : ACME 서버의 엔드포인트 주소
--   `acme.email` : 인증서 만료 또는 문제 발생 시 연락받을 이메일 주소
--   `acme.private_key_secret_ref` : ACME 서버와 통신에 사용될 클라이언트 키가 저장된 Kubernetes Secret 이름
+-   `acme.email` : Let's Encrypt가 인증서에 관련된 문제나 만료에 대해 연락할 이메일 주소
+-   `acme.private_key_secret_ref` : ACME 서버와 통신에 사용될 클라이언트 키를 저장하는 Kubernetes Secret의 이름을 지정
 
-#### DNS 챌린지 설정 (`dns_solvers`)
+#### DNS Solver 설정 (`dns_solvers`)
 
--   `dns_solvers.provider` : DNS-01 챌린지 유형 - `AzureDNS`, `Route53`, `ACMEDNS`
+-   `dns_solvers.provider` : DNS-01 챌린지 유형 선택 - `AzureDNS`, `Route53`, `ACMEDNS`
 
-##### ACMEDNS 설정
+#### ACME DNS 설정 (`dns_solvers.acme_dns`)
 
 -   `dns_solvers.acme_dns.host` : acme-dns 서버의 엔드포인트 주소
--   `dns_solvers.acme_dns.account_secret_ref_name` : acme-dns 계정 정보를 저장하는 Secret 이름
--   `dns_solvers.acme_dns.account_secret_ref_key` : Secret에서 사용할 키 이름
+-   `dns_solvers.acme_dns.account_secret_ref_name` : acme-dns 서버에 대한 계정 정보를 저장하는 Kubernetes Secret의 이름을 지정
+-   `dns_solvers.acme_dns.account_secret_ref_key` : acme-dns 서버에 대한 계정 정보를 저장하는 Kubernetes Secret에서 사용할 키의 이름을 지정
 
-##### AzureDNS 설정
+#### Azure DNS 설정 (`dns_solvers.azure_dns`)
 
--   `dns_solvers.azure_dns.client_id` : Azure Service Principal 애플리케이션 Client ID
--   `dns_solvers.azure_dns.client_secret_name` : Client Secret이 저장된 Kubernetes Secret 이름
--   `dns_solvers.azure_dns.client_secret_key` : Secret에서 사용할 키 이름
--   `dns_solvers.azure_dns.subscription_id` : Azure 구독 ID
--   `dns_solvers.azure_dns.tenant_id` : Azure Tenant ID
--   `dns_solvers.azure_dns.resource_group_name` : Azure DNS Zone이 속한 리소스 그룹 이름
--   `dns_solvers.azure_dns.hosted_zone_name` : Azure DNS Zone 이름
+-   `dns_solvers.azure_dns.client_id` : Azure Service Principal 애플리케이션의 클라이언트 ID
+-   `dns_solvers.azure_dns.client_secret_name` : Azure Service Principal 애플리케이션의 client secret이 저장된 쿠버네티스 시크릿 이름을 지정
+-   `dns_solvers.azure_dns.client_secret_key` : Secret에서 사용할 Key의 이름을 지정
+-   `dns_solvers.azure_dns.subscription_id` : Azure 구독의 ID
+-   `dns_solvers.azure_dns.tenant_id` : Azure 구독의 Tenant ID
+-   `dns_solvers.azure_dns.resource_group_name` : Azure DNS Zone 리소스가 속한 리소스그룹을 지정
+-   `dns_solvers.azure_dns.hosted_zone_name` : Azure DNS Zone의 호스팅된 Zone 이름을 지정
 
-##### Route53 설정
+#### Route53 설정 (`dns_solvers.route53`)
 
--   `dns_solvers.route53.region` : Route53 서비스가 사용되는 AWS 리전
--   `dns_solvers.route53.access_key_id` : AWS Access Key ID
--   `dns_solvers.route53.access_key_secret_name` : AWS Secret Access Key가 저장된 Secret 이름
--   `dns_solvers.route53.access_key_secret_key` : Secret에서 사용할 키 이름
--   `dns_solvers.route53.secret_access_key_secret_name` : AWS Secret Access Key Secret 이름
--   `dns_solvers.route53.secret_access_key_secret_key` : Secret에서 사용할 키 이름
--   `dns_solvers.route53.role` : Route53 DNS를 관리할 AWS IAM Role
+-   `dns_solvers.route53.region` : Route 53 서비스가 사용되는 AWS 리전을 지정
+-   `dns_solvers.route53.access_key_id` : AWS 액세스 키 ID
+-   `dns_solvers.route53.access_key_secret_name` : AWS 시크릿 액세스 키 값이 담긴 Kubernetes Secret 이름 지정
+-   `dns_solvers.route53.access_key_secret_key` : Secret에서 사용할 키의 이름 지정
+-   `dns_solvers.route53.secret_access_key_secret_name` : AWS 시크릿 액세스 키 값이 담긴 시크릿 이름 지정
+-   `dns_solvers.route53.secret_access_key_secret_key` : AWS 시크릿 액세스 키 값이 담긴 시크릿의 키 이름 지정
+-   `dns_solvers.route53.role` : Route53 DNS를 관리할 수 있는 AWS IAM role을 지정
 
-#### HTTP 챌린지 설정 (`http_solvers`)
+#### HTTP Solver 설정 (`http_solvers`)
 
--   `http_solvers.provider` : HTTP-01 챌린지 해결 방식 - `Ingress`, `Gateway`
--   `http_solvers.ingress_class_name` : 사용할 Ingress Class 이름
+-   `http_solvers.provider` : HTTP-01 챌린지를 해결할 유형 지정 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : 어떤 클래스의 Ingress를 사용할 것인지를 지정
 
-##### Gateway 설정
+#### Gateway 설정 (`http_solvers.gateway_parent_refs`)
 
--   `http_solvers.gateway_parent_refs.name` : 연결할 Gateway 리소스 이름
--   `http_solvers.gateway_parent_refs.namespace` : Gateway 리소스가 속한 네임스페이스
+-   `http_solvers.gateway_parent_refs.name` : 연결할 Gateway 리소스가 속하는 네임 지정
+-   `http_solvers.gateway_parent_refs.namespace` : 연결할 Gateway 리소스가 속하는 네임스페이스 지정
 
 ---
 

@@ -37,16 +37,25 @@ tags: [Kubernetes, 리소스, Networking, Ingress]
 #### 기본 설정
 
 -   `namespace` : Ingress 리소스가 배포될 네임스페이스
--   `annotations` : Ingress Controller 동작을 제어하기 위한 메타데이터
--   `labels` : 리소스 식별을 위한 사용자 정의 레이블
--   `tls.hosts` : TLS 인증서가 적용될 호스트 목록
--   `tls.secret_name` : TLS 인증서가 저장된 Kubernetes Secret 이름
--   `ingress_class_name` : 트래픽을 처리할 Ingress Controller 클래스 이름
--   `rule.host` : 라우팅 규칙을 적용할 호스트명
--   `rule.backend.target_service` : 요청을 전달할 대상 Service
--   `rule.backend.path` : 백엔드와 연결될 URL 경로
--   `rule.backend.port` : 대상 Service의 포트 번호
--   `rule.backend.path_type` : 경로 매칭 방식(ImplementationSpecific, Prefix, Exact)
+-   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
+-   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
+-   `ingress_class_name` : 연결할 인그레스 클래스 이름을 지정
+
+#### TLS 설정 (`tls`)
+
+-   `tls.hosts` : TLS 인증서에 포함된 호스트 목록
+-   `tls.secret_name` : TLS 인증서와 관련된 쿠버네티스 시크릿 이름 지정
+
+#### 라우팅 규칙 (`rule`)
+
+-   `rule.host` : 라우팅 규칙을 적용할 호스트네임 주소를 지정
+
+#### 백엔드 설정 (`rule.backend`)
+
+-   `rule.backend.target_service` : 대상 백엔드 서비스
+-   `rule.backend.path` : 백엔드와 연결될 경로
+-   `rule.backend.port` : 서비스의 포트 번호
+-   `rule.backend.path_type` : 경로 일치의 해석을 결정 - `ImplementationSpecific`, `Prefix`, `Exact`
 
 ---
 
