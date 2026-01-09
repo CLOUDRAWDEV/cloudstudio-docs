@@ -23,45 +23,48 @@ Amazon Elastic Kubernetes Service(Amazon EKS)는 Kubernetes 클러스터를 설�
 
 ### 상위 리소스
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ### 연결 리소스
 
 -   [**EksCluster**](https://docs.cstudio.app/docs/resource/aws/EKS/EksCluster)
--   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `version` : EKS Cluster 버전
--   `cluster_role_arn` : Kubernetes 컨트롤 플레인이 사용하는 IAM 역할
--   `enabled_encryption` : 클러스터 암호화 활성화 여부
--   `kms_key_name` : 클러스터 암호화에 사용할 KMS Key 이름
--   `included_subnet_names` : EKS Cluster를 배포할 Subnet 이름 목록
--   `linked_security_group_names` : EKS Cluster에 연결할 Security Group 이름
--   `endpoint_access_type` : EKS API 서버 엔드포인트 접근 방식
--   `public_access_cidrs` : Public API 접근 허용 CIDR 목록
--   `enabled_cluster_log_types` : 활성화할 Control Plane 로그 유형
+-   `version` : EKS Cluster의 Kubernetes 버전
+-   `cluster_role_arn` : Kubernetes 컨트롤 플레인이 AWS 리소스를 관리하기 위해 사용하는 IAM 역할
+-   `enabled_encryption` : 클러스터 암호화 활성화 여부 - `true`, `false`
+-   `kms_key_name` : Cluster에서 사용할 KMS Key 이름
+-   `included_subnet_names` : EKS Cluster를 배포할 Subnet Group에 포함될 Subnet 이름 목록
+-   `linked_security_group_names` : EKS Cluster에 연결할 보안 그룹 이름 목록
+-   `endpoint_access_type` : EKS API 서버 엔드포인트 접근 방식 - `Public`, `Public and Private`, `Private`
+-   `public_access_cidrs` : EKS Public API 서버 엔드포인트 접근을 허용할 CIDR 블록 목록
 
-#### 애드온 설정
+#### Control Plane 로깅
 
--   `kube_proxy_version` : kube-proxy 애드온 버전
--   `vpc_cni_version` : Amazon VPC CNI 애드온 버전
--   `core_dns_version` : CoreDNS 애드온 버전
+-   `enabled_cluster_log_types` : 활성화할 Control Plane 로그 유형 - `api`, `authenticator`, `audit`, `scheduler`, `controllerManager`
 
-#### 노드 그룹
+#### 애드온 설정 (`add_ons`)
 
--   `node_role_name` : 워커 노드에서 사용할 IAM 역할
--   `enabled_launch_template` : Launch Template 사용 여부
--   `launch_template_name` : 사용할 Launch Template 이름
--   `launch_template_version` : Launch Template 버전
--   `min_node_count` : 최소 워커 노드 수
--   `max_node_count` : 최대 워커 노드 수
--   `desired_node_count` : 원하는 워커 노드 수
--   `max_node_unavailable` : 업데이트 중 사용 불가 노드 최대 수
--   `max_percentage_unavailable` : 업데이트 중 사용 불가 노드 최대 비율
--   `disk_size` : 각 노드에 연결되는 EBS 볼륨 크기
+-   `add_ons.kube_proxy_version` : 각 노드에서 실행되는 kube-proxy 버전
+-   `add_ons.vpc_cni_version` : Amazon VPC CNI 플러그인 버전
+-   `add_ons.core_dns_version` : 클러스터에서 제공하는 CoreDNS 버전
+
+#### 노드 그룹 (`node_group`)
+
+-   `node_group.node_role_name` : 워커 노드에서 사용할 IAM 역할
+-   `node_group.enabled_launch_template` : 시작 템플릿 사용 여부 - `true`, `false`
+-   `node_group.launch_template_name` : 노드 그룹에 사용할 시작 템플릿 이름
+-   `node_group.launch_template_version` : 시작 템플릿 버전
+-   `node_group.min_node_count` : 최소 워커 노드 수
+-   `node_group.max_node_count` : 최대 워커 노드 수
+-   `node_group.desired_node_count` : 원하는 워커 노드 수
+-   `node_group.max_node_unavailable` : 업데이트 중 허용되는 최대 비가용 워커 노드 수
+-   `node_group.max_percentage_unavailable` : 업데이트 중 허용되는 최대 비가용 워커 노드 비율
+-   `node_group.disk_size` : 각 노드에 연결되는 EBS 볼륨 크기(GB) - `1` ~ `16384`
 
 #### 태그
 

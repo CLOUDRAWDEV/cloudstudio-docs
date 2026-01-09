@@ -23,53 +23,53 @@ Amazon RDS for Oracle은 클라우드에서 Oracle 배포를 손쉽게 설정, �
 
 ### 상위 리소스
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ### 연결 리소스
 
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
+-   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+
+## 리소스 설정 값
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `database_name` : 초기 데이터베이스 이름, 영대문자/숫자 허용, `1` ~ `8`자
--   `license` : RDS Oracle 라이선스 모델 - `bring-your-own-license`, `license-included`
--   `engine` : Oracle 엔진 종류 - `oracle-ee`, `oracle-se2`
--   `engine_version` : RDS에 사용할 Oracle 버전
+-   `database_name` : 초기 데이터베이스 이름 - `1` ~ `8`자의 영대문자 및 숫자
+-   `license` : Oracle 라이선스 모델 - `bring-your-own-license`, `license-included`
+-   `engine` : Oracle 엔진 유형 - `oracle-ee`, `oracle-se2`
+-   `engine_version` : RDS에 사용할 Oracle 엔진 버전
 -   `instance_class` : RDS DB 인스턴스 타입
--   `storage_type` : 스토리지 타입
--   `allocated_storage` : 스토리지 용량(GB) - `20` ~ `65536`
--   `max_allocated_storage` : 자동 스토리지 확장 최대 용량
--   `iops` : 초당 I/O 작업 수 - `1000` ~ `40000`
+-   `storage_type` : RDS 인스턴스 스토리지 타입
+-   `allocated_storage` : RDS 스토리지 용량(GB) - `20` ~ `65536`
+-   `max_allocated_storage` : 스토리지 자동 확장 최대 한계값
+-   `iops` : DB 인스턴스가 지원하는 초당 I/O 작업 수 - `1000` ~ `40000`
 -   `multi_az_enabled` : 다중 AZ 배포 활성화 여부 - `true`, `false`
+-   `username` : RDS 관리자 사용자 이름
+-   `password` : RDS 관리자 사용자 비밀번호
 -   `publicly_accessible` : 퍼블릭 액세스 허용 여부 - `true`, `false`
 
-#### 계정 설정 (`account`)
+#### 네트워크 설정
 
--   `username` : RDS 사용자 이름
--   `password` : RDS 사용자 비밀번호
-
-#### 네트워크 설정 (`network`)
-
--   `included_subnet_names` : RDS Subnet 그룹에 포함될 Subnet 이름 목록
--   `subnet_group_name` : RDS에 사용할 Subnet 그룹 이름
+-   `included_subnet_names` : RDS Subnet Group에 포함될 Subnet 이름 목록
+-   `subnet_group_name` : RDS에 사용할 Subnet Group 이름
 -   `linked_security_group_names` : 적용할 보안 그룹 목록
 
 #### 모니터링 설정 (`monitoring`)
 
--   `monitoring.performance_insights_enabled` : 성능 인사이트 활성화 여부 - `true`, `false`
--   `monitoring.kms_key_name` : 성능 인사이트에 사용할 KMS 키 이름
+-   `monitoring.performance_insights_enabled` : Performance Insights 활성화 여부 - `true`, `false`
+-   `monitoring.kms_key_name` : Performance Insights에 사용할 KMS Key 이름
 
 #### 암호화 설정 (`encryption`)
 
--   `encryption.storage_encrypted` : 스토리지 암호화 여부 - `true`, `false`
--   `encryption.kms_key_name` : 암호화에 사용할 KMS 키 이름
+-   `encryption.storage_encrypted` : DB 인스턴스 스토리지 암호화 여부 - `true`, `false`
+-   `encryption.kms_key_name` : 암호화에 사용할 KMS Key 이름
 
 #### 백업 설정 (`backup`)
 
--   `backup.backup_retention_period` : 백업 데이터 보관 기간(일) - `1` ~ `35`
--   `backup.final_snapshot_enabled` : 삭제 전 최종 스냅샷 생성 여부 - `true`, `false`
+-   `backup.backup_retention_period` : 백업 보관 기간(일) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : DB 삭제 전 최종 스냅샷 생성 여부 - `true`, `false`
 -   `backup.final_snapshot_name` : 최종 스냅샷 이름
 
 #### 태그

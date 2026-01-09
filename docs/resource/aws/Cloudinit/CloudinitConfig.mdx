@@ -27,25 +27,16 @@ Cloud-init은 가상 머신 인스턴스를 초기화하고 설정하는 도구�
 
 #### 기본 설정
 
--   `gzip` : 사용자 데이터를 gzip 알고리즘으로 압축할지 여부
-    -   `true`, `false`
+-   `gzip` : 데이터 압축 알고리즘 사용 여부 - `true`, `false`
 
 #### 파트 설정 (`part`)
 
--   `part.content_type` : 삽입할 데이터의 MIME 타입
-    -   `text/cloud-config`
-    -   `text/x-shellscript`
-    -   `text/cloud-boothook`
-    -   `multipart/mixed`
-    -   `text/cloud-config-archive`
-    -   `text/jinja`
-    -   `text/x-include-url`
-    -   `text/part-handler`
--   `part.content` : 실제로 인스턴스에 전달될 초기화 데이터(스크립트 또는 설정 내용)
+-   `part.content_type` : 삽입할 데이터의 형식 - `text/cloud-config`, `text/x-shellscript`, `text/cloud-boothook`, `multipart/mixed`, `text/cloud-config-archive`, `text/jinja`, `text/x-include-url`, `text/part-handler`
+-   `part.content` : 삽입할 실제 데이터 내용
 
-#### 태그 설정
+#### 태그
 
--   `tag` : 리소스를 분류하기 위한 태그 목록
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

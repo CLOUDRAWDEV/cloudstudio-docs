@@ -28,30 +28,26 @@ HTTP API는 기존의 REST API보다 더 단순하고 비용 효율적이며, �
 
 -   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
 
-## 리소스 설정 값
+#### 기본 설정
 
-#### Integration (`integration`)
+#### Integration 설정 (`integration`)
 
 -   `integration.integration_type` : API Gateway Integration의 유형 - `Http`, `Lambda`
 -   `integration.integration_method` : API Gateway Integration의 HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
--   `integration.integration_uri` : HTTP 통합을 위한 정규화된 URL
+-   `integration.integration_uri` : HTTP 통합을 위한 정규화된 URL 지정
 -   `integration.linked_lambda_name` : Lambda 프록시 통합을 위한 Lambda 함수 이름
 
-#### Route (`route`)
+#### Route 설정 (`route`)
 
 -   `route.route_method` : HTTP API에 대한 HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
 -   `route.route_path` : HTTP API에 대한 리소스 경로
 -   `route.target_integration` : Route를 연결할 API Gateway Integration 이름
 
-#### Deployment (`deployment`)
+#### Deployment 설정 (`deployment`)
 
 -   `deployment.description` : API Gateway Deployment 설명
 
-#### Stage (`stage`)
+#### Stage 설정 (`stage`)
 
--   `stage.auto_deployment` : 자동 배포 활성화 여부 - `true`, `false`
+-   `stage.auto_deployment` : 자동 배포 활성화 - `true`, `false`
 -   `stage.deployment_name` : 연결할 API Gateway Deployment 이름
-
-#### 태그
-
--   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
