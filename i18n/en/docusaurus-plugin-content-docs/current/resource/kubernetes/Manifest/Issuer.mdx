@@ -1,99 +1,59 @@
 ---
 title: Issuer
 sidebar_position: 0
-tags: [Kubernetes, Resource, Manifest, Issuer]
+tags: [Kubernetes, 리소스, Manifest, Issuer]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that accepts certificate signing requests and generates signed certificates from a Certificate Authority (CA).
+A Kubernetes resource that accepts Certificate Signing Requests and generates signed certificates from a Certificate Authority (CA).
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
-
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the Issuer resource
--   `acme` : Defines the account registered on the ACME (Automated Certificate Management Environment) certification authority server
-    -   `acme.server` : Endpoint address of the ACME server
-    -   `acme.email` : An email address where Let's Encrypt will contact you regarding expiration or issues with your certificate
-    -   `acme.private_key_secret_ref` : Specifies the name of the Kubernetes Secret that stores the client key that will be used to communicate with the ACME server
--   `solver_type` : Defines the method for solving challenges for certificate issuance - `DNS`,`HTTP`
+#### Basic Settings
 
-**Solver-Type : DNS**
--   `dns_solvers` : Define settings corresponding to when the solver is set to DNS
--   `name` : Name of the dns_solver configuration
-    -   `provider` : Select DNS-01 Challenge Type - `AzureDNS`,`Route53`,`ACMEDNS` 
+-   `namespace` : Namespace where the Issuer resource will be deployed
+-   `acme.server` : Endpoint address of the ACME Certificate Authority server
+-   `acme.email` : Email address to receive certificate expiration and issue notifications
+-   `acme.private_key_secret_ref` : Name of the Secret storing the client key used for ACME server communication
+-   `dns_solvers` : Settings for using DNS-01 challenges - `AzureDNS`, `Route53`, `ACMEDNS`
+-   `http_solvers.provider` : HTTP-01 challenge handling method - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Name of the Ingress Class to use for HTTP-01 challenges
+-   `http_solvers.gateway_parent_refs` : Gateway information referenced when configuring Gateway-based HTTP-01 challenges
 
-    ***AzureDNS***
-    -   `azure_dns` : Specifies the settings when AzureDNS is selected among the DNS-01 challenge types
-        -   `name` : Name of the AzureDNS configuration
-            -   `client_id` : Client ID of the Azure Service Principal application
-            -   `client_secret_name` : Azure Service Principal Specifies the name of the Kubernetes secret where the application's client secret is stored
-            -   `client_secret_key` : Specify the name of the key to be used in Secret
-            -   `subscription_id` : ID of your Azure subscription
-            -   `tenant_id` : Tenant ID for your Azure subscription
-            -   `resource_group_name` : Specify the resource group to which the Azure DNS Zone resource belongs
-            -   `hosted_zone_name` : Specify a hosted zone name for Azure DNS Zone
+#### HTTP Challenge Settings (`http_solvers`)
 
-    ***Route53***        
-    -   `route_53` : Specifies the settings when Route53 is selected among the DNS-01 challenge types
-        -   `name` : Name of the Route53 configuration
-            -   `region` : Specifies the AWS Region in which the Route 53 service is used
-            -   `access_key_id` : AWS access key ID
-            -   `access_key_secret_name` : Specify a Kubernetes Secret name containing the AWS Secret access key value (can be omitted if you specified access_key_id)
-            -   `access_key_secret_key` : Specifies the name of the key to use in Secret (can be omitted if access_key_id is specified)
-            -   `secret_access_key_secret_name` : Specify a secret name that contains AWS Secret Access Key values
-            -   `secret_access_key_secret_key` : Specify a key name for the secret that contains the AWS Secret access key value
-            -   `role` : Specify AWS IAM role to manage Route53 DNS
+-   `http_solvers.provider` : HTTP-01 challenge resolution method - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Name of the Ingress Class to use
 
-    ***ACMEDNS***          
-    -   `acme_dns` : Specifies the settings when ACMEDNS is selected among the DNS-01 challenge types
-        -   `name` : Name of the ACMEDNS configuration
-            -   `host` : Endpoint address of the acme-dns server
-            -   `account_secret_ref_name` : Specifies the name of the Kubernetes Secret that stores account information for the acme-dns server
-            -   `account_secret_ref_key` : Specifies the name of the key to be used in the Kubernetes Secret that stores account information for the acme-dns server
+##### Gateway Settings
 
-**Solver-Type : HTTP-01**
--   `http_solvers` : Specify settings when selecting the HTTP challenge type
--   `name` : Name of the HTTP solver configuration
-    -   `provider` : Select DNS-01 Challenge Type - `Ingress`,`Gateway`
-
-    ***Ingress***
-    -   `ingress` : Settings for using Ingress as the HTTP-01 challenge solver
-        -   `name` : Name of the Ingress configuration for the HTTP-01 challenge
-            -   `ingress_class_name` : Specifies which Ingress class to use
-    ***Gateway***
-    -   `Gateway` : Specifies the type to resolve the HTTP-01 challenge
-        -   `name` : Settings when resolving HTTP-01 challenges using Gateway
-            -   `namespace` : Specifies the namespace to which the gateway resource to connect belongs
-            
+-   `http_solvers.gateway_parent_refs.name` : Name of the Gateway resource to connect
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace of the Gateway resource
 
 ---
 
-## Reference Materials
+## References
 
 -   [Issuer(CertManager)](https://cert-manager.io/docs/concepts/issuer/)
-
-

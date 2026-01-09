@@ -1,19 +1,17 @@
 ---
 title: PersistentVolumeClaim
-sidebar_position: 0
-tags: [Kubernetes, Resource, Core, PersistentVolumeClaim]
+sidebar_position: 3
+tags: [Kubernetes, 리소스, Core, PersistentVolumeClaim]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.webp"
     }
 />
 
@@ -25,38 +23,35 @@ A Kubernetes resource that requests a Persistent Volume (PV).
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
-
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**PersistentVolume**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolume)
--   [**Pod**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Pod)
--   [**Deployment**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/DaemonSet)
--   [**StatefulSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/StatefulSet)
--   [**Job**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/Job)
--   [**CronJob**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/CronJob)
-
+-   [**Persistent Volume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**Daemon Set**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Stateful Set**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
+-   [**Cron Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the PersistentVolumeClaim resource
--   `namespace` : Namespace where PVC resources will be deployed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `spec` : Define specific specifications of PVC
-    -   `spec.storage_class_name` : Specify the storage class name to use
-    -   `spec.volume_name` : PV name to be connected to PVC
-    -   `spec.request_storage` : Storage capacity to allocate to PV
-    -   `spec.access_modes` : Desired access mode that the PV must have - (Must contain or match the access mode of the PV)
+#### Basic Settings
 
-
+-   `namespace` : Namespace where the PVC resource will be created
+-   `annotations` : Kubernetes system metadata
+-   `labels` : User-defined labels for PVC identification and classification
+-   `spec.storage_class_name` : Name of the StorageClass to use
+-   `spec.volume_name` : Name of the PersistentVolume to bind
+-   `spec.volume_mode` : Storage provisioning mode - `Filesystem / Block`
+-   `spec.request_storage` : Amount of storage requested
+-   `spec.access_modes` : Requested volume access modes - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `wait_until_bound` : Whether to wait until the PVC is bound to a PV
 
 ---
 
-## Reference Materials
+## References
 
 -   [PersistentVolumeClaim(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
 -   [PersistentVolumeClaim(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)

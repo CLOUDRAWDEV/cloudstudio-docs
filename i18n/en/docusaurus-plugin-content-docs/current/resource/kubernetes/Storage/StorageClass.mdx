@@ -1,54 +1,50 @@
 ---
 title: StorageClass
 sidebar_position: 0
-tags: [Kubernetes, Resource, Storage, StorageClass]
+tags: [Kubernetes, 리소스, Storage, StorageClass]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that defines dynamic storage provisioning working with a specific storage provisioner.
+A Kubernetes resource that defines dynamic storage provisioning in conjunction with a specific storage provisioner.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
 ### Connected Resources
 
--   [**PersistentVolume**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**Persistent Volume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
 
+## Resource Setting Values
 
-## Reference Materials
+#### Basic Settings
 
--   `service_name`: Name of the StorageClass resource
--   `annotations`: Key-value pairs used to display necessary information in the Kubernetes system
--   `labels`: User-specified values to distinguish objects
--   `storage_provisioner`: Type of storage provisioner
--   `reclaim_policy`: Reclaim policy to use - defaults to `Delete` if not specified
--   `volume_binding_mode`: When volume binding and dynamic provisioning should occur - `Immediate`, `WaitForFirstConsumer`
--   `allow_volume_expansion`: Whether the storage class allows volume expansion - `False`, `True`
--   `parameters`: Parameters for the provisioner that will create volumes for the storage class
--   `mount_options`: Mount options specified for persistent volumes dynamically created by the storage class
-
+-   `annotations` : Key-value metadata used to display information required by the Kubernetes system
+-   `labels` : User-defined labels used to distinguish StorageClass objects
+-   `storage_provisioner` : Type of storage provisioner that actually creates the storage
+-   `reclaim_policy` : Reclaim policy applied when a volume is released - `Retain`, `Delete`
+-   `volume_binding_mode` : Timing of volume binding and dynamic provisioning - `Immediate`, `WaitForFirstConsumer`
+-   `allow_volume_expansion` : Whether to allow expansion of the created volume size
+-   `parameters` : Additional parameters passed to the storage provisioner
+-   `mount_options` : Mount options applied to dynamically created PersistentVolumes
 
 ---
 
-## Reference Materials
+## References
 
 -   [StorageClass(kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
 -   [StorageClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class)

@@ -1,95 +1,55 @@
 ---
 title: CronJob
 sidebar_position: 0
-tags: [Kubernetes, Resource, Batch, CronJob]
+tags: [Kubernetes, 리소스, Batch, CronJob]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that generates jobs periodically according to a schedule.
+A Kubernetes resource that creates Jobs periodically according to a schedule.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
-### Connected Resources
+### Connected Targets
 
--   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
-
+-   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the CronJob resource
--   `namespace` : Namespace where CronJob resources will be deployed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `template_labels` : Labels applied to Pods created per node
--   `concurrency_policy` : Specifies how to handle concurrent execution of tasks - `Allow`, `Forbid`, `Replace`
--   `failed_jobs_history_limit` : Specify how many failed jobs to keep
--   `schedule` : Setting the work cycle
--   `timezone` : Time zone for the event
--   `starting_deadline_seconds` : Deadline (in seconds) to start the task if the scheduled time is missed for any reason
--   `successful_jobs_history_limit` : Sets how many successfully completed jobs to retain, default is 3
+#### Basic Settings
 
--   `containers` : Defines templates for containers belonging to a pod - Default values can be set and applied, after which detailed settings can be configured
-    -   `containers.name` : Defines the name of the container
-        -   `image` : Specify the image to use for the container
-        -   `args` : Commands to be executed in the container
-        -   `command` : Commands to be executed in the container
-        -   `port` : List of ports to expose in the container
-
-        -   `resources` : Specifies the amount of resources in the container - Detailed settings
-            -   `name` : Specify minimum/maximum amount of computing resources - `Limits`, `requests`
-            -   `cpu` : Specifies the amount of cpu(m)
-            -   `memory` : Specifies the amount of memory(Mi)
-
-        -   `probe` : Define how to diagnose the health of a Pod - Detailed settings
-            -   `name` : Probe method selection - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-
-        -   `env` : Block of key-value pairs to set in the container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-
-        -   `volume_mount` : The pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path` 
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
-
--   `volume` : List of volumes that containers in a pod can mount
-    -   `name` : Volume name
-        -   `volume_type` : Type of volume to mount - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Name of the persistent volume claim
-        -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-        -   `read_only` : If true, mounted read-only, otherwise read/write
-
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the Container
-
+-   `namespace` : Namespace where the CronJob will be deployed
+-   `schedule` : Job execution schedule defined using a cron expression
+-   `timezone` : Time zone used to interpret the schedule
+-   `concurrency_policy` : Policy for handling concurrent Jobs (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : Time limit for starting a Job if the schedule is missed
+-   `successful_jobs_history_limit` : Number of successful Jobs to retain
+-   `failed_jobs_history_limit` : Number of failed Jobs to retain
+-   `containers` : Definition of container specifications to be executed
+-   `init_containers` : Definition of pre-tasks executed before the main container
+-   `volume` : Volume configuration to be mounted in the container
+-   `pod_security_context` : Pod-level security context configuration
+-   `image_pull_secrets` : Secret references for pulling images
 
 ---
 
-## Reference Materials
+## References
 
 -   [CronJob(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
 -   [CronJob(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)

@@ -1,49 +1,41 @@
 ---
 title: IstioCrds
-sidebar_position: 0
-tags: [Kubernetes, Resource, Helm, IstioCrds]
+sidebar_position: 4
+tags: [Kubernetes, 리소스, Helm, IstioCrds]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_crds.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_crds.webp"
     }
 />
 
 ## Resource Overview
 
-Helm chart for Custom Resource Definitions (CRDs) for Istio.
+A Helm chart for Istio Custom Resource Definitions.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
-
-### Connected Resources
-
-
-
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ## Resource Setting Values
 
--   `service_name` : Istio CRDs Helm Chart Release Name
--   `namespace` : Namespace where Istio CRDs Helm Chart resources will be deployed -  `istio-system`으로 지정
--   `version` : Specifies the version of the Istio CRDs Helm chart
--   `set` : Dynamically change values of Istio CRDs default chart
+#### Basic Settings
+
+-   `namespace` : Namespace where the Istio CRDs Helm Chart resource will be deployed
+-   `version` : Version of the Istio CRDs Helm Chart to use
+-   `set` : Key-value settings used to dynamically override values of the base Istio CRDs Helm Chart
 
 ---
 
-## Reference Materials
+## References
 
 -   [Helm install(Istio)](https://istio.io/latest/docs/setup/install/helm/)
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
-
