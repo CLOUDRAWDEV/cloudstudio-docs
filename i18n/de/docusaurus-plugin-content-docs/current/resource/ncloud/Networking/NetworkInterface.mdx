@@ -1,44 +1,44 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Networking, NetworkInterface]
+sidebar_position: 2
+tags: [Ncloud, 리소스, Networking, NetworkInterface]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein Service, der Netzwerkinterfaces für Server erstellt. Server, auf denen Netzwerkinterfaces angewendet werden, können über Subnetze unabhängige Netzwerkkommunikation durchführen.
+A service that creates network interfaces that can be assigned to servers. Servers with network interfaces applied can perform isolated network communication using subnets.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-### Verbundene Ressourcen
+### 연결 리소스
 
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/AccessControlGroup)
 -   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `included_subnet_name` : Der Name des Subnetzes, in dem das Netzwerkinterface enthalten ist
--   `linked_acg_names` : Eine Liste der ACG-Namen, auf die das Netzwerkinterface angewendet werden soll
+#### 기본 설정
 
+-   `included_subnet_name` : Name of the subnet that includes the Network Interface
+-   `linked_acg_names` : List of Access Control Group names to apply to the Network Interface
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

@@ -1,30 +1,47 @@
 ---
 title: Base
 sidebar_position: 0
-tags: [Ncloud, Ressourcen, Base]
+tags: [Ncloud, 리소스, Base]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/base-base.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Es stellt die oberste Gruppe in Ncloud dar, die die Abonnementinformationen des Benutzers speichert.
+Represents the top-level group in Ncloud that stores the user's subscription information.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Untergeordnete Ressourcen
+### 하위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**LoginKey**](https://docs.cstudio.app/docs/resource/ncloud/Compute/LoginKey)
 
-## Ressourcen-Einstellwerte
+### 연결 리소스
 
--   `credential_id` : Abonnementinformationen des Benutzers
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `credential_id` : User Credential
+-   `site` : Naver Cloud service type
+
+#### 태그
+
+-   `tag` : Tags used to categorize resources
+
+---
+
+## 참고 자료
+
+-   [Ncloud Environment Overview(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
+-   [Terraform Ncloud Provider(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs)

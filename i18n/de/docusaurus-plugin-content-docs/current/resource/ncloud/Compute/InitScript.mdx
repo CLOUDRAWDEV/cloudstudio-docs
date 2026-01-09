@@ -1,38 +1,40 @@
 ---
 title: InitScript
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Compute, Initscript]
+sidebar_position: 3
+tags: [Ncloud, 리소스, Compute, Initscript]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Das Init-Skript ist eine Funktion, mit der ein zuvor erstelltes Skript beim Erstellen eines Servers automatisch ausgeführt wird. Es kann in verschiedenen Fällen genutzt werden, z. B. beim gleichzeitigen Erstellen mehrerer Server mit derselben Funktion, beim regelmäßigen Erstellen von Servern mit derselben Umgebung oder wenn eine Verwaltung der anfänglichen Serverumgebung für bestimmte Zwecke erforderlich ist.
+Init Script is a feature that allows pre-written scripts to be executed automatically when a server is created. It can be used in various scenarios, such as creating multiple servers with the same purpose in bulk, periodically creating servers with the same environment, or managing initial server environments by purpose.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
+## 리소스 설정 값
 
-## Ressourcen-Einstellwerte
+#### 기본 설정
 
--   `OS_type` : Verwendeter Serverinstanztyp - `LNX`, `WND`
--   `Content` : Automatisch ausgeführtes Skript beim Erstellen des Servers, Beispiel) #!/bin/bash yum install -y httpd && systemctl start httpd
+-   `os_type` : Type of server instance to use - `LNX`, `WND`
+-   `content` : Script content to be executed automatically when the server is created
+-   `description` : Description of the Init Script to be created
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
--   [ncloud_InitScript(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)
+-   [Init Script(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)

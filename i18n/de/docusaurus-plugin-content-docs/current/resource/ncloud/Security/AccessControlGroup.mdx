@@ -1,56 +1,63 @@
 ---
 title: AccessControlGroup
 sidebar_position: 0
-tags: [Ncloud, Ressourcen, Security, AccessControlGroup]
+tags: [Ncloud, 리소스, Security, AccessControlGroup]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
     }
 />
 
-## ## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein IP-/Port-basierter Filter-Firewall-Service, mit dem die Netzwerkzugriffssteuerung und -verwaltung zwischen Servern durchgeführt werden kann.
+An IP/Port-based filtering firewall service that enables network access control and management between servers.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### Verbundene Ressourcen
+### 연결 대상
 
 -   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
 -   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `included_vpc_name` : Name der VPC, in der das ACG erstellt wird
--   `acg_description` : Beschreibung des ACG
--   `inbound_rule`
-    -   `name` : Name der Inbound-Regel
-    -   `protocol` : Protokoll des eingehenden Verkehrs - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : Methode zur Anwendung der Inbound-Regel - `ip_block`, `source_name`
-    -   `ip_block` : Ziel des eingehenden Verkehrs, IP-Bereich im CIDR-Format
-    -   `port_range` : Portbereich, auf den die Inbound-Regel angewendet wird, Bereich von 1 bis 65535 (z.B. 100-200)
+#### 기본 설정
 
--   `outbound_rule`
-    -   `name` : Name der Outbound-Regel
-    -   `protocol` : Protokoll des ausgehenden Verkehrs - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : Methode zur Anwendung der Outbound-Regel - `ip_block`, `source_name`
-    -   `ip_block` : Ziel des ausgehenden Verkehrs, IP-Bereich im CIDR-Format
-    -   `port_range` : Portbereich, auf den die Outbound-Regel angewendet wird, Bereich von 1 bis 65535 (z.B. 100-200)
-    
+-   `included_vpc_name` : Name of the VPC in which to create the ACG
+-   `acg_description` : Description of the ACG
+
+#### 인바운드 규칙 (`inbound_rule`)
+
+-   `inbound_rule.protocol` : Protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Method to apply inbound rules - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Destination IP range for inbound traffic (CIDR format)
+-   `inbound_rule.source_access_control_group_name` : Source ACG name for inbound traffic
+-   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
+-   `inbound_rule.description` : Description of the inbound rule
+
+#### 아웃바운드 규칙 (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protocol of outbound traffic - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Method to apply outbound rules - `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Destination IP range for outbound traffic (CIDR format)
+-   `outbound_rule.source_access_control_group_name` : Source ACG name for outbound traffic
+-   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
+-   `outbound_rule.description` : Description of the outbound rule
+
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
--   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

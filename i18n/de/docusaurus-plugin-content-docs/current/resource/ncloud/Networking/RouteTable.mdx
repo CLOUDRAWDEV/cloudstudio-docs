@@ -1,48 +1,52 @@
 ---
-title: Route Table
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Network, RouteTable]
+title: RouteTable
+sidebar_position: 4
+tags: [Ncloud, 리소스, Network, RouteTable]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein Service, der den Netzwerkpfad für Ressourcen innerhalb eines VPC definiert.
+A service that defines network routes for resources within a VPC.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### Verbundene Ressourcen
+### 연결 리소스
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `included_vpc_name` : Name des zu verbindenden VPC
--   `supported_subnet_type` : Unterstützte Subnetzeinstellungen, öffentlich oder privat - `PUBLIC`, `PRIVATE`
--   `route_table_description` : Beschreibung der Route-Tabelle
--   `linked_subnet_names` : Liste der Subnetz-Namen, mit denen verbunden werden soll
--   `route`
-    -   `target_type` : Zieltyp, Nat Gateway oder VPC-Peering - `NATGW`, `VPCPEERING`, `VGW`
-    -   `target_name` : Zielname
-    -   `destination_cidr_block` : Ziel-IP-Bereich im CIDR-Format
+#### 기본 설정
+
+-   `included_vpc_name` : Name of the VPC to which the Route Table will be connected
+-   `supported_subnet_type` : Supported subnet type (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Route Table description
+-   `linked_subnet_names` : List of subnet names to connect to the Route Table
+
+#### 라우팅 설정 (`route`)
+
+-   `target_type` : Destination type (`NATGW`, `VPCPEERING`)
+-   `target_name` : Destination resource name
+-   `destination_cidr_block` : Destination IP range in CIDR format
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
--   [ncloud_route_table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)
+-   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

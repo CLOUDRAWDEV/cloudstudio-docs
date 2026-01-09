@@ -1,54 +1,54 @@
 ---
 title: Redis
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Database, Redis]
+sidebar_position: 3
+tags: [Ncloud, 리소스, Database, Redis]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Cloud DB for Redis ist ein vollständig verwalteter Cloud-Cache-Dienst, der es ermöglicht, Redis-Caches mit nur wenigen Einstellungen und Klicks einfach zu erstellen. Durch die optimierten Einstellungen von Naver wird ein stabiler Betrieb gewährleistet, und im Falle einer Störung erfolgt eine automatische Wiederherstellung.
+Cloud DB for Redis is a fully managed cloud cache service that allows you to easily build Redis caches with just a few settings and clicks, operate them stably through Naver’s optimized settings, and automatically recover in case of failures.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-### Untergeordnete Ressourcen
+## 리소스 설정 값
 
+#### 기본 설정
 
-
-## Ressourcen-Einstellwerte
-
--   `server_name_prefix` : Name des Redis-Cache-Servers
--   `redis_mode` : Konfigurationsmodus von Redis - `CLUSTER`, `SIMPLE`
--   `image_product_code` : Produktcode des Redis-Server-Images für die Konfiguration des Redis-Instanz-Specs
--   `target_config_group_name` : Zu verbindende Config Group
--   `product_code` : Produktcode zur Bestimmung der Server-Spezifikationen für die zu erstellende Redis-Instanz
--   `data_storage_type` : Art des Datenspeichers - `SSD`, `HDD`
--   `shard_count` : Die Anzahl der zu erstellenden Shards entspricht der Anzahl der Master-Nodes - `3~10`
--   `shard_copy_count` : Im Redis-Cluster, das aus Master- und Slave-Nodes besteht, bestimmt die Anzahl der Replikate pro Shard, wie viele Slave-Nodes jedem Master-Node zugewiesen werden. Für Hochverfügbarkeit (HA) ist mindestens ein Slave-Node erforderlich. Wenn Replikate hinzugefügt werden, wird jedem Master-Node jeweils ein Slave-Node zugewiesen
--   `enable_high_availability` : Ob die Hochverfügbarkeitsfunktion verwendet wird
--   `enable_backup` : Ob die Backup-Funktion aktiviert wird, hängt davon ab, ob die Hochverfügbarkeitsfunktion verwendet wird. Wenn die Hochverfügbarkeitsfunktion aktiviert ist, wird die Backup-Funktion automatisch aktiviert
--   `port` : Redis-Zugangsport - `6379`
-
-    
+-   `server_name_prefix` : Redis server name (lowercase letters/numbers/hyphens allowed, start with a lowercase letter, end with a lowercase letter or number, 3~15 characters)
+-   `included_vpc_name` : Name of the VPC that includes Redis
+-   `included_subnet_name` : Name of the subnet that includes Redis
+-   `redis_mode` : Redis configuration mode - `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Redis engine version
+-   `image_product_code` : Redis server image product code
+-   `product_code` : Redis instance server specification product code
+-   `target_config_group_name` : Name of the Redis Config Group to connect
+-   `shard_count` : Number of shards to create (based on master nodes) - `3` ~ `10`
+-   `shard_copy_count` : Number of replicas per shard (number of slave nodes) - `0` ~ `4`
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `enable_backup` : Whether to enable backup (automatically enabled when high availability is used) - `true`, `false`
+-   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `7`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : Redis connection port - `6379` ~ `20000`
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
--   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
--   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)
-
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

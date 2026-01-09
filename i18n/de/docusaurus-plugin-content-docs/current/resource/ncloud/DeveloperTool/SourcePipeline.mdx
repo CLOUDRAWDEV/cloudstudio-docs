@@ -1,81 +1,82 @@
 ---
 title: SourcePipeline
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, DeveloperTool, SourcePipeline]
+sidebar_position: 4
+tags: [Ncloud, 리소스, DeveloperTool, SourcePipeline]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Die Integration der Dienste SourceCommit, SourceBuild und SourceDeploy ermöglicht einen automatisierten Prozess für eine schnelle und stabile Softwareveröffentlichung
+A process automation service for fast and stable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
-### Untergeordnete Ressourcen
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
+### 하위 대상
 
+-   [**Source Build**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**Source Deploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `default_task` : Erste Aufgabe, die der Pipeline ausführen wird
-    -   `name` : Name der ersten Aufgabe, die der Pipeline ausführen wird 
-    -   `type` : Art der Task - `SourceBuild`,`SourceDeploy`
+#### 기본 설정
 
-    - Wenn der Typ SourceBuild ist
-        - `target_source_build_project` : Projektname der SourceBuild-Aufgabe
-        - `repository_branch` : Branch-Name des Ziel-Repositorys der SourceBuild-Aufgabe
+-   `description` : Description of the pipeline project to be created - up to 500 characters
 
-    - Wenn der Typ SourceDeploy ist
-        -  `target_source_deploy_project` : Projektname der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_stage` : Stage-Name der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_scenario` : Szenario-Name der SourceDeploy-Aufgabe
+#### 기본 작업 (`default_task`)
 
--   `additional_task` : Aufgabe, die die Pipeline ausführen wird
-    -   `name` : Name der Aufgabe, die die Pipeline ausführen wird
-    -   `type` : Art der Task - `SourceBuild`,`SourceDeploy`
+-   `default_task.name` : Name of the first task executed by the pipeline - alphanumeric/`-`/`_`, 1~50 characters
+-   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Name of the SourceBuild project to connect
+-   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `default_task.repository_branch` : Repository branch name for the SourceBuild task
 
-    - Wenn der Typ SourceBuild ist
-        - `target_source_build_project` : Projektname der SourceBuild-Aufgabe
-        - `repository_branch` : Branch-Name des Ziel-Repositorys der SourceBuild-Aufgabe
-        -  `pre_tasks` : Liste der Aufgaben, die vorab ausgeführt werden sollen
-    
-    - Wenn der Typ SourceDeploy ist
-        -  `target_source_deploy_project` : Projektname der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_stage` : Stage-Name der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_scenario` : Szenario-Name der SourceDeploy-Aufgabe
-        -  `pre_tasks` : Liste der Aufgaben, die vorab ausgeführt werden sollen
+#### 추가 작업 (`additional_task`)
 
--   `trigger_push_repository` : Definieren des Triggers, der die Pipeline auslöst
-    -   `type_of_repository` : Repository-Typ, der für den Trigger verwendet werden soll - `sourcecommit`
-    -   `name_of_repository` : Repository-Name, der für den Trigger verwendet werden soll
-    -   `branch_of_repository` : Branch-Name des Repositories, der für den Trigger verwendet werden soll
+-   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Name of the SourceBuild project to connect
+-   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `additional_task.repository_branch` : Repository branch name for the SourceBuild task
+-   `additional_task.pre_tasks` : List of preceding tasks to execute
 
--   `trigger_schedule` : Zeitplan für die automatische Ausführung der Pipeline festlegen
-    - `day` : Wochentag, an dem die Bereitstellung geplant werden soll
-    - `time` : Uhrzeit, zu der die Bereitstellung geplant werden soll
-    - `timezone` : Zeitzone der geplanten Uhrzeit für die Bereitstellung
-    - `execute_only_with_change` : Ob der geplante Trigger immer innerhalb des Zeitrahmens ausgeführt wird, wenn sich die SourcePipeline-Projektkonfiguration oder das SourceCommit-Repository ändert
+#### Push 트리거 (`trigger_push_repository`)
 
--   `trigger_target_sourcecpipeline_id` : Liste der Pipeline-IDs, die automatisch nach Abschluss der konfigurierten Pipeline ausgeführt werden
- 
+-   `trigger_push_repository.type_of_repository` : Repository type for the trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository name for the trigger
+-   `trigger_push_repository.branch_of_repository` : Repository branch name for the trigger
 
+#### 스케줄 트리거 (`trigger_schedule`)
+
+-   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Scheduled deployment time
+-   `trigger_schedule.timezone` : Scheduled deployment timezone
+-   `trigger_schedule.execute_only_with_change` : Whether to execute only when there is a pipeline or SourceCommit change - `true`, `false`
+
+#### 파이프라인 체이닝 (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : List of pipeline IDs to be automatically executed after the current pipeline execution is completed
 
 ---
 
-
-## Referenzmaterial
+## 참고 자료
 
 -   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
--   [ncloud_sourcepipeline(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

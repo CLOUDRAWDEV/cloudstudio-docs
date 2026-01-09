@@ -1,33 +1,49 @@
 ---
-title: Nas Volume
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Storage, NasVolume]
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, 리소스, Storage, NasVolume]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein Speicherdienst, bei dem mehrere Server über ein Netzwerk verbunden werden, um Daten zu teilen. Es ist ideal für Szenarien, in denen mehrere Benutzer Daten über das Netzwerk gemeinsam nutzen müssen.
+A storage service that connects multiple servers over a network so that multiple users can share data. As a network-connected storage space, it is suitable for data sharing among multiple users.
 
-## Ressourcen-Einstellwerte
+## 연관 리소스
 
--   `volume_name_postfix` : Name des NAS-Volumes, alphanumerisch, 3 bis 20 Zeichen
--   `volume_size` : Volumengröße (in 100 GB-Schritten), im Bereich von 500 bis 10,000
--   `volume_allotment_protocol_type` : Protokolltyp, 마Server, auf dem das Volume gemountet werden kann: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### 연결 대상
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `volume_name_postfix` : NAS volume name postfix (alphanumeric, 3 ~ 20 characters)
+-   `volume_size` : Volume size (in units of 100 GB) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protocol type - `NFS`, `CIFS`
+-   `cifs_user_name` : User ID for CIFS authentication
+-   `cifs_user_password` : Password for CIFS authentication
+-   `linked_instances` : List of server instance names to connect to the NAS volume
+-   `is_encrypted` : Whether volume-level encryption based on AES-256 is enabled
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

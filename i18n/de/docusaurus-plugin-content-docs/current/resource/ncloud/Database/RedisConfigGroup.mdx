@@ -1,42 +1,40 @@
 ---
 title: RedisConfigGroup
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Database, RedisConfigGroup]
+sidebar_position: 4
+tags: [Ncloud, 리소스, Database, RedisConfigGroup]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis_config_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis_config_group.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-In der Redis Config Group können die erstellten Redis-Server gruppiert werden, sodass denselben Servern innerhalb der Gruppe gleiche Konfigurationseinstellungen zugewiesen werden, um eine effiziente Verwaltung zu ermöglichen.
+Redis Config Group allows you to group created Redis servers and efficiently manage them by applying the same configuration values to all servers within the group.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
-### Untergeordnete Ressourcen
+## 리소스 설정 값
 
+#### 기본 설정
 
-## Ressourcen-Einstellwerte
-
--   `redis_version` : Die Version der Redis Config Group 
-
-    
+-   `redis_version` : Redis config group version and mode - `5.0.14-cluster`, `5.0.14-simple`, `7.0.13-cluster`, `7.0.13-simple`, `7.0.15-cluster`, `7.0.15-simple`, `7.2.6-cluster`, `7.2.6-simple`, `7.2.8-cluster`, `7.2.8-simple`
+-   `description` : Description of the Redis config group
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [Redis Config Group(Ncloud)](https://guide.ncloud-docs.com/docs/database-database-8-9)
--   [ncloud_redis_config_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis_config_group)
+-   [Redis Config Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis_config_group)
