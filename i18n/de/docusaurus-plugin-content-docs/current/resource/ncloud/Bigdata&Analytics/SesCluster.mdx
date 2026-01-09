@@ -1,56 +1,68 @@
 ---
 title: SesCluster
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Bigdata&Analytics, SesCluster]
+sidebar_position: 2
+tags: [Ncloud, 리소스, Bigdata&Analytics, SesCluster]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Es ist eine Ressource, die eine bequeme Verwaltung von Elasticsearch- und OpenSearch-Clustern ermöglicht und es Ihnen erlaubt, den Cluster mit verschiedenen Servertypen und Speichergrößen zu konfigurieren, bereitzustellen, zu betreiben und zu skalieren.
+A resource that provides an environment for conveniently managing Elasticsearch and OpenSearch clusters, allowing you to configure clusters by selecting various server types and storage capacities, and easily deploy, operate, and scale them.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### Verbundene Ressourcen
+## 리소스 설정 값
 
+#### 기본 설정
 
-## Ressourcen-Einstellwerte
+-   `included_vpc_name` : Name of the VPC where SES will be created
+-   `os_image_code` : OS type to use - `osImageName`
+-   `enable_master_node` : Whether to enable the master node - `true`, `false`
+-   `login_key_name` : Public login key name for encryption
 
--   `os_image_code` : Verwendeter OS-Typ
--   `search_engine` : Wichtige Punkte des Search Engine Knotens
-    -   `version_code` : Verwendeter Search Engine Versionscode
-    -   `user_name` : Benutzername für die Search Engine
-    -   `user_password` : Passwort für die Search Engine
-    -   `dashboard_port` : Port des Dashboards der Search Engine (1024 ~ 65535)
--   `manager_node` : Wichtige Punkte des Manager Knotens
-    -   `enable_dual_manager` : Redundanz des Manager Knotens
-    -   `manager_node_product_code` : Verwendeter Manager Node Produkttyp
-    -   `manager_node_subnet_name` : Name des Subnetzes, in dem der Manager Node platziert wird
--   `data_node` : Wichtige Punkte des Data Knotens
-    -   `data_node_product_code` : Verwendeter Data Node Produkttyp
-    -   `data_node_subnet_name` : Name des Subnetzes, in dem der Data Node platziert wird
-    -   `data_node_count` : Anzahl der Data Nodes (3 ~ 10)
-    -   `data_node_storage_size` : Speicherkapazität des Data Nodes (100 ~ 2000)
--   `enable_master_node` : Verwendung des Master Knotens
--   `login_key_name` : Name des öffentlichen Login-Schlüssels für die Verschlüsselung
+#### Search Engine 설정 (`search_engine`)
+
+-   `search_engine.version_code` : Search Engine version code to use - `versionCode`
+-   `search_engine.user_name` : Search Engine username
+-   `search_engine.user_password` : Search Engine user password
+-   `search_engine.dashboard_port` : Port of the Search Engine dashboard - `1024` ~ `65535`
+
+#### Manager Node 설정 (`manager_node`)
+
+-   `manager_node.enable_dual_manager` : Whether to enable manager node redundancy - `true`, `false`
+-   `manager_node.manager_node_subnet_name` : Subnet name where the manager node will be located
+-   `manager_node.manager_node_product_code` : Manager node product code to use - `managerNodeProductCode`
+
+#### Data Node 설정 (`data_node`)
+
+-   `data_node.data_node_subnet_name` : Subnet name where the data node will be located
+-   `data_node.data_node_product_code` : Data node product code to use - `managerNodeProductCode`
+-   `data_node.data_node_count` : Number of data nodes - `3` ~ `10`
+-   `data_node.data_node_storage_size` : Data node storage size - `100` ~ `2000`
+
+#### Master Node 설정 (`master_node`)
+
+-   `master_node.master_node_subnet_name` : Subnet name where the master node will be located
+-   `master_node.master_node_product_code` : Master node product code to use - `managerNodeProductCode`
+-   `master_node.master_node_count` : Number of master nodes - `3` ~ `5`
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
 -   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

@@ -1,50 +1,60 @@
 ---
-title: Network Acl
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Security, NetworkAcl]
+title: NetworkAcl
+sidebar_position: 1
+tags: [Ncloud, 리소스, Security, NetworkAcl]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein Service, der die Netzwerksicherheit für Subnetze verwalten kann.
+A service that enables network security management for subnets.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-## Ressourcen-Einstellwerte
+### 연결 대상
 
--   `included_vpc_name` : VPC-Name für die Erstellung der ACL
--   `nacl_description` : Beschreibung der ACL
--   `inbound_rule`
-    -   `priority` : Priorität der eingehenden Regel, 0 ~ 199
-    -   `protocol` : Protokoll des eingehenden Datenverkehrs - `TCP`, `UDP`, `ICMP`
-    -   `rule_action` : Aktion der eingehenden Regel für den Datenverkehr - `ALLOW`, `DROP`
-    -   `ip_block` : Quell-IP-Bereich des eingehenden Datenverkehrs im CIDR-Format
-    -   `port_range` : Portbereich, auf den die eingehende Regel angewendet wird, im Bereich von 1 bis 65535
--   `outbound_rule` :
-    -   `priority` : Priorität der ausgehenden Regel, 0 ~ 199
-    -   `protocol` : Protokoll des ausgehenden Datenverkehrs - `TCP`, `UDP`, `ICMP`
-    -   `rule_action` : Aktion der ausgehenden Regel für den Datenverkehr - `ALLOW`, `DROP`
-    -   `ip_block` : Ziel-IP-Bereich des ausgehenden Datenverkehrs im CIDR-Format
-    -   `port_range` : Portbereich, auf den die ausgehende Regel angewendet wird, im Bereich von 1 bis 65535 (wenn ein Bereich festgelegt wird: 100-200)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `included_vpc_name` : Name of the VPC in which to create the ACL
+-   `nacl_description` : Description of the ACL
+
+#### 인바운드 규칙 (`inbound_rule`)
+
+-   `inbound_rule.priority` : Inbound rule priority - `0` ~ `199`
+-   `inbound_rule.protocol` : Inbound traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Whether to allow inbound traffic - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Source IP range for inbound traffic (CIDR format)
+-   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
+
+#### 아웃바운드 규칙 (`outbound_rule`)
+
+-   `outbound_rule.priority` : Outbound rule priority - `0` ~ `199`
+-   `outbound_rule.protocol` : Outbound traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Whether to allow outbound traffic - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Destination IP range for outbound traffic (CIDR format)
+-   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [Network ACL(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-nacl-vpc)
--   [ncloud_network_acl(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)
+-   [Network ACL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)

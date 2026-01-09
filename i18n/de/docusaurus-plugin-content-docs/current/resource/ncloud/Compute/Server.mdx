@@ -1,48 +1,51 @@
 ---
 title: Server
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Compute, Server]
+sidebar_position: 2
+tags: [Ncloud, 리소스, Compute, Server]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies sind Computing-Ressourcen, die die Flexibilität der Virtualisierung bieten, ohne dass eine tatsächliche Hardwareverwaltung erforderlich ist. Durch die Erstellung von Servern in einer Cloud-Umgebung ist es in Bezug auf Zeit und Kosten effizient und eignet sich besonders für Situationen, in denen der Betrieb der Infrastruktur eine Belastung darstellt oder vorübergehend viele Serverressourcen benötigt werden.
+A computing resource that provides the flexibility of virtualization without the need to manage physical hardware. Creating servers in a cloud environment is efficient in terms of time and cost, and is suitable for cases where infrastructure operation is burdensome or when a large amount of server resources is temporarily required.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
+
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-### Verbundene Ressourcen
+### 연결 리소스
 
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Ec2/NetworkInterface)
 -   [**BlockStorage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
--   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIP)
+-   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIp)
 -   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `include_subnet_name` : Name des Subnetzes, in dem sich der Server befindet
--   `server_image_product_code` : Code des Betriebssystem-Images, das verwendet wird
--   `server_product_code` : Code für die Hardwarekonfiguration des Servers
--   `login_key_name` : Name des zu verwendenden login_key
--   `init_script` : Name des zu verwendenden init_script
--   `is_encrypted_base_block_storage_volume` : Ob die Speicherung verschlüsselt wird
--   `linked_network_interface_name` : Dem Server zugewiesene Netzwerkschnittstelle
+#### 기본 설정
 
+-   `included_subnet_name` : Name of the subnet where the server is located
+-   `server_image_product_code` : Operating system image code to use - `ncloudServerImage`
+-   `server_product_code` : Code for server hardware configuration - `ncloudServerType`
+-   `login_key_name` : Login key name to use
+-   `init_script` : Init Script name to use
+-   `is_encrypted_base_block_storage_volume` : Whether to encrypt block storage - `true`, `false`
+-   `linked_network_interface_names` : Network interfaces assigned to the server
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)
+-   [Server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

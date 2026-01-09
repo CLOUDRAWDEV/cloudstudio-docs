@@ -1,38 +1,40 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Network, NatGateway]
+title: NatGateway
+sidebar_position: 5
+tags: [Ncloud, 리소스, Network, NatGateway]
 ---
 
 <hr />
 <br />
 
-## Ressourcen-Icon
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.webp"
     }
 />
 
-## Ressourcenübersicht
+## 리소스 개요
 
-Dies ist ein Service, der mehrere Server mit einer öffentlichen IP verbindet und direkten Zugriff von außen blockiert. Er ermöglicht es Servern mit privaten IPs, mit externen Servern zu kommunizieren, während er direkten Zugriff von außen blockiert, um die Sicherheit zu gewährleisten.
+A service that connects multiple servers using a single public IP and blocks direct external access. It allows multiple servers with private IPs to communicate with external servers while preventing direct access from outside to maintain security.
 
-## Verwandte Ressourcen
+## 연관 리소스
 
-### Übergeordnete Ressourcen
+### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-## Ressourcen-Einstellwerte
+## 리소스 설정 값
 
--   `included_vpc_name` : VPC-Name, in dem das Nat Gateway erstellt wird
--   `zone` : Die physische Region, in der das Nat Gateway platziert wird - `KR-1`, `KR-2`
+#### 기본 설정
+
+-   `included_vpc_name` : Name of the VPC where the NAT Gateway will be created
+-   `included_subnet_name` : Name of the subnet where the NAT Gateway will be created
 
 ---
 
-## Referenzmaterial
+## 참고 자료
 
 -   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
--   [ncloud_nat_gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
+-   [NAT Gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
