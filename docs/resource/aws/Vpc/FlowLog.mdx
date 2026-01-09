@@ -23,13 +23,13 @@ VPC 흐름 로그는 VPC의 네트워크 인터페이스에서 전송되고 수�
 
 ### 상위 리소스
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### 연결 리소스
 
--   [**Route Table**](https://docs.cstudio.app/docs/resource/aws/Network/RouteTable)
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/Storage/S3Bucket)
--   [**Log Group**](https://docs.cstudio.app/docs/resource/aws/Monitor/LogGroup)
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+-   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**Log**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/Log)
 
 ## 리소스 설정 값
 
@@ -38,8 +38,8 @@ VPC 흐름 로그는 VPC의 네트워크 인터페이스에서 전송되고 수�
 -   `linked_log_destination_type` : 로그 데이터를 저장할 대상 유형 (S3, CloudWatch Logs)
 -   `linked_log_destination_name` : 로그 데이터를 저장할 대상 이름
 -   `traffic_type` : 수집할 트래픽 종류 - `ALL`, `ACCEPT`, `REJECT`
--   `included_vpc_name` : Flow Log를 연결할 VPC 이름
 -   `traffic_type` : `ALL`
+-   `included_vpc_name` : Flow Log를 연결할 VPC 이름
 
 #### 태그
 

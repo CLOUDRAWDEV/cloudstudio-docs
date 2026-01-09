@@ -24,53 +24,52 @@ tags: [AWS, 리소스, Efs]
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
-
-### 연결 리소스
-
--   **Subnet** (Mount Target)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `creation_token` : 파일 시스템 중복 생성을 방지하기 위한 고유 식별자
--   `availability_zone_name` : 파일 시스템을 생성할 가용 영역
+-   `creation_token` : 파일 시스템 작성을 보장하기 위해 Elastic 파일 시스템을 작성할 때 참조로 사용되는 고유한 이름
+-   `availability_zone_name` : 파일 시스템을 생성할 AWS 가용성 영역
 -   `enable_encrypted` : 파일 시스템 암호화 여부 - `true`, `false`
--   `throughput_mode` : 파일 시스템 처리량 모드 - `provisioned`, `elastic`, `bursting`
--   `provisioned_throughput_in_mibps` : 프로비저닝 처리량(MiB/s)
+-   `throughput_mode` : 파일 시스템의 처리량 모드 - `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : 파일 시스템에 프로비저닝할 처리량(MiB/s 단위) - `1` ~ `3414`
 -   `performance_mode` : 파일 시스템 성능 모드 - `generalPurpose`, `maxIO`
--   `enable_backup_policy` : 백업 정책 사용 여부 - `true`, `false`
 
 #### 수명 주기 정책 (`lifecycle_policy`)
 
--   `transition_to_ia` : IA 스토리지 클래스로 전환되는 시점 - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
--   `transition_to_primary_storage_class` : IA → 기본 스토리지 전환 정책 - `firstAccess`, `None`
+-   `lifecycle_policy.transition_to_ia` : 파일을 IA 스토리지 클래스로 전환하는 데 걸리는 시간 - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : 파일을 기본 저장소로 전환하는 정책 - `None`, `firstAccess`
 
-#### 마운트 타겟
+#### 마운트 대상 (`mount_target_subnets`)
 
--   `mount_target_subnets` : 마운트 타겟을 생성할 서브넷 목록
+-   `mount_target_subnets` : 마운트 대상을 추가할 서브넷 목록
 
 #### 파일 시스템 정책
 
--   `file_system_policy` : EFS 파일 시스템에 적용할 JSON 형식 정책
+-   `file_system_policy` : EFS 파일 시스템에 대한 JSON 포맷 파일 시스템 정책
 
-#### 복제 설정
+#### 백업 및 복제 설정
 
--   `enable_replica` : 파일 시스템 복제 생성 여부 - `true`, `false`
--   `replication_region` : 복제 대상 리전
--   `replication_region_availability_zone_name` : 복제 대상 가용 영역
--   `kms_key_name` : 복제 시 사용할 KMS Key 이름
+-   `enable_backup_policy` : 백업 정책 사용 여부 - `true`, `false`
+-   `enable_replica` : 복제 생성 여부 - `true`, `false`
 
-#### 액세스 포인트
+#### 복제 설정 (`replication_configuration`)
 
--   `root_directory_path` : 액세스 포인트 루트 디렉터리 경로
--   `posix_user_uid` : POSIX 사용자 ID
--   `posix_user_gid` : POSIX 그룹 ID
--   `posix_user_secondary_gids` : 보조 POSIX 그룹 ID 목록
--   `root_owner_uid` : 루트 디렉터리 소유자 UID
--   `root_owner_gid` : 루트 디렉터리 소유자 GID
--   `root_permissions` : 루트 디렉터리 권한(8진수)
+-   `replication_configuration.replication_region` : 복제를 생성할 AWS 리전
+-   `replication_configuration.replication_region_availability_zone_name` : 복제 생성할 가용 영역
+-   `replication_configuration.kms_key_name` : 복제 생성 시 사용할 KMS Key 이름
+
+#### 액세스 포인트 (`access_point`)
+
+-   `access_point.root_directory_path` : NFS 클라이언트에 루트 디렉터리로 노출할 파일 시스템 경로
+-   `access_point.posix_user_uid` : 액세스 포인트 사용 시 적용되는 POSIX 사용자 ID - `0` ~ `4294967295`
+-   `access_point.posix_user_gid` : 액세스 포인트 사용 시 적용되는 POSIX 그룹 ID - `0` ~ `4294967295`
+-   `access_point.posix_user_secondary_gids` : 보조 POSIX 그룹 ID 목록
+-   `access_point.root_owner_uid` : Root Directory에 적용할 POSIX 사용자 ID - `0` ~ `4294967295`
+-   `access_point.root_owner_gid` : Root Directory에 적용할 POSIX 그룹 ID - `0` ~ `4294967295`
+-   `access_point.root_permissions` : Root Directory에 적용할 POSIX 권한(8진수)
 
 #### 태그
 

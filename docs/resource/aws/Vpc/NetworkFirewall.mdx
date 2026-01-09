@@ -23,28 +23,28 @@ tags: [AWS, 리소스, Vpc, NetworkFirewall]
 
 ### 상위 리소스
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### 연결 리소스
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Security/NetworkFirewallPolicy)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `description` : 방화벽에 대한 설명
--   `included_vpc_name` : 방화벽이 위치할 VPC 이름
+-   `description` : 방화벽에 대한 설명 (최대 256자)
+-   `included_vpc_name` : 방화벽이 위치할 VPC 이름 (읽기 전용)
 -   `linked_subnet_names` : 방화벽 엔드포인트 전용 퍼블릭 서브넷 목록
--   `linked_network_firewall_policy_name` : 연결할 Network Firewall Policy 이름
--   `enabled_delete_protection` : 방화벽 삭제 방지 여부 - `true`, `false`
--   `enabled_subnet_change_protection` : 서브넷 변경 방지 여부 - `true`, `false`
+-   `linked_network_firewall_policy_name` : 연결할 방화벽 정책 이름 (읽기 전용)
+-   `enabled_delete_protection` : 방화벽 삭제 보호 활성화 여부 - `true`, `false`
+-   `enabled_subnet_change_protection` : 서브넷 연결 변경 보호 활성화 여부 - `true`, `false`
 
 #### 암호화 설정 (`encryption_configuration`)
 
--   `encryption_configuration.enabled_custom_configuration` : AWS 관리형 키를 사용한 암호화 활성화 여부 - `true`, `false`
--   `encryption_configuration.kms_key_name` : 사용할 KMS Key 이름
+-   `encryption_configuration.enabled_custom_configuration` : AWS 관리형 키를 사용한 암호화 여부 - `true`, `false`
+-   `encryption_configuration.kms_key_name` : 암호화에 사용할 KMS Key 이름
 
 #### 태그
 

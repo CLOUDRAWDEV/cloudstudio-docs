@@ -27,53 +27,51 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 
 #### 지식 베이스 구성 (`knowledge_base_configuration`)
 
--   `knowledge_base_configuration.type` : 지식 베이스 유형
+-   `knowledge_base_configuration.type` : 지식 베이스의 유형 - `VECTOR`
 
-    -   `VECTOR`
+#### 벡터 지식 베이스 설정 (`knowledge_base_configuration.vector_knowledge_base_configuration`)
 
--   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` :  
-    임베딩 생성을 위해 사용할 모델의 ARN
+-   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` : 임베딩 생성을 위해 사용할 모델의 ARN
 
 #### 스토리지 설정 (`storage_configuration`)
 
--   `storage_configuration.type` : 사용할 저장소 유형
-    -   `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`
+-   `storage_configuration.type` : 사용할 저장소 유형 - `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`
 
-##### OpenSearch Serverless 설정 (`opensearch_serverless_configuration`)
+#### OpenSearch Serverless 설정 (`storage_configuration.opensearch_serverless_configuration`)
 
--   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : 연결할 OpenSearch Serverless 컬렉션 ARN
+-   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : 연결할 OpenSearch Serverless 컬렉션의 ARN
 -   `storage_configuration.opensearch_serverless_configuration.vector_index_name` : 벡터 데이터를 저장할 인덱스 이름
--   `storage_configuration.opensearch_serverless_configuration.vector_field` : 벡터(임베딩) 데이터 필드 이름
--   `storage_configuration.opensearch_serverless_configuration.text_field` : 원문 텍스트 필드 이름
--   `storage_configuration.opensearch_serverless_configuration.metadata_field` : 메타데이터 필드 이름
+-   `storage_configuration.opensearch_serverless_configuration.vector_field` : 벡터(임베딩) 데이터가 저장되는 필드 이름
+-   `storage_configuration.opensearch_serverless_configuration.text_field` : 원문 텍스트 데이터를 저장하는 필드 이름
+-   `storage_configuration.opensearch_serverless_configuration.metadata_field` : 문서의 부가 정보를 저장하는 메타데이터 필드 이름
 
-##### Pinecone 설정 (`pinecone_configuration`)
+#### Pinecone 설정 (`storage_configuration.pinecone_configuration`)
 
--   `storage_configuration.pinecone_configuration.connection_string` : Pinecone 인덱스 접속 URL 또는 엔드포인트
--   `storage_configuration.pinecone_configuration.credentials_secret_arn` : Pinecone API 키가 저장된 Secrets Manager ARN
--   `storage_configuration.pinecone_configuration.namespace` : Pinecone 네임스페이스 이름
--   `storage_configuration.pinecone_configuration.text_field` : 원문 텍스트 필드 이름
--   `storage_configuration.pinecone_configuration.metadata_field` : 메타데이터 필드 이름
+-   `storage_configuration.pinecone_configuration.connection_string` : 연결할 Pinecone 인덱스의 접속 URL 또는 엔드포인트 주소
+-   `storage_configuration.pinecone_configuration.credentials_secret_arn` : Pinecone API 키가 저장된 AWS Secrets Manager의 ARN
+-   `storage_configuration.pinecone_configuration.namespace` : 벡터 데이터를 구분·분리하기 위한 Pinecone 네임스페이스 이름
+-   `storage_configuration.pinecone_configuration.text_field` : 원문 텍스트 데이터를 저장하는 필드 이름
+-   `storage_configuration.pinecone_configuration.metadata_field` : 문서의 부가 정보를 저장하는 메타데이터 필드 이름
 
-##### Amazon RDS 설정 (`rds_configuration`)
+#### RDS 설정 (`storage_configuration.rds_configuration`)
 
--   `storage_configuration.rds_configuration.credentials_secret_arn` : DB 접속 정보가 저장된 Secrets Manager ARN
--   `storage_configuration.rds_configuration.database_name` : RDS 데이터베이스 이름
--   `storage_configuration.rds_configuration.resource_arn` : RDS 인스턴스 또는 클러스터 ARN
--   `storage_configuration.rds_configuration.table_name` : 벡터·텍스트 데이터 저장 테이블 이름
--   `storage_configuration.rds_configuration.primary_key_field` : 기본 키 필드 이름
--   `storage_configuration.rds_configuration.text_field` : 원문 텍스트 필드 이름
--   `storage_configuration.rds_configuration.vector_field` : 임베딩 벡터 필드 이름
--   `storage_configuration.rds_configuration.metadata_field` : 메타데이터 필드 이름
+-   `storage_configuration.rds_configuration.credentials_secret_arn` : 데이터베이스 접속 정보가 저장된 AWS Secrets Manager의 ARN
+-   `storage_configuration.rds_configuration.database_name` : 연결할 RDS 데이터베이스의 이름
+-   `storage_configuration.rds_configuration.resource_arn` : 연결 대상 RDS 인스턴스 또는 클러스터의 ARN
+-   `storage_configuration.rds_configuration.table_name` : 벡터 및 텍스트 데이터를 저장할 테이블 이름
+-   `storage_configuration.rds_configuration.metadata_field` : 문서의 부가 정보를 저장하는 메타데이터 필드 이름
+-   `storage_configuration.rds_configuration.primary_key_field` : 각 레코드를 고유하게 식별하는 기본 키 필드 이름
+-   `storage_configuration.rds_configuration.text_field` : 원문 텍스트 데이터를 저장하는 필드 이름
+-   `storage_configuration.rds_configuration.vector_field` : 임베딩 벡터 데이터를 저장하는 필드 이름
 
-##### Redis Enterprise Cloud 설정 (`redis_enterprise_cloud_configuration`)
+#### Redis Enterprise Cloud 설정 (`storage_configuration.redis_enterprise_cloud_configuration`)
 
--   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : Redis 접속 정보 Secrets Manager ARN
--   `storage_configuration.redis_enterprise_cloud_configuration.endpoint` : Redis Enterprise Cloud 엔드포인트
--   `storage_configuration.redis_enterprise_cloud_configuration.vector_index_name` : 벡터 검색 인덱스 이름
--   `storage_configuration.redis_enterprise_cloud_configuration.text_field` : 원문 텍스트 필드 이름
--   `storage_configuration.redis_enterprise_cloud_configuration.metadata_field` : 메타데이터 필드 이름
--   `storage_configuration.redis_enterprise_cloud_configuration.vector_field` : 임베딩 벡터 필드 이름
+-   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : Redis Enterprise Cloud 접속 정보를 저장한 AWS Secrets Manager의 ARN
+-   `storage_configuration.redis_enterprise_cloud_configuration.endpoint` : Redis Enterprise Cloud 데이터베이스의 연결 엔드포인트 주소
+-   `storage_configuration.redis_enterprise_cloud_configuration.vector_index_name` : 벡터 검색을 수행할 인덱스 이름
+-   `storage_configuration.redis_enterprise_cloud_configuration.text_field` : 원문 텍스트 데이터를 저장하는 필드 이름
+-   `storage_configuration.redis_enterprise_cloud_configuration.metadata_field` : 문서의 부가 정보를 저장하는 메타데이터 필드 이름
+-   `storage_configuration.redis_enterprise_cloud_configuration.vector_field` : 임베딩 벡터 데이터를 저장하는 필드 이름
 
 ---
 
