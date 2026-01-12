@@ -27,12 +27,12 @@ tags: [Ncloud, 리소스, Network, Subnet]
 
 ### 포함 대상 리소스
 
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
 -   [**Redis**](https://docs.cstudio.app/docs/resource/ncloud/Database/Redis)
 -   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
 -   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**NAT Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
 -   [**MSSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mssql)
 -   [**MySQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
 -   [**MongoDB**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mongodb)
@@ -40,9 +40,9 @@ tags: [Ncloud, 리소스, Network, Subnet]
 
 ### 연결 리소스
 
--   [**Network ACL**](https://docs.cstudio.app/docs/resource/ncloud/Security/NetworkAcl)
--   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
--   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
+-   [**NetworkACL**](https://docs.cstudio.app/docs/resource/ncloud/Security/NetworkAcl)
+-   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
 
 ## 리소스 설정 값
 
@@ -51,7 +51,7 @@ tags: [Ncloud, 리소스, Network, Subnet]
 -   `subnet_cidr` : VPC CIDR 범위 내에서 할당할 Subnet IP 대역
 -   `zone` : Subnet이 위치할 가용 영역 (`KR-1`, `KR-2`)
 -   `subnet_type` : Subnet 유형 (`PUBLIC`, `PRIVATE`)
--   `usage_type` : Subnet 사용 목적 (`General`, `LoadBalancer`, `BareMetal`, `NATGateway`)
+-   `usage_type` : Subnet 사용 목적 (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
 -   `included_vpc_name` : Subnet이 소속될 VPC 이름 (읽기 전용)
 -   `linked_nacl_name` : Subnet에 적용할 Network ACL 이름 (읽기 전용)
 

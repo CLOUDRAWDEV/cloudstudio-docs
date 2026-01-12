@@ -30,38 +30,6 @@ Hadoop은 대규모 데이터를 분산 처리할 수 있도록 구성된 **Nclo
 
 #### 기본 설정
 
--   `included_vpc_name` : SES를 생성할 VPC 이름
--   `cluster_name` : 클러스터 이름
--   `cluster_type_code` :
--   `admin_user_name` : Ambari 관리 콘솔에 접속하는 데 필요한 관리자 계정의 사용자 이름
--   `admin_user_password` : Ambari 관리자 계정의 비밀번호
--   `login_key_name` : 암호화를 위한 공용 로그인 키 이름
--   `edge_node_subnet_no` : 엣지 노드가 위치할 서브넷 ID
--   `master_node_subnet_no` : 마스터 노드가 위치할 서브넷 ID
--   `worker_node_subnet_no` : 워커 노드가 위치할 서브넷 ID
--   `bucket_name` : Object Storage에 데이터를 저장하기 위한 버킷 이름
--   `master_node_data_storage_type` : 마스터 노드 스토리지 타입 - `SSD`, `HDD`
--   `worker_node_data_storage_type` : 워커 노드 스토리지 타입 - `SSD`, `HDD`
--   `master_node_data_storage_size` : 마스터 노드 스토리지 용량
--   `worker_node_data_storage_size` : 워커 노드 스토리지 용량
--   `image_product_code` : 이미지 상품 코드 Hadoop 인스턴스 서버 이미지 사양 - `image_product`
--   `engine_version_code` : 엔진 버전 코드 - `HADOOP2.3`, `HADOOP2.2`
--   `edge_node_product_code` : 엣지 노드 상품 코드 - `edge_product_list`
--   `master_node_product_code` : 마스터 노드 상품 코드 - `product_list`
--   `worker_node_product_code` : 워커 노드 상품 코드 - `product_list`
--   `add_on_code_list` : 애드온 목록 사용 가능한 옵션 - `HBASE`, `IMPALA`, `KUDU`, `TRINO`, `NIFI`
--   `worker_node_count` : 워커 노드 개수 - `2` ~ `8`
--   `use_kdc` : KDC 사용 여부 - `true`, `false`
--   `kdc_realm` : KDC Realm
--   `kdc_password` : KDC 비밀번호
--   `use_bootstrap_script` : 부트스트랩 스크립트 사용 여부 - `true`, `false`
--   `bootstrap_script` : 부트스트랩 스크립트
--   `use_data_catalog` : 데이터 카탈로그 사용 여부 - `true`, `false`
-
----
-
-## 리소스 설정 값
-
 -   `included_vpc_name` : Hadoop 클러스터가 생성될 VPC 이름
 -   `cluster_name` : 클러스터 이름
 -   `cluster_type_code` : 클러스터 타입 코드 (예: Spark 포함 등)
