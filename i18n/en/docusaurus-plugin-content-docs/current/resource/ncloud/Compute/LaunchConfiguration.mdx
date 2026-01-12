@@ -1,6 +1,6 @@
 ---
 title: LaunchConfiguration
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Resource, Compute, LaunchConfiguration]
 ---
 
@@ -11,34 +11,32 @@ tags: [Ncloud, Resource, Compute, LaunchConfiguration]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.webp"
     }
 />
 
 ## Resource Overview
 
-This is a template for configuring the specifications of virtual servers that are automatically created when scaling out during Auto Scaling.
+A template that defines the specifications of virtual servers that are automatically created when server scaling is required during Auto Scaling operations.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
-
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
 ## Resource Setting Values
 
--   `server_image_product_code` : The code of OS image to use(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
--   `server_product_code` : The code for hardware configuration on the server(HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C:Cores,M:Memory(GB))
--   `login_key_name` : The name of Login key to encrypt with the public key
--   `init_script`
-    -   `content` : The script to run automatically when the server is created
--   `is_encrypted_volume` : Whether to encrypt basic block storage
+#### Default Settings
 
+-   `server_image_product_code` : Operating system image code to use (CNTOS: CentOS, UBNTU: Ubuntu, WND: Windows / MYSQL, MARIA: Database / SVR: Server, EN: English Edition) - `ncloudServerImage`
+-   `server_product_code` : Code for server hardware configuration (HICPU: High CPU, STAND: Standard, HIMEM: High Memory / C: number of cores, M: memory (GB)) - `ncloudServerType`
+-   `login_key_name` : Name of the public login key for encryption
+-   `init_script` : Script content to be automatically executed when the server is created
+-   `is_encrypted_volume` : Whether to encrypt the basic block storage - `true`, `false`
 
 ---
 
+## References
 
-## Reference Materials
-
--   [ncloud_launch_configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)
+-   [Launch Configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

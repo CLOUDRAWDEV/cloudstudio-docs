@@ -11,48 +11,53 @@ tags: [Ncloud, Resource, Bigdata&Analytics, CdssCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.webp"
     }
 />
 
 ## Resource Overview
 
-This service enables you to easily deploy, secure, operate, and scale Apache Kafka clusters, an open-source platform for building real-time streaming data pipelines and applications.
+A service that allows easy deployment, protection, operation, and scaling of Apache Kafka clusters, an open-source platform for building real-time streaming data pipelines and applications.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**VPC**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
-
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
 ### Connected Resources
 
-
+-   [**CdssConfigGroup**](https://docs.cstudio.app/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
 
 ## Resource Setting Values
 
--   `kafka_version_code` : The CDSS Kafka version to be used
--   `linked_config_group_name` : The CDSS config group name to be used
--   `os_image` : The OS type to be used
--   `cmak` : The configuration about CMAK(Cluster Manager for Apache Kafka)
-    -   `user_name` : The CMAK access ID
-    -   `user_password` : The CMAK access password
--   `manager_node` : The configuration about nodes that manage Apache Kafka clusters through CMAK
-    -   `manager_node_subnet_name` : The subnet name where the manager node is to be located
-    -   `manager_node_product_name` : The HW specifications of the manager node
--   `broker_node` : The configuration information for the server node where the actual data is stored
-    -   `broker_node_subnet_name` : The subnet name where the broker node is to be located
-    -   `broker_node_product_code` : The HW specifications of the broker node
-    -   `broker_node_count` : The number of broker nodes
-    -   `broker_node_storage_size` : The broker node storage capacity - `100~2000`
+#### Default Settings
 
+-   `included_vpc_name` : Name of the VPC where CDSS will be created
+-   `kafka_version_code` : Kafka version to use in CDSS - `kafkaVersionCode`
+-   `linked_config_group_name` : Name of the CDSS config group to use
+-   `os_image` : OS image type to use - `osImage`
 
-    
+#### CMAK Settings (`cmak`)
+
+-   `cmak.user_name` : CMAK access ID
+-   `cmak.user_password` : CMAK access password
+
+#### Manager Node Settings (`manager_node`)
+
+-   `manager_node.manager_node_subnet_name` : Name of the subnet where the manager node will be located
+-   `manager_node.manager_node_product_code` : Manager node hardware product code - `managerNodeProductCode`
+
+#### Broker Node Settings (`broker_node`)
+
+-   `broker_node.broker_node_subnet_name` : Name of the subnet where the broker node will be located
+-   `broker_node.broker_node_product_code` : Broker node hardware product code - `managerNodeProductCode`
+-   `broker_node.broker_node_count` : Number of broker nodes - `3` ~ `10`
+-   `broker_node.broker_node_storage_size` : Broker node storage size - `100` ~ `2000`
 
 ---
 
-## Reference Materials
+## References
 
--   [CdssCluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
--   [ncloud_cdss_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)
+-   [Cloud Data Streaming Service Cluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
+-   [CDSS Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)

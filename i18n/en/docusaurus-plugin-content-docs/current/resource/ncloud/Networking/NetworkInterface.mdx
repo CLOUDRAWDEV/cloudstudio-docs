@@ -1,7 +1,7 @@
 ---
-title: NetworkInterface
-sidebar_position: 0
-tags: [Ncloud, Resource, Networking, NetworkInterface]
+title: NatGateway
+sidebar_position: 5
+tags: [Ncloud, Resource, Network, NatGateway]
 ---
 
 <hr />
@@ -11,34 +11,30 @@ tags: [Ncloud, Resource, Networking, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-This service creates network interfaces that can be assigned to servers. Servers with applied network interfaces can use subnets to enable independent network communication.
+A service that connects multiple servers using a single public IP and blocks direct access from external sources. It allows servers with multiple private IPs to communicate with external servers while maintaining security by preventing direct external access.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
-
-### Connected Resources
-
--   [**Access Control Group**](https://docs.cstudio.app/en/docs/resource/ncloud/Security/AccessControlGroup)
--   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
--   `included_subnet_name` : The name of Subnet to included with the Network interface
--   `linked_acg_names` : The names of ACG to apply the Network interface is located
+#### Default Settings
 
+-   `included_vpc_name` : Name of the VPC where the NAT Gateway will be created
+-   `included_subnet_name` : Name of the subnet where the NAT Gateway will be created
 
 ---
 
-## Reference Materials
+## References
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
+-   [NAT Gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
