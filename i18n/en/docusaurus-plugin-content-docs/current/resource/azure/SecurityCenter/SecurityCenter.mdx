@@ -17,18 +17,18 @@ tags: [Azure, Security, Defender, SecurityCenter]
 
 ## Resource Overview
 
-Azure Security Center is an integrated security management service designed to continuously assess the security posture of cloud resources and to detect and prevent threats across the environment.  
+Azure Security Center is an **integrated security management service that continuously assesses the security posture of cloud resources and detects and blocks threats**.  
 By integrating with Microsoft Defender plans, it enables centralized management of vulnerability assessments, security recommendations, and threat protection.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subscription**](https://docs.cstudio.app/en/docs/resource/azure/Base/Subscription)
+-   [**Subscription**](https://docs.cstudio.app/docs/resource/azure/Base/Subscription)
 
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
 ## Resource Setting Values
 
@@ -36,22 +36,22 @@ By integrating with Microsoft Defender plans, it enables centralized management 
 
 #### Assessment Policy (`assessment_policy`)
 
--   `assessment_policy.display_name` : Display name of the Security Center assessment
--   `assessment_policy.severity` : Severity level of the Security Center assessment - `Low`, `Medium`, `High`
--   `assessment_policy.description` : Description of the Security Center assessment
+-   `assessment_policy.display_name` : Display name of the Security Center Assessment
+-   `assessment_policy.severity` : Severity of the Security Center Assessment - `Low`, `Medium`, `High`
+-   `assessment_policy.description` : Description of the Security Center Assessment
 
 #### Assessment (`assessment`)
 
--   `assessment.policy_name` : Name of the security assessment policy applied to the resource
+-   `assessment.policy_name` : Name of the security assessment policy to apply to the resource
 -   `assessment.status_code` : Assessment status code - `Healthy`, `Unhealthy`, `NotApplicable`
 
 #### Subscription Pricing (`subscription_pricing`)
 
--   `subscription_pricing.pricing_tier` : Whether enhanced security features are enabled - `Free`, `Standard`
--   `subscription_pricing.pricing_resource_type` : Resource type to which enhanced security features are applied
+-   `subscription_pricing.pricing_tier` : Whether to enable enhanced security features - `Free`, `Standard`
+-   `subscription_pricing.pricing_resource_type` : Resource type to which enhanced security features will be applied
 
-## Reference Materials
+## References
 
--   [Microsoft Defender for Cloud Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
--   [Security Center Security Assessments (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
--   [Defender for Cloud Pricing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)
+-   [Microsoft Defender for Cloud Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
+-   [Security Center Security Assessment(Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
+-   [Defender for Cloud Pricing(Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)

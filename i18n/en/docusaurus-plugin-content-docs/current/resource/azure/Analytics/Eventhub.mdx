@@ -1,7 +1,7 @@
 ---
 title: Eventhub
 sidebar_position: 1
-tags: [Azure, Resource, Eventhub]
+tags: [Azure, Eventhub]
 ---
 
 <hr />
@@ -17,69 +17,69 @@ tags: [Azure, Resource, Eventhub]
 
 ## Resource Overview
 
-Event Hubs is a distributed streaming platform that enables the collection of large-scale real-time events (such as logs, IoT telemetry, and application events) and their delivery to streaming processing pipelines.  
-At the namespace level, throughput and network access policies can be configured. Within a namespace, Event Hubs (units similar to topics) are created, enabling scalable event ingestion and retention based on partitions.
+Event Hubs is a distributed streaming platform that enables the collection of large-scale real-time events (such as logs, IoT telemetry, and application events) and delivers them to streaming processing pipelines.  
+Throughput and network access policies are configured at the namespace level, and Event Hubs (units similar to topics) are created under the namespace to perform scalable event ingestion and retention based on partitions.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration
+## Resource Setting Values
 
 ### Namespace Settings
 
--   `sku` : The tier to use – `Basic`, `Standard`, `Premium`
+-   `sku` : Tier to use - `Basic`, `Standard`, `Premium`
 
--   `capacity` : Namespace capacity / throughput units for the Standard SKU – `1` ~ `16`
+-   `capacity` : Standard SKU namespace capacity / throughput units - `1` ~ `16`
 
--   `enable_auto_inflate` : Whether to enable automatic scaling for the Event Hub namespace – `true`, `false`
+-   `enable_auto_inflate` : Whether to enable automatic scaling for the Event Hub namespace - `true`, `false`
 
--   `maximum_throughput_units` : The maximum number of throughput units when Auto Inflate is enabled – `1` ~ `40`
+-   `maximum_throughput_units` : Maximum number of throughput units when Auto Inflate is enabled - `1` ~ `40`
 
--   `minimum_tls_version` : The minimum supported TLS version for the Event Hub namespace – `1.0`, `1.1`, `1.2`
+-   `minimum_tls_version` : Minimum supported TLS version for the Event Hub namespace - `1.0`, `1.1`, `1.2`
 
--   `enable_local_authentication` : Whether to enable SAS authentication for the Event Hub namespace – `true`, `false`
+-   `enable_local_authentication` : Whether to use SAS authentication for the Event Hub namespace - `true`, `false`
 
--   `enable_public_network_access` : Whether to allow public network access to the Event Hub namespace – `true`, `false`
+-   `enable_public_network_access` : Whether to allow public network access for the Event Hub namespace - `true`, `false`
 
 ### Network Access Control (`network_rulesets`)
 
--   `network_rulesets.default_action` : Default network access action – `Allow`, `Deny`
+-   `network_rulesets.default_action` : Default network access behavior - `Allow`, `Deny`
 
--   `network_rulesets.virtual_network_rule.target_subnet_name` : Name of the subnet to be connected
+-   `network_rulesets.virtual_network_rule.target_subnet_name` : Name of the subnet to connect
 
--   `network_rulesets.virtual_network_rule.ignore_missing_virtual_network_service_endpoint` : Whether to ignore missing virtual network service endpoints – `true`, `false`
+-   `network_rulesets.virtual_network_rule.ignore_missing_virtual_network_service_endpoint` : Whether to ignore missing virtual network service endpoints - `true`, `false`
 
 ### Event Hub Settings (`eventhub`)
 
--   `eventhub.default.partition_count` : Current number of shards (partitions) for the Event Hub – `1` ~ `100`
+-   `eventhub.default.partition_count` : Current number of shards (partitions) for the Event Hub - `1` ~ `100`
 
--   `eventhub.default.message_retention` : Number of days to retain events in the Event Hub – `1` ~ `90`
+-   `eventhub.default.message_retention` : Number of days to retain events in the Event Hub - `1` ~ `90`
 
--   `eventhub.default.enabled_capture` : Whether Capture is enabled – `true`, `false`
+-   `eventhub.default.enabled_capture` : Whether Capture is enabled - `true`, `false`
 
--   `eventhub.default.encoding` : Encoding used for Capture – `Avro`, `AvroDeflate`
+-   `eventhub.default.encoding` : Encoding used for Capture - `Avro`, `AvroDeflate`
 
--   `eventhub.default.time_window` : Time interval (in minutes) during which Capture is performed – `1` ~ `15`
+-   `eventhub.default.time_window` : Time interval (minutes) for capture execution - `1` ~ `15`
 
--   `eventhub.default.size_window` : Amount of data accumulated in the Event Hub before a Capture operation is triggered – `11` ~ `524`
+-   `eventhub.default.size_window` : Amount of data accumulated in the Event Hub before capture is triggered - `11` ~ `524`
 
--   `eventhub.default.skip_empty_archives` : Whether to skip exporting empty files when there are no events during the capture time window – `true`, `false`
+-   `eventhub.default.skip_empty_archives` : Whether to skip exporting empty files when no events exist during the capture time window - `true`, `false`
 
--   `eventhub.default.capture_file_name_format` : Naming rule for storing captured files in Blob Storage
+-   `eventhub.default.capture_file_name_format` : Blob naming rule for archive storage
 
--   `eventhub.default.linked_storage_account` : Name of the container within the Blob Storage account where messages should be stored
+-   `eventhub.default.linked_storage_account` : Name of the Blob storage account container where messages are stored
 
--   `eventhub.default.target_storage_container_name` : Blob Storage account where the messages should be stored
+-   `eventhub.default.target_storage_container_name` : Blob storage account where messages are stored
 
 ---
 
 ## References
 
--   [Azure Event Hubs (Microsoft)](https://learn.microsoft.com/ko-kr/azure/event-hubs/event-hubs-about)
+-   [Azure Event Hubs(Microsoft)](https://learn.microsoft.com/ko-kr/azure/event-hubs/event-hubs-about)
 -   [Azure Event Hubs Pricing](https://azure.microsoft.com/ko-kr/pricing/details/event-hubs/)
--   [Azure Event Hub Namespace (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace)
--   [Azure Event Hub (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub)
--   [Azure Event Hub Namespace Network Rule Set (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace_network_rule_set)
+-   [Azure Event Hub Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace)
+-   [Azure Event Hub(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub)
+-   [Azure Event Hub Namespace Network Rule Set(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace_network_rule_set)

@@ -17,44 +17,44 @@ tags: [Azure, DNS, PrivateDnsZone, Network]
 
 ## Resource Overview
 
-A Private DNS Zone is an area used to manage DNS records for private domain names that are used only within an Azure virtual network.  
-By linking it with a virtual network (VNet Link), secure name resolution between internal resources can be performed.
+A Private DNS Zone is an area for managing DNS records for private domain names that are used only within Azure virtual networks.  
+By linking with a virtual network (VNet Link), secure name resolution can be performed between internal resources.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### A Record (`private_dns_a_record`)
 
--   `private_dns_a_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `private_dns_a_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `private_dns_a_record.records` : List of IPv4 addresses
 
 #### AAAA Record (`private_dns_aaaa_record`)
 
--   `private_dns_aaaa_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `private_dns_aaaa_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `private_dns_aaaa_record.records` : List of IPv6 addresses
 
 #### CNAME Record (`private_dns_cname_record`)
 
--   `private_dns_cname_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
--   `private_dns_cname_record.record` : Alias used to connect a subdomain to another record
+-   `private_dns_cname_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `private_dns_cname_record.record` : Alias used to map a subdomain to another record
 
 #### PTR Record (`private_dns_ptr_record`)
 
--   `private_dns_ptr_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `private_dns_ptr_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `private_dns_ptr_record.records` : List of domain names for pointer record types
 
 #### TXT Record (`private_dns_txt_record`)
 
--   `private_dns_txt_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `private_dns_txt_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `private_dns_txt_record.records` : List of text-type records
 
 #### Virtual Network Link (`vnet_link`)
@@ -63,12 +63,12 @@ By linking it with a virtual network (VNet Link), secure name resolution between
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Private DNS Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
--   [Azure Private DNS Zones and Virtual Network Links (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-virtual-network-links)
--   [Azure Private Endpoint and Private DNS (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)
+-   [Azure Private DNS Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
+-   [Azure Private DNS Zone and Virtual Network Links(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-virtual-network-links)
+-   [Azure Private Endpoint and Private DNS(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

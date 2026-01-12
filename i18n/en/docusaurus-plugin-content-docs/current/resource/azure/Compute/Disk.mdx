@@ -19,40 +19,40 @@ tags: [Azure, Compute, Disk]
 
 Azure Disk is a managed block storage resource used by Azure Virtual Machines.  
 It can be used as an operating system disk (OS Disk) or a data disk,  
-and various storage types can be selected according to storage performance and cost requirements.
+and various storage types can be selected based on performance and cost requirements.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Linux Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Windows Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `storage_type` :  
-    Storage type used for backing up the disk
+    Storage type used for disk backup
 
     -   `Standard_LRS`
     -   `StandardSSD_LRS`
     -   `Premium_LRS`
 
 -   `size_gb` :  
-    Disk size (GB) – `1` ~ `32767`
+    Disk size (GB) - `1` ~ `32767`
 
 -   `enabled_public_network_access` :  
-    Whether to allow public network access to the disk – `true`, `false`
+    Whether to allow public network access to the disk - `true`, `false`
 
 -   `tag` :  
-    Tags used to categorize the resource – up to 512 characters, `key`:`value`
+    Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Managed Disks (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
+-   [Azure Managed Disks(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
 -   [Terraform azurerm_managed_disk](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk)

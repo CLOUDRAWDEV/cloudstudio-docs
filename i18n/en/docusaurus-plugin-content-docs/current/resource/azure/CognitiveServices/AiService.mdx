@@ -20,15 +20,15 @@ tags: [Azure, AiService, CognitiveServices]
 AI Service is a service that provides artificial intelligence models and analytics capabilities in the form of APIs, enabling easy integration of AI features into applications.  
 It offers a secure and scalable AI service operating environment through model deployment, authentication methods, network access control, and managed identity integration.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `sku_name` : Pricing tier for using the AI Service
+-   `sku_name` : Pricing tier for using AI Service
 
     -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
 
@@ -38,7 +38,7 @@ It offers a secure and scalable AI service operating environment through model d
 
 -   `fqdns` : List of fully qualified domain names (FQDNs) allowed for use by the AI Service account
 
-### Managed Identity Configuration (`identity`)
+### Managed Identity Settings (`identity`)
 
 -   `identity.identity_type` : Type of managed identity to use
 
@@ -48,15 +48,15 @@ It offers a secure and scalable AI service operating environment through model d
 
 ### Network Access Control (`network_acls`)
 
--   `network_acls.default_action` : Default network access control policy - `Allow`, `Deny`
+-   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
 
--   `network_acls.ip_rules` : List of allowed IP addresses or CIDR ranges for accessing the resource
+-   `network_acls.ip_rules` : List of allowed IP addresses or CIDR ranges for resource access
 
 -   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
 
--   `public_network_access` : Whether to allow access to the resource via the public Internet - `Enabled`, `Disabled`
+-   `public_network_access` : Whether to allow resource access through the public internet - `Enabled`, `Disabled`
 
-### Model Deployment Configuration (`deployment`)
+### Model Deployment Settings (`deployment`)
 
 -   `deployment.model_name` : Name of the model to deploy
 
@@ -74,7 +74,7 @@ It offers a secure and scalable AI service operating environment through model d
 
 ## References
 
--   [Azure AI Services (Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/)
+-   [Azure AI Services(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/)
 -   [Azure Cognitive Services Pricing](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
--   [Azure Cognitive Services Account (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
--   [Azure Cognitive Services Deployment (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_deployment)
+-   [Azure Cognitive Services Account(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+-   [Azure Cognitive Services Deployment(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_deployment)

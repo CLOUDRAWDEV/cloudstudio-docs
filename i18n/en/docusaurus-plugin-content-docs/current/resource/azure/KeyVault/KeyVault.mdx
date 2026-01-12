@@ -19,34 +19,34 @@ tags: [Azure, KeyVault, Security, KeyManagement]
 
 Azure Key Vault is a cloud security service that securely stores sensitive information such as secrets, keys, and certificates, and provides controlled access to them.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Private Endpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Private Endpoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### Basic Settings
 
--   `sku_name` : Pricing tier for selecting the scale and features of the Key Vault - `standard`, `premium`
--   `enabled_for_disk_encryption` : Allows Azure Disk Encryption to retrieve secrets and keys from the vault - `true`, `false`
--   `soft_delete_retention_days` : Number of days to retain deleted items - `7` ~ `90`
--   `purge_protection_enabled` : Enables purge protection to prevent data loss - `true`, `false`
+-   `sku_name` : Pricing tier for selecting the scale and features of Key Vault - `standard`, `premium`
+-   `enabled_for_disk_encryption` : Allow Azure Disk Encryption to retrieve secrets and keys from the vault - `true`, `false`
+-   `soft_delete_retention_days` : Retention period for deleted items (days) - `7` ~ `90`
+-   `purge_protection_enabled` : Enable purge protection to prevent data loss - `true`, `false`
 
 #### Network Access Control (`network_acl`)
 
--   `network_acl_bypass` : Whether to allow firewall bypass for trusted services - `AzureServices`, `None`
--   `network_acl_action` : Default action when IP rules do not match - `Deny`, `Allow`
+-   `network_acl_bypass` : Allow firewall bypass for trusted services - `AzureServices`, `None`
+-   `network_acl_action` : Default action when requests do not match IP rules - `Deny`, `Allow`
 -   `network_acl_ip_rules` : List of IP addresses or CIDR ranges allowed to access the Key Vault
 
 #### Access Policies (`access_policies`)
 
--   `access_policies.object_id` : Object ID used to identify the principal accessing the vault
+-   `access_policies.object_id` : Object ID used to identify the access principal
 -   `access_policies.key_permissions` : List of permissions for keys
 -   `access_policies.secret_permissions` : List of permissions for secrets
 -   `access_policies.certificate_permissions` : List of permissions for certificates
@@ -55,10 +55,10 @@ Azure Key Vault is a cloud security service that securely stores sensitive infor
 
 -   `key_vault_secret.secret_value` : Value of the Key Vault secret
 -   `key_vault_secret.content_type` : Content type of the secret
--   `key_vault_secret.enabled_activation_date` : Whether the secret is enabled for activation - `true`, `false`
--   `key_vault_secret.activation_date` : UTC date and time when the secret becomes active
--   `key_vault_secret.enabled_expiration_date` : Whether the secret has an expiration date - `true`, `false`
--   `key_vault_secret.expiration_date` : UTC date and time when the secret expires
+-   `key_vault_secret.enabled_activation_date` : Whether to enable secret activation - `true`, `false`
+-   `key_vault_secret.activation_date` : Secret activation UTC datetime
+-   `key_vault_secret.enabled_expiration_date` : Whether to enable secret expiration - `true`, `false`
+-   `key_vault_secret.expiration_date` : Secret expiration UTC datetime
 
 #### Key Vault Key (`key_vault_key`)
 
@@ -66,22 +66,22 @@ Azure Key Vault is a cloud security service that securely stores sensitive infor
 -   `key_vault_key.rsa_key_size` : RSA key size - `2048`, `3072`, `4096`
 -   `key_vault_key.elliptic_curve` : Curve value for EC key types
 -   `key_vault_key.permitted_operations` : List of permitted JSON Web Key operations
--   `key_vault_key.enabled_activation_date` : Whether the key is enabled for activation - `true`, `false`
--   `key_vault_key.activation_date` : UTC date and time when the key becomes active
--   `key_vault_key.enabled_expiration_date` : Whether the key has an expiration date - `true`, `false`
--   `key_vault_key.expiration_date` : UTC date and time when the key expires
+-   `key_vault_key.enabled_activation_date` : Whether to enable key activation - `true`, `false`
+-   `key_vault_key.activation_date` : Key activation UTC datetime
+-   `key_vault_key.enabled_expiration_date` : Whether to enable key expiration - `true`, `false`
+-   `key_vault_key.expiration_date` : Key expiration UTC datetime
 
 #### Key Vault Certificate (`key_vault_certificate`)
 
 -   `key_vault_certificate.import_existing_certificate` : Whether to import an existing certificate - `true`, `false`
--   `key_vault_certificate.contents` : Base64-encoded certificate content
+-   `key_vault_certificate.contents` : Base64-encoded certificate contents
 -   `key_vault_certificate.password` : Certificate password
 -   `key_vault_certificate.issuer_name` : Certificate issuer name - `Self`, `Unknown`
 -   `key_vault_certificate.subject` : X.500 distinguished name
--   `key_vault_certificate.validity_period_in_months` : Certificate validity period (in months)
+-   `key_vault_certificate.validity_period_in_months` : Certificate validity period (months)
 -   `key_vault_certificate.content_type` : Certificate content type
--   `key_vault_certificate.enabled_export` : Whether certificate export is allowed - `true`, `false`
--   `key_vault_certificate.enabled_reuse_key` : Whether key reuse is enabled - `true`, `false`
+-   `key_vault_certificate.enabled_export` : Whether to allow certificate export - `true`, `false`
+-   `key_vault_certificate.enabled_reuse_key` : Whether to reuse the key - `true`, `false`
 -   `key_vault_certificate.key_usage` : List of key usage flags
 -   `key_vault_certificate.key_type` : Key type used for the certificate
 -   `key_vault_certificate.rsa_key_size` : RSA key size
@@ -89,13 +89,13 @@ Azure Key Vault is a cloud security service that securely stores sensitive infor
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Key Vault Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
--   [Azure Key Vault Access Policies (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/assign-access-policy)
--   [Azure Key Vault Network Security (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/network-security)
--   [Azure Key Vault Keys, Secrets, and Certificates (Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/about-keys-secrets-certificates)
+-   [Azure Key Vault Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
+-   [Azure Key Vault Access Policies(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/assign-access-policy)
+-   [Azure Key Vault Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/network-security)
+-   [Azure Key Vault Keys, Secrets, and Certificates(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/about-keys-secrets-certificates)

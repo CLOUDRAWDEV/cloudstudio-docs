@@ -17,32 +17,32 @@ tags: [Azure, ApplicationInsight]
 
 ## Resource Overview
 
-Azure Application Insights is a cloud-based service from Microsoft that helps developers monitor and analyze live applications.
-This allows developers to detect and diagnose problems in an application and gain real-time insights into application performance.
-By using Application Insights, developers can track metrics such as requests per second, response times, and error rates, and gain visibility into the dependencies and external services used by the application.
-This allows for faster and more efficient problem resolution.
+Azure Application Insights is a cloud-based service provided by Microsoft that helps developers monitor and analyze live applications.  
+It enables developers to detect and diagnose application issues and gain real-time insights into application performance.  
+Using Application Insights, developers can track application performance and usage, including requests per second, response times, and error rates.  
+It also provides visibility into application dependencies and external services, enabling issues to be resolved quickly and efficiently.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
 
-## Reference Materials
+## Resource Setting Values
 
--   `type`: The type of Application Insights to create - `ios`,`java`,`Node.js`,`other`,`MobileCenter`,`phone`,`store`,`web`
--   `retention_in_days`: The retention period in days - `30`,`60`,`90`,`120`,`180`,`270`,`365`,`550`,`730`
--   `linked_workspace_name`: The name of the Log Analytics Workspace where Application Insights will store the data it collects
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   `type` : Platform type of the Application Insights to create - `ios`,`java`,`Node.js`,`other`,`MobileCenter`,`phone`,`store`,`web`
+-   `retention_in_days` : Number of days to retain data - `30`,`60`,`90`,`120`,`180`,`270`,`365`,`550`,`730`
+-   `linked_workspace_name` : Name of the Log Analytics Workspace where Application Insights stores collected data
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
 -   [Azure ApplicationInsights(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net)
--   [Azurerm ApplicationInsights Price(Microsoft)](https://azure.microsoft.com/en-us/pricing/details/monitor/)
+-   [Azurerm ApplicationInsights Pricing(Microsoft)](https://azure.microsoft.com/en-us/pricing/details/monitor/)
 -   [Azurerm ApplicationInsights(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_insights)

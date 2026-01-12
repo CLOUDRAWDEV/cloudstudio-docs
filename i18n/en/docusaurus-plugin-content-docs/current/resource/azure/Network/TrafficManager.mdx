@@ -17,54 +17,54 @@ tags: [Azure, Network, TrafficManager]
 
 ## Resource Overview
 
-Traffic Manager is a DNS-based global traffic distribution service that **routes user requests to the most appropriate service endpoint**.  
+Traffic Manager is a global traffic distribution service that operates on a DNS basis and **routes user requests to the most appropriate service endpoint**.  
 It supports various routing methods such as latency, priority, and geographic location, enabling both high availability and performance optimization.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Linux App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
--   [**Windows App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
--   [**Traffic Manager**](https://docs.cstudio.app/en/docs/resource/azure/Network/TrafficManager)
+-   [**Linux App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsAppService)
+-   [**Traffic Manager**](https://docs.cstudio.app/docs/resource/azure/Network/TrafficManager)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `traffic_routing_method` : Routing method used to distribute client requests to endpoints
+-   `traffic_routing_method` : Routing method for distributing client requests to endpoints
     -   `Geographic`, `MultiValue`, `Performance`, `Priority`, `Subnet`, `Weighted`
--   `relative_domain_name` : Domain name to be used by Traffic Manager
--   `ttl` : Time To Live value for DNS records
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `relative_domain_name` : Domain name to use with Traffic Manager
+-   `ttl` : Time To Live value of the DNS record
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 #### Endpoint Monitor Settings (`endpoint_monitor_setting`)
 
--   `endpoint_monitor_setting.protocol` : Protocol used for monitoring - `HTTP`, `HTTPS`, `TCP`
--   `endpoint_monitor_setting.port` : Port number used for monitoring - `0` ~ `65535`
+-   `endpoint_monitor_setting.protocol` : Protocol to use for monitoring - `HTTP`, `HTTPS`, `TCP`
+-   `endpoint_monitor_setting.port` : Port number to use for monitoring - `0` ~ `65535`
 -   `endpoint_monitor_setting.path` : Monitoring path when using HTTP/HTTPS
 
 #### Azure Endpoint (`azure_endpoint`)
 
--   `azure_endpoint.linked_resource_type` : Type of Azure endpoint
+-   `azure_endpoint.linked_resource_type` : Azure endpoint type
 -   `azure_endpoint.linked_target_name` : Name of the Azure resource to connect
--   `azure_endpoint.weight` : Traffic distribution weight for the endpoint
+-   `azure_endpoint.weight` : Traffic weight distributed to the endpoint
 -   `azure_endpoint.priority` : Endpoint priority
 
 #### Nested Endpoint (`nested_endpoint`)
 
 -   `nested_endpoint.linked_traffic_manager_name` : Name of the child Traffic Manager to connect
--   `nested_endpoint.weight` : Traffic distribution weight for the endpoint
+-   `nested_endpoint.weight` : Traffic weight distributed to the endpoint
 -   `nested_endpoint.priority` : Endpoint priority
 -   `nested_endpoint.endpoint_location` : Azure region of the endpoint
--   `nested_endpoint.min_child_endpoints` : Minimum number of online endpoints required for traffic routing
+-   `nested_endpoint.min_child_endpoints` : Minimum number of online endpoints required for traffic delivery
 
 #### External Endpoint (`external_endpoint`)
 
--   `external_endpoint.target_name` : Target name of the external endpoint (resource or domain)
--   `external_endpoint.weight` : Traffic distribution weight for the endpoint
+-   `external_endpoint.target_name` : Name of the external endpoint target (resource or domain)
+-   `external_endpoint.weight` : Traffic weight distributed to the endpoint
 -   `external_endpoint.priority` : Endpoint priority
 -   `external_endpoint.endpoint_location` : Azure region of the endpoint
 
@@ -72,6 +72,6 @@ It supports various routing methods such as latency, priority, and geographic lo
 
 ## References
 
--   [Azure Traffic Manager Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
--   [Traffic Manager Routing Methods (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-routing-methods)
--   [Traffic Manager Endpoint Monitoring (Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-monitoring)
+-   [Azure Traffic Manager Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-overview)
+-   [Traffic Manager Routing Methods(Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-routing-methods)
+-   [Traffic Manager Endpoint Monitoring(Microsoft)](https://learn.microsoft.com/ko-kr/azure/traffic-manager/traffic-manager-monitoring)

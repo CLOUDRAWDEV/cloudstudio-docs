@@ -17,26 +17,26 @@ tags: [Azure, ServicePlan]
 
 ## Resource Overview
 
-A Service Plan is a pricing and hosting plan that defines the computing resources on which App Services run, such as server instances, CPU and memory, scaling, and the operating system.  
-When deploying web apps, API apps, or backend applications to App Service, the Service Plan determines the specifications and pricing tier under which the applications will run.
+A Service Plan is a pricing and hosting plan that defines the computing resources (server instances, CPU/memory, scaling, OS, etc.) on which App Service runs.  
+When deploying web apps, API apps, or backend apps to App Service, the Service Plan determines the specifications and pricing tier under which the app will run.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
-## Resource Configuration
+## Resource Setting Values
 
--   `kind` : The operating system used by the App Service – `Linux`, `Windows`
--   `sku_tier` : The pricing tier of the App Service plan
+-   `kind` : Operating system used by App Service - `Linux`,`Windows`
+-   `sku_tier` : Pricing tier of the App Service Plan
 
 ---
 
 ## References
 
--   [Azure App Service Plan (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
+-   [Azure App Service Plan(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
 -   [Azure App Service Pricing](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azure App Service Plan (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)
+-   [Azure App Service Plan(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)
