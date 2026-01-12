@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, VpnGateway]
 
 ## Resource Overview
 
-A virtual private gateway is the VPN concentrator on the Amazon side of a Site-to-Site VPN connection. Create a virtual private gateway and attach it to the VPC where you want to create a Site-to-Site VPN connection.
+A virtual private gateway is the VPN concentrator on the Amazon side of a Site-to-Site VPN connection. You create a virtual private gateway and attach it to the VPC where you want to create the Site-to-Site VPN connection.
 
 ## Associated Resources
 
@@ -35,18 +35,18 @@ A virtual private gateway is the VPN concentrator on the Amazon side of a Site-t
 
 #### Basic Settings
 
--   `linked_vpc_name` : Name of the VPC to associate with the VPN Gateway
+-   `linked_vpc_name` : Name of the VPC to attach the VPN gateway to
 -   `dx_gateway` : Direct Connect Gateway integration settings
--   `dx_gateway.linked_dx_gateway` : Name of the Dx Gateway to associate
+-   `dx_gateway.linked_dx_gateway` : Name of the Dx Gateway to connect
 -   `dx_gateway.allowed_prefixes` : List of CIDR prefixes to advertise to the on-premises network
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [How AWS Site-to-Site VPN works(AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
--   [aws_api_gateway_resource(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)
+-   [How AWS Site-to-Site VPN Works (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)

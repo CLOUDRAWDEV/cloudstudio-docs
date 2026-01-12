@@ -17,7 +17,7 @@ tags: [AWS, Resource, S3, S3Bucket]
 
 ## Resource Overview
 
-Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for use cases such as data lakes, websites, mobile applications, backup and restore, archiving, enterprise applications, IoT devices, and big data analytics. Amazon S3 provides management features that allow you to optimize, organize, and configure access to data to meet specific business, organizational, and compliance requirements.
+Amazon Simple Storage Service (Amazon S3) is an object storage service that provides industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for use cases such as data lakes, websites, mobile applications, backup and restore, archiving, enterprise applications, IoT devices, and big data analytics. Amazon S3 also provides management features that allow customers to optimize, organize, and configure access to data to meet specific business, organizational, and compliance requirements.
 
 ## Associated Resources
 
@@ -27,20 +27,20 @@ Amazon Simple Storage Service (Amazon S3) is an object storage service that offe
 
 ### Connected Resources
 
--   [**CloudFront Distribution**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudFrontDistribution)
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudFrontDistribution)
 -   [**CloudTrail**](https://docs.cstudio.app/en/docs/resource/aws/CloudTrail/)
 -   [**Config**](https://docs.cstudio.app/en/docs/resource/aws/Config/)
--   [**Flow Log**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/FlowLog)
+-   [**FlowLog**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/FlowLog)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
 -   `versioning_status` : Bucket versioning status - `Enabled`, `Suspended`
--   `enabled_logging` : Whether to enable logging - `true`, `false`
+-   `enabled_logging` : Whether logging is enabled - `true`, `false`
 -   `logging_target_prefix` : Prefix for all log object keys
 -   `sse_algorithm` : Server-side encryption algorithm - `aws:kms`, `AES256`
--   `kms_key_name` : KMS Key name to use for SSE-KMS encryption
+-   `kms_key_name` : KMS key name used for SSE-KMS encryption
 
 #### Public Access Block (`public_access_block`)
 
@@ -51,12 +51,12 @@ Amazon Simple Storage Service (Amazon S3) is an object storage service that offe
 
 #### Object Ownership Settings (`ownership_control`)
 
--   `ownership_control.acl_enabled` : Whether to enable object ACLs - `true`, `false`
+-   `ownership_control.acl_enabled` : Whether object ACLs are enabled - `true`, `false`
 -   `ownership_control.object_ownership` : Object ownership setting - `BucketOwnerEnforced`, `BucketOwnerPreferred`, `ObjectWriter`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
@@ -64,4 +64,4 @@ Amazon Simple Storage Service (Amazon S3) is an object storage service that offe
 
 -   [Amazon S3 (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/Welcome.html)
 -   [Amazon S3 Pricing (AWS)](https://aws.amazon.com/ko/s3/pricing/?nc2=type_a)
--   [aws-s3-bucket (Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest)
+-   [aws-s3-bucket(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest)

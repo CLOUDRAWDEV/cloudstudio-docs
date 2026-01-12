@@ -1,7 +1,7 @@
 ---
 title: BackupPlan
 sidebar_position: 0
-tags: [AWS, 리소스, Backup, BackupPlan]
+tags: [AWS, Resource, Backup, BackupPlan]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Backup, BackupPlan]
 
 ## Resource Overview
 
-This is a policy expression that defines when and how AWS resources are backed up. Resources can be assigned to a Backup Plan, and AWS Backup automatically backs up and retains those resources according to the Backup Plan.
+A policy expression that defines when and how AWS resources are backed up. Resources can be assigned to a Backup Plan, and AWS Backup automatically backs up and retains those resources according to the Backup Plan.
 
 ## Associated Resources
 
@@ -29,18 +29,18 @@ This is a policy expression that defines when and how AWS resources are backed u
 
 #### Basic Settings
 
-#### Rule (`rule`)
+#### Rules (`rule`)
 
--   `rule.rule_name` : Backup rule name, 1 to 50 characters including alphanumeric characters or -, \_, .
--   `rule.backup_vault_name` : Name of the logical container used to store backups
--   `rule.frequency_type` : Timing frequency for backups - `Hourly`, `Weekly`, `Monthly`, `Custom`
--   `rule.frequency_hour` : Time to initiate the backup plan - minimum `1`
+-   `rule.rule_name` : Backup rule name, alphanumeric characters or characters including -, \_, . within 1 to 50 characters
+-   `rule.backup_vault_name` : Logical container name used to store backups
+-   `rule.frequency_type` : Backup schedule timing - `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : Hour to initiate the backup plan - minimum `1`
 -   `rule.frequency_days` : Day to initiate the backup plan - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
 -   `rule.frequency_date` : Date to initiate the backup plan - `1` ~ `31`
 -   `rule.start_time` : Backup plan start time
--   `rule.custom_cron_expression` : User-defined expression for when to start the backup plan
+-   `rule.custom_cron_expression` : Custom expression defining when the backup plan starts
 -   `rule.start_after_minutes` : Total time before starting the backup - minimum `60`
--   `rule.complete_after_minutes` : Time (in minutes) AWS Backup attempts the backup before canceling the job and returning an error
+-   `rule.complete_after_minutes` : Time in minutes AWS Backup attempts the backup before canceling and returning an error
 -   `rule.enabled_use_cold_storage` : Whether to use cold storage - `true`, `false`
 -   `rule.warm_storage_retention_days` : Number of days after creation to move recovery points to cold storage - `1` ~ `36410`
 -   `rule.total_retention_days` : Number of days after creation to delete recovery points - `1` ~ `36500`
@@ -49,12 +49,12 @@ This is a policy expression that defines when and how AWS resources are backed u
 
 -   `resource_assignment.iam_role_arn` : ARN of the IAM role used by AWS Backup for authentication when backing up and restoring target resources
 -   `resource_assignment.enabled_contain_all` : Whether to include all resources - `true`, `false`
--   `resource_assignment.contain_arn_or_pattern` : Array of strings containing Amazon Resource Names or matching resource patterns to assign to the backup plan
--   `resource_assignment.exclude_arn_or_pattern` : Array of strings containing Amazon Resource Names or matching resource patterns to exclude from the backup plan
+-   `resource_assignment.contain_arn_or_pattern` : Array of strings containing Amazon Resource Names or patterns matching resources to assign to the backup plan
+-   `resource_assignment.exclude_arn_or_pattern` : Array of strings containing Amazon Resource Names or patterns matching resources to exclude from the backup plan
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 

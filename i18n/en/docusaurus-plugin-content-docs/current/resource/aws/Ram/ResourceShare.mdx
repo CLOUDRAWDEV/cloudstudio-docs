@@ -30,14 +30,14 @@ A service that securely shares supported resource types between AWS accounts wit
 #### Basic Settings
 
 -   `shared_resource_types` : List of resource types to share
--   `transit_gateway_names` : List of Transit Gateway names to share
+-   `transit_gateway_names` : List of transit gateway names to share
 -   `resource_arns` : List of resource ARNs to share
--   `enabled_allow_external_principals` : Whether to allow sharing with external AWS accounts - `true`, `false`
--   `principal_arns` : List of principal ARNs or AWS account IDs allowed to share
+-   `enabled_allow_external_principals` : Whether sharing with external AWS accounts is allowed - `true`, `false`
+-   `principal_arns` : List of principal ARNs or AWS account IDs allowed for sharing
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 

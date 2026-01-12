@@ -1,7 +1,7 @@
 ---
 title: Config
 sidebar_position: 0
-tags: [AWS, 리소스, Config]
+tags: [AWS, Resource, Config]
 ---
 
 <hr />
@@ -47,14 +47,14 @@ A resource that records AWS account resource configuration information and allow
 -   `recording_method.enable_all_supported` : Whether AWS Config records configuration changes for all supported regional resource types - `true`, `false`
 -   `recording_method.exclude_resource_types` : List of AWS resource types for which AWS Config records configuration changes
 -   `recording_method.include_global_resource_types` : Whether to include all supported global resource types along with recorded resources - `true`, `false`
--   `recording_method.specific_resource_types` : Whether to include all supported global resource types along with recorded resources
+-   `recording_method.specific_resource_types` : Whether to include specific resource types along with recorded resources
 
 #### Config Rule (`config_rule`)
 
--   `config_rule.rule_owner` : Whether AWS or the customer owns and manages the AWS Config rule - `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.rule_owner` : Ownership and management of the AWS Config rule - `AWS`, `customLambda`, `customPolicy`
 -   `config_rule.source_identifier` : Predefined identifier for AWS managed config rules
 -   `config_rule.target_lambda_name` : Name of the Lambda function used in custom Lambda rules
--   `config_rule.custom_policy_message_type` : Notification type that triggers AWS Config to perform evaluations - `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, `ScheduledNotification`, `ConfigurationSnapshotDeliveryCompleted`
+-   `config_rule.custom_policy_message_type` : Notification type that triggers AWS Config evaluations - `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, `ScheduledNotification`, `ConfigurationSnapshotDeliveryCompleted`
 -   `config_rule.maximum_execution_frequency` : Frequency at which AWS Config runs evaluations for periodically triggered rules - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
 -   `config_rule.custom_policy_text` : Policy definition containing the custom policy config rule
 

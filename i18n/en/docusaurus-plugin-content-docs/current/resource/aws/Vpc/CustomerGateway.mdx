@@ -34,8 +34,8 @@ AWS Transit Gateway connects Amazon Virtual Private Clouds (VPCs) and on-premise
 
 #### Basic Settings
 
--   `bgp_asn` : BGP ASN value of the gateway - `1` ~ `2147483647`
--   `ip_address` : Static public IP address of the external interface of the gateway
+-   `bgp_asn` : BGP ASN value for the gateway - `1` ~ `2147483647`
+-   `ip_address` : Static public IP address of the gateway external interface
 -   `private_certificate_arn` : AWS Private Certificate Manager certificate ARN
 
 #### VPN Connection Settings (`vpn_connection`)
@@ -43,12 +43,12 @@ AWS Transit Gateway connects Amazon Virtual Private Clouds (VPCs) and on-premise
 -   `vpn_connection.resource_type` : Resource type to connect with the Customer Gateway - `none`, `transit_gateway`, `vpn_gateway`
 -   `vpn_connection.linked_resource_name` : Name of the resource to connect
 -   `vpn_connection.static_routes_only` : Whether to use static routing only - `true`, `false`
--   `vpn_connection.outside_ip_address_type` : External IP address type - `PublicIpv4`, `PrivateIpv4`
--   `vpn_connection.dx_gateway_name` : Transit Gateway Attachment name used for private IP VPN connections
+-   `vpn_connection.outside_ip_address_type` : Outside IP address type - `PublicIpv4`, `PrivateIpv4`
+-   `vpn_connection.dx_gateway_name` : Transit Gateway attachment name used for private IP VPN connections
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

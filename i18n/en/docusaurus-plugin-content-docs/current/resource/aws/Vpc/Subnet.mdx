@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, Subnet]
 
 ## Resource Overview
 
-A subnet is a range of IP addresses within a VPC. You can launch AWS resources such as EC2 instances within a specific subnet.
+A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 instances can be launched within a specific subnet.
 
 ## Associated Resources
 
@@ -55,18 +55,18 @@ A subnet is a range of IP addresses within a VPC. You can launch AWS resources s
 
 #### Basic Settings
 
--   `included_vpc_name` : Name of the VPC where the Subnet will be deployed
--   `cidr_block` : IP address range (CIDR) of the Subnet
--   `availability_zone` : Availability Zone where the Subnet will be deployed
--   `pip_enable` : Whether to automatically assign a public IP - `true`, `false`
+-   `included_vpc_name` : Name of the VPC where the subnet is deployed
+-   `cidr_block` : IP address range (CIDR) of the subnet
+-   `availability_zone` : Availability Zone where the subnet is deployed
+-   `pip_enable` : Whether to enable automatic public IP assignment - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Subnets in your VPC(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
--   [aws_subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)
+-   [VPC Subnets (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
+-   [aws_subnet (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

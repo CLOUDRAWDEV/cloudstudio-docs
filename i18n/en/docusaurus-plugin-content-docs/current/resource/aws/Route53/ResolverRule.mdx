@@ -17,7 +17,7 @@ tags: [AWS, Resource, Route53, ResolverRule]
 
 ## Resource Overview
 
-A rule used by the Resolver to forward queries for a specified domain name to a network.
+A rule used by Resolver to forward queries for specified domain names to a network.
 
 ## Associated Resources
 
@@ -36,18 +36,18 @@ A rule used by the Resolver to forward queries for a specified domain name to a 
 
 -   `rule_type` : Rule type - `FORWARD`, `SYSTEM`
 -   `domain_name` : Domain name to which DNS queries are forwarded
--   `linked_vpc_names` : List of VPC names that use the rule
--   `linked_resolver_endpoint_name` : Name of the outbound endpoint used by the Resolver
+-   `linked_vpc_names` : List of VPC names using the rule
+-   `linked_resolver_endpoint_name` : Name of the outbound endpoint used by Resolver
 -   `target_ip.ip` : Target IP address
 -   `target_ip.port` : Port of the target IP address
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Amazon Resolver rule (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
--   [Amazon Resolver rule (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)
+-   [Amazon Resolver Rule (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Rule (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)

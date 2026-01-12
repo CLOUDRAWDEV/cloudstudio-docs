@@ -13,7 +13,7 @@ tags: [Terraform, Cloudinit, CloudinitConfig, VM, Compute]
 
 ## Resource Overview
 
-Cloud-init is a tool that initializes and configures virtual machine instances.
+Cloud-init is a tool used to initialize and configure virtual machine instances.
 
 ## Associated Resources
 
@@ -27,20 +27,20 @@ Cloud-init is a tool that initializes and configures virtual machine instances.
 
 #### Basic Settings
 
--   `gzip` : Whether to use a data compression algorithm - `true`, `false`
+-   `gzip` : Whether to use data compression - `true`, `false`
 
 #### Part Settings (`part`)
 
--   `part.content_type` : Format of the data to insert - `text/cloud-config`, `text/x-shellscript`, `text/cloud-boothook`, `multipart/mixed`, `text/cloud-config-archive`, `text/jinja`, `text/x-include-url`, `text/part-handler`
+-   `part.content_type` : Type of data to insert - `text/cloud-config`, `text/x-shellscript`, `text/cloud-boothook`, `multipart/mixed`, `text/cloud-config-archive`, `text/jinja`, `text/x-include-url`, `text/part-handler`
 -   `part.content` : Actual data content to insert
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [cloud-init 공식 문서](https://cloudinit.readthedocs.io/en/latest/)
--   [Terraform cloudinit provider 문서](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/config)
+-   [cloud-init Official Documentation](https://cloudinit.readthedocs.io/en/latest/)
+-   [Terraform cloudinit Provider Documentation](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/config)

@@ -1,7 +1,7 @@
 ---
 title: CloudfrontCachePolicy
 sidebar_position: 1
-tags: [AWS, 리소스, Cloudfront, CloudfrontCachePolicy]
+tags: [AWS, Resource, Cloudfront, CloudfrontCachePolicy]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Cloudfront, CloudfrontCachePolicy]
 
 ## Resource Overview
 
-CloudFront Cache Policy is a cache policy that connects to the cache behavior of a CloudFront distribution to configure CloudFront customization.
+CloudFront Cache Policy is a cache policy that configures CloudFront customization by associating cache behavior with a CloudFront distribution.
 
 ## Associated Resources
 
@@ -27,7 +27,7 @@ CloudFront Cache Policy is a cache policy that connects to the cache behavior of
 
 ### Connected Resources
 
--   [**Cloudfront Distribution**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+-   [**CloudfrontDistribution**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudfrontDistribution)
 
 ---
 
@@ -35,9 +35,9 @@ CloudFront Cache Policy is a cache policy that connects to the cache behavior of
 
 #### Basic Settings
 
--   `min_ttl` : Minimum time (in seconds) that objects are kept in cache
--   `default_ttl` : Default time (in seconds) that objects are kept in cache
--   `max_ttl` : Maximum time (in seconds) that objects are kept in cache
+-   `min_ttl` : Minimum time (seconds) that objects remain in the cache
+-   `default_ttl` : Default time (seconds) that objects remain in the cache
+-   `max_ttl` : Maximum time (seconds) that objects remain in the cache
 
 #### Cookie Settings (`cookie_config`)
 

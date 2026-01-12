@@ -30,33 +30,33 @@ A distributed message broker platform service that processes real-time data stre
 #### Basic Settings
 
 -   `cluster_type` : Cluster type - `provisioned`, `serverless`
--   `kafka_version` : Apache Kafka version to use in the MSK cluster
--   `kms_key_name` : KMS Key name used for data encryption
--   `unauthenticated_access` : Whether to allow unauthenticated user access - `true`, `false`
--   `iam_role_based_authentication` : Whether to allow IAM role-based authentication - `true`, `false`
--   `scram_authentication` : Whether to allow SCRAM-based authentication - `true`, `false`
+-   `kafka_version` : Apache Kafka version used by the MSK cluster
+-   `kms_key_name` : Name of the KMS key used for data encryption
+-   `unauthenticated_access` : Whether unauthenticated access is allowed - `true`, `false`
+-   `iam_role_based_authentication` : Whether IAM role-based authentication is allowed - `true`, `false`
+-   `scram_authentication` : Whether SCRAM-based authentication is allowed - `true`, `false`
 -   `cloudwatch_metrics` : CloudWatch metrics collection scope - `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`
 
-#### Broker Settings (`broker`)
+#### Broker (`broker`)
 
 -   `broker.instance_type` : Broker instance type
--   `broker.broker_count_per_zone` : Number of brokers per Availability Zone (AZ)
+-   `broker.broker_count_per_zone` : Number of brokers per availability zone
 
-#### Storage Settings (`storage`)
+#### Storage (`storage`)
 
--   `storage.ebs_volume_size` : EBS volume size allocated to broker nodes (GB) - `1` ~ `16384`
--   `storage.enable_provisioned_throughput` : Whether to enable provisioned throughput - `true`, `false`
+-   `storage.ebs_volume_size` : EBS volume size assigned to broker nodes (GB) - `1` ~ `16384`
+-   `storage.enable_provisioned_throughput` : Whether provisioned throughput is enabled - `true`, `false`
 -   `storage.provisioned_throughput_per_broker` : Provisioned throughput per broker (MiB/s) - minimum `250`
 
-#### Network Settings (`network`)
+#### Network (`network`)
 
--   `network.linked_vpc_name` : Name of the VPC to which the cluster will be connected
--   `network.subnet_names` : List of subnet names to attach to the MSK cluster
+-   `network.linked_vpc_name` : Name of the VPC connected to the cluster
+-   `network.subnet_names` : List of subnet names connected to the MSK cluster
 -   `network.security_group_names` : List of security group names applied to the MSK cluster
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 

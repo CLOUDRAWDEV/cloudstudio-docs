@@ -17,8 +17,7 @@ tags: [AWS, Resource, Ec2, TransitGateway]
 
 ## Resource Overview
 
-A Transit Gateway is a network transit hub that can be used to interconnect Virtual Private Clouds (VPCs) and on-premises networks. As cloud infrastructure scales globally, inter-region peering connects Transit Gateways using the AWS global infrastructure.  
-Data is automatically encrypted and is not transmitted over the public internet.
+A Transit Gateway is a network transit hub that can be used to interconnect Virtual Private Clouds (VPCs) and on-premises networks. As cloud infrastructure scales globally, inter-region peering connects Transit Gateways using the AWS global infrastructure. Data is automatically encrypted and never transmitted over the public internet.
 
 ## Associated Resources
 
@@ -31,7 +30,7 @@ Data is automatically encrypted and is not transmitted over the public internet.
 -   [**DxGateway**](https://docs.cstudio.app/en/docs/resource/aws/DirectConnect/DxGateway)
 -   [**RouteTable**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/RouteTable)
 -   [**CustomerGateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/CustomerGateway)
--   [**TransitGateway Attachment**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachment)
+-   [**TransitGatewayAttachment**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
 ## Resource Setting Values
 
@@ -42,21 +41,21 @@ Data is automatically encrypted and is not transmitted over the public internet.
 -   `default_route_table_association` : Automatically associate attachments with the default route table - `enable`, `disable`
 -   `default_route_table_propagation` : Automatically propagate attachments to the default route table - `enable`, `disable`
 -   `multicast_support` : Whether to enable multicast domain creation - `enable`, `disable`
--   `transit_gateway_cidr_blocks` : List of CIDR blocks to assign to the Transit Gateway
+-   `transit_gateway_cidr_blocks` : List of CIDR blocks to assign to the transit gateway
 
 #### Direct Connect Gateway Settings (`dx_gateway`)
 
--   `dx_gateway.linked_dx_gateway` : Name of the Direct Connect Gateway to associate
--   `dx_gateway.allowed_prefixes` : List of VPC prefixes (CIDR) to advertise to the on-premises network
+-   `dx_gateway.linked_dx_gateway` : Name of the Direct Connect Gateway to connect
+-   `dx_gateway.allowed_prefixes` : List of VPC prefix CIDRs to advertise to the on-premises network
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [AWS Transit Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
--   [AWS Transit Gateway Pricing(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
--   [aws_ec2_transit_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)
+-   [AWS Transit Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [AWS Transit Gateway Pricing (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

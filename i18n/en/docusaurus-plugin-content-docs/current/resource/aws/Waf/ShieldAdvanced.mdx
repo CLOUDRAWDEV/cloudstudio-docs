@@ -13,7 +13,7 @@ tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
 
 ## Resource Overview
 
-Using AWS Shield Advanced, you can protect AWS resources from DDoS attacks and configure how resources included in a protection group are aggregated, as well as health check settings.
+AWS Shield Advanced protects AWS resources from DDoS attacks and allows configuration of resource aggregation methods and health check settings for resources included in protection groups.
 
 ## Associated Resources
 
@@ -25,20 +25,20 @@ Using AWS Shield Advanced, you can protect AWS resources from DDoS attacks and c
 
 #### Basic Settings
 
--   `aggregation` : Method by which AWS Shield aggregates resource data in the group to detect, mitigate, and report events - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `aggregation` : Method by which AWS Shield aggregates group resource data to detect, mitigate, and report events - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
 -   `pattern` : Criteria for selecting protected resources to include in the group - `ALL`, `ARBITRARY`, `SUM`
--   `resource_type` : Type of resource to include in the protection group
+-   `resource_type` : Resource type to include in the protection group
 
 #### Health Check Settings
 
 -   `health_check_ip_address` : IP address of the endpoint to check
 -   `health_check_fqdn` : Fully qualified domain name of the endpoint to check
--   `health_check_type` : Protocol used to perform health checks - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_type` : Protocol used for health checks - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
 -   `health_check_request_interval` : Interval between health check requests (seconds) - `10`, `30`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

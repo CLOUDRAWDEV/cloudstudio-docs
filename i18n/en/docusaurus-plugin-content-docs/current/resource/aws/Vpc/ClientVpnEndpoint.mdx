@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, ClientVpnEndpoint]
 
 ## Resource Overview
 
-A managed client-based VPN service that provides secure access to AWS resources and on-premises network resources.
+A managed client-based VPN service that enables secure access to AWS resources and on-premises network resources.
 
 ## Associated Resources
 
@@ -41,8 +41,8 @@ A managed client-based VPN service that provides secure access to AWS resources 
 -   `server_acm_certificate_name` : Server certificate name
 -   `transport_protocol` : TLS session transport protocol - `tcp`, `udp`
 -   `vpn_port` : VPN port - `443`, `1194`
--   `enabled_split_tunnel` : Whether to enable split tunneling - `true`, `false`
--   `enabled_self_service_portal` : Whether to enable the self-service portal - `true`, `false`
+-   `enabled_split_tunnel` : Whether split tunneling is enabled - `true`, `false`
+-   `enabled_self_service_portal` : Whether the self-service portal is enabled - `true`, `false`
 -   `session_timeout_hours` : Session timeout duration - `8`, `10`, `12`, `24`
 
 #### Authentication Settings (`authentication`)
@@ -55,19 +55,19 @@ A managed client-based VPN service that provides secure access to AWS resources 
 
 #### Connection Logging (`connection_logging`)
 
--   `connection_logging.enabled` : Whether to enable client connection logging - `true`, `false`
+-   `connection_logging.enabled` : Whether client connection logging is enabled - `true`, `false`
 -   `connection_logging.linked_log_group_name` : CloudWatch Logs log group name
 -   `connection_logging.log_stream_name` : CloudWatch Logs log stream name
 
-#### Network Connectivity
+#### Network Association
 
--   `included_vpc_name` : Name of the target VPC to connect
+-   `included_vpc_name` : Name of the VPC to associate
 -   `linked_security_group_names` : List of security group names to apply
--   `linked_subnet_names` : List of subnet names to connect
+-   `linked_subnet_names` : List of subnet names to associate
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

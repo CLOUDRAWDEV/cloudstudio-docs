@@ -17,7 +17,7 @@ tags: [AWS, Resource, Elasticsearch]
 
 ## Resource Overview
 
-AWS ElasticSearch is a distributed search and analytics engine designed to enable fast search and data analysis. ElasticSearch is built on top of the Apache Lucene search engine and provides a fast and scalable open-source solution. It is used for various purposes such as data collection, log analysis, and monitoring. ElasticSearch can run within an Amazon VPC and integrates with AWS services such as Lambda and Kinesis. It provides AWS security and access control features and integrates with Amazon CloudWatch for monitoring and logging capabilities.
+AWS Elasticsearch is a distributed search and analytics engine designed for fast search and data analysis. It is built on top of the Apache Lucene search engine and provides a fast, scalable, and open-source solution. Elasticsearch is commonly used for data ingestion, log analysis, and monitoring. It can run within an Amazon VPC and integrates with AWS Lambda, Kinesis, and other services. Elasticsearch provides security and access control features and integrates with Amazon CloudWatch for monitoring and logging.
 
 ## Associated Resources
 
@@ -34,60 +34,60 @@ AWS ElasticSearch is a distributed search and analytics engine designed to enabl
 
 #### Basic Settings
 
--   elasticsearch_version : Elasticsearch Domain version
--   availability_zone_count : Number of Availability Zones - 2, 3
--   tls_security_policy : TLS security policy applied to HTTPS endpoint
--   engine : Elasticsearch engine configuration
+-   `elasticsearch_version` : Elasticsearch domain version
+-   `availability_zone_count` : Number of Availability Zones - `2`, `3`
+-   `tls_security_policy` : TLS security policy applied to the HTTPS endpoint
+-   `engine` : Elasticsearch engine configuration
 
-#### Data Node (data_node)
+#### Data Node (`data_node`)
 
--   data_node.instance_type : Data node instance type
--   data_node.instance_count : Number of data nodes
--   data_node.ebs_enabled : Whether to attach EBS to data nodes - true, false
--   data_node.ebs_volume_type : EBS volume type - gp2, gp3, io1, standard
--   data_node.ebs_volume_size : EBS volume size (GiB)
--   data_node.ebs_volume_iops : EBS IOPS
--   data_node.ebs_volume_throughput : EBS throughput (MiB/s)
+-   `data_node.instance_type` : Data node instance type
+-   `data_node.instance_count` : Number of data nodes
+-   `data_node.ebs_enabled` : Whether EBS is attached to data nodes - `true`, `false`
+-   `data_node.ebs_volume_type` : EBS volume type - `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : EBS volume size (GiB)
+-   `data_node.ebs_volume_iops` : EBS IOPS
+-   `data_node.ebs_volume_throughput` : EBS throughput (MiB/s)
 
-#### Master Node (master_node)
+#### Master Node (`master_node`)
 
--   master_node.master_node_enabled : Whether to enable dedicated master nodes - true, false
--   master_node.master_instance_type : Master node instance type
--   master_node.master_node_count : Number of master nodes
+-   `master_node.master_node_enabled` : Whether dedicated master nodes are enabled - `true`, `false`
+-   `master_node.master_instance_type` : Master node instance type
+-   `master_node.master_node_count` : Number of master nodes
 
-#### Custom Endpoint (custom_endpoint)
+#### Custom Endpoint (`custom_endpoint`)
 
--   custom_endpoint.custom_endpoint_enabled : Whether to enable a custom endpoint - true, false
--   custom_endpoint.custom_host_name : Custom host name
--   custom_endpoint.acm_certificate_name : ACM certificate name
+-   `custom_endpoint.custom_endpoint_enabled` : Whether a custom endpoint is enabled - `true`, `false`
+-   `custom_endpoint.custom_host_name` : Custom host name
+-   `custom_endpoint.acm_certificate_name` : ACM certificate name
 
-#### Network Settings (network)
+#### Network (`network`)
 
--   network.network_type : Network access method - vpc_access, public_access
--   network.included_subnet_names : List of Subnet names where the Elasticsearch domain will be created
--   network.linked_security_group_names : List of Security Group names to link
+-   `network.network_type` : Network access type - `vpc_access`, `public_access`
+-   `network.included_subnet_names` : List of subnet names used to create the Elasticsearch domain
+-   `network.linked_security_group_names` : List of Security Group names to associate
 
-#### Fine-Grained Access Control (fine_grained_access)
+#### Fine-Grained Access Control (`fine_grained_access`)
 
--   fine_grained_access.fine_grained_access_enabled : Whether to enable fine-grained access control - true, false
--   fine_grained_access.master_user_type : Master user type - iam_arn, master_user
--   fine_grained_access.iam_arn : Master user IAM ARN
--   fine_grained_access.master_user_name : Master user name
--   fine_grained_access.master_user_password : Master user password
+-   `fine_grained_access.fine_grained_access_enabled` : Whether fine-grained access control is enabled - `true`, `false`
+-   `fine_grained_access.master_user_type` : Master user type - `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : Master user IAM ARN
+-   `fine_grained_access.master_user_name` : Master user name
+-   `fine_grained_access.master_user_password` : Master user password
 
-#### Encryption Settings (encryption)
+#### Encryption (`encryption`)
 
--   encryption.enforce_https : Whether to enforce HTTPS - true, false
--   encryption.node_to_node_encryption_enabled : Whether to enable node-to-node encryption - true, false
--   encryption.data_at_rest_encryption_enabled : Whether to enable encryption at rest - true, false
--   encryption.kms_key_name : KMS key name used for encryption
+-   `encryption.enforce_https` : Whether HTTPS is enforced - `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : Whether node-to-node encryption is enabled - `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : Whether encryption at rest is enabled - `true`, `false`
+-   `encryption.kms_key_name` : KMS key name used for encryption
 
 #### Tags
 
--   tag : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [aws_elasticsearch_domain (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)
+-   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

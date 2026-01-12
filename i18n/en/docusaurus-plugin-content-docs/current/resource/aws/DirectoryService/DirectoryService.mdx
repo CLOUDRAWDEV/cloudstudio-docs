@@ -1,7 +1,7 @@
 ---
 title: DirectoryService
 sidebar_position: 0
-tags: [AWS, 리소스, DirectoryService, DirectoryService]
+tags: [AWS, Resource, DirectoryService, DirectoryService]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, DirectoryService, DirectoryService]
 
 ## Resource Overview
 
-AWS Directory Service provides several ways to use Microsoft Active Directory (AD) with other AWS services. A directory stores information about users, groups, and devices, and administrators use it to manage access to information and resources. AWS Directory Service offers multiple directory options for customers who want to use existing Microsoft AD or LDAP (Lightweight Directory Access Protocol)–aware applications in the cloud. It also provides the same options for developers who require directories to manage users, groups, devices, and access permissions.
+AWS Directory Service provides multiple ways to use Microsoft Active Directory (AD) with other AWS services. Directories store information about users, groups, and devices, and administrators use them to manage access to information and resources. AWS Directory Service offers various directory options for customers who want to use existing Microsoft AD or LDAP (Lightweight Directory Access Protocol)-aware applications in the cloud. It also provides the same options for developers who require directories to manage users, groups, devices, and access permissions.
 
 ### Parent Resource
 
@@ -32,20 +32,20 @@ AWS Directory Service provides several ways to use Microsoft Active Directory (A
 #### Basic Settings
 
 -   `password` : Password for the directory administrator or connector user
--   `type` : Type of the directory - `SimpleAD`, `MicrosoftAD`
--   `size` : Size of the directory - `Small`, `Large`
+-   `type` : Directory type - `SimpleAD`, `MicrosoftAD`
+-   `size` : Directory size - `Small`, `Large`
 -   `edition` : MicrosoftAD edition - `Standard`, `Enterprise`
--   `included_vpc_name` : Name of the VPC where the directory resides
--   `included_subnet_names` : Names of the subnets for the directory servers
+-   `included_vpc_name` : Name of the VPC where the directory is located
+-   `included_subnet_names` : Subnet names for the directory servers
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
--   [AWS Direct Service 가격(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
--   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)
+-   [AWS Directory Service Pricing(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Directory Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

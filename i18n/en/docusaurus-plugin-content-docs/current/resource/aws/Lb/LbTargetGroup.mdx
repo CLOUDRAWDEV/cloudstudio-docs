@@ -21,7 +21,7 @@ A service that routes requests to one or more registered targets, such as EC2 in
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
@@ -39,19 +39,19 @@ A service that routes requests to one or more registered targets, such as EC2 in
 -   `target_type` : Type of load balancer target - `instance`, `ip`, `lambda`, `alb`
 -   `protocol` : Protocol used to route traffic to targets - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `GENEVE`
 -   `port` : Port that receives traffic - `1` ~ `65535`
--   `included_vpc_name` : Name of the VPC where the target group will be created
--   `linked_instance_names` : List of target Instance names
--   `ips` : List of target IPs
+-   `included_vpc_name` : Name of the VPC where the target group is created
+-   `linked_instance_names` : List of target instance names
+-   `ips` : List of target IP addresses
 -   `linked_lambda_name` : Name of the target Lambda
 -   `linked_application_lb_name` : Name of the target ALB
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [LB Target Group (AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
--   [LB Target Group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)
+-   [LB Target Group(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+-   [LB Target Group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)

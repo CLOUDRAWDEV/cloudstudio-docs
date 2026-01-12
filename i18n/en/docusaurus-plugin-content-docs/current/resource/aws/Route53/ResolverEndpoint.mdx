@@ -17,7 +17,7 @@ tags: [AWS, Resource, Route53, ResolverEndpoint]
 
 ## Resource Overview
 
-An endpoint service for DNS queries sent to and received from Amazon VPC.
+An endpoint service for DNS queries sent to and received from an Amazon VPC.
 
 ## Associated Resources
 
@@ -36,14 +36,14 @@ An endpoint service for DNS queries sent to and received from Amazon VPC.
 #### Basic Settings
 
 -   `direction` : DNS query direction - `INBOUND`, `OUTBOUND`
--   `linked_vpc_name` : Name of the VPC to connect with the endpoint
+-   `linked_vpc_name` : Name of the VPC connected to the endpoint
 -   `linked_security_group_names` : List of security group names applied to the endpoint
 -   `ip_address.subnet_name` : Subnet name to use
 -   `ip_address.ip` : Available IP address within the subnet
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

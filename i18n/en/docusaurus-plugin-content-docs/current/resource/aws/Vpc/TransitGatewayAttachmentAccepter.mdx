@@ -17,7 +17,7 @@ tags: [AWS, Resource, VPC, TransitGatewayAttachmentAccepter]
 
 ## Resource Overview
 
-A resource that determines whether to accept a Transit Gateway attachment shared from another AWS account.
+A resource that determines whether to accept a shared transit gateway attachment from another AWS account.
 
 ## Associated Resources
 
@@ -33,17 +33,17 @@ A resource that determines whether to accept a Transit Gateway attachment shared
 
 #### Basic Settings
 
--   `is_manual` : Whether to manually enter the Transit Gateway Attachment ID - `true`, `false`
--   `transit_gateway_attachment_id` : Transit Gateway Attachment ID to accept
--   `linked_transit_gateway_attachment_name` : Name of the Transit Gateway Attachment to accept
+-   `is_manual` : Whether to manually enter the transit gateway attachment ID - `true`, `false`
+-   `transit_gateway_attachment_id` : ID of the transit gateway attachment to accept
+-   `linked_transit_gateway_attachment_name` : Name of the transit gateway attachment to accept
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [TransitGatewayAttachmentAccepter(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
--   [TransitGatewayAttachmentAccepter(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)
+-   [TransitGatewayAttachmentAccepter (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachmentAccepter (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

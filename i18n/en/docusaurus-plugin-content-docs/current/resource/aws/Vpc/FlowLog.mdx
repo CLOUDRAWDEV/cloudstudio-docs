@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, FlowLog]
 
 ## Resource Overview
 
-VPC Flow Logs enable you to capture information about the IP traffic that is sent to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs, Amazon S3, or Amazon Kinesis Data Firehose. After creating a flow log, you can retrieve and view flow log records in the configured log group, bucket, or delivery stream.
+VPC Flow Logs enable you to capture information about the IP traffic going to and from network interfaces in your VPC. Flow log data can be published to Amazon CloudWatch Logs, Amazon S3, or Amazon Kinesis Data Firehose.
 
 ## Associated Resources
 
@@ -35,20 +35,18 @@ VPC Flow Logs enable you to capture information about the IP traffic that is sen
 
 #### Basic Settings
 
--   `linked_log_destination_type` : Destination type for storing log data (S3, CloudWatch Logs)
--   `linked_log_destination_name` : Name of the destination where log data is stored
--   `traffic_type` : Type of traffic to capture - `ALL`, `ACCEPT`, `REJECT`
--   `traffic_type` : `ALL`
--   `included_vpc_name` : Name of the VPC to associate with the Flow Log
+-   `linked_log_destination_type` : Destination type for log data (S3, CloudWatch Logs)
+-   `linked_log_destination_name` : Destination name for log data
+-   `traffic_type` : Traffic type to capture - `ALL`, `ACCEPT`, `REJECT`
+-   `included_vpc_name` : Name of the VPC associated with the flow log
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Logging IP traffic using VPC Flow Logs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs.html)
--   [Amazon CloudWatch Pricing(AWS)](zzzhttps://aws.amazon.com/ko/cloudwatch/pricing/)
+-   [VPC Flow Logs (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs.html)
 -   [aws_flow_log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/flow_log)

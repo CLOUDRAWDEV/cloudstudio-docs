@@ -17,11 +17,11 @@ tags: [AWS, Resource, Lambda, LambdaFunction]
 
 ## Resource Overview
 
-AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs code on a highly available compute infrastructure and handles all compute resource management, including server and operating system maintenance, capacity provisioning and automatic scaling, deployment of code and security patches, and logging. With Lambda, you can run code for almost any type of application or backend service by simply providing code in one of the languages that Lambda supports.
+AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs code on a highly available compute infrastructure and performs all compute resource management, including server and operating system maintenance, capacity provisioning and automatic scaling, code and security patch deployment, and logging. With Lambda, you can run code for almost any type of application or backend service by simply supplying code in one of the languages that Lambda supports.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
@@ -40,25 +40,25 @@ AWS Lambda is a compute service that lets you run code without provisioning or m
 -   `runtime` : Runtime identifier for the Lambda function
 -   `memory_size` : Amount of memory available to the Lambda function at runtime (MB) - `128` ~ `10240`
 -   `handler` : Function entry point in the code
--   `s3_bucket_name` : Name of the S3 bucket containing the function deployment package
+-   `s3_bucket_name` : Name of the S3 bucket that contains the function deployment package
 -   `file_directory` : Path to the function deployment package in S3 (zip file)
--   `role_name` : Name of the IAM Role applied to Lambda
--   `included_subnet_names` : List of Subnet names connected to the Lambda function (minimum 2)
--   `linked_security_group_names` : List of Security Group names connected to the Lambda function
+-   `role_name` : Name of the IAM role applied to Lambda
+-   `included_subnet_names` : List of subnet names connected to the Lambda function (minimum of 2)
+-   `linked_security_group_names` : List of security group names connected to the Lambda function
 -   `tracing_mode` : AWS X-Ray tracing mode - `PassThrough`, `Active`
 
 #### Environment Variables (`environment_variable`)
 
--   `environment_variable` : Environment variables available to the function during Lambda execution (`key:value` format)
+-   `environment_variable` : Environment variable settings available to the function during Lambda execution (`key:value` format)
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [AWS Lambda (AWS)](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
--   [AWS Lambda Pricing (AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
--   [aws_lambda_function (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)
+-   [AWS Lambda(AWS)](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
+-   [AWS Lambda Pricing(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
+-   [aws_lambda_function(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)

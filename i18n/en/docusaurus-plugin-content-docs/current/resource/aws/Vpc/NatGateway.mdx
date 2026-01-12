@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, NatGateway]
 
 ## Resource Overview
 
-A NAT Gateway is a Network Address Translation (NAT) service. It allows instances in a private subnet to connect to services outside the VPC while preventing external services from initiating connections to those instances.
+A NAT Gateway enables instances in a private subnet to connect to services outside the VPC while preventing external services from initiating connections to those instances.
 
 ## Associated Resources
 
@@ -34,18 +34,17 @@ A NAT Gateway is a Network Address Translation (NAT) service. It allows instance
 
 #### Basic Settings
 
--   `included_subnet_name` : Name of the Subnet to associate with the NAT Gateway
+-   `included_subnet_name` : Name of the subnet associated with the NAT Gateway
 -   `connectivity_type` : Connectivity type of the NAT Gateway - `public`, `private`
--   `linked_eip_name` : Name of the Elastic IP to associate
+-   `linked_eip_name` : Name of the Elastic IP associated with the NAT Gateway
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [NAT Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
--   [Amazon VPC Pricing(AWS)](https://aws.amazon.com/ko/vpc/pricing/)
+-   [NAT Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
 -   [aws_nat_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway)

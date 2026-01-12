@@ -27,40 +27,40 @@ A service that allows customers to privately connect to supported AWS services a
 
 ### Connected Resources
 
--   [**Endpoint Service**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `service_range` : Service category for using the Endpoint service - `awsService`, `endpointService`
--   `aws_service_name` : AWS service name to use with the Endpoint service
+-   `service_range` : Service category for endpoint usage - `awsService`, `endpointService`
+-   `aws_service_name` : AWS service name to use for the endpoint
 -   `vpc_endpoint_type` : Endpoint type - `Gateway`, `Interface`, `GatewayLoadBalancer`
--   `included_vpc_name` : Name of the VPC where the Endpoint will be created
--   `enabled_private_dns` : Whether to enable private DNS - `true`, `false`
+-   `included_vpc_name` : Name of the VPC where the endpoint is created
+-   `enabled_private_dns` : Whether private DNS is enabled - `true`, `false`
 -   `enable_private_dns_only_for_inbound_resolver_endpoint` : Whether to enable private DNS only for inbound requests - `true`, `false`
 -   `dns_record_ip_type` : DNS record IP type - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
 -   `ip_address_type` : Endpoint IP address type - `ipv4`, `ipv6`, `dualstack`
--   `policy_access` : Policy access scope for the Endpoint - `Full`, `Custom`
--   `custom_policy` : Custom policy that controls service access
+-   `policy_access` : Policy access scope for the endpoint - `Full`, `Custom`
+-   `custom_policy` : Custom policy controlling service access
 
 #### Endpoint Service Settings (`endpoint_service`)
 
--   `endpoint_service.is_manual` : Whether to manually enter the Endpoint Service ARN - `true`, `false`
+-   `endpoint_service.is_manual` : Whether to manually input the Endpoint Service ARN - `true`, `false`
 -   `endpoint_service.service_name` : Endpoint Service name
 -   `endpoint_service.linked_endpoint_service_name` : Linked Endpoint Service name
 
 #### Network Settings
 
--   `linked_security_group_names` : List of Security Groups to associate with the Endpoint
--   `linked_subnet_names` : List of Subnets where network interfaces will be created
--   `route_table_names` : List of Route Tables to associate with the Endpoint
+-   `linked_security_group_names` : List of security groups connected to the endpoint
+-   `linked_subnet_names` : List of subnets where network interfaces are created
+-   `route_table_names` : List of route tables associated with the endpoint
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

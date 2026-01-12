@@ -1,7 +1,7 @@
 ---
 title: AcmCertificate
 sidebar_position: 0
-tags: [AWS, 리소스, AcmCertificate]
+tags: [AWS, Resource, AcmCertificate]
 ---
 
 <hr />
@@ -21,23 +21,23 @@ Using the ACM Certificate resource, you can request and manage certificates in A
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app//en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `enabled_import` : Whether to import a certificate - `true`, `false`
+-   `enabled_import` : Whether to import an existing certificate - `true`, `false`
 -   `domain_name` : Fully qualified domain name for the certificate
--   `validation_method` : Method to validate domain ownership - `DNS`, `EMAIL`
+-   `validation_method` : Method for validating domain ownership - `DNS`, `EMAIL`
 -   `key_algorithm` : Encryption algorithm - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
--   `certificate_body` : PEM-encoded certificate body to import - up to `5000` characters
--   `certificate_private_key` : PEM-encoded private key of the certificate to import - up to `5000` characters
--   `certificate_chain` : PEM-encoded certificate chain to import - up to `5000` characters
+-   `certificate_body` : PEM-encoded certificate body to import - maximum `5000` characters
+-   `certificate_private_key` : PEM-encoded private key of the certificate to import - maximum `5000` characters
+-   `certificate_chain` : PEM-encoded certificate chain to import - maximum `5000` characters
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ## References
 

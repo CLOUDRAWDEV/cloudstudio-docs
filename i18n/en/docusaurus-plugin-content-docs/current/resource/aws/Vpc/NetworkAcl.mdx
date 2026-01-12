@@ -17,8 +17,7 @@ tags: [AWS, Resource, Vpc, NetworkAcl]
 
 ## Resource Overview
 
-A Network Access Control List (ACL) allows or denies specific inbound or outbound traffic at the subnet level. You can use the default network ACL for a VPC or create a custom network ACL using rules similar to security group rules to add an additional layer of security to your VPC.  
-There is no additional charge for using network ACLs.
+A Network Access Control List (ACL) allows or denies inbound or outbound traffic at the subnet level.
 
 ## Associated Resources
 
@@ -34,32 +33,32 @@ There is no additional charge for using network ACLs.
 
 #### Basic Settings
 
--   `included_vpc_name` : Name of the VPC where the ACL will be created
--   `nacl_description` : Description of the ACL
+-   `included_vpc_name` : Name of the VPC where the ACL is created
+-   `nacl_description` : Description of the network ACL
 
 #### Inbound Rules (`inbound_rule`)
 
--   `inbound_rule.priority` : Inbound rule priority - `0` ~ `199`
--   `inbound_rule.protocol` : Inbound traffic protocol - `TCP`, `UDP`, `ICMP`
--   `inbound_rule.rule_action` : Whether to allow inbound traffic - `ALLOW`, `DROP`
--   `inbound_rule.ip_block` : Source CIDR range for inbound traffic
--   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
+-   `inbound_rule.priority` : Rule priority - `0` ~ `199`
+-   `inbound_rule.protocol` : Traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Action for inbound traffic - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Source CIDR block
+-   `inbound_rule.port_range` : Port range - `1` ~ `65535`
 
 #### Outbound Rules (`outbound_rule`)
 
--   `outbound_rule.priority` : Outbound rule priority - `0` ~ `199`
--   `outbound_rule.protocol` : Outbound traffic protocol - `TCP`, `UDP`, `ICMP`
--   `outbound_rule.rule_action` : Whether to allow outbound traffic - `ALLOW`, `DROP`
--   `outbound_rule.ip_block` : Destination CIDR range for outbound traffic
--   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
+-   `outbound_rule.priority` : Rule priority - `0` ~ `199`
+-   `outbound_rule.protocol` : Traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Action for outbound traffic - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Destination CIDR block
+-   `outbound_rule.port_range` : Port range - `1` ~ `65535`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Control traffic to subnets using Network ACLs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
 -   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

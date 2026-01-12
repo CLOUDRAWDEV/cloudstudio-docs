@@ -17,7 +17,7 @@ tags: [AWS, Resource, Vpc, NetworkFirewallPolicy]
 
 ## Resource Overview
 
-An AWS Network Firewall Policy defines the monitoring and protection behavior for Network Firewall.
+An AWS Network Firewall Policy defines monitoring and protection behavior for Network Firewall.
 
 ## Associated Resources
 
@@ -34,53 +34,35 @@ An AWS Network Firewall Policy defines the monitoring and protection behavior fo
 
 #### Basic Settings
 
--   `description` : Description of the firewall policy (maximum 256 characters)
--   `stream_exception_policy` : Handling method for traffic with broken midstreams - `DROP`, `CONTINUE`, `REJECT`
+-   `description` : Firewall policy description (maximum 256 characters)
+-   `stream_exception_policy` : Handling of midstream traffic interruption - `DROP`, `CONTINUE`, `REJECT`
 
 #### Stateless Default Actions (`stateless_default_action`)
 
--   `stateless_default_action.enabled_fragment_packet_action` : Whether to enable fragment packet handling - `true`, `false`
--   `stateless_default_action.default_action` : Default action for packets that do not match stateless rules - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
--   `stateless_default_action.fragment_default_action` : Action when fragment packets do not match rules - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
+-   `stateless_default_action.enabled_fragment_packet_action` : Whether fragment packet handling is enabled - `true`, `false`
+-   `stateless_default_action.default_action` : Default action for packets not matching stateless rules - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
+-   `stateless_default_action.fragment_default_action` : Action for fragmented packets not matching rules
 
-#### Stateless Rule Groups (`stateless_rule_group_names`)
+#### Stateless Rule Groups
 
--   `stateless_rule_group_names` : List of stateless rule groups to associate with the policy
-    -   key : Priority
-    -   value : Rule group name
+-   `stateless_rule_group_names` : List of stateless rule groups associated with the policy
+    -   key : priority
+    -   value : rule group name
 
 #### Stateful Default Actions (`stateful_default_action`)
 
--   `stateful_default_action.rule_evaluation_order` : Order of stateful rule evaluation - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
--   `stateful_default_action.default_actions` : Default actions for packets that do not match stateful rules
-    -   `aws:drop_strict`
-    -   `aws:drop_established`
-    -   `aws:alert_strict`
-    -   `aws:alert_established`
+-   `stateful_default_action.rule_evaluation_order` : Rule evaluation order - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `stateful_default_action.default_actions` : Default actions for packets not matching stateful rules
 
 #### Stateful Rule Groups
 
--   `strict_stateful_rule_group_names` : Stateful rule groups evaluated using STRICT_ORDER
-    -   key : Priority
-    -   value : Rule group name
--   `default_stateful_rule_group_names` : List of default stateful rule group names
+-   `strict_stateful_rule_group_names` : Stateful rule groups evaluated in STRICT_ORDER
+-   `default_stateful_rule_group_names` : Default stateful rule group names
 
 #### Rule Variables (`rule_variables`)
 
--   `rule_variables` : List of variables used to override Suricata default settings
+-   `rule_variables` : Variables used to override Suricata default settings
 
-#### Encryption Settings (`encryption_configuration`)
+#### Encryption Configuration (`encryption_configuration`)
 
--   `encryption_configuration.enabled_custom_configuration` : Whether to enable encryption using an AWS-managed key - `true`, `false`
--   `encryption_configuration.kms_key_name` : Name of the KMS Key to use
-
-#### Tags
-
--   `tag` : Tags used to categorize resources
-
----
-
-## References
-
--   [NetworkFirewallPolicy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
--   [NetworkFirewallPolicy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)
+-   `encrypt

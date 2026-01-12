@@ -17,8 +17,7 @@ tags: [AWS, Resource, Vpc]
 
 ## Resource Overview
 
-Amazon Virtual Private Cloud (Amazon VPC) enables you to fully control your virtual networking environment, including resource placement, connectivity, and security. Start by setting up a VPC in the AWS Management Console, then add resources such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances.  
-Finally, define how VPCs communicate with each other across accounts, Availability Zones, or AWS Regions. In the example below, network traffic is shared between two VPCs within each Region.
+Amazon Virtual Private Cloud (Amazon VPC) enables full control over a virtual networking environment, including resource placement, connectivity, and security. Get started by setting up a VPC in the AWS Management Console, then add resources such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances. Finally, define how VPCs communicate with each other across accounts, Availability Zones, or AWS Regions. In the example below, network traffic is shared between two VPCs in each Region.
 
 ## Associated Resources
 
@@ -57,17 +56,17 @@ Finally, define how VPCs communicate with each other across accounts, Availabili
 #### Basic Settings
 
 -   `cidr_block` : IP address range (CIDR) of the VPC
--   `enabled_dns_support` : Whether to enable DNS resolution - `true`, `false`
--   `enabled_dns_hostnames` : Whether to enable DNS hostnames - `true`, `false`
+-   `enabled_dns_support` : Whether DNS resolution is enabled - `true`, `false`
+-   `enabled_dns_hostnames` : Whether DNS hostnames are enabled - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Amazon Virtual Private Cloud(Amazon VPC)(AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
--   [Amazon VPC Pricing(AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
--   [aws_vpc(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)
+-   [Amazon Virtual Private Cloud (Amazon VPC) (AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Amazon VPC Pricing (AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
+-   [aws_vpc (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

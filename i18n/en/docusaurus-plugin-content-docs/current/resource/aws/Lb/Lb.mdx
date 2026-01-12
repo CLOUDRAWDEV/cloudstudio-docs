@@ -37,44 +37,44 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 #### Basic Settings
 
 -   `load_balancer_type` : ELB type - `application`, `network`, `gateway`
--   `internal` : Whether to deploy the ELB as Internet-facing or Internal - `true`, `false`
--   `included_vpc_name` : Name of the VPC where target resources will be created
--   `linked_subnet_names` : List of Subnet names to attach to the LB
--   `linked_security_group_names` : List of Security Group names assigned to the LB (Application LB only)
+-   `internal` : Deploy ELB as internet-facing or internal - `true`, `false`
+-   `included_vpc_name` : Name of the VPC where target resources are created
+-   `linked_subnet_names` : List of subnet names connected to the load balancer
+-   `linked_security_group_names` : List of security group names assigned to the load balancer (Application LB only)
 -   `drop_invalid_header` : Whether to drop invalid HTTP headers - `true`, `false`
 
 #### Listener (`listener`)
 
--   `listener.protocol` : Protocol for client → load balancer connection - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+-   `listener.protocol` : Protocol between client and load balancer - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
 -   `listener.port` : Port on which the load balancer listens
 -   `listener.default_action_type` : Default routing action type - `forward`, `redirect`, `fixed-response`
--   `listener.linked_target_group_name` : Name of the Target Group to route traffic to
+-   `listener.linked_target_group_name` : Name of the target group to route traffic to
 -   `listener.acm_certificate_name` : Name of the default SSL server certificate
 -   `listener.ssl_policy` : Name of the SSL policy applied to the listener
 
-#### Listener Rule (`rule`)
+#### Listener Rules (`rule`)
 
--   `rule.target_listener` : Name of the Listener to apply the rule to
+-   `rule.target_listener` : Listener name to apply the rule to
 -   `rule.priority` : Rule priority - `1` ~ `50000`
 
 #### Fixed Response (`rule.fixed_response`)
 
 -   `rule.fixed_response.fixed_response_order` : Fixed response priority - `1` ~ `50000`
--   `rule.fixed_response.content_type` : Response Content-Type
+-   `rule.fixed_response.content_type` : Response content type
 -   `rule.fixed_response.message_body` : Response message body
--   `rule.fixed_response.fixed_response_status_code` : HTTP response code
+-   `rule.fixed_response.fixed_response_status_code` : HTTP response status code
 
 #### Forward (`rule.forward`)
 
 -   `rule.forward.forward_order` : Forward priority - `1` ~ `50000`
--   `rule.forward.forward_target_group_list` : List of Target Groups to forward to
--   `rule.forward.enable_stickiness` : Whether to enable Target Group stickiness - `true`, `false`
--   `rule.forward.duration` : Duration (seconds) for routing to the same Target Group
+-   `rule.forward.forward_target_group_list` : List of target groups for forwarding
+-   `rule.forward.enable_stickiness` : Whether target group stickiness is enabled - `true`, `false`
+-   `rule.forward.duration` : Duration (seconds) traffic is routed to the same target group
 
 #### Redirect (`rule.redirect`)
 
 -   `rule.redirect.redirect_order` : Redirect priority - `1` ~ `50000`
--   `rule.redirect.host` : Host name (`#{host}` supported)
+-   `rule.redirect.host` : Host name (supports `#{host}`)
 -   `rule.redirect.path` : Absolute path (must start with `/`)
 -   `rule.redirect.port` : Port - `1` ~ `65535` or `#{port}`
 -   `rule.redirect.protocol` : Protocol - `HTTP`, `HTTPS`, `#{protocol}`
@@ -83,11 +83,11 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 
 #### Authentication (`rule.authenticate`)
 
--   `rule.authenticate.authenticate_type` : Authentication method - `authenticate_cognito`, `authenticate_oidc`
+-   `rule.authenticate.authenticate_type` : Authentication type - `authenticate_cognito`, `authenticate_oidc`
 -   `rule.authenticate.authenticate_order` : Authentication priority - `1` ~ `50000`
 -   `rule.authenticate.on_unauthenticated_request` : Action for unauthenticated requests - `deny`, `allow`, `authenticate`
 -   `rule.authenticate.scope` : User scope requested from the IdP
--   `rule.authenticate.session_cookie_name` : Cookie name for session persistence
+-   `rule.authenticate.session_cookie_name` : Cookie name used for session persistence
 -   `rule.authenticate.session_timeout` : Session duration (seconds) - `60` ~ `86400`
 -   `rule.authenticate.user_pool_arn` : Cognito User Pool ARN
 -   `rule.authenticate.user_pool_client_id` : Cognito User Pool Client ID
@@ -113,12 +113,12 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Elastic Load Balancing (AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
--   [Elastic Load Balancing Pricing (AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
--   [aws_lb (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
+-   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing Pricing(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

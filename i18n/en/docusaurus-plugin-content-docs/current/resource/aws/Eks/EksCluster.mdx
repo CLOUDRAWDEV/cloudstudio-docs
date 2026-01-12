@@ -1,7 +1,7 @@
 ---
 title: EksCluster
 sidebar_position: 0
-tags: [AWS, 리소스, Eks, EksCluster]
+tags: [AWS, Resource, Eks, EksCluster]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Eks, EksCluster]
 
 ## Resource Overview
 
-Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy to run Kubernetes on AWS without needing to install and operate your own Kubernetes clusters.
+Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy to run Kubernetes on AWS without needing to install or operate your own Kubernetes clusters.
 
 ## Associated Resources
 
@@ -34,20 +34,20 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes i
 
 #### Basic Settings
 
--   `version` : Kubernetes version of the EKS Cluster
+-   `version` : Kubernetes version of the EKS cluster
 -   `cluster_role_arn` : IAM role used by the Kubernetes control plane to manage AWS resources
--   `enabled_encryption` : Whether to enable cluster encryption - `true`, `false`
--   `kms_key_name` : Name of the KMS Key to use for the cluster
--   `included_subnet_names` : List of subnet names included in the Subnet Group where the EKS Cluster will be deployed
--   `linked_security_group_names` : List of security group names to associate with the EKS Cluster
--   `endpoint_access_type` : Access type for the EKS API server endpoint - `Public`, `Public and Private`, `Private`
--   `public_access_cidrs` : List of CIDR blocks allowed to access the EKS Public API server endpoint
+-   `enabled_encryption` : Whether cluster encryption is enabled - `true`, `false`
+-   `kms_key_name` : KMS key name used by the cluster
+-   `included_subnet_names` : List of subnet names included in the subnet group where the EKS cluster is deployed
+-   `linked_security_group_names` : List of Security Group names associated with the EKS cluster
+-   `endpoint_access_type` : EKS API server endpoint access mode - `Public`, `Public and Private`, `Private`
+-   `public_access_cidrs` : List of CIDR blocks allowed to access the EKS public API endpoint
 
 #### Control Plane Logging
 
--   `enabled_cluster_log_types` : Control Plane log types to enable - `api`, `authenticator`, `audit`, `scheduler`, `controllerManager`
+-   `enabled_cluster_log_types` : Control plane log types to enable - `api`, `authenticator`, `audit`, `scheduler`, `controllerManager`
 
-#### Add-ons (`add_ons`)
+#### Add-on Settings (`add_ons`)
 
 -   `add_ons.kube_proxy_version` : Version of kube-proxy running on each node
 -   `add_ons.vpc_cni_version` : Version of the Amazon VPC CNI plugin
@@ -55,25 +55,25 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes i
 
 #### Node Group (`node_group`)
 
--   `node_group.node_role_name` : IAM role to use for worker nodes
--   `node_group.enabled_launch_template` : Whether to use a launch template - `true`, `false`
--   `node_group.launch_template_name` : Name of the launch template to use for the node group
+-   `node_group.node_role_name` : IAM role used by worker nodes
+-   `node_group.enabled_launch_template` : Whether a launch template is used - `true`, `false`
+-   `node_group.launch_template_name` : Launch template name used by the node group
 -   `node_group.launch_template_version` : Launch template version
 -   `node_group.min_node_count` : Minimum number of worker nodes
 -   `node_group.max_node_count` : Maximum number of worker nodes
 -   `node_group.desired_node_count` : Desired number of worker nodes
--   `node_group.max_node_unavailable` : Maximum number of unavailable worker nodes allowed during updates
--   `node_group.max_percentage_unavailable` : Maximum percentage of unavailable worker nodes allowed during updates
--   `node_group.disk_size` : Size of the EBS volume attached to each node (GB) - `1` ~ `16384`
+-   `node_group.max_node_unavailable` : Maximum number of unavailable worker nodes during updates
+-   `node_group.max_percentage_unavailable` : Maximum percentage of unavailable worker nodes during updates
+-   `node_group.disk_size` : EBS volume size attached to each node (GB) - `1` ~ `16384`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
--   [Amazon EKS 요금(AWS)](https://aws.amazon.com/ko/eks/pricing/)
+-   [Amazon EKS Pricing(AWS)](https://aws.amazon.com/ko/eks/pricing/)
 -   [aws_eks_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)

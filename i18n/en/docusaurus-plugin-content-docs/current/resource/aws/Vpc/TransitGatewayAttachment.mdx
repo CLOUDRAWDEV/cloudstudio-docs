@@ -17,7 +17,7 @@ tags: [AWS, Resource, VPC, TransitGatewayAttachment]
 
 ## Resource Overview
 
-A service used to connect a VPC with a Transit Gateway.
+A service used to connect a VPC to an on-premises network through a Transit Gateway.
 
 ## Associated Resources
 
@@ -29,29 +29,29 @@ A service used to connect a VPC with a Transit Gateway.
 
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 -   [**TransitGateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGateway)
--   [**TransitGateway Attachment Accepter**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
+-   [**TransitGatewayAttachmentAccepter**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `linked_transit_gateway_name` : Name of the Transit Gateway to connect to the VPC
+-   `linked_transit_gateway_name` : Name of the transit gateway to connect to the VPC
 -   `is_manual` : Whether to manually enter the VPC ID to connect - `true`, `false`
--   `linked_vpc_name` : Name of the VPC to attach to the Transit Gateway
--   `subnet_names` : List of Subnet names to associate with the Transit Gateway
+-   `linked_vpc_name` : Name of the VPC to connect to the transit gateway
+-   `subnet_names` : List of subnet names to attach to the transit gateway
 
 #### Manual Attachment Settings (`manual`)
 
--   `vpc_id` : VPC ID to attach to the Transit Gateway
--   `subnet_ids` : List of Subnet IDs within the VPC specified by `vpc_id`
+-   `vpc_id` : VPC ID to attach to the transit gateway
+-   `subnet_ids` : List of subnet IDs within the VPC specified by `vpc_id`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [TransitGatewayAttachment(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
--   [TransitGatewayAttachment(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment)
+-   [Transit Gateway Attachments (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachment (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment)

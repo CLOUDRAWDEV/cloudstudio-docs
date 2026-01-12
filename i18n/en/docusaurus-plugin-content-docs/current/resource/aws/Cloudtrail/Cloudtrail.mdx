@@ -1,7 +1,7 @@
 ---
 title: CloudTrail
 sidebar_position: 0
-tags: [AWS, 리소스, CloudTrail]
+tags: [AWS, Resource, CloudTrail]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, CloudTrail]
 
 ## Resource Overview
 
-AWS CloudTrail enables you to monitor the status of AWS deployments in the cloud by recording AWS API calls for your account, including API calls made through the AWS Management Console, AWS SDKs, command line tools, and higher-level AWS services. You can also identify which users and accounts called AWS APIs for services supported by CloudTrail, which source IP addresses the calls were made from, and the time when the calls occurred. Using APIs, you can integrate CloudTrail into applications, automate trail creation for organizations, check trail status, and control how administrators enable and disable CloudTrail logging.
+AWS CloudTrail enables monitoring of AWS deployments in the cloud by retrieving records of AWS API calls made on your account, including calls made through the AWS Management Console, AWS SDKs, command line tools, and higher-level AWS services. It allows you to identify which users and accounts called AWS APIs supported by CloudTrail, the source IP addresses from which calls were made, and the time at which calls occurred. You can integrate CloudTrail into applications using APIs, automate trail creation for organizations, check trail status, and control how administrators enable and disable CloudTrail logging.
 
 ## Associated Resources
 
@@ -27,7 +27,7 @@ AWS CloudTrail enables you to monitor the status of AWS deployments in the cloud
 
 ### Connected Resources
 
--   [**S3 Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
+-   [**S3Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
 
 ---
 
@@ -35,19 +35,19 @@ AWS CloudTrail enables you to monitor the status of AWS deployments in the cloud
 
 #### Basic Settings
 
--   `linked_s3_bucket_name` : Name of the S3 bucket to store CloudTrail log files
--   `s3_key_prefix` : S3 object key prefix to use when storing log files
--   `multi_region_enabled` : Whether to enable multi-region trails - `true`, `false`
+-   `linked_s3_bucket_name` : Name of the S3 Bucket used to store CloudTrail log files
+-   `s3_key_prefix` : S3 object key prefix used when storing log files
+-   `multi_region_enabled` : Whether multi-region trails are enabled - `true`, `false`
 -   `global_service_events` : Whether to include global service events such as IAM in logs - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon CloudTrail(AWS)](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
--   [Amazon CloudTrail 가격(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
+-   [Amazon CloudTrail Pricing(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
 -   [Amazon CloudTrail(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)
