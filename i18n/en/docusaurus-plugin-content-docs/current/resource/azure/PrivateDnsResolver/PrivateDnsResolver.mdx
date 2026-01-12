@@ -18,36 +18,37 @@ tags: [Azure, Network, PrivateDnsResolver]
 ## Resource Overview
 
 Azure Private DNS Resolver is a **managed DNS resolver service that processes Private DNS queries within a Virtual Network or forwards queries to on-premises and external DNS servers**.  
-By using inbound and outbound endpoints along with forwarding rules, you can build a hybrid DNS resolution architecture.
+By using inbound/outbound endpoints and forwarding rules, it enables a hybrid DNS resolution architecture.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
 
 ### Connected Resources
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `included_vnet_name` : Name of the Virtual Network to which the DNS Resolver is applied
+-   `included_vnet_name` : Name of the Virtual Network to which the DNS Resolver will be applied
 
 #### Inbound Resolver (`inbound`)
 
--   `inbound.linked_inbound_subnet_name` : Name of the subnet where the inbound resolver endpoint is deployed
+-   `inbound.linked_inbound_subnet_name` : Name of the subnet where the inbound resolver endpoint will be deployed
 -   `inbound.private_ip_allocation_method` : IP allocation method for the inbound endpoint - `Dynamic`, `Static`
--   `inbound.private_ip_address` : Private IP address used by the inbound endpoint
+-   `inbound.private_ip_address` : Private IP address to be used by the inbound endpoint
 
 #### Outbound Resolver (`outbound`)
 
--   `outbound.linked_outbound_subnet_name` : Name of the subnet where the outbound resolver endpoint is deployed
--   `target_outbound_endpoints` : List of outbound resolver endpoints used for DNS query forwarding
+-   `outbound.linked_outbound_subnet_name` : Name of the subnet where the outbound resolver endpoint will be deployed
+
+-   `target_outbound_endpoints` : List of outbound resolver endpoints to be used when forwarding DNS queries
 
 #### DNS Forwarding Rule (`rule`)
 
--   `rule.domain_name` : Domain name to which the rule applies
+-   `rule.domain_name` : Domain name to which the rule will be applied
 -   `rule.enable_forwarding_rule` : Whether to enable the DNS forwarding rule - `true`, `false`
 
 ##### Target DNS Servers (`rule.target_dns_servers`)
@@ -57,5 +58,5 @@ By using inbound and outbound endpoints along with forwarding rules, you can bui
 
 ## References
 
--   [Azure Private DNS Resolver Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-overview)
--   [Azure DNS Forwarding Configuration (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-endpoints-rulesets)
+-   [Azure Private DNS Resolver Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-overview)
+-   [Azure DNS Forwarding Configuration(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-endpoints-rulesets)

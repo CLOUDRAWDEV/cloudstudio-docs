@@ -17,22 +17,22 @@ tags: [Azure, Network, VpnGateway]
 
 ## Resource Overview
 
-Azure VpnGateway is a **gateway resource that provides VPN connectivity between on-premises networks or other Azure networks, centered around a Virtual Hub**.  
-By configuring connections with VpnSite resources, it establishes Site-to-Site VPN tunnels and allows fine-grained control over security policies and encryption options.
+Azure VpnGateway is a **gateway resource that provides VPN connectivity between on-premises networks or other Azure networks centered around a Virtual Hub**.  
+By configuring connections with VpnSite, it establishes Site-to-Site VPN tunnels and allows fine-grained control over security policies and encryption options.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**VpnSite**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
+-   [**VpnSite**](https://docs.cstudio.app/docs/resource/azure/Network/VpnSite)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `target_virtual_hub_name` : Name of the Virtual Hub to which the VPN Gateway is connected
+-   `target_virtual_hub_name` : Name of the Virtual Hub to which the VPN Gateway will be connected
 
 #### Connection (`connection`)
 
@@ -52,9 +52,9 @@ By configuring connections with VpnSite resources, it establishes Site-to-Site V
 -   `connection.link_names.ike_encryption_algorithm` : IKE key exchange encryption algorithm
 -   `connection.link_names.ike_integrity_algorithm` : IKE key exchange integrity algorithm
 -   `connection.link_names.pfs_group` : Perfect Forward Secrecy (PFS) group
--   `connection.link_names.sa_data_size_kb` : Maximum Security Association data size (KB)
+-   `connection.link_names.sa_data_size_kb` : Maximum Security Association data transfer size (KB)
 
 ## References
 
--   [Azure VPN Gateway Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
--   [Azure Virtual WAN VPN Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-gateway-about)
+-   [Azure VPN Gateway Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [Azure Virtual WAN VPN Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-gateway-about)

@@ -17,30 +17,30 @@ tags: [Azure, Network, BastionHost]
 
 ## Resource Overview
 
-A Bastion Host is an Azure PaaS networking service that provides **secure RDP and SSH access** to virtual machines within a Virtual Network without exposing public IP addresses directly to the VMs.  
-It supports browser-based access and enables the creation of a centralized access point without opening management ports, ensuring both enhanced security and operational convenience.
+Bastion Host is an Azure PaaS network service that provides **secure RDP and SSH access** to virtual machines within a Virtual Network without directly exposing public IPs on the VMs.  
+It supports browser-based access and enables a centralized access point without opening management ports, ensuring both security and operational convenience.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `included_subnet_name` : Name of the Subnet where the Bastion Host will be located
+-   `included_subnet_name` : Name of the Subnet where the Bastion Host will be deployed
 -   `sku` : SKU of the Bastion Host - `Basic`, `Standard`
--   `linked_public_ip_name` : Name of the Public IP to associate with the Bastion Host
+-   `linked_public_ip_name` : Name of the Public IP to link to the Bastion Host
 -   `ip_config_name` : Name of the IP Configuration used by the Bastion Host
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Bastion Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview)
--   [Azure Bastion SKU Comparison (Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview#sku)
+-   [Azure Bastion Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview)
+-   [Azure Bastion SKU Comparison(Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview#sku)

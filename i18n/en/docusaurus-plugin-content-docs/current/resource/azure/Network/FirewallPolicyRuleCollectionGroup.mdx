@@ -17,20 +17,20 @@ tags: [Azure, Network, FirewallPolicyRuleCollectionGroup]
 
 ## Resource Overview
 
-FirewallPolicyRuleCollectionGroup is a resource that **groups multiple rule collections within an Azure Firewall Policy and manages them collectively**.  
-Application, NAT, and Network Rule Collections can be organized into a single group, and the processing order within the policy can be controlled based on the group priority.
+FirewallPolicyRuleCollectionGroup is a resource that **groups multiple rule collections within an Azure Firewall Policy for centralized management**.  
+Application, NAT, and Network Rule Collections can be organized into a single group, and the processing order within the policy can be controlled based on group priority.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**FirewallPolicy**](https://docs.cstudio.app/en/docs/resource/azure/Network/FirewallPolicy)
+-   [**FirewallPolicy**](https://docs.cstudio.app/docs/resource/azure/Network/FirewallPolicy)
 
-## Resource Configuration
+## Resource Setting Values
 
 -   `included_firewall_policy_name` : Name of the Azure Firewall Policy to include
 -   `priority` : Processing priority of the Rule Collection Group
--   `tag` : Tags used to categorize the resource
+-   `tag` : Tags for categorizing resources
 
 #### Application Rule Collection (`application_rule_collection`)
 
@@ -41,7 +41,7 @@ Application, NAT, and Network Rule Collections can be organized into a single gr
 
 -   `application_rule_collection.rule.protocols` : List of source IP addresses or address ranges for the traffic
 -   `application_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges for the traffic
--   `application_rule_collection.rule.destination_fqdns` : List of destination FQDNs (Fully Qualified Domain Names) for the traffic
+-   `application_rule_collection.rule.destination_fqdns` : List of destination FQDNs (fully qualified domain names)
 
 #### NAT Rule Collection (`nat_rule_collection`)
 
@@ -51,9 +51,9 @@ Application, NAT, and Network Rule Collections can be organized into a single gr
 #### NAT Rule Collection > Rule (`nat_rule_collection.rule`)
 
 -   `nat_rule_collection.rule.protocols` : List of protocols to apply - `TCP`, `UDP`
--   `nat_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges for the traffic
--   `nat_rule_collection.rule.destination_address` : Destination IP address for the traffic
--   `nat_rule_collection.rule.destination_port` : Destination port number for the traffic
+-   `nat_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges
+-   `nat_rule_collection.rule.destination_address` : Destination IP address
+-   `nat_rule_collection.rule.destination_port` : Destination port number
 -   `nat_rule_collection.rule.translated_address` : Translated destination IP address
 -   `nat_rule_collection.rule.translated_port` : Translated destination port number
 
@@ -65,13 +65,13 @@ Application, NAT, and Network Rule Collections can be organized into a single gr
 #### Network Rule Collection > Rule (`network_rule_collection.rule`)
 
 -   `network_rule_collection.rule.protocols` : List of protocols to apply - `Any`, `TCP`, `UDP`, `ICMP`
--   `network_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges for the traffic
--   `network_rule_collection.rule.destination_addresses` : List of destination IP addresses or address ranges for the traffic
--   `network_rule_collection.rule.destination_ports` : List of destination port numbers for the traffic
+-   `network_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges
+-   `network_rule_collection.rule.destination_addresses` : List of destination IP addresses or address ranges
+-   `network_rule_collection.rule.destination_ports` : List of destination port numbers
 
 ---
 
 ## References
 
--   [Azure Firewall Policy Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/policy-overview)
--   [Azure Firewall Policy Rule Processing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/rule-processing)
+-   [Azure Firewall Policy Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/policy-overview)
+-   [Azure Firewall Policy Rules(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/rule-processing)

@@ -18,33 +18,33 @@ tags: [Azure, Network, Firewall]
 ## Resource Overview
 
 Azure Firewall is a **managed network firewall service** deployed within a Virtual Network that centrally controls inbound and outbound traffic and provides threat protection.  
-It supports L3–L7 level filtering through Network, Application, and NAT rules, and is commonly used as a shared security boundary in hub-and-spoke or single VNet architectures.
+It supports L3–L7 filtering through Network, Application, and NAT rules, and is commonly used as a shared security boundary in hub-and-spoke or single VNet architectures.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `sku_tier` : Pricing tier of the Firewall - `Basic`, `Standard`, `Premium`
 -   `ip_config_name` : Name of the IP Configuration
--   `included_subnet_name` : Name of the Subnet where the Firewall will be deployed
--   `linked_firewall_subnet_public_ip_name` : Name of the Public IP to associate with the Firewall Subnet
+-   `included_subnet_name` : Name of the Subnet where the Firewall is located
+-   `linked_firewall_subnet_public_ip_name` : Name of the Public IP linked to the Firewall Subnet
 -   `management_ip_config_name` : Name of the Management IP Configuration
 -   `target_firewall_management_subnet_name` : Name of the Firewall Management Subnet
--   `linked_firewall_management_subnet_public_ip_name` : Name of the Public IP to associate with the Firewall Management Subnet
+-   `linked_firewall_management_subnet_public_ip_name` : Name of the Public IP linked to the Firewall Management Subnet
 -   `sku_name` : Firewall SKU name - `AZFW_VNet`, `AZFW_Hub`
--   `tag` : Tags used to classify the resource
+-   `tag` : Tags for categorizing resources
 
 #### Network Rule Collection (`network_rule_collection`)
 
--   `network_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `network_rule_collection.priority` : Priority of the Rule Collection - `100` ~ `65000`
 -   `network_rule_collection.action` : Action applied to matching traffic - `Allow`, `Deny`
 
 #### Network Rules (`network_rules`)
@@ -56,19 +56,19 @@ It supports L3–L7 level filtering through Network, Application, and NAT rules,
 
 #### Application Rule Collection (`application_rule_collection`)
 
--   `application_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `application_rule_collection.priority` : Priority of the Rule Collection - `100` ~ `65000`
 -   `application_rule_collection.action` : Action applied to matching traffic - `Allow`, `Deny`
 
 #### Application Rules (`application_rules`)
 
 -   `application_rules.source_addresses` : List of source IP addresses or ranges
 -   `application_rules.target_fqdns` : List of FQDNs for outbound traffic filtering
--   `application_rules.protocol_port` : Port used for the protocol connection
+-   `application_rules.protocol_port` : Port for protocol communication
 -   `application_rules.protocol_type` : Protocol type - `Http`, `Https`, `Mssql`
 
 #### NAT Rule Collection (`nat_rule_collection`)
 
--   `nat_rule_collection.priority` : Priority of the rule collection - `100` ~ `65000`
+-   `nat_rule_collection.priority` : Priority of the Rule Collection - `100` ~ `65000`
 -   `nat_rule_collection.action` : Action applied to matching traffic - `Dnat`, `Snat`
 
 #### NAT Rules (`nat_rules`)
@@ -83,5 +83,5 @@ It supports L3–L7 level filtering through Network, Application, and NAT rules,
 
 ## References
 
--   [Azure Firewall Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
--   [Azure Firewall Rule Processing Logic (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)
+-   [Azure Firewall Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall Rule Processing Logic(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)

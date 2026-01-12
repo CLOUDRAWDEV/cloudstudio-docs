@@ -17,38 +17,39 @@ tags: [Azure, ContainerRegistry, Container]
 
 ## Resource Overview
 
-Azure Container Registry is a private container registry service designed to securely store and manage container images and OCI artifacts.  
-It integrates closely with Docker- and Kubernetes-based workloads,  
-and allows fine-grained configuration of security, performance, and network access controls.
+Azure Container Registry is a private container registry service for securely storing and managing  
+container images and OCI artifacts.  
+It integrates closely with Docker- and Kubernetes-based workloads  
+and allows fine-grained configuration of security, performance, and network access control.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Private EndPoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `sku` :  
-    SKU type for the performance and scalability of the Container Registry
+    SKU type for performance and scalability of the Container Registry
 
     -   `Basic`
     -   `Standard`
     -   `Premium`
 
 -   `admin_enabled` :  
-    Whether to enable the administrator account – `true`, `false`
+    Whether to enable the admin account - `true`, `false`
 
 -   `public_network_access_enabled` :  
-    Whether to allow public network access – `true`, `false`
+    Whether to allow public network access - `true`, `false`
 
 ### Network Rule Settings (`network_rule_set`)
 
-> Configurable only when the SKU is set to `Premium`.
+> Available only when the SKU is set to `Premium`.
 
 -   `network_rule_set.default_action` :  
     Default action for requests that do not match any rule
@@ -57,16 +58,16 @@ and allows fine-grained configuration of security, performance, and network acce
     -   `Deny`
 
 -   `network_rule_set.ip_ranges` :  
-    List of IP address CIDR ranges for requests that match the rules
+    List of IP address CIDR ranges that are allowed by the rules
 
 ### Tags
 
 -   `tag` :  
-    Tags used to categorize the resource – up to 512 characters, `key`:`value`
+    Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Container Registry (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/)
+-   [Azure Container Registry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/)
 -   [Terraform azurerm_container_registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

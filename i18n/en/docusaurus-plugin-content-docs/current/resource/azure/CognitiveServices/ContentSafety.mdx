@@ -17,16 +17,16 @@ tags: [Azure, ContentSafety, CognitiveServices]
 
 ## Resource Overview
 
-Content Safety is an AI-based validation service that automatically analyzes various types of content, such as text and images, to detect and filter harmful or inappropriate elements.  
-It is used to pre-screen content generated or submitted within applications to prevent policy violations and provide a safe user experience.
+Content Safety is an AI-based verification service that automatically analyzes various types of content such as text and images to detect and filter harmful or inappropriate elements.  
+It is used to proactively inspect content generated or submitted by applications to prevent policy violations and provide a safe user experience.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `sku_name` : Pricing tier for using Content Safety
 
@@ -36,22 +36,22 @@ It is used to pre-screen content generated or submitted within applications to p
 
 ### Network Access Control (`network_acls`)
 
--   `network_acls.default_action` : Default policy for network access control – `Allow`, `Deny`
+-   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
 
 -   `network_acls.ip_rules` : List of allowed IP addresses or CIDR ranges for resource access
 
--   `local_auth_enabled` : Whether to enable local authentication using API keys – `true`, `false`
+-   `local_auth_enabled` : Whether to enable local authentication using API keys - `true`, `false`
 
--   `public_network_access_enabled` : Whether to allow resource access via the public internet – `true`, `false`
+-   `public_network_access_enabled` : Whether to allow resource access through the public internet - `true`, `false`
 
--   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks – `true`, `false`
+-   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
 
--   `dynamic_throttling_enabled` : Whether to enable automatic request throttling based on request volume – `true`, `false`
+-   `dynamic_throttling_enabled` : Whether to enable automatic request throttling based on request volume - `true`, `false`
 
 ---
 
 ## References
 
--   [Azure AI Content Safety (Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/content-safety/overview)
+-   [Azure AI Content Safety(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/content-safety/overview)
 -   [Azure Cognitive Services Pricing](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
--   [Azure Cognitive Services Account (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+-   [Azure Cognitive Services Account(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)

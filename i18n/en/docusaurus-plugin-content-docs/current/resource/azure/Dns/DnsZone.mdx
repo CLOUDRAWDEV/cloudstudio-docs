@@ -17,54 +17,54 @@ tags: [Azure, DNS, DnsZone, Network]
 
 ## Resource Overview
 
-A DNS Zone is an area that hosts DNS records for a specific domain, allowing you to create and manage each DNS record.
+A DNS Zone is an area that hosts DNS records for a specific domain, allowing you to create and manage individual DNS records.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### A Record (`dns_a_record`)
 
--   `dns_a_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `dns_a_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `dns_a_record.records` : List of IPv4 addresses
 
 #### AAAA Record (`dns_aaaa_record`)
 
--   `dns_aaaa_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `dns_aaaa_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `dns_aaaa_record.records` : List of IPv6 addresses
 
 #### CNAME Record (`dns_cname_record`)
 
--   `dns_cname_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
--   `dns_cname_record.record` : Alias used to connect a subdomain to another record
+-   `dns_cname_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_cname_record.record` : Alias used to map a subdomain to another record
 
 #### NS Record (`dns_ns_record`)
 
--   `dns_ns_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `dns_ns_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `dns_ns_record.records` : List of name server records
 
 #### PTR Record (`dns_ptr_record`)
 
--   `dns_ptr_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `dns_ptr_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `dns_ptr_record.records` : List of domain names for pointer record types
 
 #### TXT Record (`dns_txt_record`)
 
--   `dns_txt_record.ttl` : Time To Live of the DNS record (seconds) - `0` ~ `2147483647`
+-   `dns_txt_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
 -   `dns_txt_record.records` : List of text-type records
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure DNS Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
--   [Managing Azure DNS Records (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
--   [Azure Private DNS Zone (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
+-   [Azure DNS Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Azure DNS Record Management(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
+-   [Azure Private DNS Zone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)

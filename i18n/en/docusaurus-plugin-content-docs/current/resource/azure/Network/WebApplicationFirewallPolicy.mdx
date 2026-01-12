@@ -18,23 +18,23 @@ tags: [Azure, Network, WebApplicationFirewallPolicy, WAF]
 ## Resource Overview
 
 Web Application Firewall Policy is a **web firewall policy** applied to services such as Application Gateway (WAF), and centrally manages detection and blocking rules based on OWASP rule sets.  
-By using managed rule groups (OWASP / Bot Manager) and exclusion settings, it allows you to reduce false positives while adjusting the level of protection against web attacks such as SQL injection and XSS.
+By using managed rule groups (OWASP / Bot Manager) and exclusion settings, it allows adjustment of protection levels against web attacks (SQLi, XSS, etc.) while reducing false positives.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Application Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
+-   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `owasp_version` : Version of the rule set (OWASP)
--   `microsoft_bot_manager_rule_set_version` : Version of the rule set (Microsoft Bot Manager)
--   `tag` : Tags used to classify the resource
+-   `owasp_version` : Version of the OWASP rule set
+-   `microsoft_bot_manager_rule_set_version` : Version of the Microsoft Bot Manager rule set
+-   `tag` : Tags for categorizing resources
 
 #### Managed Rule Group (`managed_rule_group`)
 
@@ -44,13 +44,13 @@ By using managed rule groups (OWASP / Bot Manager) and exclusion settings, it al
 
 #### Exclusion (`exclusion`)
 
--   `exclusion.match_variable` : Variable to match against - `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`
+-   `exclusion.match_variable` : Variable to match - `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`
 -   `exclusion.selector` : Value to compare against the match variable using an operator
--   `exclusion.selector_match_operator` : Operator used to evaluate the match - `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`
+-   `exclusion.selector_match_operator` : Operator used to evaluate matching - `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`
 
 ---
 
 ## References
 
--   [Web Application Firewall Policy Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/ag-overview)
--   [WAF Managed Rules and Exclusions (Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules)
+-   [Web Application Firewall Policy Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/ag-overview)
+-   [WAF Managed Rules and Exclusions(Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules)

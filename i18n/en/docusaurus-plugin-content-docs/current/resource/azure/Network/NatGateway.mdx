@@ -17,31 +17,31 @@ tags: [Azure, Network, NatGateway]
 
 ## Resource Overview
 
-A NAT Gateway is a resource that provides **outbound internet connectivity** for one or more Subnets within a Virtual Network.  
-When associated with a Subnet, resources in that Subnet communicate outbound through the specified Public IP and do not expose inbound public endpoints.  
-By configuring the idle connection timeout, you can maintain long-lived connections or quickly clean up unnecessary idle connections.
+NAT Gateway is a resource that provides **outbound internet connectivity** for one or more Subnets within a Virtual Network.  
+When connected to a Subnet, resources in that Subnet communicate externally through the specified Public IP and do not expose inbound public endpoints.
+By adjusting the idle connection timeout, long-lived connections can be maintained or unnecessary connections can be cleaned up quickly.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+-   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `linked_subnet_names` : Names of the Subnets to associate with the NAT Gateway
--   `linked_public_ip_name` : Name of the Public IP to associate with the NAT Gateway
--   `idle_timeout_in_minutes` : Timeout (in minutes) for removing idle flows on the NAT Gateway - `4` ~ `120`
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `linked_subnet_names` : Names of the Subnets to which the Nat Gateway will be connected
+-   `linked_public_ip_name` : Name of the Public IP to link to the Nat Gateway
+-   `idle_timeout_in_minutes` : Time limit for removing idle flows on the Nat Gateway (minutes) - `4` ~ `120`
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure NAT Gateway Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
--   [Load Balancer Outbound Connectivity and NAT Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)
+-   [Azure NAT Gateway Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
+-   [Outbound Connectivity with Load Balancer and NAT Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)

@@ -17,44 +17,44 @@ tags: [Azure, Network, Subnet]
 
 ## Resource Overview
 
-A Subnet is a network created within a Virtual Network to deploy Azure resources into the Virtual Network.
+Subnet is a network created within a Virtual Network to deploy Azure resources.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
 
 ### Child Resources
 
--   [**Linux App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
--   [**Windows App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
--   [**Linux Function App**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxFunctionApp)
--   [**Windows Function App**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsFunctionApp)
--   [**Linux Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Windows Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
--   [**Mysql Flexible**](https://docs.cstudio.app/en/docs/resource/azure/Database/MysqlFlexible)
--   [**Postgresql Flexible**](https://docs.cstudio.app/en/docs/resource/azure/Database/PostgresqlFlexible)
--   [**Kubernetes Cluster**](https://docs.cstudio.app/en/docs/resource/azure/Container/KubernetesCluster)
--   [**Application Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
--   [**Bastion Host**](https://docs.cstudio.app/en/docs/resource/azure/Network/BastionHost)
--   [**Virtual Network Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetworkGateway)
--   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
--   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
--   [**Firewall**](https://docs.cstudio.app/en/docs/resource/azure/Network/Firewall)
+-   [**Linux App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Function App**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**Windows Function App**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Mysql Flexible**](https://docs.cstudio.app/docs/resource/azure/Database/MysqlFlexible)
+-   [**Postgresql Flexible**](https://docs.cstudio.app/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/azure/Container/KubernetesCluster)
+-   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/docs/resource/azure/Network/BastionHost)
+-   [**Virtual Network Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+-   [**Private EndPoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Firewall**](https://docs.cstudio.app/docs/resource/azure/Network/Firewall)
 
 ### Connected Resources
 
--   [**Nat Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/NatGateway)
--   [**Network Security Group**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkSecurityGroup)
--   [**Private Dns Resolver**](https://docs.cstudio.app/en/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+-   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/NatGateway)
+-   [**Network Security Group**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**Private Dns Resolver**](https://docs.cstudio.app/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `included_vnet_name` : Name of the Virtual Network that includes the Subnet
--   `address_prefixes` : IP address range used by the Subnet, specified as a unique CIDR range within the address space of the Virtual Network
--   `private_link_endpoint_enabled` : Whether to connect a Private Endpoint to the Subnet - `true`, `false`
+-   `included_vnet_name` : Name of the Virtual Network that contains the Subnet
+-   `address_prefixes` : IP address ranges for Subnet usage, specified as unique CIDR ranges within the Virtual Network address space
+-   `private_link_endpoint_enabled` : Whether to allow Private Endpoint connections to the Subnet - `true`, `false`
 
 #### Delegation Settings (`delegation`)
 
@@ -65,6 +65,6 @@ A Subnet is a network created within a Virtual Network to deploy Azure resources
 
 ## References
 
--   [Azure Virtual Network Subnet Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
--   [Subnet Delegation Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
--   [Private Endpoint Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
+-   [Azure Virtual Network Subnet Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
+-   [Subnet Delegation Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
+-   [Private Endpoint Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)

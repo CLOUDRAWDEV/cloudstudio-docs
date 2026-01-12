@@ -17,38 +17,38 @@ tags: [Azure, Network, ExpressRoute, ExpressRouteCircuit]
 
 ## Resource Overview
 
-An ExpressRoute Circuit is an Azure network resource used to connect an on-premises network to the Microsoft cloud via a **private, dedicated connection**.  
-It provides a stable connection that does not traverse the public Internet and is commonly used in enterprise environments with high requirements for bandwidth, latency, and security.
+ExpressRoute Circuit is an Azure network resource designed to connect on-premises networks to the Microsoft cloud through a **private dedicated circuit**.  
+It provides a stable connection that does not traverse the public internet and is primarily used in enterprise environments with high requirements for bandwidth, latency, and security.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `service_provider` : ISP provider that delivers the ExpressRoute circuit
+-   `service_provider` : ISP provider that supplies the ExpressRoute circuit
 -   `peering_location` : Peering location where the ISP provisions the circuit
 -   `bandwidth_in_mbps` : Bandwidth of the ExpressRoute circuit (Mbps)
 -   `sku_tier` : Pricing tier of the ExpressRoute circuit - `Basic`, `Local`, `Standard`, `Premium`
 -   `sku_family` : Billing model for outbound data transfer - `MeteredData`, `UnlimitedData`
--   `authorization_names` : List of authorization names that are allowed to use the circuit
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `authorization_names` : List of authorization names that allow circuit usage
+-   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
 
-#### Circuit Peering Configuration (`circuit_peering`)
+#### Circuit Peering Settings (`circuit_peering`)
 
--   `circuit_peering.enabled_peering` : Whether the specific peering type is enabled - `true`, `false`
+-   `circuit_peering.enabled_peering` : Whether the peering type is enabled - `true`, `false`
 -   `circuit_peering.peer_asn` : ASN value used for BGP peering
 -   `circuit_peering.primary_peer_address` : `/30` IPv4 subnet for the primary link
 -   `circuit_peering.secondary_peer_address` : `/30` IPv4 subnet for the secondary link
 -   `circuit_peering.vlan_id` : VLAN ID for peering configuration
--   `circuit_peering.advertised_public_prefixes` : List of public IPv4 address prefixes advertised via the BGP session
+-   `circuit_peering.advertised_public_prefixes` : List of public IPv4 address prefixes advertised through the BGP session
 
 ---
 
 ## References
 
--   [Azure ExpressRoute Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-introduction)
--   [ExpressRoute Circuits and SKUs (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings)
--   [Configure ExpressRoute Peering (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-howto-routing-portal)
+-   [Azure ExpressRoute Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-introduction)
+-   [ExpressRoute Circuits and SKUs(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings)
+-   [Configure ExpressRoute Peering(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-howto-routing-portal)
