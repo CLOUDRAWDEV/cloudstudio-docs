@@ -11,50 +11,58 @@ tags: [AWS, Resource, Rds, Aurora]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-aurora.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-aurora.webp"
     }
 />
 
 ## Resource Overview
 
-Amazon Aurora(Aurora)는 MySQL 및 PostgreSQL과 호환되는 완전 관리형 관계형 데이터베이스 엔진입니다. MySQL 및 PostgreSQL이 이 고급 상용 데이터베이스의 속도와 안정성을 오픈 소스 데이터베이스의 단순성 및 비용 효율성과 어떻게 결합하는지 이미 알고 계실 것입니다. 오늘날 기존 MySQL 및 PostgreSQL 데이터베이스에 사용되는 코드, 도구 및 애플리케이션 모두 Aurora에서도 사용할 수 있습니다. 일부 워크로드의 경우 Aurora은 기존 애플리케이션을 거의 변경하지 않고도 MySQL의 처리량을 최대 5배, PostgreSQL의 처리량을 최대 3배 제공할 수 있습니다.
-
-## Related Resources
-
-### Parent Resources
-
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
+Amazon Aurora (Aurora) is a fully managed relational database engine compatible with MySQL and PostgreSQL. You may already know how MySQL and PostgreSQL combine the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. All code, tools, and applications used today with existing MySQL and PostgreSQL databases can also be used with Aurora. For some workloads, Aurora can deliver up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL with little to no changes to existing applications.
 
 ### Connected Resources
 
--   [**Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
 ## Resource Setting Values
 
--   `database_name` : Database name
--   `engine` : MySQL version to use for RDS - `aurora`, `aurora-mysql`, `aurora-postgresql`
--   `engine_version` : MySQL version to use for RDS
--   `instance_class` : The instance type of the RDS instance
--   `engine_mode` : `aurora`, `multimaster`, `parallelquery`, `serverless`
--   `multi_az_enabled` : Enable multi az - `true`, `false`
--   `master_username` : Master user password
+#### Basic Settings
+
+-   `database_name` : Initial database name, 1 ~ 64 alphanumeric characters
+-   `engine` : Aurora engine type to use in RDS - `aurora-mysql`, `aurora-postgresql`
+-   `engine_version` : Aurora engine version to use in RDS
+-   `instance_class` : RDS DB instance type
+-   `engine_mode` : Aurora engine mode - `provisioned`, `multimaster`, `parallelquery`, `serverless`
+-   `multi_az_enabled` : Whether to enable Multi-AZ deployment - `true`, `false`
+-   `master_username` : Master username
 -   `master_password` : Master user password
--   `included_subnet_names` : Subnet names in RDS Subnet group
--   `subnet_group_name` : Name of the subnet group to use with RDS
--   `monitoring`
-    -   `performance_insights_enabled` : Enable performance insights
--   `encryption`
-    -   `storage_encrypted` : Whether the DB instance is encrypted - `true`, `false`
-    -   `kms_key_name` : The KMS key name for encryption
--   `backup`
-    -   `backup_retention_period` : The days to retain backups for - `1` to `35`
-    -   `final_snapshot_enabled` : Determines whether a final DB snapshot is created before the DB instance is deleted - `true`, `false`
-    -   `final_snapshot_name` : The final snapshot name
+-   `included_subnet_names` : List of Subnet names to attach to the RDS Subnet Group
+-   `subnet_group_name` : Subnet Group name to use for RDS
+-   `linked_security_group_names` : List of security groups to apply
+
+#### Monitoring Settings (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Whether to enable Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : KMS Key name to use for Performance Insights
+
+#### Encryption Settings (`encryption`)
+
+-   `encryption.storage_encrypted` : Whether to encrypt the DB instance - `true`, `false`
+-   `encryption.kms_key_name` : KMS Key name to use for encryption
+
+#### Backup Settings (`backup`)
+
+-   `backup.backup_retention_period` : Backup retention period - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Whether to create a final snapshot before DB deletion - `true`, `false`
+-   `backup.final_snapshot_name` : Final snapshot name
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Amazon Aurora(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
--   [Amazon Aurora Price(AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
--   [rds-aurora(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)
+-   [Amazon Aurora (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+-   [Amazon Aurora Pricing (AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
+-   [rds-aurora (Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)

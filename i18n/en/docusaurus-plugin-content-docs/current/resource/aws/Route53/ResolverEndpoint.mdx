@@ -1,6 +1,6 @@
 ---
 title: ResolverEndpoint
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Resource, Route53, ResolverEndpoint]
 ---
 
@@ -11,34 +11,43 @@ tags: [AWS, Resource, Route53, ResolverEndpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.webp"
     }
 />
 
 ## Resource Overview
 
-Endpoint service for DNS queries sent to and received from Amazon VPC
+An endpoint service for DNS queries sent to and received from Amazon VPC.
 
-### Parent Resources
+## Associated Resources
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
--   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
--   [**ResolverRule**](https://docs.cstudio.app/en/docs/resource/aws/Route53/ResolverRule)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Resolver Rule**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverRule)
 
 ## Resource Setting Values
 
+#### Basic Settings
+
 -   `direction` : DNS query direction - `INBOUND`, `OUTBOUND`
--   `linked_vpc_name` : VPC name to associate with the endpoint
--   `linked_security_group_names` : Security group name for the endpoint
--   `ip_address` : Name to IP Address
+-   `linked_vpc_name` : Name of the VPC to connect with the endpoint
+-   `linked_security_group_names` : List of security group names applied to the endpoint
+-   `ip_address.subnet_name` : Subnet name to use
+-   `ip_address.ip` : Available IP address within the subnet
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
--   [Amazon Resolver Endpoint(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
--   [Amazon Resolver Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)
+-   [Amazon Resolver Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)

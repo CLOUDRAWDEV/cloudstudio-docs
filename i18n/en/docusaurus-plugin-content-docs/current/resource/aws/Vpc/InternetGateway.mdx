@@ -1,6 +1,6 @@
 ---
-title: Internet Gateway
-sidebar_position: 0
+title: InternetGateway
+sidebar_position: 7
 tags: [AWS, Resource, Vpc, InternetGateway]
 ---
 
@@ -11,31 +11,39 @@ tags: [AWS, Resource, Vpc, InternetGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-An Internet Gateway is a horizontally scalable, highly available, and redundant VPC component that enables communication between a VPC and the internet. 
-It supports both IPv4 and IPv6 traffic, ensuring there are no availability risks or bandwidth constraints for network traffic.
-When resources have public IPv4 or IPv6 addresses, an Internet Gateway allows resources in a public subnet (e.g., EC2 instances) to connect to the internet. Similarly, resources on the internet can initiate connections to resources in the subnet using public IPv4 or IPv6 addresses. 
-For example, you can use an Internet Gateway to connect from your local computer to an EC2 instance on AWS.
-The Internet Gateway provides targets for internet-routable traffic in the VPC routing table. For IPv4 communication, the Internet Gateway performs Network Address Translation (NAT). For IPv6 communication, since IPv6 addresses are public, NAT is not required.
+An Internet Gateway is a horizontally scaled, redundant, and highly available VPC component that enables communication between a VPC and the internet. It supports both IPv4 and IPv6 traffic and does not impose availability risks or bandwidth constraints on network traffic.  
+When a resource has a public IPv4 or IPv6 address, an Internet Gateway allows resources in a public subnet (for example, EC2 instances) to connect to the internet. Similarly, resources on the internet can initiate connections to resources in a subnet using public IPv4 or IPv6 addresses. For example, you can connect to an EC2 instance in AWS from your local computer using an Internet Gateway.  
+An Internet Gateway provides a target in VPC route tables for internet-routable traffic. For IPv4 communication, the Internet Gateway also performs Network Address Translation (NAT). For IPv6 communication, NAT is not required because IPv6 addresses are public.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Connected Resources
+
+-   [**Route Table**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
 
 ## Resource Setting Values
 
--   `included_vpc_name` : The name of the VPC in which to deploy the Internet Gateway
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC where the Internet Gateway will be deployed
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
--   [Connecting to the Internet using an Internet Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [Connect to the internet using an Internet Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
 -   [aws_internet_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)

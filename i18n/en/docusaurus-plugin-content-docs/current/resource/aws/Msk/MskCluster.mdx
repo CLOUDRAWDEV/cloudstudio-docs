@@ -1,0 +1,67 @@
+---
+title: MskCluster
+sidebar_position: 0
+tags: [AWS, MSK, Kafka, MskCluster, Streaming]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/msk-msk_cluster.webp" />
+
+## Resource Overview
+
+A distributed message broker platform service that processes real-time data streaming.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Connected Resources
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `cluster_type` : Cluster type - `provisioned`, `serverless`
+-   `kafka_version` : Apache Kafka version to use in the MSK cluster
+-   `kms_key_name` : KMS Key name used for data encryption
+-   `unauthenticated_access` : Whether to allow unauthenticated user access - `true`, `false`
+-   `iam_role_based_authentication` : Whether to allow IAM role-based authentication - `true`, `false`
+-   `scram_authentication` : Whether to allow SCRAM-based authentication - `true`, `false`
+-   `cloudwatch_metrics` : CloudWatch metrics collection scope - `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`
+
+#### Broker Settings (`broker`)
+
+-   `broker.instance_type` : Broker instance type
+-   `broker.broker_count_per_zone` : Number of brokers per Availability Zone (AZ)
+
+#### Storage Settings (`storage`)
+
+-   `storage.ebs_volume_size` : EBS volume size allocated to broker nodes (GB) - `1` ~ `16384`
+-   `storage.enable_provisioned_throughput` : Whether to enable provisioned throughput - `true`, `false`
+-   `storage.provisioned_throughput_per_broker` : Provisioned throughput per broker (MiB/s) - minimum `250`
+
+#### Network Settings (`network`)
+
+-   `network.linked_vpc_name` : Name of the VPC to which the cluster will be connected
+-   `network.subnet_names` : List of subnet names to attach to the MSK cluster
+-   `network.security_group_names` : List of security group names applied to the MSK cluster
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Amazon MSK (AWS)](https://docs.aws.amazon.com/msk/)
+-   [MSK Authentication and Access Control (AWS)](https://docs.aws.amazon.com/msk/latest/developerguide/client-access.html)
+-   [Monitoring MSK with CloudWatch (AWS)](https://docs.aws.amazon.com/msk/latest/developerguide/metrics-details.html)

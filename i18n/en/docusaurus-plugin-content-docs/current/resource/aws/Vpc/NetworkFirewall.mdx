@@ -1,6 +1,6 @@
 ---
 title: NetworkFirewall
-sidebar_position: 0
+sidebar_position: 10
 tags: [AWS, Resource, Vpc, NetworkFirewall]
 ---
 
@@ -11,40 +11,48 @@ tags: [AWS, Resource, Vpc, NetworkFirewall]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
     }
 />
 
 ## Resource Overview
 
-An AWS service that allows you to configure protection across AWS accounts and resources within your organization
+An AWS service that enables you to configure protection across AWS accounts and resources within an organization.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Connected Resources
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewallPolicy)
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
-
+-   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ## Resource Setting Values
 
--   `description`: A description of the firewall policy
--   `included_vpc_name`: VPC name where the firewall will be located
--   `linked_subnet_names`: Public subnet dedicated to firewall endpoints
--   `linked_network_firewall_policy_name`: Firewall policy name to connect to
--   `enabled_delete_protection`: Enable firewall protection from deletion - `false`, `true`
--   `enabled_subnet_change_protection`: Enable protection against subnet connectivity changes - `false`, `true`
--   `encryption_configuration.enabled_custom_configuration`: Encrypt data using AWS-managed key - `false`, `true`
+#### Basic Settings
 
+-   `description` : Description of the firewall (maximum 256 characters)
+-   `included_vpc_name` : Name of the VPC where the firewall is located (read-only)
+-   `linked_subnet_names` : List of public subnets dedicated to firewall endpoints
+-   `linked_network_firewall_policy_name` : Name of the firewall policy to associate (read-only)
+-   `enabled_delete_protection` : Whether to enable firewall deletion protection - `true`, `false`
+-   `enabled_subnet_change_protection` : Whether to enable subnet association change protection - `true`, `false`
+
+#### Encryption Settings (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Whether to enable encryption using an AWS-managed key - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Name of the KMS Key to use for encryption
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
 -   [NetworkFirewall(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
 -   [NetworkFirewall(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)

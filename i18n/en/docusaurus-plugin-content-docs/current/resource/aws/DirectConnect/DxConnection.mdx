@@ -1,7 +1,7 @@
 ---
-title: Dx Connection
+title: DxConnection
 sidebar_position: 0
-tags: [AWS, Resource, DirectConnection, DxConnection]
+tags: [AWS, 리소스, DirectConnection, DxConnection]
 ---
 
 <hr />
@@ -11,31 +11,36 @@ tags: [AWS, Resource, DirectConnection, DxConnection]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.webp"
     }
 />
 
 ## Resource Overview
 
-AWS Direct Connect allows you to connect your internal network to an AWS Direct Connect location via standard Ethernet fiber optic cables. 
-One end of the cable connects to your router, while the other end connects to an AWS Direct Connect router. This connection enables you to create virtual interfaces that bypass the Internet Service Provider for public AWS network paths, providing direct access to services (e.g., Amazon S3) or Amazon VPC. 
-The AWS Direct Connect location offers access to AWS public regions using a single connection or to AWS GovCloud (US) and other public AWS regions.
+AWS Direct Connect enables you to connect your on-premises network to an AWS Direct Connect location using standard Ethernet fiber-optic cables. One end of the cable is connected to your router and the other end to an AWS Direct Connect router. Through this connection, you can create virtual interfaces that bypass internet service providers on public AWS network paths to access services such as Amazon S3 or Amazon VPC. AWS Direct Connect locations provide access to AWS services in the connected region, public regions through a single connection, AWS GovCloud (US) public access, and all other AWS public region services.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ## Resource Setting Values
 
--   `bandwidth`: The bandwidth of the connection - `50Mbps`, `100Mbps`, `200Mbps`, `300Mbps`, `400Mbps`, `500Mbps`, `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`
--   `location`: The AWS Direct Connect location where the connection is located
+#### Basic Settings
+
+-   `bandwidth` : Bandwidth of the Direct Connection - `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`
+-   `location` : AWS Direct Connect location where the connection is established
+-   `service_provider` : Service provider that offers the connection at the location
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon Direct Connect(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
--   [Amazon Direct Connect Price(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
+-   [Amazon Direct Connect 가격(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
 -   [Amazon Direct Connect(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)

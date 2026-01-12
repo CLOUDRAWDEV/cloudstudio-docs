@@ -1,7 +1,7 @@
 ---
 title: Eip
-sidebar_position: 0
-tags: [AWS, Resource, Ec2, Eip]
+sidebar_position: 1
+tags: [AWS, 리소스, Ec2, Eip]
 ---
 
 <hr />
@@ -11,26 +11,35 @@ tags: [AWS, Resource, Ec2, Eip]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.webp"
     }
 />
 
 ## Resource Overview
 
-A static IPv4 address designed for dynamic cloud computing
+A static IPv4 address designed for dynamic cloud computing.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
+### Connected Resources
+
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/aws/Ec2/NetworkInterface)
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
 
 ## Resource Setting Values
 
+#### Tags
+
+-   `tag` : Tags used to categorize resources
+
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon Eip(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 -   [Amazon Eip(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)

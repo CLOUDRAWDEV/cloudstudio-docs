@@ -1,7 +1,7 @@
 ---
-title: Elasticache User
-sidebar_position: 0
-tags: [AWS, Resource, Elasticache, ElasticacheUser]
+title: ElasticacheUser
+sidebar_position: 1
+tags: [AWS, 리소스, Elasticache, ElasticacheUser]
 ---
 
 <hr />
@@ -11,34 +11,37 @@ tags: [AWS, Resource, Elasticache, ElasticacheUser]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
     }
 />
 
 ## Resource Overview
 
-An AWS ElastiCache User is an IAM user required to work with ElastiCache clusters. 
-The ElastiCache User has permissions to create, modify, and delete ElastiCache clusters. 
-This user is created in AWS IAM and is typically assigned to applications or developers who use ElastiCache. 
-The ElastiCache User is responsible for security and access control to the ElastiCache clusters, helping to protect applications and data. 
-The ElastiCache User can also be used alongside other resources within the AWS account.
+AWS ElastiCache User is an IAM user required to use ElastiCache clusters. An ElastiCache User has permissions to create, modify, and delete ElastiCache clusters. ElastiCache Users are created in AWS IAM and are typically assigned to applications or developers that use ElastiCache. ElastiCache Users are responsible for security and access control for ElastiCache clusters, helping protect applications and data. ElastiCache Users can be used alongside other resources within an AWS account.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ## Resource Setting Values
 
--   `user_id`: Each user's unique ID
--   `access_string`: A string containing the permission to be applied to the user
--   `authentication_type`: Authentication method for users to access the cluster
+#### Basic Settings
+
+-   `user_id` : Unique identifier for each user
+-   `access_string` : String that defines the permissions applied to the user
+-   `authentication_type` : Authentication method for user access to the cluster - `iam`, `password`, `no-password-required`
+-   `passwords` : User passwords (up to 2 can be configured)
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis Price(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)
