@@ -1,6 +1,6 @@
 ---
 title: CdssConfigGroup
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Resource, Bigdata&Analytics, CdssConfigGroup]
 ---
 
@@ -11,34 +11,34 @@ tags: [Ncloud, Resource, Bigdata&Analytics, CdssConfigGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_config_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_config_group.webp"
     }
 />
 
 ## Resource Overview
 
-The Cdss Config Group is a service that manages Kafka configuration files applied to the CDSS cluster.
+The Cdss Config Group is a service that manages Kafka configuration files applied to a CDSS cluster.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
+### Connected Resources
 
-### Child Resources
-
-
+-   [**CdssCluster**](https://docs.cstudio.app/docs/resource/ncloud/Bigdata&Analytics/CdssCluster)
 
 ## Resource Setting Values
 
--   `kafka_version_code` : The CDSS config group Kafka version to be used
+#### Default Settings
 
-    
+-   `kafka_version_code` : Kafka version to use in the CDSS config group - `kafkaVersionCode`
+-   `description` : Description of the config group
 
 ---
 
-## Reference Materials
+## References
 
 -   [Cdss Config Group(Ncloud)](https://guide.ncloud-docs.com/docs/cdss-configgroup)
 -   [ncloud_cdss_config_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_config_group)

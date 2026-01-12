@@ -1,6 +1,6 @@
 ---
-title: Nas Volume
-sidebar_position: 0
+title: NasVolume
+sidebar_position: 1
 tags: [Ncloud, Resource, Storage, NasVolume]
 ---
 
@@ -11,23 +11,39 @@ tags: [Ncloud, Resource, Storage, NasVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
 ## Resource Overview
 
-This is a storage service that connects multiple servers to a network to enable data sharing among numerous users. It provides network-attached storage space that is ideal for sharing data among multiple users.
+A storage service that connects multiple servers over a network so that multiple users can share data. It is suitable for sharing data among multiple users through network-connected storage.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### Connected Targets
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
 
 ## Resource Setting Values
 
--   `volume_name_postfix` : The name of NAS volume, alphanumeric characters are allowed, within 3 to 20 characters
--   `volume_size` : The size of volume in 100GB, From 500 to 10,000
--   `volume_allotment_protocol_type` : The type of protocol, Mountable server: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+#### Default Settings
+
+-   `volume_name_postfix` : NAS volume name postfix (alphanumeric, 3 ~ 20 characters)
+-   `volume_size` : Volume size (in 100GB units) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protocol type - `NFS`, `CIFS`
+-   `cifs_user_name` : User ID for CIFS authentication
+-   `cifs_user_password` : Password for CIFS authentication
+-   `linked_instances` : List of server instance names to attach the NAS volume
+-   `is_encrypted` : Whether to enable AES-256-based volume-level encryption
 
 ---
 
-## Reference Materials
+## References
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

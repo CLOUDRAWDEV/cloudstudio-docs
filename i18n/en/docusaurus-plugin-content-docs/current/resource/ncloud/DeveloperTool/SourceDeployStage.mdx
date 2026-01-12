@@ -1,6 +1,6 @@
 ---
 title: SourceDeployStage
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
 ---
 
@@ -11,46 +11,95 @@ tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.webp"
     }
 />
 
 ## Resource Overview
 
-You can add, modify, or delete Deploy Stages in the SourceDeploy project you created, or create deployment targets for Deploy Stages that currently do not have any targets.
-
+You can add, modify, or delete Deploy Stages in a created SourceDeploy project, or create deployment targets for Deploy Stages without existing deployment targets.
 
 ## Associated Resources
 
 ### Parent Resource
 
-### Child Resource
+-   [**SourceDeploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
+### Connected Resources
 
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
 
 ## Resource Setting Values
 
--   `included_source_deploy_name` : The name of Sourcedeploy project
--   `target_type` : The type of deploy target - `Server`,`AutoScalingGroup`,`KubernetesService`,`ObjectStorage`
--   `linked_server_list` : The list of server name to use
--   `included_subnet_names` : The list of Subnet names to configure the Cluster, Up to 3
--   `scenario` : Scenario to run deployment environment
-    -   `deploy_scenario_description` : Source deploy project description
-    -   `deploy_scenario_strategy` : Deployment strategy - `normal`,`blueGreen`,`rolling`,`canary`
-    -   `deploy_scenario_file_type` : File type of scenario - `SourceBuild`,`ObjectStorage`,`later`
-    -   `linked_source_build_project` : The name of Source Biuld project
-    -   `rollback` : Whether to use rollback on deployment failure
-    -   `pre_deploy_user` : Account used for pre-deployment execution
-    -   `pre_deploy_command` : Command executed before deployment
-    -   `source_path_command` : Path to the source files to be deployed
-    -   `deploy_path_command` : Path where the files will be deployed
-    -   `post_deploy_user` : Account used for post-deployment execution
-    -   `post_deploy_command` : Command executed after deployment
-  
+#### Default Settings
+
+-   `included_source_deploy_name` : Name of the SourceDeploy project
+-   `target_type` : Type of deployment target - `Server`, `AutoScalingGroup`, `DeployedAutoScalingGroup`, `KubernetesService`, `DeployedKubernetesService`, `ObjectStorage`, `DeployedObjectStorage`
+-   `linked_server_list` : List of server names to connect
+-   `target_server_id_list` : List of server names to connect
+-   `target_resource` : Deployment target resource
+
+#### Deployment Scenario (`scenario`)
+
+-   `scenario.deploy_scenario_description` : SourceDeploy project description
+-   `scenario.deploy_scenario_strategy` : Deployment strategy - `normal`, `blueGreen`, `rolling`, `canary`
+-   `scenario.deploy_scenario_file_type` : File type of the deployment scenario - `SourceBuild`, `ObjectStorage`, `later`
+-   `scenario.target_object_storage_bucket_name` : Object Storage name
+-   `scenario.object_storage_object_name` : Object name
+-   `scenario.linked_source_build_project` : Name of the SourceBuild project
+-   `scenario.rollback` : Whether to roll back on deployment failure - `true`, `false`
+-   `scenario.linked_target_group` : Name of the load balancer target group to use
+-   `scenario.delete_server` : Whether to delete servers in the Auto Scaling group - `true`, `false`
+-   `scenario.manifest_type` : Repository type of manifest files for Kubernetes service deployment - `SourceCommit`
+-   `scenario.manifest_repository` : Repository name of manifest files for Kubernetes service deployment
+-   `scenario.manifest_branch` : Branch name of manifest files for Kubernetes service deployment
+-   `scenario.manifest_path` : List of paths to manifest files for Kubernetes service deployment
+-   `scenario.analysis_type` : Canary analysis method for Kubernetes service deployment - `manual`, `auto`
+-   `scenario.canary_count` : Number of baseline and canary pods
+-   `scenario.timeout` : Maximum allowed deployment/rollback time
+-   `scenario.prometheus_url` : Prometheus URL to connect
+-   `scenario.baseline` : Baseline variable to use in Prometheus analysis
+-   `scenario.canary` : Canary variable to use in Prometheus analysis
+-   `scenario.duration` : Analysis duration
+-   `scenario.delay` : Analysis delay
+-   `scenario.interval` : Analysis interval
+-   `scenario.step` : Metric collection interval
+-   `scenario.pass_score` : Success score threshold for analysis
+-   `scenario.object_storage_source_path` : Source file path when using Object Storage
+-   `scenario.object_storage_deploy_path` : File deployment path when using Object Storage
+
+#### Pre-deployment (`scenario.pre_deploy`)
+
+-   `scenario.pre_deploy.command` : List of commands to run during pre-deployment
+
+#### Deployment Path (`scenario.path`)
+
+-   `scenario.path.deploy_path` : List of deployment paths
+
+#### Post-deployment (`scenario.post_deploy`)
+
+-   `scenario.post_deploy.command` : List of commands to run during post-deployment
+
+#### Metric Settings (`scenario.metric`)
+
+-   `scenario.metric.success_criteria` : Metric success criteria - `base`, `canary`
+-   `scenario.metric.weight` : Weight of the metric
+-   `scenario.metric.query_type` : Metric query type - `default`, `promQL`
+-   `scenario.metric.metric` : Metric to use from the Prometheus URL
+-   `scenario.metric.filter` : Metric filter to use
+-   `scenario.metric.query` : Metric query to use in PromQL
+
+#### Tags
+
+-   `tag` : Tags for categorizing resources
 
 ---
 
-## Reference Materials
+## References
 
--   [Source Deploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
--   [ncloud_source_deploy_stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)
+-   [SourceDeploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
+-   [SourceDeploy Project Stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)

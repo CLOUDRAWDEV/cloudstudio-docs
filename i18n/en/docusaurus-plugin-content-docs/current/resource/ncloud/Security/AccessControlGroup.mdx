@@ -11,46 +11,41 @@ tags: [Ncloud, Resource, Security, AccessControlGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
     }
 />
 
 ## Resource Overview
 
-This is an IP/Port-based firewall service that allows for network access control and management between servers.
+An IP/Port-based filtering firewall service that enables network access control and management between servers.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**VPC**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### Connected Resources
+### Connected Targets
 
--   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/NetworkInterface)
--   [**Auto Scaling**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/AutoScaling)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
 
 ## Resource Setting Values
 
--   `included_vpc_name` : The name of VPC to create ACG
--   `acg_description` : Description of ACG
--   `inbound_rule`
-    -   `name` : The name of inbound rule
-    -   `protocol` : The protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : The method to apply inbound rule - `ip_block`, `source_name`
-    -   `ip_block` : The destination of inbound traffic, The CIDR block
-    -   `port_range` : The range of ports to apply, 1 to 65535 (When setting range: 100-200)
+#### Default Settings
 
--   `outbound_rule`
-    -   `name` : The name of outbound rule
-    -   `protocol` : The protocol of outbound traffic - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : The method to apply outbound rule - `ip_block`, `source_name`
-    -   `ip_block` : The destination of outbound traffic, The CIDR block
-    -   `port_range` : The range of ports to apply, 1 to 65535 (When setting range: 100-200)
-    
----
+-   `included_vpc_name` : Name of the VPC where the ACG will be created
+-   `acg_description` : Description of the ACG
 
-## Reference Materials
+#### Inbound Rules (`inbound_rule`)
 
--   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
--   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)
+-   `inbound_rule.protocol` : Protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Method to apply inbound rules - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Destination IP range of inbound traffic (CIDR format)
+-   `inbound_rule.source_access_control_group_name` : Source ACG name for inbound traffic
+-   `inbound_rule.port_range` : Port range to apply inbound rules - `1` ~ `65535`
+-   `inbound_rule.description` : Description of the inbound rule
+
+#### Outbound Rules (`outbound_rule`)
+
+-   `ou

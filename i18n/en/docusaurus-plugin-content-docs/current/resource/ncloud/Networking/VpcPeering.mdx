@@ -1,6 +1,6 @@
 ---
-title: Vpc Peering
-sidebar_position: 0
+title: VpcPeering
+sidebar_position: 8
 tags: [Ncloud, Resource, Network, VpcPeering]
 ---
 
@@ -11,32 +11,34 @@ tags: [Ncloud, Resource, Network, VpcPeering]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.webp"
     }
 />
 
 ## Resource Overview
 
-This resource sets up VPC peering for communication between VPCs.
+A resource that configures VPC peering for communication between VPCs.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
 ### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
 ## Resource Setting Values
 
--   `linked_vpc_name_01` : Peering VPC name
--   `linked_vpc_name_02` : Peering VPC name
+#### Default Settings
+
+-   `linked_vpc_name_01` : Name of the VPC sending the peering request (read-only)
+-   `linked_vpc_name_02` : Name of the VPC receiving the peering request (read-only)
 
 ---
 
-## Reference Materials
+## References
 
--   [VPC Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
--   [ncloud_vpc_peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)
+-   [Vpc Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
+-   [Vpc Peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)

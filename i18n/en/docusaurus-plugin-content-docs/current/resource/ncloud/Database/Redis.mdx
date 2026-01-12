@@ -1,6 +1,6 @@
 ---
 title: Redis
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, Resource, Database, Redis]
 ---
 
@@ -11,44 +11,44 @@ tags: [Ncloud, Resource, Database, Redis]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
     }
 />
 
 ## Resource Overview
 
-Cloud DB for Redis allows you to easily set up a Redis cache with just a few configurations and clicks. It operates reliably with optimized settings from Naver and is a fully managed cloud cache service that automatically recovers from failures.
+Cloud DB for Redis is a fully managed cloud cache service that allows you to easily build Redis caches with just a few settings and clicks, operates stably with Naver’s optimized settings, and automatically recovers in case of failures.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
-
-### Child Resource
-
-
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
--   `server_name_prefix` : The name of Redis server
--   `redis_mode` : The configuration of Cloud DB for Redis - `CLUSTER`, `SIMPLE`
--   `image_product_code` : The image product code to determine the Redis instance server image specification to create
--   `target_config_group_name` : The name of Redis config group to link redis
--   `product_code` : The product code to determine the server specifications of the Cloud DB for Redis instance to create
--   `data_storage_type` : The data storage type - `SSD`, `HDD`
--   `shard_count` : Number of shards to be created - `3~10`
--   `shard_copy_count` : Replicas per shard Redis Cluster consists of the master node and slave node. A slave node is necessary for HA. When adding a replica, one slave node is assigned to each master node
--   `enable_high_availability` : Whether to enable High Availability
--   `enable_backup` : Whether to enable Backup status. If the high availability status enable_high_availability is true, then the backup setting status is fixed as true
--   `port` : Cloud Redis port - `6379`
+#### Default Settings
 
-    
+-   `server_name_prefix` : Redis server name (lowercase letters/numbers/hyphens allowed, must start with a lowercase letter, must end with a lowercase letter or number, 3~15 characters)
+-   `included_vpc_name` : Name of the VPC that includes Redis
+-   `included_subnet_name` : Name of the subnet that includes Redis
+-   `redis_mode` : Redis configuration mode - `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Redis engine version
+-   `image_product_code` : Redis server image product code
+-   `product_code` : Redis instance server specification product code
+-   `target_config_group_name` : Name of the Redis Config Group to connect
+-   `shard_count` : Number of shards to create (based on master nodes) - `3` ~ `10`
+-   `shard_copy_count` : Number of replicas per shard (number of slave nodes) - `0` ~ `4`
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `enable_backup` : Whether to enable backup (automatically enabled when high availability is used) - `true`, `false`
+-   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `7`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : Redis connection port - `6379` ~ `20000`
 
 ---
 
-## Reference Materials
+## References
 
--   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
--   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)
-
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

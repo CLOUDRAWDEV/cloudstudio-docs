@@ -1,6 +1,6 @@
 ---
 title: SourcePipeline
-sidebar_position: 0
+sidebar_position: 4
 tags: [Ncloud, Resource, DeveloperTool, SourcePipeline]
 ---
 
@@ -11,72 +11,72 @@ tags: [Ncloud, Resource, DeveloperTool, SourcePipeline]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
 ## Resource Overview
 
-A process automation service for fast and reliable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
+A process automation service for fast and stable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
 
 ## Associated Resources
 
 ### Parent Resource
 
-### Child Resource
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
+### Child Targets
 
-
+-   [**Source Build**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**Source Deploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ## Resource Setting Values
 
--   `default_task` : The first task that the Pipeline will do
-    -   `name` : The first task that the Pipeline will do
-    -   `type` : Task type - `SourceBuild`,`SourceDeploy`
+#### Default Settings
 
-    - If the type is SourceBuild
-        - `target_source_build_project` : Project name of a task that could be SourceBuild or SourceDeploy
-        - `repository_branch` : Target repository branch of SourceBuild task
+-   `description` : Description of the pipeline project to create - up to 500 characters
 
-    - If the type is SourceDeploy
-        -  `target_source_deploy_project` : Project name of a task that could be SourceBuild or SourceDeploy
-        -  `target_source_deploy_project_stage` : Stage name of a task that could be SourceBuild or SourceDeploy
-        -  `target_source_deploy_project_scenario` : Scenario name of a task that could be SourceBuild or SourceDeploy
+#### Default Task (`default_task`)
 
--   `additional_task` : Task that the pipeline will do
-    -   `name` : Task that the pipeline will do
-    -   `type` : task type - `SourceBuild`,`SourceDeploy`
+-   `default_task.name` : Name of the first task executed by the pipeline - letters/numbers/`-`/`_`, 1~50 characters
+-   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Name of the SourceBuild project to connect
+-   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `default_task.repository_branch` : Target repository branch name for the SourceBuild task
 
-    - If the type is SourceBuild
-        - `target_source_build_project` : Project name of a task that could be SourceBuild or SourceDeploy
-        - `repository_branch` : Target repository branch of SourceBuild task
-        -  `pre_tasks` : Linked tasks which has to be executed previously
+#### Additional Task (`additional_task`)
 
-    - If the type is SourceDeploy
-        -  `target_source_deploy_project` : Project name of a task that could be SourceBuild or SourceDeploy
-        -  `target_source_deploy_project_stage` : Stage name of a task that could be SourceBuild or SourceDeploy
-        -  `target_source_deploy_project_scenario` : Scenario name of a task that could be SourceBuild or SourceDeploy
-        -  `pre_tasks` : Linked tasks which has to be executed previously
+-   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Name of the SourceBuild project to connect
+-   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `additional_task.repository_branch` : Target repository branch name for the SourceBuild task
+-   `additional_task.pre_tasks` : List of prerequisite tasks to execute first
 
--   `trigger_push_repository` : Push event that occurs when the set Pipeline is automatically executed
-    -   `type_of_repository` : Type of repository to use for triggers - `sourcecommit`
-    -   `name_of_repository` : Name of repository to use for triggers
-    -   `branch_of_repository` : Name of repository branch to use for triggers
+#### Push Trigger (`trigger_push_repository`)
 
--   `trigger_schedule` : Set up a schedule for Pipeline to run automatically
-    - `day` : List of day of week to make schedule
-    - `time` : Time to trigger during schedule
-    - `timezone` : Timezone to trigger during schedule
-    - `execute_only_with_change` : Whether schedule trigger always execute in time or execute if Sourcepipeline project configuration or Sourcecommit repository has changed 
+-   `trigger_push_repository.type_of_repository` : Repository type to use for the trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository name to use for the trigger
+-   `trigger_push_repository.branch_of_repository` : Repository branch name to use for the trigger
 
--   `trigger_target_sourcecpipeline_id` : Trigger List of pipeline IDs to run automatically when the set pipeline completes execution
+#### Schedule Trigger (`trigger_schedule`)
 
+-   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Scheduled deployment time
+-   `trigger_schedule.timezone` : Scheduled deployment timezone
+-   `trigger_schedule.execute_only_with_change` : Whether to execute only when the pipeline or SourceCommit changes - `true`, `false`
 
+#### Pipeline Chaining (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : List of pipeline IDs to automatically execute after the current pipeline completes
 
 ---
 
-
-## Reference Materials
+## References
 
 -   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
--   [ncloud_sourcepipeline(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)
