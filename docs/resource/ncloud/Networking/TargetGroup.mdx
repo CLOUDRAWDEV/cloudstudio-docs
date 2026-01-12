@@ -39,9 +39,6 @@ tags: [Ncloud, 리소스, Network, TargetGroup]
 -   `protocol` : 트래픽 라우팅에 사용할 프로토콜 - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
 -   `port` : 타겟이 트래픽을 수신할 포트 번호
 -   `algorithm_type` : 로드 밸런싱 알고리즘 - `RR`, `SIPHS`, `LC`, `MH`
-
-#### 헬스 체크 설정
-
 -   `health_check_protocol` : 헬스 체크에 사용할 프로토콜 - `TCP`, `HTTP`, `HTTPS`
 -   `health_check_http_method` : HTTP/HTTPS 사용 시 헬스 체크 메서드 - `HEAD`, `GET`
 -   `health_check_port` : 헬스 체크에 사용할 포트 번호
@@ -49,9 +46,6 @@ tags: [Ncloud, 리소스, Network, TargetGroup]
 -   `health_check_up_threshold` : 정상 상태 전환을 위한 연속 성공 횟수 - `2` ~ `10`
 -   `health_check_down_threshold` : 비정상 상태 전환을 위한 연속 실패 횟수 - `2` ~ `10`
 -   `health_check_url_path` : 헬스 체크 요청 URL 경로
-
-#### 타겟 설정
-
 -   `linked_server_names` : 타겟 그룹에 연결할 서버 이름 목록
 
 ---
