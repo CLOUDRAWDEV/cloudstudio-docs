@@ -17,7 +17,7 @@ tags: [AWS, Resource, Waf, WafWebAcl]
 
 ## Resource Overview
 
-An AWS WAF Web ACL is the top-level container for rules applied to a web application. By using a Web ACL, multiple Rule Groups and rules can be combined, and the request processing order for the web application can be defined. This enhances web application security and enables requests to be allowed, blocked, or counted.
+An AWS WAF Web ACL is the top-level container for a set of rules applied to a web application. Web ACLs combine multiple rule groups and rules and define the order in which web requests are evaluated. This enables enhanced web application security by allowing, blocking, or counting requests.
 
 ## Associated Resources
 
@@ -28,7 +28,7 @@ An AWS WAF Web ACL is the top-level container for rules applied to a web applica
 
 ### Connected Resources
 
--   [**CloudFront Distribution**](https://docs.cstudio.app/en/docs/resource/aws/CloudFront/CloudFrontDistribution)
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/en/docs/resource/aws/CloudFront/CloudFrontDistribution)
 
 ## Resource Setting Values
 
@@ -36,12 +36,12 @@ An AWS WAF Web ACL is the top-level container for rules applied to a web applica
 
 -   `scope` : Scope where the Web ACL is applied - `REGIONAL`, `CLOUDFRONT`
 -   `cloudwatch_metrics_enabled` : Whether to enable CloudWatch metrics - `true`, `false`
--   `metric_name` : CloudWatch metric name; only uppercase/lowercase letters, hyphens, and underscores are allowed, `1` ~ `128` characters
+-   `metric_name` : CloudWatch metric name; only letters, numbers, hyphens, and underscores allowed, `1` ~ `128` characters
 -   `sampled_requests_enabled` : Whether to store sampled web requests that match rules - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
@@ -49,4 +49,4 @@ An AWS WAF Web ACL is the top-level container for rules applied to a web applica
 
 -   [AWS WAF Features (AWS)](https://aws.amazon.com/ko/waf/features/)
 -   [AWS WAF Pricing (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
--   [aws_waf_web_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)
+-   [aws_waf_web_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)

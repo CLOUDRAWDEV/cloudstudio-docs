@@ -1,7 +1,7 @@
 ---
 title: ElasticacheUser
 sidebar_position: 1
-tags: [AWS, 리소스, Elasticache, ElasticacheUser]
+tags: [AWS, Resource, Elasticache, ElasticacheUser]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Elasticache, ElasticacheUser]
 
 ## Resource Overview
 
-AWS ElastiCache User is an IAM user required to use ElastiCache clusters. An ElastiCache User has permissions to create, modify, and delete ElastiCache clusters. ElastiCache Users are created in AWS IAM and are typically assigned to applications or developers that use ElastiCache. ElastiCache Users are responsible for security and access control for ElastiCache clusters, helping protect applications and data. ElastiCache Users can be used alongside other resources within an AWS account.
+An AWS ElastiCache User is an IAM user required to use an ElastiCache cluster. The user has permissions to create, modify, and delete ElastiCache clusters. ElastiCache Users are created in AWS IAM and are typically assigned to applications or developers that use ElastiCache. They are responsible for security and access control for ElastiCache clusters and help protect applications and data.
 
 ## Associated Resources
 
@@ -30,18 +30,18 @@ AWS ElastiCache User is an IAM user required to use ElastiCache clusters. An Ela
 #### Basic Settings
 
 -   `user_id` : Unique identifier for each user
--   `access_string` : String that defines the permissions applied to the user
--   `authentication_type` : Authentication method for user access to the cluster - `iam`, `password`, `no-password-required`
--   `passwords` : User passwords (up to 2 can be configured)
+-   `access_string` : String defining the permissions applied to the user
+-   `authentication_type` : Authentication method used to access the cluster - `iam`, `password`, `no-password-required`
+-   `passwords` : User passwords (up to 2 allowed)
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis Pricing(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

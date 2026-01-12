@@ -13,7 +13,7 @@ tags: [AWS, EC2, LaunchTemplate, AutoScaling]
 
 ## Resource Overview
 
-A template that defines the specifications of virtual servers automatically created when server scaling is required during Auto Scaling operations.
+A template that defines the specifications of virtual servers automatically created when scaling operations are performed.
 
 ## Associated Resources
 
@@ -29,25 +29,25 @@ A template that defines the specifications of virtual servers automatically crea
 
 #### Basic Settings
 
--   `image_name` : Operating system image code to use (CNTOS: CentOS, UBNTU: Ubuntu, WND: Windows / MYSQL, MARIA: Database / SVR: Server, EN: English Edition)
--   `instance_type` : Type of the EC2 instance
--   `key_name` : Name of the public login key used for encryption
--   `linked_security_group_name` : Name of the Security Group to which the instance belongs
--   `user_data` : Script or commands that run automatically when the EC2 instance starts
+-   `image_name` : Operating system image code to use
+-   `instance_type` : EC2 instance type
+-   `key_name` : Public login key name used for encryption
+-   `linked_security_group_name` : Name of the Security Group associated with the instance
+-   `user_data` : Script or commands automatically executed when the EC2 instance starts
 
 #### Block Device Mapping (`block_device_mapping`)
 
--   `block_device_mapping.volume_type` : Type of the EBS volume - `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`
--   `block_device_mapping.volume_size` : Size of the EBS volume (GiB)
--   `block_device_mapping.iops` : Number of input/output operations per second for the EBS volume
--   `block_device_mapping.delete_on_termination` : Whether to automatically delete the EBS volume when the instance terminates - `true`, `false`
--   `block_device_mapping.snapshot_name` : Name to assign when creating a snapshot of the EBS volume
--   `block_device_mapping.encrypted` : Whether to enable encryption for the EBS volume - `true`, `false`
+-   `block_device_mapping.volume_type` : EBS volume type - `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`
+-   `block_device_mapping.volume_size` : EBS volume size (GiB)
+-   `block_device_mapping.iops` : Number of I/O operations per second for the EBS volume
+-   `block_device_mapping.delete_on_termination` : Whether the EBS volume is deleted on instance termination - `true`, `false`
+-   `block_device_mapping.snapshot_name` : Name assigned when creating an EBS snapshot
+-   `block_device_mapping.encrypted` : Whether EBS volume encryption is enabled - `true`, `false`
 -   `block_device_mapping.kms_key_name` : Name of the KMS key used to encrypt the EBS volume
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 

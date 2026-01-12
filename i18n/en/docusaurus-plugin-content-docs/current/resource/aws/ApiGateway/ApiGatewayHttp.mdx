@@ -1,7 +1,7 @@
 ---
 title: ApiGatewayHttp
 sidebar_position: 0
-tags: [AWS, 리소스, ApiGatewayHttp]
+tags: [AWS, Resource, ApiGatewayHttp]
 ---
 
 <hr />
@@ -17,8 +17,8 @@ tags: [AWS, 리소스, ApiGatewayHttp]
 
 ## Resource Overview
 
-In API Gateway, HTTP API is a type of API Gateway designed to build simple and lightweight APIs based on the HTTP protocol.
-HTTP APIs are simpler and more cost-effective than existing REST APIs and are mainly suitable for serverless web applications and simple microservices.
+In API Gateway, HTTP APIs are a type of API Gateway designed to build simple and lightweight APIs based on the HTTP protocol.
+HTTP APIs are simpler and more cost-effective than traditional REST APIs and are well suited for serverless web applications and simple microservices.
 
 ### Parent Resource
 
@@ -26,7 +26,7 @@ HTTP APIs are simpler and more cost-effective than existing REST APIs and are ma
 
 ## Associated Resources
 
--   [**Lambda Function**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
 
 ## Resource Setting Values
 
@@ -34,22 +34,22 @@ HTTP APIs are simpler and more cost-effective than existing REST APIs and are ma
 
 #### Integration Settings (`integration`)
 
--   `integration.integration_type` : Type of API Gateway Integration - `Http`, `Lambda`
--   `integration.integration_method` : HTTP Method for API Gateway Integration - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
--   `integration.integration_uri` : Specifies the fully qualified URL for HTTP integration
+-   `integration.integration_type` : Type of API Gateway integration - `Http`, `Lambda`
+-   `integration.integration_method` : HTTP method for API Gateway integration - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : Fully qualified URL for HTTP integration
 -   `integration.linked_lambda_name` : Lambda function name for Lambda proxy integration
 
 #### Route Settings (`route`)
 
--   `route.route_method` : HTTP Method for the HTTP API - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_method` : HTTP method for the HTTP API - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
 -   `route.route_path` : Resource path for the HTTP API
--   `route.target_integration` : Name of the API Gateway Integration to connect the Route
+-   `route.target_integration` : API Gateway integration name to associate with the route
 
 #### Deployment Settings (`deployment`)
 
--   `deployment.description` : API Gateway Deployment description
+-   `deployment.description` : Description of the API Gateway deployment
 
 #### Stage Settings (`stage`)
 
 -   `stage.auto_deployment` : Enable automatic deployment - `true`, `false`
--   `stage.deployment_name` : Name of the API Gateway Deployment to associate
+-   `stage.deployment_name` : Name of the API Gateway deployment to associate

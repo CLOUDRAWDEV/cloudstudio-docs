@@ -1,7 +1,7 @@
 ---
 title: BackupVault
 sidebar_position: 1
-tags: [AWS, 리소스, Backup, BackupVault]
+tags: [AWS, Resource, Backup, BackupVault]
 ---
 
 <hr />
@@ -17,8 +17,8 @@ tags: [AWS, 리소스, Backup, BackupVault]
 
 ## Resource Overview
 
-In AWS Backup, a Backup Vault is a container that stores and organizes backups.
-When creating a Backup Vault, you must specify an AWS KMS encryption key that encrypts some of the backups stored in the vault.
+In AWS Backup, a Backup Vault is a container used to store and organize backups.
+When creating a Backup Vault, you must specify an AWS KMS encryption key to encrypt some backups stored in the vault.
 
 ## Associated Resources
 
@@ -35,14 +35,14 @@ When creating a Backup Vault, you must specify an AWS KMS encryption key that en
 #### Vault Lock Settings (`lock_configuration`)
 
 -   `lock_configuration.enabled_lock` : Whether to enable vault lock - `true`, `false`
--   `lock_configuration.lock_mode` : Type of vault lock - `Governance`, `Compliance`
--   `lock_configuration.min_retention_days` : Minimum retention period for recovery points in the vault - `1` ~ `36500`
--   `lock_configuration.max_retention_days` : Maximum retention period for recovery points in the vault - `1` ~ `36500`
+-   `lock_configuration.lock_mode` : Vault lock mode - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : Minimum retention period for recovery points - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : Maximum retention period for recovery points - `1` ~ `36500`
 -   `lock_configuration.changeable_for_days` : Number of days before the lock becomes immutable - `3` ~ `36500`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 

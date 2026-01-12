@@ -17,10 +17,7 @@ tags: [AWS, Resource, Vpc, SecurityGroup]
 
 ## Resource Overview
 
-A security group controls inbound and outbound traffic to and from associated resources. For example, when a security group is associated with an EC2 instance, it controls inbound and outbound traffic for that instance.  
-Security groups can only be associated with resources in the VPC where they were created.  
-When you create a VPC, it comes with a default security group, and you can create additional security groups for each VPC.  
-There is no additional charge for using security groups.
+A security group controls inbound and outbound traffic for associated resources. For example, when a security group is associated with an EC2 instance, it controls inbound and outbound traffic for that instance. A security group can be associated only with resources in the VPC in which the security group was created. When a VPC is created, it comes with a default security group, and additional security groups can be created for each VPC. Using security groups does not incur additional charges.
 
 ## Associated Resources
 
@@ -50,8 +47,8 @@ There is no additional charge for using security groups.
 
 #### Basic Settings
 
--   `description` : Description of the Security Group
--   `included_vpc_name` : Name of the VPC that contains the Security Group
+-   `description` : Description of the security group
+-   `included_vpc_name` : Name of the VPC that contains the security group
 
 #### Inbound Rules (`ingress`)
 
@@ -73,11 +70,11 @@ There is no additional charge for using security groups.
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Control traffic to resources using security groups(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
--   [aws_security_group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
+-   [Controlling traffic to resources using security groups (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [aws_security_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

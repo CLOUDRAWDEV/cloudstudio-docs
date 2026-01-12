@@ -1,7 +1,7 @@
 ---
 title: EcsCluster
 sidebar_position: 0
-tags: [AWS, 리소스, Ecs, EcsCluster]
+tags: [AWS, Resource, Ecs, EcsCluster]
 ---
 
 <hr />
@@ -32,28 +32,28 @@ tags: [AWS, 리소스, Ecs, EcsCluster]
 #### Basic Settings
 
 -   `set_container_insights` : Whether to enable Container Insights for the cluster - `enabled`, `disabled`
--   `kms_key_name` : Name of the AWS Key Management Service key used to encrypt data between the local client and containers
--   `logging` : Log configuration used for redirecting execution command results - `OVERRIDE`, `NONE`, `DEFAULT`
--   `cloud_watch_encryption_enabled` : Whether to enable encryption for CloudWatch logs - `true`, `false`
+-   `kms_key_name` : AWS Key Management Service key name used to encrypt data between local clients and containers
+-   `logging` : Log configuration used to redirect execute-command results - `OVERRIDE`, `NONE`, `DEFAULT`
+-   `cloud_watch_encryption_enabled` : Whether CloudWatch log encryption is enabled - `true`, `false`
 -   `cloud_watch_log_group_name` : Name of the CloudWatch log group to send logs to
--   `capacity_providers` : Set of capacity providers to associate with the cluster
+-   `capacity_providers` : Set of capacity providers associated with the cluster
 
 #### Service (`service`)
 
--   `service.computing_option` : Task distribution method for the Service - `capacity_provider_strategy`, `launch_type`
--   `service.capacity_provider_strategy.capacity_provider` : Capacity provider applied to the Service - `FARGATE`, `FARGATE_SPOT`
+-   `service.computing_option` : Task placement strategy for the service - `capacity_provider_strategy`, `launch_type`
+-   `service.capacity_provider_strategy.capacity_provider` : Capacity provider applied to the service - `FARGATE`, `FARGATE_SPOT`
 -   `service.capacity_provider_strategy.base` : Minimum number of tasks to run
--   `service.capacity_provider_strategy.weight` : Relative percentage of the total number of running tasks
--   `service.launch_type` : Launch type of the Service - `EC2`, `FARGATE`, `EXTERNAL`
--   `service.task_definition_name` : Name of the ECS Task Definition used by the Service
--   `service.desired_count` : Number of task definition instances to run for the Service
+-   `service.capacity_provider_strategy.weight` : Relative percentage of total running tasks
+-   `service.launch_type` : Launch type for the service - `EC2`, `FARGATE`, `EXTERNAL`
+-   `service.task_definition_name` : Name of the ECS Task Definition used by the service
+-   `service.desired_count` : Number of task definition instances to run
 -   `service.linked_security_group_names` : List of Security Group names to use
--   `service.subnet_names` : List of Subnet names where the Service will run
--   `service.enabled_public_ip` : Whether to enable a public IP - `true`, `false`
+-   `service.subnet_names` : List of Subnet names where the service runs
+-   `service.enabled_public_ip` : Whether to assign a public IP - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ## References
 

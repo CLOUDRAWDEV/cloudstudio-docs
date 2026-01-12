@@ -17,7 +17,7 @@ tags: [AWS, Resource, Rds, Aurora]
 
 ## Resource Overview
 
-Amazon Aurora (Aurora) is a fully managed relational database engine compatible with MySQL and PostgreSQL. You may already know how MySQL and PostgreSQL combine the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open source databases. All code, tools, and applications used today with existing MySQL and PostgreSQL databases can also be used with Aurora. For some workloads, Aurora can deliver up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL with little to no changes to existing applications.
+Amazon Aurora is a fully managed relational database engine compatible with MySQL and PostgreSQL. You may already know how MySQL and PostgreSQL combine the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. All code, tools, and applications used for existing MySQL and PostgreSQL databases today can also be used with Aurora. For some workloads, Aurora can deliver up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL with little or no modification to existing applications.
 
 ### Connected Resources
 
@@ -27,27 +27,27 @@ Amazon Aurora (Aurora) is a fully managed relational database engine compatible 
 
 #### Basic Settings
 
--   `database_name` : Initial database name, 1 ~ 64 alphanumeric characters
--   `engine` : Aurora engine type to use in RDS - `aurora-mysql`, `aurora-postgresql`
--   `engine_version` : Aurora engine version to use in RDS
+-   `database_name` : Initial database name, alphanumeric, 1 ~ 64 characters
+-   `engine` : Aurora engine type used for RDS - `aurora-mysql`, `aurora-postgresql`
+-   `engine_version` : Aurora engine version used for RDS
 -   `instance_class` : RDS DB instance type
 -   `engine_mode` : Aurora engine mode - `provisioned`, `multimaster`, `parallelquery`, `serverless`
--   `multi_az_enabled` : Whether to enable Multi-AZ deployment - `true`, `false`
+-   `multi_az_enabled` : Whether Multi-AZ deployment is enabled - `true`, `false`
 -   `master_username` : Master username
 -   `master_password` : Master user password
--   `included_subnet_names` : List of Subnet names to attach to the RDS Subnet Group
--   `subnet_group_name` : Subnet Group name to use for RDS
+-   `included_subnet_names` : List of subnet names connected to the RDS subnet group
+-   `subnet_group_name` : Name of the subnet group used for RDS
 -   `linked_security_group_names` : List of security groups to apply
 
 #### Monitoring Settings (`monitoring`)
 
--   `monitoring.performance_insights_enabled` : Whether to enable Performance Insights - `true`, `false`
--   `monitoring.kms_key_name` : KMS Key name to use for Performance Insights
+-   `monitoring.performance_insights_enabled` : Whether Performance Insights is enabled - `true`, `false`
+-   `monitoring.kms_key_name` : KMS key name used for Performance Insights
 
 #### Encryption Settings (`encryption`)
 
--   `encryption.storage_encrypted` : Whether to encrypt the DB instance - `true`, `false`
--   `encryption.kms_key_name` : KMS Key name to use for encryption
+-   `encryption.storage_encrypted` : Whether DB instance encryption is enabled - `true`, `false`
+-   `encryption.kms_key_name` : KMS key name used for encryption
 
 #### Backup Settings (`backup`)
 
@@ -57,12 +57,12 @@ Amazon Aurora (Aurora) is a fully managed relational database engine compatible 
 
 #### Tags
 
--   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Amazon Aurora (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
--   [Amazon Aurora Pricing (AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
--   [rds-aurora (Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)
+-   [Amazon Aurora(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+-   [Amazon Aurora Pricing(AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
+-   [rds-aurora(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)

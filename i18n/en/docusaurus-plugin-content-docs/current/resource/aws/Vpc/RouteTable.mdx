@@ -17,8 +17,7 @@ tags: [AWS, Resource, Vpc, RouteTable]
 
 ## Resource Overview
 
-An AWS VPC (Virtual Private Cloud) Route Table is an AWS resource that defines where traffic from subnets within a VPC is directed. Every subnet in a VPC is associated with one or more route tables, and route tables specify routing rules for targets such as Internet Gateways, NAT Gateways, VPC Endpoints, or VPN connections.  
-Traffic is routed according to the order of routing rules, and all traffic generated from a subnet is forwarded to its destination through the associated route table. This allows subnets within a VPC to securely communicate with the internet or other VPCs.
+An AWS Route Table for an Amazon VPC (Virtual Private Cloud) defines how traffic from subnets within the VPC is routed to target destinations. Every subnet in a VPC is associated with one or more route tables, which specify routing rules for targets such as internet gateways, NAT gateways, VPC endpoints, or VPN connections. Route tables forward traffic according to the order of routing rules, and all traffic generated from subnets is delivered to destinations through the associated route table. This enables subnets within a VPC to securely communicate with the internet or other VPCs.
 
 ## Associated Resources
 
@@ -38,22 +37,22 @@ Traffic is routed according to the order of routing rules, and all traffic gener
 
 #### Basic Settings
 
--   `included_vpc_name` : Name of the VPC that contains the Route Table
--   `subnet_names` : List of Subnet names to associate with the Route Table
+-   `included_vpc_name` : Name of the VPC that contains the route table
+-   `subnet_names` : List of subnet names to associate with the route table
 
 #### Routing Paths (`linked_route`)
 
--   `linked_route.cidr_block` : CIDR block of the destination resource
--   `linked_route.resource_type` : Destination resource type - `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
--   `linked_route.linked_resource_name` : Name of the destination resource
+-   `linked_route.cidr_block` : CIDR block of the routing destination
+-   `linked_route.resource_type` : Routing target resource type - `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
+-   `linked_route.linked_resource_name` : Name of the routing target resource
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [Configuring route tables(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
--   [aws_default_route_table(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)
+-   [Configuring Route Tables (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
+-   [aws_default_route_table (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)

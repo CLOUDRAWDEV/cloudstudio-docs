@@ -1,7 +1,7 @@
 ---
 title: EcsTaskDefinition
 sidebar_position: 1
-tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
+tags: [AWS, Resource, Ecs, EcsTaskDefinition]
 ---
 
 <hr />
@@ -28,37 +28,37 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 #### Basic Settings
 
 -   `app_environment` : Launch type required for the task - `EC2`, `FARGATE`
--   `os_architecture` : Operating system family to use when registering the task definition - `LINUX X86_64`
+-   `os_architecture` : Operating system family used when registering the task definition - `LINUX X86_64`
 -   `task_cpu` : Number of CPU units used by the task
 -   `task_memory` : Amount of memory used by the task (MiB)
--   `network_mode` : Networking mode to use for the task containers - `awsvpc`, `none`, `bridge`, `host`
+-   `network_mode` : Networking mode used by containers in the task - `awsvpc`, `none`, `bridge`, `host`
 
 #### Container (`container`)
 
--   `container.image_url` : Image of the container to run in the ECS Cluster
--   `container.essential_enabled` : Whether other related objects should stop or continue running when the container stops - `true`, `false`
--   `container.port_mapping.container_port` : Port number the container uses to send or receive traffic on the host container instance
--   `container.port_mapping.protocol` : Protocol to use for port mapping - `tcp`, `udp`
--   `container.port_mapping.app_protocol` : Application protocol used for Service connections - `http`, `http2`, `grpc`, `none`
--   `container.cpu` : CPU capacity of the container running in the ECS Cluster
--   `container.memory` : Memory capacity of the container running in the ECS Cluster
+-   `container.image_url` : Image used by the container running in the ECS cluster
+-   `container.essential_enabled` : Whether related objects stop or continue running when the container stops - `true`, `false`
+-   `container.port_mapping.container_port` : Port number used when the container sends or receives traffic
+-   `container.port_mapping.protocol` : Protocol used for port mapping - `tcp`, `udp`
+-   `container.port_mapping.app_protocol` : Application protocol used for service connectivity - `http`, `http2`, `grpc`, `none`
+-   `container.cpu` : CPU capacity allocated to the container
+-   `container.memory` : Memory capacity allocated to the container
 
 #### Volume (`volume`)
 
--   `volume.host_path` : Path of the host container instance provided to the container
+-   `volume.host_path` : Path on the host container instance provided to the container
 
 #### Volume Mount (`volume_mount`)
 
 -   `volume_mount.container_name` : Name of the container to mount the volume to
 -   `volume_mount.volume_name` : Name of the volume to mount
--   `volume_mount.container_path` : Path inside the container where the volume will be mounted
+-   `volume_mount.container_path` : Path inside the container where the volume is mounted
 -   `volume_mount.read_only` : Whether the container has read-only access to the volume - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ## References
 
 -   [Amazon Ecs Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
--   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec)
+-   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

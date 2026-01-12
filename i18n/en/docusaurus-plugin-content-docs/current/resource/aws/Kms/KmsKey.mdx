@@ -17,7 +17,7 @@ tags: [AWS, Resource, Kms, KmsKey]
 
 ## Resource Overview
 
-AWS Key Management Service (AWS KMS) is an encryption and key management service tailored for the cloud. AWS KMS keys and features are used by other AWS services, and users can use these AWS KMS keys and features to protect data in their own applications that use AWS.
+AWS Key Management Service (AWS KMS) is an encryption and key management service designed for the cloud. AWS KMS keys and features are used by other AWS services, and users can use these AWS KMS keys and features to protect data in their own applications that use AWS.
 
 ## Associated Resources
 
@@ -30,23 +30,23 @@ AWS Key Management Service (AWS KMS) is an encryption and key management service
 #### Basic Settings
 
 -   `description` : Description of the key displayed in the AWS Console
--   `key_usage` : Intended usage of the key - `ENCRYPT_DECRYPT`
+-   `key_usage` : Usage type of the key - `ENCRYPT_DECRYPT`
 -   `multi_region` : Whether to use the KMS key in multiple regions - `true`, `false`
--   `deletion_window_in_days` : Waiting period (in days) before KMS key deletion
--   `enable_key_rotation` : Whether to enable automatic key rotation - `true`, `false`
+-   `deletion_window_in_days` : Waiting period (in days) before deleting the KMS key
+-   `enable_key_rotation` : Whether automatic key rotation is enabled - `true`, `false`
 
 #### KMS Grant (`grant_list`)
 
--   `grant_list.operations` : List of operations allowed on the KMS key - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+-   `grant_list.operations` : List of operations allowed for the KMS key - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
--   [AWS Key Management Service (AWS)](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/overview.html)
--   [AWS Key Management Service Pricing (AWS)](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
--   [aws_kms_alias (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias)
+-   [AWS Key Management Service(AWS)](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/overview.html)
+-   [AWS Key Management Service Pricing(AWS)](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
+-   [aws_kms_alias(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias)

@@ -1,7 +1,7 @@
 ---
 title: EcrRepository
 sidebar_position: 0
-tags: [AWS, 리소스, Ecr, EcrRepository]
+tags: [AWS, Resource, Ecr, EcrRepository]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Ecr, EcrRepository]
 
 ## Resource Overview
 
-Amazon Elastic Container Registry (Amazon ECR) is a secure, scalable, and reliable AWS-managed container image registry service. Amazon ECR supports private repositories with resource-based permissions using AWS IAM. This allows designated users or Amazon EC2 instances to access container repositories and images. You can push, pull, and manage Docker images, Open Container Initiative (OCI) images, and OCI-compatible artifacts using your preferred CLI.
+Amazon Elastic Container Registry (Amazon ECR) is a secure, scalable, and reliable AWS-managed container image registry service. Amazon ECR supports private repositories with resource-based permissions using AWS IAM, allowing designated users or Amazon EC2 instances to access container repositories and images. You can push, pull, and manage Docker images, Open Container Initiative (OCI) images, and OCI-compatible artifacts using your preferred CLI.
 
 ## Associated Resources
 
@@ -29,26 +29,26 @@ Amazon Elastic Container Registry (Amazon ECR) is a secure, scalable, and reliab
 
 #### Basic Settings
 
--   `image_tag_mutability` : Tag mutability setting for the repository - `IMMUTABLE`, `MUTABLE`
+-   `image_tag_mutability` : Repository tag mutability setting - `IMMUTABLE`, `MUTABLE`
 -   `scan_on_push` : Whether images are scanned after being pushed to the repository - `true`, `false`
--   `encryption_type` : Encryption type to use for the repository - `KMS`, `AES256`
--   `kms_key_name` : ARN name of the KMS Key to use
+-   `encryption_type` : Encryption type used for the repository - `KMS`, `AES256`
+-   `kms_key_name` : ARN name of the KMS key to use
 
 #### Policy (`policy`)
 
--   `policy.effect` : Whether the policy statement allows or denies actions - `Allow`, `Deny`
--   `policy.principal_arn` : ARN of the principal to which the policy applies
--   `policy.enabled_not_actions` : Whether to exclude the specified list of actions - `true`, `false`
+-   `policy.effect` : Whether the policy statement allows or denies access - `Allow`, `Deny`
+-   `policy.principal_arn` : ARN of the principal to which the policy is applied
+-   `policy.enabled_not_actions` : Whether to exclude the specified actions - `true`, `false`
 -   `policy.actions` : List of actions to specify - `ecr:BatchCheckLayerAvailability`, `ecr:BatchDeleteImage`, `ecr:BatchGetImage`, `ecr:CompleteLayerUpload`, `ecr:DeleteLifecyclePolicy`, `ecr:DeleteRepository`, `ecr:DeleteRepositoryPolicy`, `ecr:DescribeImages`, `ecr:DescribeRepositories`, `ecr:GetDownloadUrlForLayer`, `ecr:GetLifecyclePolicy`, `ecr:GetLifecyclePolicyPreview`, `ecr:GetRepositoryPolicy`, `ecr:InitiateLayerUpload`, `ecr:ListImages`, `ecr:PutImage`, `ecr:PutLifecyclePolicy`, `ecr:SetRepositoryPolicy`, `ecr:StartLifecyclePolicyPreview`, `ecr:UploadLayerPart`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
--   [Amazon Elastic Container Registry(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
+-   [Amazon Elastic Container Registry Pricing(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
 -   [aws_ecr_repository(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)

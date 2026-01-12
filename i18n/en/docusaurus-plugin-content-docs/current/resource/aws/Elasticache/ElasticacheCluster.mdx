@@ -1,7 +1,7 @@
 ---
 title: ElasticacheCluster
 sidebar_position: 0
-tags: [AWS, 리소스, Elasticache, ElasticacheCluster]
+tags: [AWS, Resource, Elasticache, ElasticacheCluster]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Elasticache, ElasticacheCluster]
 
 ## Resource Overview
 
-AWS ElastiCache Cluster is a cloud-based in-memory data store that provides a fast and scalable caching solution. ElastiCache Cluster can run in cluster mode or single-node mode using Redis or Memcached engines. It is used to improve application performance by enabling faster data retrieval and processing. ElastiCache Cluster provides automatic backup, recovery, scaling, and monitoring features to help users store data with confidence.
+AWS ElastiCache Cluster is a cloud-based in-memory data store that provides a fast and scalable caching solution. It can run in cluster mode or single-node mode using Redis or Memcached engines. ElastiCache Cluster is used to improve application performance by enabling faster data retrieval and processing. It also provides automatic backup, recovery, scaling, and monitoring features.
 
 ## Associated Resources
 
@@ -33,25 +33,25 @@ AWS ElastiCache Cluster is a cloud-based in-memory data store that provides a fa
 
 #### Basic Settings
 
--   `engine` : Type of cache engine - `redis`, `memcached`
+-   `engine` : Cache engine type - `redis`, `memcached`
 -   `engine_version` : Cache engine version
 -   `port` : Cache node connection port (Redis: 6379, Memcached: 11211)
 -   `parameter_group_name` : Name of the parameter group to associate
 -   `node_type` : Cache node instance type
 -   `num_cache_nodes` : Number of cache nodes
 -   `az_mode` : Availability Zone deployment mode - `single-az`, `cross-az`
--   `included_subnet_names` : List of subnet names included in the Subnet Group
--   `subnet_group_name` : Name of the Subnet Group to use
+-   `included_subnet_names` : List of subnet names included in the subnet group
+-   `subnet_group_name` : Name of the subnet group to use
 -   `snapshot_retention_limit` : Automatic snapshot retention period (days)
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis Pricing(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

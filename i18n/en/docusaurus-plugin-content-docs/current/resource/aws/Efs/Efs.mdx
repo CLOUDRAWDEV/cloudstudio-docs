@@ -1,7 +1,7 @@
 ---
 title: Efs
 sidebar_position: 0
-tags: [AWS, 리소스, Efs]
+tags: [AWS, Resource, Efs]
 ---
 
 <hr />
@@ -17,11 +17,11 @@ tags: [AWS, 리소스, Efs]
 
 ## Resource Overview
 
-You can create a file system, mount the file system to EC2 instances, read data from EC2 instances, write data to the file system, or share files.
+You can create a file system, mount it to EC2 instances, read data from EC2 instances, write data to the file system, and share files.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
@@ -30,21 +30,21 @@ You can create a file system, mount the file system to EC2 instances, read data 
 
 #### Basic Settings
 
--   `creation_token` : A unique name used as a reference when creating an Elastic File System to ensure file system creation
--   `availability_zone_name` : AWS Availability Zone where the file system will be created
--   `enable_encrypted` : Whether to enable file system encryption - `true`, `false`
--   `throughput_mode` : Throughput mode of the file system - `provisioned`, `elastic`, `bursting`
+-   `creation_token` : Unique name used as a reference when creating the Elastic File System to ensure idempotency
+-   `availability_zone_name` : AWS Availability Zone where the file system is created
+-   `enable_encrypted` : Whether file system encryption is enabled - `true`, `false`
+-   `throughput_mode` : File system throughput mode - `provisioned`, `elastic`, `bursting`
 -   `provisioned_throughput_in_mibps` : Throughput to provision for the file system (MiB/s) - `1` ~ `3414`
--   `performance_mode` : Performance mode of the file system - `generalPurpose`, `maxIO`
+-   `performance_mode` : File system performance mode - `generalPurpose`, `maxIO`
 
 #### Lifecycle Policy (`lifecycle_policy`)
 
--   `lifecycle_policy.transition_to_ia` : Time before transitioning files to the IA storage class - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
--   `lifecycle_policy.transition_to_primary_storage_class` : Policy for transitioning files back to the primary storage class - `None`, `firstAccess`
+-   `lifecycle_policy.transition_to_ia` : Time required to transition files to the IA storage class - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : Policy to transition files back to the primary storage class - `None`, `firstAccess`
 
 #### Mount Targets (`mount_target_subnets`)
 
--   `mount_target_subnets` : List of subnets to add mount targets to
+-   `mount_target_subnets` : List of subnets to add mount targets
 
 #### File System Policy
 
@@ -52,14 +52,14 @@ You can create a file system, mount the file system to EC2 instances, read data 
 
 #### Backup and Replication Settings
 
--   `enable_backup_policy` : Whether to enable the backup policy - `true`, `false`
--   `enable_replica` : Whether to create a replica - `true`, `false`
+-   `enable_backup_policy` : Whether backup policy is enabled - `true`, `false`
+-   `enable_replica` : Whether replication is enabled - `true`, `false`
 
 #### Replication Configuration (`replication_configuration`)
 
--   `replication_configuration.replication_region` : AWS region where the replica will be created
--   `replication_configuration.replication_region_availability_zone_name` : Availability Zone where the replica will be created
--   `replication_configuration.kms_key_name` : Name of the KMS Key to use when creating the replica
+-   `replication_configuration.replication_region` : AWS region where replication is created
+-   `replication_configuration.replication_region_availability_zone_name` : Availability Zone where replication is created
+-   `replication_configuration.kms_key_name` : KMS key name used for replication
 
 #### Access Point (`access_point`)
 
@@ -69,11 +69,11 @@ You can create a file system, mount the file system to EC2 instances, read data 
 -   `access_point.posix_user_secondary_gids` : List of secondary POSIX group IDs
 -   `access_point.root_owner_uid` : POSIX user ID applied to the root directory - `0` ~ `4294967295`
 -   `access_point.root_owner_gid` : POSIX group ID applied to the root directory - `0` ~ `4294967295`
--   `access_point.root_permissions` : POSIX permissions (octal) applied to the root directory
+-   `access_point.root_permissions` : POSIX permissions applied to the root directory (octal)
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ## References
 

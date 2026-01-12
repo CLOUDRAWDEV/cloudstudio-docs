@@ -1,7 +1,7 @@
 ---
 title: Instance
 sidebar_position: 2
-tags: [AWS, 리소스, Ec2, Instance]
+tags: [AWS, Resource, Ec2, Instance]
 ---
 
 <hr />
@@ -17,7 +17,7 @@ tags: [AWS, 리소스, Ec2, Instance]
 
 ## Resource Overview
 
-Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. Amazon EC2 eliminates the need to invest in hardware upfront so you can develop and deploy applications faster. With Amazon EC2, you can launch as many virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 allows you to scale up or down to handle changes in requirements or usage spikes, reducing the need to forecast traffic.
+Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS cloud. It eliminates the need to invest in hardware upfront, allowing faster application development and deployment. You can launch virtual servers, configure security and networking, and manage storage. Amazon EC2 scales up or down to handle changes in requirements or usage spikes, reducing the need to forecast traffic.
 
 ## Associated Resources
 
@@ -35,34 +35,34 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 
 #### Basic Settings
 
--   `ami` : Image that contains the information required to launch an instance (provided and supported by AWS)
--   `instance_type` : Type of the EC2 instance
--   `key_pair_name` : Name of the Key Pair to use for the EC2 instance
--   `linked_network_interface_names` : List of network interface names to use for the EC2 instance
+-   `ami` : Image containing the information required to launch an instance
+-   `instance_type` : EC2 instance type
+-   `key_pair_name` : Name of the key pair used for the EC2 instance
+-   `linked_network_interface_names` : List of network interface names used by the instance
 -   `http_endpoint` : Whether the metadata service is enabled - `enabled`, `disabled`
 -   `http_tokens` : Whether session tokens are required for the metadata service - `required`, `optional`
--   `cloudinit_config` : Script content to run automatically when the server is created
+-   `cloudinit_config` : Script content automatically executed when the server is created
 
 #### Root Volume (`root_volume`)
 
--   `root_volume.volume_type` : Type of the root volume - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
--   `root_volume.volume_size` : Size of the root volume (GiB)
--   `root_volume.enabled_volume_encryption` : Whether to enable encryption for the root volume - `true`, `false`
+-   `root_volume.volume_type` : Root volume type - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Root volume size (GiB)
+-   `root_volume.enabled_volume_encryption` : Whether root volume encryption is enabled - `true`, `false`
 
 #### EBS Block Device (`ebs_block_device`)
 
--   `ebs_block_device.volume_type` : Type of the EBS volume - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
--   `ebs_block_device.volume_size` : Size of the EBS volume (GiB)
--   `ebs_block_device.enabled_volume_encryption` : Whether to enable encryption for the EBS volume - `true`, `false`
+-   `ebs_block_device.volume_type` : EBS volume type - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `ebs_block_device.volume_size` : EBS volume size (GiB)
+-   `ebs_block_device.enabled_volume_encryption` : Whether EBS volume encryption is enabled - `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [Amazon Ec2(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)
--   [Amazon Ec2 가격(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
+-   [Amazon Ec2 Pricing(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
 -   [Amazon Ec2(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key)

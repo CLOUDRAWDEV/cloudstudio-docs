@@ -34,20 +34,20 @@ A service that allows customers to privately connect to supported AWS services a
 
 #### Basic Settings
 
--   `acceptance_required` : Whether the service owner must accept VPC Endpoint connection requests - `true`, `false`
--   `load_balancer_type` : Load Balancer type to associate with the Endpoint Service - `network`, `gateway`
--   `linked_lb_names` : List of Load Balancer names to associate with the Endpoint Service
--   `manual_lb_arns` : List of Load Balancer ARNs to associate with the Endpoint Service
--   `supported_ip_address_types` : List of supported IP address types - `ipv4`
--   `activate_private_dns_name` : Private DNS name to configure for the service
+-   `acceptance_required` : Whether the service owner must accept VPC endpoint connection requests - `true`, `false`
+-   `load_balancer_type` : Load balancer type connected to the Endpoint Service - `network`, `gateway`
+-   `linked_lb_names` : List of load balancer names connected to the Endpoint Service
+-   `manual_lb_arns` : List of load balancer ARNs connected to the Endpoint Service
+-   `supported_ip_address_types` : Supported IP address types - `ipv4`
+-   `activate_private_dns_name` : Private DNS name configured for the service
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
 ## References
 
 -   [AWS EndPointService (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/configure-endpoint-service.html)
--   [AWS EndPointSerivce (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)
+-   [AWS EndPointService (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)

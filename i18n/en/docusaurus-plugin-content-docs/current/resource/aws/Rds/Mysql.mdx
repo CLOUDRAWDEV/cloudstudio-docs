@@ -17,7 +17,7 @@ tags: [AWS, Resource, Rds, Mysql]
 
 ## Resource Overview
 
-Building RDS with MySQL on AWS makes database operation and management easy. RDS is highly scalable, allowing you to improve performance by changing instance types as needed. It also provides automatic backup and restore capabilities for database instances to prevent data loss. In addition, AWS security features help ensure data safety.
+By using MySQL on AWS to build RDS, database operation and management become easier. RDS provides high scalability and allows performance improvements by changing instance types as needed. It also provides automatic backup and restore capabilities for database instances to help prevent data loss. In addition, AWS security features help ensure data protection.
 
 ## Associated Resources
 
@@ -34,43 +34,43 @@ Building RDS with MySQL on AWS makes database operation and management easy. RDS
 
 #### Basic Settings
 
--   `database_name` : Initial database name - `1` ~ `64` alphanumeric characters
--   `engine_version` : MySQL engine version to use in RDS
+-   `database_name` : Initial database name - 1 ~ 64 alphanumeric characters
+-   `engine_version` : MySQL engine version for RDS
 -   `instance_class` : RDS DB instance type
--   `storage_type` : Storage type of the RDS instance
--   `allocated_storage` : RDS storage capacity (GB) - `20` ~ `65536`
--   `max_allocated_storage` : Maximum limit for storage auto scaling
--   `iops` : Number of I/O operations per second supported by the DB instance - `1000` ~ `40000`
--   `multi_az_enabled` : Whether to enable Multi-AZ deployment - `true`, `false`
+-   `storage_type` : Storage type for the RDS instance
+-   `allocated_storage` : RDS storage size (GB) - 20 ~ 65536
+-   `max_allocated_storage` : Maximum limit for storage autoscaling
+-   `iops` : I/O operations per second supported by the DB instance - 1000 ~ 40000
+-   `multi_az_enabled` : Whether Multi-AZ deployment is enabled - `true`, `false`
 -   `username` : RDS administrator username
 -   `password` : RDS administrator password
--   `publicly_accessible` : Whether to allow public access - `true`, `false`
+-   `publicly_accessible` : Whether public access is allowed - `true`, `false`
 
 #### Network Settings
 
--   `included_subnet_names` : List of Subnet names included in the RDS Subnet Group
--   `subnet_group_name` : Subnet Group name to use for RDS
+-   `included_subnet_names` : List of subnet names included in the RDS Subnet Group
+-   `subnet_group_name` : Subnet Group name for RDS
 -   `linked_security_group_names` : List of security groups to apply
 
 #### Monitoring Settings (`monitoring`)
 
--   `monitoring.performance_insights_enabled` : Whether to enable Performance Insights - `true`, `false`
--   `monitoring.kms_key_name` : KMS Key name to use for Performance Insights
+-   `monitoring.performance_insights_enabled` : Whether Performance Insights is enabled - `true`, `false`
+-   `monitoring.kms_key_name` : KMS Key name for Performance Insights
 
 #### Encryption Settings (`encryption`)
 
--   `encryption.storage_encrypted` : Whether to encrypt DB instance storage - `true`, `false`
--   `encryption.kms_key_name` : KMS Key name to use for encryption
+-   `encryption.storage_encrypted` : Whether DB instance storage is encrypted - `true`, `false`
+-   `encryption.kms_key_name` : KMS Key name used for encryption
 
 #### Backup Settings (`backup`)
 
--   `backup.backup_retention_period` : Backup retention period (days) - `1` ~ `35`
+-   `backup.backup_retention_period` : Backup retention period (days) - 1 ~ 35
 -   `backup.final_snapshot_enabled` : Whether to create a final snapshot before DB deletion - `true`, `false`
 -   `backup.final_snapshot_name` : Final snapshot name
 
 #### Tags
 
--   `tag` : Tags used to categorize resources
+-   `tag` : Tags used to categorize the resource
 
 ---
 
@@ -78,4 +78,4 @@ Building RDS with MySQL on AWS makes database operation and management easy. RDS
 
 -   [Creating and connecting to a MySQL database using Amazon RDS (AWS)](https://aws.amazon.com/ko/getting-started/hands-on/create-mysql-db/)
 -   [Amazon RDS Pricing (AWS)](https://aws.amazon.com/ko/rds/pricing/?nc2=type_a)
--   [rds-mysql (Terraform)](https://registry.terraform.io/modules/infrablocks/rds-mysql/aws/latest)
+-   [rds-mysql(Terraform)](https://registry.terraform.io/modules/infrablocks/rds-mysql/aws/latest)

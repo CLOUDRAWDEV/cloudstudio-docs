@@ -13,7 +13,7 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 
 ## Resource Overview
 
-An Auto Scaling Group (ASG) that automatically launches and terminates EC2 instances to adjust resources according to application demand.
+An Auto Scaling Group (ASG) automatically adjusts resources by launching or terminating EC2 instances based on application demand.
 
 ## Associated Resources
 
@@ -29,17 +29,17 @@ An Auto Scaling Group (ASG) that automatically launches and terminates EC2 insta
 
 #### Basic Settings
 
--   `launch_template_name` : Name of the Launch Template to use in the Auto Scaling Group
--   `subnet_ids` : List of subnet IDs where the Auto Scaling Group will create resources
--   `linked_targetgroup_name` : Name of the associated Target Group
--   `desired_capacity` : Target number of instances the Auto Scaling Group should maintain
--   `min_size` : Minimum number of instances the Auto Scaling Group should maintain
--   `max_size` : Maximum number of instances the Auto Scaling Group should maintain
--   `default_cooldown` : Time (in seconds) the Auto Scaling Group waits after a scaling activity before another scaling activity can start
+-   `launch_template_name` : Name of the Launch Template used by the Auto Scaling Group
+-   `subnet_ids` : List of subnet IDs where the Auto Scaling Group launches resources
+-   `linked_targetgroup_name` : Name of the associated target group
+-   `desired_capacity` : Target number of instances to maintain
+-   `min_size` : Minimum number of instances to maintain
+-   `max_size` : Maximum number of instances to maintain
+-   `default_cooldown` : Time in seconds to wait between scaling activities
 
 #### Tags
 
--   `tags` : Tags used to categorize resources
+-   `tags` : Tags used to categorize the resource
 
 ---
 
