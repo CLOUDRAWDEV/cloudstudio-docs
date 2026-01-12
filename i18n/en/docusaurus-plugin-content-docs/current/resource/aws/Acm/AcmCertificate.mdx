@@ -1,7 +1,7 @@
 ---
 title: AcmCertificate
 sidebar_position: 0
-tags: [AWS, Resource, AcmCertificate]
+tags: [AWS, 리소스, AcmCertificate]
 ---
 
 <hr />
@@ -11,30 +11,35 @@ tags: [AWS, Resource, AcmCertificate]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.webp"
     }
 />
 
 ## Resource Overview
 
-Using the ACM Certificate resource allows you to request and manage certificates from Amazon Certificate Manager.
+Using the ACM Certificate resource, you can request and manage certificates in Amazon Certificate Manager.
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ## Associated Resources
 
+#### Basic Settings
 
-## Resource Setting Values
+-   `enabled_import` : Whether to import a certificate - `true`, `false`
+-   `domain_name` : Fully qualified domain name for the certificate
+-   `validation_method` : Method to validate domain ownership - `DNS`, `EMAIL`
+-   `key_algorithm` : Encryption algorithm - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
+-   `certificate_body` : PEM-encoded certificate body to import - up to `5000` characters
+-   `certificate_private_key` : PEM-encoded private key of the certificate to import - up to `5000` characters
+-   `certificate_chain` : PEM-encoded certificate chain to import - up to `5000` characters
 
--   `enabled_import`: Import certificate
--   `certificate_body`: PEM-encoded certificate body
--   `certificate_private_key`: PEM-encoded certificate private key
--   `certificate_chain`: PEM-encoded certificate chain
+#### Tags
 
-## Reference Materials
+-   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
+
+## References
 
 -   [Amazon AcmCertificate(AWS)](https://docs.aws.amazon.com/ko_kr/acm/latest/userguide/acm-overview.html)
 -   [Amazon AcmCertificate(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate)
-

@@ -1,6 +1,6 @@
 ---
 title: Subnet
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Resource, Vpc, Subnet]
 ---
 
@@ -11,48 +11,62 @@ tags: [AWS, Resource, Vpc, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
     }
 />
 
 ## Resource Overview
 
-A subnet is a range of IP addresses within a VPC. AWS resources, such as EC2 instances, can be created within a specific subnet.
+A subnet is a range of IP addresses within a VPC. You can launch AWS resources such as EC2 instances within a specific subnet.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Child Resources
 
--   [**Directory Service**](https://docs.cstudio.app/en/docs/resource/aws/DirectoryService/)
--   [**Ec2 Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
--   [**Ecs Cluster**](https://docs.cstudio.app/en/docs/resource/aws/Ecs/EcsCluster)
--   [**Eks Cluster**](https://docs.cstudio.app/en/docs/resource/aws/Eks/EksCluster)
--   [**Elasticache Cluster**](https://docs.cstudio.app/en/docs/resource/aws/Elasticache/ElasticacheCluster)
--   [**Elasticsearch**](https://docs.cstudio.app/en/docs/resource/aws/Elasticsearch/Elasticsearch)
--   [**Lambda Function**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
--   [**Rds Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
--   [**Rds Mariadb**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mariadb)
--   [**Rds Mssql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mssql)
--   [**Rds Mysql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mysql)
--   [**Rds Oracle**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Oracle)
--   [**Rds Postgresql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Postgresql)
--   [**Vpc Nat Gateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NatGateway)
+-   [**Directory Service**](https://docs.cstudio.app/docs/resource/DirectoryService/Security/DirectoryService)
+-   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**Network Interface**](https://docs.cstudio.app/docs/resource/aws/Ec2/NetworkInterface)
+-   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticache Cluster**](https://docs.cstudio.app/docs/resource/aws/Elasticache/Elasticache)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/Lambda)
+-   [**Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Rds/NatGateway)
+
+### Connected Resources
+
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Networking/LoadBalancer)
+-   [**Client Vpn Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Network Firewall**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
+-   [**Network Acl**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkAcl)
 
 ## Resource Setting Values
 
--   `included_vpc_name` : The name of the VPC in which to deploy the subnet
--   `cidr_block` : IP ranges in your Subnet
--   `availability_zone` : Availability Zone in which to deploy the Subnet
--   `pip_enable` : Allocate Public IP
+#### Basic Settings
 
+-   `included_vpc_name` : Name of the VPC where the Subnet will be deployed
+-   `cidr_block` : IP address range (CIDR) of the Subnet
+-   `availability_zone` : Availability Zone where the Subnet will be deployed
+-   `pip_enable` : Whether to automatically assign a public IP - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
--   [Subnets of VPC(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
+-   [Subnets in your VPC(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
 -   [aws_subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

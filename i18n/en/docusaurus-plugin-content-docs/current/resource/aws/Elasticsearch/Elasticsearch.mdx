@@ -11,62 +11,83 @@ tags: [AWS, Resource, Elasticsearch]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.webp"
     }
 />
 
 ## Resource Overview
 
-Amazon Elasticsearch Service (Amazon ES) is a distributed search and analytics engine designed for fast search and data analysis. 
-Built on top of the Apache Lucene search engine, Elasticsearch is a fast, scalable open-source solution. 
-It is widely used for data collection, log analysis, and monitoring. 
-Amazon Elasticsearch Service can run within an Amazon VPC and integrates seamlessly with AWS services like Lambda and Kinesis. It also offers robust security and access control features provided by AWS, and integrates with Amazon CloudWatch for monitoring and logging capabilities.
+AWS ElasticSearch is a distributed search and analytics engine designed to enable fast search and data analysis. ElasticSearch is built on top of the Apache Lucene search engine and provides a fast and scalable open-source solution. It is used for various purposes such as data collection, log analysis, and monitoring. ElasticSearch can run within an Amazon VPC and integrates with AWS services such as Lambda and Kinesis. It provides AWS security and access control features and integrates with Amazon CloudWatch for monitoring and logging capabilities.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ### Connected Resources
 
--   [**Elastic Search**](https://docs.cstudio.app/en/docs/resource/aws/Elasticsearch/Elasticsearch)
-
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
 
 ## Resource Setting Values
 
--   `elasticsearch_version`: Elasticsearch Domain Version
--   `availability_zone_count`: The count of availability zone - `2`, `3`.
--   `tls_security_policy`: Name of the TLS security policy that needs to be applied to the HTTPS endpoint - `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`.
--   `data_node`
-    -   `instance_type`: Instance type of data nodes in the cluster
-    -   `instance_count`: Number of instances in the cluster - `1`~`80`.
-    -   `ebs_enabled`: Whether EBS volumes are attached to data nodes in the domain - `true`, `false`.
-    -   `ebs_volume_type`: Type of EBS volumes attached to data nodes - `standard`, `gp2`, `io1`.
-    -   `ebs_volume_size`: Size of EBS volumes attached to data nodes (in GiB) - `1`~`16384`.
--   `master_node`
-    -   `master_node_enabled`: Enable main nodes in the cluster - `true`, `false`.
-    -   `master_instance_type`: Instance type of the dedicated main nodes in the cluster - `r5.large.search`.
-    -   `master_node_count`: Number of dedicated main nodes in the cluster - `3`, `5`.
--   `custom_endpoint`
-    -   `custom_endpoint_enabled`: Enable user custom endpoint - `true`, `false`.
--   `network`
-    -   `network_type`: The type of network access - `vpc_access`, `public_access`.
-    -   `included_subnet_names`: List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in
-    -   `security_group_names`: List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints
--   `fine_grained_access`
-    -   `fine_grained_access_enabled`: Enable fine grained access - `true`, `false`.
-    -   `master_user_type`: The type of master user - `iam_arn`, `master_user`.
-    -   `iam_arn`: IAM ARN for the Master user
--   `encryption`
-    -   `enforce_https`: Whether or not to require HTTPS - `true`, `false`.
-    -   `node_to_node_encryption_enabled`: Whether to enable node-to-node encryption - `true`, `false`.
-    -   `data_at_rest_encryption_enabled`: Whether to enable encryption at rest - `true`, `false`.
--   `kms_key_name`: The name of KMS key for encryption at rest
+#### Basic Settings
+
+-   elasticsearch_version : Elasticsearch Domain version
+-   availability_zone_count : Number of Availability Zones - 2, 3
+-   tls_security_policy : TLS security policy applied to HTTPS endpoint
+-   engine : Elasticsearch engine configuration
+
+#### Data Node (data_node)
+
+-   data_node.instance_type : Data node instance type
+-   data_node.instance_count : Number of data nodes
+-   data_node.ebs_enabled : Whether to attach EBS to data nodes - true, false
+-   data_node.ebs_volume_type : EBS volume type - gp2, gp3, io1, standard
+-   data_node.ebs_volume_size : EBS volume size (GiB)
+-   data_node.ebs_volume_iops : EBS IOPS
+-   data_node.ebs_volume_throughput : EBS throughput (MiB/s)
+
+#### Master Node (master_node)
+
+-   master_node.master_node_enabled : Whether to enable dedicated master nodes - true, false
+-   master_node.master_instance_type : Master node instance type
+-   master_node.master_node_count : Number of master nodes
+
+#### Custom Endpoint (custom_endpoint)
+
+-   custom_endpoint.custom_endpoint_enabled : Whether to enable a custom endpoint - true, false
+-   custom_endpoint.custom_host_name : Custom host name
+-   custom_endpoint.acm_certificate_name : ACM certificate name
+
+#### Network Settings (network)
+
+-   network.network_type : Network access method - vpc_access, public_access
+-   network.included_subnet_names : List of Subnet names where the Elasticsearch domain will be created
+-   network.linked_security_group_names : List of Security Group names to link
+
+#### Fine-Grained Access Control (fine_grained_access)
+
+-   fine_grained_access.fine_grained_access_enabled : Whether to enable fine-grained access control - true, false
+-   fine_grained_access.master_user_type : Master user type - iam_arn, master_user
+-   fine_grained_access.iam_arn : Master user IAM ARN
+-   fine_grained_access.master_user_name : Master user name
+-   fine_grained_access.master_user_password : Master user password
+
+#### Encryption Settings (encryption)
+
+-   encryption.enforce_https : Whether to enforce HTTPS - true, false
+-   encryption.node_to_node_encryption_enabled : Whether to enable node-to-node encryption - true, false
+-   encryption.data_at_rest_encryption_enabled : Whether to enable encryption at rest - true, false
+-   encryption.kms_key_name : KMS key name used for encryption
+
+#### Tags
+
+-   tag : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
--   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)
+-   [aws_elasticsearch_domain (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

@@ -11,53 +11,114 @@ tags: [AWS, Resource, Lb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
     }
 />
 
 ## Resource Overview
 
-Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances. It also monitors the health of registered targets and routes traffic only to targets that are in good health. 
-Elastic Load Balancing supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer.
+Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances. It also monitors the health of registered targets and routes traffic only to healthy targets. Elastic Load Balancing supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Connected Resources
 
--   [**Ec2 Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
--   [**Vpc Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
--   [**Vpc Security Group**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Lb Target Group**](https://docs.cstudio.app/docs/resource/aws/Networking/TargetGroup)
+-   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Endpoint Service**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ## Resource Setting Values
 
--   `load_balancer_type`: The type of load balancer to create - `application`, `network`, `gateway`
--   `internal`: Set whether to deploy ELB as Internet facing or Internal - `true`, `false`
--   `included_vpc_name`: Name of the VPC in which to create the target group
+#### Basic Settings
 
--   `linked_subnet_names`: A list of subnet names to attach to the LB
--   `security_group_names`: A list of security group names to assign to the LB. Only valid for Load Balancers of type application
+-   `load_balancer_type` : ELB type - `application`, `network`, `gateway`
+-   `internal` : Whether to deploy the ELB as Internet-facing or Internal - `true`, `false`
+-   `included_vpc_name` : Name of the VPC where target resources will be created
+-   `linked_subnet_names` : List of Subnet names to attach to the LB
+-   `linked_security_group_names` : List of Security Group names assigned to the LB (Application LB only)
+-   `drop_invalid_header` : Whether to drop invalid HTTP headers - `true`, `false`
 
--   `drop_invalid_header`: Set whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false) - `true`, `false`
--   `target_group`: Name of Target Group, A maximum of 32 alphanumeric characters including hyphens(-) are allowed, but the name must not begin or end with a hyphen
+#### Listener (`listener`)
 
-    -   `protocol`: Protocol to use for routing traffic to the targets - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
-    -   `port`: Port on which targets receive traffic
-    -   `instance_names`: List of the target Instance names
+-   `listener.protocol` : Protocol for client → load balancer connection - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+-   `listener.port` : Port on which the load balancer listens
+-   `listener.default_action_type` : Default routing action type - `forward`, `redirect`, `fixed-response`
+-   `listener.linked_target_group_name` : Name of the Target Group to route traffic to
+-   `listener.acm_certificate_name` : Name of the default SSL server certificate
+-   `listener.ssl_policy` : Name of the SSL policy applied to the listener
 
--   `listener`: Name of ELB Listener
-    -   `protocol`: Protocol to use for routing traffic to the targets - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
-    -   `port`: Port on which targets receive traffic
-    -   `default_action_type`: Type of routing action - `forward`, `redirect`, `fixed-response`
-    -   `target_group_name`: Name of the Target Group to which to route traffic
+#### Listener Rule (`rule`)
+
+-   `rule.target_listener` : Name of the Listener to apply the rule to
+-   `rule.priority` : Rule priority - `1` ~ `50000`
+
+#### Fixed Response (`rule.fixed_response`)
+
+-   `rule.fixed_response.fixed_response_order` : Fixed response priority - `1` ~ `50000`
+-   `rule.fixed_response.content_type` : Response Content-Type
+-   `rule.fixed_response.message_body` : Response message body
+-   `rule.fixed_response.fixed_response_status_code` : HTTP response code
+
+#### Forward (`rule.forward`)
+
+-   `rule.forward.forward_order` : Forward priority - `1` ~ `50000`
+-   `rule.forward.forward_target_group_list` : List of Target Groups to forward to
+-   `rule.forward.enable_stickiness` : Whether to enable Target Group stickiness - `true`, `false`
+-   `rule.forward.duration` : Duration (seconds) for routing to the same Target Group
+
+#### Redirect (`rule.redirect`)
+
+-   `rule.redirect.redirect_order` : Redirect priority - `1` ~ `50000`
+-   `rule.redirect.host` : Host name (`#{host}` supported)
+-   `rule.redirect.path` : Absolute path (must start with `/`)
+-   `rule.redirect.port` : Port - `1` ~ `65535` or `#{port}`
+-   `rule.redirect.protocol` : Protocol - `HTTP`, `HTTPS`, `#{protocol}`
+-   `rule.redirect.query` : Query string
+-   `rule.redirect.redirect_status_code` : HTTP redirect code - `HTTP_301`, `HTTP_302`
+
+#### Authentication (`rule.authenticate`)
+
+-   `rule.authenticate.authenticate_type` : Authentication method - `authenticate_cognito`, `authenticate_oidc`
+-   `rule.authenticate.authenticate_order` : Authentication priority - `1` ~ `50000`
+-   `rule.authenticate.on_unauthenticated_request` : Action for unauthenticated requests - `deny`, `allow`, `authenticate`
+-   `rule.authenticate.scope` : User scope requested from the IdP
+-   `rule.authenticate.session_cookie_name` : Cookie name for session persistence
+-   `rule.authenticate.session_timeout` : Session duration (seconds) - `60` ~ `86400`
+-   `rule.authenticate.user_pool_arn` : Cognito User Pool ARN
+-   `rule.authenticate.user_pool_client_id` : Cognito User Pool Client ID
+-   `rule.authenticate.user_pool_domain` : Cognito User Pool domain
+-   `rule.authenticate.authorization_endpoint` : IdP authorization endpoint
+-   `rule.authenticate.client_id` : OAuth 2.0 Client ID
+-   `rule.authenticate.client_secret` : OAuth 2.0 Client Secret
+-   `rule.authenticate.issuer` : OIDC issuer
+-   `rule.authenticate.token_endpoint` : Token endpoint
+-   `rule.authenticate.user_info_endpoint` : User info endpoint
+
+#### Conditions (`rule.condition`)
+
+-   `condition_list` : List of rule conditions to use
+-   `host_header` : Host header condition value
+-   `path_pattern` : Path pattern condition value
+-   `http_request_method` : HTTP method condition value
+-   `http_header_name` : HTTP header name
+-   `http_header_value` : HTTP header value
+-   `query_string_key` : Query string key
+-   `query_string_value` : Query string value
+-   `source_ip` : Source IP condition value
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - up to 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
--   [Elastic Load Balancing Price(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
--   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
+-   [Elastic Load Balancing (AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing Pricing (AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

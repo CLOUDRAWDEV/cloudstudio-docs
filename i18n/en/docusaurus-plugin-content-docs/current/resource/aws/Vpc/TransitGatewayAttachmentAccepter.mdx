@@ -1,6 +1,6 @@
 ---
 title: TransitGatewayAttachmentAccepter
-sidebar_position: 0
+sidebar_position: 17
 tags: [AWS, Resource, VPC, TransitGatewayAttachmentAccepter]
 ---
 
@@ -11,33 +11,39 @@ tags: [AWS, Resource, VPC, TransitGatewayAttachmentAccepter]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.webp"
     }
 />
 
 ## Resource Overview
 
-A resource that determines whether to allow the sharing of resources across different accounts
+A resource that determines whether to accept a Transit Gateway attachment shared from another AWS account.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ### Connected Resources
 
--   [**TransitGatewayAttachment**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachment)
+-   [**Transit Gateway Attachment**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
 ## Resource Setting Values
 
--   `is_manual` : Whether to enter the Transit gateway Attachment ID to connect directly - `false`, `true`
--   `linked_transit_gateway_attachment_name` : Transit Gateway Attachment's Name that to enable share
+#### Basic Settings
 
+-   `is_manual` : Whether to manually enter the Transit Gateway Attachment ID - `true`, `false`
+-   `transit_gateway_attachment_id` : Transit Gateway Attachment ID to accept
+-   `linked_transit_gateway_attachment_name` : Name of the Transit Gateway Attachment to accept
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
 -   [TransitGatewayAttachmentAccepter(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
 -   [TransitGatewayAttachmentAccepter(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

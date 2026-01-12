@@ -1,6 +1,6 @@
 ---
-title: Network Acl
-sidebar_position: 0
+title: NetworkAcl
+sidebar_position: 9
 tags: [AWS, Resource, Vpc, NetworkAcl]
 ---
 
@@ -11,46 +11,55 @@ tags: [AWS, Resource, Vpc, NetworkAcl]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
     }
 />
 
 ## Resource Overview
 
-A network access control list (ACL) controls whether specific inbound or outbound traffic is allowed or denied at the subnet level. 
-You can use the default network ACL for your VPC or create a custom network ACL with rules similar to those of security groups to add an additional layer of security to your VPC. 
-There are no additional charges for using network ACLs.
+A Network Access Control List (ACL) allows or denies specific inbound or outbound traffic at the subnet level. You can use the default network ACL for a VPC or create a custom network ACL using rules similar to security group rules to add an additional layer of security to your VPC.  
+There is no additional charge for using network ACLs.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Connected Resources
 
--   [**Vpc Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ## Resource Setting Values
 
--   `included_vpc_name`: The name of the VPC with the Network ACL
--   `linked_subnet_names`: Subnet names to apply Network ACL to
--   `ingress`: Ingress rule name in Network ACL
-    -   `protocol`: Protocol in Ingress Rule - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action`: Action to be applied to the protocol of the Ingress rule - `allow`, `deny`
-    -   `cidr_block`: CIDR to apply the Ingress rule to
-    -   `from_port`: Port number coming into the Ingress rule
-    -   `to_port`: Outgoing port number through the Ingress rule
--   `egress`: Ingress rule name in Network ACL
-    -   `protocol`: Protocol in Egress Rule - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action`: Action to be applied to the protocol of the Egress rule - `allow`, `deny`
-    -   `cidr_block`: CIDR to apply the Egress rule to
-    -   `from_port`: Port number coming into the Egress rule
-    -   `to_port`: Outgoing port number through the Egress rule
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC where the ACL will be created
+-   `nacl_description` : Description of the ACL
+
+#### Inbound Rules (`inbound_rule`)
+
+-   `inbound_rule.priority` : Inbound rule priority - `0` ~ `199`
+-   `inbound_rule.protocol` : Inbound traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Whether to allow inbound traffic - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Source CIDR range for inbound traffic
+-   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
+
+#### Outbound Rules (`outbound_rule`)
+
+-   `outbound_rule.priority` : Outbound rule priority - `0` ~ `199`
+-   `outbound_rule.protocol` : Outbound traffic protocol - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Whether to allow outbound traffic - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Destination CIDR range for outbound traffic
+-   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
--   [Controlling Traffic to Subnets Using Network ACLs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [Control traffic to subnets using Network ACLs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
 -   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

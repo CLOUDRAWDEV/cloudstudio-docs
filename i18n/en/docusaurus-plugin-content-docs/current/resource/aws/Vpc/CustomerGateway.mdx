@@ -1,6 +1,6 @@
 ---
-title: Customer Gateway
-sidebar_position: 0
+title: CustomerGateway
+sidebar_position: 3
 tags: [AWS, Resource, Vpc, CustomerGateway]
 ---
 
@@ -11,31 +11,49 @@ tags: [AWS, Resource, Vpc, CustomerGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-AWS Transit Gateway connects Amazon Virtual Private Cloud (VPC) and on-premises networks through a central hub. 
-This connection simplifies the network by eliminating complex peering relationships. 
-Transit Gateway serves as a highly scalable cloud router.
+AWS Transit Gateway connects Amazon Virtual Private Clouds (VPCs) and on-premises networks through a central hub. This connection simplifies networks by eliminating complex peering relationships. Transit Gateway acts as a highly scalable cloud router.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Connected Resources
+
+-   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
+-   [**Vpn Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpnGateway)
 
 ## Resource Setting Values
 
--   `bgp_asn` : The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN)
--   `ip_address` : The Static IP address of the gateway's Internet-routable external interface
+#### Basic Settings
+
+-   `bgp_asn` : BGP ASN value of the gateway - `1` ~ `2147483647`
+-   `ip_address` : Static public IP address of the external interface of the gateway
+-   `private_certificate_arn` : AWS Private Certificate Manager certificate ARN
+
+#### VPN Connection Settings (`vpn_connection`)
+
+-   `vpn_connection.resource_type` : Resource type to connect with the Customer Gateway - `none`, `transit_gateway`, `vpn_gateway`
+-   `vpn_connection.linked_resource_name` : Name of the resource to connect
+-   `vpn_connection.static_routes_only` : Whether to use static routing only - `true`, `false`
+-   `vpn_connection.outside_ip_address_type` : External IP address type - `PublicIpv4`, `PrivateIpv4`
+-   `vpn_connection.dx_gateway_name` : Transit Gateway Attachment name used for private IP VPN connections
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources
 
 ---
 
-## Reference Materials
+## References
 
 -   [AWS Transit Gateway(AWS)](https://aws.amazon.com/ko/transit-gateway/?nc2=type_a)
--   [AWS Transit Gateway Price(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
+-   [AWS Transit Gateway Pricing(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
 -   [aws_customer_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/customer_gateway)
