@@ -17,24 +17,24 @@ tags: [Azure, Network, WebApplicationFirewallPolicy, WAF]
 
 ## Resource Overview
 
-Web Application Firewall Policy is a **web firewall policy** applied to services such as Application Gateway (WAF), and centrally manages detection and blocking rules based on OWASP rule sets.  
-By using managed rule groups (OWASP / Bot Manager) and exclusion settings, it allows adjustment of protection levels against web attacks (SQLi, XSS, etc.) while reducing false positives.
+Web Application Firewall Policy is a **web firewall policy** applied to services such as Application Gateway (WAF), providing centralized management of detection and blocking rules based on OWASP rule sets.  
+By using managed rule groups (OWASP/Bot Manager) and exclusions, it allows tuning protection levels against web attacks (such as SQLi and XSS) while reducing false positives.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
+-   [**ApplicationGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
 
 ## Resource Setting Values
 
 -   `owasp_version` : Version of the OWASP rule set
 -   `microsoft_bot_manager_rule_set_version` : Version of the Microsoft Bot Manager rule set
--   `tag` : Tags for categorizing resources
+-   `tag` : Tags used to categorize resources
 
 #### Managed Rule Group (`managed_rule_group`)
 
@@ -45,8 +45,8 @@ By using managed rule groups (OWASP / Bot Manager) and exclusion settings, it al
 #### Exclusion (`exclusion`)
 
 -   `exclusion.match_variable` : Variable to match - `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`
--   `exclusion.selector` : Value to compare against the match variable using an operator
--   `exclusion.selector_match_operator` : Operator used to evaluate matching - `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`
+-   `exclusion.selector` : Value to compare against the match variable
+-   `exclusion.selector_match_operator` : Operator used to evaluate matches - `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`
 
 ---
 

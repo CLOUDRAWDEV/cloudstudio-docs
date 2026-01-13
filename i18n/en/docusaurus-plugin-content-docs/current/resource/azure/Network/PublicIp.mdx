@@ -17,29 +17,30 @@ tags: [Azure, Network, PublicIp]
 
 ## Resource Overview
 
-Public IP is a network resource that provides a public IP address allowing Azure resources to **communicate directly inbound and outbound with the internet**.  
-It integrates with Load Balancer, Virtual Machine, NAT Gateway, and others to serve as an external traffic entry point or outbound exit, and its availability and behavior vary depending on SKU and allocation method.
+Public IP is a network resource that provides a public IP address allowing Azure resources to perform **direct inbound and outbound communication** with the internet.  
+It works in conjunction with services such as Load Balancer, Virtual Machine, and NAT Gateway, serving as an ingress point for external traffic or an outbound egress point.  
+Availability and behavior characteristics vary depending on the SKU and allocation method.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public Load Balancer**](https://docs.cstudio.app/docs/resource/azure/Network/PublicLoadBalancer)
--   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
--   [**Bastion Host**](https://docs.cstudio.app/docs/resource/azure/Network/BastionHost)
--   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/NatGateway)
--   [**Firewall**](https://docs.cstudio.app/docs/resource/azure/Network/Firewall)
+-   [**Public Load Balancer**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicLoadBalancer)
+-   [**Application Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/en/docs/resource/azure/Network/BastionHost)
+-   [**Nat Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/NatGateway)
+-   [**Firewall**](https://docs.cstudio.app/en/docs/resource/azure/Network/Firewall)
 
 ## Resource Setting Values
 
 -   `sku` : Pricing tier of the Public IP - `Standard`, `Basic`
--   `allocation_method` : Allocation method of the Public IP address - `Static`, `Dynamic`
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `allocation_method` : Allocation method for the Public IP address - `Static`, `Dynamic`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

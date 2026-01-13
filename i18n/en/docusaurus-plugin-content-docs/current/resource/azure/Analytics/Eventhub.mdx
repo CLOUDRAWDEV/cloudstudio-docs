@@ -24,7 +24,7 @@ Throughput and network access policies are configured at the namespace level, an
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
@@ -46,7 +46,7 @@ Throughput and network access policies are configured at the namespace level, an
 
 ### Network Access Control (`network_rulesets`)
 
--   `network_rulesets.default_action` : Default network access behavior - `Allow`, `Deny`
+-   `network_rulesets.default_action` : Default network access action - `Allow`, `Deny`
 
 -   `network_rulesets.virtual_network_rule.target_subnet_name` : Name of the subnet to connect
 
@@ -56,23 +56,23 @@ Throughput and network access policies are configured at the namespace level, an
 
 -   `eventhub.default.partition_count` : Current number of shards (partitions) for the Event Hub - `1` ~ `100`
 
--   `eventhub.default.message_retention` : Number of days to retain events in the Event Hub - `1` ~ `90`
+-   `eventhub.default.message_retention` : Number of days to retain events for the Event Hub - `1` ~ `90`
 
--   `eventhub.default.enabled_capture` : Whether Capture is enabled - `true`, `false`
+-   `eventhub.default.enabled_capture` : Whether to enable Capture - `true`, `false`
 
--   `eventhub.default.encoding` : Encoding used for Capture - `Avro`, `AvroDeflate`
+-   `eventhub.default.encoding` : Encoding used for Capture descriptions - `Avro`, `AvroDeflate`
 
--   `eventhub.default.time_window` : Time interval (minutes) for capture execution - `1` ~ `15`
+-   `eventhub.default.time_window` : Time interval (minutes) during which capture is performed - `1` ~ `15`
 
--   `eventhub.default.size_window` : Amount of data accumulated in the Event Hub before capture is triggered - `11` ~ `524`
+-   `eventhub.default.size_window` : Amount of data accumulated in Event Hub before a capture operation occurs - `11` ~ `524`
 
--   `eventhub.default.skip_empty_archives` : Whether to skip exporting empty files when no events exist during the capture time window - `true`, `false`
+-   `eventhub.default.skip_empty_archives` : Whether to skip exporting empty files when there are no events in the capture time window - `true`, `false`
 
--   `eventhub.default.capture_file_name_format` : Blob naming rule for archive storage
+-   `eventhub.default.capture_file_name_format` : Blob naming convention for retention
 
--   `eventhub.default.linked_storage_account` : Name of the Blob storage account container where messages are stored
+-   `eventhub.default.linked_storage_account` : Name of the container within the Blob storage account where messages should be retained
 
--   `eventhub.default.target_storage_container_name` : Blob storage account where messages are stored
+-   `eventhub.default.target_storage_container_name` : Blob storage account where messages should be retained
 
 ---
 

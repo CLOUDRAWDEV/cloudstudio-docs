@@ -17,14 +17,14 @@ tags: [Azure, ContentSafety, CognitiveServices]
 
 ## Resource Overview
 
-Content Safety is an AI-based verification service that automatically analyzes various types of content such as text and images to detect and filter harmful or inappropriate elements.  
+Content Safety is an AI-based validation service that automatically analyzes various types of content such as text and images to detect and filter harmful or inappropriate elements.  
 It is used to proactively inspect content generated or submitted by applications to prevent policy violations and provide a safe user experience.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
@@ -32,17 +32,17 @@ It is used to proactively inspect content generated or submitted by applications
 
     -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
 
--   `custom_subdomain_name` : Custom subdomain name to be used for the endpoint URL
+-   `custom_subdomain_name` : Custom subdomain name used for the endpoint URL
 
 ### Network Access Control (`network_acls`)
 
 -   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
 
--   `network_acls.ip_rules` : List of allowed IP addresses or CIDR ranges for resource access
+-   `network_acls.ip_rules` : List of IP addresses or CIDR ranges allowed to access the resource
 
 -   `local_auth_enabled` : Whether to enable local authentication using API keys - `true`, `false`
 
--   `public_network_access_enabled` : Whether to allow resource access through the public internet - `true`, `false`
+-   `public_network_access_enabled` : Whether to allow access via the public internet - `true`, `false`
 
 -   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
 

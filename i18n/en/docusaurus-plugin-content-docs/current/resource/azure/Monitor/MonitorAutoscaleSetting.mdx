@@ -18,30 +18,30 @@ tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
 ## Resource Overview
 
 Monitor Autoscale Setting is an Azure Monitor–based autoscaling feature that **automatically adjusts the number of resource instances** to handle application load.  
-Resources can be flexibly scaled in or out based on metrics such as CPU, memory, disk, and network usage, as well as scheduled conditions.
+Resources can be scaled up or down dynamically based on metrics such as CPU, memory, disk, and network usage, as well as schedule-based conditions.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
--   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**LinuxVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**WindowsVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
 
 ## Resource Setting Values
 
 #### Target Resource
 
--   `linked_target_resource_name` : Name of the resource to which autoscale settings are applied (read-only)
+-   `linked_target_resource_name` : Name of the resource to which the autoscale setting is applied (read-only)
 
 ---
 
-#### Scale Condition (`scale_condition`)
+#### Scale Conditions (`scale_condition`)
 
-Defines the scale profile applied when the autoscale engine is triggered.
+Defines the scale profile applied when the autoscale engine runs.
 
 ##### Instance Count Settings
 
@@ -51,30 +51,30 @@ Defines the scale profile applied when the autoscale engine is triggered.
 
 ---
 
-##### Scaling Rules (`scale_condition.rule`)
+##### Scale Rules (`scale_condition.rule`)
 
-Defines the conditions under which scaling actions occur based on metrics.
+Defines the conditions under which scaling occurs based on metrics.
 
 -   `rule.metric_name` : Name of the metric monitored by the rule
--   `rule.operator` : Operator used to compare metric values against thresholds
+-   `rule.operator` : Operator used to compare the metric value with the threshold
     -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
 -   `rule.metric_threshold` : Metric value used to evaluate whether scaling should occur
 
 ##### Metric Evaluation Settings
 
--   `rule.time_window` : Time window for collecting metric data (minutes) - `5` ~ `720`
+-   `rule.time_window` : Time range (minutes) over which metric data is collected - `5` ~ `720`
 -   `rule.time_grain` : Metric sampling interval (minutes) - `1` ~ `720`
--   `rule.time_grain_statistic` : Aggregation method across multiple instances - `Average`, `Min`, `Max`
--   `rule.time_aggregation` : Method for aggregating sampled metrics
+-   `rule.time_grain_statistic` : Aggregation method for metrics across multiple instances - `Average`, `Min`, `Max`
+-   `rule.time_aggregation` : Method used to aggregate sampled metrics
     -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
 
-##### Scaling Actions
+##### Scale Actions
 
 -   `rule.scale_direction` : Scaling direction - `Increase`, `Decrease`
 -   `rule.scale_operation` : Type of scaling operation
     -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
 -   `rule.scale_instance_count` : Number of instances involved in the scaling operation - `1` ~ `1000`
--   `rule.scale_cooldown` : Cooldown period before the next scaling action (minutes) - `1` ~ `10080`
+-   `rule.scale_cooldown` : Cooldown period (minutes) before the next scaling action - `1` ~ `10080`
 
 ---
 
@@ -82,12 +82,12 @@ Defines the conditions under which scaling actions occur based on metrics.
 
 Allows scaling actions to be applied based on a schedule.
 
--   `schedule_type` : Type of schedule applied to scaling actions
+-   `schedule_type` : Schedule type applied to scaling actions
     -   `start_end_dates`, `repeat_days`
 -   `timezone` : Time zone in which the schedule applies
 -   `start_date` : Schedule start date
 -   `end_date` : Schedule end date
--   `repeat_days` : Days of the week on which the schedule applies
+-   `repeat_days` : Days of the week when the schedule applies
 -   `start_time` : Schedule start time
 -   `end_time` : Schedule end time
 
@@ -95,7 +95,7 @@ Allows scaling actions to be applied based on a schedule.
 
 #### Tags
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

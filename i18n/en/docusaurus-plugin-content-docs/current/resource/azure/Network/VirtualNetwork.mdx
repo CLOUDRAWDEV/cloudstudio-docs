@@ -17,31 +17,31 @@ tags: [Azure, Network, VirtualNetwork, VNet]
 
 ## Resource Overview
 
-Virtual Network is a **virtual network resource** used to enable communication between Azure resources and to configure connectivity with the internet or on-premises networks.  
-Based on the IP address space (Address Space), subnets, security policies, and peering can be configured to define the network structure of an Azure environment.
+Virtual Network is a **virtual network resource** that enables communication between Azure resources and provides connectivity to the internet or on-premises networks.  
+Based on an IP address space, it allows defining subnets, security policies, and peering to structure the Azure network environment.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Child Resources
 
--   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
--   [**Windows Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
--   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
--   [**Private Dns Resolver**](https://docs.cstudio.app/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**LinuxVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**WindowsVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
+-   [**PrivateDnsResolver**](https://docs.cstudio.app/en/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
 
 ### Connected Resources
 
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
 
 ## Resource Setting Values
 
--   `vnet_address_space` : IP address space to be used by the Virtual Network
+-   `vnet_address_space` : IP address space used by the Virtual Network
 
     -   One or more CIDR-formatted address ranges can be specified
 
@@ -51,19 +51,19 @@ Based on the IP address space (Address Space), subnets, security policies, and p
 
 #### VNet Peering (`peering`)
 
-Defines connection settings with other Virtual Networks.
+Defines connectivity settings with other Virtual Networks.
 
--   `peering.linked_vnet_name` : Name of the target Virtual Network to connect (read-only)
+-   `peering.linked_vnet_name` : Name of the target Virtual Network (read-only)
 -   `peering.allow_access_to_remote_vnet` : Whether to allow access to the remote Virtual Network
--   `peering.allow_receive_forwarded_traffic` : Whether to allow receiving forwarded traffic
+-   `peering.allow_receive_forwarded_traffic` : Whether to allow forwarded traffic
 -   `peering.allow_forward_traffic_to_remote_vnet` : Whether to allow forwarding traffic to the remote Virtual Network
--   `peering.allow_use_remote_gateway` : Whether to use the remote Virtual Network’s Gateway
-    -   Values for each item: `true`, `false`
+-   `peering.allow_use_remote_gateway` : Whether to use the remote Virtual Network gateway
+    -   Each value: `true`, `false`
 
 #### Tags
 
--   `tag` : Tags for categorizing resources
-    -   Up to 512 characters, in `key`:`value` format
+-   `tag` : Tags used to categorize resources
+    -   Maximum 512 characters, `key`:`value` format
 
 ---
 

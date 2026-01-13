@@ -17,20 +17,20 @@ tags: [Azure, Network, FirewallPolicyRuleCollectionGroup]
 
 ## Resource Overview
 
-FirewallPolicyRuleCollectionGroup is a resource that **groups multiple rule collections within an Azure Firewall Policy for centralized management**.  
-Application, NAT, and Network Rule Collections can be organized into a single group, and the processing order within the policy can be controlled based on group priority.
+FirewallPolicyRuleCollectionGroup is a resource that **groups multiple rule collections within an Azure Firewall Policy for unified management**.  
+Application, NAT, and Network Rule Collections can be organized into a single group, and the processing order within the policy is controlled by group priority.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**FirewallPolicy**](https://docs.cstudio.app/docs/resource/azure/Network/FirewallPolicy)
+-   [**FirewallPolicy**](https://docs.cstudio.app/en/docs/resource/azure/Network/FirewallPolicy)
 
 ## Resource Setting Values
 
 -   `included_firewall_policy_name` : Name of the Azure Firewall Policy to include
 -   `priority` : Processing priority of the Rule Collection Group
--   `tag` : Tags for categorizing resources
+-   `tag` : Tags used to categorize resources
 
 #### Application Rule Collection (`application_rule_collection`)
 
@@ -39,14 +39,14 @@ Application, NAT, and Network Rule Collections can be organized into a single gr
 
 #### Application Rule Collection > Rule (`application_rule_collection.rule`)
 
--   `application_rule_collection.rule.protocols` : List of source IP addresses or address ranges for the traffic
--   `application_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges for the traffic
--   `application_rule_collection.rule.destination_fqdns` : List of destination FQDNs (fully qualified domain names)
+-   `application_rule_collection.rule.protocols` : List of protocols for the traffic
+-   `application_rule_collection.rule.source_addresses` : List of source IP addresses or address ranges
+-   `application_rule_collection.rule.destination_fqdns` : List of destination FQDNs (Fully Qualified Domain Names)
 
 #### NAT Rule Collection (`nat_rule_collection`)
 
 -   `nat_rule_collection.priority` : Priority within the NAT Rule Collection
--   `nat_rule_collection.action` : Action performed by the NAT rule - `Dnat`
+-   `nat_rule_collection.action` : Action performed by the NAT rules - `Dnat`
 
 #### NAT Rule Collection > Rule (`nat_rule_collection.rule`)
 
@@ -60,7 +60,7 @@ Application, NAT, and Network Rule Collections can be organized into a single gr
 #### Network Rule Collection (`network_rule_collection`)
 
 -   `network_rule_collection.priority` : Priority within the Network Rule Collection
--   `network_rule_collection.action` : Action performed by the Network rule - `Allow`
+-   `network_rule_collection.action` : Action performed by the Network rules - `Allow`
 
 #### Network Rule Collection > Rule (`network_rule_collection.rule`)
 

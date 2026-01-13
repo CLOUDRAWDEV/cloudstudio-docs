@@ -17,30 +17,30 @@ tags: [Azure, Network, Firewall]
 
 ## Resource Overview
 
-Azure Firewall is a **managed network firewall service** deployed within a Virtual Network that centrally controls inbound and outbound traffic and provides threat protection.  
+Azure Firewall is a **managed network firewall service** deployed within a Virtual Network that provides centralized inbound and outbound traffic control and threat protection.  
 It supports L3–L7 filtering through Network, Application, and NAT rules, and is commonly used as a shared security boundary in hub-and-spoke or single VNet architectures.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
 ## Resource Setting Values
 
 -   `sku_tier` : Pricing tier of the Firewall - `Basic`, `Standard`, `Premium`
 -   `ip_config_name` : Name of the IP Configuration
--   `included_subnet_name` : Name of the Subnet where the Firewall is located
--   `linked_firewall_subnet_public_ip_name` : Name of the Public IP linked to the Firewall Subnet
+-   `included_subnet_name` : Name of the Subnet where the Firewall is deployed
+-   `linked_firewall_subnet_public_ip_name` : Name of the Public IP associated with the Firewall Subnet
 -   `management_ip_config_name` : Name of the Management IP Configuration
 -   `target_firewall_management_subnet_name` : Name of the Firewall Management Subnet
--   `linked_firewall_management_subnet_public_ip_name` : Name of the Public IP linked to the Firewall Management Subnet
+-   `linked_firewall_management_subnet_public_ip_name` : Name of the Public IP associated with the Firewall Management Subnet
 -   `sku_name` : Firewall SKU name - `AZFW_VNet`, `AZFW_Hub`
--   `tag` : Tags for categorizing resources
+-   `tag` : Tags used to categorize resources
 
 #### Network Rule Collection (`network_rule_collection`)
 
@@ -63,7 +63,7 @@ It supports L3–L7 filtering through Network, Application, and NAT rules, and i
 
 -   `application_rules.source_addresses` : List of source IP addresses or ranges
 -   `application_rules.target_fqdns` : List of FQDNs for outbound traffic filtering
--   `application_rules.protocol_port` : Port for protocol communication
+-   `application_rules.protocol_port` : Port used for the protocol connection
 -   `application_rules.protocol_type` : Protocol type - `Http`, `Https`, `Mssql`
 
 #### NAT Rule Collection (`nat_rule_collection`)

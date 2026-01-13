@@ -18,30 +18,32 @@ tags: [Azure, Network, NatGateway]
 ## Resource Overview
 
 NAT Gateway is a resource that provides **outbound internet connectivity** for one or more Subnets within a Virtual Network.  
-When connected to a Subnet, resources in that Subnet communicate externally through the specified Public IP and do not expose inbound public endpoints.
-By adjusting the idle connection timeout, long-lived connections can be maintained or unnecessary connections can be cleaned up quickly.
+When associated with a Subnet, resources in that Subnet communicate outbound using the specified Public IP, and no inbound public endpoints are exposed.  
+By configuring the idle timeout for idle connections, long-lived connections can be maintained or unnecessary connections can be quickly cleared.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ## Resource Setting Values
 
--   `linked_subnet_names` : Names of the Subnets to which the Nat Gateway will be connected
--   `linked_public_ip_name` : Name of the Public IP to link to the Nat Gateway
--   `idle_timeout_in_minutes` : Time limit for removing idle flows on the Nat Gateway (minutes) - `4` ~ `120`
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+#### Basic Settings
+
+-   `linked_subnet_names` : Names of the Subnets to associate with the NAT Gateway
+-   `linked_public_ip_name` : Name of the Public IP to associate with the NAT Gateway
+-   `idle_timeout_in_minutes` : Idle flow timeout for the NAT Gateway (minutes) - `4` ~ `120`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
 -   [Azure NAT Gateway Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
--   [Outbound Connectivity with Load Balancer and NAT Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)
+-   [Load Balancer Outbound Connections and NAT Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)

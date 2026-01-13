@@ -18,28 +18,28 @@ tags: [Azure, FunctionApp, LinuxFunctionApp]
 ## Resource Overview
 
 Linux Function App is a fully managed Function App service that allows event-driven serverless code to run in a Linux environment.  
-It supports executing code based on various triggers such as HTTP requests, timers, message queues, and event streams, enabling you to focus solely on application logic without managing infrastructure.
+It supports executing code based on various triggers such as HTTP requests, timers, message queues, and event streams, enabling developers to focus solely on application logic without managing infrastructure.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Service Plan**](https://docs.cstudio.app/docs/resource/azure/AppService/ServicePlan)
+-   [**ServicePlan**](https://docs.cstudio.app/en/docs/resource/azure/AppService/ServicePlan)
 
 ## Resource Setting Values
 
--   `linked_service_plan_name` : Name of the Service Plan on which the Function App will run
+-   `linked_service_plan_name` : Name of the Service Plan where the Function App will run
 
--   `delegated_subnet_name` : Name of the Subnet for virtual network delegation
+-   `delegated_subnet_name` : Name of the subnet for virtual network delegation
 
--   `target_storage_account_name` : Name of the storage account to store files, logs, and metadata required for Function App execution
+-   `target_storage_account_name` : Name of the storage account that stores files, logs, and metadata required for Function App execution
 
--   `https_only` : Whether to allow only HTTPS access for encrypted and authenticated secure connections - `true`, `false`
+-   `https_only` : Whether to allow HTTPS access only for encrypted and authenticated secure connections - `true`, `false`
 
 -   `auth_settings_enabled` : Whether to enable authentication and authorization for the Function App - `true`, `false`
 

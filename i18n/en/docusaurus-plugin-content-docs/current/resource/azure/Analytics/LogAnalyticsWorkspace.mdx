@@ -17,26 +17,25 @@ tags: [Azure, LogAnalytics, LogAnalyticsWorkspace]
 
 ## Resource Overview
 
-Log Analytics is a tool used in the Azure Portal to edit and execute log queries against data stored in Azure Monitor logs.  
-You can write simple queries that return record sets and then sort, filter, and analyze them using Log Analytics features.  
-Alternatively, you can write advanced queries to perform statistical analysis and visualize results in charts to identify specific trends.  
-Log Analytics is used to author and test queries, whether the results are processed interactively or used with other Azure Monitor features such as query alerts or workbooks.
+Log Analytics is a tool used in the Azure Portal to edit and run log queries against data in the Azure Monitor log store.  
+You can write simple queries that return record sets and then sort, filter, and analyze them using Log Analytics features. Alternatively, you can write advanced queries to perform statistical analysis and visualize results in charts to identify specific trends.  
+Whether processing query results interactively or using them with other Azure Monitor features such as query alerts or workbook logs, Log Analytics is used for authoring and testing queries.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
--   `retention_in_days` : Number of days to retain data in the workspace - `30` ~ `730`
+-   `retention_in_days` : Number of days to retain workspace data - `30`~ `730`
 
--   `internet_query_enabled` : Whether to enable queries over the public internet - `true`, `false`
+-   `internet_query_enabled` : Whether to enable querying over the public internet - `true`, `false`
 
 -   `internet_ingestion_enabled` : Whether to enable data ingestion over the public internet - `true`, `false`
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

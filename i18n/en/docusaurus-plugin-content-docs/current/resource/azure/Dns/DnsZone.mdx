@@ -17,49 +17,49 @@ tags: [Azure, DNS, DnsZone, Network]
 
 ## Resource Overview
 
-A DNS Zone is an area that hosts DNS records for a specific domain, allowing you to create and manage individual DNS records.
+A DNS Zone is a container that hosts DNS records for a specific domain, allowing you to create and manage individual DNS records.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
 #### A Record (`dns_a_record`)
 
--   `dns_a_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_a_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_a_record.records` : List of IPv4 addresses
 
 #### AAAA Record (`dns_aaaa_record`)
 
--   `dns_aaaa_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_aaaa_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_aaaa_record.records` : List of IPv6 addresses
 
 #### CNAME Record (`dns_cname_record`)
 
--   `dns_cname_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_cname_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_cname_record.record` : Alias used to map a subdomain to another record
 
 #### NS Record (`dns_ns_record`)
 
--   `dns_ns_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_ns_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_ns_record.records` : List of name server records
 
 #### PTR Record (`dns_ptr_record`)
 
--   `dns_ptr_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_ptr_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_ptr_record.records` : List of domain names for pointer record types
 
 #### TXT Record (`dns_txt_record`)
 
--   `dns_txt_record.ttl` : Time To Live (seconds) of the DNS record - `0` ~ `2147483647`
+-   `dns_txt_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
 -   `dns_txt_record.records` : List of text-type records
 
 #### Tags
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

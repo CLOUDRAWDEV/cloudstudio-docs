@@ -17,37 +17,37 @@ tags: [Azure, AppService, LinuxAppService]
 
 ## Resource Overview
 
-Linux App Service is an HTTP-based service that allows you to host web applications, REST APIs, and mobile backends in a Linux-based environment.  
+Linux App Service is an HTTP-based service that allows hosting web applications, REST APIs, and mobile backends in a Linux-based environment.  
 It runs in conjunction with an App Service Plan and provides a stable and scalable application operating environment through authentication settings, log management, network integration, and security protocol configuration.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ## Resource Setting Values
 
 -   `linked_service_plan_name` : Name of the Service Plan to apply to the App Service
 
--   `delegated_subnet_name` : Name of the Subnet for virtual network delegation
+-   `delegated_subnet_name` : Name of the subnet for virtual network delegation
 
--   `auth_settings_enabled` : Whether to enable Authentication so that all communications occurring in the app are authenticated - `true`, `false`
+-   `auth_settings_enabled` : Whether to enable authentication so that all communications to the app are authenticated - `true`, `false`
 
--   `detailed_error_messages_enabled` : Whether to include detailed error messages on the error page when an HTTP error occurs - `true`, `false`
+-   `detailed_error_messages_enabled` : Whether to include detailed error messages on error pages when HTTP errors occur - `true`, `false`
 
--   `failed_request_tracing_enabled` : Whether to enable logging of detailed tracing information for failed requests - `true`, `false`
+-   `failed_request_tracing_enabled` : Whether to enable detailed tracing information logging for failed requests - `true`, `false`
 
--   `retention_in_days` : Number of days to retain HTTP request-related log records (days) - `0` ~ `99999`
+-   `retention_in_days` : Number of days to retain HTTP request-related logs - `0` ~ `99999`
 
--   `retention_in_mb` : Amount of storage (MB) for retaining HTTP request-related log records - `25` ~ `100`
+-   `retention_in_mb` : Storage capacity for HTTP request-related logs (MB) - `25` ~ `100`
 
 -   `ftps_state` : Whether to apply TLS/SSL when using FTP - `Disabled`, `FtpsOnly`, `AllAllowed`
 
 -   `http2_enabled` : Whether to enable the latest HTTP protocol (HTTP/2) - `true`, `false`
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
