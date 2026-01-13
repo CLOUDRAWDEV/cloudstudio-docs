@@ -1,59 +1,66 @@
 ---
-title: Auto Scaling
+title: AutoScaling
 sidebar_position: 0
-tags: [Ncloud, Recurso, Compute, AutoScaling]
+tags: [Ncloud, 리소스, Compute, AutoScaling]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Servicio que ajusta automáticamente el número de servidores virtuales según el cronograma definido por el usuario o los resultados del monitoreo, permitiendo una respuesta flexible a los cambios en la demanda. Supervisa los servidores según umbrales predefinidos y ajusta su número automáticamente para operar el servicio de manera estable.
+Servicio que ajusta automáticamente el número de servidores virtuales según los horarios definidos por el usuario o los resultados de monitoreo, permitiendo responder de forma elástica a los cambios de demanda. Supervisa los servidores en función de umbrales predefinidos y ajusta automáticamente su cantidad para operar el servicio de manera estable.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ### Recursos conectados
 
--   [**Network Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroupp)
+-   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
 
 ## Valores de configuración del recurso
 
--   `server_image_product_code` : Código de la imagen del sistema operativo a utilizar (CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Base de datos / SVR:Servidor, EN:Edición en inglés)
--   `server_product_code` : Código para la configuración del hardware del servidor (HICPU:CPU alta, STAND:Estándar, HIMEM:Memoria alta / C núcleos, M memoria en GB)
--   `login_key_name` : Nombre de la clave pública de inicio de sesión para cifrado
--   `init_script`
-    -   `content` : Contenido del script que se ejecutará automáticamente cuando se cree el servidor
--   `group`
-    -   `min_size` : Tamaño mínimo del grupo de Auto Scaling, entre 0 y 30
-    -   `max_size` : Tamaño máximo del grupo de Auto Scaling, entre 0 y 30
-    -   `linked_acg_names` : Lista de nombres de ACG aplicables al Auto Scaling
-    -   `included_subnet_name` : Nombre de la subred para la creación del servidor
--   `policy`
-    -   `adjustment_type_code` : Código de tipo de ajuste de scaling - cambio directo (`CHANG`), por porcentaje (`PRCNT`), valor fijo (`EXACT`)
-    -   `scaling_adjustment` : Valor de configuración del scaling
--   `schedule`
-    -   `min_size` : Tamaño mínimo del grupo de Auto Scaling
-    -   `max_size` : Tamaño máximo del grupo de Auto Scaling
-    -   `desired_capacity` : Capacidad deseada del grupo de Auto Scaling
-    -   `start_time` : Fecha y hora de inicio del cronograma
-    -   `end_time` : Fecha y hora de finalización del cronograma
+#### Configuración básica
+
+-   `linked_acg_names` : Lista de nombres de ACG que se aplicarán al Auto scaling
+-   `included_subnet_name` : Nombre del subnet para la creación de servidores
+-   `launch_configuration_name` : Nombre del Launch configuration a utilizar
+-   `health_check_type_code` : Tipo de health check, servidor o load balancer - `SVR`, `LOADB`
+-   `health_check_grace_period` : Periodo de espera antes de verificar el estado tras incluir la instancia en el servicio - `1` ~ `2147486347`
+-   `linked_target_group_list` : Lista de nombres de los target groups a conectar
+-   `min_size` : Tamaño mínimo del Auto scaling group, rango de 0 a 30 - `1` ~ `30`
+-   `max_size` : Tamaño máximo del Auto scaling group, rango de 0 a 30 - `1` ~ `30`
+
+#### Política de Auto Scaling (`policy`)
+
+-   `policy.adjustment_type_code` : Código de ajuste de scaling, cambio incremental(CHANG)/porcentaje(PRCNT)/valor fijo(EXACT) - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.scaling_adjustment` : Valor de ajuste de scaling
+-   `policy.cooldown` : Tiempo durante el cual se ignoran alarmas adicionales tras un scaling (segundos) - `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Unidad mínima de cambio al ajustar el número de instancias - `0` ~ `214748364`
+
+#### Programación de Auto Scaling (`schedule`)
+
+-   `schedule.min_size` : Tamaño mínimo del Auto scaling group - `1` ~ `30`
+-   `schedule.max_size` : Tamaño máximo del Auto scaling group - `1` ~ `30`
+-   `schedule.desired_capacity` : Tamaño deseado del Auto scaling group - `1` ~ `30`
+-   `schedule.start_time` : Fecha y hora de inicio del horario
+-   `schedule.end_time` : Fecha y hora de finalización del horario
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
--   [ncloud_auto_scaling_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)
+-   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

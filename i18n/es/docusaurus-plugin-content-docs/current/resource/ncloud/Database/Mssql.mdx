@@ -7,47 +7,45 @@ tags: [Ncloud, Recurso, Database, Mssql]
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Cloud DB for MSSQL permite construir y gestionar automáticamente bases de datos MSSQL de forma sencilla. Es un servicio de base de datos en la nube totalmente gestionado que funciona de manera estable gracias a configuraciones optimizadas por Naver y permite recuperación automática ante fallos.
+Cloud DB for MSSQL permite construir y gestionar automáticamente bases de datos MSSQL de forma sencilla.  
+Es un servicio de base de datos en la nube completamente gestionado que opera de manera estable mediante configuraciones optimizadas de Ncloud y se recupera automáticamente ante fallos.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-
-### Recursos subordinados
-
-
-
 ## Valores de configuración del recurso
 
--   `enable_high_availability` : Indica si se habilita la función de alta disponibilidad
--   `user_name` : ID de acceso del usuario de MSSQL
--   `user_password` : Contraseña del usuario de MSSQL
--   `image_product_code` : Código del producto de la imagen para el servidor de instancia MSSQL a crear
--   `product_code` : Código del producto para la configuración del servidor de instancia MSSQL a crear
--   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
--   `backup_file_retention_period` : Período de retención de archivos de backup, realizado diariamente y almacenado en almacenamiento separado - `1~30`
--   `enable_automatic_backup` : Indica si se habilita la automatización de backups
--   `port` : Puerto de conexión MSSQL - `3306~20000`
--   `character_set_name` : Conjunto de caracteres de la base de datos. Se puede elegir entre combinaciones de coreano e inglés
+#### Configuración básica
 
+-   `included_subnet_name` : Nombre del Subnet que incluye MSSQL
+-   `enable_high_availability` : Uso de la función de alta disponibilidad - `true`, `false`
+-   `user_name` : ID de acceso del usuario MSSQL
+-   `user_password` : Contraseña del usuario MSSQL
+-   `image_product_code` : Código del producto de imagen del servidor MSSQL - `imageProductCode`
+-   `product_code` : Código del producto del servidor MSSQL - `productCode`
+-   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
+-   `backup_file_retention_period` : Periodo de retención de archivos de respaldo (en días) - `1` ~ `30`
+-   `enable_automatic_backup` : Uso de respaldo automático - `true`, `false`
+-   `backup_time` : Hora de respaldo definida por el usuario
+-   `port` : Puerto TCP para acceso MSSQL (valor por defecto: `1433`)
+-   `character_set_name` : Conjunto de caracteres de la base de datos - `characterSetName`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
-
--   [Mssql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
--   [ncloud_mssql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)
+-   [Base de datos MSSQL(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
+-   [Base de datos MSSQL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

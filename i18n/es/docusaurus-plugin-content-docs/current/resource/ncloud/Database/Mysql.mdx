@@ -1,27 +1,27 @@
 ---
 title: Mysql
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Recurso, Database, Mysql]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mysql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mysql.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Mysql es un servicio de base de datos en la nube totalmente gestionado que utiliza la base de datos relacional MySQL. Permite construir bases de datos fácilmente, operarlas de forma estable y recuperarse automáticamente en caso de fallos.
+Mysql es un servicio de base de datos en la nube completamente gestionado basado en MySQL, que permite construir bases de datos de forma sencilla, operarlas de manera estable y recuperarlas automáticamente en caso de fallos.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
@@ -29,28 +29,28 @@ Mysql es un servicio de base de datos en la nube totalmente gestionado que utili
 
 -   [**Mysql**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
 
-
 ## Valores de configuración del recurso
 
--   `server_name_prefix` : Nombre del servidor MySQL
--   `user_name` : ID de acceso del usuario de MySQL
--   `user_password` : Contraseña del usuario de MySQL
--   `host_ip` : Dirección IP del cliente que se desea conectar
--   `database_name` : Nombre de la base de datos que se desea crear
--   `image_product_code` : Código del producto de imagen del servidor MySQL que define la especificación de la instancia
--   `product_code` : Código del producto que determina la especificación del servidor de instancia MySQL a crear
--   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
--   `enable_high_availability` : Indica si se habilita la función de alta disponibilidad
--   `enable_backup` : Indica si se habilita la función de backup
--   `backup_file_retention_period` : Período de retención de archivos de backup, ejecutado diariamente y almacenado en almacenamiento separado - `1~30`
--   `enable_automatic_backup` : Indica si se habilita la automatización del backup
--   `port` : Puerto de conexión a MySQL - `3306~20000`
+#### Configuración básica
 
+-   `server_name_prefix` : Nombre del servidor MySQL (se permiten letras minúsculas, números y guiones; comienza con letra minúscula y termina con letra minúscula o número; 3~30 caracteres)
+-   `users` : Información de configuración de usuarios (`password` : contraseña, `host_ip` : IP permitida `% | 1.1.1.1 | 1.1.1.%`, `authority` : permisos `DDL | CRUD | READ`)
+-   `databases` : Lista de nombres de bases de datos a crear
+-   `included_subnet_names` : Lista de nombres de Subnets que incluyen MySQL
+-   `image_product_code` : Código del producto de imagen del servidor MySQL
+-   `product_code` : Código del producto del servidor MySQL
+-   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
+-   `enable_high_availability` : Uso de alta disponibilidad - `true`, `false`
+-   `enable_storage_encryption` : Uso de cifrado de almacenamiento - `true`, `false`
+-   `enable_backup` : Uso de la función de respaldo - `true`, `false`
+-   `backup_file_retention_period` : Periodo de retención de archivos de respaldo (en días) - `1` ~ `30`
+-   `enable_automatic_backup` : Uso de respaldo automático - `true`, `false`
+-   `backup_time` : Hora de respaldo definida por el usuario
+-   `port` : Puerto de acceso MySQL - `3306` ~ `20000`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
-
--   [Mysql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMysql)
--   [ncloud_mysql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mysql)
+-   [Base de datos MySQL(Ncloud)](https://www.ncloud.com/product/database/cloudDbMysql)
+-   [Base de datos MySQL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mysql)
