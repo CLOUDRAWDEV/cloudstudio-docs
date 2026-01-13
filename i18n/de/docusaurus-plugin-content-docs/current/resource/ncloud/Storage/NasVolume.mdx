@@ -1,13 +1,13 @@
 ---
 title: NasVolume
 sidebar_position: 1
-tags: [Ncloud, 리소스, Storage, NasVolume]
+tags: [Ncloud, Ressource, Storage, NasVolume]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,35 +15,36 @@ tags: [Ncloud, 리소스, Storage, NasVolume]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A storage service that connects multiple servers over a network so that multiple users can share data. As a network-connected storage space, it is suitable for data sharing among multiple users.
+Ein netzwerkbasierter Speicherdienst, der mehreren Benutzern und Servern das gemeinsame Nutzen von Daten ermöglicht.  
+Geeignet für Szenarien, in denen mehrere Nutzer gleichzeitig auf denselben Speicher zugreifen müssen.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
-### 연결 대상
+### Verbundene Ressourcen
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `volume_name_postfix` : NAS volume name postfix (alphanumeric, 3 ~ 20 characters)
--   `volume_size` : Volume size (in units of 100 GB) - `500` ~ `10000`
--   `volume_allotment_protocol_type` : Protocol type - `NFS`, `CIFS`
--   `cifs_user_name` : User ID for CIFS authentication
--   `cifs_user_password` : Password for CIFS authentication
--   `linked_instances` : List of server instance names to connect to the NAS volume
--   `is_encrypted` : Whether volume-level encryption based on AES-256 is enabled
+-   `volume_name_postfix` : Suffix des NAS-Volume-Namens (alphanumerisch, 3–20 Zeichen)
+-   `volume_size` : Volume-Größe (in 100-GB-Einheiten) – `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protokolltyp – `NFS`, `CIFS`
+-   `cifs_user_name` : Benutzer-ID für CIFS-Authentifizierung
+-   `cifs_user_password` : Passwort für CIFS-Authentifizierung
+-   `linked_instances` : Liste der Serverinstanzen, die mit dem NAS-Volume verbunden werden
+-   `is_encrypted` : Aktivierung der volumenbasierten AES-256-Verschlüsselung
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
 -   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

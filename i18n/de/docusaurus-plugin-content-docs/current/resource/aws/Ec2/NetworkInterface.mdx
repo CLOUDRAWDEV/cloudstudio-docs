@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [AWS, Ressourcen, Ec2, NetworkInterface]
+sidebar_position: 5
+tags: [AWS, Ressource, Ec2, NetworkInterface]
 ---
 
 <hr />
@@ -11,33 +11,42 @@ tags: [AWS, Ressourcen, Ec2, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Logische Netzwerkkonfigurationseinheit, die eine virtuelle Netzwerkkarte in einer VPC darstellt
+Eine logische Netzwerkkomponente, die eine virtuelle Netzwerkkarte innerhalb eines VPC darstellt.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**Eip**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
 
-## Ressourceneinstellungen
+## Ressourceneinstellungswerte
 
+#### Grundeinstellungen
+
+-   `included_subnet_name` : Name des Subnetzes, in dem sich die Netzwerkschnittstelle befindet
 -   `private_ips` : Liste der privaten IP-Adressen
--   `linked_security_group_names` : Name der Security Group, die für das Netzwerk-Interface verwendet wird
--   `linked_eip_names` : Name der zu verwendenden Elastic IP
+-   `linked_security_group_names` : Namen der zu verwendenden Security Groups
+-   `linked_eip_names` : Namen der zu verwendenden Elastic IPs
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
 -   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

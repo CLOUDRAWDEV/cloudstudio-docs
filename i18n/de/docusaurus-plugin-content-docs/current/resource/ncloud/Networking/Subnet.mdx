@@ -1,13 +1,13 @@
 ---
 title: Subnet
 sidebar_position: 1
-tags: [Ncloud, 리소스, Network, Subnet]
+tags: [Ncloud, Ressource, Network, Subnet]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,49 +15,49 @@ tags: [Ncloud, 리소스, Network, Subnet]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A subnetwork of a VPC that can be segmented by network usage.
+Ein untergeordnetes Netzwerk innerhalb eines VPC, das eine feingranulare Segmentierung nach Netzwerkzwecken ermöglicht.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### 포함 대상 리소스
+### Enthaltene Ressourcen
 
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
--   [**Redis**](https://docs.cstudio.app/docs/resource/ncloud/Database/Redis)
--   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**NAT Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
--   [**MSSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mssql)
--   [**MySQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
--   [**MongoDB**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mongodb)
--   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Postgresql)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Redis**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Redis)
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NatGateway**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NatGateway)
+-   [**MSSQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mssql)
+-   [**MySQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mysql)
+-   [**MongoDB**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mongodb)
+-   [**PostgreSQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Postgresql)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Network ACL**](https://docs.cstudio.app/docs/resource/ncloud/Security/NetworkAcl)
--   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
--   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
+-   [**NetworkACL**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/NetworkAcl)
+-   [**KubernetesCluster**](https://docs.cstudio.app/de/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/RouteTable)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `subnet_cidr` : Subnet IP range to allocate within the VPC CIDR range
--   `zone` : Availability zone where the subnet will be located (`KR-1`, `KR-2`)
--   `subnet_type` : Subnet type (`PUBLIC`, `PRIVATE`)
--   `usage_type` : Subnet usage purpose (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
--   `included_vpc_name` : Name of the VPC to which the subnet belongs (read-only)
--   `linked_nacl_name` : Name of the Network ACL to apply to the subnet (read-only)
+-   `subnet_cidr` : IP-Adressbereich des Subnets innerhalb des VPC-CIDR-Bereichs
+-   `zone` : Verfügbarkeitszone, in der sich das Subnet befindet (`KR-1`, `KR-2`)
+-   `subnet_type` : Typ des Subnets (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Verwendungszweck des Subnets (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
+-   `included_vpc_name` : Name des VPC, zu dem das Subnet gehört (schreibgeschützt)
+-   `linked_nacl_name` : Name des auf das Subnet angewendeten Network ACL (schreibgeschützt)
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Subnet Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-subnetmanage-vpc)
 -   [ncloud_subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

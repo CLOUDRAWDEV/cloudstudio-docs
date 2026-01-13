@@ -1,7 +1,7 @@
 ---
 title: Eip
-sidebar_position: 0
-tags: [AWS, Ressourcen, Ec2, Eip]
+sidebar_position: 1
+tags: [AWS, Ressource, Ec2, Eip]
 ---
 
 <hr />
@@ -11,25 +11,35 @@ tags: [AWS, Ressourcen, Ec2, Eip]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Für dynamisches Cloud-Computing entwickelte statische IPv4-Adresse
+Eine statische IPv4-Adresse, die für dynamisches Cloud-Computing entwickelt wurde.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
-## Ressourceneinstellungen
+### Verknüpfte Ressourcen
+
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/NetworkInterface)
+-   [**NatGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NatGateway)
+
+## Ressourceneinstellungswerte
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon Eip(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
 -   [Amazon Eip(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)

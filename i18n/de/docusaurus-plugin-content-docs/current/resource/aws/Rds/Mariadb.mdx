@@ -1,7 +1,7 @@
 ---
 title: Mariadb
-sidebar_position: 0
-tags: [AWS, Ressourcen, Rds, Mariadb]
+sidebar_position: 1
+tags: [AWS, Ressource, Rds, Mariadb]
 ---
 
 <hr />
@@ -11,49 +11,67 @@ tags: [AWS, Ressourcen, Rds, Mariadb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mariadb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-mariadb.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-MariaDB ist eine beliebte Open-Source-Relationdatenbank, die von den ursprünglichen Entwicklern von MySQL erstellt wurde. Mit Amazon RDS können Sie MariaDB-Server in der Cloud einfach einrichten, betreiben und skalieren. Amazon RDS ermöglicht es Ihnen, eine skalierbare MariaDB-Cloud-Datenbank mit kostengünstiger und skalierbarer Hardwarekapazität in nur wenigen Minuten bereitzustellen.
+MariaDB ist eine beliebte Open-Source-relationale Datenbank, die von den ursprünglichen Entwicklern von MySQL entwickelt wurde. Mit Amazon RDS lässt sich die Bereitstellung, der Betrieb und die Skalierung von MariaDB-Servern in der Cloud einfach umsetzen. Amazon RDS ermöglicht es, innerhalb weniger Minuten eine skalierbare MariaDB-Cloud-Datenbank mit kosteneffizienter und flexibel skalierbarer Hardware bereitzustellen.
 
-### Übergeordnete Ressourcen
+## Zugehörige Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+### Übergeordnete Ressource
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
 ### Verknüpfte Ressourcen
 
--   [**MariaDB**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Mariadb**](https://docs.cstudio.app/de/docs/resource/aws/Rds/Mariadb)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
 
-## Ressourcenkonfigurationswerte
+## Ressourceneinstellungswerte
 
--   `database_name` : Initial Database Name
--   `engine_version` : Die Version von MariaDB, die für RDS verwendet werden soll
--   `instance_class` : Die Preisklasse der RDS-Datenbank
--   `storage_type` : Der Speichertyp der RDS-Instanz
--   `allocated_storage` : Die Speichergröße (in Gigabyte) der RDS-Instanz
--   `max_allocated_storage` : Das maximale Limit, bis zu dem Amazon RDS den Speicher der DB-Instanz automatisch erweitern kann
--   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung - `true`, `false`
--   `username` : Der Benutzername für die RDS-Datenbank
--   `password` : Das Passwort für den Benutzer der RDS-Datenbank
--   `included_subnet_names` : Das Passwort für den Benutzer der RDS-Datenbank
--   `subnet_group_name` : Der Name der Subnetzgruppe, die für RDS verwendet werden soll
--   `publicly_accessible` : Ob die Instanz öffentlich zugänglich ist - `true`, `false`
--   `monitoring`
-    -   `performance_insights_enabled` : Aktivierung der Leistungsanalysen
--   `encryption`
-    -   `storage_encrypted` : Gibt an, ob die DB-Instanz verschlüsselt ist - `true`, `false`
-    -   `kms_key_name` : Der Name des KMS-Schlüssels, der für die Verschlüsselung verwendet wird
--   `backup`
-    -   `backup_retention_period` : Der Zeitraum, für den Backups aufbewahrt werden - `1`~`35`
-    -   `final_snapshot_enabled` : Ob vor dem Löschen der DB-Instanz ein endgültiges DB-Snapshot erstellt werden soll - `true`, `false`
-    -   `final_snapshot_name` : Der Name des endgültigen Snapshots
+#### Grundeinstellungen
+
+-   `database_name` : Name der initialen Datenbank, alphanumerisch mit 1 bis 64 Zeichen
+-   `engine_version` : MariaDB-Version, die für RDS verwendet wird
+-   `instance_class` : Typ der RDS-DB-Instance
+-   `storage_type` : Storage-Typ der RDS-Instance
+-   `iops` : Anzahl der unterstützten I/O-Operationen pro Sekunde – `1000` ~ `40000`
+-   `allocated_storage` : Speichergröße der RDS-Instance (GiB) – `5` ~ `3072`
+-   `max_allocated_storage` : Obergrenze für automatische Storage-Erweiterung
+-   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung – `true`, `false`
+-   `username` : Benutzername für RDS
+-   `password` : Passwort für RDS
+-   `included_subnet_names` : Liste der Subnet-Namen für die RDS-Subnet-Gruppe
+-   `subnet_group_name` : Name der für RDS zu verwendenden Subnet-Gruppe
+-   `linked_security_group_names` : Liste der anzuwendenden Security Groups
+-   `publicly_accessible` : Aktivierung des öffentlichen Zugriffs – `true`, `false`
+
+#### Überwachung (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Aktivierung von Performance Insights – `true`, `false`
+-   `monitoring.kms_key_name` : Name des für Performance Insights verwendeten KMS-Schlüssels
+
+#### Verschlüsselung (`encryption`)
+
+-   `encryption.storage_encrypted` : Aktivierung der Verschlüsselung der DB-Instance – `true`, `false`
+-   `encryption.kms_key_name` : Name des für die Verschlüsselung verwendeten KMS-Schlüssels
+
+#### Backup (`backup`)
+
+-   `backup.backup_retention_period` : Aufbewahrungsdauer der Backups – `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Erstellung eines finalen Snapshots vor dem Löschen – `true`, `false`
+-   `backup.final_snapshot_name` : Name des finalen Snapshots
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon Relational Database Service(Amazon RDS)(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/UserGuide/Welcome.html)
--   [Amazon RDS for MariaDB Kosten(AWS)](https://aws.amazon.com/ko/rds/mariadb/pricing/?nc=sn&loc=4)
+-   [Amazon RDS for MariaDB Preise(AWS)](https://aws.amazon.com/ko/rds/mariadb/pricing/?nc=sn&loc=4)

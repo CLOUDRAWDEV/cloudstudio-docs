@@ -1,13 +1,13 @@
 ---
 title: SourcePipeline
 sidebar_position: 4
-tags: [Ncloud, 리소스, DeveloperTool, SourcePipeline]
+tags: [Ncloud, Ressource, DeveloperTool, SourcePipeline]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,68 +15,68 @@ tags: [Ncloud, 리소스, DeveloperTool, SourcePipeline]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A process automation service for fast and stable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
+Ein Service zur Prozessautomatisierung für schnelle und stabile Software-Releases durch Integration von SourceCommit, SourceBuild und SourceDeploy.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
-### 하위 대상
+### Untergeordnete Ressourcen
 
--   [**Source Build**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
--   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
--   [**Source Deploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
+-   [**SourceBuild**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `description` : Description of the pipeline project to be created - up to 500 characters
+-   `description` : Beschreibung des Pipeline-Projekts – max. 500 Zeichen
 
-#### 기본 작업 (`default_task`)
+#### Standard-Task (`default_task`)
 
--   `default_task.name` : Name of the first task executed by the pipeline - alphanumeric/`-`/`_`, 1~50 characters
--   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
--   `default_task.target_source_build_project` : Name of the SourceBuild project to connect
--   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
--   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
--   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
--   `default_task.repository_branch` : Repository branch name for the SourceBuild task
+-   `default_task.name` : Name des ersten Tasks – alphanumerisch/`-`/`_`, 1–50 Zeichen
+-   `default_task.type` : Task-Typ – `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Ziel-SourceBuild-Projekt
+-   `default_task.target_source_deploy_project` : Ziel-SourceDeploy-Projekt
+-   `default_task.target_source_deploy_project_stage` : Stage-Name
+-   `default_task.target_source_deploy_project_scenario` : Szenario-Name
+-   `default_task.repository_branch` : Repository-Branch
 
-#### 추가 작업 (`additional_task`)
+#### Zusätzliche Tasks (`additional_task`)
 
--   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
--   `additional_task.target_source_build_project` : Name of the SourceBuild project to connect
--   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
--   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
--   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
--   `additional_task.repository_branch` : Repository branch name for the SourceBuild task
--   `additional_task.pre_tasks` : List of preceding tasks to execute
+-   `additional_task.type` : Task-Typ – `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Ziel-SourceBuild-Projekt
+-   `additional_task.target_source_deploy_project` : Ziel-SourceDeploy-Projekt
+-   `additional_task.target_source_deploy_project_stage` : Stage-Name
+-   `additional_task.target_source_deploy_project_scenario` : Szenario-Name
+-   `additional_task.repository_branch` : Repository-Branch
+-   `additional_task.pre_tasks` : Vorher auszuführende Tasks
 
-#### Push 트리거 (`trigger_push_repository`)
+#### Push-Trigger (`trigger_push_repository`)
 
--   `trigger_push_repository.type_of_repository` : Repository type for the trigger - `sourcecommit`
--   `trigger_push_repository.name_of_repository` : Repository name for the trigger
--   `trigger_push_repository.branch_of_repository` : Repository branch name for the trigger
+-   `trigger_push_repository.type_of_repository` : Repository-Typ – `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository-Name
+-   `trigger_push_repository.branch_of_repository` : Repository-Branch
 
-#### 스케줄 트리거 (`trigger_schedule`)
+#### Zeitplan-Trigger (`trigger_schedule`)
 
--   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
--   `trigger_schedule.time` : Scheduled deployment time
--   `trigger_schedule.timezone` : Scheduled deployment timezone
--   `trigger_schedule.execute_only_with_change` : Whether to execute only when there is a pipeline or SourceCommit change - `true`, `false`
+-   `trigger_schedule.day` : Wochentag – `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Ausführungszeit
+-   `trigger_schedule.timezone` : Zeitzone
+-   `trigger_schedule.execute_only_with_change` : Nur bei Änderungen ausführen – `true`, `false`
 
-#### 파이프라인 체이닝 (`trigger_target_sourcecpipeline_id`)
+#### Pipeline-Verkettung (`trigger_target_sourcecpipeline_id`)
 
--   `trigger_target_sourcecpipeline_id` : List of pipeline IDs to be automatically executed after the current pipeline execution is completed
+-   `trigger_target_sourcecpipeline_id` : Liste der Pipeline-IDs für automatische Folgeausführung
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
 -   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

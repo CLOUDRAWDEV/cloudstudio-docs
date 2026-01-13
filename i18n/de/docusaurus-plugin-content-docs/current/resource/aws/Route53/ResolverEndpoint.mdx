@@ -1,7 +1,7 @@
 ---
 title: ResolverEndpoint
-sidebar_position: 0
-tags: [AWS, Ressourcen, Route53, ResolverEndpoint]
+sidebar_position: 1
+tags: [AWS, Ressource, Route53, ResolverEndpoint]
 ---
 
 <hr />
@@ -11,34 +11,43 @@ tags: [AWS, Ressourcen, Route53, ResolverEndpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Endpoint-Service für DNS-Abfragen, die mit Amazon VPC gesendet und empfangen werden
+Ein Endpunktdienst für DNS-Abfragen, die mit Amazon VPC gesendet und empfangen werden.
 
-### Übergeordnete Ressourcen
+## Zugehörige Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
 ### Verknüpfte Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
--   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**ResolverRule**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverRule)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**ResolverRule**](https://docs.cstudio.app/de/docs/resource/aws/Route53/ResolverRule)
 
-## Ressourcenkonfigurationswerte
+## Ressourceneinstellungswerte
 
--   `direction` : Richtung der DNS-Abfragen - `INBOUND`, `OUTBOUND`
--   `linked_vpc_name` : Name der VPC zur Verbindung mit dem Endpoint
--   `linked_security_group_names` : Name der Sicherheitsgruppe für den Endpoint
--   `ip_address` : Name für die IP-Adresse
+#### Grundeinstellungen
+
+-   `direction` : Richtung der DNS-Abfragen – `INBOUND`, `OUTBOUND`
+-   `linked_vpc_name` : Name des mit dem Endpunkt zu verbindenden VPCs
+-   `linked_security_group_names` : Liste der auf den Endpunkt anzuwendenden Security Groups
+-   `ip_address.subnet_name` : Name des zu verwendenden Subnets
+-   `ip_address.ip` : Verfügbare IP-Adresse innerhalb des Subnets
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon Resolver Endpoint(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
 -   [Amazon Resolver Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)

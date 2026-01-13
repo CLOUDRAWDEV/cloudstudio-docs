@@ -1,13 +1,13 @@
 ---
 title: LoadBalancer
 sidebar_position: 6
-tags: [Ncloud, 리소스, Network, LoadBalancer]
+tags: [Ncloud, Ressource, Network, LoadBalancer]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,42 +15,43 @@ tags: [Ncloud, 리소스, Network, LoadBalancer]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A device that distributes network traffic across multiple servers by considering server performance and load. By distributing load occurring on specific servers, it optimizes server availability and response time, enabling uninterrupted services.
+Ein Dienst, der Netzwerkverkehr unter Berücksichtigung von Serverleistung und Auslastung auf mehrere Server verteilt.  
+Durch Lastverteilung werden Verfügbarkeit und Antwortzeiten optimiert und unterbrechungsfreie Services ermöglicht.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/aws/Networking/LoadBalancer)
--   [**Target Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**LoadBalancer (AWS)**](https://docs.cstudio.app/de/docs/resource/aws/Networking/LoadBalancer)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `network_type` : Network type - `PUBLIC`, `PRIVATE`
--   `type` : Load balancer type - `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
--   `throughput_type` : Throughput capacity (connections per second) - `SMALL(30K)`, `MEDIUM(60K)`, `LARGE(90K)`
--   `included_subnet_names` : List of subnet names to which the load balancer will be connected
+-   `network_type` : Netzwerktyp – `PUBLIC`, `PRIVATE`
+-   `type` : Load-Balancer-Typ – `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
+-   `throughput_type` : Leistungsstufe (Verbindungen/Sek.) – `SMALL(30k)`, `MEDIUM(60k)`, `LARGE(90k)`
+-   `included_subnet_names` : Liste der verbundenen Subnet-Namen
 
-#### 리스너 (`listener`)
+#### Listener (`listener`)
 
--   `listener.protocol` : Listener protocol - `HTTP`, `HTTPS`, `TCP`, `TLS`
--   `listener.tls_min_version_type` : Minimum supported TLS version - `TLSV10`, `TLSV11`, `TLSV12`
--   `listener.port` : Listener port number - `1` ~ `65534`
--   `listener.use_http2` : Whether to use HTTP/2 - `true`, `false`
--   `listener.ssl_certificate_no` : SSL certificate number
--   `listener.target_group_name` : Name of the target group to connect
+-   `listener.protocol` : Listener-Protokoll – `HTTP`, `HTTPS`, `TCP`, `TLS`
+-   `listener.tls_min_version_type` : Minimale TLS-Version – `TLSV10`, `TLSV11`, `TLSV12`
+-   `listener.port` : Listener-Port – `1` ~ `65534`
+-   `listener.use_http2` : Verwendung von HTTP/2 – `true`, `false`
+-   `listener.ssl_certificate_no` : SSL-Zertifikatsnummer
+-   `listener.target_group_name` : Ziel-Target-Group-Name
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Load Balancer(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
 -   [Load Balancer(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb)

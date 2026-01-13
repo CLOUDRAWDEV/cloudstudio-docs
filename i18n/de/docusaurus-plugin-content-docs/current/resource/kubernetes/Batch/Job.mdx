@@ -1,96 +1,103 @@
 ---
 title: Job
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Batch, Job]
+tags: [Kubernetes, Ressource, Batch, Job]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Es ist eine Kubernetes-Ressource, die für das Ausführen von einmaligen Aufgaben verwendet wird.
+Eine Kubernetes-Ressource, die zur Ausführung einmaliger Aufgaben verwendet wird.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
-### Verbundene Ressourcen
+### Verbundene Ziele
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `service_name` : Job-Ressourcenname
--   `namespace` : Der Namespace, in dem die Job-Ressource bereitgestellt wird
--   `annotations` : Key-Value-Paare, die verwendet werden, um erforderliche Informationen im Kubernetes-System anzuzeigen
--   `labels` : Vom Benutzer definierte Werte, die verwendet werden, um Objekte zu kategorisieren
--   `template_labels` : Label, die auf den Pods angewendet werden, die auf jedem Knoten erstellt werden
--   `restart_policy` : Gibt an, wie mit einem Container im Pod verfahren wird, wenn er fehlschlägt oder die Aufgabe abgeschlossen ist
--   `backoff_limit` : Die Anzahl der Versuche, bevor die Aufgabe als fehlgeschlagen markiert wird. Der Standardwert ist 6
--   `wait_for_completion` : Blockiert das Erstellen oder Aktualisieren der Aufgabe, bis der Status der Aufgabe entweder abgeschlossen oder fehlerhaft ist. Der Standardwert ist True
+-   `namespace` : Namespace, in dem die Job-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Metadaten für das Kubernetes-System
+-   `labels` : Benutzerdefinierte Key-Value-Paare zur Objektidentifikation
+-   `enable_manual_selector` : Verwendung eines manuellen Selektors – `true`, `false`
+-   `template_labels` : Labels, die auf Pods angewendet werden
+-   `restart_policy` : Verhalten beim Container-Ende – `Never`, `OnFailure`
+-   `backoff_limit` : Anzahl der Wiederholungsversuche vor Fehlschlag
+-   `wait_for_completion` : Blockiert Erstellung/Aktualisierung bis Abschluss – `true`, `false`
+-   `dns_policy` : DNS-Richtlinie – `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Aktivierung von Service-Links – `true`, `false`
+-   `host_network` : Verwendung des Host-Netzwerks – `true`, `false`
+-   `image_pull_secrets` : Liste der Secrets für den Image-Pull
 
--   `timeouts` : Die erlaubte Zeit, bis die Aufgabe als fehlgeschlagen gilt
-    -   `create` : Die Zeit, die gewartet wird, bis die neue Aufgabe erfolgreich abgeschlossen wurde. Der Standardwert ist 1 Minute  
-    -   `update` : Die Zeit, die gewartet wird, bis eine bestehende Aufgabe erfolgreich abgeschlossen wurde. Der Standardwert ist 1 Minute
+#### Zeitüberschreitungen (`timeouts`)
 
--   `containers` : Definiert die Vorlage für Container, die zu den Pods gehören. Nachdem die Standardeinstellungen angewendet wurden, können detaillierte Einstellungen vorgenommen werden.
-    -   `name` : Definiert den Namen des Containers
-        -   `image` : Der Docker-Image-Name, der verwendet werden soll
-        -   `args` : Die Befehlsargumente, die im Container ausgeführt werden
-        -   `command` : Der Befehl, der im Container ausgeführt wird
-        -   `port` : Die Liste von Ports, die im Container exponiert werden
+-   `timeouts.create` : Wartezeit von Erstellung bis Abschluss des Jobs
+-   `timeouts.update` : Wartezeit von Aktualisierung bis Abschluss des Jobs
 
-        -   `resources` : Definiert die Menge an Rechenressourcen für den Container
-            -   `name` : Definiert die minimale/maximale Menge der Rechenressourcen, die angegeben werden sollen   - `limits`, `requests`     
-            -   `cpu` : Die Menge an CPU, die angegeben werden soll    
-            -   `memory` : Die Menge an Arbeitsspeicher, die angegeben werden soll
+#### Pod-Sicherheitskontext (`pod_security_context`)
 
-        -   `probe` : Definiert, wie der Zustand des Pods diagnostiziert werden soll 
-            -   `name` : Wählt die Methode der Probe - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : Der Pfad, um auf den HTTP-Server zuzugreifen
-            -   `http_get_port` : Die Portnummer, die im Container verwendet wird
-            -   `http_header` : Benutzerdefinierte Header, die in der Anfrage gesetzt werden
-            -   `initial_delay_seconds` : Die Zeit (in Sekunden), die nach dem Start des Containers gewartet wird, bevor die Probe gestartet wird
-            -   `period_seconds` : Die Häufigkeit (in Sekunden), mit der die Probe ausgeführt wird
+-   `pod_security_context.run_as_user` : Benutzer-UID für Container-Ausführung
+-   `pod_security_context.run_as_group` : Gruppen-GID für Container-Ausführung
+-   `pod_security_context.run_as_non_root` : Ausführung als Non-Root – `true`, `false`
+-   `pod_security_context.se_linux_options_user` : SELinux-Benutzer
+-   `pod_security_context.se_linux_options_role` : SELinux-Rolle
+-   `pod_security_context.se_linux_options_type` : SELinux-Typ
+-   `pod_security_context.se_linux_options_level` : SELinux-Level
 
-        -   `env` : Umgebungsvariablen und Volumes für Container
-            -   `name` : Der Name der Umgebungsvariablen
-            -   `value` : Der Wert, der der Umgebungsvariablen zugewiesen wird
+#### Initialisierungs-Container (`init_containers`)
 
-        -   `volume_mount` : Volumes, die in das Dateisystem des Containers gemountet werden - Detaillierte Einstellungen
-            -   `name` : Der Name des Volume-Mounts
-            -   `path` 
-                -   `mount_path` : Der Pfad im Container, an dem das Volume gemountet werden soll
-                -   `sub_path` : Der Unterpfad im Container, an dem das Volume gemountet werden soll
-            
--   `volume` : Eine Liste von Volumes, die den Containern des Pods zugeordnet werden können
-    -   `name` : Der Name des Volumes
-        -   `type` : Der Typ des Volumes, das gemountet werden soll - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : Der Name des PersistentVolumeClaims
-        -   `default_mode` : Der Modus der erstellten Dateien, der von 0 bis 0777 reicht. Der Standardwert ist 0644
-        -   `read_only` : Wenn true, wird das Volume als schreibgeschützt gemountet. Andernfalls ist es schreib- und lesbar
+-   `init_containers.image` : Container-Image
+-   `init_containers.args` : Argumentliste
+-   `init_containers.command` : Auszuführender Befehl
+-   `init_containers.env` : Umgebungsvariablen
+-   `init_containers.env_from` : Umgebungsvariablen aus ConfigMap oder Secret
+-   `init_containers.resources` : CPU- und Speicherlimits/-anforderungen
+-   `init_containers.probe` : Statusprüfungs-Probe
+-   `init_containers.port` : Container-Port
+-   `init_containers.volume_mount` : Volume-Mount-Konfiguration
 
--   `image_pull_secrets` : Geheimnisse im gleichen Namespace, die die Berechtigungen zum Abrufen von Container-Images enthalten
+#### Container (`containers`)
 
+-   `containers.image` : Container-Image
+-   `containers.args` : Argumentliste
+-   `containers.command` : Auszuführender Befehl
+-   `containers.env` : Umgebungsvariablen
+-   `containers.env_from` : Umgebungsvariablen aus ConfigMap oder Secret
+-   `containers.resources` : CPU- und Speicherlimits/-anforderungen
+-   `containers.probe` : Statusprüfungs-Probe
+-   `containers.port` : Container-Port
+-   `containers.volume_mount` : Volume-Mount-Konfiguration
+
+#### Volumes (`volume`)
+
+-   `volume.volume_type` : Volume-Typ – `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Name der Zielressource
+-   `volume.path` : Mount-Pfad
+-   `volume.default_mode` : Dateiberechtigungsmodus
+-   `volume.items` : Zuordnung von ConfigMap-Einträgen
+-   `volume.read_only` : Schreibgeschützt – `true`, `false`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
+-   [Übersicht zu Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
 -   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)

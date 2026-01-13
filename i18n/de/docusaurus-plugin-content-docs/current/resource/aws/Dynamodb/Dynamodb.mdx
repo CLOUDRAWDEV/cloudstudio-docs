@@ -1,7 +1,7 @@
 ---
 title: Dynamodb
 sidebar_position: 0
-tags: [AWS, Ressourcen, Dynamodb]
+tags: [AWS, Ressource, Dynamodb]
 ---
 
 <hr />
@@ -11,36 +11,41 @@ tags: [AWS, Ressourcen, Dynamodb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.webp"
     }
 />
 
-## Ressourcenübersicht
+## Zugehörige Ressourcen
 
-Amazon DynamoDB ist ein vollständig verwalteter NoSQL-Datenbankdienst, der schnelle und vorhersehbare Leistung mit nahtloser Skalierbarkeit bietet. Mit Amazon DynamoDB können Sie Datenbanktabellen erstellen, in denen Sie beliebige Datenmengen speichern oder abrufen können, und sie können jeglichen Anfragetraffic bewältigen. Amazon DynamoDB verteilt automatisch die Daten und den Traffic einer Tabelle auf ausreichend viele Server, sodass der angegebene Anforderungsdurchsatz und das gespeicherte Datenvolumen verarbeitet werden, während gleichzeitig eine konsistente und schnelle Leistung erhalten bleibt.
+### Übergeordnete Ressource
 
-## Verwandte Ressourcen
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-### Übergeordnete Ressourcen
+## Ressourceneinstellungswerte
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+#### Grundeinstellungen
 
-## Ressourceneinstellungen
+-   `billing_mode` : Abrechnungs- und Kapazitätsmodus für Lese- und Schreibdurchsatz – `PROVISIONED`, `PAY_PER_REQUEST`
+-   `read_capacity` : Anzahl der Lese-Kapazitätseinheiten der DynamoDB-Tabelle
+-   `write_capacity` : Anzahl der Schreib-Kapazitätseinheiten der DynamoDB-Tabelle
+-   `hash_key` : Attribut, das als Hash- (Partitions-)Schlüssel verwendet wird
+-   `hash_key_type` : Typ des Hash-Schlüssels – `S`, `N`, `B`
+-   `range_key` : Attribut, das als Sortierschlüssel verwendet wird
+-   `range_key_type` : Typ des Sortierschlüssels – `S`, `N`, `B`
+-   `point_in_time_recovery_enabled` : Aktivierung der Point-in-Time-Wiederherstellung – `true`, `false`
 
--   `billing_mode` : Abrechnungsmodell für Lese- und Schreibkapazität in DynamoDB und Kapazitätsverwaltung - `PROVISIONED`,`PAY_PER_REQUEST`
--   `read_capacity` : DynamoDB-Tabellenleseinheiten
--   `write_capacity` : Schreibeinheiten der DynamoDB-Tabelle
--   `hash_key` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird
--   `hash_key_type` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird - `S`, `N`, `B`
--   `range_key` :Eigenschaft, die als Range (Sortier) Schlüssel verwendet wird
--   `range_key_type` : Eigenschaft, die als Hash (Partition) Schlüssel verwendet wird - `S`, `N`, `B`
--   `point_in_time_recovery_enabled` : Aktivierung der Point-in-Time-Wiederherstellungsoption - `true`, `false`
--   `server_side_encryption` : Serverseitiger Verschlüsselungsname
-    -   `encryption_enabled` : Aktivierung der Speicherung von verschlüsselten Daten mit dem AWS-verwalteten KMS-Kundenschlüssel - `true`, `false`
+#### Serverseitige Verschlüsselung (`server_side_encryption`)
+
+-   `server_side_encryption.encryption_enabled` : Aktivierung der Verschlüsselung gespeicherter Daten mit einem von AWS verwalteten KMS-CMK – `true`, `false`
+-   `server_side_encryption.kms_key_name` : Name des für die AWS-KMS-Verschlüsselung zu verwendenden CMK
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon DynamoDB(AWS)](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/Introduction.html)
 -   [Amazon DynamoDB(AWS)](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)

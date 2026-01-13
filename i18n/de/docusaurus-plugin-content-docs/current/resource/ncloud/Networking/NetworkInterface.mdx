@@ -1,13 +1,13 @@
 ---
 title: NetworkInterface
 sidebar_position: 2
-tags: [Ncloud, 리소스, Networking, NetworkInterface]
+tags: [Ncloud, Ressource, Networking, NetworkInterface]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,30 +15,31 @@ tags: [Ncloud, 리소스, Networking, NetworkInterface]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A service that creates network interfaces that can be assigned to servers. Servers with network interfaces applied can perform isolated network communication using subnets.
+Ein Dienst zur Erstellung von Netzwerkschnittstellen, die Servern zugewiesen werden können.  
+Server mit zugewiesener Netzwerkschnittstelle können über Subnetze unabhängig kommunizieren.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/AccessControlGroup)
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**AccessControlGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/AccessControlGroup)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_subnet_name` : Name of the subnet that includes the Network Interface
--   `linked_acg_names` : List of Access Control Group names to apply to the Network Interface
+-   `included_subnet_name` : Subnet-Name der Netzwerkschnittstelle
+-   `linked_acg_names` : Liste der zugeordneten Access-Control-Groups
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

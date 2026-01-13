@@ -1,7 +1,7 @@
 ---
-title: Eks Cluster
+title: EksCluster
 sidebar_position: 0
-tags: [AWS, Ressourcen, Eks, EksCluster]
+tags: [AWS, Ressource, Eks, EksCluster]
 ---
 
 <hr />
@@ -11,54 +11,68 @@ tags: [AWS, Ressourcen, Eks, EksCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/eks-eks_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/eks-eks_cluster.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Amazon Elastic Kubernetes Service (Amazon EKS) ist ein verwalteter Dienst, mit dem Kubernetes auf AWS einfach ausgeführt werden kann, ohne dass ein Kubernetes-Cluster installiert und betrieben werden muss.
+Amazon Elastic Kubernetes Service (Amazon EKS) ist ein verwalteter Service, mit dem Kubernetes-Cluster auf AWS einfach ausgeführt werden können, ohne diese selbst installieren oder betreiben zu müssen.
 
+## Zugehörige Ressourcen
 
-## Verwandte Ressourcen
+### Übergeordnete Ressource
 
-### Übergeordnete Ressourcen
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+### Verknüpfte Ressourcen
 
-### Verbundene Ressourcen
+-   [**EksCluster**](https://docs.cstudio.app/de/docs/resource/aws/EKS/EksCluster)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
 
--   [**Eks Cluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+## Ressourceneinstellungswerte
 
+#### Grundeinstellungen
 
-## Ressourceneinstellungen
+-   `version` : Kubernetes-Version des EKS-Clusters
+-   `cluster_role_arn` : IAM-Rolle, die von der Kubernetes-Control-Plane zur Verwaltung von AWS-Ressourcen verwendet wird
+-   `enabled_encryption` : Aktivierung der Cluster-Verschlüsselung – `true`, `false`
+-   `kms_key_name` : Name des im Cluster verwendeten KMS-Schlüssels
+-   `included_subnet_names` : Liste der Subnet-Namen, die zur Subnet-Gruppe des EKS-Clusters gehören
+-   `linked_security_group_names` : Liste der mit dem EKS-Cluster verknüpften Security Groups
+-   `endpoint_access_type` : Zugriffstyp auf den EKS-API-Server – `Public`, `Public and Private`, `Private`
+-   `public_access_cidrs` : Liste der CIDR-Blöcke, die Zugriff auf den öffentlichen EKS-API-Server erhalten
 
--   `version` : Version des EKS-Clusters
--   `cluster_role_arn` : IAM-Rolle, die es dem Kubernetes-Control-Plane ermöglicht, AWS-Ressourcen im Auftrag des Benutzers zu verwalten
--   `enabled_encryption` : Verschlüsselung für Passwörter aktivieren - `true`, `false`
--   `included_subnet_names` : Name des Subnetzes, das in die Subnet-Gruppe aufgenommen wird, in der das EKS-Cluster bereitgestellt wird
--   `security_group_name` : Name der Security Group, die für das EKS-Cluster konfiguriert wird
--   `endpoint_access_type` : Zugriffsart auf den EKS-API-Server-Endpunkt - `public`, `publicAndPrivate`, `private`
--   `enabled_cluster_log_types` : Liste der Control Plane-Logs, die aktiviert werden sollen - `api`, `audit`, `authenticator`, `controllerManager`, `scheduler`
--   `add_ons`
+#### Control-Plane-Logging
 
-    -   `kube_proxy_version` : Version des Netzwerkproxies, der auf jedem Knoten ausgeführt wird - `v1.26.4-eksbuild.1`, `v1.26.2-eksbuild.1`, `v1.25.9-eksbuild.1`, `v1.25.6-eksbuild.2`, `v1.24.10-eksbuild.2`
-    -   `vpc_cni_version` : Version des Amazon VPC CNI-Plugins - `v1.12.6-eksbuild.2`, `v1.12.6-eksbuild.1`, `v1.12.5-eksbuild.2`, `v1.12.0-eksbuild.2`
-    -   `core_dns_version` : Version des DNS-Dienstes, der im Cluster bereitgestellt wird - `v1.9.3-eksbuild.3`, `v1.9.3-eksbuild.2`, `v1.8.7-eksbuild.4`
+-   `enabled_cluster_log_types` : Aktivierte Control-Plane-Logtypen – `api`, `authenticator`, `audit`, `scheduler`, `controllerManager`
 
--   `node_group` : Name der Cluster Node Group, erlaubt sind Buchstaben, Zahlen, Bindestriche (-) und Unterstriche (_)
-    -   `node_role_arn` : IAM-Rolle, die für die Knoten verwendet werden soll
-    -   `enable_launch_template` : Konfiguration der Node-Gruppe mit einem Start-Template - `true`, `false`
-    -   `min_node_count` : Minimale Anzahl der EKS-Arbeitsknoten
-    -   `max_node_count` : Maximale Anzahl der EKS-Arbeitsknoten
-    -   `desired_node_count` : Gewünschte Anzahl der EKS-Arbeitsknoten
-    -   `max_node_unavailable` : Maximale Anzahl der Arbeitsknoten, die während eines Node Group-Updates nicht verfügbar sein sollen
-    -   `max_percentage_unavailable` : Maximaler Prozentsatz der Arbeitsknoten, die während eines Node Group-Updates nicht verfügbar sein sollens - `1`~`100`
-    -   `disk_size` : Größe des EBS-Volumes, das an jeden Knoten angeschlossen wird
+#### Add-ons (`add_ons`)
+
+-   `add_ons.kube_proxy_version` : Version von kube-proxy, die auf jedem Node ausgeführt wird
+-   `add_ons.vpc_cni_version` : Version des Amazon-VPC-CNI-Plug-ins
+-   `add_ons.core_dns_version` : Vom Cluster bereitgestellte CoreDNS-Version
+
+#### Node-Gruppe (`node_group`)
+
+-   `node_group.node_role_name` : IAM-Rolle für Worker-Nodes
+-   `node_group.enabled_launch_template` : Aktivierung der Launch-Vorlage – `true`, `false`
+-   `node_group.launch_template_name` : Name der für die Node-Gruppe verwendeten Launch-Vorlage
+-   `node_group.launch_template_version` : Version der Launch-Vorlage
+-   `node_group.min_node_count` : Mindestanzahl der Worker-Nodes
+-   `node_group.max_node_count` : Maximale Anzahl der Worker-Nodes
+-   `node_group.desired_node_count` : Gewünschte Anzahl der Worker-Nodes
+-   `node_group.max_node_unavailable` : Maximal zulässige Anzahl nicht verfügbarer Worker-Nodes während eines Updates
+-   `node_group.max_percentage_unavailable` : Maximal zulässiger Prozentsatz nicht verfügbarer Worker-Nodes während eines Updates
+-   `node_group.disk_size` : Größe des an jeden Node angehängten EBS-Volumes (GB) – `1` ~ `16384`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
 -   [Amazon EKS 요금(AWS)](https://aws.amazon.com/ko/eks/pricing/)

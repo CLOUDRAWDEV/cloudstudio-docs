@@ -1,50 +1,41 @@
 ---
 title: HashicorpVault
-sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Helm, HashicorpVault]
+sidebar_position: 2
+tags: [Kubernetes, Ressource, Helm, HashicorpVault]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist das Helm-Chart zur Installation von Hashicorp Vault.
+Ein Helm-Chart zur Installation von Hashicorp Vault.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
-### Verbundene Ressourcen
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-
-
-## Ressourcen-Einstellwerte
-
--   `service_name` : Hashicorp-Vault Helm-Chart Release-Name
--   `namespace` : Der Namespace, in dem das Hashicorp-Vault Helm-Chart bereitgestellt wird
--   `version` : Die Version des zu verwendenden Hashicorp-Vault Helm-Charts
--   `set` : Dynamische Änderung der Standardwerte des Hashicorp-Vault Charts
-
+-   `namespace` : Namespace, in dem die Hashicorp-Vault-Helm-Chart-Ressource bereitgestellt wird
+-   `version` : Version des zu verwendenden Hashicorp-Vault-Helm-Charts
+-   `set` : Key-Value-Einstellungen zur dynamischen Änderung der Standardwerte des Hashicorp-Vault-Helm-Charts
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Helm install(Hashicorp-vault)](https://developer.hashicorp.com/vault/docs/platform/k8s/helm)
+-   [Helm-Installation(Hashicorp-Vault)](https://developer.hashicorp.com/vault/docs/platform/k8s/helm)
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
-

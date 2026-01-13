@@ -1,7 +1,7 @@
 ---
 title: Vpc
 sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc]
+tags: [AWS, Ressource, Vpc]
 ---
 
 <hr />
@@ -11,40 +11,63 @@ tags: [AWS, Ressourcen, Vpc]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Mit Amazon Virtual Private Cloud (Amazon VPC) haben Sie die vollständige Kontrolle über Ihre virtuelle Netzwerkumgebung, einschließlich der Ressourcenzuweisung, der Verbindung und der Sicherheit. Starten Sie, indem Sie VPC über die AWS Service-Konsole einrichten. Fügen Sie dann Ressourcen wie Amazon Elastic Compute Cloud (EC2) und Amazon Relational Database Service (RDS)-Instanzen zu Ihrem VPC hinzu. Definieren Sie schließlich, wie das VPC miteinander in einem Konto, einer Verfügbarkeitszone oder einer AWS-Region kommuniziert. Im folgenden Beispiel wird der Netzwerkverkehr zwischen zwei VPCs innerhalb jeder Region geteilt.
+Mit Amazon Virtual Private Cloud (Amazon VPC) erhalten Sie vollständige Kontrolle über Ihre virtuelle Netzwerkumgebung, einschließlich Ressourcenplatzierung, Konnektivität und Sicherheit. Beginnen Sie mit der Einrichtung einer VPC über die AWS-Servicekonsole. Anschließend fügen Sie Ressourcen wie Amazon Elastic Compute Cloud (EC2)- und Amazon Relational Database Service (RDS)-Instanzen zur VPC hinzu.  
+Abschließend definieren Sie, wie VPCs über Konten, Availability Zones oder AWS-Regionen hinweg miteinander kommunizieren. Im folgenden Beispiel wird der Netzwerkverkehr zwischen zwei VPCs innerhalb jeder Region gemeinsam genutzt.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-### Untergeordnete Ressourcen
+### Interne Ressourcen
 
--   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Lb/)
--   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Network Acl**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkAcl)
--   [**Vpc Route Table**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
--   [**Vpc FlowLog**](https://docs.cstudio.app/docs/resource/aws/Vpc/FlowLog)
--   [**Ec2 Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Ec2/TransitGateway)
--   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/)
+-   [**LoadBalancer**](https://docs.cstudio.app/de/docs/resource/aws/Lb/Lb)
+-   [**LoadBalancerTargetGroup**](https://docs.cstudio.app/de/docs/resource/aws/Lb/LbTargetGroup)
+-   [**ClientVPNEndpoint**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**NetworkFirewall**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+-   [**InternetGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/InternetGateway)
+-   [**NetworkACL**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkAcl)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+-   [**FlowLog**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/FlowLog)
+-   [**AutoScalingGroup**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/AutoscalingGroup)
+-   [**EFS**](https://docs.cstudio.app/de/docs/resource/aws/Efs/Efs)
+-   [**Endpoint**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Endpoint)
 
-## Ressourcen-Einstellwerte
+### Verknüpfte Ressourcen
 
--   `cidr_block` :IP-Bereich des VPC(CIDR)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/de/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ResolverRule**](https://docs.cstudio.app/de/docs/resource/aws/Route53/ResolverRule)
+-   [**Route53**](https://docs.cstudio.app/de/docs/resource/aws/Route53/Route53)
+-   [**TransitGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/TransitGateway)
+-   [**VPCPeering**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/VpcPeering)
+-   [**VPNGateway**](https://docs.cstudio.app/de/docs/resource/aws/NetwVpcork/VpnGateway)
+-   [**MSKCluster**](https://docs.cstudio.app/de/docs/resource/aws/Msk/MskCluster)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `cidr_block` : IP-Adressbereich (CIDR) der VPC
+-   `enabled_dns_support` : Aktivierung der DNS-Auflösung – `true`, `false`
+-   `enabled_dns_hostnames` : Aktivierung der DNS-Hostnamen – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Amazon Virtual Private Cloud(Amazon VPC)(AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
--   [Amazon VPC Kosten(AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
--   [aws_vpc(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)
+-   [Amazon Virtual Private Cloud (Amazon VPC) (AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Amazon VPC Preise (AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
+-   [aws_vpc (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

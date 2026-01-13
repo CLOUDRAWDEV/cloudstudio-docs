@@ -1,7 +1,7 @@
 ---
 title: Mssql
-sidebar_position: 0
-tags: [AWS, Ressourcen, Rds, Mssql]
+sidebar_position: 2
+tags: [AWS, Ressource, Rds, Mssql]
 ---
 
 <hr />
@@ -11,52 +11,67 @@ tags: [AWS, Ressourcen, Rds, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-mssql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-mssql.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-SQL Server ist ein relationales Datenbankmanagementsystem, das von Microsoft entwickelt wurde. Mit Amazon RDS für SQL Server können Sie SQL Server-Deployments in der Cloud einfach einrichten, betreiben und skalieren. Mit Amazon RDS können Sie mehrere Versionen von SQL Server (2014, 2016, 2017 und 2019) in wenigen Minuten bereitstellen, einschließlich Express, Web, Standard und Enterprise, mit kosteneffizienter und skalierbarer Rechenleistung. Außerdem übernimmt Amazon RDS zeitaufwendige Datenbankverwaltungsaufgaben wie Bereitstellung, Backups, Software-Patches, Überwachung und Hardware-Skalierung, sodass Kunden sich ausschließlich auf die Anwendungsentwicklung konzentrieren können.
+SQL Server ist ein von Microsoft entwickeltes relationales Datenbankmanagementsystem. Mit Amazon RDS for SQL Server lässt sich SQL Server einfach in der Cloud bereitstellen, betreiben und skalieren. Amazon RDS ermöglicht die Bereitstellung verschiedener SQL-Server-Editionen wie Express, Web, Standard und Enterprise (2014, 2016, 2017 und 2019) innerhalb weniger Minuten mit kosteneffizienter und skalierbarer Rechenleistung. Zeitaufwändige Verwaltungsaufgaben wie Provisionierung, Backups, Software-Patches, Monitoring und Hardware-Skalierung werden automatisch übernommen, sodass sich Anwender auf die Anwendungsentwicklung konzentrieren können.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
 ### Verknüpfte Ressourcen
 
--   [**Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Mssql**](https://docs.cstudio.app/de/docs/resource/aws/Rds/Mssql)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
 
-## Ressourcenkonfigurationswerte
+## Ressourceneinstellungswerte
 
--   `engine` : MsSQL-Engine-Typen für die Verwendung mit RDS - `sqlserver-ex`, `sqlserver-ee`, `sqlserver-web`, `sqlserver-se`
--   `engine_version` : SQL Server Version für RDS
--   `instance_class` : Preisstufenkategorie der RDS-Datenbank
--   `storage_type` : Speichertyp der RDS-Instanz
--   `allocated_storage` : Speichergröße der RDS-Instanz (in Gigabyte)
--   `max_allocated_storage` : Maximale Grenze für die automatische Speichererweiterung der DB-Instanz durch Amazon RDS
--   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung - `true`, `false`
+#### Grundeinstellungen
+
+-   `engine` : Typ der Microsoft-SQL-Server-Engine – `sqlserver-ex`, `sqlserver-ee`, `sqlserver-web`, `sqlserver-se`
+-   `engine_version` : Microsoft-SQL-Server-Version für RDS
+-   `instance_class` : Typ der RDS-DB-Instance
+-   `storage_type` : Storage-Typ der RDS-Instance
+-   `iops` : Unterstützte I/O-Operationen pro Sekunde – `1000` ~ `40000`
+-   `allocated_storage` : Speichergröße der RDS-Instance (GiB) – `20` ~ `65536`
+-   `max_allocated_storage` : Obergrenze für automatische Storage-Erweiterung
+-   `multi_az_enabled` : Aktivierung der Multi-AZ-Bereitstellung – `true`, `false`
 -   `username` : Benutzername für RDS
--   `password` : Passwort des RDS-Benutzers
--   `included_subnet_names` : Subnetz-Namen, die mit der RDS-Subnetzgruppe verbunden werden sollen
--   `publicly_accessible` : Ob öffentlicher Zugriff auf die Instanz möglich ist - `true`, `false`
--   `subnet_group_name` : Name der Subnetzgruppe, die mit der RDS-Instanz verwendet werden soll
+-   `password` : Passwort für RDS
+-   `included_subnet_names` : Liste der Subnet-Namen für die RDS-Subnet-Gruppe
+-   `subnet_group_name` : Name der Subnet-Gruppe für RDS
+-   `linked_security_group_names` : Liste der anzuwendenden Security Groups
+-   `publicly_accessible` : Aktivierung des öffentlichen Zugriffs – `true`, `false`
 
--   `monitoring`
-    -   `performance_insights_enabled` :  Aktivierung der Performance Insights
--   `encryption`
-    -   `storage_encrypted` : Gibt an, ob die DB-Instanz verschlüsselt ist - `true`, `false`
-    -   `kms_key_name` : Name des KMS-Schlüssels, der für die Verschlüsselung verwendet werden soll
--   `backup`
-    -   `backup_retention_period` : Zeitraum, für den Backups aufbewahrt werden - `1`~`35`
-    -   `final_snapshot_enabled` : Ob ein endgültiges Snapshot erstellt werden soll, bevor die DB-Instanz gelöscht wird - `true`, `false`
-    -   `final_snapshot_name` : Name des endgültigen Snapshots
+#### Überwachung (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Aktivierung von Performance Insights – `true`, `false`
+-   `monitoring.kms_key_name` : Name des für Performance Insights verwendeten KMS-Schlüssels
+
+#### Verschlüsselung (`encryption`)
+
+-   `encryption.storage_encrypted` : Aktivierung der Verschlüsselung der DB-Instance – `true`, `false`
+-   `encryption.kms_key_name` : Name des für die Verschlüsselung verwendeten KMS-Schlüssels
+
+#### Backup (`backup`)
+
+-   `backup.backup_retention_period` : Aufbewahrungsdauer der Backups – `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Erstellung eines finalen Snapshots vor dem Löschen – `true`, `false`
+-   `backup.final_snapshot_name` : Name des finalen Snapshots
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon RDS for SQL Server(AWS)](https://aws.amazon.com/ko/rds/sqlserver/)
--   [Amazon RDS for SQL Server Kosten(AWS)](https://aws.amazon.com/ko/rds/sqlserver/pricing/?nc=sn&loc=4)
+-   [Amazon RDS for SQL Server Preise(AWS)](https://aws.amazon.com/ko/rds/sqlserver/pricing/?nc=sn&loc=4)

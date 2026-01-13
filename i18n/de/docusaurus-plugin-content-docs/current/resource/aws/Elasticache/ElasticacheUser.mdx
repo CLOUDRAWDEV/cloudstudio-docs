@@ -1,7 +1,7 @@
 ---
-title: Elasticache User
-sidebar_position: 0
-tags: [AWS, Ressourcen, Elasticache, ElasticacheUser]
+title: ElasticacheUser
+sidebar_position: 1
+tags: [AWS, Ressource, Elasticache, ElasticacheUser]
 ---
 
 <hr />
@@ -11,30 +11,37 @@ tags: [AWS, Ressourcen, Elasticache, ElasticacheUser]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-AWS Elasticache User ist ein IAM-Benutzer, der erforderlich ist, um das Elasticache-Cluster zu nutzen. Der Elasticache User hat die Berechtigung, das Elasticache-Cluster zu erstellen, zu bearbeiten und zu löschen. Der Elasticache User wird in AWS IAM erstellt und wird in der Regel den Anwendungen oder Entwicklern zugewiesen, die Elasticache verwenden. Der Elasticache User ist verantwortlich für die Sicherheit und den Zugriffskontroll des Elasticache-Clusters und schützt so die Anwendungen und Daten. Der Elasticache User kann mit anderen Ressourcen im AWS-Konto verwendet werden.
+Der AWS ElastiCache User ist ein IAM-Benutzer, der für die Nutzung von ElastiCache-Clustern erforderlich ist. ElastiCache User verfügen über Berechtigungen zum Erstellen, Ändern und Löschen von ElastiCache-Clustern. Sie werden in AWS IAM erstellt und typischerweise Anwendungen oder Entwicklern zugewiesen, die ElastiCache verwenden. ElastiCache User sind für Sicherheit und Zugriffskontrolle auf ElastiCache-Cluster verantwortlich und tragen so zum Schutz von Anwendungen und Daten bei. Sie können gemeinsam mit anderen Ressourcen innerhalb eines AWS-Kontos genutzt werden.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-## Ressourceneinstellungen
+## Ressourceneinstellungswerte
 
--   `user_id` : Benutzer-ID, erlaubt sind Buchstaben und Bindestriche (-), muss mit einem Buchstaben beginnen, darf nicht mit einem Bindestrich enden oder zwei aufeinanderfolgende Bindestriche enthalten, maximal 40 Zeichen
--   `access_string` : String, der die Berechtigungen angibt, die auf den Benutzer angewendet werden sollen
--   `authentication_type` : Authentifizierungsmethode, die der Benutzer für den Zugriff auf das Cluster verwenden soll
+#### Grundeinstellungen
+
+-   `user_id` : Eindeutige ID des Benutzers
+-   `access_string` : Zeichenkette zur Definition der dem Benutzer zugewiesenen Berechtigungen
+-   `authentication_type` : Authentifizierungsmethode für den Zugriff auf den Cluster – `iam`, `password`, `no-password-required`
+-   `passwords` : Passwörter des Benutzers (maximal 2 konfigurierbar)
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis Kosten(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

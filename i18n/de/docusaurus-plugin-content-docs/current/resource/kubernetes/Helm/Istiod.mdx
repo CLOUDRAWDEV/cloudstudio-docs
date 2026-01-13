@@ -1,50 +1,41 @@
 ---
 title: Istiod
-sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Helm, Istiod]
+sidebar_position: 3
+tags: [Kubernetes, Ressource, Helm, Istiod]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istiod.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istiod.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist das Helm-Chart für Istio.
+Ein Helm-Chart für Istiod.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
-### Verbundene Ressourcen
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-
-
-## Ressourcen-Einstellwerte
-
--   `service_name` : Istio Helm-Chart Release-Name
--   `namespace` : Der Namespace, in dem das Istio Helm-Chart bereitgestellt wird – festgelegt auf `istio-system`
--   `version` : Die Version des zu verwendenden Istio Helm-Charts
--   `set` : Dynamische Änderung der Standardwerte des Istio Charts
-
+-   `namespace` : Namespace, in dem die Istiod-Helm-Chart-Ressource bereitgestellt wird
+-   `version` : Version des zu verwendenden Istiod-Helm-Charts
+-   `set` : Key-Value-Einstellungen zur dynamischen Änderung der Standardwerte des Istiod-Helm-Charts
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Helm install(Istio)](https://istio.io/latest/docs/setup/install/helm/)
+-   [Helm-Installation(Istio)](https://istio.io/latest/docs/setup/install/helm/)
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
-

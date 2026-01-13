@@ -1,13 +1,13 @@
 ---
 title: CdssCluster
 sidebar_position: 0
-tags: [Ncloud, 리소스, Bigdata&Analytics, CdssCluster]
+tags: [Ncloud, Ressource, Bigdata&Analytics, CdssCluster]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,49 +15,49 @@ tags: [Ncloud, 리소스, Bigdata&Analytics, CdssCluster]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A service that allows easy deployment, protection, operation, and scaling of Apache Kafka clusters, an open-source platform for real-time streaming data pipelines and application development.
+Ein Service, mit dem Apache-Kafka-Cluster – eine Open-Source-Plattform für Echtzeit-Streaming-Datenpipelines und Anwendungsentwicklung – einfach bereitgestellt, geschützt, betrieben und skaliert werden können.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**CdssConfigGroup**](https://docs.cstudio.app/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
+-   [**CdssConfigGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_vpc_name` : Name of the VPC where CDSS will be created
--   `kafka_version_code` : Kafka version to use in CDSS - `kafkaVersionCode`
--   `linked_config_group_name` : Name of the CDSS config group to use
--   `os_image` : OS image type to use - `osImage`
+-   `included_vpc_name` : Name des VPC, in dem CDSS erstellt wird
+-   `kafka_version_code` : Kafka-Version, die in CDSS verwendet wird – `kafkaVersionCode`
+-   `linked_config_group_name` : Name der zu verwendenden CDSS-Config-Group
+-   `os_image` : Zu verwendender OS-Image-Typ – `osImage`
 
-#### CMAK 설정 (`cmak`)
+#### CMAK-Konfiguration (`cmak`)
 
--   `cmak.user_name` : CMAK access ID
--   `cmak.user_password` : CMAK access password
+-   `cmak.user_name` : CMAK-Zugriffs-ID
+-   `cmak.user_password` : CMAK-Zugriffspasswort
 
-#### 매니저 노드 설정 (`manager_node`)
+#### Manager-Node-Konfiguration (`manager_node`)
 
--   `manager_node.manager_node_subnet_name` : Subnet name where the manager node will be located
--   `manager_node.manager_node_product_code` : Manager node hardware product code - `managerNodeProductCode`
+-   `manager_node.manager_node_subnet_name` : Name des Subnetzes für den Manager-Node
+-   `manager_node.manager_node_product_code` : Hardware-Produktcode des Manager-Nodes – `managerNodeProductCode`
 
-#### 브로커 노드 설정 (`broker_node`)
+#### Broker-Node-Konfiguration (`broker_node`)
 
--   `broker_node.broker_node_subnet_name` : Subnet name where the broker node will be located
--   `broker_node.broker_node_product_code` : Broker node hardware product code - `managerNodeProductCode`
--   `broker_node.broker_node_count` : Number of broker nodes - `3` ~ `10`
--   `broker_node.broker_node_storage_size` : Broker node storage size - `100` ~ `2000`
+-   `broker_node.broker_node_subnet_name` : Name des Subnetzes für den Broker-Node
+-   `broker_node.broker_node_product_code` : Hardware-Produktcode des Broker-Nodes – `managerNodeProductCode`
+-   `broker_node.broker_node_count` : Anzahl der Broker-Nodes – `3` ~ `10`
+-   `broker_node.broker_node_storage_size` : Speichergröße des Broker-Nodes – `100` ~ `2000`
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Cloud Data Streaming Service Cluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
 -   [CDSS Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)

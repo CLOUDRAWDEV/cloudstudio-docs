@@ -1,63 +1,55 @@
 ---
 title: RoleBinding
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, RBAC, RoleBinding]
+tags: [Kubernetes, Ressource, RBAC, RoleBinding]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Kubernetes-Ressource, die die Rollen referenziert, die in einem bestimmten Namespace auf einen Benutzer angewendet werden
+Eine Kubernetes-Ressource, die Rollen Benutzern innerhalb eines bestimmten Namespaces zuweist.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
 ### Verbundene Ressourcen
 
--   [**Role**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/Role)
+-   [**ServiceAccount**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**Role**](https://docs.cstudio.app/de/docs/resource/kubernetes/RBAC/Role)
+-   [**ClusterRole**](https://docs.cstudio.app/de/docs/resource/kubernetes/RBAC/ClusterRole)
 
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-## Ressourcen-Einstellwerte
+-   `namespace` : Namespace, in dem die RoleBinding-Ressource angewendet wird
+-   `annotations` : Key-Value-Metadaten für die RoleBinding-Ressource
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der RoleBinding
+-   `role_type` : Typ der zu bindenden Rolle – `Role`, `ClusterRole`
+-   `role_name` : Name der Role oder ClusterRole, die gebunden wird
 
--   `service_name` : Name der RoleBinding-Ressource
--   `namespace` : Namespace, in dem die RoleBinding-Ressource bereitgestellt wird
--   `annotations` : Key-Value-Paare, die verwendet werden, um die erforderlichen Informationen im Kubernetes-System anzuzeigen
--   `labels` : Der Benutzer kann einen beliebigen Wert festlegen, um das Objekt zu identifizieren
--   `role_name` : Geben Sie den Namen der Rolle an, die mit dem Subjekt gebunden werden soll
--   `subject` : Festlegung des Subjekts, dem die Rolle zugewiesen werden soll
-    -   `name` : Geben Sie den Namen des Subjekts ein, das gebunden werden soll
-    -   `namespace` : Geben Sie das Namespace des Subjekts ein, das gebunden werden soll
-    -   `api_group` : API-Gruppe, die die Genehmigungsentscheidung trifft - `rbac.authorization.k8s.io`,`User`,`Group`
-    -   `kind` : Wählen Sie den Typ des Subjekts aus, das gebunden werden soll- `ServiceAccount`,`User`,`Group`
+#### Subjektkonfiguration (`subject`)
 
-
-
-
-
-
+-   `subject.kind` : Typ des Subjekts – `ServiceAccount`, `User`, `Group`
+-   `subject.namespace` : Namespace des Subjekts
+-   `subject.api_group` : API-Gruppe für Autorisierungsentscheidungen – `rbac.authorization.k8s.io`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [RoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [RoleBinding(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [RoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role_binding)
-`

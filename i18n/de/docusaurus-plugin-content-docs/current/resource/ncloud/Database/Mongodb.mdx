@@ -1,13 +1,13 @@
 ---
 title: Mongodb
 sidebar_position: 2
-tags: [Ncloud, 리소스, Database, Mongodb]
+tags: [Ncloud, Ressource, Database, Mongodb]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,59 +15,60 @@ tags: [Ncloud, 리소스, Database, Mongodb]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB databases. It is a fully managed cloud database service that operates stably through Naver’s optimized settings and automatically recovers in case of failures.
+Cloud DB for MongoDB ist ein vollständig verwalteter Cloud-Datenbankservice, der die einfache Bereitstellung und den stabilen Betrieb von MongoDB-Datenbanken ermöglicht.  
+Er bietet automatische Wiederherstellung bei Ausfällen und nutzt optimierte Konfigurationen von Ncloud.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `server_name_prefix` : MongoDB server name, lowercase letters/numbers/hyphens(-) allowed, must start with a lowercase letter, end with a lowercase letter or number, 3 ~ 15 characters
--   `user_name` : MongoDB user access ID
--   `user_password` : MongoDB user password
--   `included_vpc_name` : Name of the VPC that includes MongoDB
--   `included_subnet_name` : Name of the subnet that includes MongoDB
--   `cluster_type_code` : MongoDB cluster type code that determines the cluster type - `clusterTypeCode`
--   `shard_count` : Number of MongoDB shards - `2`, `3`
--   `image_product_code` : MongoDB version image product code - `imageProductCode`
--   `backup_file_retention_period` : Backup file retention period; backups are performed daily and stored in separate storage - `1` ~ `30`
--   `backup_time` : User-defined specific backup time
--   `data_storage_type` : Data storage type - `SSD`, `HDD`
--   `compress_code` : MongoDB data compression algorithm code - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+-   `server_name_prefix` : MongoDB-Servername (Kleinbuchstaben/Zahlen/Bindestrich erlaubt, Länge 3–15)
+-   `user_name` : MongoDB-Benutzer-ID
+-   `user_password` : Passwort des MongoDB-Benutzers
+-   `included_vpc_name` : Name des VPC
+-   `included_subnet_name` : Name des Subnetzes
+-   `cluster_type_code` : Cluster-Typ-Code – `clusterTypeCode`
+-   `shard_count` : Anzahl der MongoDB-Shards – `2`, `3`
+-   `image_product_code` : Image-Produktcode – `imageProductCode`
+-   `backup_file_retention_period` : Aufbewahrungsdauer der Backups (Tage) – `1` ~ `30`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `data_storage_type` : Storage-Typ – `SSD`, `HDD`
+-   `compress_code` : Komprimierungsalgorithmus – `SNPP`, `ZLIB`, `ZSTD`, `NONE`
 
-#### MongoDB Member 설정 (`member`)
+#### MongoDB-Member (`member`)
 
--   `member.member_port` : TCP port number for accessing the MongoDB Member server - `10000` ~ `65535`
--   `member.member_product_code` : MongoDB Member server product code - `memberProductCode`
--   `member.member_server_count` : Number of MongoDB Member servers - `3` ~ `7`
+-   `member.member_port` : TCP-Port – `10000` ~ `65535`
+-   `member.member_product_code` : Produktcode – `memberProductCode`
+-   `member.member_server_count` : Anzahl der Member-Server – `3` ~ `7`
 
-#### MongoDB Arbiter 설정 (`arbiter`)
+#### MongoDB-Arbiter (`arbiter`)
 
--   `arbiter.arbiter_server_count` : Number of MongoDB Arbiter servers - `0`, `1`
--   `arbiter.arbiter_product_code` : MongoDB Arbiter server product code - `arbiterProducCode`
+-   `arbiter.arbiter_server_count` : Anzahl der Arbiter – `0`, `1`
+-   `arbiter.arbiter_product_code` : Produktcode – `arbiterProducCode`
 
-#### MongoDB Mongos 설정 (`mongos`)
+#### MongoDB-Mongos (`mongos`)
 
--   `mongos.mongos_port` : TCP port number for accessing the MongoDB Mongos server - `10000` ~ `65535`
--   `mongos.mongos_product_code` : MongoDB Mongos product code - `mongosProductCode`
--   `mongos.mongos_server_count` : Number of MongoDB Mongos servers - `2` ~ `5`
+-   `mongos.mongos_port` : TCP-Port – `10000` ~ `65535`
+-   `mongos.mongos_product_code` : Produktcode – `mongosProductCode`
+-   `mongos.mongos_server_count` : Anzahl der Mongos – `2` ~ `5`
 
-#### MongoDB Config 설정 (`config`)
+#### MongoDB-Config (`config`)
 
--   `config.config_port` : TCP port number for accessing the MongoDB Config server - `10000` ~ `65535`
--   `config.config_product_code` : MongoDB Config server product code - `configProductCode`
--   `config.config_server_count` : Number of MongoDB Config servers - `3` ~ `7`
+-   `config.config_port` : TCP-Port – `10000` ~ `65535`
+-   `config.config_product_code` : Produktcode – `configProductCode`
+-   `config.config_server_count` : Anzahl der Config-Server – `3` ~ `7`
 
 ---
 
-## 참고 자료
+## Referenzen
 
--   [MongoDB Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMongoDB)
+-   [MongoDB Database(Ncloud)](https://www.gov-ncloud.com/v2/product/database/cloudDbCache)
 -   [MongoDB Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

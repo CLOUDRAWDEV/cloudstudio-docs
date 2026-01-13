@@ -1,7 +1,7 @@
 ---
-title: Transit Gateway
-sidebar_position: 0
-tags: [AWS, Ressourcen, Ec2, TransitGateway]
+title: TransitGateway
+sidebar_position: 15
+tags: [AWS, Ressource, Ec2, TransitGateway]
 ---
 
 <hr />
@@ -11,38 +11,51 @@ tags: [AWS, Ressourcen, Ec2, TransitGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-transit_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Der Transit Gateway ist ein Netzwerk-Transit-Hub, der verwendet werden kann, um virtuelle private Clouds (VPCs) mit On-Premises-Netzwerken zu verbinden. Da die Cloud-Infrastruktur weltweit skaliert, werden Regions-Peerings unter Verwendung der globalen AWS-Infrastruktur miteinander verbunden. Daten werden automatisch verschlüsselt und über das öffentliche Internet nicht übertragen.
+Ein Transit Gateway ist ein Netzwerk-Transport-Hub, der zur gegenseitigen Verbindung von Virtual Private Clouds (VPCs) und On-Premises-Netzwerken verwendet wird. Mit der globalen Skalierung der Cloud-Infrastruktur verbindet regionsübergreifendes Peering Transit Gateways über die globale AWS-Infrastruktur. Die Daten werden automatisch verschlüsselt und nicht über das öffentliche Internet übertragen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**DxGateway**](https://docs.cstudio.app/de/docs/resource/aws/DirectConnect/DxGateway)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+-   [**CustomerGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/CustomerGateway)
+-   [**TransitGateway Attachment**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `dns_support` : DNS-Auflösung für verbundenes VPC aktivieren - `enable`, `disable`
--   `vpn_ecmp_support` : Unterstützung für ECMP (Equal-Cost Multi-Path) Routing für verbundene VPNs - `enable`, `disable`
--   `default_route_table_association` : Attachment automatisch mit der Standard-Routing-Tabelle verbinden - `enable`, `disable`
--   `default_route_table_propagation` : Attachment automatisch an die Standard-Routing-Tabelle propagieren - `enable`, `disable`
--   `multicast_support` : Multicast-Domänen erstellen aktivieren - `enable`, `disable`
--   `transit_gateway_cidr_blocks` : Transit Gateway CIDR-Block
--   `vpc_attachment`
+#### Grundeinstellungen
+
+-   `dns_support` : Aktivierung der DNS-Auflösung für verbundene VPCs – `enable`, `disable`
+-   `vpn_ecmp_support` : Unterstützung von ECMP-(Multipath)-Routing für verbundene VPNs – `enable`, `disable`
+-   `default_route_table_association` : Automatische Zuordnung von Attachments zur Standard-Routing-Tabelle – `enable`, `disable`
+-   `default_route_table_propagation` : Automatische Weitergabe von Attachments an die Standard-Routing-Tabelle – `enable`, `disable`
+-   `multicast_support` : Aktivierung der Erstellung von Multicast-Domänen – `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Liste der CIDR-Blöcke, die dem Transit Gateway zugewiesen werden
+
+#### Direct-Connect-Gateway-Einstellungen (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : Name des zu verbindenden Direct-Connect-Gateways
+-   `dx_gateway.allowed_prefixes` : Liste der VPC-Prefixe (CIDR), die an das On-Premises-Netzwerk beworben werden
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [AWS Transit Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
--   [AWS Transit Gateway Kosten(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
--   [aws_ec2_transit_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)
+-   [AWS Transit Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [AWS Transit Gateway Preise (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

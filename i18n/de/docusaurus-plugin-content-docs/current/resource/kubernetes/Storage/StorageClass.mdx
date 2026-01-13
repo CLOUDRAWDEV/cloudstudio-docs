@@ -1,59 +1,50 @@
 ---
 title: StorageClass
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Storage, StorageClass]
+tags: [Kubernetes, Ressource, Storage, StorageClass]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist eine Kubernetes-Ressource, die das dynamische Speicherprovisioning definiert, das mit einem bestimmten Storage Provisioner zusammenarbeitet
+Eine Kubernetes-Ressource zur Definition der dynamischen Speicherbereitstellung in Verbindung mit einem bestimmten Storage-Provisioner.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
 
 ### Verbundene Ressourcen
 
--   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**PersistentVolume**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolume)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `service_name` : Name der StorageClass-Ressource
--   `annotations` : Key-Value-Paare, die verwendet werden, um die erforderlichen Informationen im Kubernetes-System anzuzeigen
--   `labels` : Der Benutzer kann einen beliebigen Wert festlegen, um das Objekt zu identifizieren
--   `storage_Provisioner` : Typ des Storage-Anbieters
--   `reclaim_policy` : Verwendete Rückgabepolitik – Wenn nicht angegeben, ist der Standardwert Delete
--   `volume_binding_mode` : Wann Volume-Bindung und dynamische Bereitstellung stattfinden müssen - `Immediate`, `WaitForFirstConsumer`
--   `allow_volume_expansion` :Ob die Storage-Klasse die Volumen-Erweiterung erlaubt- `False`, `True`
--   `parameters` : Die Parameter für den Provisioner, der das Volume in einer StorageClass erstellen muss, umfassen typischerweise
--   `mount_options` : Die durch die StorageClass dynamisch erstellten Persistent Volumes haben Mount-Optionen, die festgelegt werden
-
-
-
-
-
-
+-   `annotations` : Key-Value-Metadaten zur Anzeige erforderlicher Informationen im Kubernetes-System
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der StorageClass
+-   `storage_provisioner` : Typ des Storage-Provisioners, der den Speicher erstellt
+-   `reclaim_policy` : Rückgewinnungsrichtlinie beim Freigeben eines Volumes – `Retain`, `Delete`
+-   `volume_binding_mode` : Zeitpunkt der Volume-Bindung und dynamischen Bereitstellung – `Immediate`, `WaitForFirstConsumer`
+-   `allow_volume_expansion` : Erlaubnis zur Erweiterung des Volume-Speichers
+-   `parameters` : Zusätzliche Parameter für den Storage-Provisioner
+-   `mount_options` : Mount-Optionen für dynamisch erstellte PersistentVolumes
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [StorageClass(kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+-   [StorageClass(Kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
 -   [StorageClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class)
