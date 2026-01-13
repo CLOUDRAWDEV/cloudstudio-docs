@@ -1,55 +1,67 @@
 ---
-title: Network Acl
-sidebar_position: 0
-tags: [AWS, Recurso, Vpc, NetworkAcl]
+title: NetworkAcl
+sidebar_position: 9
+tags: [AWS, recurso, Vpc, NetworkAcl]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Una lista de control de acceso a la red (ACL de red) permite permitir o denegar tráfico entrante o saliente específico a nivel de subred. Puedes utilizar la ACL predeterminada del VPC o crear una ACL personalizada con reglas similares a las de los grupos de seguridad para añadir una capa adicional de seguridad al VPC.
-No se aplican cargos adicionales por el uso de Network ACL.
+La lista de control de acceso de red (ACL) permite o deniega tráfico entrante o saliente específico a nivel de subred.  
+Es posible utilizar la ACL de red predeterminada del VPC o crear ACL de red personalizadas con reglas similares a las de los Security Groups para añadir una capa adicional de seguridad al VPC.
+
+El uso de Network ACL no genera cargos adicionales.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
 
 ## Valores de configuración del recurso
 
--   `included_vpc_name` : Nombre del VPC al que pertenece la Network ACL
--   `linked_subnet_names` : Nombres de las subredes a las que se aplicará la Network ACL
--   `ingress` : Nombre de la regla de entrada (Ingress) de la Network ACL
-    -   `protocol` : Protocolo de la regla de Ingress - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Acción a aplicar en el protocolo de la regla Ingress - `allow`, `deny`
-    -   `cidr_block` : CIDR al que se aplica la regla Ingress
-    -   `from_port` : Puerto de entrada definido por la regla Ingress
-    -   `to_port` : Puerto de salida definido por la regla Ingress
--   `egress` : Nombre de la regla de salida (Egress) de la Network ACL
-    -   `protocol` : Protocolo de la regla de Egress - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Acción a aplicar en el protocolo de la regla Egress - `allow`, `deny`
-    -   `cidr_block` : CIDR al que se aplica la regla Egress
-    -   `from_port` : Puerto de entrada definido por la regla Egress
-    -   `to_port` : Puerto de salida definido por la regla Egress
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se creará la ACL
+-   `nacl_description` : Descripción de la ACL
+
+#### Reglas entrantes (`inbound_rule`)
+
+-   `inbound_rule.priority` : Prioridad de la regla entrante - `0` ~ `199`
+-   `inbound_rule.protocol` : Protocolo del tráfico entrante - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Acción sobre el tráfico entrante - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Rango CIDR de origen del tráfico entrante
+-   `inbound_rule.port_range` : Rango de puertos al que se aplica la regla - `1` ~ `65535`
+
+#### Reglas salientes (`outbound_rule`)
+
+-   `outbound_rule.priority` : Prioridad de la regla saliente - `0` ~ `199`
+-   `outbound_rule.protocol` : Protocolo del tráfico saliente - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Acción sobre el tráfico saliente - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Rango CIDR de destino del tráfico saliente
+-   `outbound_rule.port_range` : Rango de puertos al que se aplica la regla - `1` ~ `65535`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Control del tráfico en subredes mediante Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [Controlar el tráfico de subred con Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
 -   [aws_network_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

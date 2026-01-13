@@ -1,7 +1,7 @@
 ---
 title: Efs
 sidebar_position: 0
-tags: [AWS, recurso, Efs]
+tags: [AWS, 리소스, Efs]
 ---
 
 <hr />
@@ -11,48 +11,71 @@ tags: [AWS, recurso, Efs]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/efs-efs.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/efs-efs.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Permite crear un sistema de archivos, montarlo en instancias EC2, leer datos desde la instancia EC2, escribir en el sistema de archivos o compartir archivos.
+Permite crear sistemas de archivos, montarlos en instancias EC2, leer datos desde instancias EC2, escribir datos en el sistema de archivos y compartir archivos.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
 
 ## Valores de configuración del recurso
 
--   `create_token` : Nombre único utilizado como referencia para garantizar la creación del sistema de archivos Elastic  
--   `availability_zone_name` : Zona de disponibilidad de AWS donde se creará el sistema de archivos  
--   `enabled_encrypted` : Indica si el sistema de archivos estará cifrado – `false`, `true`  
--   `throughput_mode` : Modo de rendimiento del sistema de archivos – `provisioned`, `elastic`, `bursting`  
--   `provisioned_throughput_in_mibps` : Rendimiento aprovisionado para el sistema de archivos (en MiB/s) – `1-3414`  
--   `performance_mode` : Modo de rendimiento del sistema de archivos – `generalPurpose`, `maxIO`  
--   `lifecycle_policy` : Gestión del ciclo de vida para reducir costos automáticamente según los patrones de acceso  
-    -   `transition_to_ia` : Tiempo necesario para trasladar archivos a la clase de almacenamiento IA – `1`, `7`, `14`, `30`, `60`  
-    -   `ransition_to_primary_storage_class` : Política utilizada para devolver los archivos desde el almacenamiento de acceso al almacenamiento principal – `None`, `FirstAccess`  
--   `mount_target_subnets` : Lista de subredes donde se agregarán destinos de montaje  
--   `file_system_policy` : Política del sistema de archivos en formato JSON para EFS  
--   `enable_backup_policy` : Indica si se activa la política de backup – `false`, `true`  
--   `enable_replica` : Indica si se habilita la creación de réplica – `false`, `true`  
--   `access_point` : Punto de entrada específico para aplicaciones al sistema de archivos EFS, que facilita la gestión de acceso a conjuntos de datos compartidos  
-    -   `root_directory_path` : Ruta del sistema de archivos EFS que se expone como directorio raíz a los clientes NFS que usan el punto de acceso  
-    -   `posix_user_uid` : UID POSIX utilizado para todas las operaciones del sistema de archivos que usen este punto de acceso – hasta `4294967295`  
-    -   `posix_user_gid` : GID POSIX utilizado para todas las operaciones del sistema de archivos que usen este punto de acceso – hasta `4294967295`  
-    -   `posix_user_secondary_gids` : IDs de grupos POSIX secundarios usados en operaciones del sistema de archivos con este punto de acceso  
-    -   `root_owner_uid` : UID POSIX aplicado al directorio raíz – hasta `4294967295`  
-    -   `root_owner_gid` : GID POSIX aplicado al directorio raíz – hasta `4294967295`  
-    -   `root_permissions` : Permisos POSIX aplicables al directorio raíz, expresados en formato octal (modo de bits del archivo)
+#### Configuración básica
 
+-   `creation_token` : Nombre único utilizado como referencia para garantizar la creación del sistema de archivos
+-   `availability_zone_name` : Zona de disponibilidad de AWS donde se creará el sistema de archivos
+-   `enable_encrypted` : Indica si el sistema de archivos está cifrado - `true`, `false`
+-   `throughput_mode` : Modo de rendimiento del sistema de archivos - `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : Rendimiento provisionado del sistema de archivos(MiB/s) - `1` ~ `3414`
+-   `performance_mode` : Modo de rendimiento del sistema de archivos - `generalPurpose`, `maxIO`
 
+#### Política de ciclo de vida (`lifecycle_policy`)
 
-## Documentación de referencia
+-   `lifecycle_policy.transition_to_ia` : Tiempo para mover archivos a la clase IA - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : Política para mover archivos al almacenamiento primario - `None`, `firstAccess`
+
+#### Destinos de montaje (`mount_target_subnets`)
+
+-   `mount_target_subnets` : Lista de Subnet donde se agregarán destinos de montaje
+
+#### Política del sistema de archivos
+
+-   `file_system_policy` : Política del sistema de archivos EFS en formato JSON
+
+#### Configuración de respaldo y replicación
+
+-   `enable_backup_policy` : Indica si se habilita la política de respaldo - `true`, `false`
+-   `enable_replica` : Indica si se crea una réplica - `true`, `false`
+
+#### Configuración de replicación (`replication_configuration`)
+
+-   `replication_configuration.replication_region` : Región AWS donde se creará la réplica
+-   `replication_configuration.replication_region_availability_zone_name` : Zona de disponibilidad donde se creará la réplica
+-   `replication_configuration.kms_key_name` : Nombre de la clave KMS utilizada para la réplica
+
+#### Punto de acceso (`access_point`)
+
+-   `access_point.root_directory_path` : Ruta del sistema de archivos expuesta como directorio raíz para clientes NFS
+-   `access_point.posix_user_uid` : ID de usuario POSIX aplicado al usar el punto de acceso - `0` ~ `4294967295`
+-   `access_point.posix_user_gid` : ID de grupo POSIX aplicado al usar el punto de acceso - `0` ~ `4294967295`
+-   `access_point.posix_user_secondary_gids` : Lista de IDs de grupos POSIX secundarios
+-   `access_point.root_owner_uid` : ID de usuario POSIX aplicado al directorio raíz - `0` ~ `4294967295`
+-   `access_point.root_owner_gid` : ID de grupo POSIX aplicado al directorio raíz - `0` ~ `4294967295`
+-   `access_point.root_permissions` : Permisos POSIX aplicados al directorio raíz(octal)
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+## Referencias
 
 -   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
 -   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

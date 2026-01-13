@@ -1,48 +1,70 @@
 ---
 title: Endpoint
-sidebar_position: 0
-tags: [AWS, Recurso, Vpc, Endpoint]
+sidebar_position: 4
+tags: [AWS, recurso, Vpc, Endpoint]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Servicio que permite conectarse de forma privada a servicios de AWS compatibles y servicios de endpoint de VPC.
+Servicio que permite a los clientes conectarse de forma privada a servicios de AWS compatibles y a servicios de VPC Endpoint
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
 
-### Recurso subordinado
+### Recursos conectados
 
--   [**Endpoint Service**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**EndpointService**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
 
 ## Valores de configuración del recurso
 
--   `service_range` : Categoría del servicio que utilizará el endpoint - `awsService`, `endpointService`
--   `aws_service_name` : Nombre del servicio de AWS que usará el endpoint
--   `vpc_endpoint_type` : Tipo de endpoint a utilizar para el servicio - `gateway`, `interface`, `gatewayloadbalancer`
--   `included_vpc_name` : Nombre del VPC en el que se creará el endpoint
--   `route_table_names` : Una o más ID de tablas de rutas a conectar con el endpoint
--   `policy_access` : Alcance de la política que controla el acceso al servicio del endpoint - `Full`, `Custom`
+#### Configuración básica
+
+-   `service_range` : Categoría del servicio Endpoint - `awsService`, `endpointService`
+-   `aws_service_name` : Nombre del servicio AWS a utilizar
+-   `vpc_endpoint_type` : Tipo de Endpoint - `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Nombre del VPC donde se creará el Endpoint
+-   `enabled_private_dns` : Habilita DNS privado - `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : Habilita solo DNS privado para solicitudes entrantes - `true`, `false`
+-   `dns_record_ip_type` : Tipo de IP del registro DNS - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : Tipo de dirección IP del Endpoint - `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Alcance de la política de acceso - `Full`, `Custom`
+-   `custom_policy` : Política personalizada para controlar el acceso al servicio
+
+#### Configuración de Endpoint Service (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Indica si se introduce manualmente el ARN del Endpoint Service - `true`, `false`
+-   `endpoint_service.service_name` : Nombre del Endpoint Service
+-   `endpoint_service.linked_endpoint_service_name` : Nombre del Endpoint Service conectado
+
+#### Configuración de red
+
+-   `linked_security_group_names` : Lista de Security Group asociados al Endpoint
+-   `linked_subnet_names` : Lista de Subnet donde se crearán interfaces de red
+-   `route_table_names` : Lista de Route Table asociadas al Endpoint
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [AWS EndPoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
--   [AWS EndPoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)
+-   [AWS EndPoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)

@@ -1,63 +1,95 @@
 ---
 title: NetworkFirewallRuleGroup
-sidebar_position: 0
-tags: [AWS, Recurso, Vpc, NetworkFirewallRuleGroup]
+sidebar_position: 12
+tags: [AWS, recurso, Vpc, NetworkFirewallRuleGroup]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Conjunto reutilizable de criterios para inspeccionar y procesar tráfico de red.
+Conjunto reutilizable de criterios para inspeccionar y procesar el tráfico de red
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/NetworkFirewallPolicy)
 
 ## Valores de configuración del recurso
 
+#### Configuración básica
 
--   `description` : Descripción del grupo de reglas del firewall de red
+-   `description` : Descripción del grupo de reglas del firewall de red (máx. 256 caracteres)
 -   `rule_group_type` : Tipo de grupo de reglas - `STATEFUL`, `STATELESS`
 -   `generated_rules_type` : Formato del grupo de reglas - `StandardStatefulRules`, `DomainList`, `SuricataRuleStrings`
--   `rule_evaluation_order` : Orden de evaluación de reglas - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
--   `capacity` : Cantidad esperada de reglas que se incluirán en este grupo a lo largo de su ciclo de vida - `1-30000`
--   `ip_set` : Variable de conjunto de IPs
-    -   `name` : Nombre de la variable de conjunto de IPs
-    -   `cidrs` : Valores del conjunto de IPs
--   `port_set` : Variable de puertos
-    -   `name` : Nombre de la variable de puerto
-    -   `cidrs` : Valores del conjunto de puertos
--   `stateful_rule` : Reglas estándar con estado
-    -   `name` : Nombre de la regla con estado
-    -   `protocol` : Protocolo de transporte a inspeccionar - `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`
-    -   `source_ip_or_cidr` : Dirección IP o rango de origen a inspeccionar
-    -   `source_port` : Puerto o rango de puertos de origen a inspeccionar
-    -   `target_ip_or_cidr` : Dirección IP o rango de destino a inspeccionar
-    -   `traffic_direction` : Dirección del tráfico a inspeccionar - `ANY`, `FORWARD`
-    -   `action` : Acción que debe realizar el firewall de red si el paquete coincide con la regla - `ALERT`, `DROP`, `PASS`, `REJECT`
--   `encryption_configuration`
-    -   `enabled_custom_configuration` : Cifrado de datos usando claves administradas por AWS - `false`, `true`
+-   `rule_evaluation_order` : Orden de evaluación de reglas con estado - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `capacity` : Capacidad del grupo de reglas (en WCU) - `1` ~ `30000`
 
+#### Conjunto de IP (`ip_set`)
+
+-   `ip_set.cidrs` : Lista de CIDR a utilizar como variables del conjunto IP
+
+#### Conjunto de puertos (`port_set`)
+
+-   `port_set.ports` : Lista de valores de puertos
+
+#### Reglas de lista de dominios (`domain_list_rule`)
+
+-   `domain_list_rule.domain_names` : Lista de dominios permitidos o bloqueados
+-   `domain_list_rule.protocols` : Protocolos a inspeccionar - `HTTP`, `HTTPS`
+-   `domain_list_rule.action` : Acción de la regla de dominio - `ALLOWLIST`, `DENYLIST`
+-   `domain_list_rule.cidr_ranges` : Rangos CIDR del tráfico origen a inspeccionar
+
+#### Reglas Suricata (`suricata_compatible_rule_string`)
+
+-   `suricata_compatible_rule_string` : Cadena de reglas compatible con Suricata
+
+#### Reglas con estado (`stateful_rule`)
+
+-   `stateful_rule.protocol` : Protocolo de transporte a inspeccionar
+-   `stateful_rule.source_ip_or_cidr` : Lista de IP o CIDR de origen
+-   `stateful_rule.source_port` : Puerto o rango de puertos de origen
+-   `stateful_rule.target_ip_or_cidr` : Lista de IP o CIDR de destino
+-   `stateful_rule.target_port` : Puerto o rango de puertos de destino
+-   `stateful_rule.traffic_direction` : Dirección del tráfico - `ANY`, `FORWARD`
+-   `stateful_rule.action` : Acción al coincidir con la regla - `ALERT`, `DROP`, `PASS`, `REJECT`
+
+#### Reglas sin estado (`stateless_rule`)
+
+-   `stateless_rule.priority` : Prioridad de la regla
+-   `stateless_rule.protocols` : Lista de protocolos de transporte a inspeccionar
+-   `stateless_rule.source_ip_or_cidr` : Lista de IP o CIDR de origen
+-   `stateless_rule.source_port` : Puerto o rango de puertos de origen
+-   `stateless_rule.target_ip_or_cidr` : Lista de IP o CIDR de destino
+-   `stateless_rule.target_port` : Puerto o rango de puertos de destino
+-   `stateless_rule.action` : Acción sobre el paquete - `aws:pass`, `aws:drop`, `aws:forward_to_sfe`
+
+#### Configuración de cifrado (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Habilita cifrado con claves administradas por AWS - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Nombre de la clave KMS a utilizar
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [NetworkFirewallRuleGroup(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
--   [NetworkFirewallRuleGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)
+-   [Network Firewall Rule Group (AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
+-   [Network Firewall Rule Group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)

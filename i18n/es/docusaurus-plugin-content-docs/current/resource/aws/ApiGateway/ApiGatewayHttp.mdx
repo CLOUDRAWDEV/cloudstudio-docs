@@ -1,61 +1,55 @@
 ---
 title: ApiGatewayHttp
 sidebar_position: 0
-tags: [AWS, recurso, ApiGatewayHttp]
+tags: [AWS, Recurso, ApiGatewayHttp]
 ---
 
 <hr />
 <br />
 
-## Icono del recurso
+## Ícono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.webp"
     }
 />
 
-## Descripción general del recurso
+## Descripción del recurso
 
-En API Gateway, el HTTP API es un tipo de API dentro de API Gateway diseñado para construir APIs basadas en el protocolo HTTP de manera simple y ligera.  
-HTTP API es más sencillo y rentable que el REST API tradicional, y es adecuado principalmente para aplicaciones web sin servidor (serverless) y microservicios simples.
+En API Gateway, HTTP API es un tipo de API Gateway diseñado para crear APIs simples y ligeras basadas en el protocolo HTTP.  
+HTTP API es más simple y rentable que la API REST tradicional, y es especialmente adecuada para aplicaciones web sin servidor y microservicios simples.
 
 ### Recurso superior
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Región**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
 ## Recursos relacionados
 
--   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Función Lambda**](https://docs.cstudio.app/es/docs/resource/aws/Lambda/LambdaFunction)
 
 ## Valores de configuración del recurso
 
--   `integration` : Nombre de la integración de API Gateway  
-    -   `http_integration`
-        -   `integration_type` : Tipo de integración de API Gateway - `Http`, `Lambda`
-        -   `integration_method` : Método HTTP de la integración
-        -   `integration_url` : URL normalizada para la integración HTTP
-    -   `lambda_integration`
-        -   `integration_type` : Tipo de integración de API Gateway - `Http`, `Lambda`
-        -   `integration_method` : Método HTTP de la integración
-        -   `linked_lambda_name` : Nombre de la función Lambda para integración proxy con Lambda
--   `route`
+#### Configuración básica
 
-    -   `route_method` : Método HTTP para la API HTTP
-    -   `route_path` : Ruta de recurso para la API HTTP
-    -   `target_integration` : Nombre de la integración que se conectará a la ruta - `http_integration`, `lambda_integration`
+#### Configuración de integración (`integration`)
 
--   `deployment`
+-   `integration.integration_type` : Tipo de integración de API Gateway - `Http`, `Lambda`
+-   `integration.integration_method` : Método HTTP de la integración de API Gateway - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : URL completamente calificada para la integración HTTP
+-   `integration.linked_lambda_name` : Nombre de la función Lambda para la integración de proxy Lambda
 
-    -   `description` : Descripción del despliegue de API Gateway
+#### Configuración de ruta (`route`)
 
--   `stage`
-    -   `dev`
-        -   `enable_deployment` : Despliegue de etapa API Gateway
-        -   `auto_deployment` : Habilitar despliegue automático
-    -   `test`
-        -   `enable_deployment` : Despliegue de etapa API Gateway
-        -   `auto_deployment` : Habilitar despliegue automático
-        -   `deployment_name` : Nombre del despliegue de API Gateway a conectar
-    -   `prod`
-        -   `enable_deployment` : Despliegue de etapa API Gateway
+-   `route.route_method` : Método HTTP para la HTTP API - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : Ruta del recurso para la HTTP API
+-   `route.target_integration` : Nombre de la integración de API Gateway que se conectará a la ruta
+
+#### Configuración de despliegue (`deployment`)
+
+-   `deployment.description` : Descripción del despliegue de API Gateway
+
+#### Configuración de etapa (`stage`)
+
+-   `stage.auto_deployment` : Habilitación del despliegue automático - `true`, `false`
+-   `stage.deployment_name` : Nombre del despliegue de API Gateway a conectar

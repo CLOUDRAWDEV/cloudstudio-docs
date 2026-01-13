@@ -1,0 +1,82 @@
+---
+title: BedrockKnowledgeBase
+sidebar_position: 1
+tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_knowledge_base.webp" />
+
+## Descripción general del recurso
+
+Es un recurso de AWS Bedrock que permite crear y administrar knowledge bases basadas en vectores o texto.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración de knowledge base (`knowledge_base_configuration`)
+
+-   `knowledge_base_configuration.type` : Tipo de knowledge base - `VECTOR`
+
+#### Configuración de knowledge base vectorial (`knowledge_base_configuration.vector_knowledge_base_configuration`)
+
+-   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` : ARN del modelo que se utilizará para generar embeddings
+
+#### Configuración de almacenamiento (`storage_configuration`)
+
+-   `storage_configuration.type` : Tipo de almacenamiento a utilizar - `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`
+
+#### Configuración de OpenSearch Serverless (`storage_configuration.opensearch_serverless_configuration`)
+
+-   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : ARN de la colección OpenSearch Serverless que se conectará
+-   `storage_configuration.opensearch_serverless_configuration.vector_index_name` : Nombre del índice donde se almacenarán los datos vectoriales
+-   `storage_configuration.opensearch_serverless_configuration.vector_field` : Nombre del campo donde se almacenan los datos vectoriales(embeddings)
+-   `storage_configuration.opensearch_serverless_configuration.text_field` : Nombre del campo donde se almacena el texto original
+-   `storage_configuration.opensearch_serverless_configuration.metadata_field` : Nombre del campo de metadatos del documento
+
+#### Configuración de Pinecone (`storage_configuration.pinecone_configuration`)
+
+-   `storage_configuration.pinecone_configuration.connection_string` : URL de conexión o endpoint del índice Pinecone
+-   `storage_configuration.pinecone_configuration.credentials_secret_arn` : ARN del secreto en AWS Secrets Manager que contiene la API key de Pinecone
+-   `storage_configuration.pinecone_configuration.namespace` : Nombre del namespace de Pinecone para separar los datos vectoriales
+-   `storage_configuration.pinecone_configuration.text_field` : Nombre del campo donde se almacena el texto original
+-   `storage_configuration.pinecone_configuration.metadata_field` : Nombre del campo de metadatos del documento
+
+#### Configuración de RDS (`storage_configuration.rds_configuration`)
+
+-   `storage_configuration.rds_configuration.credentials_secret_arn` : ARN del secreto que contiene la información de acceso a la base de datos
+-   `storage_configuration.rds_configuration.database_name` : Nombre de la base de datos RDS a conectar
+-   `storage_configuration.rds_configuration.resource_arn` : ARN de la instancia o clúster RDS de destino
+-   `storage_configuration.rds_configuration.table_name` : Nombre de la tabla donde se almacenarán los datos vectoriales y de texto
+-   `storage_configuration.rds_configuration.metadata_field` : Nombre del campo de metadatos del documento
+-   `storage_configuration.rds_configuration.primary_key_field` : Nombre del campo de clave primaria que identifica de forma única cada registro
+-   `storage_configuration.rds_configuration.text_field` : Nombre del campo donde se almacena el texto original
+-   `storage_configuration.rds_configuration.vector_field` : Nombre del campo donde se almacenan los vectores de embedding
+
+#### Configuración de Redis Enterprise Cloud (`storage_configuration.redis_enterprise_cloud_configuration`)
+
+-   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : ARN del secreto que contiene las credenciales de Redis Enterprise Cloud
+-   `storage_configuration.redis_enterprise_cloud_configuration.endpoint` : Dirección del endpoint de conexión de Redis Enterprise Cloud
+-   `storage_configuration.redis_enterprise_cloud_configuration.vector_index_name` : Nombre del índice utilizado para la búsqueda vectorial
+-   `storage_configuration.redis_enterprise_cloud_configuration.text_field` : Nombre del campo donde se almacena el texto original
+-   `storage_configuration.redis_enterprise_cloud_configuration.metadata_field` : Nombre del campo de metadatos del documento
+-   `storage_configuration.redis_enterprise_cloud_configuration.vector_field` : Nombre del campo donde se almacenan los vectores de embedding
+
+---
+
+## Referencias
+
+-   [Amazon Bedrock Knowledge Bases(AWS)](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)
+-   [Amazon OpenSearch Serverless(AWS)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html)
+-   [AWS Secrets Manager(AWS)](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html)

@@ -1,7 +1,7 @@
 ---
 title: Instance
-sidebar_position: 0
-tags: [AWS, recurso, Ec2, Instance]
+sidebar_position: 2
+tags: [AWS, Recurso, Ec2, Instance]
 ---
 
 <hr />
@@ -11,40 +11,61 @@ tags: [AWS, recurso, Ec2, Instance]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Amazon Elastic Compute Cloud (Amazon EC2) proporciona capacidad de cómputo escalable en la nube de Amazon Web Services (AWS). Con Amazon EC2, no es necesario realizar una inversión inicial en hardware, lo que permite desarrollar y desplegar aplicaciones más rápidamente. Puedes lanzar cualquier número de servidores virtuales, configurar seguridad y redes, y gestionar el almacenamiento. Amazon EC2 permite escalar hacia arriba o hacia abajo para adaptarse a cambios en los requisitos o picos de uso, lo que reduce la necesidad de predecir el tráfico con precisión.
+Amazon Elastic Compute Cloud(Amazon EC2) proporciona capacidad informática escalable en la nube de Amazon Web Services(AWS).  
+Con Amazon EC2, no es necesario realizar inversiones iniciales en hardware, lo que permite desarrollar y desplegar aplicaciones más rápidamente.  
+Amazon EC2 permite crear la cantidad deseada de servidores virtuales, configurar seguridad y redes, y gestionar el almacenamiento.  
+Además, EC2 permite escalar hacia arriba o hacia abajo para manejar cambios en los requisitos o picos de uso, reduciendo la necesidad de predecir el tráfico.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
+
+### Recursos conectados
+
+-   [**NetworkInterface**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/NetworkInterface)
+-   [**RouteTable**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/RouteTable)
+-   [**LbTargetGroup**](https://docs.cstudio.app/es/docs/resource/aws/Lb/LbTargetGroup)
 
 ## Valores de configuración del recurso
 
--   `ami` : Imagen que contiene la información necesaria para ejecutar la instancia (proporcionada y soportada por AWS)  
--   `instance_type` : Tipo de la instancia EC2  
--   `included_subnet_name` : Nombre de la subred donde se desplegará la instancia EC2  
--   `security_group_name` : Nombre del Security Group asignado a la NIC de la instancia EC2  
--   `eip_enable` : Indica si se debe usar una EIP con la instancia EC2 – `true`, `false`  
--   `eip_name` : Nombre de la EIP  
--   `http_endpoint` : Configura si el servicio de metadatos está habilitado – `enabled`, `disabled`  
--   `http_tokens` : Configura si se requieren tokens de sesión para el servicio de metadatos – `required`, `optional`  
--   `root_volume_type` : Tipo de volumen raíz – `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`  
--   `root_volume_size` : Tamaño del volumen raíz (GiB)  
--   `ebs_block_device`  
-    -   `volume_size` : Tamaño del volumen EBS (GiB)  
-    -   `volume_type` : Tipo del volumen EBS
+#### Configuración básica
+
+-   `ami` : Imagen que contiene la información necesaria para ejecutar una instancia(proporcionada y compatible con AWS)
+-   `instance_type` : Tipo de instancia EC2
+-   `key_pair_name` : Nombre del Key Pair utilizado por la instancia EC2
+-   `linked_network_interface_names` : Lista de nombres de interfaces de red utilizadas por la instancia EC2
+-   `http_endpoint` : Configura si el servicio de metadatos está habilitado - `enabled`, `disabled`
+-   `http_tokens` : Configura si se requieren tokens de sesión para el servicio de metadatos - `required`, `optional`
+-   `cloudinit_config` : Contenido del script que se ejecutará automáticamente al crear el servidor
+
+#### Volumen raíz (`root_volume`)
+
+-   `root_volume.volume_type` : Tipo del Root Volume - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Tamaño del Root Volume (GiB)
+-   `root_volume.enabled_volume_encryption` : Indica si el Root Volume está cifrado - `true`, `false`
+
+#### Dispositivo de bloques EBS (`ebs_block_device`)
+
+-   `ebs_block_device.volume_type` : Tipo del EBS Volume - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `ebs_block_device.volume_size` : Tamaño del EBS Volume (GiB)
+-   `ebs_block_device.enabled_volume_encryption` : Indica si el EBS Volume está cifrado - `true`, `false`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## 참고 자료
+## Referencias
 
 -   [Amazon Ec2(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)
--   [Precios de Amazon EC2 (AWS)](https://aws.amazon.com/ko/ec2/pricing/)
+-   [Amazon Ec2 precios(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
 -   [Amazon Ec2(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key)

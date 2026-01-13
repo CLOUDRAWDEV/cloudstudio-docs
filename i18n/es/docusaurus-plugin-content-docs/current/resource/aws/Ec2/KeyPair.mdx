@@ -1,7 +1,7 @@
 ---
 title: KeyPair
-sidebar_position: 0
-tags: [AWS, recurso, Ec2, KeyPair]
+sidebar_position: 3
+tags: [AWS, Recurso, Ec2, KeyPair]
 ---
 
 <hr />
@@ -11,27 +11,33 @@ tags: [AWS, recurso, Ec2, KeyPair]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-key_pair.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-key_pair.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Conjunto de credenciales de seguridad utilizado para autenticar el acceso a instancias EC2 de AWS.
+Conjunto de credenciales de seguridad utilizado para autenticar el acceso al conectarse a una instancia AWS EC2.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
 ## Valores de configuración del recurso
 
--   `public_key` : Clave pública del par de claves generado por el usuario
+#### Configuración básica
+
+-   `public_key` : Public key del Key Pair generado por el usuario
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon KeyPair(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/create-key-pairs.html)
 -   [Amazon KeyPair(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair)

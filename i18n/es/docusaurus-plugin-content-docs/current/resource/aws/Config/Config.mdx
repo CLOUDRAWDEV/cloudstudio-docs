@@ -1,7 +1,7 @@
 ---
 title: Config
 sidebar_position: 0
-tags: [AWS, recurso, Config]
+tags: [AWS, Recurso, Config]
 ---
 
 <hr />
@@ -11,45 +11,60 @@ tags: [AWS, recurso, Config]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/config-aws_config.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/config-config.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso que registra la información de configuración de los recursos de una cuenta AWS, permitiendo identificar las relaciones entre ellos.
+Recurso que registra la información de configuración de los recursos de una cuenta de AWS y permite identificar las relaciones entre ellos.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
 ### Recursos conectados
 
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Sns Topic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+-   [**S3Bucket**](https://docs.cstudio.app/es/docs/resource/aws/S3/S3Bucket)
+-   [**SnsTopic**](https://docs.cstudio.app/es/docs/resource/aws/Sns/SnsTopic)
 
 ## Valores de configuración del recurso
 
--   `enable_config_recorder` : Indica si se habilita o no el grabador de configuración – `false`, `true`  
--   `role_name` : Nombre del rol IAM que utilizará AWS Config  
--   `recording_method`  
-    -   `recording_method.enable_all_supported` : Indica si AWS Config registrará cambios en todos los tipos de recursos compatibles en todas las regiones – `false`, `true`  
-    -   `recording_method.exclude_resource_types` : Lista de tipos de recursos de AWS a excluir del registro de cambios de configuración  
-    -   `recording_method.include_global_resource_types` : Indica si incluir todos los tipos de recursos globales compatibles – `false`, `true`  
--   `linked_s3_bucket_name` : Nombre del bucket S3 donde se almacenarán los registros de configuración  
--   `s3_key_prefix` : Prefijo del bucket S3 que se utilizará  
--   `enable_sns_topic` : Indica si se habilita el tema SNS para que AWS Config envíe notificaciones  
--   `delivery_frequency` : Frecuencia con la que AWS Config envía instantáneas de configuración  
--   `config_rule`  
-    -   `config_rule.name` : Nombre de la regla de configuración  
-    -   `config_rule.rule_owner` : Define si la regla de configuración es propiedad de AWS o del cliente – `AWS`, `customLambda`, `customPolicy`  
-    -   `config_rule.source_identifier` : Identificador predefinido para reglas administradas de AWS Config
+#### Configuración básica
+
+-   `enable_config_recorder` : Indica si se habilita o deshabilita el configuration recorder - `true`, `false`
+-   `role_name` : Nombre del Iam Role que utilizará AWS Config
+-   `linked_s3_bucket_name` : Nombre del bucket S3 utilizado para almacenar los registros de configuración
+-   `s3_key_prefix` : Prefijo del bucket S3 que se utilizará
+-   `enable_sns_topic` : Indica si se habilita el Sns Topic para enviar notificaciones de AWS Config - `true`, `false`
+-   `linked_sns_topic_name` : Nombre del Sns Topic utilizado para las notificaciones de AWS Config
+-   `delivery_frequency` : Frecuencia con la que AWS Config entrega snapshots de configuración - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+
+#### Método de registro (`recording_method`)
+
+-   `recording_method.enable_all_supported` : Indica si AWS Config registra cambios de configuración para todos los tipos de recursos regionales compatibles - `true`, `false`
+-   `recording_method.exclude_resource_types` : Lista de tipos de recursos de AWS que se excluirán del registro de cambios de configuración
+-   `recording_method.include_global_resource_types` : Indica si se incluyen recursos globales compatibles junto con los recursos registrados - `true`, `false`
+-   `recording_method.specific_resource_types` : Tipos específicos de recursos que AWS Config registrará
+
+#### Reglas de configuración (`config_rule`)
+
+-   `config_rule.rule_owner` : Propietario de la regla de configuración de AWS - `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.source_identifier` : Identificador predefinido para reglas administradas por AWS
+-   `config_rule.target_lambda_name` : Nombre de la función Lambda utilizada en reglas personalizadas
+-   `config_rule.custom_policy_message_type` : Tipo de notificación que activa la evaluación de la regla
+-   `config_rule.maximum_execution_frequency` : Frecuencia con la que se ejecuta la evaluación periódica de la regla
+-   `config_rule.custom_policy_text` : Definición de la política incluida en la regla de configuración personalizada
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
 -   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)

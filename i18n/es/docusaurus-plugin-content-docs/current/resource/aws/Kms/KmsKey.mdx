@@ -1,7 +1,7 @@
 ---
-title: Kms Key
+title: KmsKey
 sidebar_position: 0
-tags: [AWS, recurso, Kms, KmsKey]
+tags: [AWS, Recurso, Kms, KmsKey]
 ---
 
 <hr />
@@ -11,34 +11,43 @@ tags: [AWS, recurso, Kms, KmsKey]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.webp"
     }
 />
 
 ## Descripción general del recurso
 
-AWS Key Management Service (AWS KMS) es un servicio de gestión de claves y cifrado adaptado para la nube. Las claves y funcionalidades de AWS KMS se utilizan en otros servicios de AWS, y los usuarios pueden usar estas claves y funcionalidades de AWS KMS para proteger los datos en sus propias aplicaciones que utilizan AWS.
+AWS Key Management Service(AWS KMS) es un servicio de cifrado y gestión de claves optimizado para la nube.  
+Las claves y funciones de AWS KMS se utilizan en otros servicios de AWS, y los usuarios pueden emplearlas para proteger datos en sus propias aplicaciones que utilizan AWS.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
 ## Valores de configuración del recurso
 
--   `description` : Descripción de la clave que aparece en la consola de AWS  
--   `key_usage` : Especifica cómo se utilizará la clave – `ENCRYPT_DECRYPT`  
--   `multi_region` : Configura si la clave KMS se utilizará en múltiples regiones – `true`, `false`  
--   `deletion_window_in_days` : Período de validez de las claves KMS  
--   `enable_key_rotation` : Activar la rotación de claves – `true`, `false`  
--   `grant_list` : Nombre de la concesión KMS  
-    -   `operations` : Operaciones permitidas con la clave KMS – `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+#### Configuración básica
+
+-   `description` : Descripción de la clave que aparece en la consola de AWS
+-   `key_usage` : Uso de la clave - `ENCRYPT_DECRYPT`
+-   `multi_region` : Indica si la KMS Key se utiliza en múltiples regiones - `true`, `false`
+-   `deletion_window_in_days` : Período de espera para la eliminación de la KMS Key(días)
+-   `enable_key_rotation` : Indica si se habilita la rotación automática de claves - `true`, `false`
+
+#### KMS Grant (`grant_list`)
+
+-   `grant_list.operations` : Lista de operaciones permitidas para la KMS Key - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [AWS Key Management Service(AWS)](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/overview.html)
--   [Precios de AWS Key Management Service (AWS)](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
+-   [AWS Key Management Service Precios(AWS)](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
 -   [aws_kms_alias(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias)

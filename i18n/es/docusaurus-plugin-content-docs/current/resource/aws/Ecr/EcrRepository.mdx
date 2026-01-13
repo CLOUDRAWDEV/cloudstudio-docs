@@ -1,7 +1,7 @@
 ---
-title: Ecr Repository
+title: EcrRepository
 sidebar_position: 0
-tags: [AWS, recurso, Ecr, EcrRepository]
+tags: [AWS, 리소스, Ecr, EcrRepository]
 ---
 
 <hr />
@@ -11,31 +11,45 @@ tags: [AWS, recurso, Ecr, EcrRepository]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Amazon Elastic Container Registry (Amazon ECR) es un servicio de registro de imágenes de contenedores gestionado por AWS, seguro, escalable y confiable. Amazon ECR admite repositorios privados con políticas basadas en recursos mediante AWS IAM, lo que permite que usuarios específicos o instancias de Amazon EC2 accedan a repositorios e imágenes de contenedores. Puedes usar la CLI que prefieras para enviar (push), obtener (pull) y administrar imágenes Docker, imágenes OCI (Open Container Initiative) y artefactos compatibles con OCI.
+Amazon Elastic Container Registry(Amazon ECR) es un servicio de registro de imágenes de contenedores administrado por AWS que es seguro, escalable y confiable.  
+Amazon ECR admite repositorios privados con permisos basados en recursos mediante AWS IAM, lo que permite que usuarios específicos o instancias Amazon EC2 accedan a repositorios e imágenes de contenedores.  
+Se pueden enviar, obtener y administrar imágenes Docker, imágenes Open Container Initiative(OCI) y artefactos compatibles con OCI utilizando la CLI preferida.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
 ## Valores de configuración del recurso
 
--   `image_tag_mutability` : Configuración de mutabilidad de etiquetas en el repositorio – `IMMUTABLE`, `MUTABLE`  
--   `scan_on_push` : Indica si las imágenes serán escaneadas al ser subidas al repositorio – `true`, `false`  
--   `encryption_type` : Tipo de cifrado a usar en el repositorio – `KMS`, `AES256`  
--   `kms_key_name` : Nombre del ARN de la clave KMS a utilizar  
--   `target_principal_arn` : ARN del recurso al cual aplicar la política
+#### Configuración básica
+
+-   `image_tag_mutability` : Configuración de mutabilidad de etiquetas del repositorio - `IMMUTABLE`, `MUTABLE`
+-   `scan_on_push` : Configura si la imagen se analiza después de ser enviada al repositorio - `true`, `false`
+-   `encryption_type` : Tipo de cifrado a utilizar en el repositorio - `KMS`, `AES256`
+-   `kms_key_name` : Nombre ARN de la clave KMS a utilizar
+
+#### Política (`policy`)
+
+-   `policy.effect` : Permitir o denegar la política - `Allow`, `Deny`
+-   `policy.principal_arn` : ARN del objetivo al que se aplicará la política
+-   `policy.enabled_not_actions` : Indica si se excluye la lista de acciones especificadas - `true`, `false`
+-   `policy.actions` : Lista de acciones a especificar - `ecr:BatchCheckLayerAvailability`, `ecr:BatchDeleteImage`, `ecr:BatchGetImage`, `ecr:CompleteLayerUpload`, `ecr:DeleteLifecyclePolicy`, `ecr:DeleteRepository`, `ecr:DeleteRepositoryPolicy`, `ecr:DescribeImages`, `ecr:DescribeRepositories`, `ecr:GetDownloadUrlForLayer`, `ecr:GetLifecyclePolicy`, `ecr:GetLifecyclePolicyPreview`, `ecr:GetRepositoryPolicy`, `ecr:InitiateLayerUpload`, `ecr:ListImages`, `ecr:PutImage`, `ecr:PutLifecyclePolicy`, `ecr:SetRepositoryPolicy`, `ecr:StartLifecyclePolicyPreview`, `ecr:UploadLayerPart`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
 -   [Amazon Elastic Container Registry(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
