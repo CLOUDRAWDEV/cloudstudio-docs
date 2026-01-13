@@ -1,7 +1,7 @@
 ---
 title: TargetGroup
-sidebar_position: 0
-tags: [Ncloud, 리소스, Network, TargetGroup]
+sidebar_position: 7
+tags: [Ncloud, Recurso, Network, TargetGroup]
 ---
 
 <hr />
@@ -11,46 +11,45 @@ tags: [Ncloud, 리소스, Network, TargetGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un recurso que representa un conjunto de targets que manejarán las solicitudes del Load Balancer.
+Recurso que representa un conjunto de destinos que procesarán las solicitudes del Load Balancer.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
 
 ### Recursos conectados
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
-
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/AutoScaling)
 
 ## Valores de configuración del recurso
 
--   `included_vpc_name` : Nombre del VPC en el que existirá el Target Group
--   `protocol` : Tipo de protocolo a aplicar para enrutar el tráfico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
--   `port` : Número del puerto que recibirá el tráfico 
--   `algorithm_type` : Tipo de algoritmo a usar para load balancing, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
--   `health_check_protocol` : Tipo de protocolo para la verificación de estado del target - `TCP`, `HTTP`, `HTTPS`
--   `health_check_http_method` : Método HTTP a usar si el protocolo de verificación es HTTP/HTTPS, HEAD o GET - `HEAD`, `GET`
--   `health_check_port` : Número de puerto a usar para la verificación del estado del target
--   `health_check_cycle` : Ciclo de verificación del estado del target (segundos), en el rango de 5 ~ 300
--   `health_check_up_threshold` : Umbral de estado normal, número de verificaciones necesarias para que un target anormal se considere normal, en el rango de 2 ~ 10
--   `health_check_down_threshold` : Umbral de fallo, número de verificaciones para considerar que un target normal ha fallado, en el rango de 2 ~ 10 
--   `linked_server_names` : Lista de nombres de servidores a conectar
+#### Configuración básica
 
-
-
+-   `included_vpc_name` : Nombre del VPC donde se creará el Target Group (solo lectura)
+-   `protocol` : Protocolo utilizado para el enrutamiento del tráfico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Puerto en el que el target recibirá el tráfico
+-   `algorithm_type` : Algoritmo de balanceo de carga - `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Protocolo utilizado para el health check - `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : Método de health check para HTTP/HTTPS - `HEAD`, `GET`
+-   `health_check_port` : Puerto utilizado para el health check
+-   `health_check_cycle` : Intervalo del health check (segundos) - `5` ~ `300`
+-   `health_check_up_threshold` : Número de éxitos consecutivos para marcar como saludable - `2` ~ `10`
+-   `health_check_down_threshold` : Número de fallos consecutivos para marcar como no saludable - `2` ~ `10`
+-   `health_check_url_path` : Ruta URL para las solicitudes de health check
+-   `linked_server_names` : Lista de nombres de servidores a conectar al Target Group
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

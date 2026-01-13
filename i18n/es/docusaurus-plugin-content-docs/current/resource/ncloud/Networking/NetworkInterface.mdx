@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [Ncloud, 리소스, Networking, NetworkInterface]
+sidebar_position: 2
+tags: [Ncloud, Recurso, Networking, NetworkInterface]
 ---
 
 <hr />
@@ -11,34 +11,35 @@ tags: [Ncloud, 리소스, Networking, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un servicio que crea interfaces de red que se pueden asignar a los servidores. Los servidores con una interfaz de red aplicada pueden comunicarse en una red independiente utilizando Subnet.
+Servicio que permite crear interfaces de red asignables a servidores.  
+Los servidores con Network Interface pueden comunicarse de forma independiente utilizando Subnets.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
 
 ### Recursos conectados
 
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**AccessControlGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/AccessControlGroup)
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
 
 ## Valores de configuración del recurso
 
--   `included_subnet_name` : Nombre del subnet que incluirá la Network Interface
--   `linked_acg_names` : Lista de nombres de ACG a aplicar a la interfaz de red
+#### Configuración básica
 
+-   `included_subnet_name` : Nombre del Subnet donde se incluirá la Network Interface
+-   `linked_acg_names` : Lista de nombres de Access Control Group a aplicar
 
 ---
 
-## Documentación de referencia
+## Referencias
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

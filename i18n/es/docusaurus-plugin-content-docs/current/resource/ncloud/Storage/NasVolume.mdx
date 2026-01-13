@@ -1,7 +1,7 @@
 ---
-title: Nas Volume
-sidebar_position: 0
-tags: [Ncloud, 리소스, Storage, NasVolume]
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Recurso, Storage, NasVolume]
 ---
 
 <hr />
@@ -11,23 +11,39 @@ tags: [Ncloud, 리소스, Storage, NasVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un servicio de almacenamiento conectado a red que permite a múltiples usuarios compartir datos, conectando varios servidores a la red. Es adecuado para compartir datos entre múltiples usuarios mediante un espacio de almacenamiento conectado a través de red.
+Servicio de almacenamiento conectado en red que permite a múltiples usuarios compartir datos entre varios servidores.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
+
+### Recursos conectados
+
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
 
 ## Valores de configuración del recurso
 
--   `volume_name_postfix` : Nombre del volumen NAS, permite alfanuméricos, entre 3 ~ 20 caracteres
--   `volume_size` : Tamaño del volumen (100GB), en el rango de 500 ~ 10,000
--   `volume_allotment_protocol_type` : Tipo de protocolo, servidores montables: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+#### Configuración básica
+
+-   `volume_name_postfix` : Sufijo del nombre del volumen NAS (alfanumérico, 3 ~ 20 caracteres)
+-   `volume_size` : Tamaño del volumen (en unidades de 100GB) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Tipo de protocolo - `NFS`, `CIFS`
+-   `cifs_user_name` : ID de usuario para autenticación CIFS
+-   `cifs_user_password` : Contraseña para autenticación CIFS
+-   `linked_instances` : Lista de nombres de servidores a conectar
+-   `is_encrypted` : Cifrado a nivel de volumen basado en AES-256
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

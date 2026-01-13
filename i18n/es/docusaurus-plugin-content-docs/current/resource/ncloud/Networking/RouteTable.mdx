@@ -1,7 +1,7 @@
 ---
-title: Route Table
-sidebar_position: 0
-tags: [Ncloud, 리소스, Network, RouteTable]
+title: RouteTable
+sidebar_position: 4
+tags: [Ncloud, Recurso, Network, RouteTable]
 ---
 
 <hr />
@@ -11,38 +11,42 @@ tags: [Ncloud, 리소스, Network, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un servicio que define las rutas de red de los recursos dentro del VPC.
+Servicio que define las rutas de red de los recursos dentro de un VPC.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
 
 ### Recursos conectados
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
 
 ## Valores de configuración del recurso
 
--   `included_vpc_name` : Nombre del VPC a conectar
--   `supported_subnet_type` : Configuración de subnet compatible, pública o privada - `PUBLIC`, `PRIVATE`
--   `route_table_description` : Descripción de la Route Table
--   `linked_subnet_names` : Lista de nombres de subnets a conectar
--   `route`
-    -   `target_type` : Tipo de destino, Nat gateway o VPC Peering - `NATGW`, `VPCPEERING`, `VGW`
-    -   `target_name` : Nombre del destino
-    -   `destination_cidr_block` : Rango de IP de destino en formato CIDR
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC al que se conectará el Route Table
+-   `supported_subnet_type` : Tipo de Subnet compatible (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Descripción del Route Table
+-   `linked_subnet_names` : Lista de Subnets a asociar
+
+#### Configuración de rutas (`route`)
+
+-   `target_type` : Tipo de destino (`NATGW`, `VPCPEERING`)
+-   `target_name` : Nombre del recurso destino
+-   `destination_cidr_block` : Rango IP de destino en formato CIDR
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
--   [ncloud_route_table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)
+-   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

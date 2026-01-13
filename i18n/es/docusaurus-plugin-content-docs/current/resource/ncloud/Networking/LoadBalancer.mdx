@@ -1,63 +1,57 @@
 ---
-title: Load Balancer
-sidebar_position: 0
+title: LoadBalancer
+sidebar_position: 6
 tags: [Ncloud, Recurso, Network, LoadBalancer]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-load_balancer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-load_balancer.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un componente que distribuye el tráfico de red entre múltiples servidores, considerando el rendimiento y la carga de cada uno. Al distribuir las cargas concentradas en un servidor, se optimizan la disponibilidad y el tiempo de respuesta del servicio, posibilitando un servicio sin interrupciones.
+Dispositivo que distribuye el tráfico de red entre múltiples servidores teniendo en cuenta el rendimiento y la carga.  
+Al distribuir la carga generada en un servidor específico, optimiza la disponibilidad y el tiempo de respuesta, permitiendo servicios sin interrupciones.
 
 ## Recursos relacionados
 
-### Recursos vinculados
+### Recurso principal
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Security/NetworkAcl)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
+
+### Recursos conectados
+
+-   [**LoadBalancer**](https://docs.cstudio.app/es/docs/resource/aws/Networking/LoadBalancer)
+-   [**TargetGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/TargetGroup)
 
 ## Valores de configuración del recurso
 
--   `network_type` : Tipo de red, pública o privada - `PUBLIC`, `PRIVATE`
--   `type` : Tipo de Load Balancer a crear, aplicación / red / proxy de red - `NETWORK`, `NETWORK_PROXY`, `APPLICATION`
--   `throughput_type` : Capacidad de procesamiento (número de conexiones por segundo) - `SMALL`, `MEDIUM`, `LARGE`
--   `included_vpc_name` : Nombre del VPC donde se creará el Target Group
--   `subnet_config`
-    -   `cidr`
-    -   `linked_nacl_name`
-    -   `zone`
--   `target_group`
-    -   `protocol` : Tipo de protocolo para enrutar el tráfico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
-    -   `port` : Puerto que recibirá el tráfico
-    -   `algorithm_type` : Tipo de algoritmo de balanceo de carga - `RR`, `SIPHS`, `LC`, `MH`
-    -   `health_check_protocol` : Protocolo para verificar el estado de los targets - `TCP`, `HTTP`, `HTTPS`
-    -   `health_check_http_method` : Método HTTP a usar para el health check cuando se use HTTP/HTTPS - `HEAD`, `GET`
-    -   `health_check_port` : Puerto a usar para la verificación del estado
-    -   `health_check_cycle` : Intervalo entre chequeos de estado (en segundos), entre 5 y 300
-    -   `health_check_up_threshold` : Umbral de éxito, número de chequeos requeridos para considerar un target como saludable
-    -   `health_check_down_threshold` : Umbral de fallo, número de chequeos requeridos para considerar un target como no saludable
--   `listener`
-    -   `target_group_name` : Nombre del Target Group a conectar
-    -   `protocol` : Tipo de protocolo para el listener - `APPLICATION`, `HTTP`, `HTTPS`, `TCP`, `TLS`
-    -   `port` : Puerto del Load Balancer que será enlazado al listener
--   `target_group_attachment`
-    -   `target_group_name` : Nombre del Target Group a conectar
-    -   `linked_server_names` : Lista de nombres de servidores a vincular
+#### Configuración básica
+
+-   `network_type` : Tipo de red - `PUBLIC`, `PRIVATE`
+-   `type` : Tipo de Load Balancer - `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
+-   `throughput_type` : Capacidad de procesamiento (conexiones por segundo) - `SMALL(30000)`, `MEDIUM(60000)`, `LARGE(90000)`
+-   `included_subnet_names` : Lista de nombres de Subnets a conectar
+
+#### Listener (`listener`)
+
+-   `listener.protocol` : Protocolo del listener - `HTTP`, `HTTPS`, `TCP`, `TLS`
+-   `listener.tls_min_version_type` : Versión mínima de TLS - `TLSV10`, `TLSV11`, `TLSV12`
+-   `listener.port` : Puerto del listener - `1` ~ `65534`
+-   `listener.use_http2` : Uso de HTTP/2 - `true`, `false`
+-   `listener.ssl_certificate_no` : Número del certificado SSL
+-   `listener.target_group_name` : Nombre del Target Group a conectar
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Load Balancer (Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
--   [ncloud_load_balancer (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/load_balancer)
+-   [Load Balancer(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
+-   [Load Balancer(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb)
