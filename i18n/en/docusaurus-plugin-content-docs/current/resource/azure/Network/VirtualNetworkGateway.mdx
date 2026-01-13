@@ -17,33 +17,35 @@ tags: [Azure, Network, VirtualNetworkGateway, VPN]
 
 ## Resource Overview
 
-Virtual Network Gateway is a **network gateway that provides encrypted traffic communication paths** between an Azure Virtual Network and on-premises networks or other Virtual Networks.  
-It supports connections via VPN or ExpressRoute and serves as a core component for hybrid network configurations and secure dedicated connectivity.
+Virtual Network Gateway is a network gateway that provides **encrypted traffic communication paths** between an Azure Virtual Network and on-premises networks or other Virtual Networks.  
+It supports VPN or ExpressRoute connections and is a core component for hybrid networking and secure dedicated connectivity.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**PublicIp**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
 ## Resource Setting Values
+
+#### Basic Settings
 
 -   `included_subnet_name` : Name of the Subnet used to send and receive traffic through the Virtual Network Gateway
 -   `gateway_type` : Type of the Virtual Network Gateway - `Vpn`, `ExpressRoute`
 -   `vpn_type` : VPN connection type - `RouteBased`, `PolicyBased`
 -   `sku` : Pricing tier of the Virtual Network Gateway
--   `generation` : Generation of the Virtual Network Gateway - `Generation1`, `Generation2`
+-   `generation` : Virtual Network Gateway generation - `Generation1`, `Generation2`
 -   `enabled_active_active_mode` : Whether to enable Active-Active mode
 -   `enabled_configure_bgp` : Whether to enable BGP
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 #### IP Configuration (`ip_configuration`)
 
--   `ip_configuration.linked_public_ip_name` : Name of the Public IP to connect to the Virtual Network Gateway
+-   `ip_configuration.linked_public_ip_name` : Name of the Public IP associated with the Virtual Network Gateway
 
 ---
 

@@ -18,13 +18,13 @@ tags: [Azure, AiService, CognitiveServices]
 ## Resource Overview
 
 AI Service is a service that provides artificial intelligence models and analytics capabilities in the form of APIs, enabling easy integration of AI features into applications.  
-It offers a secure and scalable AI service operating environment through model deployment, authentication methods, network access control, and managed identity integration.
+It provides a secure and scalable AI service operating environment through model deployment, authentication methods, network access control, and managed identity integration.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
@@ -34,9 +34,9 @@ It offers a secure and scalable AI service operating environment through model d
 
 -   `local_authentication_enabled` : Whether to enable local authentication using API keys - `true`, `false`
 
--   `custom_subdomain_name` : Custom subdomain name to be used for token-based authentication and endpoint URLs
+-   `custom_subdomain_name` : Custom subdomain name used for token-based authentication and endpoint URLs
 
--   `fqdns` : List of fully qualified domain names (FQDNs) allowed for use by the AI Service account
+-   `fqdns` : List of fully qualified domain names (FQDNs) allowed for use with the AI Service account
 
 ### Managed Identity Settings (`identity`)
 
@@ -44,17 +44,17 @@ It offers a secure and scalable AI service operating environment through model d
 
     -   `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
 
--   `identity.identity_ids` : List of IDs for user-assigned managed identities
+-   `identity.identity_ids` : List of user-assigned managed identity IDs
 
 ### Network Access Control (`network_acls`)
 
 -   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
 
--   `network_acls.ip_rules` : List of allowed IP addresses or CIDR ranges for resource access
+-   `network_acls.ip_rules` : List of IP addresses or CIDR ranges allowed to access the resource
 
 -   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
 
--   `public_network_access` : Whether to allow resource access through the public internet - `Enabled`, `Disabled`
+-   `public_network_access` : Whether to allow access via the public internet - `Enabled`, `Disabled`
 
 ### Model Deployment Settings (`deployment`)
 
@@ -62,7 +62,7 @@ It offers a secure and scalable AI service operating environment through model d
 
 -   `deployment.model_version` : Version number of the model to use
 
--   `deployment.sku_name` : Type of processing capacity (SKU) assigned to the deployment
+-   `deployment.sku_name` : Processing capacity (SKU) type allocated for deployment
 
     -   `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`,  
         `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, `ProvisionedManaged`

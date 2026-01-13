@@ -18,19 +18,19 @@ tags: [Azure, Compute, Disk]
 ## Resource Overview
 
 Azure Disk is a managed block storage resource used by Azure Virtual Machines.  
-It can be used as an operating system disk (OS Disk) or a data disk,  
-and various storage types can be selected based on performance and cost requirements.
+It can be used as an operating system disk (OS Disk) or a data disk (Data Disk),  
+and supports multiple storage types depending on performance and cost requirements.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Windows Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
 
 ## Resource Setting Values
 
@@ -42,13 +42,13 @@ and various storage types can be selected based on performance and cost requirem
     -   `Premium_LRS`
 
 -   `size_gb` :  
-    Disk size (GB) - `1` ~ `32767`
+    Disk size in gigabytes (GB) - `1` ~ `32767`
 
 -   `enabled_public_network_access` :  
     Whether to allow public network access to the disk - `true`, `false`
 
 -   `tag` :  
-    Tags for categorizing resources - up to 512 characters, `key`:`value`
+    Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

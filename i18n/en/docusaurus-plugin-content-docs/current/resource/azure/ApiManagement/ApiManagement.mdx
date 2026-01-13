@@ -18,18 +18,18 @@ tags: [Azure, ApiManagement]
 ## Resource Overview
 
 API Management is a service that provides integrated support for creating, deploying, securing, monitoring, and managing APIs.  
-It exposes APIs called by internal or external clients through a single endpoint and supports stable API operations through authentication and authorization policies, request and response transformation, throttling, logging, and monitoring.  
-In addition, APIs can be published in a portal format to provide documentation and manage subscribers.
+It exposes APIs called by internal and external clients through a single endpoint, and supports stable API operations through authentication and authorization policies, request and response transformation, throttling, logging, and monitoring.  
+It also allows APIs to be published in a portal format, enabling documentation and subscriber management.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
--   `publisher_name` : Publisher name of the API Management service
+-   `publisher_name` : Name of the API Management service publisher
 
 -   `publisher_email` : Email address of the publisher
 
@@ -37,14 +37,14 @@ In addition, APIs can be published in a portal format to provide documentation a
 
 -   `sku_capacity` : Capacity (number of instances) for the selected SKU
 
--   `virtual_network_type` : How API Management connects to a virtual network - `None`, `External`, `Internal`
+-   `virtual_network_type` : Method by which API Management connects to a virtual network - `None`, `External`, `Internal`
 
 -   `target_subnet_name` : Name of the subnet where API Management will be deployed
 
 -   `apis` : Option to specify the list of APIs to register or manage in the API Management service
     -   `revision` : API revision number
-    -   `api_type` : Type of the API - `http`, `soap`, `graphql`
-    -   `display_name` : Name of the API displayed in the Portal
+    -   `api_type` : Type of API - `http`, `soap`, `graphql`
+    -   `display_name` : Name of the API displayed in the portal
     -   `path` : Path used to access the API endpoint
     -   `protocols` : Communication protocols supported by the API - `http`, `https`, `ws`, `wss`
 

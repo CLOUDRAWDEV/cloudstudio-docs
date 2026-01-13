@@ -17,25 +17,27 @@ tags: [Azure, Network, NetworkInterface]
 
 ## Resource Overview
 
-Network Interface is a network connectivity resource that enables a Virtual Machine to communicate with internal Virtual Network resources, the internet, and on-premises networks.  
-It is associated with a Subnet and assigned IP addresses, and can optionally be connected to a Public IP for external communication.  
-A single Network Interface can define multiple IP Configurations to support various network scenarios.
+Network Interface is a network connectivity resource that enables a Virtual Machine to communicate with resources inside a Virtual Network, the internet, and on-premises networks.  
+It belongs to a Subnet and is assigned IP addresses, and can optionally be associated with a Public IP for external communication.  
+A single Network Interface can define multiple IP Configurations to support various networking scenarios.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
--   [**Linux Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Network Security Group**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**NetworkSecurityGroup**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkSecurityGroup)
 
 ## Resource Setting Values
 
--   `included_subnet_name` : Name of the Subnet that contains the Network Interface
+#### Basic Settings
+
+-   `included_subnet_name` : Name of the Subnet that includes the Network Interface
 
 #### IP Configuration (`ip_configuration`)
 
@@ -45,7 +47,7 @@ A single Network Interface can define multiple IP Configurations to support vari
 -   `ip_configuration.enabled_public_ip` : Whether to use a Public IP - `true`, `false`
 -   `ip_configuration.linked_public_ip_name` : Name of the Public IP to use
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

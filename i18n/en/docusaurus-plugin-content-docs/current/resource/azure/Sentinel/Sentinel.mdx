@@ -17,22 +17,22 @@ tags: [Azure, Security, Sentinel]
 
 ## Resource Overview
 
-Azure Sentinel is a **cloud-native SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response) solution** that collects and analyzes security data from various sources to detect threats and automate incident response.  
-Based on Log Analytics Workspace, it supports integrated security operations by configuring alert rules and connecting Microsoft security products and external data connectors.
+Azure Sentinel is a **cloud-native SIEM (Security Information and Event Management) and SOAR (Security Orchestration, Automation, and Response) solution** that collects and analyzes various security data sources to detect threats and automate incident response.  
+It is built on Log Analytics Workspace and supports integrated security operations by configuring alert rules and connecting Microsoft security products and external data connectors.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**LogAnalyticsWorkspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
 ## Resource Setting Values
 
--   `linked_workspace_name` : Name of the Log Analytics Workspace to connect Sentinel to
+-   `linked_workspace_name` : Name of the Log Analytics Workspace to which Sentinel is connected
 -   `connect_security_center` : Whether to connect the Microsoft Defender for Cloud Data Connector - `true`, `false`
 -   `connect_threat_intelligence` : Whether to connect the Threat Intelligence Platform (Preview) Data Connector - `true`, `false`
 -   `connect_advanced_threat_protection` : Whether to connect the Microsoft Defender for Identity Data Connector - `true`, `false`
@@ -41,19 +41,21 @@ Based on Log Analytics Workspace, it supports integrated security operations by 
 -   `connect_cloud_app_security` : Whether to connect the Microsoft Defender for Cloud Apps Data Connector - `true`, `false`
 -   `fusion_rule_rule_guid` : List of Fusion Rule GUIDs
 -   `behavior_analytics_rule_guid` : List of ML Behavior Analytics Rule GUIDs
--   `tag` : Tags for categorizing resources
+-   `tag` : Tags used to categorize resources
 
 #### MS Security Incident Alert Rule (`alert_rule_incident`)
 
 -   `alert_rule_incident.display_name` : Display name of the MS Security Incident Alert Rule
--   `alert_rule_incident.product` : Microsoft security service that generates the alert - `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection`, `Office 365 Advanced Threat Protection`
--   `alert_rule_incident.severity` : Severity levels that generate incidents - `High`, `Medium`, `Low`, `Informational`
+-   `alert_rule_incident.product` : Microsoft security service that generates alerts - `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection`, `Office 365 Advanced Threat Protection`
+-   `alert_rule_incident.severity` : Severity levels for generating incidents - `High`, `Medium`, `Low`, `Informational`
 
 #### Scheduled Alert Rule (`alert_rule_scheduled`)
 
 -   `alert_rule_scheduled.display_name` : Display name of the Scheduled Alert Rule
 -   `alert_rule_scheduled.severity` : Severity of the Scheduled Alert Rule - `High`, `Medium`, `Low`, `Informational`
 -   `alert_rule_scheduled.query` : Query statement of the Scheduled Alert Rule
+
+---
 
 ## References
 

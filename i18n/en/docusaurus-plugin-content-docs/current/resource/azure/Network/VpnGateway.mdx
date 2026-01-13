@@ -18,21 +18,23 @@ tags: [Azure, Network, VpnGateway]
 ## Resource Overview
 
 Azure VpnGateway is a **gateway resource that provides VPN connectivity between on-premises networks or other Azure networks centered around a Virtual Hub**.  
-By configuring connections with VpnSite, it establishes Site-to-Site VPN tunnels and allows fine-grained control over security policies and encryption options.
+By configuring connections with VpnSite, it enables Site-to-Site VPN tunnels and allows detailed control over security policies and encryption options.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**VpnSite**](https://docs.cstudio.app/docs/resource/azure/Network/VpnSite)
+-   [**VpnSite**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
 
 ## Resource Setting Values
 
--   `target_virtual_hub_name` : Name of the Virtual Hub to which the VPN Gateway will be connected
+#### Basic Settings
+
+-   `target_virtual_hub_name` : Name of the Virtual Hub to which the VPN Gateway is connected
 
 #### Connection (`connection`)
 
@@ -40,7 +42,7 @@ By configuring connections with VpnSite, it establishes Site-to-Site VPN tunnels
 
 #### Link Names (`connection.link_names`)
 
--   `connection.link_names.target_vpn_link_name` : Name of the specific link within the VpnSite to connect
+-   `connection.link_names.target_vpn_link_name` : Name of the specific link within the VpnSite
 -   `connection.link_names.connection_mode` : VPN connection mode - `Default`, `InitiatorOnly`, `ResponderOnly`
 -   `connection.link_names.protocol` : VPN tunneling protocol - `IKEv1`, `IKEv2`
 -   `connection.link_names.enable_policy_based_traffic_selector` : Whether to enable policy-based traffic selectors

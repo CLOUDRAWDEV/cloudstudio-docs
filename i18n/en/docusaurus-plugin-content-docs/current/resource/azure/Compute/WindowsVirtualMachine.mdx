@@ -18,25 +18,25 @@ tags: [Azure, Compute, WindowsVirtualMachine]
 ## Resource Overview
 
 Azure Windows Server Virtual Machine is a virtual machine (VM) that runs the Windows Server operating system on Microsoft’s Azure cloud computing platform.  
-By running Windows Server virtual machines in Azure, users can leverage the scalability, reliability, and global reach of the Microsoft cloud platform.
+By running Windows Server virtual machines on Azure, users can leverage the scalability, reliability, and global reach of the Microsoft cloud platform.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Availability Set**](https://docs.cstudio.app/docs/resource/azure/Compute/Availabilityset)
--   [**Disk**](https://docs.cstudio.app/docs/resource/azure/Compute/Disk)
--   [**Network Interface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
--   [**Backup**](https://docs.cstudio.app/docs/resource/azure/RecoveryServices/Backup)
--   [**Metric**](https://docs.cstudio.app/docs/resource/azure/Monitor/Metric)
--   [**Private Load Balancer**](https://docs.cstudio.app/docs/resource/azure/LoadBalancer/PrivateLoadBalancer)
--   [**Public Load Balancer**](https://docs.cstudio.app/docs/resource/azure/LoadBalancer/PublicLoadBalancer)
--   [**Application Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
+-   [**AvailabilitySet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/Availabilityset)
+-   [**Disk**](https://docs.cstudio.app/en/docs/resource/azure/Compute/Disk)
+-   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
+-   [**Backup**](https://docs.cstudio.app/en/docs/resource/azure/RecoveryServices/Backup)
+-   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/Metric)
+-   [**PrivateLoadBalancer**](https://docs.cstudio.app/en/docs/resource/azure/LoadBalancer/PrivateLoadBalancer)
+-   [**PublicLoadBalancer**](https://docs.cstudio.app/en/docs/resource/azure/LoadBalancer/PublicLoadBalancer)
+-   [**ApplicationGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
 
 ## Resource Setting Values
 
@@ -56,15 +56,15 @@ By running Windows Server virtual machines in Azure, users can leverage the scal
 
     -   12 ~ 72 characters
 
--   `os_disk_caching` : Caching type for the OS Disk
+-   `os_disk_caching` : Caching type for the internal OS disk
 
     -   `ReadWrite`, `ReadOnly`, `None`
 
--   `storage_account_type` : Storage type for the OS Disk
+-   `storage_account_type` : Storage type for the internal OS disk
 
     -   `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
 
--   `disk_size_gb` : Size of the OS Disk (GB)
+-   `disk_size_gb` : Size of the internal OS disk (GB)
 
     -   `32` ~ `32767`
 
@@ -72,8 +72,8 @@ By running Windows Server virtual machines in Azure, users can leverage the scal
 
 -   `primary_network_interface_name` : Name of the primary Network Interface
 
--   `tag` : Tags for categorizing resources
-    -   up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources
+    -   Maximum 512 characters, `key`:`value`
 
 ### Image Settings (`source_image`)
 
@@ -93,9 +93,10 @@ By running Windows Server virtual machines in Azure, users can leverage the scal
 
 ### Additional Disk Attachments (`disk_attachment`)
 
--   `disk_attachment.lun` : Logical unit number (LUN) of the disk
+-   `disk_attachment.lun` : Logical unit number of the disk
 
--   `disk_attachment.host_caching` : Disk caching setting
+-   `disk_attachment.host_caching` : Disk caching configuration
+
     -   `None`, `ReadOnly`, `ReadWrite`
 
 ---

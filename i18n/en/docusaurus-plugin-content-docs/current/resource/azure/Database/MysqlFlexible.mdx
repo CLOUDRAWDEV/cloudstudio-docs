@@ -21,14 +21,14 @@ Azure MySQL Flexible Server is a relational database service provided based on M
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Private Endpoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ## Resource Setting Values
 
@@ -37,18 +37,18 @@ Azure MySQL Flexible Server is a relational database service provided based on M
 -   `version` : MySQL version to use - `5.7`, `8.0.21`
 -   `sku_name` : MySQL pricing tier name, a combination of tier + compute generation + number of cores
 -   `storage_gb` : Storage capacity of the MySQL Server (GB)
--   `iops` : Storage IOPS of the MySQL Flexible Server - `360` ~ `20000`
--   `admin_username` : Administrator username of the server when creation mode is default, alphanumeric allowed, reserved words not allowed, `1` ~ `16` characters
--   `admin_password` : Administrator login password of the server when creation mode is default, must include at least 3 of lowercase, uppercase, numbers, and special characters, cannot contain 3 or more consecutive alphanumeric characters from the login name, `8` ~ `128` characters
--   `auto_grow_enabled` : Enable automatic storage growth - `true`, `false`
--   `availability_zone` : Specifies the availability zone. Possible values are `1`, `2`, `3`. - `1` ~ `3`
--   `enable_high_availability` : Whether to enable high availability for the MySQL Flexible Server - `true`, `false`
--   `high_availability_mode` : High availability mode for the MySQL Flexible Server - `SameZone`, `ZoneRedundant`
--   `standby_availability_zone` : Specifies the availability zone of the standby server. Possible values are `1`, `2`, `3`. Cannot overlap with the primary availability zone. - `1` ~ `3`
--   `backup_retention_days` : Backup retention period (days) for the MySQL Flexible Server. Possible values are `1`~`35`. - `1` ~ `35`
--   `public_network_access_enabled` : Allow public network access to the server - `true`, `false`
+-   `iops` : Storage IOPS for MySQL Flexible Server - `360` ~ `20000`
+-   `admin_username` : Administrator username for the server when creation mode is default, alphanumeric only, no reserved words, `1` ~ `16` characters
+-   `admin_password` : Administrator login password for the server when creation mode is default, must include at least 3 of lowercase, uppercase, numeric, and special characters, cannot contain more than 3 consecutive alphanumeric characters from the login name, `8` ~ `128` characters
+-   `auto_grow_enabled` : Whether to enable automatic storage growth - `true`, `false`
+-   `availability_zone` : Specifies the availability zone. Possible values are `1`, `2`, `3` - `1` ~ `3`
+-   `enable_high_availability` : Whether to enable high availability for MySQL Flexible Server - `true`, `false`
+-   `high_availability_mode` : High availability mode for MySQL Flexible Server - `SameZone`, `ZoneRedundant`
+-   `standby_availability_zone` : Specifies the availability zone of the standby server. Possible values are `1`, `2`, `3`. Must not overlap with the primary availability zone - `1` ~ `3`
+-   `backup_retention_days` : Backup retention period for MySQL Flexible Server (days). Possible values are `1` ~ `35` - `1` ~ `35`
+-   `public_network_access_enabled` : Whether to allow public network access to the server - `true`, `false`
 -   `delegated_subnet_name` : Subnet name for virtual network delegation
--   `private_dns_zone_name` : Private DNS zone for creating the MySQL Flexible Server
+-   `private_dns_zone_name` : Private DNS zone used to create the MySQL Flexible Server
 
 #### Server Configuration (`configuration`)
 
@@ -61,12 +61,12 @@ Azure MySQL Flexible Server is a relational database service provided based on M
 
 #### Firewall Rules (`firewall_rule`)
 
--   `firewall_rule.start_ip_address` : Start IP address associated with the firewall rule
--   `firewall_rule.end_ip_address` : End IP address associated with the firewall rule
+-   `firewall_rule.start_ip_address` : Starting IP address associated with the firewall rule
+-   `firewall_rule.end_ip_address` : Ending IP address associated with the firewall rule
 
 #### Tags
 
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

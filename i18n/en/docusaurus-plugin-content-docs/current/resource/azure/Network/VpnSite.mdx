@@ -24,24 +24,26 @@ It defines the logical target for Site-to-Site VPN connections based on on-premi
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Virtual Wan**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualWan)
--   [**VPN Gateway**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**VirtualWan**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualWan)
+-   [**VPNGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetworkGateway)
 
 ## Resource Setting Values
 
--   `linked_virtual_wan_name` : Name of the Virtual WAN to which the VPN Site will be connected
--   `device_vendor` : Vendor of the on-premises VPN device
+#### Basic Settings
+
+-   `linked_virtual_wan_name` : Name of the Virtual WAN to which the VPN Site is connected
+-   `device_vendor` : Manufacturer of the on-premises VPN device
 -   `address_cidrs` : List of IP address ranges (CIDR) used by the VPN Site
 
 #### Link (`link`)
 
--   `link.speed_in_mbps` : Maximum circuit speed of the link (Mbps)
+-   `link.speed_in_mbps` : Maximum bandwidth of the link (Mbps)
 -   `link.ip_address` : Public IP address assigned to the VPN device
--   `link.provider_name` : Name of the circuit provider
+-   `link.provider_name` : Name of the connectivity service provider
 -   `link.autonomous_system_number` : ASN of the on-premises router when using BGP
 -   `link.peering_address` : Local router IP address used for BGP peering
 

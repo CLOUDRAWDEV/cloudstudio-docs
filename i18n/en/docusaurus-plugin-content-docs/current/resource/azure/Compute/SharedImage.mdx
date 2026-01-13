@@ -17,20 +17,19 @@ tags: [Azure, SharedImage, Compute, Image]
 
 ## Resource Overview
 
-Azure Shared Image is a resource that allows you to centrally manage custom virtual machine images  
-and share them across multiple subscriptions, tenants, and regions.  
-This enables easy deployment of standardized VM images and consistent infrastructure operations at scale.
+Azure Shared Image is a resource that centrally manages custom virtual machine images and allows them to be shared across multiple subscriptions, tenants, and regions.  
+This enables easy deployment of standardized VM images and consistent infrastructure operations in large-scale environments.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
 -   `image_gallery_description` :  
-    Description of the image gallery - up to 5000 characters
+    Description of the image gallery - maximum 5000 characters
 
 ### Image Definitions (`images`)
 
@@ -44,10 +43,10 @@ This enables easy deployment of standardized VM images and consistent infrastruc
     Name of the publisher that publishes the image
 
 -   `images.offer_name` :  
-    Name of the offer (product family) to which the image belongs
+    Name of the offer (product family) that includes the image
 
 -   `images.sku` :  
-    Detailed configuration of the image offer (SKU, Stock Keeping Unit)
+    SKU (Stock Keeping Unit) of the image offer
 
 ---
 

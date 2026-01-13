@@ -18,25 +18,25 @@ tags: [Azure, Network, BastionHost]
 ## Resource Overview
 
 Bastion Host is an Azure PaaS network service that provides **secure RDP and SSH access** to virtual machines within a Virtual Network without directly exposing public IPs on the VMs.  
-It supports browser-based access and enables a centralized access point without opening management ports, ensuring both security and operational convenience.
+It supports browser-based access and enables a centralized access point without opening management ports, improving both security and operational convenience.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public IP**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
 ## Resource Setting Values
 
--   `included_subnet_name` : Name of the Subnet where the Bastion Host will be deployed
--   `sku` : SKU of the Bastion Host - `Basic`, `Standard`
--   `linked_public_ip_name` : Name of the Public IP to link to the Bastion Host
+-   `included_subnet_name` : Name of the Subnet where the Bastion Host is deployed
+-   `sku` : Bastion Host SKU - `Basic`, `Standard`
+-   `linked_public_ip_name` : Name of the Public IP associated with the Bastion Host
 -   `ip_config_name` : Name of the IP Configuration used by the Bastion Host
--   `tag` : Tags for categorizing resources - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

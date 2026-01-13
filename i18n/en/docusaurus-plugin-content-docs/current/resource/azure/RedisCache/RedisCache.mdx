@@ -17,33 +17,33 @@ tags: [Azure, Cache, Redis, RedisCache]
 
 ## Resource Overview
 
-Azure Redis Cache is a **managed in-memory data store service that caches frequently accessed data in memory to provide high throughput and low latency for applications**.  
-It is commonly used to reduce backend load and improve response times in scenarios such as session management, caching layers, and real-time data processing.
+Azure Redis Cache is a **managed in-memory data store service that provides high throughput and low latency by caching frequently accessed application data in memory**.  
+It is used to reduce backend load and improve response times in scenarios such as session management, cache layers, and real-time data processing.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Private Endpoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ## Resource Setting Values
 
--   `sku_name` : Pricing tier of the Redis Cache - `Basic`, `Standard`, `Premium`, `Enterprise`
--   `cache_type` : Size and performance tier of the Redis Cache (SKU subtype)
+-   `sku_name` : Pricing tier for the Redis Cache - `Basic`, `Standard`, `Premium`, `Enterprise`
+-   `cache_type` : Size and performance tier (SKU detail type) of the Redis Cache
 -   `version` : Redis version - `6`
 -   `enable_non_ssl_port` : Whether to enable the non-SSL port - `true`, `false`
--   `minimum_tls_version` : Minimum TLS version to apply to Redis - `1.0`, `1.1`, `1.2`
--   `public_network_access_enabled` : Whether to allow Redis access through the public network - `true`, `false`
--   `tag` : Tags for categorizing resources
+-   `minimum_tls_version` : Minimum TLS version applied to Redis - `1.0`, `1.1`, `1.2`
+-   `public_network_access_enabled` : Whether to allow Redis access via the public network - `true`, `false`
+-   `tag` : Tags used to categorize resources
 
 #### Redis Firewall Rule (`redis_firewall_rule`)
 
--   `redis_firewall_rule.start_ip` : Starting IP address to allow access
--   `redis_firewall_rule.end_ip` : Ending IP address to allow access
+-   `redis_firewall_rule.start_ip` : Starting IP address allowed for access
+-   `redis_firewall_rule.end_ip` : Ending IP address allowed for access
 
 ## References
 
