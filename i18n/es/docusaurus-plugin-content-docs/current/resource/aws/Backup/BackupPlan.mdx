@@ -1,52 +1,65 @@
 ---
 title: BackupPlan
 sidebar_position: 0
-tags: [AWS, recurso, Backup, BackupPlan]
+tags: [AWS, Recurso, Backup, BackupPlan]
 ---
 
 <hr />
 <br />
 
-## Icono del recurso
+## Ícono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
     }
 />
 
-## Descripción general del recurso
+## Descripción del recurso
 
-Es una expresión de política que define cuándo y cómo se deben realizar las copias de seguridad de los recursos de AWS. Puedes asignar recursos a un Backup Plan, y AWS Backup realizará y conservará automáticamente copias de seguridad de esos recursos según el plan establecido.
-
-### Recurso superior
-
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+Es una expresión de política que define cuándo y cómo se deben respaldar los recursos de AWS.  
+Los recursos pueden asignarse a un Backup Plan, y AWS Backup realiza y conserva automáticamente las copias de seguridad de acuerdo con el Backup Plan.
 
 ## Recursos relacionados
 
+### Recurso superior
+
+-   [**Región**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
 ## Valores de configuración del recurso
 
-- `rule`
-  - `rule_name` : Nombre de la regla de copia de seguridad
-  - `backup_vault_name` : Nombre del contenedor lógico utilizado para almacenar las copias de seguridad
-  - `frequency_type` : Frecuencia de la copia de seguridad
-  - `frequency_hour` : Hora de inicio del plan de copia de seguridad – `1 o superior`
-  - `start_time` : Hora de inicio del plan de copia de seguridad
-  - `start_after_minutes` : Tiempo total de espera antes de iniciar la copia de seguridad – `60 o superior`
-  - `complete_after_minutes` : Tiempo (en minutos) durante el cual AWS Backup intenta realizar una copia de seguridad antes de cancelar la tarea y devolver un error – `121 o superior`
-  - `enabled_use_cold_storage` : Indica si se utiliza almacenamiento en frío
-  - `warm_storage_retention_days` : Días después de los cuales el punto de restauración se mueve al almacenamiento en frío – `1 ~ 36410`
-  - `cold_retention_days` : Días después de los cuales se elimina el punto de restauración – `91 ~ 36500`
+#### Configuración básica
 
-- `resource_assignment`
-  - `name`
-  - `iam_role_arn` : ARN del rol IAM utilizado por AWS Backup para autenticar la restauración y copia de seguridad de los recursos objetivo
-  - `enabled_contain_all` : Incluir todos los recursos – `false`, `true`
+#### Regla (`rule`)
+
+-   `rule.rule_name` : Nombre de la regla de respaldo, caracteres alfanuméricos de 1 a 50 o que incluyan -, \_, .
+-   `rule.backup_vault_name` : Nombre del contenedor lógico utilizado para almacenar respaldos
+-   `rule.frequency_type` : Tipo de frecuencia del respaldo - `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : Hora para inicializar el plan de respaldo - mínimo `1`
+-   `rule.frequency_days` : Día para inicializar el plan de respaldo - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `rule.frequency_date` : Fecha del mes para inicializar el plan de respaldo - `1` ~ `31`
+-   `rule.start_time` : Hora de inicio del plan de respaldo
+-   `rule.custom_cron_expression` : Expresión personalizada para iniciar el plan de respaldo
+-   `rule.start_after_minutes` : Tiempo total antes de iniciar el respaldo - mínimo `60`
+-   `rule.complete_after_minutes` : Tiempo (en minutos) durante el cual AWS Backup intenta el respaldo antes de cancelar la tarea y devolver un error
+-   `rule.enabled_use_cold_storage` : Indica si se utiliza almacenamiento en frío - `true`, `false`
+-   `rule.warm_storage_retention_days` : Días después de la creación para mover el punto de recuperación al almacenamiento en frío - `1` ~ `36410`
+-   `rule.total_retention_days` : Días después de la creación para eliminar el punto de recuperación - `1` ~ `36500`
+
+#### Asignación de recursos (`resource_assignment`)
+
+-   `resource_assignment.iam_role_arn` : ARN del rol IAM utilizado por AWS Backup para autenticarse al respaldar y restaurar recursos
+-   `resource_assignment.enabled_contain_all` : Indica si se incluyen todos los recursos - `true`, `false`
+-   `resource_assignment.contain_arn_or_pattern` : Arreglo de cadenas que incluyen ARN o coinciden con patrones de recursos a asignar al plan de respaldo
+-   `resource_assignment.exclude_arn_or_pattern` : Arreglo de cadenas que incluyen ARN o coinciden con patrones de recursos a excluir del plan de respaldo
+
+#### Etiquetas
+
+-   `tag` : Etiqueta para clasificar el recurso por categoría - máximo 512 caracteres, `key`:`value`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Amazon BackupPlan (AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
--   [Amazon BackupPlan (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)
+-   [Amazon BackupPlan(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
+-   [Amazon BackupPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)

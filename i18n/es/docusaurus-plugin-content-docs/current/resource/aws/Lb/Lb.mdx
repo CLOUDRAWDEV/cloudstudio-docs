@@ -1,7 +1,7 @@
 ---
 title: Lb
 sidebar_position: 0
-tags: [AWS, recurso, Lb]
+tags: [AWS, Recurso, Lb]
 ---
 
 <hr />
@@ -11,52 +11,116 @@ tags: [AWS, recurso, Lb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Elastic Load Balancing distribuye automáticamente el tráfico de aplicaciones entrantes entre varios destinos, como instancias EC2. Además, monitorea el estado de los destinos registrados y enruta el tráfico solo a los destinos que están en buen estado. Elastic Load Balancing admite los siguientes tres tipos de balanceadores de carga: Application Load Balancer, Network Load Balancer y Classic Load Balancer.
+Elastic Load Balancing distribuye automáticamente el tráfico entrante de las aplicaciones entre múltiples destinos, como instancias EC2.  
+Además, monitorea el estado de los destinos registrados y enruta el tráfico únicamente a aquellos que se encuentran en buen estado.  
+Elastic Load Balancing admite tres tipos de balanceadores de carga: Application Load Balancer, Network Load Balancer y Classic Load Balancer.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
 
 ### Recursos conectados
 
--   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
--   [**Vpc Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**LbTargetGroup**](https://docs.cstudio.app/es/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/EndpointService)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
 
 ## Valores de configuración del recurso
 
--   `load_balancer_type` : Tipo de ELB – `application`, `network`, `gateway`  
--   `internal` : Configura si el ELB se despliega como público o privado – `true`, `false`  
--   `included_vpc_name` : Nombre del VPC donde se creará el grupo de destinos  
+#### Configuración básica
 
--   `linked_subnet_names` : Lista de nombres de subredes a las que se conectará el LB  
--   `security_group_names` : Lista de nombres de grupos de seguridad asignados al LB, válido solo para el balanceador de carga tipo aplicación  
+-   `load_balancer_type` : Tipo de ELB - `application`, `network`, `gateway`
+-   `internal` : Implementación del ELB como Internet-facing o Internal - `true`, `false`
+-   `included_vpc_name` : Nombre del VPC donde se crearán los recursos de destino
+-   `linked_subnet_names` : Lista de nombres de Subnet a asociar al LB
+-   `linked_security_group_names` : Lista de nombres de Security Group asignados al LB (solo Application LB)
+-   `drop_invalid_header` : Indica si se eliminan los encabezados HTTP no válidos - `true`, `false`
 
--   `drop_invalid_header` : Configura si los encabezados HTTP inválidos serán eliminados por el balanceador de carga o si serán dirigidos a los destinos – `true`, `false`  
--   `target_group` : Nombre del grupo de destino, se permiten caracteres alfanuméricos y hasta 32 caracteres, pero no puede comenzar ni terminar con un guion (-)  
+#### Listener (`listener`)
 
-    -   `protocol` : Protocolo para enrutar el tráfico a los destinos – `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`  
-    -   `port` : Puerto que recibe el tráfico  
-    -   `instance_names` : Lista de nombres de las instancias de destino  
+-   `listener.protocol` : Protocolo de conexión cliente → load balancer - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+-   `listener.port` : Puerto en el que el load balancer escucha
+-   `listener.default_action_type` : Tipo de acción de enrutamiento predeterminada - `forward`, `redirect`, `fixed-response`
+-   `listener.linked_target_group_name` : Nombre del Target Group al que se enruta el tráfico
+-   `listener.acm_certificate_name` : Nombre del certificado SSL del servidor
+-   `listener.ssl_policy` : Nombre de la política SSL aplicada al listener
 
--   `listener` : Nombre del listener del ELB  
-    -   `protocol` : Protocolo para enrutar el tráfico a los destinos – `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`  
-    -   `port` : Puerto que recibe el tráfico  
-    -   `default_action_type` : Tipo de acción de enrutamiento – `forward`, `redirect`, `fixed-response`  
-    -   `target_group_name` : Nombre del grupo de destino al que se enviará el tráfico
+#### Reglas de listener (`rule`)
+
+-   `rule.target_listener` : Nombre del listener al que se aplicará la regla
+-   `rule.priority` : Prioridad de la regla - `1` ~ `50000`
+
+#### Respuesta fija (`rule.fixed_response`)
+
+-   `rule.fixed_response.fixed_response_order` : Prioridad de la respuesta fija - `1` ~ `50000`
+-   `rule.fixed_response.content_type` : Content-Type de la respuesta
+-   `rule.fixed_response.message_body` : Cuerpo del mensaje de respuesta
+-   `rule.fixed_response.fixed_response_status_code` : Código de respuesta HTTP
+
+#### Reenvío (`rule.forward`)
+
+-   `rule.forward.forward_order` : Prioridad de reenvío - `1` ~ `50000`
+-   `rule.forward.forward_target_group_list` : Lista de Target Group de destino
+-   `rule.forward.enable_stickiness` : Habilita la afinidad del Target Group - `true`, `false`
+-   `rule.forward.duration` : Duración del enrutamiento al mismo Target Group (segundos)
+
+#### Redirección (`rule.redirect`)
+
+-   `rule.redirect.redirect_order` : Prioridad de redirección - `1` ~ `50000`
+-   `rule.redirect.host` : Nombre del host (se puede usar #{host})
+-   `rule.redirect.path` : Ruta absoluta (comienza con `/`)
+-   `rule.redirect.port` : Puerto - `1` ~ `65535` o `#{port}`
+-   `rule.redirect.protocol` : Protocolo - `HTTP`, `HTTPS`, `#{protocol}`
+-   `rule.redirect.query` : Cadena de consulta
+-   `rule.redirect.redirect_status_code` : Código HTTP de redirección - `HTTP_301`, `HTTP_302`
+
+#### Autenticación (`rule.authenticate`)
+
+-   `rule.authenticate.authenticate_type` : Tipo de autenticación - `authenticate_cognito`, `authenticate_oidc`
+-   `rule.authenticate.authenticate_order` : Prioridad de autenticación - `1` ~ `50000`
+-   `rule.authenticate.on_unauthenticated_request` : Manejo de solicitudes no autenticadas - `deny`, `allow`, `authenticate`
+-   `rule.authenticate.scope` : Scope del usuario solicitado al IdP
+-   `rule.authenticate.session_cookie_name` : Nombre de la cookie de sesión
+-   `rule.authenticate.session_timeout` : Tiempo de duración de la sesión (segundos) - `60` ~ `86400`
+-   `rule.authenticate.user_pool_arn` : ARN del Cognito User Pool
+-   `rule.authenticate.user_pool_client_id` : Client ID del Cognito User Pool
+-   `rule.authenticate.user_pool_domain` : Dominio del Cognito User Pool
+-   `rule.authenticate.authorization_endpoint` : Endpoint de autorización del IdP
+-   `rule.authenticate.client_id` : Client ID de OAuth 2.0
+-   `rule.authenticate.client_secret` : Client Secret de OAuth 2.0
+-   `rule.authenticate.issuer` : Emisor OIDC
+-   `rule.authenticate.token_endpoint` : Token Endpoint
+-   `rule.authenticate.user_info_endpoint` : User Info Endpoint
+
+#### Condiciones (`rule.condition`)
+
+-   `condition_list` : Lista de condiciones de la regla
+-   `host_header` : Valor de condición del encabezado Host
+-   `path_pattern` : Valor de condición del patrón de ruta
+-   `http_request_method` : Valor de condición del método HTTP
+-   `http_header_name` : Nombre del encabezado HTTP
+-   `http_header_value` : Valor del encabezado HTTP
+-   `query_string_key` : Clave de la cadena de consulta
+-   `query_string_value` : Valor de la cadena de consulta
+-   `source_ip` : Valor de condición de IP de origen
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría - máximo 512 caracteres, `key`:`value`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
--   [Precios de Elastic Load Balancing(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [Elastic Load Balancing Precios(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
 -   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

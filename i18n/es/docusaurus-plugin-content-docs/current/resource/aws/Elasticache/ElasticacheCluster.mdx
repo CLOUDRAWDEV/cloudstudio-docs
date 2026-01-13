@@ -1,7 +1,7 @@
 ---
-title: Elasticache Cluster
+title: ElasticacheCluster
 sidebar_position: 0
-tags: [AWS, recurso, Elasticache, ElasticacheCluster]
+tags: [AWS, Recurso, Elasticache, ElasticacheCluster]
 ---
 
 <hr />
@@ -11,40 +11,50 @@ tags: [AWS, recurso, Elasticache, ElasticacheCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.webp"
     }
 />
 
 ## Descripción general del recurso
 
-ElastiCache Cluster de AWS es un almacén de datos en memoria basado en la nube que proporciona una solución de caché rápida y escalable. ElastiCache Cluster puede ejecutarse en modo clúster o modo de un solo nodo utilizando el motor Redis o Memcached. ElastiCache Cluster se utiliza para mejorar el rendimiento de las aplicaciones, permitiendo recuperar y procesar datos más rápidamente. ElastiCache Cluster proporciona funciones de copias de seguridad automáticas, recuperación, escalabilidad y monitoreo, lo que ayuda a los usuarios a almacenar datos con confianza.
+AWS Elasticache Cluster es un almacén de datos en memoria basado en la nube que proporciona una solución de caché rápida y escalable.  
+Elasticache Cluster puede ejecutarse en modo clúster o en modo de nodo único utilizando motores Redis o Memcached.  
+Se utiliza para mejorar el rendimiento de las aplicaciones permitiendo recuperar y procesar datos más rápidamente.  
+Elasticache Cluster ofrece funciones de copia de seguridad automática, recuperación, escalado y monitoreo para que los usuarios puedan almacenar datos con confianza.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/ElastiCache/ElasticacheCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/es/docs/resource/aws/Elasticache/ElasticacheCluster)
 
 ## Valores de configuración del recurso
 
--   `engine` : Nombre del motor de caché que se utilizará en el clúster de caché – `redis`, `memcached`  
--   `engine_version` : Versión del motor de caché  
--   `port` : Número de puerto utilizado para conectar cada nodo de caché. Memcached usa el puerto 11211 y Redis usa el puerto 6379 por defecto  
--   `parameter_group_name` : Nombre del grupo de parámetros que se conectará al clúster de caché  
--   `node_type` : Clase de instancia utilizada en el clúster de caché  
--   `num_cache_nodes` : Número inicial de nodos de caché en el clúster – `1`~`40`  
--   `az_mode` : Indica si los nodos del grupo Memcached se crean en una única zona de disponibilidad o en varias zonas de disponibilidad de la región del clúster – `single-az`, `cross-az`  
--   `included_subnet_names` : Nombres de las subredes que se incluirán en el grupo de subredes para desplegar el ElastiCache Cluster  
--   `snapshot_retention_limit` : Período de retención de las instantáneas automáticas del clúster de caché antes de que ElastiCache las elimine
+#### Configuración básica
+
+-   `engine` : Tipo de motor de caché - `redis`, `memcached`
+-   `engine_version` : Versión del motor de caché
+-   `port` : Puerto de conexión del nodo de caché (Redis: 6379, Memcached: 11211)
+-   `parameter_group_name` : Nombre del grupo de parámetros a conectar
+-   `node_type` : Tipo de instancia del nodo de caché
+-   `num_cache_nodes` : Número de nodos de caché
+-   `az_mode` : Modo de configuración de zonas de disponibilidad - `single-az`, `cross-az`
+-   `included_subnet_names` : Lista de nombres de Subnet incluidos en el Subnet Group
+-   `subnet_group_name` : Nombre del Subnet Group a utilizar
+-   `snapshot_retention_limit` : Período de retención de snapshots automáticos(días)
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Precios de Amazon ElastiCache para Redis (AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis Precios(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

@@ -1,39 +1,51 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
-tags: [AWS, Recurso, Vpc, NatGateway]
+title: NatGateway
+sidebar_position: 8
+tags: [AWS, recurso, Vpc, NatGateway]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Un NAT Gateway es un servicio de traducción de direcciones de red (NAT). Permite que las instancias en subredes privadas se conecten a servicios fuera del VPC, mientras evita que esos servicios externos inicien conexiones hacia las instancias internas.
+NAT Gateway es un servicio de NAT (Network Address Translation).  
+Puede utilizarse para permitir que las instancias en una subred privada se conecten a servicios fuera del VPC, mientras se evita que los servicios externos inicien conexiones hacia dichas instancias.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
+
+### Recursos conectados
+
+-   [**Eip**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/Eip)
+-   [**RouteTable**](https://docs.cstudio.app/es/docs/resource/aws/Network/RouteTable)
 
 ## Valores de configuración del recurso
 
--   `included_subnet_name` : Nombre de la subred a la que se conectará el NAT Gateway
+#### Configuración básica
+
+-   `included_subnet_name` : Nombre de la Subnet a la que se conectará el NAT Gateway
 -   `connectivity_type` : Tipo de conectividad del NAT Gateway - `public`, `private`
--   `eip_name` : Nombre del EIP
+-   `linked_eip_name` : Nombre del Elastic IP a conectar
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [NAT Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
 -   [Precios de Amazon VPC (AWS)](https://aws.amazon.com/ko/vpc/pricing/)

@@ -1,43 +1,49 @@
 ---
 title: TransitGatewayAttachmentAccepter
-sidebar_position: 0
-tags: [AWS, Recurso, VPC, TransitGatewayAttachmentAccepter]
+sidebar_position: 17
+tags: [AWS, recurso, VPC, TransitGatewayAttachmentAccepter]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso que determina si se permite compartir recursos desde otra cuenta.
+Recurso que determina si se acepta o no el uso compartido de recursos de otra cuenta.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**TransitGatewayAttachment**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachment)
+-   [**TransitGatewayAttachment**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
 ## Valores de configuración del recurso
 
--   `is_manual` : Indica si se debe introducir manualmente el ID del Transit Gateway Attachment a conectar - `false`, `true`
--   `linked_transit_gateway_attachment_name` : Nombre del otro Transit Gateway Attachment al que se permitirá el uso compartido
+#### Configuración básica
 
+-   `is_manual` : Indica si se ingresará manualmente el ID del Transit Gateway Attachment - `true`, `false`
+-   `transit_gateway_attachment_id` : ID del Transit Gateway Attachment que se permitirá compartir
+-   `linked_transit_gateway_attachment_name` : Nombre del Transit Gateway Attachment que se permitirá compartir
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [TransitGatewayAttachmentAccepter(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
--   [TransitGatewayAttachmentAccepter(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)
+-   [TransitGatewayAttachmentAccepter (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachmentAccepter (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

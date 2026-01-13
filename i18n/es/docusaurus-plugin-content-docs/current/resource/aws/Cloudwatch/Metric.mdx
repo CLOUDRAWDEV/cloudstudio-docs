@@ -1,7 +1,7 @@
 ---
 title: Metric
 sidebar_position: 0
-tags: [AWS, recurso, Cloudwatch, Metric]
+tags: [AWS, Recurso, Cloudwatch, Metric]
 ---
 
 <hr />
@@ -11,36 +11,55 @@ tags: [AWS, recurso, Cloudwatch, Metric]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
     }
 />
 
 ## Descripción general del recurso
 
-Una métrica de AWS CloudWatch es un par nombre-valor que representa un dato recogido desde los recursos que se están monitoreando. Por ejemplo, en una instancia EC2 se pueden recopilar métricas como el uso de CPU, entrada y salida de red. Estas métricas se almacenan como CloudWatch Metrics y se utilizan en dashboards, alertas y análisis. También puedes crear métricas personalizadas para monitorear datos recopilados por tus propias aplicaciones y servicios. CloudWatch Metrics se integran con numerosos servicios proporcionados por AWS.
+AWS CloudWatch Metric es un par nombre-valor que representa mediciones recopiladas de los recursos supervisados.  
+Por ejemplo, se pueden recopilar métricas como el uso de CPU, el tráfico de red de entrada y salida desde instancias EC2.  
+Estas mediciones se almacenan como CloudWatch Metric y se utilizan en dashboards, alarmas y análisis.  
+Además, es posible crear métricas personalizadas para supervisar datos recopilados desde aplicaciones y servicios.  
+CloudWatch Metric se integra con una amplia variedad de servicios proporcionados por AWS.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
-## Valores de configuración del recurso
+### Recursos conectados
 
--   `comparison_operator` : Operador aritmético utilizado para comparar estadísticas con el umbral definido  
--   `evaluation_periods` : Número de periodos en los que los datos se comparan con el umbral  
--   `metric_name` : Nombre de la métrica asociada a la alarma  
--   `namespace` : Namespace de la métrica asociada a la alarma  
--   `period` : Periodo (en segundos) sobre el que se aplica la estadística especificada  
--   `statistic` : Estadística a aplicar sobre la métrica asociada a la alarma  
--   `threshold` : Valor con el que se compara la estadística  
--   `alarm_description` : Descripción de la alarma  
--   `insufficient_data_actions` : Lista de acciones a ejecutar cuando la alarma cambia al estado "insufficient_data"
+-   [**SnsTopic**](https://docs.cstudio.app/es/docs/resource/aws/Sns/SnsTopic)
 
 ---
 
-## Documentación de referencia
+## Valores de configuración del recurso
 
--   [Amazon CloudWatch (AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)  
--   [Precios de Amazon CloudWatch (AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)  
--   [Amazon CloudWatch Metric (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)
+#### Configuración básica
+
+-   `comparison_operator` : Operador de comparación utilizado para comparar el valor del metric con el umbral
+-   `evaluation_periods` : Número de períodos de evaluación para comparar el metric con el umbral
+-   `metric_name` : Nombre del CloudWatch Metric asociado a la alarma
+-   `namespace` : Namespace del CloudWatch Metric asociado a la alarma
+-   `period` : Intervalo(en segundos) en el que se agregan los datos del metric
+-   `statistic` : Tipo de estadística aplicada al metric - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : Valor umbral que activa la alarma
+-   `alarm_description` : Descripción de la alarma
+-   `linked_sns_names` : Lista de SNS Topic vinculados para su uso con el metric
+-   `alarm_sns_names` : Lista de SNS Topic a los que se enviarán notificaciones cuando el metric supere el umbral
+-   `ok_sns_names` : Lista de SNS Topic a los que se enviarán notificaciones cuando el metric vuelva a un estado normal
+-   `insufficient_data_sns_names` : Lista de SNS Topic a los que se enviarán notificaciones cuando haya datos insuficientes
+
+#### Etiquetas
+
+-   `tag` : Lista de etiquetas para clasificar el recurso
+
+---
+
+## Referencias
+
+-   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+-   [Amazon CloudWatch precios(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)
