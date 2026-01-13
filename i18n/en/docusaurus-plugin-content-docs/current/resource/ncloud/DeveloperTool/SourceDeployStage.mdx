@@ -1,7 +1,7 @@
 ---
-title: SourceDeployStage
-sidebar_position: 3
-tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
+title: SourcePipeline
+sidebar_position: 4
+tags: [Ncloud, Resource, DeveloperTool, SourcePipeline]
 ---
 
 <hr />
@@ -11,95 +11,72 @@ tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
 
 <img
     src={
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
 ## Resource Overview
 
-You can add, modify, or delete Deploy Stages in a created SourceDeploy project, or create deployment targets for Deploy Stages without existing deployment targets.
+A process automation service for fast and stable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**SourceDeploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
-### Connected Resources
+### Child Targets
 
--   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
--   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
--   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceBuild**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
--   `included_source_deploy_name` : Name of the SourceDeploy project
--   `target_type` : Type of deployment target - `Server`, `AutoScalingGroup`, `DeployedAutoScalingGroup`, `KubernetesService`, `DeployedKubernetesService`, `ObjectStorage`, `DeployedObjectStorage`
--   `linked_server_list` : List of server names to connect
--   `target_server_id_list` : List of server names to connect
--   `target_resource` : Deployment target resource
+-   `description` : Pipeline project description to create - up to 500 characters
 
-#### Deployment Scenario (`scenario`)
+#### Default Task (`default_task`)
 
--   `scenario.deploy_scenario_description` : SourceDeploy project description
--   `scenario.deploy_scenario_strategy` : Deployment strategy - `normal`, `blueGreen`, `rolling`, `canary`
--   `scenario.deploy_scenario_file_type` : File type of the deployment scenario - `SourceBuild`, `ObjectStorage`, `later`
--   `scenario.target_object_storage_bucket_name` : Object Storage name
--   `scenario.object_storage_object_name` : Object name
--   `scenario.linked_source_build_project` : Name of the SourceBuild project
--   `scenario.rollback` : Whether to roll back on deployment failure - `true`, `false`
--   `scenario.linked_target_group` : Name of the load balancer target group to use
--   `scenario.delete_server` : Whether to delete servers in the Auto Scaling group - `true`, `false`
--   `scenario.manifest_type` : Repository type of manifest files for Kubernetes service deployment - `SourceCommit`
--   `scenario.manifest_repository` : Repository name of manifest files for Kubernetes service deployment
--   `scenario.manifest_branch` : Branch name of manifest files for Kubernetes service deployment
--   `scenario.manifest_path` : List of paths to manifest files for Kubernetes service deployment
--   `scenario.analysis_type` : Canary analysis method for Kubernetes service deployment - `manual`, `auto`
--   `scenario.canary_count` : Number of baseline and canary pods
--   `scenario.timeout` : Maximum allowed deployment/rollback time
--   `scenario.prometheus_url` : Prometheus URL to connect
--   `scenario.baseline` : Baseline variable to use in Prometheus analysis
--   `scenario.canary` : Canary variable to use in Prometheus analysis
--   `scenario.duration` : Analysis duration
--   `scenario.delay` : Analysis delay
--   `scenario.interval` : Analysis interval
--   `scenario.step` : Metric collection interval
--   `scenario.pass_score` : Success score threshold for analysis
--   `scenario.object_storage_source_path` : Source file path when using Object Storage
--   `scenario.object_storage_deploy_path` : File deployment path when using Object Storage
+-   `default_task.name` : Name of the first task executed by the pipeline - letters/numbers/`-`/`_`, 1~50 characters
+-   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to link
+-   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `default_task.repository_branch` : Repository branch name targeted by the SourceBuild task
 
-#### Pre-deployment (`scenario.pre_deploy`)
+#### Additional Tasks (`additional_task`)
 
--   `scenario.pre_deploy.command` : List of commands to run during pre-deployment
+-   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to link
+-   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `additional_task.repository_branch` : Repository branch name targeted by the SourceBuild task
+-   `additional_task.pre_tasks` : List of prerequisite tasks to execute first
 
-#### Deployment Path (`scenario.path`)
+#### Push Trigger (`trigger_push_repository`)
 
--   `scenario.path.deploy_path` : List of deployment paths
+-   `trigger_push_repository.type_of_repository` : Repository type used for the trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository name used for the trigger
+-   `trigger_push_repository.branch_of_repository` : Repository branch name used for the trigger
 
-#### Post-deployment (`scenario.post_deploy`)
+#### Schedule Trigger (`trigger_schedule`)
 
--   `scenario.post_deploy.command` : List of commands to run during post-deployment
+-   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Scheduled deployment time
+-   `trigger_schedule.timezone` : Scheduled deployment time zone
+-   `trigger_schedule.execute_only_with_change` : Whether to execute only when the pipeline or SourceCommit changes - `true`, `false`
 
-#### Metric Settings (`scenario.metric`)
+#### Pipeline Chaining (`trigger_target_sourcecpipeline_id`)
 
--   `scenario.metric.success_criteria` : Metric success criteria - `base`, `canary`
--   `scenario.metric.weight` : Weight of the metric
--   `scenario.metric.query_type` : Metric query type - `default`, `promQL`
--   `scenario.metric.metric` : Metric to use from the Prometheus URL
--   `scenario.metric.filter` : Metric filter to use
--   `scenario.metric.query` : Metric query to use in PromQL
-
-#### Tags
-
--   `tag` : Tags for categorizing resources
+-   `trigger_target_sourcecpipeline_id` : List of pipeline IDs to automatically execute after the current pipeline completes
 
 ---
 
 ## References
 
--   [SourceDeploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
--   [SourceDeploy Project Stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)
+-   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

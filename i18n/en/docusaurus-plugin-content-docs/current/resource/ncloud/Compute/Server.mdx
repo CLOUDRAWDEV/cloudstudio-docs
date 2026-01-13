@@ -17,31 +17,31 @@ tags: [Ncloud, Resource, Compute, Server]
 
 ## Resource Overview
 
-A computing resource that provides the flexibility of virtualization without managing physical hardware. Servers can be created in a cloud environment, making them efficient in terms of time and cost, and suitable for cases where infrastructure operation is burdensome or a large amount of server resources is temporarily required.
+A computing resource that provides the flexibility of virtualization without managing physical hardware. Creating servers in a cloud environment is efficient in terms of time and cost, and is suitable when infrastructure operation is burdensome or when a large amount of server resources is temporarily required.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ### Connected Resources
 
--   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
--   [**BlockStorage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
--   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIp)
--   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**BlockStorage**](https://docs.cstudio.app/en/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/PublicIp)
+-   [**TargetGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/TargetGroup)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `included_subnet_name` : Name of the subnet where the server will be located
 -   `server_image_product_code` : Operating system image code to use - `ncloudServerImage`
 -   `server_product_code` : Code for server hardware configuration - `ncloudServerType`
--   `login_key_name` : Name of the Login Key to use
--   `init_script` : Name of the Init Script to use
--   `is_encrypted_base_block_storage_volume` : Whether to encrypt the block storage - `true`, `false`
+-   `login_key_name` : Login key name to use
+-   `init_script` : Init Script name to use
+-   `is_encrypted_base_block_storage_volume` : Whether to encrypt the block storage volume - `true`, `false`
 -   `linked_network_interface_names` : Network interfaces assigned to the server
 
 ---

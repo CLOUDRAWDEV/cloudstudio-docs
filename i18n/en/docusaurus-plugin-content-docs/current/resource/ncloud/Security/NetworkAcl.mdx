@@ -17,40 +17,40 @@ tags: [Ncloud, Resource, Security, NetworkAcl]
 
 ## Resource Overview
 
-A service that enables network security management for subnets.
+A service that provides network security management for subnets.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
 
 ### Connected Targets
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `included_vpc_name` : Name of the VPC where the ACL will be created
 -   `nacl_description` : Description of the ACL
 
 #### Inbound Rules (`inbound_rule`)
 
--   `inbound_rule.priority` : Priority of inbound rule - `0` ~ `199`
+-   `inbound_rule.priority` : Inbound rule priority - `0` ~ `199`
 -   `inbound_rule.protocol` : Inbound traffic protocol - `TCP`, `UDP`, `ICMP`
 -   `inbound_rule.rule_action` : Whether to allow inbound traffic - `ALLOW`, `DROP`
 -   `inbound_rule.ip_block` : Source IP range for inbound traffic (CIDR format)
--   `inbound_rule.port_range` : Port range to apply inbound rules - `1` ~ `65535`
+-   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
 
 #### Outbound Rules (`outbound_rule`)
 
--   `outbound_rule.priority` : Priority of outbound rule - `0` ~ `199`
+-   `outbound_rule.priority` : Outbound rule priority - `0` ~ `199`
 -   `outbound_rule.protocol` : Outbound traffic protocol - `TCP`, `UDP`, `ICMP`
 -   `outbound_rule.rule_action` : Whether to allow outbound traffic - `ALLOW`, `DROP`
 -   `outbound_rule.ip_block` : Destination IP range for outbound traffic (CIDR format)
--   `outbound_rule.port_range` : Port range to apply outbound rules - `1` ~ `65535`
+-   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
 
 ---
 

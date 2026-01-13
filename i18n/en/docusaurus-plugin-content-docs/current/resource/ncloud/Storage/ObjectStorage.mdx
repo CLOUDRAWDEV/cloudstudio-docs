@@ -1,7 +1,7 @@
 ---
-title: ObjectStorage
-sidebar_position: 2
-tags: [Ncloud, Resource, Storage, ObjectStorage]
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Resource, Storage, NasVolume]
 ---
 
 <hr />
@@ -11,30 +11,39 @@ tags: [Ncloud, Resource, Storage, ObjectStorage]
 
 <img
     src={
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-object_storage.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
 ## Resource Overview
 
-Object Storage is an object storage service that allows all types of data to be stored and retrieved over the internet.  
-Access permissions for buckets and objects can be configured through access policies (rules).
+A storage service that connects multiple servers over a network so that multiple users can share data. It is suitable for sharing data among multiple users through network-connected storage space.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
+
+### Connected Targets
+
+-   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
--   `rule` : Object Storage access policy configuration - `private`, `public-read`, `public-read-write`, `authenticated-read`
+-   `volume_name_postfix` : NAS volume name postfix (alphanumeric, 3 ~ 20 characters)
+-   `volume_size` : Volume size (in 100GB units) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protocol type - `NFS`, `CIFS`
+-   `cifs_user_name` : User ID for CIFS authentication
+-   `cifs_user_password` : Password for CIFS authentication
+-   `linked_instances` : List of server instance names to attach the NAS volume
+-   `is_encrypted` : Whether volume-level encryption based on AES-256 is enabled
 
 ---
 
 ## References
 
--   [Object Storage(Ncloud)](https://www.ncloud.com/product/storage/objectStorage)
--   [Object Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/objectstorage_object)
+-   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

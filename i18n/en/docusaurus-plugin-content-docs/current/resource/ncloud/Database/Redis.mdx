@@ -17,17 +17,17 @@ tags: [Ncloud, Resource, Database, Redis]
 
 ## Resource Overview
 
-Cloud DB for Redis is a fully managed cloud cache service that allows you to easily build Redis caches with just a few settings and clicks, operates stably with Naver’s optimized settings, and automatically recovers in case of failures.
+Cloud DB for Redis is a fully managed cloud cache service that allows you to easily build Redis caches with just a few settings and clicks, operate them stably with Naver’s optimized settings, and automatically recover in the event of a failure.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `server_name_prefix` : Redis server name (lowercase letters/numbers/hyphens allowed, must start with a lowercase letter, must end with a lowercase letter or number, 3~15 characters)
 -   `included_vpc_name` : Name of the VPC that includes Redis
@@ -39,10 +39,10 @@ Cloud DB for Redis is a fully managed cloud cache service that allows you to eas
 -   `target_config_group_name` : Name of the Redis Config Group to connect
 -   `shard_count` : Number of shards to create (based on master nodes) - `3` ~ `10`
 -   `shard_copy_count` : Number of replicas per shard (number of slave nodes) - `0` ~ `4`
--   `enable_high_availability` : Whether to enable high availability - `true`, `false`
--   `enable_backup` : Whether to enable backup (automatically enabled when high availability is used) - `true`, `false`
+-   `enable_high_availability` : Whether to enable the high availability feature - `true`, `false`
+-   `enable_backup` : Whether to enable the backup feature (automatically enabled when high availability is used) - `true`, `false`
 -   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `7`
--   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `enable_automatic_backup` : Whether to enable automatic backups - `true`, `false`
 -   `backup_time` : User-defined backup time
 -   `port` : Redis connection port - `6379` ~ `20000`
 

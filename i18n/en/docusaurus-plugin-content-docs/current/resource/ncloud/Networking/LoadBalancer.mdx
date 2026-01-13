@@ -17,27 +17,27 @@ tags: [Ncloud, Resource, Network, LoadBalancer]
 
 ## Resource Overview
 
-A device that distributes network traffic across multiple servers by considering server performance and load. By distributing load occurring on specific servers, it optimizes server availability and response time, enabling zero-downtime services.
+A device that distributes network traffic across multiple servers by considering server performance and load. By distributing the load generated on specific servers, it optimizes server availability and response time, enabling uninterrupted services.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ### Connected Resources
 
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/aws/Networking/LoadBalancer)
--   [**Target Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**LoadBalancer**](https://docs.cstudio.app/en/docs/resource/aws/Networking/LoadBalancer)
+-   [**TargetGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/TargetGroup)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `network_type` : Network type - `PUBLIC`, `PRIVATE`
 -   `type` : Load balancer type - `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
--   `throughput_type` : Throughput capacity (connections per second) - `SMALL(30,000)`, `MEDIUM(60,000)`, `LARGE(90,000)`
--   `included_subnet_names` : List of subnet names to connect the load balancer
+-   `throughput_type` : Throughput capacity (connections per second) - `SMALL(30000)`, `MEDIUM(60000)`, `LARGE(90000)`
+-   `included_subnet_names` : List of subnet names to which the load balancer will be connected
 
 #### Listener (`listener`)
 
@@ -46,7 +46,7 @@ A device that distributes network traffic across multiple servers by considering
 -   `listener.port` : Listener port number - `1` ~ `65534`
 -   `listener.use_http2` : Whether to use HTTP/2 - `true`, `false`
 -   `listener.ssl_certificate_no` : SSL certificate number
--   `listener.target_group_name` : Name of the Target Group to connect
+-   `listener.target_group_name` : Name of the target group to connect
 
 ---
 
