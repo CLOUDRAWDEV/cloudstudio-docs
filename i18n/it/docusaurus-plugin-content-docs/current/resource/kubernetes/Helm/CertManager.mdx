@@ -1,49 +1,41 @@
 ---
 title: CertManager
-sidebar_position: 0
-tags: [Kubernetes, Risorsa, Helm, CertManager]
+sidebar_position: 1
+tags: [Kubernetes, risorsa, Helm, CertManager]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-cert_manager.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-cert_manager.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È il chart Helm per installare Cert-Manager.
+Chart Helm utilizzato per installare Cert-Manager.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Namespace)
 
-### Risorse collegate
+## Valori di configurazione della risorsa
 
+#### Impostazioni di base
 
-
-## Impostazioni della risorsa
-
--   `service_name` : Nome del rilascio del chart Helm di Cert-Manager
--   `namespace` : Namespace in cui verrà distribuito il chart Helm di Cert-Manager
--   `version` : Versione del chart Helm di CertManager da utilizzare
--   `installCRDs` : Verifica se i Custom Resource Definitions relativi a certmanager devono essere installati
-
+-   `namespace` : Namespace in cui verrà distribuito il Helm Chart di Cert Manager
+-   `version` : Versione del Helm Chart di Cert Manager da utilizzare
+-   `installCRDs` : Indica se installare le Custom Resource Definition(CRD) utilizzate da Cert Manager
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Helm install(CertManager)](https://cert-manager.io/docs/installation/helm/)
--   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
-
+-   [Installazione Helm(CertManager)](https://cert-manager.io/docs/installation/helm/)
+-   [Provider Helm(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

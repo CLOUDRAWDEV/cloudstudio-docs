@@ -1,50 +1,41 @@
 ---
 title: HashicorpVault
-sidebar_position: 0
-tags: [Kubernetes, Risorsa, Helm, HashicorpVault]
+sidebar_position: 2
+tags: [Kubernetes, risorsa, Helm, HashicorpVault]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È il chart Helm per installare HashiCorp Vault.
+Chart Helm utilizzato per installare Hashicorp Vault.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Namespace)
 
-### Risorse collegate
+## Valori di configurazione della risorsa
 
+#### Impostazioni di base
 
-
-
-## Impostazioni della risorsa
-
--   `service_name` : Nome del rilascio del chart Helm di HashiCorp Vault
--   `namespace` : Namespace in cui verrà distribuito il chart Helm di HashiCorp Vault
--   `version` : Versione del chart Helm di HashiCorp Vault da utilizzare
--   `set` : Modifica dinamica dei valori del chart di base di HashiCorp Vault
-
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Helm Chart di Hashicorp Vault
+-   `version` : Versione del Helm Chart di Hashicorp Vault da utilizzare
+-   `set` : Impostazioni key-value per modificare dinamicamente i valori del Helm Chart di base di Hashicorp Vault
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Helm install(Hashicorp-vault)](https://developer.hashicorp.com/vault/docs/platform/k8s/helm)
--   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
-
+-   [Installazione Helm(Hashicorp Vault)](https://developer.hashicorp.com/vault/docs/platform/k8s/helm)
+-   [Provider Helm(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

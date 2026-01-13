@@ -1,61 +1,56 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
-tags: [Kubernetes, Risorsa, Core, PersistentVolume]
+sidebar_position: 2
+tags: [Kubernetes, risorsa, Core, PersistentVolume]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È una risorsa Kubernetes utilizzata per fornire uno storage connesso in rete al cluster.
+Risorsa Kubernetes che fornisce storage collegato in rete al cluster.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/if/docs/resource/kubernetes/Base/Cluster)
 
 ### Risorse collegate
 
--   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**StorageClass**](https://docs.cstudio.app/if/docs/resource/kubernetes/Storage/StorageClass)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/if/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Secret)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `service_name` : Nome della risorsa PersistentVolume
--   `annotations` : Coppie chiave-valore utilizzate per visualizzare informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori personalizzati definiti dall'utente per distinguere gli oggetti
--   `spec` : Definisce le specifiche dettagliate del Persistent Volume
-    -   `spec.storage_class_name` : Nome della storage class da utilizzare
-    -   `spec.storage_capacity` : Capacità di storage da utilizzare
-    -   `spec.volume_driver` : Driver del volume da utilizzare
-    -   `spec.volume_handle` : Identificatore che collega il PV alle risorse di storage effettive
-    -   `spec.persistent_volume_reclaim_policy` : Politica di recupero del volume quando viene rimosso da una claim - `retain`,`delete`,`recycle`
-    -   `spec.read_only` : Specifica se forzare la modalità di sola lettura sui mount del volume - `false`,`true`
-    -   `spec.volume_attributes` : Attributi del volume da utilizzare
-    -   `spec.access_modes` : Modalità di accesso per il volume - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
-    -   `spec.mount_options` : Opzioni di montaggio aggiuntive
--   `node_stage_secret_ref` : Specifica il secret Kubernetes contenente l'autenticazione per accedere allo storage
-    -   `node_stage_secret_ref.name` : Nome del secret
-    -   `node_stage_secret_ref.namespace` : Namespace del secret
+#### Impostazioni di base
 
+-   `annotations` : Metadati di sistema Kubernetes
+-   `labels` : Etichette personalizzate per identificazione e classificazione del PV
+-   `spec.storage_class_name` : Nome dello StorageClass da utilizzare
+-   `spec.storage_capacity` : Capacità di storage
+-   `spec.volume_driver` : Driver di volume basato su CSI
+-   `spec.volume_handle` : Identificatore della risorsa di storage reale
+-   `spec.persistent_volume_reclaim_policy` : Politica di gestione del volume al rilascio del claim -`Retain / Delete / Recycle`
+-   `spec.read_only` : Modalità di sola lettura del volume
+-   `spec.volume_attributes` : Attributi aggiuntivi del volume specifici del driver
+-   `spec.access_modes` : Modalità di accesso al volume - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : Opzioni di mount aggiuntive
+-   `node_stage_secret_ref` : Riferimento al Secret contenente le credenziali di accesso allo storage
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [PersistentVolume(Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
--   [PersistentVolume(Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+-   [PersistentVolume (Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
+-   [PersistentVolume (Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
