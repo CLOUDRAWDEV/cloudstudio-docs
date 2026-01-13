@@ -17,21 +17,21 @@ tags: [Ncloud, Resource, Bigdata&Analytics, CdssCluster]
 
 ## Resource Overview
 
-A service that allows easy deployment, protection, operation, and scaling of Apache Kafka clusters, an open-source platform for building real-time streaming data pipelines and applications.
+A service that allows you to easily deploy, secure, operate, and scale an Apache Kafka cluster, an open-source platform for building real-time streaming data pipelines and applications.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
 
 ### Connected Resources
 
--   [**CdssConfigGroup**](https://docs.cstudio.app/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
+-   [**CdssConfigGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `included_vpc_name` : Name of the VPC where CDSS will be created
 -   `kafka_version_code` : Kafka version to use in CDSS - `kafkaVersionCode`
@@ -45,12 +45,12 @@ A service that allows easy deployment, protection, operation, and scaling of Apa
 
 #### Manager Node Settings (`manager_node`)
 
--   `manager_node.manager_node_subnet_name` : Name of the subnet where the manager node will be located
+-   `manager_node.manager_node_subnet_name` : Subnet name where the manager node will be located
 -   `manager_node.manager_node_product_code` : Manager node hardware product code - `managerNodeProductCode`
 
 #### Broker Node Settings (`broker_node`)
 
--   `broker_node.broker_node_subnet_name` : Name of the subnet where the broker node will be located
+-   `broker_node.broker_node_subnet_name` : Subnet name where the broker node will be located
 -   `broker_node.broker_node_product_code` : Broker node hardware product code - `managerNodeProductCode`
 -   `broker_node.broker_node_count` : Number of broker nodes - `3` ~ `10`
 -   `broker_node.broker_node_storage_size` : Broker node storage size - `100` ~ `2000`

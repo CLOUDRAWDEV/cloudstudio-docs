@@ -17,23 +17,23 @@ tags: [Ncloud, Resource, Network, TargetGroup]
 
 ## Resource Overview
 
-A resource that represents a set of targets that will handle requests from a load balancer.
+A resource that represents a group of targets that will handle requests from a load balancer.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
 
 ### Connected Resources
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/AutoScaling)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `included_vpc_name` : Name of the VPC where the target group will be created (read-only)
 -   `protocol` : Protocol to use for traffic routing - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
@@ -43,8 +43,8 @@ A resource that represents a set of targets that will handle requests from a loa
 -   `health_check_http_method` : Health check method when using HTTP/HTTPS - `HEAD`, `GET`
 -   `health_check_port` : Port number to use for health checks
 -   `health_check_cycle` : Health check interval (seconds) - `5` ~ `300`
--   `health_check_up_threshold` : Number of consecutive successes required to transition to healthy - `2` ~ `10`
--   `health_check_down_threshold` : Number of consecutive failures required to transition to unhealthy - `2` ~ `10`
+-   `health_check_up_threshold` : Number of consecutive successes required to transition to a healthy state - `2` ~ `10`
+-   `health_check_down_threshold` : Number of consecutive failures required to transition to an unhealthy state - `2` ~ `10`
 -   `health_check_url_path` : URL path for health check requests
 -   `linked_server_names` : List of server names to connect to the target group
 

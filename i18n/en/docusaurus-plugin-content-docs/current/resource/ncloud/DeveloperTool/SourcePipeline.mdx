@@ -23,51 +23,51 @@ A process automation service for fast and stable software releases by integratin
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
 ### Child Targets
 
--   [**Source Build**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
--   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
--   [**Source Deploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
+-   [**SourceBuild**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
--   `description` : Description of the pipeline project to create - up to 500 characters
+-   `description` : Pipeline project description to create - up to 500 characters
 
 #### Default Task (`default_task`)
 
 -   `default_task.name` : Name of the first task executed by the pipeline - letters/numbers/`-`/`_`, 1~50 characters
 -   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
--   `default_task.target_source_build_project` : Name of the SourceBuild project to connect
--   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `default_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to link
 -   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
 -   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
--   `default_task.repository_branch` : Target repository branch name for the SourceBuild task
+-   `default_task.repository_branch` : Repository branch name targeted by the SourceBuild task
 
-#### Additional Task (`additional_task`)
+#### Additional Tasks (`additional_task`)
 
 -   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
--   `additional_task.target_source_build_project` : Name of the SourceBuild project to connect
--   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to connect
+-   `additional_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to link
 -   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
 -   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
--   `additional_task.repository_branch` : Target repository branch name for the SourceBuild task
+-   `additional_task.repository_branch` : Repository branch name targeted by the SourceBuild task
 -   `additional_task.pre_tasks` : List of prerequisite tasks to execute first
 
 #### Push Trigger (`trigger_push_repository`)
 
--   `trigger_push_repository.type_of_repository` : Repository type to use for the trigger - `sourcecommit`
--   `trigger_push_repository.name_of_repository` : Repository name to use for the trigger
--   `trigger_push_repository.branch_of_repository` : Repository branch name to use for the trigger
+-   `trigger_push_repository.type_of_repository` : Repository type used for the trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository name used for the trigger
+-   `trigger_push_repository.branch_of_repository` : Repository branch name used for the trigger
 
 #### Schedule Trigger (`trigger_schedule`)
 
 -   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
 -   `trigger_schedule.time` : Scheduled deployment time
--   `trigger_schedule.timezone` : Scheduled deployment timezone
+-   `trigger_schedule.timezone` : Scheduled deployment time zone
 -   `trigger_schedule.execute_only_with_change` : Whether to execute only when the pipeline or SourceCommit changes - `true`, `false`
 
 #### Pipeline Chaining (`trigger_target_sourcecpipeline_id`)

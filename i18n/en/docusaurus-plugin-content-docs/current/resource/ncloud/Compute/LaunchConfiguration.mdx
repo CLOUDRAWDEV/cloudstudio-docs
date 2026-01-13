@@ -23,17 +23,17 @@ A template that defines the specifications of virtual servers that are automatic
 
 ### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `server_image_product_code` : Operating system image code to use (CNTOS: CentOS, UBNTU: Ubuntu, WND: Windows / MYSQL, MARIA: Database / SVR: Server, EN: English Edition) - `ncloudServerImage`
 -   `server_product_code` : Code for server hardware configuration (HICPU: High CPU, STAND: Standard, HIMEM: High Memory / C: number of cores, M: memory (GB)) - `ncloudServerType`
--   `login_key_name` : Name of the public login key for encryption
--   `init_script` : Script content to be automatically executed when the server is created
--   `is_encrypted_volume` : Whether to encrypt the basic block storage - `true`, `false`
+-   `login_key_name` : Public login key name for encryption
+-   `init_script` : Script content to be executed automatically when the server is created
+-   `is_encrypted_volume` : Whether to encrypt the basic block storage volume - `true`, `false`
 
 ---
 

@@ -17,46 +17,46 @@ tags: [Ncloud, Resource, Compute, AutoScaling]
 
 ## Resource Overview
 
-A service that automatically increases or decreases the number of virtual servers based on user-defined schedules or monitoring results, allowing flexible response to changes in demand. By monitoring servers based on predefined thresholds and automatically adjusting the number of servers, services can be operated stably.
+A service that automatically increases or decreases the number of virtual servers according to user-defined schedules or monitoring results, allowing flexible responses to changes in demand. By monitoring servers based on predefined thresholds and automatically adjusting the number of servers, services can be operated in a stable manner.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ### Connected Resources
 
--   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
--   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**AccessControlGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/TargetGroup)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `linked_acg_names` : List of ACG names to apply to Auto Scaling
--   `included_subnet_name` : Name of the subnet for server creation
+-   `included_subnet_name` : Subnet name for server creation
 -   `launch_configuration_name` : Name of the Launch Configuration to use
 -   `health_check_type_code` : Health check type, server or load balancer - `SVR`, `LOADB`
--   `health_check_grace_period` : Grace period for suspending health checks after a server instance is added to the service - `1` ~ `2147486347`
+-   `health_check_grace_period` : Grace period for suspending health checks after a server instance is added to service - `1` ~ `2147486347`
 -   `linked_target_group_list` : List of target group names to connect
 -   `min_size` : Minimum size of the Auto Scaling group, range 0 ~ 30 - `1` ~ `30`
 -   `max_size` : Maximum size of the Auto Scaling group, range 0 ~ 30 - `1` ~ `30`
 
 #### Auto Scaling Policy (`policy`)
 
--   `policy.adjustment_type_code` : Scaling adjustment type, change amount (CHANG) / percentage change (PRCNT) / exact capacity (EXACT) - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.adjustment_type_code` : Scaling adjustment type code, change in capacity (CHANG) / percent change (PRCNT) / exact capacity (EXACT) - `CHANG`, `PRCNT`, `EXACT`
 -   `policy.scaling_adjustment` : Scaling adjustment value
--   `policy.cooldown` : Time (seconds) during which additional alarms are ignored - `0` ~ `214748364`
--   `policy.min_adjustment_step` : Minimum adjustment step when changing the number of instances - `0` ~ `214748364`
+-   `policy.cooldown` : Time in seconds during which additional alarms are ignored even if they occur - `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Minimum adjustment unit when changing the number of instances - `0` ~ `214748364`
 
 #### Auto Scaling Schedule (`schedule`)
 
 -   `schedule.min_size` : Minimum size of the Auto Scaling group - `1` ~ `30`
 -   `schedule.max_size` : Maximum size of the Auto Scaling group - `1` ~ `30`
 -   `schedule.desired_capacity` : Desired capacity of the Auto Scaling group - `1` ~ `30`
--   `schedule.start_time` : Schedule start date and time
--   `schedule.end_time` : Schedule end date and time
+-   `schedule.start_time` : Start date and time of the schedule
+-   `schedule.end_time` : End date and time of the schedule
 
 ---
 

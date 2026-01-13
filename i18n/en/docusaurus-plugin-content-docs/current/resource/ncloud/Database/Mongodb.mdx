@@ -17,24 +17,24 @@ tags: [Ncloud, Resource, Database, Mongodb]
 
 ## Resource Overview
 
-Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB databases. It is a fully managed cloud database service that operates stably with Naver’s optimized settings and automatically recovers in case of failures.
+Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB databases. It operates stably with Naver’s optimized settings and is a fully managed cloud database service that automatically recovers in the event of a failure.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
--   `server_name_prefix` : MongoDB server name, lowercase letters/numbers/hyphens allowed, must start with a lowercase letter, must end with a lowercase letter or number, 3 ~ 15 characters
+-   `server_name_prefix` : MongoDB server name (lowercase letters/numbers/hyphens allowed, must start with a lowercase letter, must end with a lowercase letter or number, 3 ~ 15 characters)
 -   `user_name` : MongoDB user access ID
 -   `user_password` : MongoDB user password
 -   `included_vpc_name` : Name of the VPC that includes MongoDB
 -   `included_subnet_name` : Name of the subnet that includes MongoDB
--   `cluster_type_code` : MongoDB cluster type code that determines the MongoDB cluster type - `clusterTypeCode`
+-   `cluster_type_code` : MongoDB cluster type code that determines the cluster type - `clusterTypeCode`
 -   `shard_count` : Number of MongoDB shards - `2`, `3`
 -   `image_product_code` : MongoDB version image product code - `imageProductCode`
 -   `backup_file_retention_period` : Backup file retention period; backups are performed daily and stored in separate storage - `1` ~ `30`
@@ -44,7 +44,7 @@ Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB
 
 #### MongoDB Member Settings (`member`)
 
--   `member.member_port` : TCP port number to access the MongoDB Member server - `10000` ~ `65535`
+-   `member.member_port` : TCP port number for accessing MongoDB Member servers - `10000` ~ `65535`
 -   `member.member_product_code` : MongoDB Member server product code - `memberProductCode`
 -   `member.member_server_count` : Number of MongoDB Member servers - `3` ~ `7`
 
@@ -55,13 +55,13 @@ Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB
 
 #### MongoDB Mongos Settings (`mongos`)
 
--   `mongos.mongos_port` : TCP port number to access the MongoDB Mongos server - `10000` ~ `65535`
+-   `mongos.mongos_port` : TCP port number for accessing MongoDB Mongos servers - `10000` ~ `65535`
 -   `mongos.mongos_product_code` : MongoDB Mongos product code - `mongosProductCode`
 -   `mongos.mongos_server_count` : Number of MongoDB Mongos servers - `2` ~ `5`
 
 #### MongoDB Config Settings (`config`)
 
--   `config.config_port` : TCP port number to access the MongoDB Config server - `10000` ~ `65535`
+-   `config.config_port` : TCP port number for accessing MongoDB Config servers - `10000` ~ `65535`
 -   `config.config_product_code` : MongoDB Config server product code - `configProductCode`
 -   `config.config_server_count` : Number of MongoDB Config servers - `3` ~ `7`
 

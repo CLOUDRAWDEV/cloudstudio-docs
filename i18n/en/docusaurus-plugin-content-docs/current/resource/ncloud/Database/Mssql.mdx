@@ -17,30 +17,30 @@ tags: [Ncloud, Resource, Database, Mssql]
 
 ## Resource Overview
 
-Cloud DB for MSSQL allows you to easily build and automatically manage MSSQL databases. It is a fully managed cloud database service that operates stably with Naver’s optimized settings and automatically recovers in case of failures.
+Cloud DB for MSSQL allows you to easily build and automatically manage MSSQL databases. It operates stably with Naver’s optimized settings and is a fully managed cloud database service that automatically recovers in the event of a failure.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ## Resource Setting Values
 
-#### Default Settings
+#### Basic Settings
 
 -   `included_subnet_name` : Name of the subnet that includes MSSQL
--   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `enable_high_availability` : Whether to enable the high availability feature - `true`, `false`
 -   `user_name` : MSSQL user access ID
 -   `user_password` : MSSQL user access password
--   `image_product_code` : MSSQL instance server image product code to create - `imageProductCode`
--   `product_code` : MSSQL instance server product code to create - `productCode`
+-   `image_product_code` : Image product code of the MSSQL instance server to be created - `imageProductCode`
+-   `product_code` : Product code of the MSSQL instance server to be created - `productCode`
 -   `data_storage_type` : Data storage type - `SSD`, `HDD`
 -   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `30`
--   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `enable_automatic_backup` : Whether to enable automatic backups - `true`, `false`
 -   `backup_time` : User-defined backup time
 -   `port` : TCP port number for MSSQL access (default: `1433`)
--   `character_set_name` : DB character set - `characterSetName`
+-   `character_set_name` : Database character set - `characterSetName`
 
 ---
 
