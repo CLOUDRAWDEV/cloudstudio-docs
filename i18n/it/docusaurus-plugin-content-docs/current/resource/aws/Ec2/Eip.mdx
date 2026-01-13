@@ -1,35 +1,45 @@
 ---
 title: Eip
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Risorsa, Ec2, Eip]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Indirizzo IPv4 statico progettato per il cloud computing dinamico
+Indirizzo IPv4 statico progettato per il cloud computing dinamico.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/Subnet)
 
-## Impostazioni della risorsa
+### Risorse collegate
+
+-   [**NetworkInterface**](https://docs.cstudio.app/if/docs/resource/aws/Ec2/NetworkInterface)
+-   [**NatGateway**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/NatGateway)
+
+## Valori di configurazione della risorsa
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon Eip(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
--   [Amazon Eip(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)
+-   [Amazon EIP(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+-   [Amazon EIP(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)

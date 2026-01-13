@@ -1,58 +1,63 @@
 ---
 title: EcsCluster
 sidebar_position: 0
-tags: [AWS, Risorsa, Ecs, EcsCluster]
+tags: [AWS, 리소스, Ecs, EcsCluster]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_cluster.webp"
     }
 />
 
-## Panoramica della risorsa
+## 리소스 개요
 
+Amazon ECS Cluster è una risorsa logica che consente di eseguire e gestire container Docker su un insieme di risorse di calcolo, come Amazon EC2 o AWS Fargate.
 
-## Risorse correlate
+## 연관 리소스
 
-### Risorse superiori
+### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-### Risorse collegate
+### 연결 리소스
 
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
-## Impostazioni della risorsa
+## 리소스 설정 값
 
--   `set_container_insights` : Impostazione per abilitare Container Insights nel cluster - `Enabled`
--   `kms_key_name` : Nome della chiave AWS Key Management Service per crittografare i dati tra il client locale e il container
--   `logging` : Impostazioni di log per la redirezione dei risultati dei comandi di esecuzione - `OVERRIDE`,`NONE`,`DEFAULT`
--   `cloud_watch_encryption_enabled` : Impostazione per abilitare la crittografia nei log di CloudWatch - `false`,`true`
--   `capacity_providers` : Nome del gruppo di log di CloudWatch a cui inviare i log - `Fargate`,`Fargate_spot`
--   `service`
-    -   `name` : Nome del servizio
-    -   `computing_option` : Modalità di distribuzione dei task del servizio - `capacity_provider_stratege`,`launch_type`
+#### 기본 설정
 
-    -   `computing_option`
-        -   `capacity_provider_strategy`
-            -   `capacity_provider` :  `Fargate`,`Fargate_spot`   
-            -   `base` :  Numero minimo di task da eseguire (inferiore a 100000)
-            -   `weight` : Percentuale relativa del numero totale di task eseguiti (inferiore a 1000)
+-   `set_container_insights` : Imposta se abilitare Container Insights sul cluster - `enabled`, `disabled`
+-   `kms_key_name` : Nome della chiave AWS Key Management Service utilizzata per crittografare i dati tra client locali e container
+-   `logging` : Impostazione dei log utilizzata per il reindirizzamento dei risultati dei comandi di esecuzione - `OVERRIDE`, `NONE`, `DEFAULT`
+-   `cloud_watch_encryption_enabled` : Abilitazione della crittografia per i log CloudWatch - `true`, `false`
+-   `cloud_watch_log_group_name` : Nome del gruppo di log CloudWatch a cui inviare i log
+-   `capacity_providers` : Insieme di capacity provider associati al cluster
 
-    -   `computing_option.launch_type` : Tipo di avvio del servizio
-        -   `launch_type`
-            -   `launch_type` : `ec2`,`Fargate`,`External`   
-            -   `task_definition_name` : Nome della ECS Task Definition utilizzata dal servizio
-            -   `desired_count` : Numero di istanze della definizione task da eseguire nel servizio
-  
+#### 서비스 (`service`)
 
-## Materiale di riferimento
+-   `service.computing_option` : Metodo di distribuzione dei task del Service - `capacity_provider_strategy`, `launch_type`
+-   `service.capacity_provider_strategy.capacity_provider` : Capacity provider applicato al Service - `FARGATE`, `FARGATE_SPOT`
+-   `service.capacity_provider_strategy.base` : Numero minimo di task da eseguire
+-   `service.capacity_provider_strategy.weight` : Percentuale relativa del numero totale di task eseguiti
+-   `service.launch_type` : Tipo di avvio del Service - `EC2`, `FARGATE`, `EXTERNAL`
+-   `service.task_definition_name` : Nome della ECS Task Definition utilizzata dal Service
+-   `service.desired_count` : Numero di istanze della task definition da eseguire
+-   `service.linked_security_group_names` : Elenco dei nomi dei Security Group da utilizzare
+-   `service.subnet_names` : Elenco dei nomi delle subnet in cui eseguire il Service
+-   `service.enabled_public_ip` : Abilitazione dell’uso di un Public IP - `true`, `false`
 
--   [Amazon Ecs Cluster(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/clusters.html)
--   [Amazon Ecs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)
+#### 태그
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## 참고 자료
+
+-   [Amazon ECS Cluster(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/clusters.html)
+-   [Amazon ECS Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)

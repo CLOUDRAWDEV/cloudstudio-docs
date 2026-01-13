@@ -7,40 +7,55 @@ tags: [AWS, Risorsa, Cloudwatch, Metric]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
     }
 />
 
 ## Panoramica della risorsa
 
-Le metriche di AWS CloudWatch rappresentano coppie nome-valore che indicano i valori misurati raccolti dalle risorse monitorate. Ad esempio, è possibile raccogliere metriche come l'utilizzo della CPU, l'input e l'output di rete da un'istanza EC2. Queste metriche vengono salvate come Metriche CloudWatch e vengono utilizzate per dashboard, notifiche e analisi. Inoltre, è possibile creare Metriche personalizzate per monitorare i dati raccolti dalle applicazioni e dai servizi. Le Metriche CloudWatch sono integrate e utilizzate con diversi servizi forniti da AWS.
+AWS CloudWatch Metric rappresenta una coppia nome-valore che descrive una misurazione raccolta dalle risorse monitorate. Ad esempio, è possibile raccogliere metriche come l’utilizzo della CPU, il traffico di rete in ingresso e in uscita dalle istanze EC2. Queste metriche vengono archiviate come CloudWatch Metric e utilizzate per dashboard, allarmi e analisi. È inoltre possibile creare metriche personalizzate per monitorare dati raccolti da applicazioni e servizi. CloudWatch Metric si integra con numerosi servizi AWS.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+### Risorse collegate
 
--   `comparison_operator` : Operazione aritmetica da utilizzare quando si confrontano le statistiche specificate con la soglia
--   `evaluation_periods` : Numero di periodi durante i quali i dati vengono confrontati con la soglia specificata
--   `metric_name` : Nome della metrica associata all'allarme
--   `namespace` : Namespace della metrica associata all'allarme
--   `period` : Periodo (in secondi) su cui vengono applicate le statistiche specificate
--   `statistic` : Statistica da applicare alla metrica correlata dell'allarme
--   `threshold` : Valore con cui confrontare le statistiche specificate
--   `alarm_description` : Descrizione dell'allarme
--   `insufficient_data_actions` : Elenco delle azioni da eseguire quando l'allarme passa dallo stato "insufficient_data" a un altro stato
+-   [**SnsTopic**](https://docs.cstudio.app/if/docs/resource/aws/Sns/SnsTopic)
 
 ---
 
-## Materiale di riferimento
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `comparison_operator` : Operatore di confronto tra il valore della metrica e la soglia - `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
+-   `evaluation_periods` : Numero di periodi di valutazione per il confronto con la soglia
+-   `metric_name` : Nome della metrica CloudWatch associata all’allarme
+-   `namespace` : Namespace della metrica CloudWatch associata all’allarme
+-   `period` : Intervallo di aggregazione della metrica (secondi)
+-   `statistic` : Metodo statistico applicato alla metrica - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : Valore di soglia che attiva l’allarme
+-   `alarm_description` : Descrizione dell’allarme
+-   `linked_sns_names` : Elenco dei topic SNS collegati alla metrica
+-   `alarm_sns_names` : Elenco dei topic SNS a cui inviare notifiche quando la soglia viene superata
+-   `ok_sns_names` : Elenco dei topic SNS a cui inviare notifiche quando la metrica torna allo stato normale
+-   `insufficient_data_sns_names` : Elenco dei topic SNS a cui inviare notifiche in caso di dati insufficienti
+
+#### Tag
+
+-   `tag` : Elenco dei tag per classificare la risorsa
+
+---
+
+## Riferimenti
 
 -   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
--   [Amazon CloudWatch 가격(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Prezzi di Amazon CloudWatch(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
 -   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)

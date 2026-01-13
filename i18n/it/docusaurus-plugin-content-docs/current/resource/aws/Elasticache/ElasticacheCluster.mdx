@@ -1,5 +1,5 @@
 ---
-title: Elasticache Cluster
+title: ElasticacheCluster
 sidebar_position: 0
 tags: [AWS, Risorsa, Elasticache, ElasticacheCluster]
 ---
@@ -7,44 +7,49 @@ tags: [AWS, Risorsa, Elasticache, ElasticacheCluster]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-AWS Elasticache Cluster는 클라우드 기반의 인 메모리 데이터 스토어이며, 빠르고 확장 가능한 캐싱 솔루션을 제공합니다. Elasticache Cluster는 Redis 또는 Memcached 엔진을 사용하여 클러스터 모드 또는 단일 노드 모드에서 실행할 수 있습니다. Elasticache Cluster는 애플리케이션의 성능을 향상시키는 데 사용되며, 데이터를 더 빠르게 검색하고 처리할 수 있습니다. Elasticache Cluster는 자동 백업, 복구, 확장 및 모니터링 기능을 제공하여 사용자가 안심하고 데이터를 저장할 수 있도록 도와줍니다.
+AWS ElastiCache Cluster è un datastore in-memory basato su cloud che fornisce una soluzione di caching rapida e scalabile. Può essere eseguito in modalità cluster o a nodo singolo utilizzando i motori Redis o Memcached. ElastiCache Cluster migliora le prestazioni delle applicazioni consentendo un accesso e un’elaborazione dei dati più rapidi. Offre funzionalità di backup automatico, ripristino, scalabilità e monitoraggio.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorse principali
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ### Risorse collegate
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/ElastiCache/ElasticacheCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/docs/resource/aws/Elasticache/ElasticacheCluster)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `engine` : Nome del Cache Engine da utilizzare nel Cache Cluster - `redis`, `memcached`
--   `engine_version` : Versione del Cache Engine
--   `port` : Numero di porta da utilizzare per connettersi a ciascun Cache Node. Memcached utilizza la porta 11211, Redis utilizza la porta 6379 come valore predefinito
--   `parameter_group_name` : Nome del gruppo di parametri da associare al Cache Cluster
--   `node_type` : Classe di istanza utilizzata nel Cache Cluster
--   `num_cache_nodes` : Numero iniziale di Cache Nodes nel Cache Cluster - `1`~`40`
--   `az_mode` : Se i nodi del gruppo Memcached sono creati in una singola zona di disponibilità o distribuiti su più zone di disponibilità nella regione del cluster - `single-az`, `cross-az`
--   `included_subnet_names` : Nomi delle subnet da includere nel Subnet Group per il deployment dell'Elasticache Cluster
--   `snapshot_retention_limit` : Periodo di conservazione degli snapshot automatici del Cache Cluster prima che ElastiCache li elimini
+#### Impostazioni di base
 
----
+-   `engine` : Tipo di motore di cache - `redis`, `memcached`
+-   `engine_version` : Versione del motore di cache
+-   `port` : Porta di connessione del nodo cache (Redis: 6379, Memcached: 11211)
+-   `parameter_group_name` : Nome del parameter group da collegare
+-   `node_type` : Tipo di istanza del nodo cache
+-   `num_cache_nodes` : Numero di nodi cache
+-   `az_mode` : Modalità di configurazione delle zone di disponibilità - `single-az`, `cross-az`
+-   `included_subnet_names` : Elenco dei nomi delle subnet incluse nel Subnet Group
+-   `subnet_group_name` : Nome del Subnet Group da utilizzare
+-   `snapshot_retention_limit` : Periodo di conservazione degli snapshot automatici (giorni)
 
-## Materiale di riferimento
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## Riferimenti
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Prezzi di Amazon ElastiCache for Redis(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

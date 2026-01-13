@@ -1,45 +1,52 @@
 ---
 title: BackupVault
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Risorsa, Backup, BackupVault]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-In AWS Backup, il Backup Vault è un contenitore utilizzato per archiviare e configurare i backup.
-Quando si crea un Backup Vault, è necessario specificare una chiave di crittografia AWS KMS per crittografare alcuni backup all'interno di questo vault.
-
-
-### Risorse superiori
-
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+In AWS Backup, Backup Vault è un contenitore utilizzato per archiviare e gestire i backup.
+Durante la creazione di un Backup Vault, è necessario specificare una chiave di crittografia AWS KMS per crittografare alcuni backup presenti nel vault.
 
 ## Risorse correlate
 
+### Risorsa padre
 
-## Impostazioni della risorsa
+-   [**Regione**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
--   `kms_key_name` : Chiave di crittografia lato server utilizzata per proteggere il backup
--   `lock_configuration` : Configurazione del lock del Backup Vault di AWS
-    -   `lock_configuration.enabled_lock` : Se utilizzare il lock del vault - `false`, `true`
-        -   `lock_configuration.enabled_lock.lock_mode` : Tipo di lock del vault - `Governance`, `Compliance`
-        -   `lock_configuration.enabled_lock.min_retention_days` : Periodo minimo di conservazione dei punti di ripristino nel vault - `1~36500`
-        -   `lock_configuration.enabled_lock.max_retention_days` : Periodo massimo di conservazione dei punti di ripristino nel vault - `1~36500`
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `kms_key_name` : Chiave di crittografia lato server utilizzata per proteggere i backup
+
+#### Impostazioni Vault Lock (`lock_configuration`)
+
+-   `lock_configuration.enabled_lock` : Abilitazione del vault lock - `true`, `false`
+-   `lock_configuration.lock_mode` : Tipo di vault lock - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : Periodo minimo di conservazione dei punti di ripristino nel vault - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : Periodo massimo di conservazione dei punti di ripristino nel vault - `1` ~ `36500`
+-   `lock_configuration.changeable_for_days` : Numero di giorni prima della scadenza del lock - `3` ~ `36500`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [Amazon BackupVault(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/create-a-vault.html)
 -   [Amazon BackupVault(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_vault)

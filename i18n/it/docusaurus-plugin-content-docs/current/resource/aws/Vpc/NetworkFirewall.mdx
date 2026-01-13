@@ -1,50 +1,57 @@
 ---
 title: NetworkFirewall
-sidebar_position: 0
-tags: [AWS, Risorsa, Vpc, NetworkFirewall]
+sidebar_position: 10
+tags: [AWS, risorsa, Vpc, NetworkFirewall]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Servizio AWS che consente di configurare la protezione su account e risorse AWS all'interno dell'organizzazione
+Servizio AWS che consente di configurare protezioni e controlli di sicurezza su più account e risorse AWS all’interno di un’organizzazione.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Risorse collegate
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `description` : Descrizione del firewall
--   `included_vpc_name` : Nome del VPC in cui si trova il firewall
--   `linked_subnet_names` : Sottoreti pubbliche dedicate agli endpoint del firewall
--   `linked_network_firewall_policy_name` : Nome della policy del firewall da collegare
--   `enabled_delete_protection` : Attivazione della protezione contro la cancellazione del firewall - `false`,`true`
--   `enabled_subnet_change_protection` : Attivazione della protezione contro la modifica delle connessioni subnet - `false`,`true`
--   `encryption_configuration.enabled_custom_configuration` : Abilitazione della crittografia dei dati utilizzando una chiave gestita da AWS - `false`,`true`
+-   `description` : Descrizione del firewall (massimo 256 caratteri)
+-   `included_vpc_name` : Nome del VPC in cui è distribuito il firewall (sola lettura)
+-   `linked_subnet_names` : Elenco delle subnet pubbliche dedicate agli endpoint del firewall
+-   `linked_network_firewall_policy_name` : Nome della policy del firewall collegata (sola lettura)
+-   `enabled_delete_protection` : Abilitazione della protezione contro l’eliminazione - `true`, `false`
+-   `enabled_subnet_change_protection` : Abilitazione della protezione contro la modifica delle subnet - `true`, `false`
 
+#### Impostazioni di crittografia (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Abilitazione della crittografia con chiavi gestite da AWS - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Nome della chiave KMS da utilizzare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [NetworkFirewall(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
--   [NetworkFirewall(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)
+-   [Network Firewall (AWS)](https://docs.aws.ama)

@@ -1,5 +1,5 @@
 ---
-title: Dx Connection
+title: DxConnection
 sidebar_position: 0
 tags: [AWS, Risorsa, DirectConnection, DxConnection]
 ---
@@ -7,33 +7,40 @@ tags: [AWS, Risorsa, DirectConnection, DxConnection]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Con AWS Direct Connect, puoi connettere la tua rete interna alla posizione di AWS Direct Connect tramite un cavo in fibra ottica Ethernet standard. Un'estremità del cavo viene collegata al router dell'utente e l'altra estremità al router di AWS Direct Connect. Questa connessione consente di creare interfacce virtuali, bypassando il percorso di rete pubblico di AWS e ISP per il trasferimento di servizi (ad esempio, Amazon S3) o per la comunicazione con Amazon VPC. AWS Direct Connect fornisce l'accesso ai servizi nelle regioni pubbliche di AWS tramite una connessione singola, sia per la regione pubblica di AWS sia per AWS GovCloud (US), nonché per tutti gli altri servizi di altre regioni pubbliche di AWS.
+Utilizzando AWS Direct Connect è possibile collegare la rete interna a una sede AWS Direct Connect tramite un cavo in fibra ottica Ethernet standard. Un’estremità del cavo viene collegata al router del cliente e l’altra al router AWS Direct Connect. Tramite questa connessione è possibile creare interfacce virtuali per instradare il traffico verso servizi pubblici AWS (ad esempio Amazon S3) o verso Amazon VPC, bypassando il provider di servizi Internet nel percorso di rete pubblico AWS. Le sedi AWS Direct Connect forniscono accesso a tutte le regioni pubbliche AWS utilizzando una singola connessione oppure a AWS GovCloud (US) Public, consentendo l’accesso ai servizi AWS in tutte le altre regioni pubbliche.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `bandwidth` : Direct Connection의 Bandwidth - `50Mbps`,`100Mbps`,`200Mbps`,`300Mbps`,`400Mbps`,`500Mbps`,`1Gbps`,`2Gbps`,`5Gbps`,`10Gbps`,`100Gbps`
--   `location` : Posizione di AWS Direct Connect in cui è situata la connessione
+#### Impostazioni di base
+
+-   `bandwidth` : Larghezza di banda della Direct Connection - `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`
+-   `location` : Sede AWS Direct Connect in cui si trova la connessione
+-   `service_provider` : Provider di servizi che fornisce la connessione presso la sede
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [Amazon Direct Connect(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
--   [Amazon Direct Connect 가격(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
+-   [Prezzi di Amazon Direct Connect(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
 -   [Amazon Direct Connect(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)

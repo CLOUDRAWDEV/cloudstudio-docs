@@ -1,0 +1,69 @@
+---
+title: BedrockAgent
+sidebar_position: 0
+tags: [AWS, Bedrock, Agent, LLM, AI]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_agent.webp" />
+
+## Panoramica della risorsa
+
+Servizio che consente di creare e gestire agenti di intelligenza artificiale eseguiti su AWS Bedrock.
+
+## Risorse correlate
+
+### Risorsa padre
+
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `foundation_model` : Opzione per specificare il modello LLM di base da utilizzare in Bedrock
+-   `description` : Descrizione dell’agente
+-   `idle_session_ttl_in_seconds` : Tempo (in secondi) prima della chiusura automatica di una sessione inattiva
+-   `instruction` : Istruzione di base che l’agente deve seguire (prompt di sistema)
+-   `customer_encryption_key_arn` : Configurazione per crittografare i dati delle risorse Bedrock tramite una chiave KMS specificata dall’utente (ARN)
+-   `target_bedrock_knowledge_base` : ARN dell’agente Bedrock da collegare alla knowledge base
+-   `knowledge_base_association_description` : Descrizione della relazione tra knowledge base e agente
+-   `knowledge_base_state` : Stato corrente della knowledge base - `ENABLED`, `DISABLED`
+
+#### Impostazioni Guardrail (`guardrail_configuration`)
+
+-   `guardrail_configuration.guardrail_use_method` : Metodo di applicazione del guardrail - `already_exists`, `create_new`
+-   `guardrail_configuration.guardrail_identifier` : Identificatore univoco (ID) del guardrail da utilizzare
+-   `guardrail_configuration.target_bedrock_guardrail` : Risorsa guardrail Bedrock da collegare
+-   `guardrail_configuration.guardrail_version` : Versione della risorsa guardrail da utilizzare
+
+#### Impostazioni di override del prompt (`prompt_override_configuration`)
+
+#### Impostazioni del prompt (`prompt_override_configuration.prompt_configurations`)
+
+-   `prompt_override_configuration.prompt_configurations.prompt_creation_mode` : Modalità di creazione del prompt - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_override_configuration.prompt_configurations.prompt_type` : Tipo di prompt - `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`
+-   `prompt_override_configuration.prompt_configurations.base_prompt_template` : Definizione della struttura di base del prompt (template)
+-   `prompt_override_configuration.prompt_configurations.prompt_state` : Stato corrente del prompt - `ENABLED`, `DISABLED`
+-   `prompt_override_configuration.prompt_configurations.parser_mode` : Modalità di interpretazione del formato di output del modello - `DEFAULT`, `OVERRIDDEN`
+-   `prompt_override_configuration.prompt_configurations.max_length` : Lunghezza massima della risposta del modello
+-   `prompt_override_configuration.prompt_configurations.stop_sequences` : Sequenze di stringhe che interrompono la generazione del testo
+-   `prompt_override_configuration.prompt_configurations.temperature` : Opzione per regolare la creatività del risultato
+-   `prompt_override_configuration.prompt_configurations.top_p` : Opzione per limitare la selezione in base alla probabilità cumulativa
+-   `prompt_override_configuration.prompt_configurations.top_k` : Opzione per limitare la selezione alle prime K parole
+
+-   `prompt_override_configuration.override_lambda` : Funzione AWS Lambda da invocare per personalizzare il comportamento del prompt
+
+---
+
+## Riferimenti
+
+-   [Amazon Bedrock Agents (Documentazione ufficiale AWS)](https://docs.aws.amazon.com/bedrock/)
+-   [Guida alla configurazione dei Bedrock Guardrail](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [Guida alla configurazione della Bedrock Knowledge Base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)

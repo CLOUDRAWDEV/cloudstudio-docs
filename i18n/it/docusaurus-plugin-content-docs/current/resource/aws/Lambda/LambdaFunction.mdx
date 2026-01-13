@@ -1,5 +1,5 @@
 ---
-title: Lambda Function
+title: LambdaFunction
 sidebar_position: 0
 tags: [AWS, Risorsa, Lambda, LambdaFunction]
 ---
@@ -7,49 +7,58 @@ tags: [AWS, Risorsa, Lambda, LambdaFunction]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-AWS Lambda è un servizio di calcolo che consente di eseguire il codice senza dover fare provisioning o gestire server. Lambda esegue il codice su un'infrastruttura di calcolo ad alta disponibilità, gestendo tutte le risorse computazionali, come la manutenzione del server e del sistema operativo, il provisioning della capacità e la scalabilità automatica, il deployment di patch per il codice e la sicurezza, e la registrazione dei log. Con Lambda, è possibile eseguire il codice per quasi ogni tipo di applicazione o servizio di backend, basta fornire il codice in uno dei linguaggi supportati da Lambda.
+AWS Lambda è un servizio di calcolo che consente di eseguire codice senza dover effettuare il provisioning o la gestione dei server. Lambda esegue il codice su un’infrastruttura di calcolo altamente disponibile e gestisce automaticamente tutte le risorse di calcolo, inclusi manutenzione dei server e del sistema operativo, provisioning della capacità, scaling automatico, distribuzione delle patch di sicurezza e logging. Con Lambda è possibile eseguire codice per quasi qualsiasi tipo di applicazione o servizio backend semplicemente fornendo il codice in uno dei linguaggi supportati.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorse principali
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ### Risorse collegate
 
--   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LbTargetGroup**](https://docs.cstudio.app/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `architectures` : Architettura del set di istruzioni per la funzione Lambda - `x86_64`, `arm64`
--   `runtime` : Identificatore del runtime per la funzione Lambda - `nodejs`, `nodejs4.3`, `nodejs6.10`, `nodejs8.10`, `nodejs10.x`, `nodejs12.x`, `nodejs14.x`, `java8`, `java8.al2`, `java11`, `python2.7`, `python3.6`, `python3.7`, `python3.8`, `python3.9`, `dotnetcore1.0`, `dotnetcore2.0`, `dotnetcore2.1`, `dotnetcore3.1`, `nodejs4.3-edge`, `go1.x`, `ruby2.5`, `ruby2.7`, `provided`, `provided.al2`
--   `memory_size` : Quantità di memoria (MB) disponibile per la funzione Lambda durante l'esecuzione, da 128 a 10240 (MB) - `128`, `512`, `1024`, `1536`, `2048`, `3072`, `4096`, `5120`, `6144`, `7168`, `8192`, `9216`, `10240`
--   `handler` : Punto di ingresso della funzione nel codice
--   `s3_bucket_name` : Nome della risorsa S3 che contiene il pacchetto di distribuzione della funzione
--   `file_directory` : Percorso del pacchetto di distribuzione della funzione all'interno di S3 (in formato zip)
--   `included_subnet_names` : Elenco degli ID delle subnet collegate alla funzione Lambda, almeno 2
--   `security_group_names` : Elenco degli ID dei gruppi di sicurezza collegati alla funzione Lambda
+#### Impostazioni di base
 
--   `tracing_enabled` : Attivazione del tracciamento AWS X-Ray - `true`, `false`
+-   `architectures` : Architettura del set di istruzioni della funzione Lambda - `x86_64`, `arm64`
+-   `runtime` : Identificatore del runtime della funzione Lambda
+-   `memory_size` : Quantità di memoria disponibile per la funzione Lambda in fase di esecuzione (MB) - `128` ~ `10240`
+-   `handler` : Entrypoint della funzione nel codice
+-   `s3_bucket_name` : Nome del bucket S3 che contiene il pacchetto di distribuzione della funzione
+-   `file_directory` : Percorso del pacchetto di distribuzione della funzione in S3 (file zip)
+-   `role_name` : Nome del ruolo IAM assegnato alla funzione Lambda
+-   `included_subnet_names` : Elenco dei nomi delle subnet collegate alla funzione Lambda (minimo 2)
+-   `linked_security_group_names` : Elenco dei nomi dei Security Group collegati alla funzione Lambda
 -   `tracing_mode` : Modalità di tracciamento AWS X-Ray - `PassThrough`, `Active`
 
--   `environment_variable` : Impostazioni delle variabili di ambiente che la funzione può utilizzare durante l'esecuzione
+#### Variabili d’ambiente (`environment_variable`)
+
+-   `environment_variable` : Impostazione delle variabili d’ambiente utilizzabili dalla funzione Lambda durante l’esecuzione (formato `key:value`)
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [AWS Lambda(AWS)](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
--   [AWS Lambda 요금(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
+-   [Prezzi di AWS Lambda(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
 -   [aws_lambda_function(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)

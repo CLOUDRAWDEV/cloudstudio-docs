@@ -1,41 +1,52 @@
 ---
-title: Waf Ipset
-sidebar_position: 0
-tags: [AWS, Risorsa, Waf, WafIpset]
+title: WafIpset
+sidebar_position: 1
+tags: [AWS, risorsa, Waf, WafIpset]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-L'IPSet di AWS WAF è un elenco di indirizzi IP utilizzato dal Web Application Firewall di Amazon Web Services. Consente agli utenti di creare e gestire regole di accesso per gli indirizzi IP definiti. Utilizzando l'IPSet, è possibile consentire o bloccare le richieste provenienti da specifici indirizzi IP, migliorando così la sicurezza delle applicazioni web.
+AWS WAF IPSet è un elenco di indirizzi IP utilizzato dal Web Application Firewall di Amazon Web Services.  
+Consente agli utenti di creare e gestire regole di accesso basate su indirizzi IP definiti. Utilizzando IPSet, è possibile rafforzare la sicurezza delle applicazioni web consentendo o bloccando le richieste provenienti da specifici indirizzi IP.
+
+## Panoramica della risorsa
+
+AWS WAF IP Set è una risorsa che raggruppa uno o più indirizzi IP o blocchi CIDR per essere utilizzata nelle regole di una Web ACL, permettendo di definire politiche di autorizzazione o blocco per specifici intervalli IP.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorse principali
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `scope` : Specifica se è per una distribuzione AWS CloudFront o per un'applicazione regionale - `REGIONAL`, `CLOUDFRONT`
--   `ip_address_version` : Specifica se utilizzare IPV4 o IPV6 - `IPV4`, `IPV6`
--   `addresses` : Array di stringhe che specificano uno o più indirizzi IP o blocchi di indirizzi IP in notazione CIDR.
+#### Impostazioni di base
+
+-   `scope` : Ambito di applicazione dell’IP Set - `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : Versione dell’indirizzo IP - `IPV4`, `IPV6`
+-   `addresses` : Elenco di indirizzi IP o blocchi IP in notazione CIDR
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [AWS WAF 기능(AWS)](https://aws.amazon.com/ko/waf/features/)
--   [AWS WAF 요금(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
--   [aws_waf_ipset(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)
+-   [Funzionalità AWS WAF (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [Prezzi AWS WAF (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_ipset (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)

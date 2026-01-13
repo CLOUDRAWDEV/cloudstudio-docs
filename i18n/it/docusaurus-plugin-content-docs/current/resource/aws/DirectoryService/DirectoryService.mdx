@@ -1,5 +1,5 @@
 ---
-title: Directory Service
+title: DirectoryService
 sidebar_position: 0
 tags: [AWS, Risorsa, DirectoryService, DirectoryService]
 ---
@@ -7,40 +7,45 @@ tags: [AWS, Risorsa, DirectoryService, DirectoryService]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-AWS Directory Service offre diversi modi per utilizzare Microsoft Active Directory (AD) con altri servizi AWS. Il directory memorizza informazioni su utenti, gruppi e dispositivi, e gli amministratori lo utilizzano per gestire l'accesso alle informazioni e alle risorse. AWS Directory Service offre diverse opzioni di directory per i clienti che desiderano utilizzare un Microsoft AD esistente nel cloud o applicazioni compatibili con LDAP (Lightweight Directory Access Protocol). Offre anche le stesse opzioni di scelta per gli sviluppatori che necessitano di un directory per gestire utenti, gruppi, dispositivi e privilegi di accesso.
+AWS Directory Service fornisce diversi metodi per utilizzare Microsoft Active Directory (AD) con altri servizi AWS. Una directory memorizza informazioni su utenti, gruppi e dispositivi, consentendo agli amministratori di gestire l’accesso alle informazioni e alle risorse. AWS Directory Service offre varie opzioni di directory ai clienti che desiderano utilizzare applicazioni esistenti compatibili con Microsoft AD o LDAP (Lightweight Directory Access Protocol) nel cloud. Le stesse opzioni sono disponibili anche per gli sviluppatori che necessitano di una directory per gestire utenti, gruppi, dispositivi e autorizzazioni di accesso.
 
-## Risorse correlate
+### Risorsa padre
 
-### Risorse superiori
-
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/Subnet)
 
 ### Risorse collegate
 
--   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+-   [**DirectoryService**](https://docs.cstudio.app/if/docs/resource/aws/DirectoryService/DirectoryService)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `password` : La password dell'amministratore del directory o dell'utente del connettore
--   `type` : `SimpleAD`,`MicrosoftAD`
--   `size` : La dimensione del directory - `Small`,`Large`
--   `included_vpc_name` : Il nome della VPC in cui si trova il directory
--   `included_subnet_names` : I nomi delle subnet del server di directory (le subnet devono essere distribuite in due AZ diverse)
+#### Impostazioni di base
+
+-   `password` : Password dell’amministratore della directory o dell’utente del connettore
+-   `type` : Tipo di directory - `SimpleAD`, `MicrosoftAD`
+-   `size` : Dimensione della directory - `Small`, `Large`
+-   `edition` : Edizione di MicrosoftAD - `Standard`, `Enterprise`
+-   `included_vpc_name` : Nome del VPC in cui risiede la directory
+-   `included_subnet_names` : Nomi delle subnet dei server di directory
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
--   [AWS Direct Service 가격(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
--   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)
+-   [Prezzi di AWS Directory Service(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Directory Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

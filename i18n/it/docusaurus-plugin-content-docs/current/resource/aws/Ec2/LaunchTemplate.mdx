@@ -1,0 +1,57 @@
+---
+title: LaunchTemplate
+sidebar_position: 4
+tags: [AWS, EC2, LaunchTemplate, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-launch_template.webp" />
+
+## Panoramica della risorsa
+
+Template che definisce le specifiche dei server virtuali creati automaticamente quando è necessario espandere le risorse durante l’esecuzione dell’Auto Scaling.
+
+## Risorse correlate
+
+### Risorsa padre
+
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**SecurityGroup**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/SecurityGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `image_name` : Codice dell’immagine del sistema operativo da utilizzare
+-   `instance_type` : Tipo di istanza EC2
+-   `key_name` : Nome della chiave di accesso pubblica per la cifratura
+-   `linked_security_group_name` : Nome del Security Group associato all’istanza
+-   `user_data` : Script o comandi eseguiti automaticamente all’avvio dell’istanza EC2
+
+#### Mappatura dei dispositivi a blocchi (`block_device_mapping`)
+
+-   `block_device_mapping.volume_type` : Tipo di volume EBS - `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`
+-   `block_device_mapping.volume_size` : Dimensione del volume EBS (GiB)
+-   `block_device_mapping.iops` : Numero di operazioni I/O al secondo del volume EBS
+-   `block_device_mapping.delete_on_termination` : Eliminazione automatica del volume EBS alla terminazione dell’istanza - `true`, `false`
+-   `block_device_mapping.snapshot_name` : Nome da assegnare allo snapshot del volume EBS
+-   `block_device_mapping.encrypted` : Abilitazione della crittografia del volume EBS - `true`, `false`
+-   `block_device_mapping.kms_key_name` : Nome della chiave KMS utilizzata per la crittografia del volume EBS
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Launch template (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+-   [Mappatura dei dispositivi a blocchi (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
