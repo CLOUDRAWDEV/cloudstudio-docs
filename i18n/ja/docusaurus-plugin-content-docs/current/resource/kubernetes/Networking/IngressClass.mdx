@@ -11,13 +11,13 @@ tags: [Kubernetes, リソース, Networking, IngressClass]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.webp"
     }
 />
 
 ## リソース概要
 
-Ingress が使用するイングレスコントローラーを選択するためのクバネティスリソース
+Ingress が使用する Ingress Controller を指定する Kubernetes リソースです。
 
 ## 関連リソース
 
@@ -31,20 +31,21 @@ Ingress が使用するイングレスコントローラーを選択するため
 
 ## リソース設定値
 
--   `service_name` : IngressClass リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `controller` : IngressClass を処理する必要があるコントローラ名
--   `parameters` : 参照されるリソースの情報
-    -   `name` : 参照されるリソース名
-    -   `kind` : 参照されるリソース タイプ
-    -   `namespace` : 参照されるリソースのネームスペース
-    -   `scope` : リソースの範囲を示します - クラスターまたはネームスペース
-    -   `api_group` : 参照されるリソースに関するグループ
+#### 基本設定
+
+-   `annotations` : IngressClass 用メタデータ
+-   `labels` : ユーザー定義ラベル
+-   `controller` : Ingress Controller 識別子
+
+#### パラメータ設定
+
+-   `parameters.kind` : 参照するリソース種別
+-   `parameters.namespace` : Namespace
+-   `parameters.api_group` : API Group
 
 ---
 
 ## 参考資料
 
--   [IngressClass(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
+-   [IngressClass(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
 -   [IngressClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress_class)

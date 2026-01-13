@@ -1,49 +1,51 @@
 ---
 title: OamSourceAccount
-sidebar_position: 0
-tags: [AWS, リソース, Cloudwatch, OamSourceAccount]
+sidebar_position: 3
+tags: [AWS, Resource, Cloudwatch, OamSourceAccount]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS CloudWatch Oam Source Accounts は、中央モニタリングアカウントと共有されるソースアカウントを構成します。
+AWS CloudWatch OAM Source Accountsは、中央モニタリングアカウントと共有されるソースアカウントを構成します。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 接続リソース
+### Connected Resources
 
--   [**Oam Monitoring Account**](https://docs.cstudio.app/ja/docs/resource/aws/Cloudwatch/OamMonitoringAccount)
+-   [**OamMonitoringAccount**](https://docs.cstudio.app/ja/docs/resource/aws/CloudWatch/OamMonitoringAccount)
 
-## リソース設定値
+## Resource 設定値
 
--   `is_manual` : 接続する Oam Source Account Arn を直接入力するかどうかの可否 - `false`,`true`
--   `linked_oam_monitoring_account_name` : 接続する Oam Monitoring Account の名前
--   `resource_types` : モニタリングアカウントと共有するデータ タイプ
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
--   `label_template` : ソースアカウントを識別するのに役立つラベル
+#### Basic Settings
+
+-   `is_manual` : 接続するOAM Source Account ARNを手動入力するかどうか - `true`, `false`
+-   `linked_oam_monitoring_account_name` : 接続するOAM Monitoring Account名
+-   `oam_monitoring_account_arn` : データを共有するモニタリングアカウントのARN
+-   `resource_types` : モニタリングアカウントと共有するデータ種別 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+-   `label_template` : ソースアカウント識別用ラベル - `$AccountName`, `$AccountEmail`, `$AccountEmailNoDomain`
+
+#### タグ
+
+-   `tag` : Resourceをカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon CloudWatch OamMonitoringAccount(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureSourceAccount)
--   [Amazon CloudWatch OamMonitoringAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
+-   [Amazon CloudWatch OAM Monitoring Account（AWS）](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureSourceAccount)
+-   [Amazon CloudWatch OAM Monitoring Account（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)

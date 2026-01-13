@@ -1,6 +1,6 @@
 ---
 title: NetworkFirewall
-sidebar_position: 0
+sidebar_position: 10
 tags: [AWS, リソース, Vpc, NetworkFirewall]
 ---
 
@@ -11,38 +11,46 @@ tags: [AWS, リソース, Vpc, NetworkFirewall]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
     }
 />
 
 ## リソース概要
 
-組織内の AWS アカウントおよびリソース全般にわたって保護を構成できる AWS サービス
+AWS アカウントおよびリソース全体に対してネットワーク保護を構成可能なマネージド型ファイアウォールサービス。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
 ### 接続リソース
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewallPolicy)
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
 ## リソース設定値
 
--   `description` : Firewall ポリシーの説明
--   `included_vpc_name` : Firewall が配置される VPC 名
--   `linked_subnet_names` : Firewall エンドポイント専用のパブリックサブネット
--   `linked_network_firewall_policy_name` : 接続する Firewall ポリシー名
--   `enabled_delete_protection` : Firewall が削除されないように保護を活性化 - `false`,`true`
--   `enabled_subnet_change_protection` : サブネット接続が変更されないように保護を活性化 - `false`,`true`
--   `encryption_configuration.enabled_custom_configuration` : AWS 管理型キーを使用してデータを暗号化 - `false`,`true`
+#### 基本設定
 
----
+-   `description` : ファイアウォール説明（最大 256 文字）
+-   `included_vpc_name` : 配置 VPC 名（読み取り専用）
+-   `linked_subnet_names` : ファイアウォールエンドポイント専用サブネット
+-   `linked_network_firewall_policy_name` : 適用ポリシー名（読み取り専用）
+-   `enabled_delete_protection` : 削除保護 - `true`, `false`
+-   `enabled_subnet_change_protection` : サブネット変更保護 - `true`, `false`
+
+#### 暗号化設定 (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : AWS 管理キー暗号化 - `true`, `false`
+-   `encryption_configuration.kms_key_name` : 使用 KMS Key 名
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 
--   [NetworkFirewall(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
--   [NetworkFirewall(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)
+-   [AWS Network Firewall(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
+-   [networkfirewall_firewall(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)

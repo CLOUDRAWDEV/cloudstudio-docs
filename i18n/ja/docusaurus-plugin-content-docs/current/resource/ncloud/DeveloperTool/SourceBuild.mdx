@@ -11,49 +11,69 @@ tags: [Ncloud, リソース, DeveloperTool, SourceBuild]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-SourceBuild は様々な言語で開発されたソースコードを簡単にビルドするサービスです。
-SourceBuild に独立したビルドサーバをリアルタイムで生成し、複数のビルド実行要求を同時に処理することができます。
+SourceBuild は、さまざまな言語で開発されたソースコードを簡単にビルドできるサービスです。  
+SourceBuild 専用の独立したビルドサーバーをリアルタイムで生成し、複数のビルド実行リクエストを同時に処理できます。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
-### 下位リソース
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
-## リソース設定値
+### Connected Resources
 
--   `source_type` : ビルドターゲットタイプ - `SourceCommit`
--   `source_branch` : ビルドしたいブランチの名前
--   `linked_repository_name` : ビルドしたいレポジトリの名前
--   `env` : ビルド環境設定内容
-    -   `env_compute_spec` : ビルドしようとしているコンピューティング環境のスペッ - `2cpu-4memory`,`4cpu-8memory`,`8cpu-16memory`
-    -   `env_platform_type` : ビルドしたいコンピューティング環境イメージの種類 - `SourceBuild`,`ContainerRegistry`,`PublicRegistry`
-    -   `env_platform_os_spec` : 使用する OS スペック - `ubuntu-archiX64-16.04`
-    -   `env_platform_runtime_name` : ビルドランタイム名 - `base`,`java`,`dotnet`,`android_java`,`python`
-    -   `env_platform_runtime_version` : ビルドランタイムバージョン - `1.0-1.0.0`,`2.0-1.0.0`,`3.0-1.0.0`,`4.0-1.0.0`,`5.0-1.0.0`
-    -   `env_timeout` : ビルド開始から終了までの最大待ち時間(分)、5~540
-    -   `env_use_docker` : Docker エンジンを使用有無
-    -   `env_var` : ビルドに使用する環境変数
--   `build_command` : ビルド関連の実行コマンド
-    -   `pre_build_command` : ビルド前に使用するコマンド
-    -   `in_build_command` : ビルド中に使用するコマンド
-    -   `post_build_command` : ビルド後に使用するコマンド
--   `enable_cloud_log_analytics` : クラウドログ分析にビルドログを保存するかどうか
--   `enable_file_safer` : File safer の利用安全確認の可否
--   `artifact` : ビルド結果物の保存に関する設定
-    -   `save_build_results` : ビルド結果保存の可否
--   `upload` : ビルド完了後のイメージアップロード設定
-    -   `upload_build_results` : 構築環境保存の可否
+-   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
----
+## Resource Setting Values
 
-## 参考資料
+#### Basic Settings
 
--   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
--   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)
+-   `description` : ビルドプロジェクトの説明（最大 500 文字）
+-   `source_type` : ビルド対象タイプ - `SourceCommit`
+-   `source_branch` : ビルドするブランチ名
+-   `linked_repository_name` : ビルド対象のリポジトリ名
+
+#### ビルド環境設定 (`env`)
+
+-   `env.env_compute_spec` : ビルド用コンピューティング環境スペック - `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : ビルド環境イメージタイプ - `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : 使用する OS スペック
+-   `env.env_platform_runtime_name` : ビルドランタイム名
+-   `env.env_platform_runtime_version` : ビルドランタイムバージョン
+-   `env.target_registry_name` : ビルドイメージを保存するコンテナレジストリ名
+-   `env.target_container_image_name` : 作成するコンテナイメージ名
+-   `env.target_container_image_tag` : 作成するコンテナイメージタグ
+-   `env.env_timeout` : ビルド最大待機時間（分） - `5` ~ `540`
+-   `env.env_use_docker` : Docker エンジン使用可否 - `true`, `false`
+-   `env.env_docker_engine_version` : Docker エンジンバージョン
+-   `env.env_var` : ビルドに使用する環境変数（key-value）
+
+#### ビルドコマンド (`build_command`)
+
+-   `build_command.pre_build_command` : ビルド前に実行するコマンド一覧
+-   `build_command.in_build_command` : ビルド中に実行するコマンド一覧
+-   `build_command.post_build_command` : ビルド後に実行するコマンド一覧
+-   `build_command.use_docker_image_build_command` : Docker イメージビルド使用可否 - `true`, `false`
+-   `build_command.docker_image_build_registry` : イメージ保存用コンテナレジストリ名
+-   `build_command.docker_image_dockerfile` : Dockerfile のパス
+-   `build_command.docker_image` : アップロードするイメージ名
+-   `build_command.docker_image_build_tag` : アップロードするイメージタグ
+
+#### ログおよびセキュリティ
+
+-   `enable_cloud_log_analytics` : Cloud Log Analytics へビルドログを保存するかどうか - `true`, `false`
+-   `enable_file_safer` : File Safer によるセキュリティ検査有無 - `true`, `false`
+
+#### ビルド成果物保存 (`artifact`)
+
+-   `artifact.save_build_results` : ビルド結果保存有無 - `true`, `false`
+-   `artifact.path_to_save_build_results` : ビルド結果保存パス
+-   `artifact.object_storage_name_to_save` : Object Storage バケット

@@ -1,6 +1,6 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
+sidebar_position: 2
 tags: [Kubernetes, リソース, Core, PersistentVolume]
 ---
 
@@ -11,13 +11,13 @@ tags: [Kubernetes, リソース, Core, PersistentVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
 ## リソース概要
 
-クラスターにネットワーク接続されたリポジトリを提供するクバネティス リソースです。
+クラスターにネットワーク接続されたストレージを提供する Kubernetes リソース。
 
 ## 関連リソース
 
@@ -28,30 +28,29 @@ tags: [Kubernetes, リソース, Core, PersistentVolume]
 ### 接続リソース
 
 -   [**StorageClass**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Storage/StorageClass)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Secret)
 
 ## リソース設定値
 
--   `service_name` : PersistentVolume リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `spec` : Persistent Volume の具体的なスペックを定義
-    -   `spec.storage_class_name` : 使用するストレージ class 名前指定
-    -   `spec.storage_capacity` : 使用するストレージ容量の設定
-    -   `spec.volume_driver` : 使用する volume ドライバー設定
-    -   `spec.volume_handle` : PV が実際のストレージリソースに接続される識別子"
-    -   `spec.persistent_volume_reclaim_policy` : クレームから解除されたときのボリューム回収ポリシー - `retain`,`delete`,`recycle`
-    -   `spec.read_only` : Volume mounts で Readonly 設定を強制するかどうか指定 - `false`,`true`
-    -   `spec.volume_attributes` : 使用するボリュームのプロパティを指定
-    -   `spec.access_modes` : ボリュームをマウントできる方法を指定 - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
-    -   `spec.mount_options` : 追加マウントオプションの指定
--   `node_stage_secret_ref` : ストレージにアクセスできるユーザーの認証を含むクバネティス シークレットを指定
-    -   `node_stage_secret_ref.name` : secret 名の設定
-    -   `node_stage_secret_ref.namespace` : secret があるネームスペースの設定
+#### 基本設定
+
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : PV 識別および分類用ユーザー定義ラベル
+-   `spec.storage_class_name` : 使用する StorageClass 名
+-   `spec.storage_capacity` : ストレージ容量
+-   `spec.volume_driver` : CSI ベースのボリュームドライバ
+-   `spec.volume_handle` : 実際のストレージリソース識別子
+-   `spec.persistent_volume_reclaim_policy` : クレーム解放時の処理ポリシー - `Retain / Delete / Recycle`
+-   `spec.read_only` : 読み取り専用 여부
+-   `spec.volume_attributes` : ドライバ固有の追加属性
+-   `spec.access_modes` : アクセスモード - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : 追加マウントオプション
+-   `node_stage_secret_ref` : ストレージ認証用 Secret 参照
 
 ---
 
 ## 参考資料
 
--   [PersistentVolume(Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
--   [PersistentVolume(Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+-   [PersistentVolume(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+-   [PersistentVolume(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)

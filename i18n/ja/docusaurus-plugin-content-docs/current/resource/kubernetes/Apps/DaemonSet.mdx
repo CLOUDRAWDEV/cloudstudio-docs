@@ -1,7 +1,7 @@
 ---
 title: DaemonSet
 sidebar_position: 0
-tags: [Kubernetes, リソース, Apps, Daemonset]
+tags: [Kubernetes, リソース, Apps, DaemonSet]
 ---
 
 <hr />
@@ -11,80 +11,43 @@ tags: [Kubernetes, リソース, Apps, Daemonset]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.webp"
     }
 />
 
 ## リソース概要
 
-DaemonSet は、すべての（または一部の）ノードが Pod のコピーを実行することを保証する Kubernetes リソースです。クラスターにノードが追加されると、そのノードに Pod が追加されます。
+DaemonSet は、すべて（または一部）のノードで Pod のレプリカが実行されることを保証する Kubernetes リソース。  
+クラスターにノードが追加されると、該当ノードに Pod が自動的に追加される。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
--   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
 
 ## リソース設定値
 
--   `service_name` : DaemonSet リソース名
--   `namespace` : DaemonSet リソースがデプロイされる Namespace
--   `annotations` : Kubernetes システムで必要な情報を表示するために使用される key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `template_labels` : Pod に設定される Label
--   `containers` : ファードに属するコンテナのテンプレートを定義
+#### 基本設定
 
-    -   `containers.name` : コンテナの名前を定義
-
-        -   `image` : 使用する Docker イメージ名
-        -   `args` : コンテナ内で実行されるコマンド
-        -   `command` : コンテナ内で実行されるコマンド
-        -   `port` : コンテナから露出するポートのリスト
-
-        -   `resources` : コンテナのコンピューティングリソースの量を指定
-
-            -   `name` : 最小/最大コンピューティングリソースの量を指定 - `Limits`, `requests`
-            -   `cpu` : cpu(m)の量を指定
-            -   `memory` : メモリ(Mi)の量を指定
-
-        -   `probe` : Pod の状態を診断する方法の定義
-
-            -   `name` : Probe 方法を選択 - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : HTTP サーバーにアクセスするためのパス
-            -   `http_get_port` : コンテナからアクセスするポート番号
-            -   `http_header` : リクエストに設定するカスタムヘッダー
-            -   `initial_delay_seconds` : コンテナが始まってからプローブが始まるまでの時間(秒)
-            -   `period_seconds` : プローブを行う頻度(秒)
-
-        -   `env` : コンテナ環境に設定する key-value ペアのブロック
-
-            -   `name` : env 変数名
-            -   `value` : env 変数で設定する値
-
-        -   `volume_mount` : コンテナのファイルシステムにマウントするファッドボリューム
-            -   `name` : ボリュームマウント名の設定
-            -   `path`
-                -   `mount_path` : ボリュームをマウントする必要があるコンテナ内のパス
-                -   `sub_path` : ボリュームをマウントする必要があるコンテナ内のパス
-
--   `volume` : ファッドに属するコンテナが搭載できるボリュームのリスト
-
-    -   `volume.name` : ボリューム名
-        -   `type` : マウントするボリュームのタイプ - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : persistent volume claim の名前
-        -   `default_mode` : 生成されたファイルに使用するモード - 0 ~ 0777 の間、デフォルトは 0644
-        -   `read_only` : true の場合は読み取り専用にマウントされ、そうでない場合は読み取り/書き込みが可能
-
--   `image_pull_secrets` : Container で使用するイメージを取得するために必要な権限が含まれた同じネームスペースにある Secret
-
----
+-   `namespace` : DaemonSet リソースをデプロイするネームスペース
+-   `annotations` : Kubernetes システムで使用されるメタデータの key-value
+-   `labels` : DaemonSet リソース識別用のカスタムラベル
+-   `template_labels` : 生成される Pod に適用されるラベル
+-   `pod_security_context` : Pod 単位のセキュリティおよび権限設定
+-   `init_containers` : メインコンテナ起動前に実行される初期化コンテナ定義
+-   `containers` : Pod に含まれるコンテナ定義
+-   `volume` : Pod で使用するボリューム定義
+-   `dns_policy` : Pod の DNS ポリシー
+-   `enable_service_links` : サービス環境変数の自動注入有無
+-   `host_network` : ホストネットワーク使用有無
+-   `image_pull_secrets` : イメージ取得時に使用する Secret 一覧
 
 ## 参考資料
 

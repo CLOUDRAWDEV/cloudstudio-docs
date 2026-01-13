@@ -1,6 +1,6 @@
 ---
 title: Redis
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, リソース, Database, Redis]
 ---
 
@@ -11,39 +11,46 @@ tags: [Ncloud, リソース, Database, Redis]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
     }
 />
 
 ## リソース概要
 
-Cloud DB for Redis は Redis キャッシュをいくつかの設定とクリックだけで簡単に構築し、NAVER Cloud の最適化設定を通じて安定的に運営し、障害発生時に自動復旧する完全管理型クラウドキャッシュサービスです。
+Cloud DB for Redis は、数回の設定とクリックだけで Redis キャッシュを簡単に構築でき、  
+Naver の最適化設定により安定した運用と、障害発生時の自動復旧を提供する  
+フルマネージド型クラウドキャッシュサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
 
-### 下位リソース
-
 ## リソース設定値
 
--   `server_name_prefix` : Redis Cache サーバ名
--   `redis_mode` : Redis の構成モードの種類 - `CLUSTER`, `SIMPLE`
--   `image_product_code` : Redis 構成インスタンススペックで生成しようとする redis サーバーイメージ製品コード
--   `target_config_group_name` : 接続する Config Group
--   `product_code` : 生成する Redis インスタンスのサーバー仕様を決定する製品コード
--   `data_storage_type` : データストレージの種類 - `SSD`, `HDD`
--   `shard_count` : 生成するシャード数。master node の数 - `3~10`
--   `shard_copy_count` : master node と slave node で構成されている Redis cluster のシャード当たりのレプリカの数、HA のためには slave node が必須。 レプリカを追加すると、すべての master node にそれぞれ 1 個ずつ slave node が割り当てられます
--   `enable_high_availability` : 高可用性機能の使用有無
--   `enable_backup` : バックアップ機能を使用するかどうか、もし高可用性機能を使用すると、バックアップ機能は使用によって固定
--   `port` : Redis 接続ポート - `6379`
+#### 基本設定
+
+-   `server_name_prefix` : Redis サーバー名（英小文字／数字／ハイフン使用可、3〜15文字）
+-   `included_vpc_name` : Redis が属する VPC 名
+-   `included_subnet_name` : Redis が属する Subnet 名
+-   `redis_mode` : Redis 構成モード - `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Redis エンジンバージョン
+-   `image_product_code` : Redis サーバーイメージ製品コード
+-   `product_code` : Redis インスタンスサーバー仕様製品コード
+-   `target_config_group_name` : 接続する Redis Config Group 名
+-   `shard_count` : シャード数（master node 基準） - `3` ~ `10`
+-   `shard_copy_count` : シャード当たりのレプリカ数（slave node 数） - `0` ~ `4`
+-   `enable_high_availability` : 高可用性機能使用可否 - `true`, `false`
+-   `enable_backup` : バックアップ使用可否 - `true`, `false`
+-   `backup_file_retention_period` : バックアップ保持期間（日） - `1` ~ `7`
+-   `enable_automatic_backup` : 自動バックアップ使用可否 - `true`, `false`
+-   `backup_time` : バックアップ時間
+-   `port` : Redis 接続ポート - `6379` ~ `20000`
 
 ---
 
 ## 参考資料
 
--   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
--   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

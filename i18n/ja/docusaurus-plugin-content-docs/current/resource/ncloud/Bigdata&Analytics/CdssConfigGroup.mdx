@@ -1,6 +1,6 @@
 ---
 title: CdssConfigGroup
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, リソース, Bigdata&Analytics, CdssConfigGroup]
 ---
 
@@ -11,25 +11,30 @@ tags: [Ncloud, リソース, Bigdata&Analytics, CdssConfigGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_config_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_config_group.webp"
     }
 />
 
 ## リソース概要
 
-Cdss Config Group は CDSS クラスタに適用された Kafka 設定ファイル管理機能をするサービスです。
+Cdss Config Group は、CDSS クラスターに適用される Kafka 設定ファイルを管理するサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/Region)
 
-### 下位リソース
+### 接続リソース
+
+-   [**CdssCluster**](https://docs.cstudio.app/ja/docs/resource/ncloud/Bigdata&Analytics/CdssCluster)
 
 ## リソース設定値
 
--   `kafka_version_code` : CDSS config group で使用する Kafka バージョン
+#### 基本設定
+
+-   `kafka_version_code` : CDSS Config Group で使用する Kafka バージョン - `kafkaVersionCode`
+-   `description` : Config Group の説明
 
 ---
 

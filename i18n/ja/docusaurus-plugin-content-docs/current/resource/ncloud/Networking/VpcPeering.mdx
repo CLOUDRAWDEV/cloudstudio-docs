@@ -1,6 +1,6 @@
 ---
-title: Vpc Peering
-sidebar_position: 0
+title: VpcPeering
+sidebar_position: 8
 tags: [Ncloud, リソース, Network, VpcPeering]
 ---
 
@@ -11,7 +11,7 @@ tags: [Ncloud, リソース, Network, VpcPeering]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.webp"
     }
 />
 
@@ -21,22 +21,24 @@ VPC 間通信のための VPC ピアリングを設定するリソースです�
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
 ### 接続リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
 ## リソース設定値
 
--   `linked_vpc_name_01` : リクエストを送信する VPC の名前
--   `linked_vpc_name_02` : リクエストを受信する VPC の名前
+#### 基本設定
+
+-   `linked_vpc_name_01` : ピアリング要求を送信する VPC 名（読み取り専用）
+-   `linked_vpc_name_02` : ピアリング要求を受信する VPC 名（読み取り専用）
 
 ---
 
 ## 参考資料
 
--   [VPC Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
--   [ncloud_vpc_peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)
+-   [Vpc Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
+-   [Vpc Peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)

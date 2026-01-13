@@ -1,6 +1,6 @@
 ---
-title: Waf Web Acl
-sidebar_position: 0
+title: WafWebAcl
+sidebar_position: 2
 tags: [AWS, リソース, Waf, WafWebAcl]
 ---
 
@@ -11,31 +11,38 @@ tags: [AWS, リソース, Waf, WafWebAcl]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.webp"
     }
 />
 
 ## リソース概要
 
-AWS WAF Web ACL はウェブアプリケーションに適用されるルールセットの最上位階層です。
-Web ACL を使用して複数の Rule Groups とルールを結合し、Web アプリケーションに対する要求処理順序を定義することができます。
-これにより、Web アプリケーションのセキュリティが強化され、リクエストを許可、ブロック、またはカウントする機能が実現できます。
+AWS WAF Web ACL は Web アプリケーションに適用するルール集合の最上位レイヤー。  
+複数 Rule Group およびルールを組み合わせ、リクエスト処理順序を定義してセキュリティ制御を実装。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region/)
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+### 接続リソース
+
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/ja/docs/resource/aws/CloudFront/CloudFrontDistribution)
 
 ## リソース設定値
 
--   `scope` : AWS CloudFront デプロイ用か、それともリージョンアプリケーション用かを指定 - `REGIONAL`, `CLOUDFRONT`
--   `cloudwatch_metrics_enabled` : 接続されたリソースが CloudWatch に指標を送信するかどうかを設定 - `true`, `false`
--   `metric_name` : CloudWatch metric の名前、英大小文字、ハイフン(-)、下線(\_)のみ含めることができ、長さは 1-128 文字
--   `sampled_requests_enabled` : AWS WAF がルールと一致するウェブリクエストのサンプリングを保存すべきかどうかを設定 - `true`, `false`
+#### 基本設定
 
----
+-   `scope` : Web ACL 適用範囲 - `REGIONAL`, `CLOUDFRONT`
+-   `cloudwatch_metrics_enabled` : CloudWatch メトリクス送信可否 - `true`, `false`
+-   `metric_name` : CloudWatch メトリクス名（英字大小・ハイフン・アンダースコアのみ、`1` ~ `128` 文字）
+-   `sampled_requests_enabled` : 一致リクエストのサンプリング保存可否 - `true`, `false`
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 

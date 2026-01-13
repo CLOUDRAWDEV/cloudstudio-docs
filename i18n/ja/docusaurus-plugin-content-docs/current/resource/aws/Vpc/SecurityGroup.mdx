@@ -1,6 +1,6 @@
 ---
-title: Security Group
-sidebar_position: 0
+title: SecurityGroup
+sidebar_position: 14
 tags: [AWS, リソース, Vpc, SecurityGroup]
 ---
 
@@ -11,49 +11,74 @@ tags: [AWS, リソース, Vpc, SecurityGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.webp"
     }
 />
 
 ## リソース概要
 
-Security Group は接続されたリソースに到達してから出ることができるトラフィックを制御します。 たとえば、Security Group を EC2 インスタンスと接続すると、インスタンスへのインバウンドおよびアウトバウンドトラフィックを制御します。
-Security Group は当該 Security Group が生成された VPC のリソースにのみ接続できます。
-VPC を生成する場合、VPC は基本 Security Group と一緒に提供されます。各 VPC に対して追加の Security Group を作成することができます。
-を使用しても追加料金はかかりません。
+Security Group は、関連付けられた Resource に対するインバウンドおよびアウトバウンドトラフィックを制御する。  
+例として、Security Group を EC2 インスタンスに関連付けることで、インスタンスへの入出力トラフィックを制御可能となる。  
+Security Group は作成された VPC 内の Resource にのみ関連付け可能。  
+VPC 作成時にはデフォルトの Security Group が提供され、VPC ごとに追加の Security Group を作成可能。  
+Security Group の使用に追加料金は発生しない。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**VPC**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
 ### 接続リソース
 
--
+-   [**Lb**](https://docs.cstudio.app/ja/docs/resource/aws/Networking/LoadBalancer)
+-   [**NetworkInterface**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/ja/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/ja/docs/resource/aws/Elasticsearch/)
+-   [**LambdaFunction**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Aurora**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/ja/docs/resource/aws/Rds/Postgresql)
+-   [**LaunchTemplate**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/LaunchTemplate)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Endpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Endpoint)
 
 ## リソース設定値
 
+#### 基本設定
+
 -   `description` : Security Group の説明
--   `included_vpc_name` : Security Group が含まれる VPC の名前
--   `ingress` : Security Group の Ingress ルール名
-    -   `rule_name` : Security Group の Ingress ルール名
-    -   `description` : Ingress ルールの説明
-    -   `from_port` : Ingress ルールで入力されるポート番号
-    -   `to_port` : Ingress ルールで使用される送信ポート番号
-    -   `protocol` : Ingress ルールの Protocol - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block` : Ingress ルールを適用する CIDR
--   `egress` : Security Group の Egress ルール名
-    -   `rule_name` : Security Group の Egress ルール名
-    -   `description` : Egress ルールの説明
-    -   `from_port` : Egress ルールで入力されるポート番号
-    -   `to_port` : Egress ルールで使用される送信ポート番号
-    -   `protocol` : Egress ルールの Protocol - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block` : Egress ルールを適用する CIDR
+-   `included_vpc_name` : Security Group が属する VPC 名
+
+#### インバウンドルール (`ingress`)
+
+-   `ingress.rule_name` : Ingress ルール名
+-   `ingress.description` : Ingress ルール説明
+-   `ingress.from_port` : 許可開始ポート番号
+-   `ingress.to_port` : 許可終了ポート番号
+-   `ingress.protocol` : プロトコル - `tcp`, `udp`, `icmp`, `all`
+-   `ingress.cidr_block` : 許可する送信元 CIDR ブロック
+
+#### アウトバウンドルール (`egress`)
+
+-   `egress.rule_name` : Egress ルール名
+-   `egress.description` : Egress ルール説明
+-   `egress.from_port` : 許可開始ポート番号
+-   `egress.to_port` : 許可終了ポート番号
+-   `egress.protocol` : プロトコル - `tcp`, `udp`, `icmp`, `icmpv6`, `all`
+-   `egress.cidr_block` : 許可する宛先 CIDR ブロック
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [SecurityGroup を使用してリソースへのトラフィックを制御(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [Security Group を使用したトラフィック制御(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
 -   [aws_security_group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

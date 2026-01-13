@@ -1,49 +1,55 @@
 ---
 title: CloudTrail
 sidebar_position: 0
-tags: [AWS, リソース, CloudTrail]
+tags: [AWS, Resource, CloudTrail]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS CloudTrail を使用すると AWS Management Console、AWS SDK、コマンドラインツールおよび上位レベルの AWS サービスを通じて
-実行された API 呼び出しを含め、アカウントに対する AWS API 呼び出し記録を取得することで、クラウドで AWS 配布状況をモニタリングすることができます。
-また、どのユーザやアカウントが CloudTrail をサポートするサービスに対して AWS API を呼び出したのか、どのソース IP アドレスに呼び出しが行われたのか、
-いつ呼び出しが発生した時間を確認することができます。 API を使用して CloudTrail をアプリケーションに統合し、組織に対する追跡生成を自動化し、
-追跡状態を確認し、管理者が CloudTrail ロギングを有効にし、無効にする方法を制御することができます。
+AWS CloudTrailを使用すると、AWS Management Console、AWS SDK、CLI、および上位AWSサービスを通じて実行されたAPIコールを含め、アカウントに対するAWS API呼び出し履歴を取得し、クラウド上のAWSデプロイ状況を監視できます。  
+また、どのユーザーやアカウントが、どのソースIPから、いつCloudTrail対応サービスに対してAPIを呼び出したかを確認できます。  
+CloudTrailをアプリケーションに統合し、組織全体のトレイル作成を自動化し、トレイル状態を確認し、管理者がCloudTrailロギングを制御できます。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 接続リソース
+### Connected Resources
 
--   [**S3 Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
-
-## リソース設定値
-
--   `linked_s3_bucket_name` : ログファイルの publish 用に指定された S3 バケットの名前
--   `s3_key_prefix` : ログファイル転送のために指定したバケット名の後に来る S3 キー接頭辞
--   `multi_region_enabled` : multi-region 追跡活性化
--   `global_service_events` : Cloudtrail が IAM のようなグローバルサービスのイベントをログファイルに掲示するかどうかの可否 - `true`, `false`
+-   [**S3Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
 
 ---
 
-## 参考資料
+## Resource 設定値
 
--   [Amazon CloudTrail(AWS)](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
--   [Amazon CloudTrail 価格(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
--   [Amazon CloudTrail(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)
+#### Basic Settings
+
+-   `linked_s3_bucket_name` : CloudTrailログファイルを保存するS3 Bucket名
+-   `s3_key_prefix` : ログ保存時に使用するS3オブジェクトキー接頭辞
+-   `multi_region_enabled` : マルチリージョントレイル有効化可否 - `true`, `false`
+-   `global_service_events` : IAMなどグローバルサービスイベントをログに含めるか - `true`, `false`
+
+#### タグ
+
+-   `tag` : Resourceを分類するためのタグ
+
+---
+
+## References
+
+-   [Amazon CloudTrail（AWS）](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+-   [Amazon CloudTrail 料金（AWS）](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
+-   [Amazon CloudTrail（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)
