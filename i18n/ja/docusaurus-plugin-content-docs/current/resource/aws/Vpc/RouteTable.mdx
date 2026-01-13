@@ -1,6 +1,6 @@
 ---
-title: Route Table
-sidebar_position: 0
+title: RouteTable
+sidebar_position: 13
 tags: [AWS, リソース, Vpc, RouteTable]
 ---
 
@@ -11,16 +11,16 @@ tags: [AWS, リソース, Vpc, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.webp"
     }
 />
 
 ## リソース概要
 
-AWS VPC(Virtual Private Cloud)の Route Table は VPC 内のサブネットに対するトラフィックをどのような対象に伝達するかを定義する AWS リソースです。
-VPC 内のすべてのサブネットは 1 つ以上のルーティングテーブルに接続されており、Routing Table は、Internet Gateway、NAT Gateway、VPC Endpoint、または VPN 接続などの対象に対するルーティング ルールを指定します。
-Routing Table はルーティングルールの順にトラフィックを配信し、サブネットで生成されたすべてのトラフィックは、接続されたルーティングテーブルを介してターゲットに配信されます。
-これにより、VPC 内のサブネットは安全にインターネットまたは他の VPC と通信できます。
+AWS VPC（Virtual Private Cloud）の Route Table は、VPC 内のサブネットから発生するトラフィックをどの宛先に転送するかを定義する AWS リソース。  
+VPC 内のすべてのサブネットは 1 つ以上のルートテーブルに関連付けられ、ルートテーブルではインターネットゲートウェイ、NAT ゲートウェイ、VPC エンドポイント、VPN 接続などの宛先に対するルーティングルールを指定する。  
+ルートテーブルはルーティングルールの順序に従ってトラフィックを転送し、サブネットから生成されたすべてのトラフィックは関連付けられたルートテーブルを経由して宛先に送信される。  
+これにより、VPC 内のサブネットはインターネットや他の VPC と安全に通信可能となる。
 
 ## 関連リソース
 
@@ -30,25 +30,32 @@ Routing Table はルーティングルールの順にトラフィックを配信
 
 ### 接続リソース
 
--   [**Ec2 Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Nat Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NatGateway)
--   [**Vpc Peering**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpcPeering)
+-   [**InternetGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/InternetGateway)
+-   [**Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
+-   [**NatGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NatGateway)
+-   [**TransitGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpcPeering**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpcPeering)
 
 ## リソース設定値
 
--   `included_vpc_name` : Route Table が含まれた VPC の名前
--   `subnet_names` : Route Table に対する説明
--   `linked_route` : Routing パスの名前
-    -   `cidr_block` : Routing する Target Resource の CIDR
-    -   `internet_gateway_name` : Routing パスを指定する Internet Gateway の名前
-    -   `ec2_instance_name` : Routing パスを指定する EC2 Instance の名前
-    -   `nat_gateway_name` : Routing パスを指定する NAT Gateway の名前
-    -   `vpc_peering_name` : Routing パスを指定する VPC Peering の名前
+#### 基本設定
+
+-   `included_vpc_name` : Route Table が属する VPC の名前
+-   `subnet_names` : Route Table を関連付ける Subnet 名一覧
+
+#### ルーティング経路 (`linked_route`)
+
+-   `linked_route.cidr_block` : ルーティング対象リソースの CIDR ブロック
+-   `linked_route.resource_type` : ルーティング対象リソース種別 - `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
+-   `linked_route.linked_resource_name` : ルーティング対象リソース名
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Route Table の構成(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
+-   [ルートテーブルの設定(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
 -   [aws_default_route_table(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)

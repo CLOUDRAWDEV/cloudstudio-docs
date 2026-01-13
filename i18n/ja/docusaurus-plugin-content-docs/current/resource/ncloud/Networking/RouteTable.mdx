@@ -1,6 +1,6 @@
 ---
-title: Route Table
-sidebar_position: 0
+title: RouteTable
+sidebar_position: 4
 tags: [Ncloud, リソース, Network, RouteTable]
 ---
 
@@ -11,38 +11,42 @@ tags: [Ncloud, リソース, Network, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.webp"
     }
 />
 
 ## リソース概要
 
-VPC 内のリソースのネットワーク経路を定義するサービスです。
+VPC 内のリソースに対するネットワーク経路を定義するサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
 ### 接続リソース
 
--   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ## リソース設定値
 
--   `included_vpc_name` : 接続する VPC の名前
--   `supported_subnet_type` : サポートされるサブネットの設定、公用またはプライベート - `PUBLIC`, `PRIVATE`
--   `route_table_description` : ルートテーブルの説明
--   `linked_subnet_names` : 接続するサブネット名のリスト
--   `route`
-    -   `target_type` : 宛先タイプ、Nat ゲートウェイまたは VPC ピアリング - `NATGW`, `VPCPEERING`, `VGW`
-    -   `target_name` : 宛先の名前
-    -   `destination_cidr_block` : CIDR 形式の宛先 IP 範囲
+#### 基本設定
+
+-   `included_vpc_name` : Route Table を接続する VPC 名
+-   `supported_subnet_type` : サポートする Subnet タイプ (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Route Table の説明
+-   `linked_subnet_names` : Route Table を接続する Subnet 名リスト
+
+#### ルーティング設定 (`route`)
+
+-   `target_type` : 宛先タイプ (`NATGW`, `VPCPEERING`)
+-   `target_name` : 宛先リソース名
+-   `destination_cidr_block` : CIDR 形式の宛先 IP 範囲
 
 ---
 
 ## 参考資料
 
 -   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
--   [ncloud_route_table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)
+-   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

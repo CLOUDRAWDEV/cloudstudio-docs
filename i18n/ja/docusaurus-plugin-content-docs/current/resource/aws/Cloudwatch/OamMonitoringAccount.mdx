@@ -1,47 +1,51 @@
 ---
 title: OamMonitoringAccount
-sidebar_position: 0
-tags: [AWS, リソース, Cloudwatch, OamMonitoringAccount]
+sidebar_position: 2
+tags: [AWS, Resource, Cloudwatch, OamMonitoringAccount]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS CloudWatch Oam Monitoring Accounts は中央モニタリングアカウントを設定し、複数のアカウントのアプリケーションをモニタリングするサービスです。
+AWS CloudWatch OAM Monitoring Accountsは、中央モニタリングアカウントを設定し、複数アカウントのアプリケーションを監視するサービスです。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 接続リソース
+### Connected Resources
 
--   [**Oam Source Account**](https://docs.cstudio.app/ja/docs/resource/aws/Cloudwatch/OamSourceAccount)
-
-## リソース設定値
-
--   `oam_source_accounts` : モニタリングアカウントとデータを共有するアカウントのアカウント、組織パスまたは組織 ID
--   `resource_types` : 共有しようとしているデータタイプ
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
+-   [**OamSourceAccount**](https://docs.cstudio.app/ja/docs/resource/aws/CloudWatch/OamSourceAccount)
 
 ---
 
-## 参考資料
+## Resource 設定値
 
--   [Amazon CloudWatch Oam Monitoring Account(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
--   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
--   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)
+#### Basic Settings
+
+-   `oam_source_accounts` : モニタリングアカウントとデータを共有するソースアカウント一覧（アカウントID、組織パス、または組織ID）
+-   `resource_types` : ソースアカウントから共有されるデータ種別 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+
+#### タグ設定
+
+-   `tag` : Resourceを分類するためのタグ一覧
+
+---
+
+## References
+
+-   [Amazon CloudWatch OAM Monitoring Account（AWS）](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
+-   [Amazon CloudWatch OAM Monitoring Account（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
+-   [Amazon CloudWatch OAM Monitoring Account（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)

@@ -1,0 +1,74 @@
+---
+title: BedrockGuardrail
+sidebar_position: 3
+tags: [AWS, Bedrock, BedrockGuardrail, Guardrail, Security, AI]
+---
+
+<hr />
+<br />
+
+## Resource アイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_guardrail.webp" />
+
+## Resource Overview
+
+AWS Bedrockモデルの応答を制御するため、禁止語のブロックや機密情報保護などのポリシーを設定するResourceです。
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+---
+
+## Resource 設定値
+
+#### 基本メッセージ設定
+
+-   `blocked_input_messaging` : 入力がブロックされた際にユーザーへ表示するメッセージ
+-   `blocked_outputs_messaging` : 出力がブロックされた際にユーザーへ表示するメッセージ
+-   `guardrail_description` : Guardrailの目的および説明
+-   `kms_key_arn` : Guardrailデータを暗号化するためのユーザー指定KMSキーARN
+
+#### コンテンツポリシー (`content_policy_config`)
+
+-   `content_policy_config.type` : コンテンツポリシーの種類 - `HATE`, `INSULTS`, `SEXUAL`, `VIOLENCE`, `MISCONDUCT`
+-   `content_policy_config.input_strength` : 入力に対するポリシー強度 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+-   `content_policy_config.output_strength` : 出力に対するポリシー強度 - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+
+#### トピックポリシー (`topic_policy_config`)
+
+-   `topic_policy_config.definition` : 制限または許可するトピック定義
+-   `topic_policy_config.type` : ポリシー種別 - `DENY`, `ALLOW`
+-   `topic_policy_config.examples` : ポリシー適用対象となるトピック例一覧
+
+#### 文脈ベース検証 (`contextual_grounding_policy_config`)
+
+-   `contextual_grounding_policy_config.threshold` : 文脈一致判定の閾値（0〜1）
+-   `contextual_grounding_policy_config.type` : 検証方式 - `RELEVANCE`, `GROUNDING`
+
+#### 機密情報保護 (`sensitive_information_policy_config`)
+
+-   `sensitive_information_policy_config.pii_entities_config.action` : PII検出時の基本対応 - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.pii_entities_config.type` : 検出対象PII種別
+-   `sensitive_information_policy_config.regexes_config.action` : 正規表現検出時の対応 - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.regexes_config.description` : 正規表現の説明
+-   `sensitive_information_policy_config.regexes_config.pattern` : 正規表現パターン
+
+#### 単語ポリシー (`word_policy_config`)
+
+-   `word_policy_config.managed_word_lists_config.type` : 管理型禁止語リスト種別 - `PROFANITY`
+-   `word_policy_config.words_config.text` : ユーザー定義禁止語または制限単語
+
+#### バージョン管理 (`versions`)
+
+-   `versions.description` : Guardrailバージョンごとの変更点または説明
+
+---
+
+## References
+
+-   [Amazon Bedrock Guardrails (AWS)](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [AWS KMS (AWS)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)

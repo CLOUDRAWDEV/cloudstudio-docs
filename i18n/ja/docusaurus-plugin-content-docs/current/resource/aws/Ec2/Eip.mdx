@@ -1,35 +1,45 @@
 ---
 title: Eip
-sidebar_position: 0
-tags: [AWS, リソース, Ec2, Eip]
+sidebar_position: 1
+tags: [AWS, Resource, Ec2, Eip]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-eip.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-動的クラウドコンピューティング用に設計された静的 IPv4 アドレス
+動的クラウドコンピューティング向けに設計された静的IPv4アドレスです。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
-## リソース設定値
+### Connected Resources
+
+-   [**NetworkInterface**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/NetworkInterface)
+-   [**NatGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NatGateway)
+
+## Resource 設定値
+
+#### タグ
+
+-   `tag` : Resourceを分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon Eip(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
--   [Amazon Eip(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)
+-   [Amazon Elastic IP（AWS）](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+-   [Amazon Elastic IP（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip)

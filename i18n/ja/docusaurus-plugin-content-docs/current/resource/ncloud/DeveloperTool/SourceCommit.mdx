@@ -1,6 +1,6 @@
 ---
 title: SourceCommit
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, リソース, DeveloperTool, SourceCommit]
 ---
 
@@ -11,28 +11,37 @@ tags: [Ncloud, リソース, DeveloperTool, SourceCommit]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_commit.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_commit.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-ソースコードと様々なファイルを安全に保存するためのプライベート Git リポジトリサービスです。
-リポジトリを生成してチームプロジェクトを効率的に管理し、ソースコードなどのデータを簡単に保存することができます。
+SourceCommit は、ソースコードや各種ファイルを安全に保存するためのプライベート Git リポジトリサービスです。  
+SourceCommit 上でリポジトリを作成し、チームプロジェクトを効率的に管理しながら、ソースコードなどのデータを簡単に保存できます。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
-### 下位リソース
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
-## リソース設定値
+### Connected Resources
 
--   `enable_file_safer` : File safer の利用安全確認の可否
+-   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceDeployStage**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `enable_file_safer` : File Safer 使用可否 - `true`, `false`
+-   `description` : リポジトリの説明（最大 500 文字）
 
 ---
 
-## 参考資料
+## References
 
 -   [Source Commit(Ncloud)](https://www.ncloud.com/product/devTools/sourceCommit)
--   [ncloud_source_commit(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)
+-   [Source Commit Repository(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)

@@ -1,6 +1,6 @@
 ---
 title: Region
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, リソース, Region]
 ---
 
@@ -11,31 +11,36 @@ tags: [Ncloud, リソース, Region]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/base-region.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/base-region.webp"
     }
 />
 
 ## リソース概要
 
-NAVER Cloud リソースをデプロイする Region 指定するリソースです。 韓国(KR)、日本(JPN)、シンガポール(SGN)に対応しています。
+Ncloud リソースをデプロイするリージョンを指定するリソースです。韓国(KR)、日本(JPN)、シンガポール(SGN)をサポートします。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Base**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/)
 
-### 下位リソース
+### 子リソース
 
--   [**Network Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Network/Vpc)
--   [**Network Vpc Peering**](https://docs.cstudio.app/ja/docs/resource/ncloud/Network/VpcPeering)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**BlockStorage**](https://docs.cstudio.app/ja/docs/resource/ncloud/Storage/BlockStorage)
+-   [**ObjectStorage**](https://docs.cstudio.app/ja/docs/resource/ncloud/Storage/ObjectStorage)
 
 ## リソース設定値
 
--   `region` : リソースをデプロイする NAVER Cloud Region
+#### 基本設定
+
+-   `region` : デプロイ先リージョン - `KR`, `JPN`, `SGN`
 
 ---
 
 ## 参考資料
 
--   [ncloud_regions(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/data-sources/regions)
+-   [Ncloud Environment Overview(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
+-   [Ncloud Environment Products by Region(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environmentproducts)
+-   [Ncloud Regions(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/data-sources/regions)

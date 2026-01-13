@@ -1,50 +1,63 @@
 ---
 title: Metric
 sidebar_position: 0
-tags: [AWS, リソース, Cloudwatch, Metric]
+tags: [AWS, Resource, Cloudwatch, Metric]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS CloudWatch Metric はモニタリング対象リソースから収集された測定値を表す名前と値のペアです。
-例えば、EC2 インスタンスから CPU 使用率、ネットワーク入力および出力などの測定値を収集できます。
-これらの測定値は CloudWatch Metric として保存され、ダッシュボード、通知および分析に使用されます。
-また、ユーザー定義 Metric を生成してアプリケーションやサービスから収集されたデータをモニタリングすることもできます。
-CloudWatch Metric は AWS が提供する様々なサービスと統合されて使用されます。
+AWS CloudWatch Metricは、監視対象Resourceから収集された測定値を表す名前と値のペアです。  
+CPU使用率やネットワーク入出力などの指標を収集し、ダッシュボード、アラーム、分析に使用できます。  
+また、カスタムMetricを作成し、アプリケーションやサービスのデータ監視も可能です。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## リソース設定値
+### Connected Resources
 
--   `comparison_operator` : 指定された統計及びスレッショルドを比較する時に使用する算術演算
--   `evaluation_periods` : データが指定されたスレッショルドと比較される期間の数
--   `metric_name` : アラームに関連されている測定項目の名前
--   `namespace` : アラームに関連されている指標のネームスペース
--   `period` : 指定された統計が適用される期間(秒)
--   `statistic` : アラームの関連測定項目に適用する統計
--   `threshold` : 指定された統計が比較される値
--   `alarm_description` : アラームについての説明
--   `insufficient_data_actions` : アラームが他の状態から insufficient_data 状態に切り替わるときに実行するジョブリスト
+-   [**SnsTopic**](https://docs.cstudio.app/ja/docs/resource/aws/Sns/SnsTopic)
 
 ---
 
-## 参考資料
+## Resource 設定値
 
--   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
--   [Amazon CloudWatch 価格(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
--   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)
+#### Basic Settings
+
+-   `comparison_operator` : 指標と閾値の比較演算子 - `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
+-   `evaluation_periods` : 評価期間数
+-   `metric_name` : CloudWatch Metric名
+-   `namespace` : CloudWatch Metricネームスペース
+-   `period` : 集計周期（秒）
+-   `statistic` : 統計方式 - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : アラーム発火閾値
+-   `alarm_description` : アラーム説明
+-   `linked_sns_names` : Metricで使用するSNS Topic一覧
+-   `alarm_sns_names` : 閾値超過時に通知するSNS Topic一覧
+-   `ok_sns_names` : 正常復帰時に通知するSNS Topic一覧
+-   `insufficient_data_sns_names` : データ不足時に通知するSNS Topic一覧
+
+#### タグ
+
+-   `tag` : Resource分類用タグ一覧
+
+---
+
+## References
+
+-   [Amazon CloudWatch（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+-   [Amazon CloudWatch 料金（AWS）](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Metric（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)

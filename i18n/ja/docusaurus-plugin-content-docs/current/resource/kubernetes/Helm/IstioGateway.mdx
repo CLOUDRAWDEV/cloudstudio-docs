@@ -1,6 +1,6 @@
 ---
 title: IstioGateway
-sidebar_position: 0
+sidebar_position: 5
 tags: [Kubernetes, リソース, Helm, IstioGateway]
 ---
 
@@ -11,29 +11,27 @@ tags: [Kubernetes, リソース, Helm, IstioGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Istio Gateway Helm Chart です。
+Istio Gateway の Helm チャートです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
-
-### 接続リソース
 
 ## リソース設定値
 
--   `service_name` : Istio gateway Helm Chart リリース名
--   `namespace` : Istio gateway Helm Chart リソースがデプロイされるネームスペース
--   `version` : Istio gateway Helm Chart のバージョンを指定
--   `set` : Istio gateway デフォルトのチャートの値を動的に変更
+#### 基本設定
+
+-   `namespace` : Istio Gateway Helm Chart をデプロイする Namespace
+-   `version` : 使用する Istio Ingress Helm Chart のバージョン
+-   `set` : Ingress の既定値を動的に変更する key-value 設定
 
 ---
 

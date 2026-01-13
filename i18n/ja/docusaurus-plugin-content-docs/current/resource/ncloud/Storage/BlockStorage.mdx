@@ -1,5 +1,5 @@
 ---
-title: Block Storage
+title: BlockStorage
 sidebar_position: 0
 tags: [Ncloud, リソース, Storage, BlockStorage]
 ---
@@ -11,34 +11,37 @@ tags: [Ncloud, リソース, Storage, BlockStorage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-サーバーの基本ストレージに加えて、追加で提供する HDD または SSD ストレージサービスです。 短時間で作成してすぐにサーバーと接続でき、必要でない場合はすぐに返却できます。
+サーバーの基本ストレージに加えて提供される HDD または SSD ストレージサービスです。  
+短時間で作成して即座にサーバーへ接続でき、不要な場合はすぐに返却できます。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
-### 接続リソース
+### Connected Resources
 
--   [**Server**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
 
-## リソース設定値
+## Resource Setting Values
 
--   `linked_server_name` : Block Storage を関連付けるサーバーの名前
--   `storage_size` : Block Storage のサイズ(GB)、10 から 16380 までの範囲
--   `storage_disk_type` : Block Storage のディスクタイプ、SSD または HDD - `SSD`, `HDD`
--   `snapshot_name` : 生成するスナップショット名
+#### Basic Settings
+
+-   `zone` : Block Storage が配置される物理リージョン - `KR-1`, `KR-2`
+-   `linked_server_name` : ブロックストレージを接続するサーバー名
+-   `storage_size` : ブロックストレージ容量（GB） - `10` ~ `16380`
+-   `storage_disk_type` : ディスクタイプ - `SSD`, `HDD`
 
 ---
 
-## 参考資料
+## References
 
 -   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
--   [ncloud_block_storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)
+-   [Block Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)
