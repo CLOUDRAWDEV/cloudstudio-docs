@@ -1,46 +1,53 @@
 ---
-title: Vpn Gateway
-sidebar_position: 0
-tags: [AWS, Risorsa, Vpc, VpnGateway]
+title: VpnGateway
+sidebar_position: 18
+tags: [AWS, risorsa, Vpc, VpnGateway]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Il Virtual Private Gateway è il dispositivo di terminazione VPN lato Amazon per una connessione Site-to-Site VPN. Puoi creare un Virtual Private Gateway e collegarlo al VPC in cui desideri creare la connessione Site-to-Site VPN.
+Un Virtual Private Gateway è il concentratore VPN sul lato Amazon di una connessione Site-to-Site VPN.  
+Creando un Virtual Private Gateway, è possibile collegarlo al VPC in cui verrà stabilita la connessione Site-to-Site VPN.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ### Risorse collegate
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**DxGateway**](https://docs.cstudio.app/docs/resource/aws/DirectConnect/DxGateway)
+-   [**CustomerGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
 
--   [**Vpc Customer Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `linked_vpc_name` : Nome del VPC in cui sarà incluso il VPN Gateway
--   `vpn_connection` : Nome della connessione VPN
-    -   `linked_customer_gateway` : Nome del Customer Gateway da collegare al VPN Gateway
-    -   `static_routes_only` : Se utilizzare solo il routing statico tra i gateway - `true`, `false`
+-   `linked_vpc_name` : Nome del VPC a cui collegare il VPN Gateway
+-   `dx_gateway` : Impostazioni di integrazione con Direct Connect Gateway
+-   `dx_gateway.linked_dx_gateway` : Nome del Dx Gateway da collegare
+-   `dx_gateway.allowed_prefixes` : Elenco dei prefissi CIDR da pubblicizzare verso la rete on-premise
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [AWS Site-to-Site VPN 작동 방식(AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
--   [aws_api_gateway_resource(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)
+-   [Come funziona AWS Site-to-Site VPN (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)

@@ -1,55 +1,67 @@
 ---
-title: Network Acl
-sidebar_position: 0
-tags: [AWS, Risorsa, Vpc, NetworkAcl]
+title: NetworkAcl
+sidebar_position: 9
+tags: [AWS, risorsa, Vpc, NetworkAcl]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Le Network Access Control List (ACL) consentono o rifiutano determinati traffici in entrata o in uscita a livello di sottorete. Puoi utilizzare la Network ACL predefinita per il VPC o creare una Network ACL personalizzata per il VPC utilizzando regole simili a quelle dei gruppi di sicurezza per aggiungere un ulteriore livello di sicurezza al VPC. 
-L'utilizzo delle Network ACL non comporta costi aggiuntivi.
+Una Network Access Control List (ACL) consente o nega traffico inbound e outbound specifico a livello di subnet.  
+È possibile utilizzare la network ACL predefinita del VPC oppure creare ACL personalizzate con regole simili a quelle dei security group per aggiungere un ulteriore livello di sicurezza al VPC.
+
+L’utilizzo delle Network ACL non comporta costi aggiuntivi.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Risorse collegate
 
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `included_vpc_name` : Nome del VPC che include la Network ACL
--   `linked_subnet_names` : Nomi dei subnet a cui applicare la Network ACL
--   `ingress` : Nome della regola Ingress della Network ACL
-    -   `protocol` : Protocollo della regola Ingress - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Azione da applicare al protocollo della regola Ingress - `allow`, `deny`
-    -   `cidr_block` : CIDR a cui applicare la regola Ingress
-    -   `from_port` : Numero della porta in entrata per la regola Ingress
-    -   `to_port` : Numero della porta in uscita per la regola Ingress
--   `egress` : Nome della regola Egress della Network ACL
-    -   `protocol` : Protocollo della regola Egress - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Azione da applicare al protocollo della regola Egress - `allow`, `deny`
-    -   `cidr_block` : CIDR a cui applicare la regola Egress
-    -   `from_port` : Numero della porta in entrata per la regola Egress
-    -   `to_port` : Numero della porta in uscita per la regola Egress
+#### Impostazioni di base
+
+-   `included_vpc_name` : Nome del VPC in cui creare la ACL
+-   `nacl_description` : Descrizione della ACL
+
+#### Regole inbound (`inbound_rule`)
+
+-   `inbound_rule.priority` : Priorità della regola inbound - `0` ~ `199`
+-   `inbound_rule.protocol` : Protocollo del traffico inbound - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Azione sul traffico inbound - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Intervallo CIDR sorgente del traffico inbound
+-   `inbound_rule.port_range` : Intervallo di porte applicabile - `1` ~ `65535`
+
+#### Regole outbound (`outbound_rule`)
+
+-   `outbound_rule.priority` : Priorità della regola outbound - `0` ~ `199`
+-   `outbound_rule.protocol` : Protocollo del traffico outbound - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Azione sul traffico outbound - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Intervallo CIDR di destinazione del traffico outbound
+-   `outbound_rule.port_range` : Intervallo di porte applicabile - `1` ~ `65535`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [네트워크 ACL을 사용하여 서브넷에 대한 트래픽 제어(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
--   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)
+-   [Controllo del traffico delle subnet con Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [aws_network_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

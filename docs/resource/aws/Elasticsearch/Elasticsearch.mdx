@@ -1,7 +1,7 @@
 ---
-title: ElasticacheUser
-sidebar_position: 1
-tags: [AWS, 리소스, Elasticache, ElasticacheUser]
+title: Elasticsearch
+sidebar_position: 0
+tags: [AWS, 리소스, Elasticsearch]
 ---
 
 <hr />
@@ -11,28 +11,76 @@ tags: [AWS, 리소스, Elasticache, ElasticacheUser]
 
 <img
     src={
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.webp"
     }
 />
 
 ## 리소스 개요
 
-AWS Elasticache User는 Elasticache 클러스터를 사용하기 위해 필요한 IAM 사용자입니다. Elasticache User는 Elasticache 클러스터를 생성, 수정 및 삭제할 수 있는 권한을 갖습니다. Elasticache User는 AWS IAM에서 생성되며, 일반적으로 Elasticache를 사용하는 애플리케이션 또는 개발자에게 할당됩니다. Elasticache User는 Elasticache 클러스터에 대한 보안 및 액세스 제어를 담당하며, 이를 통해 애플리케이션과 데이터를 보호할 수 있습니다. Elasticache User는 AWS 계정에서 다른 리소스와 함께 사용될 수 있습니다.
+AWS ElasticSearch는 분산 검색 및 분석 엔진으로, 빠른 검색 및 데이터 분석을 위해 구축된 검색 서비스입니다. ElasticSearch는 Apache Lucene 검색 엔진 위에 구축되어 있으며, 빠르고 확장 가능한 오픈 소스 솔루션입니다. ElasticSearch는 데이터 수집, 로그 분석, 모니터링 등의 다양한 용도로 사용됩니다. ElasticSearch는 Amazon VPC 내에서 실행될 수 있으며, AWS Lambda, Kinesis 등과 통합하여 사용될 수 있습니다. ElasticSearch는 AWS에서 제공하는 보안 및 액세스 제어 기능을 제공하며, Amazon CloudWatch와 통합하여 모니터링 및 로깅 기능을 제공합니다.
 
 ## 연관 리소스
 
 ### 상위 리소스
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### 연결 리소스
+
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `user_id` : 각 사용자의 고유한 ID
--   `access_string` : 사용자에게 적용할 권한을 입력한 string
--   `authentication_type` : 사용자가 클러스터에 접근하기 위한 인증 방식 - `iam`, `password`, `no-password-required`
--   `passwords` : 사용자의 PW (최대 2개까지 설정 가능)
+-   `elasticsearch_version` : Elasticsearch Domain 버전
+-   `availability_zone_count` : 가용 영역 개수 - `2`, `3`
+-   `tls_security_policy` : HTTPS endpoint에 적용할 TLS 보안 정책
+-   `engine` : Elasticsearch 엔진 설정
+
+#### 데이터 노드 (`data_node`)
+
+-   `data_node.instance_type` : 데이터 노드 인스턴스 타입
+-   `data_node.instance_count` : 데이터 노드 개수
+-   `data_node.ebs_enabled` : 데이터 노드에 EBS 연결 여부 - `true`, `false`
+-   `data_node.ebs_volume_type` : EBS 볼륨 유형 - `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : EBS 볼륨 크기 (GiB)
+-   `data_node.ebs_volume_iops` : EBS IOPS
+-   `data_node.ebs_volume_throughput` : EBS 처리량 (MiB/s)
+
+#### 마스터 노드 (`master_node`)
+
+-   `master_node.master_node_enabled` : 전용 마스터 노드 활성화 여부 - `true`, `false`
+-   `master_node.master_instance_type` : 마스터 노드 인스턴스 타입
+-   `master_node.master_node_count` : 마스터 노드 개수
+
+#### 사용자 지정 엔드포인트 (`custom_endpoint`)
+
+-   `custom_endpoint.custom_endpoint_enabled` : 사용자 지정 엔드포인트 활성화 여부 - `true`, `false`
+-   `custom_endpoint.custom_host_name` : 사용자 지정 호스트 이름
+-   `custom_endpoint.acm_certificate_name` : ACM 인증서 이름
+
+#### 네트워크 설정 (`network`)
+
+-   `network.network_type` : 네트워크 접근 방식 - `vpc_access`, `public_access`
+-   `network.included_subnet_names` : Elasticsearch 도메인을 생성할 Subnet 이름 목록
+-   `network.linked_security_group_names` : 연결할 Security Group 이름 목록
+
+#### 세분화된 접근 제어 (`fine_grained_access`)
+
+-   `fine_grained_access.fine_grained_access_enabled` : 세분화된 접근 제어 활성화 여부 - `true`, `false`
+-   `fine_grained_access.master_user_type` : 마스터 사용자 타입 - `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : 마스터 사용자 IAM ARN
+-   `fine_grained_access.master_user_name` : 마스터 사용자 이름
+-   `fine_grained_access.master_user_password` : 마스터 사용자 비밀번호
+
+#### 암호화 설정 (`encryption`)
+
+-   `encryption.enforce_https` : HTTPS 강제 여부 - `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : 노드 간 암호화 활성화 여부 - `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : 저장 데이터 암호화 활성화 여부 - `true`, `false`
+-   `encryption.kms_key_name` : 암호화에 사용할 KMS 키 이름
 
 #### 태그
 
@@ -42,6 +90,4 @@ AWS Elasticache User는 Elasticache 클러스터를 사용하기 위해 필요�
 
 ## 참고 자료
 
--   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
--   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)
+-   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

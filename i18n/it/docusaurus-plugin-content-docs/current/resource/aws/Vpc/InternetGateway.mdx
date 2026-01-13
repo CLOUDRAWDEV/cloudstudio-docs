@@ -1,39 +1,54 @@
 ---
-title: Internet Gateway
-sidebar_position: 0
-tags: [AWS, Risorsa, Vpc, InternetGateway]
+title: InternetGateway
+sidebar_position: 7
+tags: [AWS, risorsa, Vpc, InternetGateway]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Internet Gateway è un componente ridondante e altamente disponibile del VPC che consente la comunicazione tra il VPC e Internet. Supporta il traffico IPv4 e IPv6. Non si verificano rischi di disponibilità o limitazioni di larghezza di banda nel traffico di rete. Se una risorsa ha un indirizzo IPv4 pubblico o un indirizzo IPv6 pubblico, l'Internet Gateway consente alle risorse in un 
-sottorete pubblica (ad esempio, istanze EC2) di connettersi a Internet. Allo stesso modo, le risorse su Internet possono iniziare una connessione alle risorse di una sottorete utilizzando un indirizzo IPv4 pubblico o IPv6. Ad esempio, utilizzando l'Internet Gateway, è possibile connettersi a un'istanza EC2 di AWS da un computer locale. L'Internet Gateway fornisce una destinazione per il 
-traffico di rete routabile verso Internet nella tabella di routing del VPC. Per la comunicazione IPv4, l'Internet Gateway esegue anche la traduzione degli indirizzi di rete (NAT). Per la comunicazione IPv6, poiché gli indirizzi IPv6 sono pubblici, non è necessario il NAT.
+Un Internet Gateway è un componente VPC ridondante, altamente disponibile e scalabile orizzontalmente, che consente la comunicazione tra un VPC e Internet. Supporta il traffico IPv4 e IPv6 senza introdurre rischi di disponibilità o limitazioni di larghezza di banda.
+
+Quando una risorsa dispone di un indirizzo IPv4 pubblico o IPv6, l’uso di un Internet Gateway consente alle risorse nelle subnet pubbliche (ad esempio istanze EC2) di accedere a Internet. Allo stesso modo, le risorse su Internet possono avviare connessioni verso le risorse nella subnet utilizzando indirizzi IPv4 pubblici o IPv6.  
+Ad esempio, un Internet Gateway consente di collegarsi a un’istanza EC2 su AWS da un computer locale.
+
+Un Internet Gateway fornisce una destinazione per il traffico instradabile verso Internet nelle tabelle di routing del VPC.  
+Per le comunicazioni IPv4, l’Internet Gateway esegue anche la Network Address Translation (NAT).  
+Per le comunicazioni IPv6, non è necessario il NAT poiché gli indirizzi IPv6 sono pubblici.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
-## Impostazioni della risorsa
+### Risorse collegate
 
--   `included_vpc_name` : Nome del VPC in cui distribuire l'Internet Gateway
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `included_vpc_name` : Nome del VPC in cui distribuire l’Internet Gateway
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [인터넷 게이트웨이를 사용하여 인터넷에 연결(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
--   [aws_internet_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)
+-   [Connessione a Internet tramite Internet Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [aws_internet_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)

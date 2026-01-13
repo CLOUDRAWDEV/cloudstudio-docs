@@ -1,40 +1,47 @@
 ---
-title: Elasticache User
-sidebar_position: 0
+title: ElasticacheUser
+sidebar_position: 1
 tags: [AWS, Risorsa, Elasticache, ElasticacheUser]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-L'AWS Elasticache User è un utente IAM necessario per utilizzare un Elasticache cluster. L'Elasticache User ha i permessi per creare, modificare e eliminare un Elasticache cluster. L'Elasticache User viene creato tramite AWS IAM e viene generalmente assegnato alle applicazioni o agli sviluppatori che utilizzano Elasticache. L'Elasticache User è responsabile della sicurezza e del controllo dell'accesso al Elasticache cluster, proteggendo così le applicazioni e i dati. L'Elasticache User può essere utilizzato insieme ad altre risorse nell'account AWS.
+AWS Elasticache User è un utente IAM necessario per utilizzare i cluster Elasticache. Elasticache User dispone delle autorizzazioni per creare, modificare ed eliminare cluster Elasticache. Elasticache User viene creato in AWS IAM ed è generalmente assegnato ad applicazioni o sviluppatori che utilizzano Elasticache. Elasticache User è responsabile della sicurezza e del controllo degli accessi ai cluster Elasticache e, tramite ciò, consente di proteggere applicazioni e dati. Elasticache User può essere utilizzato insieme ad altre risorse all’interno dell’account AWS.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `user_id` : ID dell'utente, consentiti caratteri alfanumerici e trattini (-), deve iniziare con una lettera, non può terminare con un trattino né contenere due trattini consecutivi, massimo 40 caratteri
--   `access_string` : Stringa che specifica i permessi da applicare all'utente
--   `authentication_type` : Tipo di autenticazione utilizzata dall'utente per accedere al cluster
+#### Impostazioni di base
+
+-   `user_id` : ID univoco di ciascun utente
+-   `access_string` : stringa che specifica le autorizzazioni da applicare all’utente
+-   `authentication_type` : Metodo di autenticazione utilizzato dall’utente per accedere al cluster - `iam`, `password`, `no-password-required`
+-   `passwords` : Password dell’utente (è possibile configurarne fino a un massimo di 2)
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 요금(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Prezzi di Amazon ElastiCache for Redis(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

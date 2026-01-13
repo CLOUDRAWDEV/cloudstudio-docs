@@ -7,34 +7,39 @@ tags: [AWS, Risorsa, AcmCertificate]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.webp"
     }
 />
 
-## Panoramica Risorse
+## Panoramica della risorsa
 
-Se utilizzi la risorsa ACM Certificate, puoi richiedere e gestire certificati tramite Amazon Certificate Manager.
+Utilizzando la risorsa ACM Certificate, è possibile richiedere e gestire certificati in Amazon Certificate Manager.
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Regione**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
-## Risorse correlate
+## Valori di configurazione della risorsa
 
+#### Impostazioni di base
 
-## Impostazioni della risorsa
+-   `enabled_import` : Indica se importare il certificato - `true`, `false`
+-   `domain_name` : Nome di dominio completamente qualificato per il certificato
+-   `validation_method` : Metodo per verificare la proprietà del dominio - `DNS`, `EMAIL`
+-   `key_algorithm` : Algoritmo di crittografia - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
+-   `certificate_body` : Corpo del certificato codificato in PEM da importare - massimo `5000` caratteri
+-   `certificate_private_key` : Chiave privata del certificato codificata in PEM da importare - massimo `5000` caratteri
+-   `certificate_chain` : Catena di certificati codificata in PEM da importare - massimo `5000` caratteri
 
--   `enabled_import` : Importazione del certificato
--   `certificate_body` : Corpo del certificato codificato in PEM da importare
--   `certificate_private_key` : Chiave privata del certificato codificata in PEM da importare
--   `certificate_chain` : Catena del certificato codificata in PEM da importare
+#### Tag
 
-## Materiale di riferimento
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
+
+## Riferimenti
 
 -   [Amazon AcmCertificate(AWS)](https://docs.aws.amazon.com/ko_kr/acm/latest/userguide/acm-overview.html)
 -   [Amazon AcmCertificate(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate)
-

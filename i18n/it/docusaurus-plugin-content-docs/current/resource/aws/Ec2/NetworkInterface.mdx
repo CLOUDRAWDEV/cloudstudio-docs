@@ -1,43 +1,52 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, Risorsa, Ec2, NetworkInterface]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Componente di rete logica che rappresenta una scheda di rete virtuale in una VPC.
+Componente di rete logico che rappresenta una scheda di rete virtuale all’interno di un VPC.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/Subnet)
 
 ### Risorse collegate
 
--   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**Eip**](https://docs.cstudio.app/if/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/if/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/SecurityGroup)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `private_ips` : Elenco di private ips
--   `linked_security_group_names` : Nome del Security Group da utilizzare per l'interfaccia di rete
--   `linked_eip_names` : Nome dell'Elastic IP da utilizzare
+#### Impostazioni di base
+
+-   `included_subnet_name` : Nome della subnet in cui risiede l’interfaccia di rete
+-   `private_ips` : Elenco degli indirizzi IP privati
+-   `linked_security_group_names` : Nomi dei Security Group associati all’interfaccia di rete
+-   `linked_eip_names` : Nomi degli Elastic IP da associare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
--   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)
+-   [Amazon Network Interface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
+-   [Amazon Network Interface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

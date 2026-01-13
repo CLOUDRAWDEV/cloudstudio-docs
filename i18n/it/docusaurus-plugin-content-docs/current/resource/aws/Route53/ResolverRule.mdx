@@ -1,47 +1,53 @@
 ---
 title: ResolverRule
-sidebar_position: 0
-tags: [AWS, Risorsa, Route53, ResolverRule]
+sidebar_position: 2
+tags: [AWS, risorsa, Route53, ResolverRule]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
     }
 />
 
 ## Panoramica della risorsa
 
-Regole utilizzate dal Resolver per inoltrare le query del nome di dominio specificato attraverso la rete.
+Regola utilizzata dal resolver per inoltrare le query di un nome di dominio specificato verso la rete
 
-### Risorse superiori
+## Risorse correlate
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+### Risorsa principale
+
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
 ### Risorse collegate
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
--   [**ResolverEndpoint**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/if/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**Vpc**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `rule_type` : Tipo di regola - `Forward`, `system`
--   `domain_name` : Nome del dominio per il quale viene inoltrata la query DNS
--   `linked_vpc_names` : Nomi dei VPC che utilizzano la regola
--   `linked_resolver_endpoint_name` : Nome dell'endpoint outbound utilizzato dal Resolver
--   `target_ip` : Indirizzo IP di destinazione
--   `target_ip.name`
+#### Impostazioni di base
+
+-   `rule_type` : Tipo di regola - `FORWARD`, `SYSTEM`
+-   `domain_name` : Nome di dominio verso cui vengono inoltrate le query DNS
+-   `linked_vpc_names` : Elenco dei nomi dei VPC che utilizzano la regola
+-   `linked_resolver_endpoint_name` : Nome dell’endpoint outbound utilizzato dal resolver
 -   `target_ip.ip` : Indirizzo IP di destinazione
--   `target_ip.port` : Porta dell'indirizzo IP di destinazione - `1~65535`
+-   `target_ip.port` : Porta dell’indirizzo IP di destinazione
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon Resolver rule(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
--   [Amazon Resolver rule(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)
+-   [Amazon Resolver Rule (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Rule (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)

@@ -1,51 +1,77 @@
 ---
 title: ClientVpnEndpoint
-sidebar_position: 0
-tags: [AWS, Risorsa, Vpc, ClientVpnEndpoint]
+sidebar_position: 2
+tags: [AWS, risorsa, Vpc, ClientVpnEndpoint]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Servizio VPN gestito basato su client che consente l'accesso sicuro alle risorse AWS e alle risorse della rete on-premise
+Servizio VPN gestito basato su client che consente l’accesso sicuro alle risorse AWS e alle reti on-premise
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorse principali
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Region**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/)
 
-## Impostazioni della risorsa
+### Risorse collegate
 
--   `description` : Breve descrizione dell'endpoint VPN client
--   `client_cidr_block` : Intervallo di indirizzi IP assegnati agli indirizzi IP client
--   `serer_acm_certificate_name` : Nome del certificato del server
--   `authentication` : Metodo di autenticazione da utilizzare
--   `authentication.option_types` : Metodi di autenticazione disponibili - `certificate-authentication`,`directory-service-authentication`,`federated-authentication`
--   `connection_logging.enalbed` : Dettagli dei log per le connessioni client - `false`,`true`
--   `transport_protocol` : Protocollo di trasporto utilizzato nella sessione TLS - `tcp`,`udp`
--   `enabled_split_tunnel` : Attivazione del tunnel diviso - `false`,`true`
--   `vpn_port` : Porta VPN
--   `enabled_self_service_portal` : Attivazione del portale self-service - `false`,`true`
--   `session_timeout_hours` : Timeout della sessione - `8`,`10`,`12`,`24`
--   `included_vpc_name` : Nome del VPC
--   `linked_security_group_names` : Nomi dei gruppi di sicurezza da applicare all'endpoint
--   `linked_subnet_names` : 연결할 Nomi delle subnet da collegare
+-   [**Log**](https://docs.cstudio.app/if/docs/resource/aws/Cloudwatch/Log)
+-   [**SecurityGroup**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/if/docs/resource/aws/Vpc/Subnet)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `description` : Descrizione dell’endpoint Client VPN
+-   `client_cidr_block` : Blocco CIDR assegnato agli indirizzi IP dei client
+-   `server_acm_certificate_name` : Nome del certificato server
+-   `transport_protocol` : Protocollo di trasporto TLS - `tcp`, `udp`
+-   `vpn_port` : Porta VPN - `443`, `1194`
+-   `enabled_split_tunnel` : Abilitazione del tunneling diviso - `true`, `false`
+-   `enabled_self_service_portal` : Abilitazione del portale self-service - `true`, `false`
+-   `session_timeout_hours` : Durata massima della sessione - `8`, `10`, `12`, `24`
+
+#### Impostazioni di autenticazione (`authentication`)
+
+-   `authentication.option_types` : Metodo di autenticazione - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : Nome del certificato client
+-   `authentication.active_directory_id` : ID di Active Directory
+-   `authentication.saml_provider_arn` : ARN del provider SAML
+-   `authentication.self_service_saml_provider_arn` : ARN del provider SAML per il self-service
+
+#### Logging delle connessioni (`connection_logging`)
+
+-   `connection_logging.enabled` : Abilitazione dei log di connessione - `true`, `false`
+-   `connection_logging.linked_log_group_name` : Nome del log group CloudWatch Logs
+-   `connection_logging.log_stream_name` : Nome dello stream di log CloudWatch Logs
+
+#### Connessione di rete
+
+-   `included_vpc_name` : Nome del VPC di destinazione
+-   `linked_security_group_names` : Elenco dei gruppi di sicurezza applicati
+-   `linked_subnet_names` : Elenco delle subnet da collegare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [AWS Client Vpn Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
--   [AWS Client Vpn Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)
+-   [AWS Client VPN Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
+-   [AWS Client VPN Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)
