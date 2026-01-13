@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch
 sidebar_position: 0
-tags: [AWS, Ressourcen, Elasticsearch]
+tags: [AWS, Ressource, Elasticsearch]
 ---
 
 <hr />
@@ -11,59 +11,83 @@ tags: [AWS, Ressourcen, Elasticsearch]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-AWS ElasticSearch ist eine verteilte Such- und Analyse-Engine, die für schnelle Such- und Datenanalyse-Dienste entwickelt wurde. ElasticSearch ist auf der Apache Lucene-Such-Engine aufgebaut und eine schnelle, skalierbare Open-Source-Lösung. ElasticSearch wird für verschiedene Zwecke wie Datensammlung, Log-Analyse und Monitoring verwendet. ElasticSearch kann innerhalb einer Amazon VPC ausgeführt werden und lässt sich mit AWS Lambda, Kinesis und anderen Diensten integrieren. ElasticSearch bietet Sicherheits- und Zugriffskontrollfunktionen, die von AWS bereitgestellt werden, und lässt sich mit Amazon CloudWatch integrieren, um Überwachungs- und Logging-Funktionen bereitzustellen.
+AWS Elasticsearch ist eine verteilte Such- und Analyse-Engine, die für schnelle Suchvorgänge und Datenanalysen entwickelt wurde. Elasticsearch basiert auf der Apache-Lucene-Suchmaschine und ist eine schnelle sowie skalierbare Open-Source-Lösung. Sie wird für Datenerfassung, Log-Analyse, Monitoring und viele weitere Anwendungsfälle eingesetzt. Elasticsearch kann innerhalb eines Amazon VPC ausgeführt und mit AWS Lambda, Kinesis und weiteren Services integriert werden. Zudem bietet es von AWS bereitgestellte Sicherheits- und Zugriffskontrollfunktionen sowie eine Integration mit Amazon CloudWatch für Monitoring und Logging.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**Elastic Search**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Elasticsearch**](https://docs.cstudio.app/de/docs/resource/aws/Elasticsearch/)
 
+## Ressourceneinstellungswerte
 
-## Ressourceneinstellungen
+#### Grundeinstellungen
 
--   `elasticsearch_version` : Elasticsearch-Domain-Version
--   `availability_zone_count` : Anzahl der Verfügbarkeitszonen - `2`,`3`
--   `tls_security_policy` : Name der TLS-Sicherheitsrichtlinie, die auf den HTTPS-Endpunkt angewendet werden muss - `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`
--   `data_node`
-    -   `instance_type` : Instanztyp der Datenknoten im Cluster
-    -   `instance_count` : Anzahl der Instanzen im Cluster - `1`~`80`
-    -   `ebs_enabled` : Ob ein EBS-Volume an die Datenknoten des Domains angehängt ist - `true`, `false`
-    -   `ebs_volume_type` : EBS-Volumentyp, der mit den Datenknoten verbunden ist - `standard`, `gp2`, `io1`
-    -   `ebs_volume_size` : Größe des EBS-Volumes, das mit den Datenknoten verbunden ist (GiB) - `1`~`16384`
--   `master_node`
-    -   `master_node_enabled` : Aktivierung des dedizierten Hauptknotens im Cluster - `true`, `false`
-    -   `master_instance_type` : Instanztyp des dedizierten Master-Knotens im Cluster - `r5.large.search`
-    -   `master_node_count ` : Anzahl der dedizierten Master-Knoten im Cluster - `3`, `5`
--   `custom_endpoint`
-    -   `custom_endpoint_enabled` : Aktivierung des benutzerdefinierten Endpunkts - `true`, `false`
--   `network`
-    -   `network_type` : Netzwerkzugriffsart - `vpc_access`, `public_access`
-    -   `included_subnet_names` : Liste der VPC-Subnetz-IDs für den zu erstellenden Elasticsearch-Domain-Endpunkt
-    -   `security_group_names` : Liste der VPC-Sicherheitsgruppen-IDs, die auf den Elasticsearch-Domain-Endpunkt angewendet werden
--   `fine_grained_access`
-    -   `fine_grained_access_enabled` : Aktivierung der fein granularen Zugriffskontrolle - `true`, `false`
-    -   `master_user_type` : Master-Benutzertyp - `iam_arn`, `master_user`
-    -   `iam_arn` : IAM ARN für den primären Benutzer
--   `encryption`
-    -   `enforce_https` : Anforderung von HTTPS - `true`, `false`
-    -   `node_to_node_encryption_enabled` : Aktivierung der Verschlüsselung zwischen den Knoten - `true`, `false`
-    -   `data_at_rest_encryption_enabled` : Aktivierung der Verschlüsselung von Daten im Ruhezustand - `true`, `false`
--   `kms_key_name` : KMS-Schlüsselname für die Datenverschlüsselung
+-   `elasticsearch_version` : Version der Elasticsearch-Domain
+-   `availability_zone_count` : Anzahl der Availability Zones – `2`, `3`
+-   `tls_security_policy` : TLS-Sicherheitsrichtlinie für HTTPS-Endpunkte
+-   `engine` : Konfiguration der Elasticsearch-Engine
+
+#### Datenknoten (`data_node`)
+
+-   `data_node.instance_type` : Instanztyp der Datenknoten
+-   `data_node.instance_count` : Anzahl der Datenknoten
+-   `data_node.ebs_enabled` : Aktivierung der EBS-Anbindung – `true`, `false`
+-   `data_node.ebs_volume_type` : Typ des EBS-Volumes – `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : Größe des EBS-Volumes (GiB)
+-   `data_node.ebs_volume_iops` : EBS-IOPS
+-   `data_node.ebs_volume_throughput` : EBS-Durchsatz (MiB/s)
+
+#### Master-Knoten (`master_node`)
+
+-   `master_node.master_node_enabled` : Aktivierung dedizierter Master-Knoten – `true`, `false`
+-   `master_node.master_instance_type` : Instanztyp der Master-Knoten
+-   `master_node.master_node_count` : Anzahl der Master-Knoten
+
+#### Benutzerdefinierter Endpunkt (`custom_endpoint`)
+
+-   `custom_endpoint.custom_endpoint_enabled` : Aktivierung eines benutzerdefinierten Endpunkts – `true`, `false`
+-   `custom_endpoint.custom_host_name` : Benutzerdefinierter Hostname
+-   `custom_endpoint.acm_certificate_name` : Name des ACM-Zertifikats
+
+#### Netzwerkeinstellungen (`network`)
+
+-   `network.network_type` : Zugriffstyp – `vpc_access`, `public_access`
+-   `network.included_subnet_names` : Liste der Subnet-Namen für die Elasticsearch-Domain
+-   `network.linked_security_group_names` : Liste der zu verknüpfenden Security Groups
+
+#### Fein abgestufte Zugriffskontrolle (`fine_grained_access`)
+
+-   `fine_grained_access.fine_grained_access_enabled` : Aktivierung der fein abgestuften Zugriffskontrolle – `true`, `false`
+-   `fine_grained_access.master_user_type` : Typ des Master-Benutzers – `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : IAM-ARN des Master-Benutzers
+-   `fine_grained_access.master_user_name` : Benutzername des Master-Benutzers
+-   `fine_grained_access.master_user_password` : Passwort des Master-Benutzers
+
+#### Verschlüsselung (`encryption`)
+
+-   `encryption.enforce_https` : Erzwingung von HTTPS – `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : Aktivierung der Node-zu-Node-Verschlüsselung – `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : Aktivierung der Verschlüsselung gespeicherter Daten – `true`, `false`
+-   `encryption.kms_key_name` : Name des für die Verschlüsselung verwendeten KMS-Schlüssels
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

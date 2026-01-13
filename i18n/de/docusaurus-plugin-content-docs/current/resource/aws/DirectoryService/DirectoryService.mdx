@@ -1,7 +1,7 @@
 ---
-title: Directory Service
+title: DirectoryService
 sidebar_position: 0
-tags: [AWS, Ressourcen, DirectoryService, DirectoryService]
+tags: [AWS, Ressource, DirectoryService, DirectoryService]
 ---
 
 <hr />
@@ -11,36 +11,43 @@ tags: [AWS, Ressourcen, DirectoryService, DirectoryService]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-AWS Directory Service bietet mehrere Möglichkeiten, wie andere AWS-Dienste Microsoft Active Directory (AD) nutzen können. Ein Verzeichnis speichert Informationen über Benutzer, Gruppen und Geräte, und Administratoren können diese verwenden, um den Zugriff auf Informationen und Ressourcen zu verwalten. AWS Directory Service bietet eine Vielzahl von Verzeichnisoptionen für Kunden, die Microsoft AD oder LDAP (Lightweight Directory Access Protocol) -kompatible Anwendungen in der Cloud verwenden möchten. Es bietet auch die gleichen Auswahlmöglichkeiten für Entwickler, die ein Verzeichnis benötigen, um Benutzer, Gruppen, Geräte und Zugriffsrechte zu verwalten.
+AWS Directory Service bietet mehrere Möglichkeiten zur Nutzung von Microsoft Active Directory (AD) mit anderen AWS-Services.  
+Verzeichnisse speichern Informationen über Benutzer, Gruppen und Geräte und ermöglichen Administratoren die Verwaltung von Zugriffen auf Informationen und Ressourcen.  
+AWS Directory Service stellt verschiedene Verzeichnisoptionen für Kunden bereit, die vorhandene Microsoft-AD- oder LDAP-fähige Anwendungen in der Cloud verwenden möchten, sowie für Entwickler, die Verzeichnisse zur Verwaltung von Benutzern, Gruppen, Geräten und Zugriffsrechten benötigen.
 
-## Verwandte Ressourcen
+### Übergeordnete Ressource
 
-### Übergeordnete Ressourcen
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+### Verknüpfte Ressourcen
 
-### Verbundene Ressourcen
+-   [**DirectoryService**](https://docs.cstudio.app/de/docs/resource/aws/DirectoryService/DirectoryService)
 
--   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+## Ressourceneinstellungswerte
 
-## Ressourceneinstellungen
+#### Grundeinstellungen
 
 -   `password` : Passwort des Verzeichnisadministrators oder des Connector-Benutzers
--   `type` : `SimpleAD`,`MicrosoftAD`
--   `size` : Größe des Verzeichnisses - `Small`,`Large`
--   `included_vpc_name` : Name der VPC, in der sich das Verzeichnis befindet
--   `included_subnet_names` : Name des Subnetzes des Verzeichnisservers (Subnets müssen in verschiedenen Availability Zones (AZs) bereitgestellt werden)
+-   `type` : Typ des Verzeichnisses – `SimpleAD`, `MicrosoftAD`
+-   `size` : Größe des Verzeichnisses – `Small`, `Large`
+-   `edition` : Edition von MicrosoftAD – `Standard`, `Enterprise`
+-   `included_vpc_name` : Name des VPCs, in dem sich das Verzeichnis befindet
+-   `included_subnet_names` : Namen der Subnetze für die Verzeichnisserver
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [AWS Directory Service(AWS)](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
--   [AWS Direct Service Preis(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
+-   [AWS Direct Service 가격(AWS)](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)
 -   [AWS Direct Service(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/directory_service_conditional_forwarder)

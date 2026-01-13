@@ -1,13 +1,13 @@
 ---
 title: LaunchConfiguration
 sidebar_position: 1
-tags: [Ncloud, 리소스, Compute, LaunchConfiguration]
+tags: [Ncloud, Ressource, Compute, LaunchConfiguration]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,28 +15,28 @@ tags: [Ncloud, 리소스, Compute, LaunchConfiguration]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A template that defines the specifications of virtual servers that are automatically created when server scaling is required during Auto Scaling operations.
+Eine Vorlage zur Definition der Spezifikationen virtueller Server, die während des Auto-Scaling-Vorgangs automatisch erstellt werden, wenn eine Servererweiterung erforderlich ist.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `server_image_product_code` : Operating system image code to use (CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition) - `ncloudServerImage`
--   `server_product_code` : Code for server hardware configuration (HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C:number of cores, M:memory(GB)) - `ncloudServerType`
--   `login_key_name` : Public login key name for encryption
--   `init_script` : Script content to be executed automatically when the server is created
--   `is_encrypted_volume` : Whether to encrypt the basic block storage - `true`, `false`
+-   `server_image_product_code` : Betriebssystem-Image-Code (CNTOS: CentOS, UBNTU: Ubuntu, WND: Windows / MYSQL, MARIA: Database / SVR: Server, EN: English Edition) – `ncloudServerImage`
+-   `server_product_code` : Code für die Server-Hardwarekonfiguration (HICPU: High CPU, STAND: Standard, HIMEM: High Memory / C: CPU-Kerne, M: Speicher(GB)) – `ncloudServerType`
+-   `login_key_name` : Name des öffentlichen Login-Schlüssels zur Verschlüsselung
+-   `init_script` : Skriptinhalt, der beim Erstellen des Servers automatisch ausgeführt wird
+-   `is_encrypted_volume` : Aktivierung der Verschlüsselung des Basic Block Storage – `true`, `false`
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Launch Configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

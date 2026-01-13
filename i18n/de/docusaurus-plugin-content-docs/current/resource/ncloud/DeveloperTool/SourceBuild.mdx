@@ -1,13 +1,13 @@
 ---
 title: SourceBuild
 sidebar_position: 0
-tags: [Ncloud, 리소스, DeveloperTool, SourceBuild]
+tags: [Ncloud, Ressource, DeveloperTool, SourceBuild]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,81 +15,82 @@ tags: [Ncloud, 리소스, DeveloperTool, SourceBuild]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-SourceBuild is a service that allows you to easily build source code developed in various languages. SourceBuild creates independent build servers in real time and can process multiple build execution requests simultaneously.
+SourceBuild ist ein Service zum einfachen Erstellen von Quellcode, der in verschiedenen Programmiersprachen entwickelt wurde.  
+Dabei werden unabhängige Build-Server in Echtzeit erstellt, um mehrere Build-Anfragen gleichzeitig zu verarbeiten.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
--   [**Source Pipeline**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourcePipeline)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Source Commit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
--   [**Source Deploy Stage**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
+-   [**SourceCommit**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `description` : Build project description (up to 500 characters)
--   `source_type` : Build target type - `SourceCommit`
--   `source_branch` : Name of the branch to build
--   `linked_repository_name` : Name of the repository to build
+-   `description` : Beschreibung des Build-Projekts (max. 500 Zeichen)
+-   `source_type` : Typ des Build-Ziels – `SourceCommit`
+-   `source_branch` : Name des zu buildenden Branches
+-   `linked_repository_name` : Name des Repositorys für den Build
 
-#### 빌드 환경 설정 (`env`)
+#### Build-Umgebung (`env`)
 
--   `env.env_compute_spec` : Build computing environment specification - `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
--   `env.env_platform_type` : Build environment image type - `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
--   `env.env_platform_os_spec` : OS specification to use
--   `env.env_platform_runtime_name` : Build runtime name
--   `env.env_platform_runtime_version` : Build runtime version
--   `env.target_registry_name` : Name of the container registry where the build image will be stored
--   `env.target_container_image_name` : Name of the container image to be created
--   `env.target_container_image_tag` : Tag of the container image to be created
--   `env.env_timeout` : Maximum build waiting time (minutes) - `5` ~ `540`
--   `env.env_use_docker` : Whether to use the Docker engine - `true`, `false`
--   `env.env_docker_engine_version` : Docker engine version
--   `env.env_var` : Environment variables to use for the build (key-value)
+-   `env.env_compute_spec` : Rechenleistung der Build-Umgebung – `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : Typ des Build-Umgebungs-Images – `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : Verwendete OS-Spezifikation
+-   `env.env_platform_runtime_name` : Name der Build-Runtime
+-   `env.env_platform_runtime_version` : Version der Build-Runtime
+-   `env.target_registry_name` : Name der Container-Registry für Build-Images
+-   `env.target_container_image_name` : Name des zu erstellenden Container-Images
+-   `env.target_container_image_tag` : Tag des zu erstellenden Container-Images
+-   `env.env_timeout` : Maximale Wartezeit für den Build (Minuten) – `5` ~ `540`
+-   `env.env_use_docker` : Verwendung der Docker-Engine – `true`, `false`
+-   `env.env_docker_engine_version` : Version der Docker-Engine
+-   `env.env_var` : Umgebungsvariablen für den Build (Key-Value)
 
-#### 빌드 명령어 (`build_command`)
+#### Build-Befehle (`build_command`)
 
--   `build_command.pre_build_command` : List of commands to execute before the build
--   `build_command.in_build_command` : List of commands to execute during the build
--   `build_command.post_build_command` : List of commands to execute after the build
--   `build_command.use_docker_image_build_command` : Whether to use Docker image build - `true`, `false`
--   `build_command.docker_image_build_registry` : Name of the container registry where the image will be stored
--   `build_command.docker_image_dockerfile` : Path to the Dockerfile
--   `build_command.docker_image` : Name of the image to upload
--   `build_command.docker_image_build_tag` : Tag of the image to upload
+-   `build_command.pre_build_command` : Befehle vor dem Build
+-   `build_command.in_build_command` : Befehle während des Builds
+-   `build_command.post_build_command` : Befehle nach dem Build
+-   `build_command.use_docker_image_build_command` : Verwendung von Docker-Image-Build – `true`, `false`
+-   `build_command.docker_image_build_registry` : Container-Registry für Images
+-   `build_command.docker_image_dockerfile` : Pfad zur Dockerfile
+-   `build_command.docker_image` : Name des hochzuladenden Images
+-   `build_command.docker_image_build_tag` : Tag des hochzuladenden Images
 
-#### 로그 및 보안
+#### Protokollierung und Sicherheit
 
--   `enable_cloud_log_analytics` : Whether to store build logs in Cloud Log Analytics - `true`, `false`
--   `enable_file_safer` : Whether to perform security inspection using File Safer - `true`, `false`
+-   `enable_cloud_log_analytics` : Speicherung von Build-Logs in Cloud Log Analytics – `true`, `false`
+-   `enable_file_safer` : Sicherheitsprüfung über File Safer – `true`, `false`
 
-#### 빌드 결과물 저장 (`artifact`)
+#### Artefaktspeicherung (`artifact`)
 
--   `artifact.save_build_results` : Whether to save build results - `true`, `false`
--   `artifact.path_to_save_build_results` : Path to save build results
--   `artifact.object_storage_name_to_save` : Object Storage bucket name
--   `artifact.object_storage_path_to_save` : Object Storage bucket path
--   `artifact.file_name_to_save` : Name of the file to save
--   `artifact.enable_backup_build_results` : Whether to back up build results - `true`, `false`
+-   `artifact.save_build_results` : Speicherung der Build-Ergebnisse – `true`, `false`
+-   `artifact.path_to_save_build_results` : Speicherpfad für Build-Ergebnisse
+-   `artifact.object_storage_name_to_save` : Name des Object-Storage-Buckets
+-   `artifact.object_storage_path_to_save` : Pfad im Object-Storage-Bucket
+-   `artifact.file_name_to_save` : Name der zu speichernden Datei
+-   `artifact.enable_backup_build_results` : Backup der Build-Ergebnisse – `true`, `false`
 
-#### 이미지 업로드 (`upload`)
+#### Image-Upload (`upload`)
 
--   `upload.upload_build_results` : Whether to store the build environment image - `true`, `false`
--   `upload.container_registry_name_to_upload_build_results` : Name of the container registry to upload the image
--   `upload.image_name_to_upload` : Name of the image to upload
--   `upload.image_tag_to_upload` : Tag of the image to upload
+-   `upload.upload_build_results` : Speicherung der Build-Images – `true`, `false`
+-   `upload.container_registry_name_to_upload_build_results` : Container-Registry-Name für Uploads
+-   `upload.image_name_to_upload` : Name des hochzuladenden Images
+-   `upload.image_tag_to_upload` : Tag des hochzuladenden Images
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
 -   [Source Build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

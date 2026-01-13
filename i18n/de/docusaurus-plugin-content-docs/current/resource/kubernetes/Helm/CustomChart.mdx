@@ -1,48 +1,42 @@
 ---
 title: CustomChart
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Helm, CustomChart]
+tags: [Kubernetes, Ressource, Helm, CustomChart]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist eine Ressource, mit der das Standard-Helm-Chart mit benutzerdefinierten Werten konfiguriert und bereitgestellt werden kann.
+Eine Ressource, mit der ein Helm-Chart mithilfe benutzerdefinierter Werte bereitgestellt werden kann.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
-### Verbundene Ressourcen
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-
-## Ressourcen-Einstellwerte
-
--   `service_name` : Helm Custom Chart Release-Name
--   `namespace` : Der Namespace, in dem das Helm Custom bereitgestellt wird
--   `repository` : Das Repository zum Speichern und Teilen von Helm-Charts (geben Sie das Repository an, in dem das anzupassende Chart gespeichert ist)
--   `chart` : Der Name des Helm-Charts, das angepasst werden soll
--   `version` : Die Version des Helm-Charts, das angepasst werden soll
--   `set` : Dynamische Änderung der Standardwerte des Charts
+-   `namespace` : Namespace, in dem die benutzerdefinierte Helm-Chart-Ressource bereitgestellt wird
+-   `repository` : Repository-URL, in dem das anzupassende Helm-Chart gespeichert ist
+-   `chart` : Name des anzupassenden Helm-Charts
+-   `version` : Version des anzupassenden Helm-Charts
+-   `set` : Key-Value-Einstellungen zur dynamischen Änderung der Standardwerte des Helm-Charts
 
 ---
 
-## Referenzmaterial
-
+## Referenzen
 
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

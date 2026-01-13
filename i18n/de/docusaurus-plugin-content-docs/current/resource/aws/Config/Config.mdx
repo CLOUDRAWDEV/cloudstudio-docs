@@ -1,7 +1,7 @@
 ---
 title: Config
 sidebar_position: 0
-tags: [AWS, Ressourcen, Config]
+tags: [AWS, Ressource, Config]
 ---
 
 <hr />
@@ -11,45 +11,60 @@ tags: [AWS, Ressourcen, Config]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/config-aws_config.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/config-config.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Ressource zum Aufzeichnen von Ressourcenkonfigurationsinformationen eines Kontos, um Beziehungen zwischen Ressourcen zu erkennen
+Eine Ressource, die Konfigurationsinformationen von Ressourcen im AWS-Konto aufzeichnet, um Beziehungen zwischen Ressourcen zu überprüfen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Sns Topic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+-   [**S3Bucket**](https://docs.cstudio.app/de/docs/resource/aws/S3/S3Bucket)
+-   [**SnsTopic**](https://docs.cstudio.app/de/docs/resource/aws/Sns/SnsTopic)
 
-## Ressourceneinstellungen
+## Ressourceneinstellungswerte
 
--   `enable_config_recorder` : Ob der Konfigurationsaufzeichner aktiviert oder deaktiviert werden soll - `false`, `true`
--   `role_name` : Name der IAM-Role, die von AWS Config verwendet wird
--   `recording_method`
--   `recording_method.enable_all_supported` : Ob AWS Config Konfigurationsänderungen für alle unterstützten regionalen Ressourcentypen aufzeichnet - `false`,`true`
--   `recording_method.exclude_resource_types` : Liste der AWS-Ressourcentypen, für die Konfigurationsänderungen in AWS Config aufgezeichnet werden sollen
--   `recording_method.include_global_resource_types` : Ob alle unterstützten globalen Ressourcentypen zusammen mit den von AWS Config aufgezeichneten Ressourcen enthalten sind - `false`,`true`
--   `linked_s3_bucket_name` : Name des S3-Buckets, der zur Speicherung der Konfigurationsaufzeichnungen verwendet wird
--   `s3_key_prefix` : Prefix des S3-Buckets, der verwendet werden soll
--   `enable_sns_topic` : Ob AWS Config Benachrichtigungen an das SNS-Topic weiterleitet
--   `delivery_frequency` : Häufigkeit, mit der AWS Config regelmäßig Konfigurations-Snapshots sendet
--   `config_rule`
--   `config_rule.name` : Name der Config-Rule
--   `config_rule.rule_owner` : Ob AWS oder der Kunde die AWS Config-Regeln besitzt und verwaltet - `AWS`,`customLambda`,`customPolicy`
--   `config_rule.source_identifier` : Vordefinierte Identifikatoren für AWS Config-Management-Regeln
+#### Grundeinstellungen
+
+-   `enable_config_recorder` : Gibt an, ob der Konfigurationsrekorder aktiviert oder deaktiviert wird – `true`, `false`
+-   `role_name` : Name der IAM-Rolle, die von AWS Config verwendet wird
+-   `linked_s3_bucket_name` : Name des S3-Buckets zur Speicherung der Konfigurationsaufzeichnungen
+-   `s3_key_prefix` : Präfix des verwendeten S3-Buckets
+-   `enable_sns_topic` : Gibt an, ob das SNS-Topic für Benachrichtigungen durch AWS Config aktiviert wird – `true`, `false`
+-   `linked_sns_topic_name` : Name des SNS-Themas, an das AWS Config Benachrichtigungen sendet
+-   `delivery_frequency` : Häufigkeit, mit der AWS Config Konfigurations-Snapshots übermittelt – `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+
+#### Aufzeichnungsmodus (`recording_method`)
+
+-   `recording_method.enable_all_supported` : Gibt an, ob AWS Config Konfigurationsänderungen für alle unterstützten regionalen Ressourcentypen aufzeichnet – `true`, `false`
+-   `recording_method.exclude_resource_types` : Liste der AWS-Ressourcentypen, für die keine Konfigurationsänderungen aufgezeichnet werden
+-   `recording_method.include_global_resource_types` : Gibt an, ob alle unterstützten globalen Ressourcentypen einbezogen werden – `true`, `false`
+-   `recording_method.specific_resource_types` : Liste spezifischer Ressourcentypen, die von AWS Config aufgezeichnet werden
+
+#### Konfigurationsregeln (`config_rule`)
+
+-   `config_rule.rule_owner` : Gibt an, ob AWS oder der Kunde die Konfigurationsregel besitzt und verwaltet – `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.source_identifier` : Vordefinierter Bezeichner für verwaltete AWS-Konfigurationsregeln
+-   `config_rule.target_lambda_name` : Name der Lambda-Funktion für benutzerdefinierte Regeln
+-   `config_rule.custom_policy_message_type` : Benachrichtigungstyp, der AWS Config zur Ausführung der Regelbewertung auslöst – `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, `ScheduledNotification`, `ConfigurationSnapshotDeliveryCompleted`
+-   `config_rule.maximum_execution_frequency` : Häufigkeit der regelmäßigen Regelbewertung durch AWS Config – `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+-   `config_rule.custom_policy_text` : Richtliniendefinition für benutzerdefinierte Konfigurationsregeln
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
 -   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)

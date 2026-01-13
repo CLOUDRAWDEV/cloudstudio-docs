@@ -1,7 +1,7 @@
 ---
-title: Dx Connection
+title: DxConnection
 sidebar_position: 0
-tags: [AWS, Ressourcen, DirectConnection, DxConnection]
+tags: [AWS, Ressource, DirectConnection, DxConnection]
 ---
 
 <hr />
@@ -11,29 +11,39 @@ tags: [AWS, Ressourcen, DirectConnection, DxConnection]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Mit AWS Direct Connect können Sie Ihr internes Netzwerk über ein Standard-Ethernet-Glasfaserkabel mit einer AWS Direct Connect-Standort verbinden. Ein Ende des Kabels wird mit Ihrem Router verbunden, das andere Ende wird mit dem AWS Direct Connect-Router verbunden. Über diese Verbindung können Sie Folgendes erstellen. Virtuelle Schnittstellen, die den Internetdienstanbieter im AWS-Netzwerk umgehen und Daten an Dienste wie Amazon S3 oder Amazon VPC übertragen. Der AWS Direct Connect-Standort bietet Zugriff auf die öffentlichen AWS-Regionen über eine einzelne Verbindung in der Region, in der der Service ursprünglich angefordert wurde, oder auf den Zugriff auf AWS GovCloud (US) und andere öffentliche AWS-Regionen.
+Mit AWS Direct Connect können Sie Ihr internes Netzwerk über ein standardmäßiges Ethernet-Glasfaserkabel mit einem AWS-Direct-Connect-Standort verbinden.  
+Ein Kabelende wird mit Ihrem Router verbunden, das andere mit einem AWS-Direct-Connect-Router.  
+Diese Verbindung ermöglicht die Erstellung virtueller Schnittstellen und die direkte Übertragung von Daten zu Services (z. B. Amazon S3) oder zu Amazon VPCs unter Umgehung des Internetdienstanbieters.  
+AWS Direct Connect bietet Zugriff auf AWS-Services in öffentlichen Regionen über eine einzelne Verbindung sowie auf AWS GovCloud (US).
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-## Ressourceneinstellungen
+## Ressourceneinstellungswerte
 
--   `bandwidth` : Direct Connection의 Bandwidth - `50Mbps`,`100Mbps`,`200Mbps`,`300Mbps`,`400Mbps`,`500Mbps`,`1Gbps`,`2Gbps`,`5Gbps`,`10Gbps`,`100Gbps`
--   `location` : AWS Direct Connect-Standort, an dem die Verbindung besteht
+#### Grundeinstellungen
+
+-   `bandwidth` : Bandbreite der Direct-Connect-Verbindung – `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`
+-   `location` : AWS-Direct-Connect-Standort der Verbindung
+-   `service_provider` : Dienstanbieter, der die Verbindung am Standort bereitstellt
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Amazon Direct Connect(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
--   [Amazon Direct Connect Preis(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
+-   [Amazon Direct Connect 가격(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
 -   [Amazon Direct Connect(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)

@@ -1,7 +1,7 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc, NatGateway]
+title: NatGateway
+sidebar_position: 8
+tags: [AWS, Ressource, Vpc, NatGateway]
 ---
 
 <hr />
@@ -11,30 +11,41 @@ tags: [AWS, Ressourcen, Vpc, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-NAT Gateway ist ein Network Address Translation (NAT)-Service. Mit einem NAT Gateway können Instanzen im privaten Subnetz mit Diensten außerhalb der VPC kommunizieren, jedoch können diese externen Dienste keine Verbindungen zu diesen Instanzen initiieren.
+Ein NAT-Gateway ist ein NAT-Dienst (Network Address Translation). Es ermöglicht Instanzen in privaten Subnetzen, Verbindungen zu Diensten außerhalb der VPC herzustellen, verhindert jedoch, dass externe Dienste Verbindungen zu diesen Instanzen initiieren.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
 
-## Ressourcenkonfigurationswerte
+### Verknüpfte Ressourcen
 
--   `included_subnet_name` : Der Name des Subnetzes, das mit dem NAT Gateway verbunden wird
--   `connectivity_type` : Verbindungstyp des NAT Gateways - `public`, `private`
--   `eip_name` : Name der EIP
+-   [**Eip**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/Eip)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Network/RouteTable)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `included_subnet_name` : Name des Subnetzes, mit dem das NAT-Gateway verbunden wird
+-   `connectivity_type` : Verbindungstyp des NAT-Gateways – `public`, `private`
+-   `linked_eip_name` : Name der zu verbindenden Elastic IP
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [NAT Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
--   [Amazon VPC Kosten(AWS)](https://aws.amazon.com/ko/vpc/pricing/)
+-   [NAT 게이트웨이(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
+-   [Amazon VPC Preise(AWS)](https://aws.amazon.com/ko/vpc/pricing/)
 -   [aws_nat_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway)

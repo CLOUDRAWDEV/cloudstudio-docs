@@ -1,13 +1,13 @@
 ---
 title: TargetGroup
 sidebar_position: 7
-tags: [Ncloud, 리소스, Network, TargetGroup]
+tags: [Ncloud, Ressource, Network, TargetGroup]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,47 +15,41 @@ tags: [Ncloud, 리소스, Network, TargetGroup]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A resource that represents a group of targets that will handle requests from a load balancer.
+Eine Ressource, die eine Gruppe von Zielen definiert, welche Anfragen eines Load Balancers verarbeiten.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_vpc_name` : Name of the VPC where the target group will be created (read-only)
--   `protocol` : Protocol to use for traffic routing - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
--   `port` : Port number on which targets will receive traffic
--   `algorithm_type` : Load balancing algorithm - `RR`, `SIPHS`, `LC`, `MH`
-
-#### 헬스 체크 설정
-
--   `health_check_protocol` : Protocol to use for health checks - `TCP`, `HTTP`, `HTTPS`
--   `health_check_http_method` : Health check method when using HTTP/HTTPS - `HEAD`, `GET`
--   `health_check_port` : Port number to use for health checks
--   `health_check_cycle` : Health check interval (seconds) - `5` ~ `300`
--   `health_check_up_threshold` : Number of consecutive successes required to transition to a healthy state - `2` ~ `10`
--   `health_check_down_threshold` : Number of consecutive failures required to transition to an unhealthy state - `2` ~ `10`
--   `health_check_url_path` : URL path for health check requests
-
-#### 타겟 설정
-
--   `linked_server_names` : List of server names to connect to the target group
+-   `included_vpc_name` : VPC-Name der Target-Group (schreibgeschützt)
+-   `protocol` : Protokoll für Traffic-Routing – `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Port, auf dem Ziele Traffic empfangen
+-   `algorithm_type` : Load-Balancing-Algorithmus – `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Protokoll für Health-Checks – `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : HTTP-Methode – `HEAD`, `GET`
+-   `health_check_port` : Port für Health-Checks
+-   `health_check_cycle` : Health-Check-Intervall (Sek.) – `5` ~ `300`
+-   `health_check_up_threshold` : Erfolgsanzahl für Status „gesund“ – `2` ~ `10`
+-   `health_check_down_threshold` : Fehleranzahl für Status „ungesund“ – `2` ~ `10`
+-   `health_check_url_path` : URL-Pfad für Health-Checks
+-   `linked_server_names` : Liste der verbundenen Servernamen
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

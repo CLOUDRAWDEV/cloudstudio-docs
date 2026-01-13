@@ -1,13 +1,13 @@
 ---
 title: AutoScaling
 sidebar_position: 0
-tags: [Ncloud, 리소스, Compute, AutoScaling]
+tags: [Ncloud, Ressource, Compute, AutoScaling]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,52 +15,52 @@ tags: [Ncloud, 리소스, Compute, AutoScaling]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A service that automatically increases or decreases the number of virtual servers according to user-defined schedules or monitoring results, allowing flexible responses to changes in demand. By monitoring servers based on predefined thresholds and automatically adjusting the number of servers, services can be operated stably.
+Ein Service, der die Anzahl virtueller Server automatisch anhand von Zeitplänen oder Monitoring-Ergebnissen erhöht oder verringert, um flexibel auf Nachfrageschwankungen zu reagieren und einen stabilen Betrieb sicherzustellen.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
--   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**AccessControlGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `linked_acg_names` : List of ACG names to apply to Auto Scaling
--   `included_subnet_name` : Subnet name for server creation
--   `launch_configuration_name` : Name of the Launch Configuration to use
--   `health_check_type_code` : Health check type, server or load balancer - `SVR`, `LOADB`
--   `health_check_grace_period` : Grace period for health checks after the server instance is added to the service - `1` ~ `2147486347`
--   `linked_target_group_list` : List of target group names to connect
--   `min_size` : Minimum size of the Auto Scaling group, within the range of 0 to 30 - `1` ~ `30`
--   `max_size` : Maximum size of the Auto Scaling group, within the range of 0 to 30 - `1` ~ `30`
+-   `linked_acg_names` : Liste der auf Auto Scaling anzuwendenden ACG-Namen
+-   `included_subnet_name` : Subnet-Name für die Servererstellung
+-   `launch_configuration_name` : Name der zu verwendenden Launch-Konfiguration
+-   `health_check_type_code` : Typ des Health-Checks – Server oder Load Balancer (`SVR`, `LOADB`)
+-   `health_check_grace_period` : Wartezeit vor Health-Check nach Serverstart – `1` ~ `2147486347`
+-   `linked_target_group_list` : Liste der zu verbindenden Target-Gruppen
+-   `min_size` : Minimale Größe der Auto-Scaling-Gruppe – `1` ~ `30`
+-   `max_size` : Maximale Größe der Auto-Scaling-Gruppe – `1` ~ `30`
 
-#### Auto Scaling 정책 (`policy`)
+#### Auto-Scaling-Richtlinien (`policy`)
 
--   `policy.adjustment_type_code` : Scaling adjustment type code, change(CHANG)/percentage(PRCNT)/exact(EXACT) - `CHANG`, `PRCNT`, `EXACT`
--   `policy.scaling_adjustment` : Scaling adjustment value
--   `policy.cooldown` : Time (seconds) during which additional alarms are ignored - `0` ~ `214748364`
--   `policy.min_adjustment_step` : Minimum adjustment step when changing the number of instances - `0` ~ `214748364`
+-   `policy.adjustment_type_code` : Skalierungstyp – Änderung (`CHANG`), Prozent (`PRCNT`), Exakt (`EXACT`)
+-   `policy.scaling_adjustment` : Skalierungswert
+-   `policy.cooldown` : Cooldown-Zeit in Sekunden – `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Minimale Anpassungseinheit der Instanzanzahl
 
-#### Auto Scaling 일정 (`schedule`)
+#### Auto-Scaling-Zeitpläne (`schedule`)
 
--   `schedule.min_size` : Minimum size of the Auto Scaling group - `1` ~ `30`
--   `schedule.max_size` : Maximum size of the Auto Scaling group - `1` ~ `30`
--   `schedule.desired_capacity` : Desired capacity of the Auto Scaling group - `1` ~ `30`
--   `schedule.start_time` : Schedule start date and time
--   `schedule.end_time` : Schedule end date and time
+-   `schedule.min_size` : Minimale Gruppengröße
+-   `schedule.max_size` : Maximale Gruppengröße
+-   `schedule.desired_capacity` : Erwartete Gruppengröße
+-   `schedule.start_time` : Startdatum und -zeit des Zeitplans
+-   `schedule.end_time` : Enddatum und -zeit des Zeitplans
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
 -   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

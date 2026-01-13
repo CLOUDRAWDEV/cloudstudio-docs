@@ -1,13 +1,13 @@
 ---
 title: RouteTable
 sidebar_position: 4
-tags: [Ncloud, 리소스, Network, RouteTable]
+tags: [Ncloud, Ressource, Network, RouteTable]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,38 +15,38 @@ tags: [Ncloud, 리소스, Network, RouteTable]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-A service that defines network routes for resources within a VPC.
+Ein Service zur Definition von Netzwerkpfaden für Ressourcen innerhalb eines VPC.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### 연결 리소스
+### Verbundene Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_vpc_name` : Name of the VPC to which the Route Table will be connected
--   `supported_subnet_type` : Supported subnet type (`PUBLIC`, `PRIVATE`)
--   `route_table_description` : Route Table description
--   `linked_subnet_names` : List of subnet names to connect to the Route Table
+-   `included_vpc_name` : Name des zu verknüpfenden VPC
+-   `supported_subnet_type` : Unterstützter Subnet-Typ (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Beschreibung der Route-Table
+-   `linked_subnet_names` : Liste der verknüpften Subnet-Namen
 
-#### 라우팅 설정 (`route`)
+#### Routing (`route`)
 
--   `target_type` : Destination type (`NATGW`, `VPCPEERING`)
--   `target_name` : Destination resource name
--   `destination_cidr_block` : Destination IP range in CIDR format
+-   `target_type` : Zieltyp (`NATGW`, `VPCPEERING`)
+-   `target_name` : Name der Zielressource
+-   `destination_cidr_block` : Ziel-IP-Bereich im CIDR-Format
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
 -   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

@@ -1,13 +1,13 @@
 ---
 title: AccessControlGroup
 sidebar_position: 0
-tags: [Ncloud, 리소스, Security, AccessControlGroup]
+tags: [Ncloud, Ressource, Security, AccessControlGroup]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,49 +15,49 @@ tags: [Ncloud, 리소스, Security, AccessControlGroup]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-An IP/Port-based filtering firewall service that enables network access control and management between servers.
+Ein IP- und Port-basiertes Firewall-Service zur Steuerung und Verwaltung des Netzwerkzugriffs zwischen Servern.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### 연결 대상
+### Verbundene Ressourcen
 
--   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_vpc_name` : Name of the VPC in which to create the ACG
--   `acg_description` : Description of the ACG
+-   `included_vpc_name` : Name des VPC, in dem das ACG erstellt wird
+-   `acg_description` : Beschreibung des ACG
 
-#### 인바운드 규칙 (`inbound_rule`)
+#### Eingehende Regeln (`inbound_rule`)
 
--   `inbound_rule.protocol` : Protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
--   `inbound_rule.rule_apply_method` : Method to apply inbound rules - `ip_block`, `source_name`
--   `inbound_rule.ip_block` : Destination IP range for inbound traffic (CIDR format)
--   `inbound_rule.source_access_control_group_name` : Source ACG name for inbound traffic
--   `inbound_rule.port_range` : Port range to apply the inbound rule - `1` ~ `65535`
--   `inbound_rule.description` : Description of the inbound rule
+-   `inbound_rule.protocol` : Protokoll des eingehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Methode zur Anwendung der Regel – `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Ziel-IP-Adressbereich des eingehenden Traffics (CIDR-Format)
+-   `inbound_rule.source_access_control_group_name` : Name des Quell-ACG für eingehenden Traffic
+-   `inbound_rule.port_range` : Portbereich für die eingehende Regel – `1` ~ `65535`
+-   `inbound_rule.description` : Beschreibung der eingehenden Regel
 
-#### 아웃바운드 규칙 (`outbound_rule`)
+#### Ausgehende Regeln (`outbound_rule`)
 
--   `outbound_rule.protocol` : Protocol of outbound traffic - `TCP`, `UDP`, `ICMP`
--   `outbound_rule.rule_apply_method` : Method to apply outbound rules - `ip_block`, `source_name`
--   `outbound_rule.ip_block` : Destination IP range for outbound traffic (CIDR format)
--   `outbound_rule.source_access_control_group_name` : Source ACG name for outbound traffic
--   `outbound_rule.port_range` : Port range to apply the outbound rule - `1` ~ `65535`
--   `outbound_rule.description` : Description of the outbound rule
+-   `outbound_rule.protocol` : Protokoll des ausgehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Methode zur Anwendung der Regel – `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Ziel-IP-Adressbereich des ausgehenden Traffics (CIDR-Format)
+-   `outbound_rule.source_access_control_group_name` : Name des Quell-ACG für ausgehenden Traffic
+-   `outbound_rule.port_range` : Portbereich für die ausgehende Regel – `1` ~ `65535`
+-   `outbound_rule.description` : Beschreibung der ausgehenden Regel
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
 -   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

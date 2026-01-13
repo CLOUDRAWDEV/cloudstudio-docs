@@ -1,57 +1,51 @@
 ---
 title: IngressClass
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Networking, IngressClass]
+tags: [Kubernetes, Ressource, Networking, IngressClass]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Eine Kubernetes-Ressource, um den Ingress-Controller auszuwählen, den Ingress verwenden soll
+Eine Kubernetes-Ressource zur Auswahl des Ingress-Controllers, der von Ingress verwendet werden soll.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
-
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
 
 ### Verbundene Ressourcen
 
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+-   [**Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/Ingress)
 
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-## Ressourcen-Einstellwerte
+-   `annotations` : Key-Value-Metadaten für das Verhalten der IngressClass
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der IngressClass
+-   `controller` : Kennung des Ingress-Controllers für diese IngressClass
 
--   `service_name` : IngressClass Ressource Name
--   `annotations` : Schlüssel-Wert-Paare, die verwendet werden, um notwendige Informationen im Kubernetes-System anzuzeigen
--   `labels` : Vom Benutzer festgelegte Werte, um Objekte zu kennzeichnen und zu unterscheiden
--   `controller` : Der Name des Controllers, der die IngressClass verarbeiten muss
--   `parameters` : Informationen über die referenzierten Ressourcen
-    -   `name` : Der Name der referenzierten Ressource
-    -   `kind` : Der Typ der referenzierten Ressource
-    -   `namespace` : Der Namespace der referenzierten Ressource
-    -   `scope` : Der Gültigkeitsbereich der Ressource – entweder Cluster oder Namespace
-    -   `api_group` : Die API-Gruppe der referenzierten Ressource
+#### Parameterkonfiguration (`parameters`)
 
+-   `parameters.kind` : Typ der referenzierten Parameter-Ressource – `IngressParameter`, `ClusterIngressParameter`
+-   `parameters.namespace` : Namespace der referenzierten Parameter-Ressource
+-   `parameters.api_group` : API-Gruppe der referenzierten Parameter-Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [IngressClass(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
+-   [IngressClass(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
 -   [IngressClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress_class)

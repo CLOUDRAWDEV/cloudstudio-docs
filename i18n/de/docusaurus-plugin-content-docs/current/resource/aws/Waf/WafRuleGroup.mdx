@@ -1,7 +1,7 @@
 ---
-title: Waf Rule Group
-sidebar_position: 0
-tags: [AWS, Ressourcen, Waf, WafRuleGroup]
+title: WafRuleGroup
+sidebar_position: 3
+tags: [AWS, Ressource, Waf, WafRuleGroup]
 ---
 
 <hr />
@@ -11,34 +11,39 @@ tags: [AWS, Ressourcen, Waf, WafRuleGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-AWS WAF Rule Group ist eine Sammlung von Regeln, die in der Web Application Firewall verwendet wird. Mit Rule Groups können mehrere Regeln gebündelt und auf die Webanwendung angewendet werden, wodurch die Wiederverwendbarkeit und Verwaltungseffizienz verbessert wird. Rule Groups steuern wichtige Aspekte der Webanwendungs-Sicherheit und ermöglichen das Zulassen, Blockieren oder Zählen von Anfragen.
+Eine AWS WAF Rule Group ist eine Sammlung von Regeln, die in der Web Application Firewall verwendet werden. Durch die Gruppierung mehrerer Regeln können diese gemeinsam auf Webanwendungen angewendet werden, wodurch Wiederverwendbarkeit und Verwaltungseffizienz erhöht werden. Rule Groups steuern zentrale Aspekte der Webanwendungssicherheit und können Anfragen zulassen, blockieren oder zählen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
+## Ressourceneinstellungen
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `scope` : Geben Sie an, ob es für eine AWS CloudFront-Verteilung oder für eine regionale Anwendung ist - `REGIONAL`, `CLOUDFRONT`
--   `capacity` : Web ACL-Kapazitätseinheit (WCU), die für das Regelgruppen benötigt wird
--   `cloudwatch_metrics_enabled` : Festlegen, ob die verbundenen Ressourcen Metriken an CloudWatch senden sollen - `true`, `false`
--   `metric_name` : Der Name der CloudWatch-Metrik darf nur Kleinbuchstaben, Großbuchstaben, Bindestriche (-) und Unterstriche (_) enthalten und muss eine Länge von 1-128 Zeichen haben
--   `sampled_requests_enabled` : Festlegen, ob AWS WAF eine Stichprobe der Webanfragen speichern soll, die mit den Regeln übereinstimmen - `true`, `false`
+-   `scope` : Anwendungsbereich der Rule Group – `REGIONAL`, `CLOUDFRONT`
+-   `capacity` : Erforderliche Web-ACL-Kapazitätseinheiten (WCU) für die Regelgruppe
+-   `cloudwatch_metrics_enabled` : Aktivierung der Übermittlung von CloudWatch-Metriken – `true`, `false`
+-   `metric_name` : Name der CloudWatch-Metrik, erlaubt sind Groß-/Kleinbuchstaben, Bindestriche und Unterstriche, `1` ~ `128` Zeichen
+-   `sampled_requests_enabled` : Speicherung von Stichproben der mit Regeln übereinstimmenden Webanfragen – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [AWS WAF Funktion(AWS)](https://aws.amazon.com/ko/waf/features/)
--   [AWS WAF Kosten(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
--   [aws_waf_rule_group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_rule_group)
+-   [AWS-WAF-Funktionen (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS-WAF-Preise (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_rule_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_rule_group)

@@ -1,13 +1,13 @@
 ---
 title: Mssql
 sidebar_position: 0
-tags: [Ncloud, 리소스, Database, Mssql]
+tags: [Ncloud, Ressource, Database, Mssql]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ressourcen-Icon
 
 <img
     src={
@@ -15,36 +15,36 @@ tags: [Ncloud, 리소스, Database, Mssql]
     }
 />
 
-## 리소스 개요
+## Ressourcenübersicht
 
-Cloud DB for MSSQL allows you to easily build and automatically manage MSSQL databases. It is a fully managed cloud database service that operates stably through Naver’s optimized settings and automatically recovers in case of failures.
+Cloud DB for MSSQL ist ein vollständig verwalteter Cloud-Datenbankservice für MSSQL, der einen stabilen Betrieb mit automatischer Wiederherstellung bei Ausfällen ermöglicht.
 
-## 연관 리소스
+## Zugehörige Ressourcen
 
-### 상위 리소스
+### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
-## 리소스 설정 값
+## Ressourcen-Einstellungswerte
 
-#### 기본 설정
+#### Grundeinstellungen
 
--   `included_subnet_name` : Name of the subnet that includes MSSQL
--   `enable_high_availability` : Whether to enable high availability - `true`, `false`
--   `user_name` : MSSQL user access ID
--   `user_password` : MSSQL user access password
--   `image_product_code` : Image product code for the MSSQL instance server to be created - `imageProductCode`
--   `product_code` : Product code for the MSSQL instance server to be created - `productCode`
--   `data_storage_type` : Data storage type - `SSD`, `HDD`
--   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `30`
--   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
--   `backup_time` : User-defined specific backup time
--   `port` : TCP port number for MSSQL access (default: `1433`)
--   `character_set_name` : DB character set - `characterSetName`
+-   `included_subnet_name` : Subnetzname
+-   `enable_high_availability` : Aktivierung der Hochverfügbarkeit – `true`, `false`
+-   `user_name` : MSSQL-Benutzer-ID
+-   `user_password` : MSSQL-Benutzerpasswort
+-   `image_product_code` : Image-Produktcode – `imageProductCode`
+-   `product_code` : Produktcode – `productCode`
+-   `data_storage_type` : Storage-Typ – `SSD`, `HDD`
+-   `backup_file_retention_period` : Backup-Aufbewahrung (Tage) – `1` ~ `30`
+-   `enable_automatic_backup` : Automatische Backups – `true`, `false`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `port` : TCP-Port (Standard: `1433`)
+-   `character_set_name` : Zeichensatz – `characterSetName`
 
 ---
 
-## 참고 자료
+## Referenzen
 
 -   [MSSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
 -   [MSSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

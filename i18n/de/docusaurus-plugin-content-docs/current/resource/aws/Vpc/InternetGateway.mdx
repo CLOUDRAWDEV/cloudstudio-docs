@@ -1,7 +1,7 @@
 ---
-title: Internet Gateway
-sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc, InternetGateway]
+title: InternetGateway
+sidebar_position: 7
+tags: [AWS, Ressource, Vpc, InternetGateway]
 ---
 
 <hr />
@@ -11,29 +11,39 @@ tags: [AWS, Ressourcen, Vpc, InternetGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Das Internet-Gateway ist eine horizontal skalierbare und hochverfügbare redundante VPC-Komponente, die die Kommunikation zwischen der VPC und dem Internet ermöglicht. Es unterstützt sowohl IPv4- als auch IPv6-Verkehr und stellt sicher, dass keine Verfügbarkeitsrisiken oder Bandbreitenbeschränkungen für den Netzwerkverkehr bestehen.
-Wenn eine Ressource über eine öffentliche IPv4- oder IPv6-Adresse verfügt, ermöglicht das Internet-Gateway den Zugriff auf Ressourcen in einem öffentlichen Subnetz (z. B. EC2-Instanzen) aus dem Internet. Ebenso können Ressourcen im Internet über öffentliche IPv4- oder IPv6-Adressen Verbindungen zu Ressourcen in einem Subnetz initiieren. Ein Beispiel ist die Verbindung von EC2-Instanzen in AWS von einem lokalen Computer aus durch ein Internet-Gateway.
-Das Internet-Gateway bietet Ziele für den internetfähigen Verkehr in der VPC-Routing-Tabelle. Bei IPv4-Kommunikation führt das Internet-Gateway auch Network Address Translation (NAT) durch. Bei der Verwendung von IPv6-Kommunikation sind die IPv6-Adressen öffentlich, sodass NAT nicht erforderlich ist.
+Ein Internet-Gateway ist eine horizontal skalierbare, hochverfügbare und redundante VPC-Komponente, die die Kommunikation zwischen einer VPC und dem Internet ermöglicht. Es unterstützt IPv4- und IPv6-Datenverkehr und verursacht keine Verfügbarkeitsrisiken oder Bandbreitenbeschränkungen im Netzwerkverkehr.
+Wenn eine Ressource über eine öffentliche IPv4- oder IPv6-Adresse verfügt, ermöglicht ein Internet-Gateway Ressourcen in öffentlichen Subnetzen (z. B. EC2-Instances) den Zugriff auf das Internet. Ebenso können Ressourcen aus dem Internet Verbindungen zu Ressourcen in Subnetzen über öffentliche IPv4- oder IPv6-Adressen initiieren. Beispielsweise kann über ein Internet-Gateway eine Verbindung von einem lokalen Computer zu einer EC2-Instance in AWS hergestellt werden.
+Ein Internet-Gateway stellt in VPC-Routing-Tabellen ein Ziel für internetfähigen Datenverkehr bereit. Für IPv4-Kommunikation führt das Internet-Gateway auch Network Address Translation (NAT) durch. Bei IPv6-Kommunikation ist kein NAT erforderlich, da IPv6-Adressen öffentlich sind.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
 
-## Ressourcenkonfigurationswerte
+### Verknüpfte Ressourcen
 
--   `included_vpc_name` : Name der VPC, in der das Internet-Gateway bereitgestellt werden soll
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name der VPC, in der das Internet-Gateway bereitgestellt wird
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Verbindung mit dem Internet über das Internet-Gateway herstellen(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [Verbindung mit dem Internet über ein Internet-Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
 -   [aws_internet_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)
