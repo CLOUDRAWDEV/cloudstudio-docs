@@ -1,61 +1,56 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
-tags: [Kubernetes, Recurso, Core, PersistentVolume]
+sidebar_position: 2
+tags: [Kubernetes, recurso, Core, PersistentVolume]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes que proporciona almacenamiento conectado en red dentro del clúster.
+Recurso de Kubernetes que proporciona almacenamiento conectado por red al clúster.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
 
 ### Recursos conectados
 
 -   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso PersistentVolume
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `spec` : Especificaciones detalladas del Persistent Volume
-    -   `spec.storage_class_name` : Nombre del storageClass a utilizar
-    -   `spec.storage_capacity` : Capacidad de almacenamiento a configurar
-    -   `spec.volume_driver` : Controlador de volumen a utilizar
-    -   `spec.volume_handle` : Identificador que conecta el PV al recurso de almacenamiento real
-    -   `spec.persistent_volume_reclaim_policy` : Política de recuperación cuando se libera el claim - `retain`,`delete`,`recycle`
-    -   `spec.read_only` : Determina si el volumen se monta en modo solo lectura - `false`,`true`
-    -   `spec.volume_attributes` : Atributos del volumen a utilizar
-    -   `spec.access_modes` : Métodos permitidos para montar el volumen - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
-    -   `spec.mount_options` : Opciones de montaje adicionales
--   `node_stage_secret_ref` : Secret de Kubernetes que contiene la autenticación del usuario que accede al almacenamiento
-    -   `node_stage_secret_ref.name` : Nombre del Secret
-    -   `node_stage_secret_ref.namespace` : Namespace donde se encuentra el Secret
+#### Configuración básica
 
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar y clasificar el PV
+-   `spec.storage_class_name` : Nombre del StorageClass a utilizar
+-   `spec.storage_capacity` : Capacidad de almacenamiento
+-   `spec.volume_driver` : Controlador de volumen basado en CSI
+-   `spec.volume_handle` : Identificador del recurso de almacenamiento real
+-   `spec.persistent_volume_reclaim_policy` : Política de manejo del volumen al liberar el claim - `Retain / Delete / Recycle`
+-   `spec.read_only` : Indica si el volumen es de solo lectura
+-   `spec.volume_attributes` : Atributos adicionales del volumen según el driver
+-   `spec.access_modes` : Modos de acceso al volumen - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : Opciones adicionales de montaje
+-   `node_stage_secret_ref` : Referencia a Secret que contiene credenciales de acceso al almacenamiento
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [PersistentVolume(Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
 -   [PersistentVolume(Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

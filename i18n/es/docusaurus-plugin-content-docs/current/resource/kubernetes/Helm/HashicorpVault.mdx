@@ -1,49 +1,41 @@
 ---
 title: HashicorpVault
-sidebar_position: 0
-tags: [Kubernetes, Recurso, Helm, HashicorpVault]
+sidebar_position: 2
+tags: [Kubernetes, recurso, Helm, HashicorpVault]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Chart de Helm para instalar Hashicorp Vault
+Helm Chart para instalar Hashicorp Vault.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
-### Recursos conectados
-
-
-
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del release del chart de Helm de Hashicorp Vault
--   `namespace` : Namespace donde se desplegará el chart de Helm de Hashicorp Vault
--   `version` : Versión del chart de Helm de Hashicorp Vault que se utilizará
--   `set` : Modificación dinámica de valores por defecto del chart de Hashicorp Vault
+#### Configuración básica
 
+-   `namespace` : Namespace donde se desplegará el Helm Chart de Hashicorp Vault
+-   `version` : Versión del Helm Chart de Hashicorp Vault a utilizar
+-   `set` : Configuración key-value para modificar dinámicamente los valores del Helm Chart base de Hashicorp Vault
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Helm install(Hashicorp-vault)](https://developer.hashicorp.com/vault/docs/platform/k8s/helm)
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

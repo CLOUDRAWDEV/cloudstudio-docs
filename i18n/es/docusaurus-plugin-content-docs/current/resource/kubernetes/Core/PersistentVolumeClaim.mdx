@@ -1,19 +1,17 @@
 ---
 title: PersistentVolumeClaim
-sidebar_position: 0
-tags: [Kubernetes, Recurso, Core, PersistentVolumeClaim]
+sidebar_position: 3
+tags: [Kubernetes, recurso, Core, PersistentVolumeClaim]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.webp"
     }
 />
 
@@ -23,40 +21,37 @@ Recurso de Kubernetes que solicita un PersistentVolume (PV).
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
 
 ### Recursos conectados
 
 -   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
 -   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
 -   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
 -   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
 -   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
 
-
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso PersistentVolumeClaim
--   `namespace` : Namespace donde se desplegará el recurso PersistentVolume
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `spec` : Define las especificaciones del PVC
-    -   `spec.storage_class_name` : Nombre del storageClass a utilizar
-    -   `spec.volume_name` : Nombre del PV que se conectará con el PVC
-    -   `spec.request_storage` : Cantidad de almacenamiento solicitada al PV
-    -   `spec.access_modes` : Modos de acceso requeridos para el PV - (deben coincidir o incluir los modos del PV) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
+#### Configuración básica
 
-
+-   `namespace` : Namespace donde se creará el recurso PVC
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar y clasificar el PVC
+-   `spec.storage_class_name` : Nombre del StorageClass a utilizar
+-   `spec.volume_name` : Nombre del PersistentVolume a vincular
+-   `spec.volume_mode` : Modo de provisión del almacenamiento - `Filesystem / Block`
+-   `spec.request_storage` : Capacidad de almacenamiento solicitada
+-   `spec.access_modes` : Modos de acceso solicitados - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `wait_until_bound` : Indica si se debe esperar hasta que el PVC se vincule con un PV
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [PersistentVolumeClaim(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
 -   [PersistentVolumeClaim(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)

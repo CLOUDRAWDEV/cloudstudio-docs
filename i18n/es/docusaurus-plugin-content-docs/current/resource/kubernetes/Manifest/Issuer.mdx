@@ -1,97 +1,88 @@
 ---
 title: Issuer
 sidebar_position: 0
-tags: [Kubernetes, Recurso, Manifest, Issuer]
+tags: [Kubernetes, recurso, Manifest, Issuer]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes que puede aceptar solicitudes de firma de certificados y generar certificados firmados por una Autoridad Certificadora (CA).
+Recurso de Kubernetes que acepta solicitudes de firma de certificados y genera certificados firmados por una Autoridad Certificadora (CA).
+
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
-
+-   [**Ingress**](https://docs.cstudio.app/es/docs/resource/kubernetes/Networking/Ingress)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso Issuer
--   `acme` : Define una cuenta registrada en el servidor ACME (Entorno Automatizado de Gestión de Certificados) 
-    -   `acme.server` : Dirección del endpoint del servidor ACME
-    -   `acme.email` : Dirección de correo a la que Let's Encrypt enviará notificaciones sobre problemas o vencimientos del certificado
-    -   `acme.private_key_secret_ref` : Nombre del Secret de Kubernetes que almacena la clave del cliente para comunicarse con el servidor ACME
--   `solver_type` : Define el método de resolución para el Challenge de emisión de certificados - `DNS`,`HTTP`
+#### Configuración básica
 
-**Solver-Type : DNS**
--   `dns_solvers` : Configuraciones aplicables cuando se selecciona `DNS` como solver
--   `name` : Nombre de la configuración dns_solver
-    -   `provider` : Selección del tipo de desafío DNS-01 - `AzureDNS`,`Route53`,`ACMEDNS` 
+-   `namespace` : Namespace donde se desplegará el recurso Issuer
 
-    ***AzureDNS***
-    -   `azure_dns` : Configuraciones utilizadas cuando se selecciona AzureDNS como tipo de desafío DNS-01
-        -   `name` : Nombre de la configuración AzureDNS
-            -   `client_id` : ID de cliente de la aplicación Azure Service Principal
-            -   `client_secret_name` : Nombre del Secret de Kubernetes que contiene el client secret de la aplicación Azure Service Principal
-            -   `client_secret_key` : Nombre de la clave dentro del Secret a utilizar
-            -   `subscription_id` : ID de la suscripción de Azure
-            -   `tenant_id` : Tenant ID de la suscripción de Azure
-            -   `resource_group_name` : Grupo de recursos al que pertenece la zona DNS de Azure
-            -   `hosted_zone_name` : Nombre de la zona alojada en Azure DNS Zone
+#### Configuración ACME (`acme`)
 
-    ***Route53***        
-    -   `route_53` : Configuraciones utilizadas cuando se selecciona Route53 como tipo de desafío DNS-01
-        -   `name` : Nombre de la configuración de Route53
-            -   `region` : Región de AWS donde se utiliza el servicio Route 53
-            -   `access_key_id` : ID de clave de acceso de AWS
-            -   `access_key_secret_name` : Nombre del Secret de Kubernetes que contiene el valor del access_key_id (puede omitirse si se especifica `access_key_id`)
-            -   `access_key_secret_key` : Nombre de la clave dentro del Secret a utilizar (puede omitirse si se especifica `access_key_id`)
-            -   `access_key_secret_key` : Nombre del Secret que contiene la clave secreta de acceso de AWS
-            -   `secret_access_key_secret_key` : Nombre de la clave dentro del Secret que contiene la clave secreta de acceso de AWS
-            -   `role` : Rol de AWS IAM con permisos para administrar DNS en Route53
+-   `acme.server` : Dirección del endpoint del servidor ACME
+-   `acme.email` : Dirección de correo electrónico para recibir notificaciones de Let's Encrypt sobre problemas o vencimientos del certificado
+-   `acme.private_key_secret_ref` : Nombre del Secret de Kubernetes que almacena la clave del cliente para la comunicación con el servidor ACME
 
-    ***ACMEDNS***          
-    -   `acme_dns` : Configuraciones utilizadas cuando se selecciona ACMEDNS como tipo de desafío DNS-01
-        -   `name` : Nombre de la configuración de ACMEDNS
-            -   `host` : Dirección endpoint del servidor acme-dns
-            -   `account_secret_ref_name` : Nombre del Secret de Kubernetes que almacena la información de cuenta para el servidor acme-dns
-            -   `account_secret_ref_key` : Nombre de la clave dentro del Secret utilizada para almacenar la información de cuenta del servidor acme-dns
+#### Configuración DNS Solver (`dns_solvers`)
 
-**Solver-Type : HTTP-01**
--   `http_solvers` : Configuraciones aplicables cuando se selecciona `HTTP` como solver
--   `name` : Nombre de la configuración http_solver
-    -   `provider` : Selección del tipo de desafío HTTP-01 - `Ingress`,`Gateway`
+-   `dns_solvers.provider` : Tipo de desafío DNS-01 - `AzureDNS`, `Route53`, `ACMEDNS`
 
-    ***Ingress***
-    -   `ingress` : Configuración utilizada cuando se selecciona Ingress como método de resolución HTTP-01
-        -   `name` : Nombre de la configuración Ingress para el desafío HTTP-01
-            -   `ingress_class_name` : Nombre de la clase de Ingress que se utilizará
-    ***Gateway***
-    -   `Gateway` : Configuración utilizada cuando se utiliza Gateway para resolver el desafío HTTP-01
-        -   `name` : Nombre de la configuración Gateway para el desafío HTTP-01
-            -   `namespace` : Namespace al que pertenece el recurso Gateway a conectar
-            
+##### Configuración ACMEDNS (`dns_solvers.acme_dns`)
+
+-   `dns_solvers.acme_dns.host` : Dirección del endpoint del servidor acme-dns
+-   `dns_solvers.acme_dns.account_secret_ref_name` : Nombre del Secret de Kubernetes que contiene la información de la cuenta de acme-dns
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Nombre de la clave de la cuenta dentro del Secret
+
+##### Configuración AzureDNS (`dns_solvers.azure_dns`)
+
+-   `dns_solvers.azure_dns.client_id` : ID del cliente del Azure Service Principal
+-   `dns_solvers.azure_dns.client_secret_name` : Nombre del Secret de Kubernetes que contiene el client secret
+-   `dns_solvers.azure_dns.client_secret_key` : Nombre de la clave del client secret
+-   `dns_solvers.azure_dns.subscription_id` : ID de la suscripción de Azure
+-   `dns_solvers.azure_dns.tenant_id` : Tenant ID de Azure
+-   `dns_solvers.azure_dns.resource_group_name` : Grupo de recursos donde se encuentra la zona DNS de Azure
+-   `dns_solvers.azure_dns.hosted_zone_name` : Nombre de la zona DNS de Azure
+
+##### Configuración Route53 (`dns_solvers.route53`)
+
+-   `dns_solvers.route53.region` : Región de AWS donde se utiliza Route53
+-   `dns_solvers.route53.access_key_id` : ID de la clave de acceso de AWS
+-   `dns_solvers.route53.access_key_secret_name` : Nombre del Secret que contiene la clave de acceso secreta
+-   `dns_solvers.route53.access_key_secret_key` : Nombre de la clave del Secret
+-   `dns_solvers.route53.secret_access_key_secret_name` : Nombre del Secret que contiene la clave de acceso secreta
+-   `dns_solvers.route53.secret_access_key_secret_key` : Nombre de la clave de la clave secreta
+-   `dns_solvers.route53.role` : Rol IAM de AWS para la gestión de DNS en Route53
+
+#### Configuración HTTP Solver (`http_solvers`)
+
+-   `http_solvers.provider` : Método de resolución del desafío HTTP-01 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Nombre de la clase Ingress a utilizar
+
+##### Configuración Gateway (`http_solvers.gateway_parent_refs`)
+
+-   `http_solvers.gateway_parent_refs.name` : Nombre del recurso Gateway
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace del recurso Gateway
 
 ---
 
-## Documentación de referencia
-
+## Referencias
 
 -   [Issuer(CertManager)](https://cert-manager.io/docs/concepts/issuer/)

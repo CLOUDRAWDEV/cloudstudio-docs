@@ -1,61 +1,52 @@
 ---
 title: Role
 sidebar_position: 0
-tags: [Kubernetes, Recurso, RBAC, Role]
+tags: [Kubernetes, recurso, RBAC, Role]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes que crea un rol aplicado únicamente dentro de un namespace específico
+Recurso de Kubernetes que crea roles aplicables únicamente dentro de un namespace específico.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
--   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/RoleBinding)
-
-
+-   [**RoleBinding**](https://docs.cstudio.app/es/docs/resource/kubernetes/RBAC/RoleBinding)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso Role
--   `namespace` : Namespace en el que se desplegará el recurso Role
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `rule` : Reglas de políticas asociadas a este Role
-    -   `name` : Nombre de la política
-    -   `api_groups` : API Group que contiene los recursos permitidos por la política
-    -   `resources` : Lista de recursos a los que se aplica esta regla
-    -   `resource_names` : Especifica instancias individuales del recurso si es necesario - si está vacío, se aplica a todos los recursos
-    -   `verbs` : Lista de verbos aplicables a todos los recursos incluidos en la regla
+#### Configuración básica
 
+-   `namespace` : Namespace donde se desplegará el recurso Role
+-   `annotations` : Metadatos key-value utilizados por el sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar el objeto
 
+#### Reglas de política (`rule`)
 
-
-
+-   `rule.api_groups` : API Groups que contienen los recursos permitidos
+-   `rule.resources` : Lista de recursos a los que se aplica esta regla
+-   `rule.resource_names` : Especificación de instancias individuales de recursos
+-   `rule.verbs` : Lista de verbos aplicables a los recursos - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Role(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [Role(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
 -   [Role(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role)
