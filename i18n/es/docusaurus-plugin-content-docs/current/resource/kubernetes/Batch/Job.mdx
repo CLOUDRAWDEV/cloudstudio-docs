@@ -1,96 +1,103 @@
 ---
 title: Job
 sidebar_position: 0
-tags: [Kubernetes, Recurso, Batch, Job]
+tags: [Kubernetes, recurso, Batch, Job]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes utilizado para ejecutar tareas de una sola vez.
+Recurso de Kubernetes utilizado para ejecutar trabajos de una sola vez.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
 -   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
-
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso Job
+#### Configuración básica
+
 -   `namespace` : Namespace donde se desplegará el recurso Job
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `template_labels` : Labels aplicados a los Pods generados por nodo
--   `restart_policy` : Define cómo actuar después de que un contenedor dentro del Pod falla o completa su tarea
--   `backoff_limit` : Número de reintentos antes de marcar el Job como fallido - valor por defecto: 6
--   `wait_for_completion` : Bloquea la creación o actualización del Job hasta que se complete o falle - valor por defecto: True
+-   `annotations` : Metadatos key-value necesarios para el sistema Kubernetes
+-   `labels` : Key-value definidos por el usuario para identificar el objeto
+-   `enable_manual_selector` : Habilitar el uso de selector manual - `true`, `false`
+-   `template_labels` : Labels que se asignarán al Pod
+-   `restart_policy` : Política de manejo al finalizar el contenedor - `Never`, `OnFailure`
+-   `backoff_limit` : Número de reintentos antes de considerar el trabajo como fallido
+-   `wait_for_completion` : Bloquear creación/actualización hasta que el trabajo finalice o falle - `true`, `false`
+-   `dns_policy` : Política DNS - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Habilitar enlaces de servicio - `true`, `false`
+-   `host_network` : Habilitar uso de red del host - `true`, `false`
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
 
--   `timeouts` : Tiempo permitido antes de considerar que el Job ha fallado
-    -   `create` : Tiempo de espera para que un Job recién creado finalice correctamente - valor por defecto: 1m    
-    -   `update` : Tiempo de espera para que un Job actualizado finalice correctamente - valor por defecto: 1m
+#### Tiempos de espera (`timeouts`)
 
--   `containers` : Plantilla que define los contenedores dentro del Pod - se configuran valores base y luego valores detallados
-    -   `name` : Nombre del contenedor
-        -   `image` : Nombre de la imagen Docker a utilizar
-        -   `args` : Comandos que se ejecutarán dentro del contenedor
-        -   `command` : Comandos que se ejecutarán dentro del contenedor
-        -   `port` : Lista de puertos que se expondrán desde el contenedor 
+-   `timeouts.create` : Tiempo de espera desde la creación hasta la finalización del trabajo
+-   `timeouts.update` : Tiempo de espera desde la actualización hasta la finalización del trabajo
 
-        -   `resources` : Cantidad de recursos de cómputo asignados al contenedor - configuración detallada
-            -   `name` : Define los recursos mínimos/máximos - `limits`, `requests`
-            -   `cpu` : Cantidad de CPU asignada
-            -   `memory` : Cantidad de memoria asignada
+#### Contexto de seguridad del Pod (`pod_security_context`)
 
-        -   `probe` : Define los métodos de diagnóstico del estado del Pod - configuración detallada
-            -   `name` : Tipo de Probe - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : Ruta para acceder al servidor HTTP
-            -   `http_get_port` : Puerto al que se accederá en el contenedor
-            -   `http_header` : Encabezados personalizados para la solicitud
-            -   `initial_delay_seconds` : Tiempo (en segundos) que se espera tras el arranque antes de iniciar el probe
-            -   `period_seconds` : Frecuencia (en segundos) con la que se ejecuta el probe
+-   `pod_security_context.run_as_user` : UID del usuario que ejecutará el contenedor
+-   `pod_security_context.run_as_group` : GID del grupo que ejecutará el contenedor
+-   `pod_security_context.run_as_non_root` : Ejecutar como usuario non-root - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : Usuario SELinux
+-   `pod_security_context.se_linux_options_role` : Rol SELinux
+-   `pod_security_context.se_linux_options_type` : Tipo SELinux
+-   `pod_security_context.se_linux_options_level` : Nivel SELinux
 
-        -   `env` : Bloque de pares key-value para configurar variables de entorno del contenedor - configuración detallada
-            -   `name` : Nombre de la variable de entorno
-            -   `value` : Valor asignado a la variable de entorno
+#### Contenedores de inicialización (`init_containers`)
 
-        -   `volume_mount` : Volumen del Pod montado en el sistema de archivos del contenedor - configuración detallada
-            -   `name` : Nombre del volumen a montar
-            -   `path` 
-                -   `mount_path` : Ruta dentro del contenedor donde se montará el volumen
-                -   `sub_path` : Subruta específica dentro del volumen a montar en el contenedor
+-   `init_containers.image` : Imagen del contenedor
+-   `init_containers.args` : Lista de argumentos de ejecución
+-   `init_containers.command` : Comando de ejecución
+-   `init_containers.env` : Variables de entorno
+-   `init_containers.env_from` : Variables de entorno desde ConfigMap o Secret
+-   `init_containers.resources` : Límites y solicitudes de CPU y memoria
+-   `init_containers.probe` : Probes de estado
+-   `init_containers.port` : Configuración de puertos
+-   `init_containers.volume_mount` : Configuración de montaje de volúmenes
 
--   `volume` : Lista de volúmenes que pueden montarse en los contenedores del Pod
-    -   `name` : Nombre del volumen
-        -   `type` : Tipo de volumen a montar - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : Nombre del PersistentVolumeClaim
-        -   `default_mode` : Modo de los archivos creados - entre 0 y 0777, valor por defecto 0644
-        -   `read_only` : Si es `true`, el volumen se montará en modo solo lectura; de lo contrario, será de lectura/escritura
+#### Contenedores (`containers`)
 
--   `image_pull_secrets` : Secret en el mismo namespace que contiene los permisos necesarios para descargar las imágenes utilizadas por el contenedor
+-   `containers.image` : Imagen del contenedor
+-   `containers.args` : Lista de argumentos de ejecución
+-   `containers.command` : Comando de ejecución
+-   `containers.env` : Variables de entorno
+-   `containers.env_from` : Variables de entorno desde ConfigMap o Secret
+-   `containers.resources` : Límites y solicitudes de CPU y memoria
+-   `containers.probe` : Probes de estado
+-   `containers.port` : Configuración de puertos
+-   `containers.volume_mount` : Configuración de montaje de volúmenes
 
+#### Volúmenes (`volume`)
+
+-   `volume.volume_type` : Tipo de volumen - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Nombre del recurso de destino
+-   `volume.path` : Ruta de montaje
+-   `volume.default_mode` : Modo de permisos de archivos
+-   `volume.items` : Mapeo de elementos de ConfigMap
+-   `volume.read_only` : Modo de solo lectura - `true`, `false`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Job(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+-   [Job(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/job)

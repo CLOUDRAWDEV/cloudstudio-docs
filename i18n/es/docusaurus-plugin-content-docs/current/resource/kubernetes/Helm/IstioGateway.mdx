@@ -1,49 +1,41 @@
 ---
 title: IstioGateway
-sidebar_position: 0
-tags: [Kubernetes, Recurso, Helm, IstioGateway]
+sidebar_position: 5
+tags: [Kubernetes, recurso, Helm, IstioGateway]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_gateway.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Chart de Helm para Istio Gateway
+Helm Chart de Istio Gateway.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
-### Recursos conectados
-
-
-
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del release del chart de Helm del Istio Gateway
--   `namespace` : Namespace donde se desplegará el chart de Helm del Istio Gateway
--   `version` : Versión del chart de Helm del Istio Gateway que se utilizará
--   `set` : Modificación dinámica de valores por defecto del chart del Istio Gateway
+#### Configuración básica
 
+-   `namespace` : Namespace donde se desplegará el Helm Chart de Istio Gateway
+-   `version` : Versión del Helm Chart de Istio Ingress a utilizar
+-   `set` : Configuración key-value para modificar dinámicamente los valores del Helm Chart base de Istio Ingress
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Helm install(Istio gateway)](https://artifacthub.io/packages/helm/istio-official/gateway)
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

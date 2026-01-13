@@ -1,42 +1,40 @@
 ---
 title: Namespace
 sidebar_position: 0
-tags: [Kubernetes, Recurso, Core, Namespace]
+tags: [Kubernetes, recurso, Core, Namespace]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes utilizado para agrupar y aislar objetos dentro del clúster.
+Recurso de Kubernetes utilizado para agrupar y aislar objetos dentro de un clúster.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
+### Recursos secundarios
 
-### Recursos subordinados
-
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
 -   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**HPA**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/HorizontalPodAutoscaling)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
 -   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
 -   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
 -   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**DefaultServiceAccount**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DefaultServiceAccount)
 -   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
 -   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
 -   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
@@ -51,22 +49,20 @@ Recurso de Kubernetes utilizado para agrupar y aislar objetos dentro del clúste
 -   [**NginxIngress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
 -   [**Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/Issuer)
 -   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
--   [**NetworkPolicy**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/NetworkPolicy)
+-   [**NetworkPolicy**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/NetworkPolicy)
 -   [**Role**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/Role)
 -   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/RoleBinding)
 
-
-
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso ConfigMap
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
+#### Configuración básica
 
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar y clasificar el Namespace
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Namespace(Kubernetes)](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 -   [Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace)
