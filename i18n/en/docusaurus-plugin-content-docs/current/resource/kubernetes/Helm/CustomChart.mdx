@@ -1,7 +1,7 @@
 ---
 title: CustomChart
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Helm, CustomChart]
+tags: [Kubernetes, Resource, Helm, CustomChart]
 ---
 
 <hr />
@@ -17,13 +17,13 @@ tags: [Kubernetes, 리소스, Helm, CustomChart]
 
 ## Resource Overview
 
-A resource that allows deploying a Helm chart by configuring it with user-defined values.
+A resource that allows deployment using a base Helm chart customized with user-defined values.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ## Resource Setting Values
 
@@ -33,7 +33,7 @@ A resource that allows deploying a Helm chart by configuring it with user-define
 -   `repository` : Repository URL where the Helm Chart to customize is stored
 -   `chart` : Name of the Helm Chart to customize
 -   `version` : Version of the Helm Chart to customize
--   `set` : Key-value settings used to dynamically override values of the base Helm Chart
+-   `set` : Key-value configuration used to dynamically override values of the base Helm Chart
 
 ---
 

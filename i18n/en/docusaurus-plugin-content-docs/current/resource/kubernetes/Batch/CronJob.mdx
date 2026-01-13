@@ -1,7 +1,7 @@
 ---
 title: CronJob
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Batch, CronJob]
+tags: [Kubernetes, Resource, Batch, CronJob]
 ---
 
 <hr />
@@ -23,12 +23,12 @@ A Kubernetes resource that creates Jobs periodically according to a schedule.
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Targets
 
--   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
+-   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
 
 ## Resource Setting Values
 
@@ -37,15 +37,15 @@ A Kubernetes resource that creates Jobs periodically according to a schedule.
 -   `namespace` : Namespace where the CronJob will be deployed
 -   `schedule` : Job execution schedule defined using a cron expression
 -   `timezone` : Time zone used to interpret the schedule
--   `concurrency_policy` : Policy for handling concurrent Jobs (Allow / Forbid / Replace)
--   `starting_deadline_seconds` : Time limit for starting a Job if the schedule is missed
+-   `concurrency_policy` : Policy for handling concurrent job executions (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : Time window allowed to start a job if the schedule is missed
 -   `successful_jobs_history_limit` : Number of successful Jobs to retain
 -   `failed_jobs_history_limit` : Number of failed Jobs to retain
 -   `containers` : Definition of container specifications to be executed
--   `init_containers` : Definition of pre-tasks executed before the main container
--   `volume` : Volume configuration to be mounted in the container
+-   `init_containers` : Definition of preliminary tasks executed before the main containers
+-   `volume` : Volume configuration to be mounted in containers
 -   `pod_security_context` : Pod-level security context configuration
--   `image_pull_secrets` : Secret references for pulling images
+-   `image_pull_secrets` : Reference to Secrets used for pulling container images
 
 ---
 

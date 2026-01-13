@@ -1,7 +1,7 @@
 ---
 title: Service
 sidebar_position: 6
-tags: [Kubernetes, 리소스, Core, Service]
+tags: [Kubernetes, Resource, Core, Service]
 ---
 
 <hr />
@@ -23,15 +23,15 @@ An abstract Kubernetes resource that provides a single entry point to Pods and m
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**Stateful Set**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**Daemon Set**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+-   [**Deployment**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Pod**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/Ingress)
 
 ## Resource Setting Values
 
@@ -40,15 +40,15 @@ An abstract Kubernetes resource that provides a single entry point to Pods and m
 -   `namespace` : Namespace where the Service resource will be deployed
 -   `annotations` : Kubernetes system metadata
 -   `labels` : Labels for Service identification and classification
--   `selector` : Label selector for choosing Pods to route traffic to
+-   `selector` : Label selector used to choose Pods to receive traffic
 -   `type` : Service type - `ClusterIP`, `NodePort`, `LoadBalancer`
--   `session_affinity` : Whether to route requests from the same client to the same Pod - `None`, `ClientIP`
+-   `session_affinity` : Whether to route requests from the same client to a specific Pod - `None`, `ClientIP`
 
 #### Port Settings (`port`)
 
--   `port.protocol` : Protocol used by the service port - `TCP`, `UDP`
+-   `port.protocol` : Protocol used on the Service port - `TCP`, `UDP`
 -   `port.port` : Service port number exposed externally
--   `port.target_port` : Port number on the target Pod that receives traffic
+-   `port.target_port` : Port number on the Pod that receives traffic
 
 ---
 

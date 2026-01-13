@@ -35,14 +35,65 @@ tags: [Kubernetes, 리소스, Batch, Job]
 #### 기본 설정
 
 -   `namespace` : Job 리소스가 배포될 네임스페이스
--   `restart_policy` : 컨테이너 실패 또는 작업 완료 후 처리 방식 (Never / OnFailure)
--   `backoff_limit` : 작업을 실패로 처리하기 전 재시도 횟수
--   `wait_for_completion` : 작업 완료 또는 실패 시점까지 생성·업데이트 차단 여부
--   `containers` : 실행될 컨테이너 스펙 정의
--   `init_containers` : 메인 컨테이너 실행 전 선행 작업 정의
--   `volume` : 컨테이너에서 마운트할 볼륨 설정
--   `pod_security_context` : 파드 단위 보안 컨텍스트 설정
--   `image_pull_secrets` : 이미지 Pull을 위한 Secret 참조
+-   `annotations` : 쿠버네티스 시스템에서 필요한 정보를 표시하기 위한 key-value
+-   `labels` : 객체를 구분하기 위해 사용자가 지정하는 key-value
+-   `enable_manual_selector` : 수동 셀렉터 사용 여부 - `true`, `false`
+-   `template_labels` : Pod에 설정될 Label
+-   `restart_policy` : 컨테이너 종료 시 처리 방식 - `Never`, `OnFailure`
+-   `backoff_limit` : 작업 실패로 판단하기 전 재시도 횟수
+-   `wait_for_completion` : 작업 완료 또는 실패까지 생성/업데이트 차단 여부 - `true`, `false`
+-   `dns_policy` : DNS 정책 - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : 서비스 링크 활성화 여부 - `true`, `false`
+-   `host_network` : 호스트 네트워크 사용 여부 - `true`, `false`
+-   `image_pull_secrets` : 이미지 Pull에 사용할 Secret 목록
+
+#### 타임아웃 (`timeouts`)
+
+-   `timeouts.create` : 작업 생성 후 완료까지 대기 시간
+-   `timeouts.update` : 작업 업데이트 후 완료까지 대기 시간
+
+#### 파드 보안 컨텍스트 (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : 컨테이너를 실행할 사용자 UID
+-   `pod_security_context.run_as_group` : 컨테이너를 실행할 GID
+-   `pod_security_context.run_as_non_root` : non-root 사용자 실행 여부 - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : SELinux 사용자
+-   `pod_security_context.se_linux_options_role` : SELinux 역할
+-   `pod_security_context.se_linux_options_type` : SELinux 타입
+-   `pod_security_context.se_linux_options_level` : SELinux 레벨
+
+#### 초기 컨테이너 (`init_containers`)
+
+-   `init_containers.image` : 컨테이너 이미지
+-   `init_containers.args` : 실행 인자 목록
+-   `init_containers.command` : 실행 명령어
+-   `init_containers.env` : 환경 변수 설정
+-   `init_containers.env_from` : ConfigMap 또는 Secret 기반 환경 변수
+-   `init_containers.resources` : CPU 및 메모리 리소스 제한/요청
+-   `init_containers.probe` : 상태 확인 프로브
+-   `init_containers.port` : 컨테이너 포트 설정
+-   `init_containers.volume_mount` : 볼륨 마운트 설정
+
+#### 컨테이너 (`containers`)
+
+-   `containers.image` : 컨테이너 이미지
+-   `containers.args` : 실행 인자 목록
+-   `containers.command` : 실행 명령어
+-   `containers.env` : 환경 변수 설정
+-   `containers.env_from` : ConfigMap 또는 Secret 기반 환경 변수
+-   `containers.resources` : CPU 및 메모리 리소스 제한/요청
+-   `containers.probe` : 상태 확인 프로브
+-   `containers.port` : 컨테이너 포트 설정
+-   `containers.volume_mount` : 볼륨 마운트 설정
+
+#### 볼륨 (`volume`)
+
+-   `volume.volume_type` : 볼륨 타입 - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : 대상 리소스 이름
+-   `volume.path` : 마운트 경로
+-   `volume.default_mode` : 파일 권한 모드
+-   `volume.items` : ConfigMap 항목 매핑
+-   `volume.read_only` : 읽기 전용 여부 - `true`, `false`
 
 ---
 

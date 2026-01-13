@@ -1,7 +1,7 @@
 ---
 title: IngressClass
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Networking, IngressClass]
+tags: [Kubernetes, Resource, Networking, IngressClass]
 ---
 
 <hr />
@@ -23,23 +23,23 @@ A Kubernetes resource used to select the Ingress Controller that an Ingress will
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
 ### Connected Resources
 
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+-   [**Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/Ingress)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `annotations` : Metadata key-value pairs required for IngressClass behavior in the Kubernetes system
--   `labels` : User-defined labels for identifying IngressClass objects
--   `controller` : Identifier of the Ingress Controller that will handle this IngressClass
+-   `annotations` : Metadata key-value required for IngressClass behavior in the Kubernetes system
+-   `labels` : User-defined labels used to distinguish the IngressClass object
+-   `controller` : Identifier of the Ingress Controller that handles this IngressClass
 
 #### Parameter Settings (`parameters`)
 
--   `parameters.kind` : Type of parameter resource to reference - `IngressParameter`, `ClusterIngressParameter`
+-   `parameters.kind` : Referenced parameter resource type - `IngressParameter`, `ClusterIngressParameter`
 -   `parameters.namespace` : Namespace of the referenced parameter resource
 -   `parameters.api_group` : API Group to which the referenced parameter resource belongs
 

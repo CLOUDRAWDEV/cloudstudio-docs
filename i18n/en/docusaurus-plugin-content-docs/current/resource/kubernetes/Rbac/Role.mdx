@@ -1,7 +1,7 @@
 ---
 title: Role
 sidebar_position: 0
-tags: [Kubernetes, 리소스, RBAC, Role]
+tags: [Kubernetes, Resource, RBAC, Role]
 ---
 
 <hr />
@@ -23,25 +23,25 @@ A Kubernetes resource that creates roles applied only within a specified namespa
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/RoleBinding)
+-   [**RoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/RoleBinding)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
 -   `namespace` : Namespace where the Role resource will be deployed
--   `annotations` : Key-value pairs used to display information required by the Kubernetes system
--   `labels` : User-defined values used to distinguish objects
+-   `annotations` : Key-value metadata used to display required information in the Kubernetes system
+-   `labels` : User-defined labels used to distinguish objects
 
 #### Policy Rules (`rule`)
 
--   `rule.api_groups` : API Groups containing the resources to allow operations on
+-   `rule.api_groups` : API Groups that include resources for which actions are allowed
 -   `rule.resources` : List of resources to which this rule applies
--   `rule.resource_names` : Specifies individual resource instances when selected
+-   `rule.resource_names` : Specifies individual instances of the resource if selected
 -   `rule.verbs` : List of verbs applied to all resources in the rule - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---

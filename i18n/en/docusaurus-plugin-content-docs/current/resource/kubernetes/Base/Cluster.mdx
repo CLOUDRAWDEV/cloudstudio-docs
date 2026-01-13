@@ -1,7 +1,7 @@
 ---
 title: Cluster
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Base, Cluster]
+tags: [Kubernetes, Resource, Base, Cluster]
 ---
 
 <hr />
@@ -17,36 +17,36 @@ tags: [Kubernetes, 리소스, Base, Cluster]
 
 ## Resource Overview
 
-Selects a Cluster connected to the user Credential.
+Selects a Cluster associated with a user Credential.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Base)
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Base)
 
 ### Child Resources
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Namespace)
--   [**Persistent Volume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
--   [**Cluster Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/ClusterIssuer)
--   [**Ingress Class**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/IngressClass)
--   [**Cluster Role**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
--   [**Cluster Role Binding**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRoleBinding)
--   [**Storage Class**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/en/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Storage/StorageClass)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `target_cluster` : Select the Ncloud Kubernetes cluster to connect
--   `token` : Authentication token used to connect to Ncloud Kubernetes Service
+-   `target_cluster` : Selects the Ncloud Kubernetes cluster to connect to
+-   `token` : Authentication token used to connect to the Ncloud Kubernetes Service
 
 ---
 
 ## References
 
--   [Kubernetes 클러스터 개요(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
--   [Kubernetes 인증(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
--   [kubectl 클러스터 설정(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
--   [kubectl 사용자 인증 설정(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)
+-   [Kubernetes Cluster Overview(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Kubernetes Authentication(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [kubectl Cluster Configuration(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [kubectl User Authentication Configuration(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

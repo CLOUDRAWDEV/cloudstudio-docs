@@ -1,7 +1,7 @@
 ---
 title: Job
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Batch, Job]
+tags: [Kubernetes, Resource, Batch, Job]
 ---
 
 <hr />
@@ -17,32 +17,83 @@ tags: [Kubernetes, 리소스, Batch, Job]
 
 ## Resource Overview
 
-A Kubernetes resource used to run one-time tasks.
+A Kubernetes resource used to execute one-time tasks.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Targets
 
--   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
+-   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
 -   `namespace` : Namespace where the Job resource will be deployed
--   `restart_policy` : Handling policy after container failure or Job completion (Never / OnFailure)
--   `backoff_limit` : Number of retries before marking the Job as failed
--   `wait_for_completion` : Whether to block creation or updates until the Job completes or fails
--   `containers` : Definition of container specifications to be executed
--   `init_containers` : Definition of pre-tasks executed before the main container
--   `volume` : Volume configuration to be mounted in the container
--   `pod_security_context` : Pod-level security context configuration
--   `image_pull_secrets` : Secret references for pulling images
+-   `annotations` : Key-value metadata used to display required information in the Kubernetes system
+-   `labels` : Key-value labels specified by the user to distinguish objects
+-   `enable_manual_selector` : Whether to use a manual selector - `true`, `false`
+-   `template_labels` : Labels applied to the Pod
+-   `restart_policy` : Handling policy when a container exits - `Never`, `OnFailure`
+-   `backoff_limit` : Number of retries before considering the Job failed
+-   `wait_for_completion` : Whether to block creation/updates until the Job completes or fails - `true`, `false`
+-   `dns_policy` : DNS policy - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Whether to enable service links - `true`, `false`
+-   `host_network` : Whether to use the host network - `true`, `false`
+-   `image_pull_secrets` : List of Secrets used for pulling images
+
+#### Timeouts (`timeouts`)
+
+-   `timeouts.create` : Wait time from Job creation until completion
+-   `timeouts.update` : Wait time from Job update until completion
+
+#### Pod Security Context (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : UID to run the container as
+-   `pod_security_context.run_as_group` : GID to run the container as
+-   `pod_security_context.run_as_non_root` : Whether to run as a non-root user - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : SELinux user
+-   `pod_security_context.se_linux_options_role` : SELinux role
+-   `pod_security_context.se_linux_options_type` : SELinux type
+-   `pod_security_context.se_linux_options_level` : SELinux level
+
+#### Init Containers (`init_containers`)
+
+-   `init_containers.image` : Container image
+-   `init_containers.args` : List of execution arguments
+-   `init_containers.command` : Execution command
+-   `init_containers.env` : Environment variable configuration
+-   `init_containers.env_from` : Environment variables from ConfigMap or Secret
+-   `init_containers.resources` : CPU and memory resource requests/limits
+-   `init_containers.probe` : Health check probes
+-   `init_containers.port` : Container port configuration
+-   `init_containers.volume_mount` : Volume mount configuration
+
+#### Containers (`containers`)
+
+-   `containers.image` : Container image
+-   `containers.args` : List of execution arguments
+-   `containers.command` : Execution command
+-   `containers.env` : Environment variable configuration
+-   `containers.env_from` : Environment variables from ConfigMap or Secret
+-   `containers.resources` : CPU and memory resource requests/limits
+-   `containers.probe` : Health check probes
+-   `containers.port` : Container port configuration
+-   `containers.volume_mount` : Volume mount configuration
+
+#### Volumes (`volume`)
+
+-   `volume.volume_type` : Volume type - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Target resource name
+-   `volume.path` : Mount path
+-   `volume.default_mode` : File permission mode
+-   `volume.items` : ConfigMap item mappings
+-   `volume.read_only` : Read-only flag - `true`, `false`
 
 ---
 

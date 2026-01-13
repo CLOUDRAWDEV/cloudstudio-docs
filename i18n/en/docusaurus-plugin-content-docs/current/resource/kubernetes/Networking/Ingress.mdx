@@ -1,7 +1,7 @@
 ---
 title: Ingress
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Networking, Ingress]
+tags: [Kubernetes, Resource, Networking, Ingress]
 ---
 
 <hr />
@@ -17,45 +17,45 @@ tags: [Kubernetes, 리소스, Networking, Ingress]
 
 ## Resource Overview
 
-A Kubernetes resource that defines rules allowing inbound connections to reach backend-defined endpoints.
+A Kubernetes resource that defines rules allowing inbound connections to reach endpoints defined in the backend.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/Issuer)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**IngressClass**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/IngressClass)
--   [**Nginx Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
+-   [**Issuer**](https://docs.cstudio.app/en/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
+-   [**IngressClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/IngressClass)
+-   [**Nginx Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Helm/NginxIngress)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
 -   `namespace` : Namespace where the Ingress resource will be deployed
--   `annotations` : Key-value pairs used to specify information required by the Kubernetes system
--   `labels` : User-defined values for object identification
--   `ingress_class_name` : Specifies the name of the Ingress Class to associate
+-   `annotations` : Key-value metadata used to specify required information in the Kubernetes system
+-   `labels` : User-defined values used to distinguish objects
+-   `ingress_class_name` : Name of the Ingress Class to associate with
 
 #### TLS Settings (`tls`)
 
 -   `tls.hosts` : List of hosts included in the TLS certificate
--   `tls.secret_name` : Specifies the name of the Kubernetes Secret related to the TLS certificate
+-   `tls.secret_name` : Name of the Kubernetes Secret associated with the TLS certificate
 
 #### Routing Rules (`rule`)
 
--   `rule.host` : Specifies the hostname address to which the routing rule applies
+-   `rule.host` : Hostname address to which routing rules apply
 
 #### Backend Settings (`rule.backend`)
 
--   `rule.backend.target_service` : Target backend service
--   `rule.backend.path` : Path connected to the backend
--   `rule.backend.port` : Service port number
--   `rule.backend.path_type` : Determines path matching behavior - `ImplementationSpecific`, `Prefix`, `Exact`
+-   `rule.backend.target_service` : Target backend Service
+-   `rule.backend.path` : Path to be connected to the backend
+-   `rule.backend.port` : Port number of the Service
+-   `rule.backend.path_type` : Path matching interpretation - `ImplementationSpecific`, `Prefix`, `Exact`
 
 ---
 

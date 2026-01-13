@@ -1,7 +1,7 @@
 ---
 title: RoleBinding
 sidebar_position: 0
-tags: [Kubernetes, 리소스, RBAC, RoleBinding]
+tags: [Kubernetes, Resource, RBAC, RoleBinding]
 ---
 
 <hr />
@@ -23,29 +23,29 @@ A Kubernetes resource that binds roles applied within a specific namespace to su
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**ServiceAccount**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ServiceAccount)
--   [**Role**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/Role)
--   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ServiceAccount**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**Role**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/Role)
+-   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/ClusterRole)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
 -   `namespace` : Namespace where the RoleBinding resource will be applied
--   `annotations` : Metadata key-value pairs for the RoleBinding resource
--   `labels` : User-defined labels for identifying RoleBinding objects
--   `role_type` : Type of role to bind - `Role`,`ClusterRole`
+-   `annotations` : Metadata key-value for the RoleBinding resource
+-   `labels` : User-defined labels used to distinguish the RoleBinding object
+-   `role_type` : Type of role to bind - `Role`, `ClusterRole`
 -   `role_name` : Name of the Role or ClusterRole to bind to the subject
 
 #### Subject Settings (`subject`)
 
 -   `subject.kind` : Type of subject to bind - `ServiceAccount`, `User`, `Group`
 -   `subject.namespace` : Namespace of the subject to bind
--   `subject.api_group` : API Group responsible for authorization decisions - `rbac.authorization.k8s.io`
+-   `subject.api_group` : API Group that makes authorization decisions - `rbac.authorization.k8s.io`
 
 ---
 

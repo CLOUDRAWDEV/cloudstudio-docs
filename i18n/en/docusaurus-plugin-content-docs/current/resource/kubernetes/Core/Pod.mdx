@@ -1,7 +1,7 @@
 ---
 title: Pod
 sidebar_position: 4
-tags: [Kubernetes, 리소스, Core, Pod]
+tags: [Kubernetes, Resource, Core, Pod]
 ---
 
 <hr />
@@ -23,14 +23,14 @@ The smallest deployable unit in Kubernetes that runs one or more containers toge
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**Horizontal Pod Autoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
+-   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
+-   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/en/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
 
 ## Resource Setting Values
 
@@ -40,22 +40,22 @@ The smallest deployable unit in Kubernetes that runs one or more containers toge
 -   `annotations` : Kubernetes system metadata
 -   `labels` : User-defined labels for Pod identification and classification
 -   `pod_security_context` : Pod-level security and permission settings
--   `init_containers` : Definition of initialization containers executed before the main container
+-   `init_containers` : Definition of initialization containers executed before the main containers
 -   `containers` : Definition of container specifications to be executed in the Pod
 -   `containers.image` : Container image
 -   `containers.resources` : CPU / Memory requests and limits
--   `containers.probe` : startup, liveness, and readiness probe settings
+-   `containers.probe` : startup, liveness, and readiness probe configuration
 -   `containers.env` : Environment variable definitions
--   `containers.env_from` : Environment variable injection from ConfigMap / Secret
+-   `containers.env_from` : Environment variable injection based on ConfigMap / Secret
 -   `containers.command` : Container execution command
 -   `containers.args` : Container execution arguments
 -   `containers.port` : Ports exposed by the container
 -   `containers.volume_mount` : Volume mount paths in the container
--   `volume` : Volume definitions used by the Pod
+-   `volume` : Definition of volumes used by the Pod
 -   `dns_policy` : DNS policy configuration
 -   `enable_service_links` : Whether to automatically inject service environment variables
 -   `host_network` : Whether to use the host network
--   `image_pull_secrets` : List of Secrets used for image pulling
+-   `image_pull_secrets` : List of Secrets used for pulling container images
 
 ---
 
