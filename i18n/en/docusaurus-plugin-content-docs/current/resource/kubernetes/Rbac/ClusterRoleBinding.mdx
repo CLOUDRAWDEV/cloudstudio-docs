@@ -1,7 +1,7 @@
 ---
 title: ClusterRoleBinding
 sidebar_position: 0
-tags: [Kubernetes, 리소스, RBAC, ClusterRoleBinding]
+tags: [Kubernetes, Resource, RBAC, ClusterRoleBinding]
 ---
 
 <hr />
@@ -23,20 +23,20 @@ A Kubernetes resource that binds cluster-level roles to subjects across all name
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
 ### Connected Resources
 
--   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/ClusterRole)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `annotations` : Metadata key-value pairs for the ClusterRoleBinding resource
--   `labels` : User-defined labels for identifying ClusterRoleBinding objects
+-   `annotations` : Metadata key-value for the ClusterRoleBinding resource
+-   `labels` : User-defined labels used to distinguish the ClusterRoleBinding object
 -   `role_name` : Name of the target ClusterRole to bind
--   `subject` : Subject to grant the ClusterRole to, including kind - `ServiceAccount`, `User`, `Group`, namespace (namespace the subject belongs to), and api_group - `rbac.authorization.k8s.io`
+-   `subject` : Subject to which the ClusterRole is granted, including kind - `ServiceAccount`, `User`, `Group`, namespace (namespace to which the subject belongs), and api_group - `rbac.authorization.k8s.io`
 
 ---
 
@@ -44,3 +44,4 @@ A Kubernetes resource that binds cluster-level roles to subjects across all name
 
 -   [ClusterRoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)
+    `

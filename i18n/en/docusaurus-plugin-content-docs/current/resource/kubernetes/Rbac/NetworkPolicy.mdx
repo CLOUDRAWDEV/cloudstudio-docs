@@ -17,24 +17,24 @@ tags: [Kubernetes, Networking, NetworkPolicy]
 
 ## Resource Overview
 
-NetworkPolicy is a Kubernetes resource that selects Pods based on labels and defines allowed inbound (Ingress) and outbound (Egress) network traffic rules for those Pods. It is applied at the namespace level and is used to implement fine-grained network access control in clusters where all traffic is allowed by default.
+NetworkPolicy is a Kubernetes resource that selects Pods based on labels and defines allowed inbound (Ingress) and outbound (Egress) network traffic rules for those Pods. It is applied at the namespace level and is used to implement fine-grained network access control in clusters that allow all traffic by default.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `annotations` : Metadata key-value pairs for the NetworkPolicy resource
--   `labels` : User-defined labels for identifying NetworkPolicy objects
+-   `annotations` : Metadata key-value for the NetworkPolicy resource
+-   `labels` : User-defined labels used to identify the NetworkPolicy object
 -   `match_expressions` : Pod selection rules using label selector expressions
--   `match_labels` : Label conditions in key-value format for selecting Pods
--   `ingress` : Allowed rules for traffic entering selected Pods - `from IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
--   `egress` : Allowed rules for traffic leaving selected Pods - `to IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `match_labels` : Label conditions in key-value format used to select Pods
+-   `ingress` : Allowed rules for incoming traffic to selected Pods - `from IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `egress` : Allowed rules for outgoing traffic from selected Pods - `to IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
 -   `policy_types` : Types of policies to apply (Ingress, Egress)
 
 ---

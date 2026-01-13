@@ -1,7 +1,7 @@
 ---
 title: DaemonSet
 sidebar_position: 0
-tags: [Kubernetes, 리소스, Apps, Daemonset]
+tags: [Kubernetes, Resource, Apps, Daemonset]
 ---
 
 <hr />
@@ -23,13 +23,13 @@ A DaemonSet is a Kubernetes resource that ensures all (or some) nodes run a copy
 
 ### Parent Resource
 
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
--   [**Config Map**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Persistent Volume Claim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+-   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
 
 ## Resource Setting Values
 
@@ -38,15 +38,15 @@ A DaemonSet is a Kubernetes resource that ensures all (or some) nodes run a copy
 -   `namespace` : Namespace where the DaemonSet resource will be deployed
 -   `annotations` : Metadata key-value pairs used by the Kubernetes system
 -   `labels` : User-defined labels for identifying the DaemonSet resource
--   `template_labels` : Labels applied to the Pods to be created
+-   `template_labels` : Labels applied to the Pods that will be created
 -   `pod_security_context` : Pod-level security and permission settings
--   `init_containers` : Definitions of initialization containers executed before the main container
--   `containers` : Definitions of containers included in the Pod
--   `volume` : Volume definitions to be used by the Pod
--   `dns_policy` : DNS policy of the Pod
+-   `init_containers` : Definition of initialization containers executed before the main containers
+-   `containers` : Definition of containers included in the Pod
+-   `volume` : Definition of volumes used by the Pod
+-   `dns_policy` : DNS policy for the Pod
 -   `enable_service_links` : Whether to automatically inject service environment variables
 -   `host_network` : Whether to use the host network
--   `image_pull_secrets` : List of Secrets to use when pulling images
+-   `image_pull_secrets` : List of Secrets used when pulling container images
 
 ---
 

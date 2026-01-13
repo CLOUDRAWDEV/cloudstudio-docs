@@ -1,7 +1,7 @@
 ---
 title: PersistentVolume
 sidebar_position: 2
-tags: [Kubernetes, 리소스, Core, PersistentVolume]
+tags: [Kubernetes, Resource, Core, PersistentVolume]
 ---
 
 <hr />
@@ -23,13 +23,13 @@ A Kubernetes resource that provides network-attached storage to a cluster.
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
 ### Connected Resources
 
--   [**Storage Class**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
--   [**Persistent Volume Claim**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
--   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
+-   [**StorageClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Storage/StorageClass)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
 
 ## Resource Setting Values
 
@@ -43,10 +43,10 @@ A Kubernetes resource that provides network-attached storage to a cluster.
 -   `spec.volume_handle` : Identifier of the actual storage resource
 -   `spec.persistent_volume_reclaim_policy` : Volume handling policy when the claim is released - `Retain / Delete / Recycle`
 -   `spec.read_only` : Whether the volume is read-only
--   `spec.volume_attributes` : Additional driver-specific volume attributes
+-   `spec.volume_attributes` : Additional volume attributes specific to the driver
 -   `spec.access_modes` : Volume access modes - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
 -   `spec.mount_options` : Additional mount options
--   `node_stage_secret_ref` : Reference to the Secret containing storage access credentials
+-   `node_stage_secret_ref` : Reference to a Secret containing storage access credentials
 
 ---
 

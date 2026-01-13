@@ -1,7 +1,7 @@
 ---
 title: ClusterRole
 sidebar_position: 0
-tags: [Kubernetes, 리소스, RBAC, ClusterRole]
+tags: [Kubernetes, Resource, RBAC, ClusterRole]
 ---
 
 <hr />
@@ -23,26 +23,26 @@ A Kubernetes resource that creates roles applied at the cluster level and across
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
+-   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
 ### Connected Resources
 
--   [**ClusterRoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRoleBinding)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
 
 ## Resource Setting Values
 
 #### Basic Settings
 
--   `annotations` : Key-value pairs used to specify information required by the Kubernetes system
--   `labels` : User-defined values for object identification
+-   `annotations` : Key-value metadata used to display required information in the Kubernetes system
+-   `labels` : User-defined labels used to distinguish objects
 
 #### Policy Rules (`rule`)
 
--   `rule.rule_type` : Rule type for ClusterRole - `ApiGroup`, `ResourceUrl`
--   `rule.api_groups` : API Groups containing the resources to allow operations on
+-   `rule.rule_type` : Rule type of the ClusterRole - `ApiGroup`, `ResourceUrl`
+-   `rule.api_groups` : API Groups that include resources for which actions are allowed
 -   `rule.resources` : List of resources to which this rule applies
--   `rule.resource_names` : Specifies individual resource instances when selected
--   `rule.non_resource_urls` : Used when specifying rules for URL-formatted non-resource endpoints
+-   `rule.resource_names` : Specifies individual instances of the resource if selected
+-   `rule.non_resource_urls` : Used when defining rules for non-resource URLs
 -   `rule.verbs` : List of verbs applied to all resources in the rule - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
