@@ -1,90 +1,59 @@
 ---
 title: Deployment
 sidebar_position: 0
-tags: [Kubernetes, Risorsa, Apps, Deployment]
+tags: [Kubernetes, risorsa, Apps, Deployment]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-deployment.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-deployment.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Servizio Kubernetes che garantisce che un numero specificato di repliche di Pod venga eseguito in qualsiasi momento.
+Deployment è una risorsa Kubernetes che garantisce che un numero specificato di repliche di Pod sia sempre in esecuzione.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Namespace)
 
 ### Risorse collegate
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/if/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/if/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Service)
+-   [**Secret**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Secret)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `service_name` : Nome delle risorse Deployment
--   `namespace` : Namespace in cui verrà distribuito il servizio Deployment
--   `annotations` : Key-value utilizzati per visualizzare le informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori personalizzati assegnati dall'utente per distinguere gli oggetti
--   `template_labels` : Etichetta (Label) che verrà impostata per i Pod creati su ciascun nodo
--   `replicas` : Numero di repliche desiderate del Pod - il valore predefinito è 1
+#### Impostazioni di base
 
--   `containers` : Definisce il template per i container appartenenti al Pod - le impostazioni predefinite vengono configurate e successivamente si possono definire i dettagli specifici.
-    -   `containers.name` : Definisce il nome del container
-        -   `image` : Nome dell'immagine Docker da utilizzare
-        -   `args` : Comandi da eseguire all'interno del container
-        -   `command` : Comandi da eseguire all'interno del container
-        -   `port` : Elenco delle porte che il container esporrà
-
-        -   `resources` : Definisce la quantità di risorse computazionali per il container - Impostazioni dettagliate
-            -   `resources.name` : Definisce la quantità minima/massima delle risorse computazionali - `Limits`, `requests`     
-            -   `resources.cpu` : Quantità di CPU da assegnare  
-            -   `resources.memory` : Quantità di memoria da assegnare
-
-        -   `probe` : Metodo per diagnosticare lo stato del Pod - Impostazioni dettagliate
-            -   `probe.name` : Selezione del metodo Probe - `startup`,`liveness`,`readiness`
-            -   `probe.http_get_path` : Percorso per accedere al server HTTP
-            -   `probe.http_get_port` : Numero di porta da cui il container accederà
-            -   `probe.http_header` : Header personalizzati da impostare nella richiesta
-            -   `probe.initial_delay_seconds` : Tempo (in secondi) prima che il probe inizi, dopo che il container è stato avviato
-            -   `probe.period_seconds` : Frequenza con cui viene eseguito il probe (in secondi)
-
-        -   `env` : Blocco di coppie key-value da configurare nell'ambiente del container - Impostazioni dettagliate
-            -   `env.name` : Nome della variabile di ambiente
-            -   `env.value` : Valore da assegnare alla variabile di ambiente
-
-        -   `volume_mount` : Volume del Pod da montare nel file system del container - Impostazioni dettagliate
-            -   `volume_mount.name` : Nome del volume da montare
-            -   `volume_mount.path` 
-                -   `volume_mount.path.mount_path` : Percorso nel container in cui montare il volume
-                -   `volume_mount.path.sub_path` : Percorso nel container in cui montare il volume
-            
--   `volume` : Elenco dei volumi che i container nel Pod possono montare
-    -   `volume.name` : Nome del volume
-        -   `volume.type` : Tipo di volume da montare - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `volume.target_name` : Nome del PersistentVolumeClaim
-        -   `volume.default_mode` : Modalità da usare sui file creati - tra 0 e 0777, valore predefinito è 0644
-        -   `volume.read_only` : Se impostato su true, il volume sarà montato in modalità sola lettura, altrimenti sarà montato in modalità lettura/scrittura
-
--   `image_pull_secrets` : Secret che contiene i permessi necessari per recuperare le immagini dal container nel namespace corrente
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Deployment
+-   `annotations` : Metadati key-value del sistema Kubernetes
+-   `labels` : Etichette per identificare la risorsa Deployment
+-   `template_labels` : Etichette applicate ai Pod che verranno creati
+-   `replicas` : Numero di repliche di Pod da mantenere
+-   `pod_security_context` : Impostazioni di sicurezza e autorizzazioni a livello di Pod
+-   `init_containers` : Definizione dei container di inizializzazione eseguiti prima del container principale
+-   `containers` : Definizione dei container inclusi nel Pod
+-   `volume` : Definizione dei volumi utilizzati dal Pod
+-   `dns_policy` : Policy DNS del Pod
+-   `enable_service_links` : Abilitazione dell’iniezione automatica delle variabili di ambiente dei servizi
+-   `host_network` : Abilitazione dell’uso della rete host
+-   `image_pull_secrets` : Elenco dei Secret utilizzati per il pull delle immagini
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Deployment(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
--   [Deployment(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment)
+-   [Deployment (Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+-   [Deployment (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment)

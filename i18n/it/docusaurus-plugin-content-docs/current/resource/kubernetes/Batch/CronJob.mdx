@@ -1,96 +1,55 @@
 ---
 title: CronJob
 sidebar_position: 0
-tags: [Kubernetes, Risorsa, Batch, CronJob]
+tags: [Kubernetes, risorsa, Batch, CronJob]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È una risorsa Kubernetes che crea periodicamente attività in base a un programma.
+CronJob è una risorsa Kubernetes che crea Job in modo periodico in base a una pianificazione definita.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Namespace)
 
 ### Risorse collegate
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**ConfigMap**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/if/docs/resource/kubernetes/Core/Secret)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `service_name` : Nome della risorsa CronJob
--   `namespace` : Namespace in cui la risorsa CronJob sarà distribuita
--   `annotations` : Coppie chiave-valore utilizzate per visualizzare informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori personalizzati definiti dall'utente per distinguere gli oggetti
--   `template_labels` : Etichette da impostare per i pod (Pod) generati su ciascun nodo
--   `concurrency_policy` : Metodo per gestire l'esecuzione concorrente dei lavori - `Allow`,`Forbid`,`Replace`
--   `failed_jobs_history_limit` : Numero di lavori falliti da conservare
--   `schedule` : Impostazione della frequenza con cui eseguire il lavoro
--   `timezone` : Fuso orario per il programma impostato
--   `starting_deadline_seconds` : Scadenza (in secondi) per l'inizio di un lavoro se il programma viene mancato per qualsiasi motivo
--   `successful_jobs_history_limit` : Numero massimo di lavori completati con successo da mantenere - il valore predefinito è 3
-
--   `containers` : Definisce il template per i contenitori all'interno del pod (Pod) - dopo aver impostato e applicato la configurazione di base, è possibile configurare i dettagli successivamente.
-    -   `containers.name` : Nome del contenitore
-        -   `image` : Nome dell'immagine Docker da utilizzare
-        -   `args` : Comandi da eseguire all'interno del contenitore
-        -   `command` : Comando da eseguire all'interno del contenitore
-        -   `port` : Elenco delle porte da esporre dal contenitore 
-
-        -   `resources` : Quantità di risorse computazionali assegnate al contenitore - configurazione dettagliata
-            -   `name` : Quantità minima/massima di risorse computazionali - `Limits`, `requests`     
-            -   `cpu` : Quantità di CPU da assegnare  
-            -   `memory` : Quantità di memoria da assegnare
-
-        -   `probe` : Metodo per diagnosticare lo stato del pod (Pod) - configurazione dettagliata
-            -   `name` : Tipo di probe - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : Percorso per accedere al server HTTP
-            -   `http_get_port` : Numero di porta per accedere al contenitore
-            -   `http_header` : Header personalizzati da impostare per la richiesta
-            -   `initial_delay_seconds` : Tempo (in secondi) prima che la probe inizi dopo l'avvio del contenitore
-            -   `period_seconds` : Frequenza con cui eseguire la probe (in secondi)
-
-        -   `env` : Blocchi di coppie chiave-valore da impostare come variabili di ambiente per il contenitore - configurazione dettagliata
-            -   `name` : Nome della variabile di ambiente
-            -   `value` : Valore da assegnare alla variabile di ambiente
-
-        -   `volume_mount` : Volumi del pod (Pod) da montare nel sistema file del contenitore - configurazione dettagliata
-            -   `name` : Nome del volume da montare
-            -   `path` 
-                -   `mount_path` : Percorso del contenitore dove montare il volume
-                -   `sub_path` : Sottopercorso nel contenitore dove montare il volume
-            
--   `volume` : Elenco dei volumi che i contenitori del pod (Pod) possono montare
-    -   `name` : Nome del volume
-        -   `volume_type` : Tipo di volume da montare - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : Nome del Persistent Volume Claim
-        -   `default_mode` : Modalità per i file creati - tra 0 e 0777, valore predefinito 0644
-        -   `read_only` : Se true, il volume sarà montato in sola lettura, altrimenti sarà montato in modalità lettura/scrittura
-
--   `image_pull_secrets` : Segreti nel medesimo namespace contenenti i permessi necessari per scaricare l'immagine utilizzata dal contenitore
-
-
+-   `namespace` : Namespace in cui verrà distribuito il CronJob
+-   `schedule` : Pianificazione dell’esecuzione del job definita tramite espressione cron
+-   `timezone` : Fuso orario di riferimento per l’interpretazione della pianificazione
+-   `concurrency_policy` : Politica di gestione dell’esecuzione concorrente dei job (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : Tempo massimo consentito per avviare il job se la pianificazione viene persa
+-   `successful_jobs_history_limit` : Numero di Job completati con successo da conservare
+-   `failed_jobs_history_limit` : Numero di Job falliti da conservare
+-   `containers` : Definizione dello spec dei container da eseguire
+-   `init_containers` : Definizione dei job preliminari eseguiti prima del container principale
+-   `volume` : Configurazione dei volumi da montare nei container
+-   `pod_security_context` : Configurazione del contesto di sicurezza a livello di Pod
+-   `image_pull_secrets` : Riferimento ai Secret per il pull delle immagini
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [CronJob(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
--   [CronJob(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)
+-   [CronJob (Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+-   [CronJob (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)
