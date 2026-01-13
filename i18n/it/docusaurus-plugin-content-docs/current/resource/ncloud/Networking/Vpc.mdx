@@ -1,48 +1,49 @@
 ---
 title: Vpc
 sidebar_position: 0
-tags: [Ncloud, Risorsa, Network, Vpc]
+tags: [Ncloud, Resource, Network, Vpc]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Ambiente di rete isolato che consente di implementare un'infrastruttura IT. È uno spazio di rete privata dedicato all'utente fornito su una cloud pubblica.
+A virtual private network environment provided in the cloud, allowing users to configure isolated network spaces.  
+You can define IP address ranges, Subnets, routing tables, and gateways to securely operate cloud resources.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
-### Risorse inferiori
+### Child Resources
 
--   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Container/KubernetesCluster)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Network/Subnet)
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Network/AccessControlGroup)
--   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Network/NatGateway)
--   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Network/RouteTable)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Network/LoadBalancer)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
+-   [**VpcPeering**](https://docs.cstudio.app/docs/resource/ncloud/Networking/VpcPeering)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
 
-## Impostazioni della risorsa
+## Resource Setting Values
 
--   `ipv4_cidr_block` : Intervallo di indirizzi IP, all'interno delle gamme private (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), intervallo da /16 a /28
+#### Basic Settings
+
+-   `ipv4_cidr_block` : IPv4 CIDR block to assign to the VPC
+-   `vpc_name` : Name of the VPC
 
 ---
 
-## Materiale di riferimento
+## References
 
--   [VPC Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-manage-vpc)
--   [VPC (Virtual Private Cloud)(Ncloud)](https://www.ncloud.com/product/networking/vpc)
--   [ncloud_vpc(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc)
+-   [VPC(Ncloud)](https://www.ncloud.com/product/networking/vpc)
+-   [VPC(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc)

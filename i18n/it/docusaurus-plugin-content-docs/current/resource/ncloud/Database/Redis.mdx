@@ -1,54 +1,54 @@
 ---
 title: Redis
-sidebar_position: 0
-tags: [Ncloud, Risorsa, Database, Redis]
+sidebar_position: 3
+tags: [Ncloud, Resource, Database, Redis]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Cloud DB for Redis è un servizio di cache cloud completamente gestito che consente di creare facilmente una cache Redis con poche impostazioni e clic. Grazie alle impostazioni ottimizzate di Naver, offre un'operazione stabile e si recupera automaticamente in caso di guasto. 
+Cloud DB for Redis is a fully managed cloud cache service that allows easy deployment and stable operation of Redis caches with optimized settings and automatic recovery.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-### Risorse inferiori
+## Resource Setting Values
 
+#### Basic Settings
 
-
-## Impostazioni della risorsa
-
--   `server_name_prefix` : Nome del server Redis Cache
--   `redis_mode` : Tipo di modalità di configurazione di Redis - `CLUSTER`, `SIMPLE`
--   `image_product_code` : Codice del prodotto dell'immagine del server Redis con le specifiche dell'istanza di Redis da creare
--   `target_config_group_name` : Nome del Config Group a cui collegarsi
--   `product_code` : Codice del prodotto che determina le specifiche hardware del server Redis da creare
--   `data_storage_type` : Tipo di storage dei dati - `SSD`, `HDD`
--   `shard_count` : Numero di shard da creare. Numero di nodi master - `3~10`
--   `shard_copy_count` : Numero di repliche per ogni shard in un cluster Redis costituito da nodi master e slave. Per alta disponibilità (HA), è necessario un nodo slave. Quando si aggiungono repliche, a ciascun nodo master viene assegnato un nodo slave
--   `enable_high_availability` : Se abilitare la funzionalità di alta disponibilità
--   `enable_backup` : Se abilitare la funzionalità di backup. Se la funzionalità di alta disponibilità è abilitata, il backup è obbligatoriamente attivato
--   `port` : Porta di accesso Redis - `6379`
-
-    
+-   `server_name_prefix` : Redis server name (lowercase letters, numbers, hyphens allowed; must start with a lowercase letter and end with a lowercase letter or number; 3–15 characters)
+-   `included_vpc_name` : Name of the VPC where Redis is located
+-   `included_subnet_name` : Name of the Subnet where Redis is located
+-   `redis_mode` : Redis deployment mode - `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Redis engine version
+-   `image_product_code` : Redis server image product code
+-   `product_code` : Redis instance server product code
+-   `target_config_group_name` : Name of the Redis Config Group to connect
+-   `shard_count` : Number of shards (based on master nodes) - `3` ~ `10`
+-   `shard_copy_count` : Number of replicas per shard (slave nodes) - `0` ~ `4`
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `enable_backup` : Whether to enable backup (automatically enabled when HA is used)
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `7`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : Redis access port - `6379` ~ `20000`
 
 ---
 
-## Materiale di riferimento
+## References
 
--   [Redis(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
--   [ncloud_redis(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)
-
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

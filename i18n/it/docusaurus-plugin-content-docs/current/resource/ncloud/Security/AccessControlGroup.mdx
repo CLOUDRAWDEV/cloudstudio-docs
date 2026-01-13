@@ -1,56 +1,63 @@
 ---
 title: AccessControlGroup
 sidebar_position: 0
-tags: [Ncloud, Risorsa, Security, AccessControlGroup]
+tags: [Ncloud, Resource, Security, AccessControlGroup]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Servizio di firewall basato su filtraggio IP/Port che consente di controllare e gestire l'accesso alla rete tra i server.
+An IP/Port-based filtering firewall service that enables network access control and management between servers.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### Risorse collegate
+### Connected Resources
 
--   [**Network Interface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
 
-## Impostazioni della risorsa
+## Resource Setting Values
 
--   `included_vpc_name` : Nome della VPC in cui verrà creato l'ACG
--   `acg_description` : Descrizione dell'ACG
--   `inbound_rule`
-    -   `name` : Nome della regola in ingresso
-    -   `protocol` : Protocollo del traffico in ingresso - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : Metodo di applicazione della regola in ingresso - `ip_block`, `source_name`
-    -   `ip_block` : Destinazione del traffico in ingresso, intervallo IP in formato CIDR
-    -   `port_range` : Intervallo di porte su cui applicare la regola in ingresso, intervallo da 1 a 65535 (per intervallo: 100-200)
+#### Basic Settings
 
--   `outbound_rule`
-    -   `name` : Nome della regola in uscita
-    -   `protocol` : Protocollo del traffico in uscita - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : Metodo di applicazione della regola in uscita - `ip_block`, `source_name`
-    -   `ip_block` : Destinazione del traffico in uscita, intervallo IP in formato CIDR
-    -   `port_range` : Intervallo di porte su cui applicare la regola in uscita, intervallo da 1 a 65535 (per intervallo: 100-200)
-    
+-   `included_vpc_name` : Name of the VPC in which the ACG will be created
+-   `acg_description` : Description of the ACG
+
+#### Inbound Rules (`inbound_rule`)
+
+-   `inbound_rule.protocol` : Protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Method to apply inbound rules - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Source IP range of inbound traffic (CIDR format)
+-   `inbound_rule.source_access_control_group_name` : Source ACG name for inbound traffic
+-   `inbound_rule.port_range` : Port range to apply inbound rules - `1` ~ `65535`
+-   `inbound_rule.description` : Description of the inbound rule
+
+#### Outbound Rules (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protocol of outbound traffic - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Method to apply outbound rules - `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Destination IP range of outbound traffic (CIDR format)
+-   `outbound_rule.source_access_control_group_name` : Source ACG name for outbound traffic
+-   `outbound_rule.port_range` : Port range to apply outbound rules - `1` ~ `65535`
+-   `outbound_rule.description` : Description of the outbound rule
+
 ---
 
-## Materiale di riferimento
+## References
 
 -   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
--   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)
