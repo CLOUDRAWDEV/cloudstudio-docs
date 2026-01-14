@@ -18,21 +18,21 @@ tags: [Cloud, CloudInit, CloudinitConfig]
 ## Resource Overview
 
 Cloud-init is a standard initialization tool used to automatically perform initial configuration when a virtual machine instance boots for the first time.  
-It allows you to declaratively define various initial setup tasks such as operating system configuration, package installation, user creation, and script execution, and is widely used across multi-cloud environments and various Linux distributions.
+It allows declarative definition of various initial configuration tasks such as operating system configuration, package installation, user creation, and script execution, and is widely used across multi-cloud environments and various Linux distributions.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `gzip` : Whether to use a data compression algorithm – `true`, `false`
+-   `gzip` : Whether to use data compression - `true`, `false`
 
 -   `part` : Disk partitioning and initialization script configuration
 
-    -   `content_type` : Type of data to be injected
+    -   `content_type` : Type of data to insert
         -   `text/cloud-config`
         -   `text/x-shellscript`
         -   `text/cloud-boothook`
@@ -41,9 +41,9 @@ It allows you to declaratively define various initial setup tasks such as operat
         -   `text/jinja`
         -   `text/x-include-url`
         -   `text/part-handler`
-    -   `content` : The actual data to be injected
+    -   `content` : Actual data to insert
 
--   `tag` : Tags used to categorize the resource – up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 

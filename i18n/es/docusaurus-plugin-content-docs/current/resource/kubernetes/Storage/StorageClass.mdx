@@ -4,56 +4,47 @@ sidebar_position: 0
 tags: [Kubernetes, Recurso, Storage, StorageClass]
 ---
 
-
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes que define el aprovisionamiento dinámico de almacenamiento que funciona junto con un aprovisionador de almacenamiento (Storage Provisioner) específico
+Recurso de Kubernetes que define el aprovisionamiento dinámico de almacenamiento que funciona junto con un Storage Provisioner específico.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/es/docs/resource/kubernetes/Base/Cluster)
 
 ### Recursos conectados
 
--   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
-
+-   [**PersistentVolume**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolume)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso StorageClass
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `storage_Provisioner` : Tipo de proveedor de almacenamiento
--   `reclaim_policy` : Política de recuperación a usar - si no se especifica, el valor por defecto es Delete
--   `volume_binding_mode` : Momento en el que debe ocurrir el enlace de volumen y el aprovisionamiento dinámico - `Immediate`, `WaitForFirstConsumer`
--   `allow_volume_expansion` : Indica si la clase de almacenamiento permite la expansión del volumen - `False`, `True`
--   `parameters` : Parámetros para el aprovisionador encargado de crear volúmenes para la clase de almacenamiento
--   `mount_options` : Opciones de montaje especificadas para los volúmenes persistentes creados dinámicamente por la clase de almacenamiento
+#### Configuración básica
 
-
-
-
-
-
+-   `annotations` : Metadatos key-value utilizados para mostrar la información necesaria en el sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar el objeto StorageClass
+-   `storage_provisioner` : Tipo de Storage Provisioner que crea realmente el almacenamiento
+-   `reclaim_policy` : Política de recuperación aplicada al liberar el volumen - `Retain`, `Delete`
+-   `volume_binding_mode` : Momento en el que se produce la vinculación del volumen y el aprovisionamiento dinámico - `Immediate`, `WaitForFirstConsumer`
+-   `allow_volume_expansion` : Indica si se permite la expansión del tamaño del volumen creado
+-   `parameters` : Parámetros adicionales transmitidos al Storage Provisioner
+-   `mount_options` : Opciones de montaje que se aplicarán al PersistentVolume creado dinámicamente
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [StorageClass(kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+-   [StorageClass(Kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
 -   [StorageClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class)

@@ -1,37 +1,49 @@
 ---
 title: Base
 sidebar_position: 0
-tags: [AWS, recurso, Base]
+tags: [AWS, Recurso, Base]
 ---
 
 <hr />
 <br />
 
-## Icono del recurso
+## Ícono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/base-base.webp"
     }
 />
 
-## Descripción general del recurso
+## Descripción del recurso
 
-Representa el grupo más alto en AWS que contiene la información de suscripción del usuario.
+Representa el grupo de nivel más alto de AWS que almacena la información de suscripción del usuario.
 
 ## Recursos relacionados
 
-## Recursos secundarios
+### Recursos secundarios
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Cloudfront Distribution**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
--   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
--   [**Iam Account Password Policy**](https://docs.cstudio.app/docs/resource/aws/Iam/IamAccountPasswordPolicy)
--   [**Waf Ipset**](https://docs.cstudio.app/docs/resource/aws/Waf/WafIpset)
--   [**Waf Rule Group**](https://docs.cstudio.app/docs/resource/aws/Waf/WafRuleGroup)
--   [**Waf Web Ac**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+-   [**CloudFrontCachePolicy**](https://docs.cstudio.app/es/docs/resource/aws/CloudFront/CloudFrontCachePolicy)
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/es/docs/resource/aws/CloudFront/CloudFrontDistribution)
+-   [**DXGateway**](https://docs.cstudio.app/es/docs/resource/aws/DirectConnect/DxGateway)
+-   [**Route53**](https://docs.cstudio.app/es/docs/resource/aws/Route53/Route53)
+-   [**ShieldAdvanced**](https://docs.cstudio.app/es/docs/resource/aws/Waf/ShieldAdvanced)
+-   [**VpcPeering**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/VpcPeering)
+-   [**WAFIPSet**](https://docs.cstudio.app/es/docs/resource/aws/Waf/WafIpSet)
+-   [**WAFRuleGroup**](https://docs.cstudio.app/es/docs/resource/aws/Waf/WafRuleGroup)
+-   [**WAFWebACL**](https://docs.cstudio.app/es/docs/resource/aws/Waf/WafWebAcl)
 
 ## Valores de configuración del recurso
 
--   `credential_id` : Información de suscripción del usuario
+#### Configuración básica
+
+-   `credential_id` : Credencial del usuario
+
+---
+
+## Referencias
+
+-   [Resumen de cuentas y suscripciones de AWS (AWS)](https://docs.aws.amazon.com/accounts/latest/reference/welcome-first-time-user.html)
+-   [Estructura y gestión de cuentas de AWS (AWS)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
+-   [AWS Provider (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)

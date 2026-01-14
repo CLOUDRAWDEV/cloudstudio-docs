@@ -1,52 +1,51 @@
 ---
 title: Mssql
 sidebar_position: 0
-tags: [Ncloud, Risorsa, Database, Mssql]
+tags: [Ncloud, Resource, Database, Mssql]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Cloud DB for MSSQL è un servizio che consente di creare facilmente un database MSSQL e di gestirlo automaticamente. Grazie alle impostazioni ottimizzate di Naver, offre un'operazione stabile e si recupera automaticamente in caso di guasto, essendo un servizio di database cloud completamente gestito.
+Cloud DB for MSSQL is a fully managed cloud database service that enables easy deployment and automatic management of MSSQL databases.  
+It operates stably with Naver’s optimized settings and provides automatic recovery in case of failures.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
 
+## Resource Setting Values
 
-### Risorse inferiori
+#### Basic Settings
 
-
-
-## Impostazioni della risorsa
-
--   `enable_high_availability` : Se abilitare la funzionalità di alta disponibilità
--   `user_name` : ID di accesso dell'utente MSSQL
--   `user_password` : Password dell'utente MSSQL
--   `image_product_code` : Codice del prodotto dell'immagine per le specifiche del server istanza MSSQL da creare
--   `product_code` : Codice del prodotto per le specifiche del server istanza MSSQL da creare
--   `data_storage_type` : Tipo di storage dei dati - `SSD`, `HDD`
--   `backup_file_retention_period` : Periodo di conservazione dei file di backup, il backup viene effettuato quotidianamente e i file di backup sono memorizzati su uno storage separato - `1~30`
--   `enable_automatic_backup` : Se abilitare la funzionalità di backup automatico
--   `port` : Porta di accesso MySQL - `3306~20000`
--   `character_set_name` : Set di caratteri del DB. È possibile scegliere tra una combinazione di coreano e inglese
-    
+-   `included_subnet_name` : Name of the Subnet where MSSQL is located
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `user_name` : MSSQL user access ID
+-   `user_password` : MSSQL user password
+-   `image_product_code` : MSSQL instance server image product code
+-   `product_code` : MSSQL instance server product code
+-   `data_storage_type` : Data storage type - `SSD`, `HDD`
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `30`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : TCP port for MSSQL access (default: `1433`)
+-   `character_set_name` : Database character set - `characterSetName`
 
 ---
 
-## Materiale di riferimento
+## References
 
--   [Mssql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
--   [ncloud_mssql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)
+-   [MSSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
+-   [MSSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

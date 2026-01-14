@@ -1,7 +1,7 @@
 ---
 title: Base
 sidebar_position: 0
-tags: [Ncloud, Ressourcen, Base]
+tags: [Ncloud, Ressource, Base]
 ---
 
 <hr />
@@ -11,20 +11,33 @@ tags: [Ncloud, Ressourcen, Base]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/base-base.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Es stellt die oberste Gruppe in Ncloud dar, die die Abonnementinformationen des Benutzers speichert.
+Stellt die oberste Gruppe von Ncloud dar, in der die Abonnementinformationen des Benutzers gespeichert sind.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Untergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+-   [**LoginKey**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/LoginKey)
 
-## Ressourcen-Einstellwerte
+### Verbundene Ressourcen
 
--   `credential_id` : Abonnementinformationen des Benutzers
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `credential_id` : Benutzer-Credential
+-   `site` : Typ des Naver-Cloud-Dienstes
+
+---
+
+## Referenzen
+
+-   [Ncloud-Umgebungsübersicht(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
+-   [Terraform Ncloud Provider(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs)

@@ -1,7 +1,7 @@
 ---
 title: ApiGatewayHttp
 sidebar_position: 0
-tags: [AWS, Ressourcen, ApiGatewayHttp]
+tags: [AWS, Ressource, ApiGatewayHttp]
 ---
 
 <hr />
@@ -11,51 +11,45 @@ tags: [AWS, Ressourcen, ApiGatewayHttp]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.webp"
     }
 />
 
-## Ressourcen-Übersicht
+## Ressourcenübersicht
 
-HTTP API ist eine Art von API Gateway, das darauf abzielt, APIs auf der Grundlage des HTTP-Protokolls einfach und leicht zu erstellen.
-HTTP API ist einfacher und kostengünstiger als das traditionelle REST API und eignet sich hauptsächlich für serverlose Webanwendungen und einfache Mikrodienste.
+In API Gateway ist die HTTP API ein Typ von API Gateway, der dafür vorgesehen ist, APIs einfach und leichtgewichtig auf Basis des HTTP-Protokolls zu erstellen.  
+HTTP APIs sind einfacher und kosteneffizienter als bestehende REST APIs und eignen sich hauptsächlich für serverlose Webanwendungen und einfache Microservices.
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
--   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/de/docs/resource/aws/Lambda/LambdaFunction)
 
-## Ressourceneinstellungens
+## Ressourceneinstellungswerte
 
--   `integration` : Name der API Gateway-Integration
-    -   `http_integration`
-        -   `integration_type` : Typ der API Gateway-Integration - `Http`, `Lambda`
-        -   `integration_method` : AHTTP-Methode der API Gateway-Integration
-        -   `integration_url` : Die normalisierte URL für die HTTP-Integration angeben
-    -   `lambda_integration`
-        -   `integration_type` : Typ der API Gateway-Integration - `Http`, `Lambda`
-        -   `integration_method` : HTTP-Methode der API Gateway-Integration
-        -   `linked_lambda_name` : Name der Lambda-Funktion für die Lambda-Proxy-Integration
--   `route`
+#### Grundeinstellungen
 
-    -   `route_method` : HTTP-Methode für die HTTP-API
-    -   `route_path` : Ressourcenpfad für die HTTP-API
-    -   `target_integration` : Name der API Gateway-Integration, mit der die Route verbunden werden soll - `http_integration`, `lambda_integration`
+#### Integrationseinstellungen (`integration`)
 
--   `deployment`
+-   `integration.integration_type` : Typ der API-Gateway-Integration – `Http`, `Lambda`
+-   `integration.integration_method` : HTTP-Methode der API-Gateway-Integration – `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : Angabe der vollqualifizierten URL für die HTTP-Integration
+-   `integration.linked_lambda_name` : Name der Lambda-Funktion für die Lambda-Proxy-Integration
 
-    -   `description` : Beschreibung der API Gateway-Entwicklung
+#### Routeneinstellungen (`route`)
 
--   `stage`
-    -   `dev`
-        -   `enable_deployment` : API Gateway-Stage bereitstellen
-        -   `auto_deployment` : Automatische Bereitstellung aktivieren
-    -   `test`
-        -   `enable_deployment` : API Gateway-Stage bereitstellen
-        -   `auto_deployment` : Automatische Bereitstellung aktivieren
-        -   `deployment_name` : Name der zu verbindenden API Gateway-Bereitstellung
-    -   `prod`
-        -   `enable_deployment` : API Gateway-Stage bereitstellen
+-   `route.route_method` : HTTP-Methode für die HTTP API – `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : Ressourcenpfad für die HTTP API
+-   `route.target_integration` : Name der zu verbindenden API-Gateway-Integration für die Route
+
+#### Bereitstellungseinstellungen (`deployment`)
+
+-   `deployment.description` : Beschreibung der API-Gateway-Bereitstellung
+
+#### Stage-Einstellungen (`stage`)
+
+-   `stage.auto_deployment` : Aktivierung der automatischen Bereitstellung – `true`, `false`
+-   `stage.deployment_name` : Name der zu verbindenden API-Gateway-Bereitstellung

@@ -1,7 +1,7 @@
 ---
-title: Waf Web Acl
-sidebar_position: 0
-tags: [AWS, Ressourcen, Waf, WafWebAcl]
+title: WafWebAcl
+sidebar_position: 2
+tags: [AWS, Ressource, Waf, WafWebAcl]
 ---
 
 <hr />
@@ -11,33 +11,42 @@ tags: [AWS, Ressourcen, Waf, WafWebAcl]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-AWS WAF Web ACL ist die oberste Ebene der Sammlung von Regeln, die auf eine Webanwendung angewendet werden. Mit Web ACL können mehrere Rule Groups und Regeln kombiniert und die Reihenfolge der Anforderungsverarbeitung für die Webanwendung definiert werden.
+Eine AWS WAF Web ACL ist die oberste Ebene einer Regelsammlung, die auf Webanwendungen angewendet wird. Mit einer Web ACL können mehrere Rule Groups und einzelne Regeln kombiniert sowie die Reihenfolge der Anforderungsverarbeitung definiert werden. Dadurch lässt sich die Sicherheit von Webanwendungen erhöhen und das Zulassen, Blockieren oder Zählen von Anfragen steuern.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
+### Verknüpfte Ressourcen
 
-## Ressourcen-Einstellwerte
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/de/docs/resource/aws/CloudFront/CloudFrontDistribution)
 
--   `scope` : Geben Sie an, ob es für eine AWS CloudFront-Verteilung oder für eine regionale Anwendung ist - `REGIONAL`, `CLOUDFRONT`
--   `cloudwatch_metrics_enabled` : Festlegen, ob die verbundenen Ressourcen Metriken an CloudWatch senden sollen - `true`, `false`
--   `metric_name` : Der Name der CloudWatch-Metrik darf nur Kleinbuchstaben, Großbuchstaben, Bindestriche (-) und Unterstriche (_) enthalten und muss eine Länge von 1-128 Zeichen haben
--   `sampled_requests_enabled` : Festlegen, ob AWS WAF eine Stichprobe der Webanfragen speichern soll, die mit den Regeln übereinstimmen - `true`, `false`
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `scope` : Anwendungsbereich der Web ACL – `REGIONAL`, `CLOUDFRONT`
+-   `cloudwatch_metrics_enabled` : Aktivierung der Übermittlung von CloudWatch-Metriken – `true`, `false`
+-   `metric_name` : Name der CloudWatch-Metrik, erlaubt sind Groß-/Kleinbuchstaben, Bindestriche und Unterstriche, `1` ~ `128` Zeichen
+-   `sampled_requests_enabled` : Speicherung von Stichproben der mit Regeln übereinstimmenden Webanfragen – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [AWS WAF Funktion(AWS)](https://aws.amazon.com/ko/waf/features/)
--   [AWS WAF Kosten(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
--   [aws_waf_web_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)
+-   [AWS-WAF-Funktionen (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS-WAF-Preise (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_web_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)

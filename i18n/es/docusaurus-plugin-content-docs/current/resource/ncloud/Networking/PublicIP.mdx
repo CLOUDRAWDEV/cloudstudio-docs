@@ -1,7 +1,7 @@
 ---
 title: PublicIP
-sidebar_position: 0
-tags: [Ncloud, 리소스, Networking, PublicIP]
+sidebar_position: 3
+tags: [Ncloud, Recurso, Networking, PublicIP]
 ---
 
 <hr />
@@ -11,31 +11,32 @@ tags: [Ncloud, 리소스, Networking, PublicIP]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-public_ip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-public_ip.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un servicio que ayuda a utilizar el servidor con fines de servicio o a conectarse al servidor creado.
+Servicio que permite acceder a servidores creados o utilizarlos con fines de servicio mediante una IP pública.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
 
 ### Recursos conectados
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
 
 ## Valores de configuración del recurso
 
--   `target_server_name` : Nombre de la instancia del servidor al que se aplicará la Public IP
+#### Configuración básica
+
+-   `target_server_name` : Nombre del servidor al que se asignará la IP pública
 
 ---
 
-## Documentación de referencia
+## Referencias
 
-
--   [ncloud_publicip(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/public_ip)
+-   [Public IP(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/public_ip)

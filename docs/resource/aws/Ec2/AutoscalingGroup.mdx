@@ -17,27 +17,29 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 
 ## 연관 리소스
 
+### 상위 리소스
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
 ### 연결 리소스
 
--   [**LaunchTemplate**](https://docs.cstudio.app/docs/resource/aws/EC2/LaunchTemplate)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/VPC/Subnet)
--   [**TargetGroup**](https://docs.cstudio.app/docs/resource/aws/ELB/TargetGroup)
--   [**EC2 Instance**](https://docs.cstudio.app/docs/resource/aws/EC2/Instance)
-
----
+-   [**LbTargetGroup**](https://docs.cstudio.app/docs/resource/aws/Lb/LbTargetGroup)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `launch_template_name` : Auto Scaling Group에서 사용할 Launch Template 이름 (드롭다운)
--   `subnet_ids` : Auto Scaling Group이 리소스를 생성할 Subnet ID 목록 (체크리스트)
--   `linked_targetgroup_name` : 연결된 Target Group 이름 목록 (체크리스트)
--   `desired_capacity` : 유지하려는 인스턴스 목표 개수
--   `min_size` : 유지하려는 인스턴스 최소 개수
--   `max_size` : 유지하려는 인스턴스 최대 개수
--   `default_cooldown` : 스케일링 작업 후 다음 스케일링까지 대기 시간(초)
--   `tags` : 리소스 분류 태그 - `key`:`value`
+-   `launch_template_name` : Auto Scaling Group에서 사용할 Launch Template의 이름
+-   `subnet_ids` : Auto Scaling Group가 리소스를 생성할 서브넷 ID의 목록
+-   `linked_targetgroup_name` : 연결된 Target Group의 이름
+-   `desired_capacity` : Auto Scaling Group이 유지하려는 인스턴스의 목표 개수
+-   `min_size` : Auto Scaling Group이 유지하려는 인스턴스의 최소 개수
+-   `max_size` : Auto Scaling Group이 유지하려는 인스턴스의 최대 개수
+-   `default_cooldown` : Auto Scaling Group이 스케일링 작업을 수행한 후 다음 스케일링 작업까지 기다리는 시간(초)
+
+#### 태그
+
+-   `tags` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

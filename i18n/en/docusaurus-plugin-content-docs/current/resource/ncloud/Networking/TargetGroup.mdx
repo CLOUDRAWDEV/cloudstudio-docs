@@ -1,6 +1,6 @@
 ---
 title: TargetGroup
-sidebar_position: 0
+sidebar_position: 7
 tags: [Ncloud, Resource, Network, TargetGroup]
 ---
 
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Network, TargetGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
     }
 />
 
 ## Resource Overview
 
-This resource represents a group of targets that handle requests from a load balancer.
+A resource that represents a group of targets that will handle requests from a load balancer.
 
 ## Associated Resources
 
@@ -28,29 +28,28 @@ This resource represents a group of targets that handle requests from a load bal
 ### Connected Resources
 
 -   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/AutoScaling)
-
+-   [**LoadBalancer**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/AutoScaling)
 
 ## Resource Setting Values
 
--   `included_vpc_name` : The name of the VPC where the target group will exist
--   `protocol` : The type of protocol to use for routing traffic - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
--   `port` : The port on which targets receive traffic
--   `algorithm_type` : The type of algorithm to use for Load balancing, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
--   `health_check_protocol` : The protocol to use for health checks, RR/SIPHS/LC - `TCP`, `HTTP`, `HTTPS`
--   `health_check_http_method` : The HTTP method for the health check if using HTTP/HTTPS for the health check protocol, HEAD or GET - `HEAD`, `GET`
--   `health_check_port` : The port to use for health checks
--   `health_check_cycle` : The health check cycle in seconds, From 5 to 300
--   `health_check_up_threshold` : The number of health check normal threshold, From 2 to 10
--   `health_check_down_threshold` : The number of health check failure threshold, From 2 to 10
--   `linked_server_names` : The list of server names to connect to
+#### Basic Settings
 
-
+-   `included_vpc_name` : Name of the VPC where the target group will be created (read-only)
+-   `protocol` : Protocol to use for traffic routing - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Port number on which targets receive traffic
+-   `algorithm_type` : Load balancing algorithm - `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Protocol to use for health checks - `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : Health check method when using HTTP/HTTPS - `HEAD`, `GET`
+-   `health_check_port` : Port number to use for health checks
+-   `health_check_cycle` : Health check interval (seconds) - `5` ~ `300`
+-   `health_check_up_threshold` : Number of consecutive successes required to transition to a healthy state - `2` ~ `10`
+-   `health_check_down_threshold` : Number of consecutive failures required to transition to an unhealthy state - `2` ~ `10`
+-   `health_check_url_path` : URL path for health check requests
+-   `linked_server_names` : List of server names to connect to the target group
 
 ---
 
-## Reference Materials
+## References
 
-
--   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

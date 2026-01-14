@@ -1,7 +1,7 @@
 ---
 title: SourceBuild
 sidebar_position: 0
-tags: [Ncloud, Ressourcen, DeveloperTool, SourceBuild]
+tags: [Ncloud, Ressource, DeveloperTool, SourceBuild]
 ---
 
 <hr />
@@ -11,53 +11,86 @@ tags: [Ncloud, Ressourcen, DeveloperTool, SourceBuild]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-SourceBuild ist ein Service, der es ermöglicht, Quellcode, der in verschiedenen Programmiersprachen entwickelt wurde, einfach zu erstellen. SourceBuild kann unabhängige Build-Server in Echtzeit erstellen und mehrere Build-Anfragen gleichzeitig verarbeiten.
+SourceBuild ist ein Service zum einfachen Erstellen von Quellcode, der in verschiedenen Programmiersprachen entwickelt wurde.  
+Dabei werden unabhängige Build-Server in Echtzeit erstellt, um mehrere Build-Anfragen gleichzeitig zu verarbeiten.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
-### Untergeordnete Ressourcen
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
+### Verbundene Ressourcen
 
+-   [**SourceCommit**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `source_type` : Build-Target-Typ - `SourceCommit`
--   `source_branch` : Name des Branches, der gebaut werden soll
--   `linked_repository_name` : Name des Repositories, das gebaut werden soll
--   `env` : Inhalt der Build-Umgebungskonfiguration
-    -   `env_compute_spec` : Spezifikationen der Computing-Umgebung, die für das Build verwendet werden soll - `2cpu-4memory`,`4cpu-8memory`,`8cpu-16memory`
-    -   `env_platform_type` : Art des Computing-Umgebungs-Images, das für das Build verwendet werden soll - `SourceBuild`,`ContainerRegistry`,`PublicRegistry`
-    -   `env_platform_os_spec` : Verwendetes OS-Spezifikationen - `ubuntu-archiX64-16.04`
-    -   `env_platform_runtime_name` : Name der Build-Runtime - `base`,`java`,`dotnet`,`android_java`,`python`
-    -   `env_platform_runtime_version` : Version der Build-Runtime - `1.0-1.0.0`,`2.0-1.0.0`,`3.0-1.0.0`,`4.0-1.0.0`,`5.0-1.0.0`
-    -   `env_timeout` : Maximale Wartezeit (in Minuten) vom Start bis zum Abschluss des Builds, 5~540
-    -   `env_use_docker` : Ob Docker-Engine verwendet werden soll 
-    -   `env_var` : Umgebungsvariablen, die im Build-Prozess verwendet werden 
--   `build_command` : Ausführbare Befehle im Zusammenhang mit dem Build 
-    -   `pre_build_command` : Befehle, die vor dem Build ausgeführt werden
-    -   `in_build_command` : Befehle, die während des Builds ausgeführt werden
-    -   `post_build_command` : Befehle, die nach dem Build ausgeführt werden
--   `enable_cloud_log_analytics` : Ob Build-Protokolle für die Cloud-Log-Analyse gespeichert werden sollen
--   `enable_file_safer` : Ob File Safer für Sicherheitsprüfung genutzt werden soll
--   `artifact` : Einstellungen zum Speichern der Build-Ergebnisse
-    -   `save_build_results` : Ob die Build-Ergebnisse gespeichert werden sollen
--   `upload` : Einstellungen zum Hochladen von Images nach Abschluss des Builds
-    -   `upload_build_results` : Ob die Build-Umgebung gespeichert werden soll
+#### Grundeinstellungen
 
+-   `description` : Beschreibung des Build-Projekts (max. 500 Zeichen)
+-   `source_type` : Typ des Build-Ziels – `SourceCommit`
+-   `source_branch` : Name des zu buildenden Branches
+-   `linked_repository_name` : Name des Repositorys für den Build
 
-    
+#### Build-Umgebung (`env`)
+
+-   `env.env_compute_spec` : Rechenleistung der Build-Umgebung – `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : Typ des Build-Umgebungs-Images – `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : Verwendete OS-Spezifikation
+-   `env.env_platform_runtime_name` : Name der Build-Runtime
+-   `env.env_platform_runtime_version` : Version der Build-Runtime
+-   `env.target_registry_name` : Name der Container-Registry für Build-Images
+-   `env.target_container_image_name` : Name des zu erstellenden Container-Images
+-   `env.target_container_image_tag` : Tag des zu erstellenden Container-Images
+-   `env.env_timeout` : Maximale Wartezeit für den Build (Minuten) – `5` ~ `540`
+-   `env.env_use_docker` : Verwendung der Docker-Engine – `true`, `false`
+-   `env.env_docker_engine_version` : Version der Docker-Engine
+-   `env.env_var` : Umgebungsvariablen für den Build (Key-Value)
+
+#### Build-Befehle (`build_command`)
+
+-   `build_command.pre_build_command` : Befehle vor dem Build
+-   `build_command.in_build_command` : Befehle während des Builds
+-   `build_command.post_build_command` : Befehle nach dem Build
+-   `build_command.use_docker_image_build_command` : Verwendung von Docker-Image-Build – `true`, `false`
+-   `build_command.docker_image_build_registry` : Container-Registry für Images
+-   `build_command.docker_image_dockerfile` : Pfad zur Dockerfile
+-   `build_command.docker_image` : Name des hochzuladenden Images
+-   `build_command.docker_image_build_tag` : Tag des hochzuladenden Images
+
+#### Protokollierung und Sicherheit
+
+-   `enable_cloud_log_analytics` : Speicherung von Build-Logs in Cloud Log Analytics – `true`, `false`
+-   `enable_file_safer` : Sicherheitsprüfung über File Safer – `true`, `false`
+
+#### Artefaktspeicherung (`artifact`)
+
+-   `artifact.save_build_results` : Speicherung der Build-Ergebnisse – `true`, `false`
+-   `artifact.path_to_save_build_results` : Speicherpfad für Build-Ergebnisse
+-   `artifact.object_storage_name_to_save` : Name des Object-Storage-Buckets
+-   `artifact.object_storage_path_to_save` : Pfad im Object-Storage-Bucket
+-   `artifact.file_name_to_save` : Name der zu speichernden Datei
+-   `artifact.enable_backup_build_results` : Backup der Build-Ergebnisse – `true`, `false`
+
+#### Image-Upload (`upload`)
+
+-   `upload.upload_build_results` : Speicherung der Build-Images – `true`, `false`
+-   `upload.container_registry_name_to_upload_build_results` : Container-Registry-Name für Uploads
+-   `upload.image_name_to_upload` : Name des hochzuladenden Images
+-   `upload.image_tag_to_upload` : Tag des hochzuladenden Images
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
--   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)
+-   [Source Build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

@@ -17,81 +17,81 @@ tags: [Azure, LinuxVirtualMachineScaleSet, VirtualMachineScaleSet, Compute]
 
 ## Resource Overview
 
-Azure Linux Virtual Machine Scale Set is a compute resource that allows you to create multiple Linux virtual machine instances with the same configuration and automatically scale the number of instances up or down based on demand or defined policies.  
-By configuring virtual network connectivity, VM SKU, instance count, image settings, authentication methods, disk configuration, and network interface settings, you can efficiently operate large-scale workloads.
+Azure Linux Virtual Machine Scale Set is a computing resource that creates multiple Linux virtual machine instances with the same configuration and automatically scales the number of instances up or down based on demand or policies.  
+Large-scale workloads can be efficiently operated by configuring virtual network connections, VM SKUs, instance counts, image settings, authentication methods, disk settings, and network interface configurations.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
 
 ### Connected Resources
 
--   [**Monitor Autoscale Setting**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+-   [**MonitorAutoscaleSetting**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `included_vnet_name` : Name of the Virtual Network to which the Virtual Machine Scale Set belongs
 
 -   `orchestration_mode` : Orchestration mode that determines how VMs are managed by the Scale Set - `Uniform`, `Flexible`
 
--   `platform_fault_domain_count` : Number of VM groups that share a common power source and network switch
+-   `platform_fault_domain_count` : Number of VM groups that share common power sources and network switches
 
 -   `vmss_sku` : Pricing tier of the Virtual Machine Scale Set
 
 -   `instances` : Number of virtual machines in the Scale Set - `1` ~ `1000`
 
-### Image Configuration (`source_image`)
+### Image Settings (`source_image`)
 
 -   `source_image.type` : Whether to use a custom image ID - `recommended`, `custom_id`, `custom_input`
 
--   `source_image.image_id` : ID of the image used to create the VMs
+-   `source_image.image_id` : ID of the image used to create the VM
 
--   `source_image.image` : Image used to create the VMs
+-   `source_image.image` : Image used to create the VM
 
--   `source_image.publisher` : Publisher of the image used to create the VMs
+-   `source_image.publisher` : Publisher of the image used to create the VM
 
--   `source_image.offer` : Offer of the image used to create the VMs
+-   `source_image.offer` : Offer of the image used to create the VM
 
--   `source_image.sku` : SKU of the image used to create the VMs
+-   `source_image.sku` : SKU of the image used to create the VM
 
 -   `enable_ssh_key_authentication` : Whether to use SSH keys to authenticate the administrator account - `true`, `false`
 
--   `ssh_public_key` : Public SSH key for the VMs - up to 600 characters
+-   `ssh_public_key` : Public SSH key for the VM - maximum 600 characters
 
--   `admin_username` : Administrator username for the VMs - 1 to 64 characters
+-   `admin_username` : Administrator username for the VM - 1 ~ 64 characters
 
--   `admin_password` : Administrator password for the VMs - 12 to 72 characters
+-   `admin_password` : Administrator password for the VM - 12 ~ 72 characters
 
--   `os_disk_caching` : Caching type for the OS disk - `ReadWrite`, `ReadOnly`, `None`
+-   `os_disk_caching` : Caching type for the internal OS disk - `ReadWrite`, `ReadOnly`, `None`
 
--   `storage_account_type` : Storage type for the OS disk - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+-   `storage_account_type` : Storage type for backing up the internal OS disk - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
 
--   `disk_size_gb` : Size of the OS disk (GB) - `32` ~ `11400`
+-   `disk_size_gb` : Size of the internal OS disk (GB) - `32` ~ `11400`
 
-### Network Interface Configuration (`network_interface`)
+### Network Interface Settings (`network_interface`)
 
--   `network_interface.is_primary` : Set as the primary network interface - `true`, `false`
+-   `network_interface.is_primary` : Whether to set as the primary network interface - `true`, `false`
 
--   `network_interface.subnet_name` : Name of the Subnet where the network interface will be located
+-   `network_interface.subnet_name` : Name of the subnet where the Network Interface is located
 
-### IP Configuration (`network_interface.ip_configuration`)
+### IP Configuration Settings (`network_interface.ip_configuration`)
 
--   `network_interface.ip_configuration.is_primary` : Set as the primary IP configuration of the network interface - `true`, `false`
+-   `network_interface.ip_configuration.is_primary` : Whether to set as the primary IP configuration of the network interface - `true`, `false`
 
--   `network_interface.ip_configuration.enabled_public_ip` : Whether to enable a public IP - `true`, `false`
+-   `network_interface.ip_configuration.enabled_public_ip` : Whether to enable Public IP - `true`, `false`
 
--   `network_interface.ip_configuration.public_ip_name` : Name of the public IP to use
+-   `network_interface.ip_configuration.public_ip_name` : Name of the Public IP to use
 
--   `cloudinit_config` : Script content to be executed automatically when the server is created
+-   `cloudinit_config` : Script content to be automatically executed when the server is created
 
--   `tag` : Tags used to categorize the resource
+-   `tag` : Tags used to categorize resources
 
 ---
 
 ## References
 
--   [Azure Virtual Machine Scale Sets (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/overview)
--   [Azure Linux Virtual Machine Scale Set (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine_scale_set)
+-   [Azure Virtual Machine Scale Sets(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/overview)
+-   [Azure Linux Virtual Machine Scale Set(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine_scale_set)
 -   [Terraform cloudinit_config](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/cloudinit_config)

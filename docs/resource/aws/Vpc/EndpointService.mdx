@@ -25,19 +25,25 @@ tags: [AWS, 리소스, Vpc, EndpointService]
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-### 하위 리소스
+### 연결 리소스
 
--   [**LB**](https://docs.cstudio.app/docs/resource/aws/Lb/Lb)
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Lb/Lb)
 -   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
 
 ## 리소스 설정 값
 
--   `acceptance_required` : 서비스 소유자가 서비스에 대한 VPC 끝점 연결 요청을 수락해야 하는지 여부 - `false`,`true`
--   `loadbalancer_type` : Endpoint service에서 연결할 load balancer 유형 - `network`, `gateway`
--   `linked_lb_names` : 엔드포인트 서비스에 대한 하나 이상의 연결된 Lb 리소스 이름
--   `manual_lb_arns` : 엔드포인트 서비스에 대한 하나 이상의 로드 밸런싱 장치의 아마존 리소스 이름(ARN)
--   `supported_ip_address_types` : 지원되는 IP 주소 유형 - `ipv4`
--   `activate_private_dns_name` : 서비스의 개인 DNS 이름
+#### 기본 설정
+
+-   `acceptance_required` : VPC Endpoint 연결 요청을 서비스 소유자가 수락해야 하는지 여부 - `true`, `false`
+-   `load_balancer_type` : Endpoint Service에 연결할 Load Balancer 유형 - `network`, `gateway`
+-   `linked_lb_names` : Endpoint Service에 연결할 Load Balancer 이름 목록
+-   `manual_lb_arns` : Endpoint Service에 연결할 Load Balancer ARN 목록
+-   `supported_ip_address_types` : 지원되는 IP 주소 유형 목록 - `ipv4`
+-   `activate_private_dns_name` : 서비스에 설정할 프라이빗 DNS 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

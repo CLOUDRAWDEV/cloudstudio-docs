@@ -28,17 +28,23 @@ AWS SNS에서 커뮤니케이션 채널 역할을 하는 논리적 액세스 포
 ### 연결 리소스
 
 -   [**Metric**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/Metric)
--   [**Config**](https://docs.cstudio.app/docs/resource/aws/Config/Config)
+-   [**Config**](https://docs.cstudio.app/docs/resource/aws/Config/)
 
 ## 리소스 설정 값
 
--   `display_name` : SNS Topic의 표시이름
--   `type` : SNS Topic의 유형 - `FIFO`, `Standard`
+#### 기본 설정
+
+-   `display_name` : SNS Topic의 표시 이름
+-   `type` : SNS Topic의 유형 (`FIFO`, `Standard`)
 -   `kms_key_name` : SNS Topic에 사용할 KMS Key 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 
 ## 참고 자료
 
--   [Sns Topic(AWS)]https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
+-   [Sns Topic(AWS)](https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
 -   [Sns Topic(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)

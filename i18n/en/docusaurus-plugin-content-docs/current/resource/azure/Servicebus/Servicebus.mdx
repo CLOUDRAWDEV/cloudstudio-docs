@@ -17,22 +17,22 @@ tags: [Azure, Messaging, ServiceBus]
 
 ## Resource Overview
 
-Azure Service Bus is a fully managed enterprise messaging service that supports asynchronous messaging between applications.  
-Through queue and topic/subscription models, it enables reliable message delivery, reduces coupling between distributed systems, and supports large-scale event processing scenarios.
+Azure Service Bus is a **fully managed enterprise messaging service that supports asynchronous messaging between applications**.  
+It supports reliable message delivery, reduced coupling between distributed systems, and large-scale event processing scenarios through queue and topic/subscription models.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
 -   `sku` : Pricing tier of Service Bus - `Basic`, `Standard`, `Premium`
--   `capacity` : Capacity unit used to control throughput performance in the Premium SKU
+-   `capacity` : Capacity units used to control throughput in the Premium SKU
 -   `premium_messaging_partitions` : Number of partitions used in the Premium messaging tier - `1`, `2`, `4`
 -   `default_action` : Default action when applying network rules - `Allow`, `Deny`
--   `public_network_access_enabled` : Whether to allow access to Service Bus from the public network - `true`, `false`
+-   `public_network_access_enabled` : Whether to allow Service Bus access from public networks - `true`, `false`
 
 #### Network Rules (`network_rules`)
 
@@ -47,12 +47,12 @@ Through queue and topic/subscription models, it enables reliable message deliver
 #### Subscription (`subscription`)
 
 -   `subscription.target_topic_name` : Name of the target Topic to which the subscription is connected
--   `subscription.max_delivery_count` : Maximum number of delivery attempts for a message
+-   `subscription.max_delivery_count` : Maximum number of message delivery attempts
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure Service Bus Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
--   [Azure Service Bus Messaging Patterns (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
--   [Azure Service Bus Network Security (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)
+-   [Azure Service Bus Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Azure Service Bus Messaging Patterns(Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Azure Service Bus Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

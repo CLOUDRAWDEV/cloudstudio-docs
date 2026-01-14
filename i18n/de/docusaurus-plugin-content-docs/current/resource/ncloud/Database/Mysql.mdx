@@ -1,7 +1,7 @@
 ---
 title: Mysql
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Database, Mysql]
+sidebar_position: 1
+tags: [Ncloud, Ressource, Database, Mysql]
 ---
 
 <hr />
@@ -11,45 +11,46 @@ tags: [Ncloud, Ressourcen, Database, Mysql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mysql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mysql.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-MySQL ist ein vollständig verwalteter Cloud-Datenbankdienst, der auf der relationalen Datenbank MySQL basiert. Er ermöglicht eine einfache Einrichtung, eine stabile Betriebsführung und eine automatische Wiederherstellung im Falle von Störungen.
+MySQL ist ein vollständig verwalteter Cloud-Datenbankservice auf Basis von MySQL, der eine einfache Bereitstellung, stabilen Betrieb und automatische Wiederherstellung bei Ausfällen bietet.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**Mysql**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
+-   [**Mysql**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mysql)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `server_name_prefix` : Name des MySQL-Servers
--   `user_name` : Benutzerzugriffs-ID für MySQL
--   `user_password` : Benutzerpasswort für MySQL
--   `host_ip` : IP-Adresse des Clients, der auf den Server zugreifen möchte
--   `database_name` : Name der zu erstellenden Datenbank
--   `image_product_code` : Produktcode des MySQL-Server-Images für die Konfiguration des MySQL-Instanz-Specs
--   `product_code` : Produktcode zur Bestimmung der Server-Spezifikationen für die zu erstellende MySQL-Instanz
--   `data_storage_type` : Art des Datenspeichers - `SSD`, `HDD`
--   `enable_high_availability` : Ob die Hochverfügbarkeitsfunktion verwendet wird
--   `enable_backup` : Ob die Backup-Funktion aktiviert ist
--   `backup_file_retention_period` : Die Aufbewahrungsdauer der Backup-Dateien wird festgelegt. Backups werden täglich durchgeführt, und die Backup-Dateien werden in einem separaten Speicher abgelegt - `1~30`
--   `enable_automatic_backup` : Ob die Backup-Automatisierung aktiviert wird
--   `port` : MySQL-Zugangsport - `3306~20000`
-    
+-   `server_name_prefix` : MySQL-Servername (3–30 Zeichen, Kleinbuchstaben/Zahlen/Bindestrich)
+-   `users` : Benutzerkonfiguration (`password`, `host_ip`, `authority`)
+-   `databases` : Liste der zu erstellenden Datenbanken
+-   `included_subnet_names` : Subnetzliste
+-   `image_product_code` : Image-Produktcode
+-   `product_code` : Produktcode der Instanz
+-   `data_storage_type` : Storage-Typ – `SSD`, `HDD`
+-   `enable_high_availability` : Hochverfügbarkeit – `true`, `false`
+-   `enable_storage_encryption` : Storage-Verschlüsselung – `true`, `false`
+-   `enable_backup` : Backup-Funktion – `true`, `false`
+-   `backup_file_retention_period` : Backup-Aufbewahrung (Tage) – `1` ~ `30`
+-   `enable_automatic_backup` : Automatische Backups – `true`, `false`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `port` : MySQL-Port – `3306` ~ `20000`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Mysql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMysql)
--   [ncloud_mysql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mysql)
+-   [MySQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMysql)
+-   [MySQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mysql)

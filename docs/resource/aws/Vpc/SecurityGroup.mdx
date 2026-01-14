@@ -29,26 +29,50 @@ VPC를 생성할 경우 VPC는 기본 보안 그룹과 함께 제공됩니다. �
 
 ### 연결 리소스
 
--
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Networking/LoadBalancer)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
+-   [**LambdaFunction**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**LaunchTemplate**](https://docs.cstudio.app/docs/resource/aws/Ec2/LaunchTemplate)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `description` : Security Group에 대한 설명
 -   `included_vpc_name` : Security Group이 포함된 VPC의 이름
--   `ingress` : Security Group의 Ingress 규칙 이름
-    -   `rule_name` : Security Group의 Ingress 규칙 이름
-    -   `description` : Ingress 규칙의 설명
-    -   `from_port` : Ingress 규칙으로 들어오는 포트 번호
-    -   `to_port` : Ingress 규칙을 통해 나가는 포트 번호
-    -   `protocol` : Ingress 규칙의 Protocol - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block` : Ingress 규칙을 적용할 CIDR
--   `egress` : Security Group의 Egress 규칙 이름
-    -   `rule_name` : Security Group의 Ingress 규칙 이름
-    -   `description` : Egress 규칙의 설명
-    -   `from_port` : Egress 규칙으로 들어오는 포트 번호
-    -   `to_port` : Egress 규칙을 통해 나가는 포트 번호
-    -   `protocol` : Egress 규칙의 Protocol - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block` : Egress 규칙을 적용할 CIDR
+
+#### 인바운드 규칙 (`ingress`)
+
+-   `ingress.rule_name` : Ingress 규칙 이름
+-   `ingress.description` : Ingress 규칙 설명
+-   `ingress.from_port` : 허용 시작 포트 번호
+-   `ingress.to_port` : 허용 종료 포트 번호
+-   `ingress.protocol` : 프로토콜 - `tcp`, `udp`, `icmp`, `all`
+-   `ingress.cidr_block` : 허용할 소스 CIDR 블록
+
+#### 아웃바운드 규칙 (`egress`)
+
+-   `egress.rule_name` : Egress 규칙 이름
+-   `egress.description` : Egress 규칙 설명
+-   `egress.from_port` : 허용 시작 포트 번호
+-   `egress.to_port` : 허용 종료 포트 번호
+-   `egress.protocol` : 프로토콜 - `tcp`, `udp`, `icmp`, `icmpv6`, `all`
+-   `egress.cidr_block` : 허용할 목적지 CIDR 블록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

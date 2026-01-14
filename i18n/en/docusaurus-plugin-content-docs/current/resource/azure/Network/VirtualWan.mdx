@@ -17,30 +17,32 @@ tags: [Azure, Network, VirtualWan]
 
 ## Resource Overview
 
-Azure Virtual WAN is a **global network hub service** designed to centrally connect and manage network resources distributed across multiple regions.  
-It enables unified management of Site-to-Site VPN, Point-to-Site VPN, and ExpressRoute connections from a single control point, making it well suited for large-scale, multi-region network architectures.
+Azure Virtual WAN is a **global network hub service** designed to centrally connect and manage distributed network resources across multiple regions.  
+It integrates Site-to-Site VPN, Point-to-Site VPN, and ExpressRoute connections through a single control plane and is well suited for large-scale multi-region network architectures.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Child Resources
 
--   [**Virtual Hub**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualHub)
+-   [**VirtualHub**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualHub)
 
 ### Connected Resources
 
--   [**Vpn Site**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
+-   [**VpnSite**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `type` : Type of Virtual WAN
+#### Basic Settings
+
+-   `type` : Type of the Virtual WAN
     -   `Basic`
     -   `Standard`
 
 ## References
 
--   [Azure Virtual WAN Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-wan-about)
--   [Azure Virtual WAN Architecture (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)
+-   [Azure Virtual WAN Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-wan-about)
+-   [Azure Virtual WAN Architecture(Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

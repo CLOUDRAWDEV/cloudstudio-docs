@@ -1,48 +1,70 @@
 ---
 title: Endpoint
-sidebar_position: 0
+sidebar_position: 4
 tags: [AWS, Risorsa, Vpc, Endpoint]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Servizio che consente di connettersi privatamente ai servizi AWS supportati e ai servizi VPC endpoint
+Servizio che consente ai clienti di connettersi in modo privato ai servizi AWS supportati e ai servizi VPC Endpoint
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
 
-### Risorse inferiori
+### Risorse collegate
 
--   [**Endpoint Service**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**EndpointService**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `service_range` : Categoria del servizio da utilizzare con il servizio endpoint - `awsService`,`endpointService`
--   `aws_service_name` : Nome del servizio AWS da utilizzare con il servizio endpoint
--   `vpc_endpoint_type` : Tipo di endpoint del servizio da utilizzare con altri endpoint - `gateway`, `interface`, `gatewayloadbalancer`
--   `included_vpc_name` : Nome del VPC in cui creare l'endpoint
--   `route_table_names` : ID di una o più tabelle di routing da collegare all'endpoint
--   `policy_access` : Intervallo di accesso della politica da collegare all'endpoint per controllare l'accesso al servizio - `Full`, `Custom`
+#### Impostazioni di base
+
+-   `service_range` : Categoria del servizio Endpoint - `awsService`, `endpointService`
+-   `aws_service_name` : Nome del servizio AWS da utilizzare
+-   `vpc_endpoint_type` : Tipo di endpoint - `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Nome del VPC in cui creare l’endpoint
+-   `enabled_private_dns` : Abilitazione del DNS privato - `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : Abilitazione esclusiva del DNS privato per richieste inbound - `true`, `false`
+-   `dns_record_ip_type` : Tipo di IP per i record DNS - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : Tipo di indirizzo IP dell’endpoint - `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Ambito di accesso della policy - `Full`, `Custom`
+-   `custom_policy` : Policy personalizzata per il controllo degli accessi
+
+#### Impostazioni Endpoint Service (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Inserimento manuale dell’ARN del servizio - `true`, `false`
+-   `endpoint_service.service_name` : Nome del servizio Endpoint
+-   `endpoint_service.linked_endpoint_service_name` : Nome del servizio Endpoint collegato
+
+#### Impostazioni di rete
+
+-   `linked_security_group_names` : Elenco dei gruppi di sicurezza collegati
+-   `linked_subnet_names` : Elenco delle subnet per la creazione delle interfacce di rete
+-   `route_table_names` : Elenco delle route table collegate
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [AWS EndPoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
--   [AWS EndPoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)
+-   [AWS Endpoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
+-   [AWS Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)

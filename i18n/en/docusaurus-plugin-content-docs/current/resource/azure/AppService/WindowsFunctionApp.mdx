@@ -17,33 +17,33 @@ tags: [Azure, FunctionApp, WindowsFunctionApp]
 
 ## Resource Overview
 
-Windows Function App is a fully managed Function App service that enables the execution of event-driven, serverless code in a Windows environment.  
-It allows code to run based on various triggers such as HTTP requests, timers, message queues, and event streams, enabling you to focus solely on application logic without managing infrastructure.
+Windows Function App is a fully managed Function App service that allows event-driven serverless code to run in a Windows environment.  
+It supports executing code based on various triggers such as HTTP requests, timers, message queues, and event streams, enabling developers to focus solely on application logic without managing infrastructure.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Service Plan**](https://docs.cstudio.app/en/docs/resource/azure/AppService/ServicePlan)
+-   [**ServicePlan**](https://docs.cstudio.app/en/docs/resource/azure/AppService/ServicePlan)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `linked_service_plan_name` : Name of the Service Plan in which the Function App will run
+-   `linked_service_plan_name` : Name of the Service Plan where the Function App will run
 
--   `delegated_subnet_name` : Name of the Subnet for virtual network delegation
+-   `delegated_subnet_name` : Name of the subnet for virtual network delegation
 
--   `target_storage_account_name` : Name of the storage account used to store files, logs, and metadata required for Function App execution
+-   `target_storage_account_name` : Name of the storage account that stores files, logs, and metadata required for Function App execution
 
--   `https_only` : Whether to allow only HTTPS access for encrypted and authenticated secure connections – `true`, `false`
+-   `https_only` : Whether to allow HTTPS access only for encrypted and authenticated secure connections - `true`, `false`
 
--   `auth_settings_enabled` : Whether to enable authentication and authorization features for the Function App – `true`, `false`
+-   `auth_settings_enabled` : Whether to enable authentication and authorization for the Function App - `true`, `false`
 
--   `http2_enabled` : Whether to use the HTTP/2 protocol – `true`, `false`
+-   `http2_enabled` : Whether to enable the HTTP/2 protocol - `true`, `false`
 
 -   `target_content_safety_name` : Name of the Azure Content Safety resource to integrate
 
@@ -55,6 +55,6 @@ It allows code to run based on various triggers such as HTTP requests, timers, m
 
 ## References
 
--   [Azure Functions (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
--   [Azure Windows Function App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
--   [Azure Windows Function App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app)
+-   [Azure Functions(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Windows Function App(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Windows Function App(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app)

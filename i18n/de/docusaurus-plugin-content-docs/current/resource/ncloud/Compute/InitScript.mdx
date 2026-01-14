@@ -1,7 +1,7 @@
 ---
 title: InitScript
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Compute, Initscript]
+sidebar_position: 3
+tags: [Ncloud, Ressource, Compute, Initscript]
 ---
 
 <hr />
@@ -11,28 +11,30 @@ tags: [Ncloud, Ressourcen, Compute, Initscript]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Das Init-Skript ist eine Funktion, mit der ein zuvor erstelltes Skript beim Erstellen eines Servers automatisch ausgeführt wird. Es kann in verschiedenen Fällen genutzt werden, z. B. beim gleichzeitigen Erstellen mehrerer Server mit derselben Funktion, beim regelmäßigen Erstellen von Servern mit derselben Umgebung oder wenn eine Verwaltung der anfänglichen Serverumgebung für bestimmte Zwecke erforderlich ist.
+Init Script ist eine Funktion, mit der vordefinierte Skripte beim Erstellen von Servern automatisch ausgeführt werden können. Sie eignet sich für die Massenbereitstellung identischer Server, die regelmäßige Erstellung gleichartiger Umgebungen oder die initiale Konfigurationsverwaltung je nach Einsatzzweck.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `OS_type` : Verwendeter Serverinstanztyp - `LNX`, `WND`
--   `Content` : Automatisch ausgeführtes Skript beim Erstellen des Servers, Beispiel) #!/bin/bash yum install -y httpd && systemctl start httpd
+-   `os_type` : Typ der zu verwendenden Serverinstanz – `LNX`, `WND`
+-   `content` : Skriptinhalt, der beim Erstellen des Servers automatisch ausgeführt wird
+-   `description` : Beschreibung des Init-Skripts
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [ncloud_InitScript(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)
+-   [Init Script(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)

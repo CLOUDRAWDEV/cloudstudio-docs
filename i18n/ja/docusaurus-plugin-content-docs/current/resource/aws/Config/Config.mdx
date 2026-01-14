@@ -1,59 +1,73 @@
 ---
 title: Config
 sidebar_position: 0
-tags: [AWS, リソース, Config]
+tags: [AWS, Resource, Config]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/config-aws_config.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/config-config.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS アカウントのリソース構成情報を記録し、リソース間の関係を確認するリソース
+AWSアカウント内のResource構成情報を記録し、Resource間の関係を確認するためのResourceです。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 接続リソース
+### Connected Resources
 
--   [**S3 Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
--   [**Sns Topic**](https://docs.cstudio.app/ja/docs/resource/aws/Sns/SnsTopic)
+-   [**S3Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
+-   [**SnsTopic**](https://docs.cstudio.app/ja/docs/resource/aws/Sns/SnsTopic)
 
-## リソース設定値
+## Resource 設定値
 
--   `enable_config_recorder` : コンフィギュレーショレコーダーを有効にするか無効にするかの可否 - `false`, `true`
--   `role_name` : AWS Config で使用する Iam Role の名前
--   `recording_method`
--   `recording_method.enable_all_supported` : AWS Config がサポートされているすべての地域リソースタイプに対する構成変更事項を記録しているかどうかの可否 - `false`,`true`
--   `recording_method.exclude_resource_types` : AWS Configuration で構成変更を記録する AWS リソースタイプを指定するリスト
--   `recording_method.include_global_resource_types` : AWS Config が記録するリソースと一緒にサポートされるすべてのタイプのグローバルリソースを含んでいるかどうかの可否 - `false`,`true`
--   `linked_s3_bucket_name` : 構成記録を保存するために使用される S3 バケット名
--   `s3_key_prefix` : 使う S3 バケットの prefix
--   `enable_sns_topic` : AWS Config がアラームを伝達する Sns Topic を有効にするかどうかの可否
--   `delivery_frequency` : AWS Config が構成スナップショットを定期的に送信する頻度
--   `config_rule`
--   `config_rule.name` : config rule の名前
--   `config_rule.rule_owner` : AWS または顧客が AWS 構成ルールを所有·管理しているかどうかの可否 - `AWS`,`customLambda`,`customPolicy`
--   `config_rule.source_identifier` : AWS 構成管理ルールの場合、事前に定義された識別子
+#### Basic Settings
+
+-   `enable_config_recorder` : 構成レコーダーの有効／無効 - `true`, `false`
+-   `role_name` : AWS Configで使用するIAM Role名
+-   `linked_s3_bucket_name` : 構成履歴保存用S3 Bucket名
+-   `s3_key_prefix` : 使用するS3 Bucketのプレフィックス
+-   `enable_sns_topic` : 通知用SNS Topic有効化可否 - `true`, `false`
+-   `linked_sns_topic_name` : 通知送信用SNS Topic名
+-   `delivery_frequency` : 構成スナップショット送信頻度 - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+
+#### 記録方式 (`recording_method`)
+
+-   `recording_method.enable_all_supported` : すべてのサポートResourceを記録するか - `true`, `false`
+-   `recording_method.exclude_resource_types` : 記録対象外のAWS Resource種別一覧
+-   `recording_method.include_global_resource_types` : グローバルResourceを含めるか - `true`, `false`
+-   `recording_method.specific_resource_types` : 記録対象の特定Resource種別
+
+#### 構成ルール (`config_rule`)
+
+-   `config_rule.rule_owner` : ルール所有者 - `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.source_identifier` : AWS管理ルールの事前定義識別子
+-   `config_rule.target_lambda_name` : カスタムLambdaルールで使用する関数名
+-   `config_rule.custom_policy_message_type` : 評価トリガー通知タイプ
+-   `config_rule.maximum_execution_frequency` : 評価実行頻度
+-   `config_rule.custom_policy_text` : カスタムポリシー定義
+
+#### タグ
+
+-   `tag` : Resource分類用タグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
--   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)
--   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_delivery_channel)
--   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
--   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
--   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder_status)
+-   [Amazon Config（AWS）](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
+-   [Amazon Config（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)
+-   [Amazon Config（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_delivery_channel)
+-   [Amazon Config（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder_status)

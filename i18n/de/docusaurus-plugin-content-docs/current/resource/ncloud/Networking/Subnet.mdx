@@ -1,7 +1,7 @@
 ---
 title: Subnet
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Network, Subnet]
+sidebar_position: 1
+tags: [Ncloud, Ressource, Network, Subnet]
 ---
 
 <hr />
@@ -11,42 +11,53 @@ tags: [Ncloud, Ressourcen, Network, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Ein VPC-Subnetz, das nach Netzwerkzwecken unterteilt werden kann.
+Ein untergeordnetes Netzwerk innerhalb eines VPC, das eine feingranulare Segmentierung nach Netzwerkzwecken ermöglicht.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### Untergeordnete Ressourcen
+### Enthaltene Ressourcen
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
--   [**Block Storage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Redis**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Redis)
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NatGateway**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NatGateway)
+-   [**MSSQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mssql)
+-   [**MySQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mysql)
+-   [**MongoDB**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Mongodb)
+-   [**PostgreSQL**](https://docs.cstudio.app/de/docs/resource/ncloud/Database/Postgresql)
 
 ### Verbundene Ressourcen
 
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
+-   [**NetworkACL**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/NetworkAcl)
+-   [**KubernetesCluster**](https://docs.cstudio.app/de/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/RouteTable)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `subnet_cidr` : IP-Adressbereich des Subnetzes innerhalb des VPC-Adressbereichs
--   `zone` : Die physische Region, in der das Subnetz platziert wird - `KR-1`, `KR-2`
--   `subnet_type` : Einstellungen für öffentliches oder privates Subnetz - `PUBLIC`, `PRIVATE`
--   `usage_type` : Einstellung zur Verwendung eines Load Balancers - `GEN`, `BM`
--   `included_vpc_name` : Der Name des VPC, in dem sich das Subnetz befindet
--   `linked_nacl_name` : Die Network Access Control List zur Zugriffskontrolle auf das Subnetz
+#### Grundeinstellungen
+
+-   `subnet_cidr` : IP-Adressbereich des Subnets innerhalb des VPC-CIDR-Bereichs
+-   `zone` : Verfügbarkeitszone, in der sich das Subnet befindet (`KR-1`, `KR-2`)
+-   `subnet_type` : Typ des Subnets (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Verwendungszweck des Subnets (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
+-   `included_vpc_name` : Name des VPC, zu dem das Subnet gehört (schreibgeschützt)
+-   `linked_nacl_name` : Name des auf das Subnet angewendeten Network ACL (schreibgeschützt)
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Subnet Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-subnetmanage-vpc)
 -   [ncloud_subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

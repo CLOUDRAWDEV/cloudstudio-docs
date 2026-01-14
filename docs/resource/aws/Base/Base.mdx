@@ -21,17 +21,29 @@ tags: [AWS, 리소스, Base]
 
 ## 연관 리소스
 
-## 하위 리소스
+### 하위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Cloudfront Distribution**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
--   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
--   [**Iam Account Password Policy**](https://docs.cstudio.app/docs/resource/aws/Iam/IamAccountPasswordPolicy)
--   [**Waf Ipset**](https://docs.cstudio.app/docs/resource/aws/Waf/WafIpset)
--   [**Waf Rule Group**](https://docs.cstudio.app/docs/resource/aws/Waf/WafRuleGroup)
--   [**Waf Web Ac**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
+-   [**CloudFrontCachePolicy**](https://docs.cstudio.app/docs/resource/aws/CloudFront/CloudFrontCachePolicy)
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/docs/resource/aws/CloudFront/CloudFrontDistribution)
+-   [**DXGateway**](https://docs.cstudio.app/docs/resource/aws/DirectConnect/DxGateway)
+-   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/Route53)
+-   [**ShieldAdvanced**](https://docs.cstudio.app/docs/resource/aws/Waf/ShieldAdvanced)
+-   [**VpcPeering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
+-   [**WAFIPSet**](https://docs.cstudio.app/docs/resource/aws/Waf/WafIpSet)
+-   [**WAFRuleGroup**](https://docs.cstudio.app/docs/resource/aws/Waf/WafRuleGroup)
+-   [**WAFWebACL**](https://docs.cstudio.app/docs/resource/aws/Waf/WafWebAcl)
 
 ## 리소스 설정 값
 
--   `credential_id` : 사용자의 구독정보
+#### 기본 설정
+
+-   `credential_id` : 사용자 Credential
+
+---
+
+## 참고 자료
+
+-   [AWS 계정 및 구독 개요(AWS)](https://docs.aws.amazon.com/accounts/latest/reference/welcome-first-time-user.html)
+-   [AWS 계정 구조 및 관리(AWS)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
+-   [AWS Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)

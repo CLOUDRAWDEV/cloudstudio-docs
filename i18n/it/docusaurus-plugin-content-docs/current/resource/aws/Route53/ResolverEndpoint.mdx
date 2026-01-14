@@ -1,44 +1,53 @@
 ---
 title: ResolverEndpoint
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Risorsa, Route53, ResolverEndpoint]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Servizio di endpoint per le query DNS in entrata e in uscita con Amazon VPC.
+Servizio di endpoint per le query DNS in ingresso e in uscita tra Amazon VPC
 
-### Risorse superiori
+## Risorse correlate
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+### Risorsa principale
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
 ### Risorse collegate
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
--   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
--   [**ResolverRule**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverRule)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+-   [**ResolverRule**](https://docs.cstudio.app/it/docs/resource/aws/Route53/ResolverRule)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `direction` : Direzione della query DNS - `INBOUND`, `OUTBOUND`
--   `linked_vpc_name` : Nome del VPC da collegare all'endpoint
--   `linked_security_group_names` : Nomi dei gruppi di sicurezza per l'endpoint
--   `ip_address` : Nome associato all'indirizzo IP
+#### Impostazioni di base
+
+-   `direction` : Direzione delle query DNS - `INBOUND`, `OUTBOUND`
+-   `linked_vpc_name` : Nome del VPC da collegare all’endpoint
+-   `linked_security_group_names` : Elenco dei nomi dei gruppi di sicurezza applicati all’endpoint
+-   `ip_address.subnet_name` : Nome della subnet da utilizzare
+-   `ip_address.ip` : Indirizzo IP disponibile all’interno della subnet
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon Resolver Endpoint(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
--   [Amazon Resolver Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)
+-   [Amazon Resolver Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)

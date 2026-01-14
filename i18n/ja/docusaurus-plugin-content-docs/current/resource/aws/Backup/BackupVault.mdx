@@ -1,43 +1,52 @@
 ---
 title: BackupVault
-sidebar_position: 0
-tags: [AWS, リソース, Backup, BackupVault]
+sidebar_position: 1
+tags: [AWS, Resource, Backup, BackupVault]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-AWS Backup で Backup Vault はバックアップを保存して構成するコンテナです。
-Backup Vault を生成するとき、このボルトにある一部のバックアップを暗号化する AWS KMS 暗号化キーを指定する必要があります。
+AWS Backupにおいて、Backup Vaultはバックアップを保存および構成するコンテナです。  
+Backup Vaultを作成する際、このVault内の一部バックアップを暗号化するためのAWS KMS暗号化キーを指定する必要があります。
 
-### 上位リソース
+## Associated Resources
 
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/)
+### Parent Resource
 
-## 関連リソース
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## リソース設定値
+## Resource 設定値
 
--   `kms_key_name` : バックアップを保護するために使用される server-side 暗号キー
--   `lock_configuration` : AWS Backup vault lock 構成リソース
-    -   `lock_configuration.enabled_lock` : vault lock 使用の可否 - `false`,`true`
-        -   `lock_configuration.enabled_lock.lock_mode` : vault lock タイプ - `Governance`,`Compliance`
-        -   `lock_configuration.enabled_lock.min_retention_days` : vault リカバリ地点を維持する最小保存期間 - `1~36500`
-        -   `lock_configuration.enabled_lock.max_retention_days` : vault リカバリ地点を維持する最大保存期間 - `1~36500`
+#### Basic Settings
+
+-   `kms_key_name` : バックアップを保護するために使用されるサーバー側暗号化キー
+
+#### Vault Lock 設定 (`lock_configuration`)
+
+-   `lock_configuration.enabled_lock` : Vault Lock使用可否 - `true`, `false`
+-   `lock_configuration.lock_mode` : Vault Lockの種類 - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : Vaultが復旧ポイントを保持する最小保持期間 - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : Vaultが復旧ポイントを保持する最大保持期間 - `1` ~ `36500`
+-   `lock_configuration.changeable_for_days` : Lock期限までの日数 - `3` ~ `36500`
+
+#### タグ
+
+-   `tag` : Resourceをカテゴリ別に分類するためのタグ - 最大 512文字, `key`:`value`
 
 ---
 
-## 参考資料
+## References
 
 -   [Amazon BackupVault(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/create-a-vault.html)
 -   [Amazon BackupVault(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_vault)

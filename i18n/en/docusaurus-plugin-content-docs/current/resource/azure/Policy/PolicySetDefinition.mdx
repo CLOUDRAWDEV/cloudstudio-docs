@@ -17,30 +17,30 @@ tags: [Azure, Policy, PolicySetDefinition]
 
 ## Resource Overview
 
-Azure PolicySetDefinition is a **policy set definition resource used to group multiple Policy Definitions into a single logical set for centralized management**.  
-By organizing policies with a common purpose into a single unit, it enables consistent policy application and management even in large-scale environments.
+Azure PolicySetDefinition is a **policy initiative definition resource used to group and manage multiple Policy Definitions as a single logical set**.  
+By organizing related policies into a unified unit, it ensures consistent policy application and management across large-scale environments.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Subscription**](https://docs.cstudio.app/en/docs/resource/azure/Base/Subscription)
 
 ### Child Resources
 
--   [**Policy Definition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicyDefinition)
+-   [**PolicyDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicyDefinition)
 
 ### Connected Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `type` : Type of policy set definition - `Custom`, `BuiltIn`
+-   `type` : Policy set definition type - `Custom`, `BuiltIn`
 -   `display_name` : Display name of the policy set definition
 -   `definition_names` : List of Policy Definition names included in the policy set
 
 ## References
 
--   [Azure Policy Set Definition Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition-structure)
--   [Azure Policy Initiative Concept (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition)
+-   [Azure Policy Set Definition Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition-structure)
+-   [Azure Policy Initiative Concept(Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition)

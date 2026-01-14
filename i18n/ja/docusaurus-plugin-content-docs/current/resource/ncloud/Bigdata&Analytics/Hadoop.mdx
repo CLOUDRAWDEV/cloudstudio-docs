@@ -1,0 +1,66 @@
+---
+title: Hadoop
+sidebar_position: 3
+tags: [Ncloud, リソース, BigData, Hadoop]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-hadoop.webp"
+    }
+/>
+
+## リソース概要
+
+Hadoop は、大規模データの分散処理を可能にする **Ncloud Big Data プラットフォーム**です。  
+エッジ・マスター・ワーカーノードで構成されたクラスターを容易に構築でき、Ambari コンソールによる管理や、Spark・HBase・Impala などのアドオンを選択的に追加できます。
+
+## 関連リソース
+
+### 親リソース
+
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+
+## リソース設定値
+
+#### 基本設定
+
+-   `included_vpc_name` : Hadoop クラスターを作成する VPC 名
+-   `cluster_name` : クラスター名
+-   `cluster_type_code` : クラスタータイプコード（例：Spark 含む等）
+-   `admin_user_name` : Ambari 管理者ユーザー名
+-   `admin_user_password` : Ambari 管理者パスワード
+-   `login_key_name` : ログインキー名（公開鍵ベース接続用）
+-   `edge_node_subnet_no` : エッジノードのサブネット ID
+-   `master_node_subnet_no` : マスターノードのサブネット ID
+-   `worker_node_subnet_no` : ワーカーノードのサブネット ID
+-   `bucket_name` : データ保存用 Object Storage バケット名
+-   `master_node_data_storage_type` : マスターノードのストレージタイプ（`SSD`, `HDD`）
+-   `worker_node_data_storage_type` : ワーカーノードのストレージタイプ（`SSD`, `HDD`）
+-   `master_node_data_storage_size` : マスターノードのストレージ容量
+-   `worker_node_data_storage_size` : ワーカーノードのストレージ容量
+-   `image_product_code` : Hadoop サーバーイメージ製品コード
+-   `engine_version_code` : Hadoop エンジンバージョン（`HADOOP2.2`, `HADOOP2.3`）
+-   `edge_node_product_code` : エッジノード製品コード
+-   `master_node_product_code` : マスターノード製品コード
+-   `worker_node_product_code` : ワーカーノード製品コード
+-   `add_on_code_list` : 追加アドオン（`HBASE`, `IMPALA`, `KUDU`, `TRINO`, `NIFI`）
+-   `worker_node_count` : ワーカーノード数（`2~8`）
+-   `use_kdc` : KDC 認証使用可否（`true`, `false`）
+-   `kdc_realm` : KDC Realm 名
+-   `kdc_password` : KDC パスワード
+-   `use_bootstrap_script` : ブートストラップスクリプト使用可否
+-   `bootstrap_script` : 実行するブートストラップスクリプトパス
+-   `use_data_catalog` : データカタログ使用可否
+
+---
+
+## 参考資料
+
+-   [Hadoop (Ncloud)](https://www.ncloud.com/product/bigdata/cloudHadoop)
+-   [ncloud_hadoop (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/hadoop)

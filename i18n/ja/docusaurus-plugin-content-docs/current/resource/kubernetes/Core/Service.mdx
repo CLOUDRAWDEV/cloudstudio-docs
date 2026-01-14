@@ -1,6 +1,6 @@
 ---
 title: Service
-sidebar_position: 0
+sidebar_position: 6
 tags: [Kubernetes, リソース, Core, Service]
 ---
 
@@ -11,41 +11,38 @@ tags: [Kubernetes, リソース, Core, Service]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
     }
 />
 
 ## リソース概要
 
-Pod への単一の進入点を提供し、それらの Pod 間の通信を管理する抽象化されたクバネティスリソースです。
+Pod 群への単一エントリーポイントを提供する Kubernetes リソース。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
 -   [**Deployment**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Pod**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Pod)
 -   [**Ingress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/Ingress)
 
 ## リソース設定値
 
--   `service_name` : Service リソース名
--   `namespace` : Service リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `selector` : Selector と一致するラベルの key-value を使用してサービストラフィックを Pod にルーティング
--   `type` : サービスのタイプを指定 - `ClusterIP`,`NodePort`,`LoadBalancer`
--   `session_affinity` : クライアントの要求が特定のパッドのみになるように維持されるようにするポリシー - `None`,`clientIP`
--   `port` : サービスによって表示されるポートのリスト
-    -   `name` : ポート設定の名前
-        -   `protocol` : 該当ポートの IP プロトコル - `TCP`,`UDP`
-        -   `port` : サービスによって表示されるポートのリスト
-        -   `target_port` : サービスターゲットの Pod からアクセスするポートの番号
+#### 基本設定
+
+-   `namespace` : Service を配置する Namespace
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : Service 識別用ラベル
+-   `selector` : 対象 Pod 選択用ラベル
+-   `type` : Service タイプ - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : セッション固定 여부
 
 ---
 

@@ -1,44 +1,47 @@
 ---
-title: Block Storage
+title: BlockStorage
 sidebar_position: 0
-tags: [Ncloud, Risorsa, Storage, BlockStorage]
+tags: [Ncloud, Resource, Storage, BlockStorage]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Servizio di storage HDD o SSD aggiuntivo fornito oltre allo storage di base del server. Può essere creato rapidamente e collegato immediatamente al server, e può essere restituito non appena non necessario.
+An additional HDD or SSD storage service provided separately from a server’s base storage.  
+It can be created and attached to a server immediately, and can be returned when no longer needed.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
 
-### Risorse collegate
+### Connected Resources
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
 
-## Impostazioni della risorsa
+## Resource Setting Values
 
--   `linked_server_name` : Nome del server a cui collegare lo storage a blocchi
--   `storage_size` : Dimensione dello storage a blocchi (GB), intervallo da 10 a 2000
--   `storage_disk_type` : Tipo di disco dello storage a blocchi, SSD o HDD - `SSD`, `HDD`
--   `snapshot_name` : Nome dello snapshot da creare
+#### Basic Settings
+
+-   `zone` : Physical zone where the Block Storage is located - `KR-1`, `KR-2`
+-   `linked_server_name` : Name of the server to which the block storage will be attached
+-   `storage_size` : Block storage size (GB) - `10` ~ `16380`
+-   `storage_disk_type` : Block storage disk type - `SSD`, `HDD`
 
 ---
 
-## Materiale di riferimento
+## References
 
 -   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
--   [ncloud_block_storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)
+-   [Block Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)

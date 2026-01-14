@@ -1,64 +1,82 @@
 ---
 title: Postgresql
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, Recurso, Rds, Postgresql]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-postgresql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-postgresql.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Al utilizar PostgreSQL en AWS para construir RDS, la operación y gestión de la base de datos se vuelve sencilla y altamente escalable. Además, RDS proporciona funciones de respaldo y restauración automáticas para la instancia de base de datos, lo que permite evitar la pérdida de datos. La seguridad de los datos también se garantiza mediante las funciones de seguridad ofrecidas por AWS.
+Al utilizar PostgreSQL en AWS con RDS, la operación y administración de bases de datos se simplifica y se obtiene una alta escalabilidad.  
+RDS también proporciona funciones automáticas de copia de seguridad y restauración para las instancias de base de datos, lo que ayuda a prevenir la pérdida de datos, y garantiza la seguridad de los datos mediante las funciones de seguridad proporcionadas por AWS.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Vpc/Subnet)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**PostgreSQL**](https://docs.cstudio.app/es/docs/resource/aws/Rds/PostgreSQL)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
 
 ## Valores de configuración del recurso
 
--   `database_name` : Nombre inicial de la base de datos
--   `engine_version` : Versión de PostgreSQL a utilizar en RDS
--   `instance_class` : Nivel de precios del RDS DB
+#### Configuración básica
+
+-   `database_name` : Nombre inicial de la base de datos - alfanumérico de `1` a `64` caracteres
+-   `engine_version` : Versión del motor PostgreSQL a utilizar en RDS
+-   `instance_class` : Tipo de instancia de base de datos RDS
 -   `storage_type` : Tipo de almacenamiento de la instancia RDS - `gp2`, `io1`, `standard`
--   `allocated_storage` : Capacidad de almacenamiento de la instancia RDS (Gigabytes)
--   `max_allocated_storage` : Límite superior para la expansión automática del almacenamiento por parte de Amazon RDS
--   `multi_az_enabled` : Activar despliegue Multi-AZ - `true`, `false`
--   `username` : Nombre de usuario del RDS
--   `password` : Contraseña del RDS
--   `skip_final_snapshot` : Determina si se debe crear una instantánea final antes de eliminar la instancia DB
--   `included_subnet_names` : Nombres de los Subnet que se conectarán al grupo Subnet de RDS
--   `backup_retention_period` : Periodo de retención de los datos de respaldo
--   `storage_encrypted` : Especifica si el almacenamiento de la instancia DB está cifrado - `true`, `false`
--   `publicly_accessible` : Determina si la instancia tiene acceso público - `true`, `false`
--   `monitoring`
-    -   `performance_insights_enabled` : Activar Performance Insights
--   `encryption`
-    -   `storage_encrypted` : Especifica si el almacenamiento de la instancia DB está cifrado - `true`, `false`
-    -   `kms_key_name` : Nombre de la clave KMS a utilizar para el cifrado
--   `backup`
-    -   `backup_retention_period` : Periodo de retención de los datos de respaldo - `1`~`35`
-    -   `final_snapshot_enabled` : Determina si se debe crear una instantánea final antes de eliminar la instancia DB - `true`, `false`
-    -   `final_snapshot_name` : Nombre de la instantánea final
+-   `allocated_storage` : Capacidad de almacenamiento RDS (GB) - `20` ~ `65536`
+-   `max_allocated_storage` : Límite máximo de escalado automático del almacenamiento
+-   `iops` : Operaciones de E/S por segundo admitidas por la instancia DB - `1000` ~ `40000`
+-   `multi_az_enabled` : Indica si se habilita la implementación Multi-AZ - `true`, `false`
+-   `username` : Nombre de usuario administrador de RDS
+-   `password` : Contraseña del usuario administrador de RDS
+-   `publicly_accessible` : Indica si se permite el acceso público - `true`, `false`
+
+#### Configuración de red
+
+-   `included_subnet_names` : Lista de nombres de Subnet incluidos en el Subnet Group de RDS
+-   `subnet_group_name` : Nombre del Subnet Group a utilizar en RDS
+-   `linked_security_group_names` : Lista de Security Group aplicados
+
+#### Configuración de monitoreo (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Habilita Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nombre de la clave KMS utilizada para Performance Insights
+
+#### Configuración de cifrado (`encryption`)
+
+-   `encryption.storage_encrypted` : Indica si el almacenamiento de la instancia DB está cifrado - `true`, `false`
+-   `encryption.kms_key_name` : Nombre de la clave KMS utilizada para el cifrado
+
+#### Configuración de copias de seguridad (`backup`)
+
+-   `backup.backup_retention_period` : Período de retención de copias de seguridad (días) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Indica si se crea un snapshot final antes de eliminar la DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nombre del snapshot final
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [Amazon RDS for PostgreSQL(Amazon RDS)(AWS)](https://aws.amazon.com/ko/rds/postgresql/)
--   [What is PostgreSQL?(AWS)](https://aws.amazon.com/ko/rds/postgresql/what-is-postgresql/)
--   [Amazon RDS for PostgreSQL 요금](https://aws.amazon.com/ko/rds/postgresql/pricing/)
+-   [Amazon RDS for PostgreSQL (Amazon RDS) (AWS)](https://aws.amazon.com/ko/rds/postgresql/)
+-   [¿Qué es PostgreSQL? (AWS)](https://aws.amazon.com/ko/rds/postgresql/what-is-postgresql/)
+-   [Precios de Amazon RDS for PostgreSQL](https://aws.amazon.com/ko/rds/postgresql/pricing/)

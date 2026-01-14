@@ -1,91 +1,65 @@
 ---
 title: Pod
-sidebar_position: 0
+sidebar_position: 4
 tags: [Kubernetes, Recurso, Core, Pod]
 ---
-
 
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Servicio de Kubernetes que representa la unidad de despliegue más pequeña, que ejecuta uno o más contenedores juntos.
+Servicio de Kubernetes que representa la unidad de despliegue más pequeña, en la que se ejecutan uno o más contenedores juntos.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
 -   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 -   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
-
-
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso Pod
+#### Configuración básica
+
 -   `namespace` : Namespace donde se desplegará el recurso Pod
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `containers` : Define una plantilla para los contenedores incluidos en el Pod - se configuran los valores por defecto antes de ajustar las configuraciones específicas
-    -   `containers.name` : Nombre del contenedor
-        -   `image` : Nombre de la imagen Docker a utilizar
-        -   `args` : Comandos a ejecutar dentro del contenedor
-        -   `command` : Comandos a ejecutar dentro del contenedor
-        -   `port` : Lista de puertos expuestos por el contenedor 
-
-        -   `resources` : Cantidad de recursos de computación asignados al contenedor - configuración detallada
-            -   `name` : Define los límites o solicitudes mínimas de recursos - `Limits`, `requests`     
-            -   `cpu` : Cantidad de CPU asignada    
-            -   `memory` : Cantidad de memoria asignada
-
-        -   `probe` : Define los métodos de diagnóstico del estado del Pod - configuración detallada
-            -   `name` : Tipo de Probe - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : Ruta para acceder al servidor HTTP
-            -   `http_get_port` : Puerto del contenedor a acceder
-            -   `http_header` : Encabezados personalizados de la solicitud
-            -   `initial_delay_seconds` : Tiempo (en segundos) que debe pasar tras el arranque antes de iniciar el probe
-            -   `period_seconds` : Frecuencia (en segundos) con la que se realiza el probe
-
-        -   `env` : Bloque de pares key-value para configurar variables de entorno del contenedor - configuración detallada
-            -   `name` : Nombre de la variable de entorno
-            -   `value` : Valor asignado a la variable de entorno
-
-        -   `volume_mount` : Volumen del Pod que será montado en el sistema de archivos del contenedor - configuración detallada
-            -   `name` : Nombre del volumen montado
-            -   `path` 
-                -   `mount_path` : Ruta dentro del contenedor donde se montará el volumen
-                -   `sub_path` : Ruta dentro del contenedor donde se montará el subdirectorio del volumen
-            
--   `volume` : Lista de volúmenes que pueden ser montados por los contenedores del Pod
-    -   `name` : Nombre del volumen
-        -   `type` : Tipo del volumen a montar - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : Nombre del Persistent Volume Claim
-        -   `default_mode` : Modo para los archivos generados - entre 0 y 0777, valor por defecto 0644
-        -   `read_only` : Si es `true`, se monta como solo lectura; de lo contrario, se permite lectura/escritura
-
--   `image_pull_secrets` : Secret dentro del mismo namespace que contiene los permisos necesarios para descargar imágenes utilizadas por el contenedor
-
-
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar y clasificar el Pod
+-   `pod_security_context` : Configuración de seguridad y permisos a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización antes del contenedor principal
+-   `containers` : Definición del contenedor que se ejecutará en el Pod
+-   `containers.image` : Imagen del contenedor
+-   `containers.resources` : Solicitudes y límites de CPU / memoria
+-   `containers.probe` : Configuración de probes startup, liveness y readiness
+-   `containers.env` : Definición de variables de entorno
+-   `containers.env_from` : Inyección de variables desde ConfigMap / Secret
+-   `containers.command` : Comando de ejecución del contenedor
+-   `containers.args` : Argumentos de ejecución del contenedor
+-   `containers.port` : Puertos expuestos por el contenedor
+-   `containers.volume_mount` : Rutas de montaje de volúmenes en el contenedor
+-   `volume` : Definición de volúmenes utilizados por el Pod
+-   `dns_policy` : Configuración de política DNS
+-   `enable_service_links` : Inyección automática de variables de entorno de Service
+-   `host_network` : Uso de red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Pod(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/)
 -   [Pod(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod)

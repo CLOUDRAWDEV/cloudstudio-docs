@@ -1,56 +1,50 @@
 ---
-title: HorizontalPodAutoscaling
+title: HorizontalPodAutoscaler
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, AutoScaling, HorizontalPodAutoscaling]
+tags: [Kubernetes, Ressource, AutoScaling, HorizontalPodAutoscaler]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaling.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaler.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Es ist eine Kubernetes-Ressource, die die Anzahl der Pods in einem Deployment, ReplicaSet oder StatefulSet basierend auf der beobachteten CPU-Auslastung automatisch skaliert.
+Eine Kubernetes-Ressource, die basierend auf der beobachteten CPU-Auslastung automatisch die Anzahl der Pods von Deployments, ReplicaSets und StatefulSets skaliert.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
 ### Verbundene Ressourcen
 
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Deployment**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/StatefulSet)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `service_name` : HPA Ressourcename
--   `namespace` : Der Namespace, in dem die HPA-Ressource bereitgestellt wird
--   `annotations` : Schlüssel-Wert-Paare, die verwendet werden, um notwendige Informationen im Kubernetes-System anzugeben
--   `labels` : Vom Benutzer festgelegte Werte, um Objekte zu unterscheiden
--   `min_replicas` : Die Mindestanzahl von Pods, die in der HPA konfiguriert werden können - der Standardwert ist 1
--   `max_replicas` : Die Höchstanzahl von Pods, die in der HPA konfiguriert werden können
--   `target_cpu_utilization_percentage` : Das Ziel für die durchschnittliche CPU-Auslastung der Pods (angegeben als Prozentsatz der angeforderten CPU)
--   `scale_target_ref` : Eine Referenz auf die skalierte Ressource
-    -   `name` : Der Name der referenzierten Ressource
-    -   `kind` : Die Art der referenzierten Ressource. - `Deployment`, `StatefulSet`
+#### Grundeinstellungen
 
-
+-   `namespace` : Namespace, in dem die HPA-Ressource bereitgestellt wird
+-   `annotations` : Kubernetes-Systemmetadaten im Key-Value-Format
+-   `labels` : Labels zur Identifizierung der HPA-Ressource
+-   `min_replicas` : Minimale Anzahl von Pods bei automatischer Skalierung
+-   `max_replicas` : Maximale Anzahl von Pods bei automatischer Skalierung
+-   `target_cpu_utilization_percentage` : Zielwert für die durchschnittliche CPU-Auslastung der Pods
+-   `scale_target_ref` : Referenz auf die zu skalierende Controller-Ressource (Deployment, StatefulSet)
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Horizontal Pod Autoscaling(Kubernetes)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 -   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/horizontal_pod_autoscaler)

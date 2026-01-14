@@ -1,7 +1,7 @@
 ---
 title: NetworkFirewallRuleGroup
-sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc, NetworkFirewallRuleGroup]
+sidebar_position: 12
+tags: [AWS, Ressource, Vpc, NetworkFirewallRuleGroup]
 ---
 
 <hr />
@@ -11,55 +11,85 @@ tags: [AWS, Ressourcen, Vpc, NetworkFirewallRuleGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_rule_group.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Wiederverwendbare Kriterienreihe zur Überprüfung und Verarbeitung von Netzwerkverkehr
+Ein wiederverwendbarer Satz von Kriterien zur Überprüfung und Verarbeitung von Netzwerkverkehr
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewallPolicy)
 
+## Ressourceneinstellungen
 
+#### Grundeinstellungen
 
-## Ressourcen-Einstellwerte
+-   `description` : Beschreibung der Network-Firewall-Regelgruppe (maximal 256 Zeichen)
+-   `rule_group_type` : Typ der Regelgruppe – `STATEFUL`, `STATELESS`
+-   `generated_rules_type` : Format der Regelgruppe – `StandardStatefulRules`, `DomainList`, `SuricataRuleStrings`
+-   `rule_evaluation_order` : Auswertungsreihenfolge zustandsbehafteter Regeln – `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `capacity` : Kapazität der Regelgruppe (in WCU) – `1` ~ `30000`
 
--   `description` : Beschreibung der Netzwerk-Firewall-Regelgruppe
--   `rule_group_type` : Regelgruppentyp - `STATEFUL`,`STATELESS`
--   `generated_rules_type` : Regelgruppenformat - `StandardStatefulRules`,`DomainList`,`SuricataRuleStrings`
--   `rule_evaluation_order` : `STRICT_ORDER`,`DEFAULT_ACTION_ORDER`
--   `capacity` : Erwartete Anzahl der Regeln, die während des Lebenszyklus in diese Regelgruppe aufgenommen werden - `1-30000`
--   `ip_set` : IP-Set-Variable
-    -   `name` : Name der IP-Set-Variable
-    -   `cidrs` : Wert der IP-Set-Variable
--   `port_set` : Port-Variable 
-    -   `name` : Name der Port-Variable
-    -   `cidrs` : Wert der Port-Variable
--   `stateful_rule` : Standard-stateful Regel 
-    -   `name` : Name der Standard-stateful Regel
-    -   `protocol` : Zu überprüfendes Übertragungsprotokoll - `IP`,`TCP`,`UDP`,`ICMP`,`HTTP`
-    -   `source_ip_or_cidr` : Zu überprüfende Quell-IP-Adresse und Adressbereich
-    -   `source_port` : Zu überprüfender Quellport oder Portbereich
-    -   `target_ip_or_cidr` : Zu überprüfende Ziel-IP-Adresse und Adressbereich
-    -   `target_ip_or_cidr` : Zu überprüfende Ziel-IP-Adresse und Adressbereich
-    -   `traffic_direction` : Zu überprüfende Verkehrsrichtung - `ANY`,`FORWARD`
-    -   `action` : Aktion, die die Netzwerk-Firewall ausführt, wenn Pakete mit den Regel-Einstellungen übereinstimmen - `ALERT`,`DROP`,`PASS`,`REJECT`
--   `encryption_configuration.
-    -   `enabled_custom_configuration` : Daten mit AWS verwalteten Schlüsseln verschlüsseln - `false`,`true`
+#### IP-Satz (`ip_set`)
 
+-   `ip_set.cidrs` : Liste der CIDRs für IP-Set-Variablen
+
+#### Port-Satz (`port_set`)
+
+-   `port_set.ports` : Liste der Portwerte für Port-Variablen
+
+#### Domainlisten-Regeln (`domain_list_rule`)
+
+-   `domain_list_rule.domain_names` : Liste der zu erlaubenden oder zu blockierenden Domainnamen
+-   `domain_list_rule.protocols` : Zu prüfende Protokolle – `HTTP`, `HTTPS`
+-   `domain_list_rule.action` : Aktion der Domainregel – `ALLOWLIST`, `DENYLIST`
+-   `domain_list_rule.cidr_ranges` : CIDR-Bereiche des zu prüfenden Quellverkehrs
+
+#### Suricata-Regeln (`suricata_compatible_rule_string`)
+
+-   `suricata_compatible_rule_string` : Suricata-kompatible Regelzeichenfolge
+
+#### Zustandsbehaftete Regeln (`stateful_rule`)
+
+-   `stateful_rule.protocol` : Zu prüfendes Transportprotokoll
+-   `stateful_rule.source_ip_or_cidr` : Liste der Quell-IP-Adressen oder CIDRs
+-   `stateful_rule.source_port` : Quellport oder Portbereich
+-   `stateful_rule.target_ip_or_cidr` : Liste der Ziel-IP-Adressen oder CIDRs
+-   `stateful_rule.target_port` : Zielport oder Portbereich
+-   `stateful_rule.traffic_direction` : Verkehrsrichtung – `ANY`, `FORWARD`
+-   `stateful_rule.action` : Aktion bei Regelübereinstimmung – `ALERT`, `DROP`, `PASS`, `REJECT`
+
+#### Zustandslose Regeln (`stateless_rule`)
+
+-   `stateless_rule.priority` : Priorität der Regel
+-   `stateless_rule.protocols` : Liste der zu prüfenden Transportprotokolle
+-   `stateless_rule.source_ip_or_cidr` : Liste der Quell-IP-Adressen oder CIDRs
+-   `stateless_rule.source_port` : Quellport oder Portbereich
+-   `stateless_rule.target_ip_or_cidr` : Liste der Ziel-IP-Adressen oder CIDRs
+-   `stateless_rule.target_port` : Zielport oder Portbereich
+-   `stateless_rule.action` : Paketverarbeitungsaktion – `aws:pass`, `aws:drop`, `aws:forward_to_sfe`
+
+#### Verschlüsselungseinstellungen (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Aktivierung der AWS-verwalteten Schlüsselverschlüsselung – `true`, `false`
+-   `encryption_configuration.kms_key_name` : Name des zu verwendenden KMS-Schlüssels
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [NetworkFirewallRuleGroup(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
--   [NetworkFirewallRuleGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)
+-   [Network Firewall Rule Groups (AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups.html)
+-   [NetworkFirewallRuleGroup (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_rule_group)

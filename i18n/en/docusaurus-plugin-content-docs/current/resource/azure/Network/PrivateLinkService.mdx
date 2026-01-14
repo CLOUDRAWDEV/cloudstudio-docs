@@ -17,34 +17,34 @@ tags: [Azure, Network, PrivateLinkService]
 
 ## Resource Overview
 
-Private Link Service is a network service that allows users to **securely expose internal services (based on Load Balancer)** to external customers using the Private Endpoint model.  
-It connects through the Azure backbone network without using a public IP, and enables fine-grained control over service exposure through access control and approval policies.
+Private Link Service is a network service that securely exposes internal services (based on Load Balancer) to external consumers using the **Private Endpoint** model.  
+Connections are established over the Azure backbone network without using public IPs, and access scope can be finely controlled through approval and access policies.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `auto_approval_subscription_ids` : List of subscription IDs for which Private Endpoint connections are automatically approved without prior approval
+-   `auto_approval_subscription_ids` : List of subscription IDs that are automatically approved for Private Endpoint connections without manual approval
 -   `visibility_subscription_ids` : List of subscription IDs that can discover the Private Link Service and send connection requests
 
 #### Load Balancer IP Configuration (`lb_ip_configuration`)
 
--   `lb_ip_configuration.target_lb_name` : Name of the target Load Balancer to connect
+-   `lb_ip_configuration.target_lb_name` : Name of the target Load Balancer
 -   `lb_ip_configuration.target_ip_config_name` : Name of the Frontend IP Configuration of the Load Balancer
 
 #### NAT IP Configuration (`nat_ip_configuration`)
 
--   `nat_ip_configuration.target_subnet_name` : Name of the target Subnet where the NAT IP configuration will be applied
+-   `nat_ip_configuration.target_subnet_name` : Name of the target Subnet to apply the NAT IP configuration
 -   `nat_ip_configuration.private_ip_address` : Static Private IP address to use as the NAT IP
 -   `nat_ip_configuration.private_ip_address_version` : Private IP version - `IPv4`
--   `nat_ip_configuration.enable_primary` : Whether to use this NAT IP configuration as the primary one - `true`, `false`
+-   `nat_ip_configuration.enable_primary` : Whether to enable the primary NAT IP configuration - `true`, `false`
 
 ---
 
 ## References
 
--   [Azure Private Link Service Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)
+-   [Azure Private Link Service Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)

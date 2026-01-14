@@ -17,33 +17,37 @@ Auto Scaling 수행 중 서버 확장 필요 시 자동으로 생성되는 가�
 
 ## 연관 리소스
 
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
 ### 연결 리소스
 
--   [**EC2 Instance**](https://docs.cstudio.app/docs/resource/aws/EC2/Instance)
--   [**AutoScalingGroup**](https://docs.cstudio.app/docs/resource/aws/AutoScaling/AutoScalingGroup)
--   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/VPC/SecurityGroup)
--   [**KMS Key**](https://docs.cstudio.app/docs/resource/aws/KMS/KmsKey)
-
----
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `image_name` : 사용할 운영체제 이미지 코드/AMI (멀티 드롭다운)
--   `instance_type` : EC2 인스턴스 타입 (멀티 드롭다운)
--   `key_name` : 로그인 키 이름 (드롭다운)
--   `linked_security_group_name` : 연결할 Security Group 이름 목록
--   `block_device_mapping` : 스토리지 디바이스 구성 (map)
-    -   `volume_type` : EBS 볼륨 유형 (`standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`)
-    -   `volume_size` : EBS 볼륨 크기(GiB)
-    -   `iops` : EBS IOPS
-    -   `delete_on_termination` : 인스턴스 종료 시 볼륨 자동 삭제 여부 (`true`, `false`)
-    -   `snapshot_name` : 스냅샷 생성 시 이름
-    -   `encrypted` : EBS 암호화 여부 (`true`, `false`)
-    -   `kms_key_name` : 암호화 시 사용할 KMS 키 이름 (드롭다운)
--   `user_data` : 인스턴스 시작 시 실행할 스크립트/명령
--   `tag` : 리소스 분류 태그 - `key`:`value`
+-   `image_name` : 사용할 운영체제 이미지 코드(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
+-   `instance_type` : EC2 인스턴스의 type
+-   `key_name` : 암호화를 위한 공용 로그인 키 이름
+-   `linked_security_group_name` : 인스턴스가 속할 Security Group의 이름
+-   `user_data` : EC2 인스턴스 시작 시 자동으로 실행될 스크립트나 명령
+
+#### 블록 디바이스 매핑 (`block_device_mapping`)
+
+-   `block_device_mapping.volume_type` : EBS Volume의 유형 - `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`
+-   `block_device_mapping.volume_size` : EBS Volume의 Size (GiB)
+-   `block_device_mapping.iops` : EBS 볼륨의 초당 입출력 작업 수
+-   `block_device_mapping.delete_on_termination` : 인스턴스 종료 시 EBS 볼륨의 자동 삭제 여부 - `true`, `false`
+-   `block_device_mapping.snapshot_name` : EBS 볼륨의 스냅샷을 생성할 때 지정할 이름
+-   `block_device_mapping.encrypted` : EBS 볼륨의 암호화 여부 - `true`, `false`
+-   `block_device_mapping.kms_key_name` : EBS 볼륨을 암호화할 때 사용할 KMS 키의 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Vpc
 sidebar_position: 0
-tags: [Ncloud, Ressourcen, Network, Vpc]
+tags: [Ncloud, Ressource, Network, Vpc]
 ---
 
 <hr />
@@ -11,38 +11,42 @@ tags: [Ncloud, Ressourcen, Network, Vpc]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Es ist eine isolierte Netzwerkumgebung, die eine IT-Infrastruktur bereitstellt. Es handelt sich um einen privaten Netzwerkbereich, der exklusiv für den Benutzer in der öffentlichen Cloud bereitgestellt wird.
+Eine isolierte Netzwerkumgebung zur Implementierung von IT-Infrastrukturen.  
+Es handelt sich um einen dedizierten privaten Netzwerkbereich für Benutzer, der in der Public Cloud bereitgestellt wird.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
 ### Untergeordnete Ressourcen
 
--   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/ncloud/Container/KubernetesCluster)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Network/Subnet)
--   [**Network Acl**](https://docs.cstudio.app/docs/resource/ncloud/Network/NetworkAcl)
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Network/AccessControlGroup)
--   [**Nat Gateway**](https://docs.cstudio.app/docs/resource/ncloud/Network/NatGateway)
--   [**Route Table**](https://docs.cstudio.app/docs/resource/ncloud/Network/RouteTable)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Network/LoadBalancer)
+-   [**CdssCluster**](https://docs.cstudio.app/de/docs/resource/ncloud/Bigdata&Analytics/CdssCluster)
+-   [**SesCluster**](https://docs.cstudio.app/de/docs/resource/ncloud/Bigdata&Analytics/SesCluster)
+-   [**Hadoop**](https://docs.cstudio.app/de/docs/resource/ncloud/Bigdata&Analytics/Hadoop)
+-   [**AccessControlGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**KubernetesCluster**](https://docs.cstudio.app/de/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**NetworkACL**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/NetworkAcl)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/RouteTable)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `ipv4_cidr_block` : IP-Adressbereich im privaten Adressbereich (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), im Bereich von /16 bis /28
+-   `ipv4_cidr_block` : IPv4-Adressbereich, der dem VPC zugewiesen wird  
+    (nur private Bereiche erlaubt: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, CIDR-Bereich /16 ~ /28)
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [VPC Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-manage-vpc)
 -   [VPC (Virtual Private Cloud)(Ncloud)](https://www.ncloud.com/product/networking/vpc)
--   [ncloud_vpc(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc)
+-   [VPC(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc)

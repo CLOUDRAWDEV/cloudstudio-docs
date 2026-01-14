@@ -4,43 +4,49 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Base, Cluster]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
     }
 />
 
 ## Resource Overview
 
-Select the cluster associated with the user credential.
+Selects a Cluster associated with a user Credential.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Base**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base)
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Base)
 
-### Connected Resources
+### Child Resources
 
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/en/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/en/docs/resource/kubernetes/Storage/StorageClass)
 
 ## Resource Setting Values
 
--   `target_cluster` : Select the cluster to use
--   `Token` : Token for Ncloud Kuberntes Service connection - For use with `Ncloud Kubernetes Service` only
+#### Basic Settings
 
-
-
-
+-   `target_cluster` : Selects the Ncloud Kubernetes cluster to connect to
+-   `token` : Authentication token used to connect to the Ncloud Kubernetes Service
 
 ---
 
-## Reference Materials
+## References
 
-
+-   [Kubernetes Cluster Overview(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Kubernetes Authentication(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [kubectl Cluster Configuration(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [kubectl User Authentication Configuration(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

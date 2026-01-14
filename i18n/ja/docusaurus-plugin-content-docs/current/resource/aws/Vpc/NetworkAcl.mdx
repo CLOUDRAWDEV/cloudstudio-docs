@@ -1,6 +1,6 @@
 ---
-title: Network Acl
-sidebar_position: 0
+title: NetworkAcl
+sidebar_position: 9
 tags: [AWS, リソース, Vpc, NetworkAcl]
 ---
 
@@ -11,15 +11,15 @@ tags: [AWS, リソース, Vpc, NetworkAcl]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
     }
 />
 
 ## リソース概要
 
-Network Acl はサブネットレベルで特定のインバウンドまたはアウトバウンドトラフィックを許容または拒否します。
-VPC に対する基本ネットワーク ACL を使用したり、セキュリティグループに対する規則と類似した規則を使用して VPC に対するユーザ指定ネットワーク ACL を生成して VPC にセキュリティ階層を追加することができます。
-Network Acl を使用しても追加料金はかかりません。
+ネットワークアクセスコントロールリスト（ACL）は、サブネット単位でインバウンドおよびアウトバウンドトラフィックを許可または拒否。  
+デフォルト Network ACL またはカスタム Network ACL を使用して VPC に追加のセキュリティレイヤーを提供。  
+追加料金は発生しない。
 
 ## 関連リソース
 
@@ -29,28 +29,36 @@ Network Acl を使用しても追加料金はかかりません。
 
 ### 接続リソース
 
--   [**Vpc Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
 ## リソース設定値
 
--   `included_vpc_name` : Network ACL が含まれている VPC 名
--   `linked_subnet_names` : Network ACL を適用する Subnet 名
--   `ingress` : Network ACL の Ingress ルール名
-    -   `protocol` : Ingress ルールの Protocol - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Ingress ルールの Protocol に適用する Action - `allow`, `deny`
-    -   `cidr_block` : Ingress ルールを適用する CIDR
-    -   `from_port` : Ingress ルールで入力されるポート番号
-    -   `to_port` : Ingress ルールで使用される送信ポート番号
--   `egress` : Network ACL の Egress ルール名
-    -   `protocol` : Egress ルールの Protocol - `tcp`, `udp`, `ssh`, `icmp`, `all`
-    -   `action` : Egress ルールの Protocol に適用する Action - `allow`, `deny`
-    -   `cidr_block` : Egress ルールを適用する CIDR
-    -   `from_port` : Egress ルールで入力されるポート番号
-    -   `to_port` : Egress ルールで使用される送信ポート番号
+#### 基本設定
 
----
+-   `included_vpc_name` : ACL を作成する VPC 名
+-   `nacl_description` : ACL 説明
+
+#### インバウンドルール (`inbound_rule`)
+
+-   `inbound_rule.priority` : 優先順位 - `0` ~ `199`
+-   `inbound_rule.protocol` : プロトコル - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : 動作 - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : ソース CIDR
+-   `inbound_rule.port_range` : ポート範囲 - `1` ~ `65535`
+
+#### アウトバウンドルール (`outbound_rule`)
+
+-   `outbound_rule.priority` : 優先順位 - `0` ~ `199`
+-   `outbound_rule.protocol` : プロトコル - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : 動作 - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : 宛先 CIDR
+-   `outbound_rule.port_range` : ポート範囲 - `1` ~ `65535`
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 
--   [Network Acl を使用してサブネットへのトラフィックを制御(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [ネットワーク ACL による制御(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
 -   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

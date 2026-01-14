@@ -1,5 +1,5 @@
 ---
-title: Kms Key
+title: KmsKey
 sidebar_position: 0
 tags: [AWS, リソース, Kms, KmsKey]
 ---
@@ -11,14 +11,14 @@ tags: [AWS, リソース, Kms, KmsKey]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.webp"
     }
 />
 
 ## リソース概要
 
-AWS Key Management Service(AWS KMS)はクラウドに合わせて調整された暗号化およびキー管理サービスです。
-AWS KMS キーと機能は、他の AWS サービスで使用され、ユーザーはこの AWS KMS キーと機能を使用して AWS を使用する自体のアプリケーションからデータを保護することができます。
+AWS Key Management Service（AWS KMS）は、クラウド向けに設計された暗号化およびキー管理サービスです。  
+AWS KMS のキーと機能は他の AWS サービスで使用され、ユーザーはこれらを利用して AWS 上のアプリケーションデータを保護できます。
 
 ## 関連リソース
 
@@ -28,18 +28,26 @@ AWS KMS キーと機能は、他の AWS サービスで使用され、ユーザ�
 
 ## リソース設定値
 
--   `description` : AWS Console に現れる Key の説明
--   `key_usage` : Key の使用方法を明示 - `ENCRYPT_DECRYPT`
--   `multi_region` : KMS key を Multi Region で使用するかどうかを設定 - `true`, `false`
--   `deletion_window_in_days` : KMS Keys の有効期限
--   `enable_key_rotation` : キーローテーションをイネーブルにするかどうかを指定 - `true`, `false`
--   `grant_list` : KMS Grant の名前
-    -   `operations` : KMS Key に許可された動作 - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+#### 基本設定
+
+-   `description` : AWS Console に表示されるキーの説明
+-   `key_usage` : キーの使用目的 - `ENCRYPT_DECRYPT`
+-   `multi_region` : マルチリージョン対応可否 - `true`, `false`
+-   `deletion_window_in_days` : キー削除待機期間（日）
+-   `enable_key_rotation` : 自動キー回転有効化可否 - `true`, `false`
+
+#### KMS Grant (`grant_list`)
+
+-   `grant_list.operations` : 許可される操作一覧
+
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [AWS Key Management Service(AWS)](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/overview.html)
--   [AWS Key Management Service 料金(AWS)](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
--   [aws_kms_alias(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias)
+-   [AWS Key Management Service（AWS）](https://docs.aws.amazon.com/ko_kr/kms/latest/developerguide/overview.html)
+-   [AWS KMS 料金（AWS）](https://aws.amazon.com/ko/kms/pricing/?nc1=h_ls)
+-   [aws_kms_alias (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_alias)

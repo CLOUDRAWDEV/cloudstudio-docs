@@ -17,48 +17,46 @@ tags: [AWS, MSK, Kafka, MskCluster, Streaming]
 
 ## 연관 리소스
 
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
 ### 연결 리소스
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/aws/Network/Vpc)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Network/Subnet)
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Network/SecurityGroup)
--   [**KMS Key**](https://docs.cstudio.app/docs/resource/aws/Security/KmsKey)
--   [**CloudWatch**](https://docs.cstudio.app/docs/resource/aws/Monitor/CloudWatch)
-
----
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `cluster_type` : 클러스터가 프로덕션 환경용(`provisioned`)인지 개발 및 테스트 환경용(`serverless`)인지를 지정 - `provisioned`, `serverless`
--   `kafka_version` : AWS MSK 클러스터에서 사용할 Apache Kafka의 버전
--   `kms_key_name` : 데이터 암호화를 위한 AWS KMS 키 이름
--   `unauthenticated_access` : 익명/미인증 사용자 접근 허용 여부 - `true`, `false`
+-   `cluster_type` : 클러스터 유형 - `provisioned`, `serverless`
+-   `kafka_version` : MSK 클러스터에서 사용할 Apache Kafka 버전
+-   `kms_key_name` : 데이터 암호화에 사용할 KMS 키 이름
+-   `unauthenticated_access` : 인증되지 않은 사용자 접근 허용 여부 - `true`, `false`
 -   `iam_role_based_authentication` : IAM 역할 기반 인증 허용 여부 - `true`, `false`
 -   `scram_authentication` : SCRAM 기반 인증 허용 여부 - `true`, `false`
--   `cloudwatch_metrics` : CloudWatch 메트릭스 활성화 수준 - `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`
+-   `cloudwatch_metrics` : CloudWatch 메트릭 수집 범위 - `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`
 
-#### 브로커 (`broker`)
+#### 브로커 설정 (`broker`)
 
--   `broker.instance_type` : 브로커 인스턴스의 유형
--   `broker.broker_count_per_zone` : 각 가용 영역(AZ)에 배치할 브로커 수 (최소 `1`)
+-   `broker.instance_type` : 브로커 인스턴스 유형
+-   `broker.broker_count_per_zone` : 가용 영역(AZ)당 브로커 수
 
-#### 스토리지 (`storage`)
+#### 스토리지 설정 (`storage`)
 
--   `storage.ebs_volume_size` : 브로커 노드의 EBS 볼륨 크기(GB) - `1` ~ `16384`
--   `storage.enable_provisioned_throughput` : 프로비저닝 처리량 활성화 여부 - `true`, `false`
--   `storage.provisioned_throughput_per_broker` : 브로커당 처리량(MiB/s) - 최소 `250`
+-   `storage.ebs_volume_size` : 브로커 노드에 할당할 EBS 볼륨 크기(GB) - `1` ~ `16384`
+-   `storage.enable_provisioned_throughput` : 프로비저닝된 처리량 활성화 여부 - `true`, `false`
+-   `storage.provisioned_throughput_per_broker` : 브로커당 프로비저닝된 처리량(MiB/s) - 최소 `250`
 
-#### 네트워크 (`network`)
+#### 네트워크 설정 (`network`)
 
--   `network.linked_vpc_name` : 클러스터가 연결될 VPC 이름 (읽기 전용)
--   `network.subnet_names` : 연결할 서브넷 이름 목록
--   `network.security_group_names` : 사용할 보안 그룹 이름 목록
+-   `network.linked_vpc_name` : 클러스터가 연결될 VPC 이름
+-   `network.subnet_names` : MSK 클러스터에 연결할 서브넷 이름 목록
+-   `network.security_group_names` : MSK 클러스터에 적용할 보안 그룹 이름 목록
 
 #### 태그
 
--   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - `key`:`value`
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 

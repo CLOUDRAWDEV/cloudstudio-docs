@@ -7,38 +7,49 @@ tags: [AWS, Risorsa, Route53]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-route53.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-route53.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Amazon Route 53 è un servizio web di Sistema di Nomi di Dominio (DNS) con alta disponibilità e scalabilità.
+Amazon Route 53 è un servizio web DNS altamente disponibile e scalabile
 
-### Risorse superiori
+## Risorse correlate
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+### Risorsa principale
+
+-   [**Base**](https://docs.cstudio.app/it/docs/resource/aws/Base)
 
 ### Risorse collegate
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `linked_vpc_names` : Nomi dei VPC da collegare alla zona Route 53
--   `record` : Nome del record da creare nella zona Route 53
-    -   `type` : Tipo di record - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
-    -   `ttl` : TTL del record
-    -   `records` : Elenco di stringhe del record
+#### Impostazioni di base
+
+-   `routing_type` : Tipo di routing della zona Route53 - `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : Elenco dei nomi dei VPC collegati alla zona Route53
+
+#### Record (`record`)
+
+-   `record.type` : Tipo di record - `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : TTL del record
+-   `record.records` : Elenco delle stringhe del record
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon Route 53(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
--   [Amazon Route 53 요금(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
--   [aws-route53(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)
+-   [Amazon Route 53 (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
+-   [Prezzi Amazon Route 53 (AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
+-   [aws-route53 (Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)

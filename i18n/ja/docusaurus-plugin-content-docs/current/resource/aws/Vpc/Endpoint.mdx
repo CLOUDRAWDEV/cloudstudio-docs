@@ -1,6 +1,6 @@
 ---
 title: Endpoint
-sidebar_position: 0
+sidebar_position: 4
 tags: [AWS, リソース, Vpc, Endpoint]
 ---
 
@@ -11,36 +11,56 @@ tags: [AWS, リソース, Vpc, Endpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.webp"
     }
 />
 
 ## リソース概要
 
-お客様がサポートする AWS サービスおよび VPC エンドポイントサービスにプライベートで接続できるサービス
+サポート対象の AWS サービスおよび VPC エンドポイントサービスへプライベート接続を提供するサービス
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
-### 下位リソース
+### 接続リソース
 
--   [**Endpoint Service**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
 ## リソース設定値
 
--   `service_range` : Endpoint サービスを使用するサービスのカテゴリ - `awsService`,`endpointService`
--   `aws_service_name` : Endpoint サービスを使用するサービスの名前
--   `vpc_endpoint_type` : Endpoint サービスを使用する他の Endpoint サービスの名前 - `gateway`, `interface`, `gatewayloadbalancer`
--   `included_vpc_name` : The name of VPC to use endpoint
--   `route_table_names` : endpoint と接続する 1 つ以上のパステーブル ID
--   `policy_access` : サービスアクセスを制御する endpoint に接続するポリシーアクセス範囲 - `Full`, `Custom`
+#### 基本設定
 
----
+-   `service_range` : Endpoint サービス利用範囲 - `awsService`, `endpointService`
+-   `aws_service_name` : 使用する AWS サービス名
+-   `vpc_endpoint_type` : Endpoint 種別 - `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Endpoint を作成する VPC 名
+-   `enabled_private_dns` : プライベート DNS 有効化可否 - `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : インバウンド要求に対するプライベート DNS のみ有効化可否 - `true`, `false`
+-   `dns_record_ip_type` : DNS レコード IP 種別 - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : Endpoint IP アドレス種別 - `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Endpoint ポリシーアクセス範囲 - `Full`, `Custom`
+-   `custom_policy` : サービスアクセス制御用カスタムポリシー
+
+#### Endpoint Service 設定 (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Endpoint Service ARN 直接入力可否 - `true`, `false`
+-   `endpoint_service.service_name` : Endpoint Service 名
+-   `endpoint_service.linked_endpoint_service_name` : 接続する Endpoint Service 名
+
+#### ネットワーク設定
+
+-   `linked_security_group_names` : 接続する Security Group 一覧
+-   `linked_subnet_names` : ネットワークインターフェース作成 Subnet 一覧
+-   `route_table_names` : 接続する Route Table 一覧
+
+#### タグ
+
+-   `tag` : リソースをカテゴリ別に分類するためのタグ
 
 ## 参考資料
 

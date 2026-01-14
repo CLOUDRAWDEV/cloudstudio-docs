@@ -1,61 +1,66 @@
 ---
 title: EcsTaskDefinition
-sidebar_position: 0
-tags: [AWS, Risorsa, Ecs, EcsTaskDefinition]
+sidebar_position: 1
+tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.webp"
     }
 />
 
-## Panoramica della risorsa
+## 리소스 개요
 
+Amazon ECS Task Definition definisce come devono essere eseguiti i container all’interno di un task ECS, inclusi immagini, risorse, rete e volumi.
 
-## Risorse correlate
+## 연관 리소스
 
-### Risorse superiori
+### 상위 리소스
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
+## 리소스 설정 값
 
-## Impostazioni della risorsa
+#### 기본 설정
 
--   `app_environment` : Tipo di avvio richiesto per il task - `EC2`,`Fargate`
--   `os_architecture` : Sistema operativo da utilizzare durante la registrazione della definizione del task
+-   `app_environment` : Tipo di avvio richiesto per il task - `EC2`, `FARGATE`
+-   `os_architecture` : Famiglia del sistema operativo utilizzata per registrare la task definition - `LINUX X86_64`
 -   `task_cpu` : Numero di unità CPU utilizzate dal task
--   `task_memory` : Quantità di memoria (MiB) utilizzata dal task
--   `network_mode` : Modalità di rete da utilizzare per i container del task - `awsvpc`,`none`,`bridge`,`host`
--   `container` : Nome del container che verrà eseguito nel cluster ECS
-    -   `image_url` : Immagine del container che verrà eseguita nel cluster ECS
-    -   `essential_enabled` : Se il container si ferma, indica se anche gli altri oggetti correlati al container devono fermarsi o continuare a funzionare correttamente - `false`,`true`
-    -   `port_mapping` : Nome della mappatura delle porte
-        -   `name` : 
-        -   `container_port` : Numero della porta che il container utilizzerà per inviare o ricevere traffico dal Host Container Instance
-        -   `protocol` : Protocollo da utilizzare per la mappatura delle porte - `tcp`,`udp`
-        -   `app_protocol` : Protocollo applicativo usato per la connessione del servizio - `http`,`http2`,`grpc`,`none`
-    -   `cpu` : Capacità di CPU del container che verrà eseguito nel cluster ECS
-    -   `memory` : Capacità di memoria del container che verrà eseguito nel cluster ECS
+-   `task_memory` : Quantità di memoria utilizzata dal task (MiB)
+-   `network_mode` : Modalità di rete utilizzata dai container del task - `awsvpc`, `none`, `bridge`, `host`
 
--   `volume`
-    -   `name` : Nome del volume da associare alla definizione del task
--   `volume_mount`
-    -   `name` : Nome del volume da associare alla definizione del task
-    -   `container_name` : Nome del container a cui verrà montato il volume
-    -   `volume_name` : Nome del volume da montare
-    -   `container_path` : Percorso del container dove il volume sarà montato
-    -   `read_only` : Se il container può accedere al volume in sola lettura - `false`,`true`
+#### 컨테이너 (`container`)
 
+-   `container.image_url` : Immagine del container da eseguire nel cluster ECS
+-   `container.essential_enabled` : Imposta se arrestare anche le altre risorse correlate quando il container si ferma - `true`, `false`
+-   `container.port_mapping.container_port` : Porta utilizzata dal container per inviare o ricevere traffico
+-   `container.port_mapping.protocol` : Protocollo utilizzato per il port mapping - `tcp`, `udp`
+-   `container.port_mapping.app_protocol` : Protocollo applicativo utilizzato per la connessione del Service - `http`, `http2`, `grpc`, `none`
+-   `container.cpu` : Capacità CPU del container in esecuzione nel cluster ECS
+-   `container.memory` : Capacità di memoria del container in esecuzione nel cluster ECS
 
-  
+#### 볼륨 (`volume`)
 
-## Materiale di riferimento
+-   `volume.host_path` : Percorso dell’istanza host fornito al container
 
--   [Amazon Ecs Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
--   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)
+#### 볼륨 마운트 (`volume_mount`)
+
+-   `volume_mount.container_name` : Nome del container su cui montare il volume
+-   `volume_mount.volume_name` : Nome del volume da montare
+-   `volume_mount.container_path` : Percorso del container su cui montare il volume
+-   `volume_mount.read_only` : Imposta se il container può accedere al volume solo in modalità read-only - `true`, `false`
+
+#### 태그
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## 참고 자료
+
+-   [Amazon ECS Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
+-   [Amazon ECS Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

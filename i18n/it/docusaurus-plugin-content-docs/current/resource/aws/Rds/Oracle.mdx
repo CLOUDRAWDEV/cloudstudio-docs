@@ -1,64 +1,76 @@
 ---
 title: Oracle
-sidebar_position: 0
+sidebar_position: 4
 tags: [AWS, Risorsa, Rds, Oracle]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-oracle.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-oracle.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Amazon RDS for Oracle è un database commerciale completamente gestito che consente di configurare, gestire e scalare facilmente una distribuzione di Oracle nel cloud. Amazon RDS si occupa di attività di gestione del database che richiedono tempo, come provisioning, backup, patching del software, monitoraggio e ridimensionamento hardware, permettendo così ai clienti di concentrarsi esclusivamente sull'innovazione e sullo sviluppo delle applicazioni.
+Amazon RDS for Oracle è un database commerciale completamente gestito che consente di configurare, gestire e scalare facilmente le distribuzioni Oracle nel cloud.  
+Amazon RDS si occupa automaticamente di attività complesse e dispendiose in termini di tempo come provisioning, backup, patch software, monitoraggio e ridimensionamento dell’hardware, consentendo ai clienti di concentrarsi esclusivamente sull’innovazione e sullo sviluppo applicativo.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
 
 ### Risorse collegate
 
--   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Oracle**](https://docs.cstudio.app/it/docs/resource/aws/Rds/Oracle)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `database_name` : Nome del database iniziale
--   `license`
--   `engine` : Tipo di Oracle Engine per l'istanza RDS - `oracle-ee`, `oracle-se2`
--   `engine_version` : Versione di Oracle da utilizzare su RDS
--   `instance_class` : Livello di prezzo per il DB RDS
--   `storage_type` : Tipo di storage per l'istanza RDS
--   `allocated_storage` : Capacità di storage per l'istanza RDS (in Gigabyte)
--   `max_allocated_storage` : Limite superiore per l'espansione automatica dello storage dell'istanza DB da parte di Amazon RDS
--   `multi_az_enabled` : Abilitazione della distribuzione Multi-AZ - `true`, `false`
--   `username` : Nome utente per RDS
--   `password` : Password dell'utente per RDS
--   `included_subnet_names` : Nomi delle Subnet da collegare al gruppo di Subnet RDS
--   `subnet_group_name` : Nome del gruppo di Subnet da utilizzare su RDS
--   `publicly_accessible` : Se l'istanza è accessibile pubblicamente - `true`, `false`
+#### Impostazioni di base
 
--   `monitoring`
-    -   `performance_insights_enabled` : Abilitazione delle performance insights
--   `encryption`
-    -   `storage_encrypted` : Specifica se l'istanza DB è criptata - `true`, `false`
-    -   `kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
--   `backup`
-    -   `backup_retention_period` : Periodo di conservazione dei backup - `1`~`35`
-    -   `final_snapshot_enabled` : Se creare uno snapshot finale prima della cancellazione dell'istanza DB - `true`, `false`
-    -   `final_snapshot_name` : Nome dello snapshot finale - `true`, `false`
+-   `database_name` : Nome iniziale del database - lettere maiuscole e numeri da `1` a `8`
+-   `license` : Modello di licenza Oracle - `bring-your-own-license`, `license-included`
+-   `engine` : Tipo di motore Oracle - `oracle-ee`, `oracle-se2`
+-   `engine_version` : Versione del motore Oracle da utilizzare
+-   `instance_class` : Tipo di istanza del database RDS
+-   `storage_type` : Tipo di storage dell’istanza RDS
+-   `allocated_storage` : Capacità di storage RDS (GB) - `20` ~ `65536`
+-   `max_allocated_storage` : Limite massimo per l’espansione automatica dello storage
+-   `iops` : Numero di operazioni I/O al secondo supportate - `1000` ~ `40000`
+-   `multi_az_enabled` : Abilitazione del deployment Multi-AZ - `true`, `false`
+-   `username` : Nome utente amministratore RDS
+-   `password` : Password dell’utente amministratore RDS
+-   `publicly_accessible` : Abilitazione dell’accesso pubblico - `true`, `false`
 
----
+#### Configurazione di rete
 
-## Materiale di riferimento
+-   `included_subnet_names` : Elenco dei nomi delle subnet incluse nel Subnet Group RDS
+-   `subnet_group_name` : Nome del Subnet Group da utilizzare
+-   `linked_security_group_names` : Elenco dei Security Group applicati
 
--   [Amazon RDS for Oracle 기능(Amazon RDS)(AWS)](https://aws.amazon.com/ko/rds/oracle/features/?nc=sn&loc=2&dn=1)
--   [Amazon RDS for Oracle 요금(AWS)](https://aws.amazon.com/ko/rds/oracle/pricing/)
+#### Configurazione di monitoraggio (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Abilitazione di Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nome della chiave KMS utilizzata per Performance Insights
+
+#### Configurazione della crittografia (`encryption`)
+
+-   `encryption.storage_encrypted` : Abilitazione della crittografia dello storage - `true`, `false`
+-   `encryption.kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+
+#### Configurazione dei backup (`backup`)
+
+-   `backup.backup_retention_period` : Periodo di conservazione dei backup (giorni) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Creazione dello snapshot finale prima dell’eliminazione del DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nome dello snapshot finale
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria

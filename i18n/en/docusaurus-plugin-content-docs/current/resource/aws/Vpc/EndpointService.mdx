@@ -1,6 +1,6 @@
 ---
 title: EndpointService
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, Resource, Vpc, EndpointService]
 ---
 
@@ -11,37 +11,43 @@ tags: [AWS, Resource, Vpc, EndpointService]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.webp"
     }
 />
 
 ## Resource Overview
 
-A service that allows customers to privately connect to supported AWS services and VPC endpoint services
+A service that allows customers to privately connect to supported AWS services and VPC endpoint services.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
-### Child Resources
+### Connected Resources
 
--   [**LB**](https://docs.cstudio.app/en/docs/resource/aws/Lb/Lb)
+-   [**Lb**](https://docs.cstudio.app/en/docs/resource/aws/Lb/Lb)
 -   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
 
 ## Resource Setting Values
 
--   `acceptance_required` : Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `false`, `true`
--   `loadbalancer_type` : Type of load balancer to connect from Endpoint service - `network`, `gateway`
--   `linked_lb_names` : Names of Lb for the endpoint service
--   `manual_lb_arns` : Amazon Resource Names(ARNs) of one or more Load Balancers for the endpoint service
--   `supported_ip_address_types` : The supported IP address types - `ipv4`
--   `activate_private_dns_name` : The private DNS name for the service
+#### Basic Settings
+
+-   `acceptance_required` : Whether the service owner must accept VPC endpoint connection requests - `true`, `false`
+-   `load_balancer_type` : Load balancer type connected to the Endpoint Service - `network`, `gateway`
+-   `linked_lb_names` : List of load balancer names connected to the Endpoint Service
+-   `manual_lb_arns` : List of load balancer ARNs connected to the Endpoint Service
+-   `supported_ip_address_types` : Supported IP address types - `ipv4`
+-   `activate_private_dns_name` : Private DNS name configured for the service
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
 -   [AWS EndPointService (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/configure-endpoint-service.html)
--   [AWS EndPointSerivce (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)
+-   [AWS EndPointService (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)

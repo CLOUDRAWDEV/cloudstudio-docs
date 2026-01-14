@@ -23,15 +23,24 @@ SourceCommit은 소스 코드와 다양한 파일들을 안전하게 저장하�
 
 ### 상위 리소스
 
-### 하위 리소스
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourcePipeline)
+
+### 연결 리소스
+
+-   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceDeployStage**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
 ## 리소스 설정 값
 
--   `enable_file_safer` : file_safer 사용 여부
+#### 기본 설정
+
+-   `enable_file_safer` : File Safer 사용 여부 - `true`, `false`
+-   `description` : 레포지토리 설명 - 최대 500자
 
 ---
 
 ## 참고 자료
 
 -   [Source Commit(Ncloud)](https://www.ncloud.com/product/devTools/sourceCommit)
--   [ncloud_source_commit(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)
+-   [Source Commit Repository(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)

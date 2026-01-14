@@ -17,40 +17,40 @@ tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
 
 ## Resource Overview
 
-Azure Cosmos DB SQL API is a fully managed NoSQL database service that allows you to store and query JSON-formatted data supported by the SQL API.  
+Azure Cosmos DB SQL API is a fully managed NoSQL database service that allows storing and querying JSON-formatted data supported by the SQL API.  
 It provides scalability and high availability through global distribution, automatic failover, backup, and consistency policies.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+-   [**PrivateEndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### Basic Settings
 
--   `capabilities_list` : List of Cosmos DB APIs to be used
--   `enable_multiple_write_locations` : Enable multi-region write capability - `true`, `false`
--   `public_network_access_enabled` : Enable public access to the account via public IP addresses or service endpoints - `true`, `false`
--   `enable_automatic_failover` : Enable automatic failover - `true`, `false`
--   `virtual_network_filter_enabled` : Enable filtering so that only specific virtual network subnets can access the account - `true`, `false`
--   `network_acl_bypass_for_azure_services` : Enable ACL bypass for Azure services - `true`, `false`
+-   `capabilities_list` : List of Cosmos DB APIs to use
+-   `enable_multiple_write_locations` : Whether to enable multi-region writes - `true`, `false`
+-   `public_network_access_enabled` : Whether to allow public access to the account via public IP addresses or service endpoints - `true`, `false`
+-   `enable_automatic_failover` : Whether to enable automatic failover - `true`, `false`
+-   `virtual_network_filter_enabled` : Whether to enable filtering so only specific virtual network subnets can access the account - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Whether to enable ACL bypass for Azure services - `true`, `false`
 
 #### Region Settings (`geo_location`)
 
 -   `geo_location.failover_priority` : Failover priority of the region
--   `geo_location.zone_redundant` : Enable automatic zone replication for fault tolerance - `true`, `false`
+-   `geo_location.zone_redundant` : Whether to allow automatic zone replication for fault tolerance - `true`, `false`
 
 #### Consistency Policy (`consistency_policy`)
 
--   `consistency_policy.consistency_level` : Consistency level for configuring database availability and performance
--   `consistency_policy.max_interval_in_seconds` : Maximum allowed staleness interval (seconds) when using Bounded Staleness
--   `consistency_policy.max_staleness_prefix` : Maximum number of stale requests allowed when using Bounded Staleness
+-   `consistency_policy.consistency_level` : Consistency level for database availability and performance
+-   `consistency_policy.max_interval_in_seconds` : Allowed staleness time (seconds) when the consistency level is Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximum number of stale requests allowed when the consistency level is Bounded Staleness
 
 #### Backup Settings (`backup`)
 
@@ -61,7 +61,7 @@ It provides scalability and high availability through global distribution, autom
 #### SQL Database Settings (`sql_database`)
 
 -   `sql_database.throughput` : Throughput of the Cosmos DB SQL database - `400` ~ `1000000`
--   `sql_database.enable_autoscale` : Enable autoscale for throughput - `true`, `false`
+-   `sql_database.enable_autoscale` : Whether to enable autoscaling - `true`, `false`
 
 #### SQL Container Settings (`sql_container`)
 
@@ -69,19 +69,19 @@ It provides scalability and high availability through global distribution, autom
 -   `sql_container.partition_key_paths` : List of partition key paths used by the SQL container
 -   `sql_container.throughput` : Throughput of the SQL container - `400` ~ `1000000`
 -   `sql_container.indexing_mode` : Indexing mode - `consistent`, `none`
--   `sql_container.included_path` : List of paths included in indexing
--   `sql_container.excluded_path` : List of paths excluded from indexing
--   `sql_container.unique_key_path` : List of unique key paths for enforcing data integrity
--   `sql_container.enable_autoscale` : Enable autoscale for container throughput - `true`, `false`
--   `sql_container.included_sql_database_name` : Name of the SQL database in which the SQL container will be created
+-   `sql_container.included_path` : List of included indexing paths
+-   `sql_container.excluded_path` : List of excluded indexing paths
+-   `sql_container.unique_key_path` : List of unique key paths for adding a data integrity layer
+-   `sql_container.enable_autoscale` : Whether to enable autoscaling - `true`, `false`
+-   `sql_container.included_sql_database_name` : Name of the SQL database where the container will be created
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
--   [Azure Cosmos DB SQL API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)
+-   [Azure Cosmos DB(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

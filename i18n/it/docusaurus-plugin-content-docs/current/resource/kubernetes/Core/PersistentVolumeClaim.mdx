@@ -1,62 +1,57 @@
 ---
 title: PersistentVolumeClaim
-sidebar_position: 0
+sidebar_position: 3
 tags: [Kubernetes, Risorsa, Core, PersistentVolumeClaim]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È una risorsa Kubernetes utilizzata per richiedere un Persistent Volume (PV).
+Risorsa Kubernetes utilizzata per richiedere un PersistentVolume.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
 
 ### Risorse collegate
 
--   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
--   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+-   [**PersistentVolume**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**Pod**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/it/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/it/docs/resource/kubernetes/Batch/CronJob)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `service_name` : Nome della risorsa PersistentVolumeClaim
--   `namespace` : Namespace in cui la risorsa PersistentVolume sarà distribuita
--   `annotations` : Coppie chiave-valore utilizzate per visualizzare informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori personalizzati definiti dall'utente per distinguere gli oggetti
--   `spec` : Definisce le specifiche dettagliate del PVC (PersistentVolumeClaim)
-    -   `spec.storage_class_name` : Nome della storage class da utilizzare
-    -   `spec.volume_name` : Nome del PersistentVolume (PV) a cui il PVC sarà associato
-    -   `spec.request_storage` : Capacità di storage richiesta per il PV
-    -   `spec.access_modes` : Modalità di accesso richieste per il PV - (Deve corrispondere o includere le modalità di accesso del PV) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
-
-
+-   `namespace` : Namespace in cui verrà creata la risorsa PVC
+-   `annotations` : Metadati di sistema Kubernetes
+-   `labels` : Etichette personalizzate per identificazione e classificazione del PVC
+-   `spec.storage_class_name` : Nome dello StorageClass da utilizzare
+-   `spec.volume_name` : Nome del PersistentVolume da associare
+-   `spec.volume_mode` : Modalità di fornitura dello storage -`Filesystem / Block`
+-   `spec.request_storage` : Capacità di storage richiesta
+-   `spec.access_modes` : Modalità di accesso al volume richieste - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `wait_until_bound` : Attesa fino al binding del PVC con il PV
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [PersistentVolumeClaim(Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
--   [PersistentVolumeClaim(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)
+-   [PersistentVolumeClaim (Kubernetes)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)
+-   [PersistentVolumeClaim (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume_claim)

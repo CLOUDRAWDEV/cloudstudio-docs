@@ -1,65 +1,65 @@
 ---
 title: Ingress
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Networking, Ingress]
+tags: [Kubernetes, Ressource, Networking, Ingress]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Kubernetes-Ressource, die Regeln für eingehende Verbindungen definiert, die es ihnen ermöglichen, das von der Backend-Anwendung definierte Endpunkt zu erreichen
+Eine Kubernetes-Ressource mit Regeln, die es eingehenden Verbindungen erlauben, die im Backend definierten Endpunkte zu erreichen.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
-
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
 ### Verbundene Ressourcen
 
--   [**IngressClass**]
--   [**NginxIngress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
+-   [**Issuer**](https://docs.cstudio.app/de/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Service**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Service)
+-   [**IngressClass**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/IngressClass)
+-   [**Nginx Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/NginxIngress)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `service_name` : Name der Ingress-Ressource
 -   `namespace` : Namespace, in dem die Ingress-Ressource bereitgestellt wird
--   `annotations` : Key-Value-Paare, die verwendet werden, um die erforderlichen Informationen im Kubernetes-System anzuzeigen
--   `labels` : Der Benutzer kann einen beliebigen Wert festlegen, um das Objekt zu unterscheiden
--   `tls` : TLS anwenden
-    -   `hosts` : Liste der Hosts, die im TLS-Zertifikat enthalten sind
-    -   `secret_name` : Geben Sie den Namen des Kubernetes-Secrets an, das mit dem TLS-Zertifikat verknüpft ist
--   `ingress_class_name` : Geben Sie den Namen der Ingress-Klasse an, mit der verbunden werden soll
--   `host` : Geben Sie die Hostnamen-Adresse an, auf die die Routing-Regeln angewendet werden sollen
--   `backend` : Geben Sie die Backend-Informationen ein, auf die geroutet werden soll
-    -   `name` : Name der Routing-Rege
-        -   `path` : Pfad, der mit dem Backend verbunden werden soll
-        -   `path_type` : Bestimmung der Interpretation der Pfadübereinstimmung - `Prefix`, `ImplementationSpecific`, `Exact`
-        -   `port` : Portnummer des Dienstes - `1~65535`
+-   `annotations` : Key-Value-Metadaten für das Kubernetes-System
+-   `labels` : Benutzerdefinierte Labels zur Objektidentifikation
+-   `ingress_class_name` : Name der zu verbindenden Ingress-Klasse
 
+#### TLS-Konfiguration (`tls`)
 
+-   `tls.hosts` : Liste der Hosts im TLS-Zertifikat
+-   `tls.secret_name` : Name des Kubernetes-Secrets für das TLS-Zertifikat
 
+#### Routing-Regeln (`rule`)
 
+-   `rule.host` : Hostname, auf den die Routing-Regel angewendet wird
 
+#### Backend-Konfiguration (`rule.backend`)
+
+-   `rule.backend.target_service` : Ziel-Backend-Service
+-   `rule.backend.path` : Pfad zum Backend
+-   `rule.backend.port` : Portnummer des Services
+-   `rule.backend.path_type` : Auswertung der Pfadübereinstimmung – `ImplementationSpecific`, `Prefix`, `Exact`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Ingress(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+-   [Ingress(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 -   [Ingress(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress)

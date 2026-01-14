@@ -4,86 +4,54 @@ sidebar_position: 0
 tags: [Kubernetes, Recurso, Apps, Daemonset]
 ---
 
-
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.webp"
     }
 />
 
 ## Descripción general del recurso
 
-DaemonSet es un recurso de Kubernetes que garantiza que todos (o algunos) nodos ejecuten una copia de un Pod. Cuando se añade un nodo al clúster, también se crea un Pod en ese nodo.
+DaemonSet es un recurso de Kubernetes que garantiza que todos (o algunos) los nodos ejecuten una copia de un Pod.  
+Cuando se añade un nodo al clúster, se agrega automáticamente un Pod a ese nodo.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/ConfigMap)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Service)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso DaemonSet
+#### Configuración básica
+
 -   `namespace` : Namespace donde se desplegará el recurso DaemonSet
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `template_labels` : Labels aplicadas a los Pods generados por nodo
--   `containers` : Plantilla que define los contenedores incluidos en el Pod - se configuran primero los valores predeterminados y luego los específicos
-    -   `containers.name` : Nombre del contenedor
-        -   `image` : Nombre de la imagen Docker a utilizar
-        -   `args` : Comandos que se ejecutarán dentro del contenedor
-        -   `command` : Comandos que se ejecutarán dentro del contenedor
-        -   `port` : Lista de puertos que se expondrán desde el contenedor 
-
-        -   `resources` : Cantidad de recursos de cómputo asignados al contenedor - configuración detallada 
-            -   `name` : Define los recursos mínimos/máximos - `Limits`, `requests`     
-            -   `cpu` : Cantidad de CPU asignada    
-            -   `memory` : Cantidad de memoria asignada
-
-        -   `probe` : Define los métodos de diagnóstico del estado del Pod - configuración detallada 
-            -   `name` : Tipo de Probe - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Ruta para acceder al servidor HTTP
-            -   `http_get_port` : Puerto al que se accederá en el contenedor
-            -   `http_header` : Encabezados personalizados para la solicitud
-            -   `initial_delay_seconds` : Tiempo (en segundos) que se espera tras el arranque antes de iniciar el probe
-            -   `period_seconds` : Frecuencia (en segundos) con la que se ejecuta el probe
-
-        -   `env` : Bloque de pares key-value para configurar variables de entorno del contenedor - configuración detallada
-            -   `name` : Nombre de la variable de entorno
-            -   `value` : Valor asignado a la variable de entorno
-
-        -   `volume_mount` : Volumen del Pod montado en el sistema de archivos del contenedor - configuración detallada
-            -   `name` : Nombre del volumen a montar
-            -   `path` 
-                -   `mount_path` : Ruta dentro del contenedor donde se montará el volumen
-                -   `sub_path` : Subruta específica dentro del volumen a montar en el contenedor
-            
--   `volume` : Lista de volúmenes que pueden montarse en los contenedores del Pod
-    -   `name` : Nombre del volumen
-        -   `type` : Tipo de volumen a montar - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Nombre del PersistentVolumeClaim
-        -   `default_mode` : Modo de los archivos creados - entre 0 y 0777, valor por defecto: 0644
-        -   `read_only` : Si es `true`, el volumen se montará en modo solo lectura; de lo contrario, será de lectura/escritura
-
--   `image_pull_secrets` : Secret en el mismo namespace que contiene los permisos necesarios para descargar las imágenes utilizadas por el contenedor
-
+-   `annotations` : Metadatos key-value utilizados por el sistema de Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar el recurso DaemonSet
+-   `template_labels` : Etiquetas aplicadas a los Pods que se crearán
+-   `pod_security_context` : Configuración de seguridad y privilegios a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización que se ejecutan antes del contenedor principal
+-   `containers` : Definición de los contenedores incluidos en el Pod
+-   `volume` : Definición de los volúmenes que utilizará el Pod
+-   `dns_policy` : Política DNS del Pod
+-   `enable_service_links` : Habilitar la inyección automática de variables de entorno de servicios
+-   `host_network` : Habilitar el uso de la red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [DaemonSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
 -   [DaemonSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/daemonset)

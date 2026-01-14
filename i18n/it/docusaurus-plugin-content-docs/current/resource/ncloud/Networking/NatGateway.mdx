@@ -1,38 +1,41 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
-tags: [Ncloud, Risorsa, Network, NatGateway]
+title: NatGateway
+sidebar_position: 5
+tags: [Ncloud, Resource, Network, NatGateway]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Servizio che collega più server a un singolo IP pubblico e impedisce l'accesso diretto dall'esterno. Consente a server con indirizzi IP privati di comunicare con server esterni, mentre blocca l'accesso diretto dall'esterno per mantenere la sicurezza.
+A service that connects multiple servers using a single public IP while blocking direct access from external networks.  
+It allows servers with private IP addresses to communicate with external servers while preventing direct inbound access, thereby maintaining security.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
 
-## Impostazioni della risorsa
+## Resource Setting Values
 
--   `included_vpc_name` : Nome della VPC in cui verrà creato il Nat gateway
--   `zone` : Regione fisica in cui si troverà il Nat gateway
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC in which the NAT Gateway will be created
+-   `included_subnet_name` : Name of the Subnet in which the NAT Gateway will be created
 
 ---
 
-## Materiale di riferimento
+## References
 
 -   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
--   [ncloud_nat_gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
+-   [NAT Gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)

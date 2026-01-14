@@ -1,51 +1,62 @@
 ---
-title: Route Table
-sidebar_position: 0
+title: RouteTable
+sidebar_position: 13
 tags: [AWS, Risorsa, Vpc, RouteTable]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-La Route Table di AWS VPC (Virtual Private Cloud) è una risorsa AWS che definisce a quale destinazione deve essere inviato il traffico per i subnet all'interno del VPC. Ogni subnet nel VPC è collegata a una o più tabelle di routing, che specificano le regole di routing per destinazioni come Internet Gateway, NAT Gateway, VPC Endpoint o VPN Connection. La Route Table instrada il traffico secondo l'ordine delle regole di routing, e tutto il traffico generato in una subnet viene inviato alla destinazione tramite la Route Table collegata. Ciò consente alle subnet nel VPC di comunicare in modo sicuro con Internet o altri VPC.
+La Route Table di AWS VPC (Virtual Private Cloud) è una risorsa AWS che definisce verso quali destinazioni deve essere instradato il traffico delle subnet all’interno di un VPC.  
+Ogni subnet in un VPC è associata a una o più route table, che specificano le regole di instradamento verso destinazioni come Internet Gateway, NAT Gateway, VPC Endpoint o connessioni VPN.
+
+Le route table instradano il traffico in base all’ordine delle regole configurate e tutto il traffico generato dalle subnet viene inoltrato alla destinazione tramite la route table associata.  
+In questo modo, le subnet all’interno del VPC possono comunicare in modo sicuro con Internet o con altri VPC.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
 ### Risorse collegate
 
--   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
--   [**Vpc Peering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
+-   [**InternetGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
+-   [**Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
+-   [**TransitGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpcPeering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `included_vpc_name` : Nome del VPC che contiene la Route Table
--   `subnet_names` : Descrizione della Route Table
--   `linked_route` : Nome del percorso di routing
-    -   `cidr_block` : CIDR del Target Resource da instradare
-    -   `internet_gateway_name` : Nome dell'Internet Gateway per cui specificare il percorso di routing
-    -   `ec2_instance_name` : Nome dell'EC2 Instance per cui specificare il percorso di routing
-    -   `nat_gateway_name` : Nome del NAT Gateway per cui specificare il percorso di routing
-    -   `vpc_peering_name` : Nome del VPC Peering per cui specificare il percorso di routing
+#### Impostazioni di base
+
+-   `included_vpc_name` : Nome del VPC in cui è inclusa la Route Table
+-   `subnet_names` : Elenco dei nomi delle subnet da associare alla Route Table
+
+#### Percorsi di routing (`linked_route`)
+
+-   `linked_route.cidr_block` : Blocco CIDR della destinazione da instradare
+-   `linked_route.resource_type` : Tipo di risorsa di destinazione - `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
+-   `linked_route.linked_resource_name` : Nome della risorsa di destinazione
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [라우팅 테이블 구성(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
--   [aws_default_route_table(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)
+-   [Configurazione delle route table (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
+-   [aws_default_route_table (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)

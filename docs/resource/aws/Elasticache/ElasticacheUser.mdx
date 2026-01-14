@@ -27,9 +27,16 @@ AWS Elasticache User는 Elasticache 클러스터를 사용하기 위해 필요�
 
 ## 리소스 설정 값
 
--   `user_id` : 사용자의 ID, 영문자, 하이픈(-) 사용 가능, 문자로 시작, 하이픈으로 끝나거나 하이픈을 두 개 연속으로 포함할 수 없음, 최대 40자
+#### 기본 설정
+
+-   `user_id` : 각 사용자의 고유한 ID
 -   `access_string` : 사용자에게 적용할 권한을 입력한 string
--   `authentication_type` : 사용자가 클러스터에 접근하기 위한 인증 방식
+-   `authentication_type` : 사용자가 클러스터에 접근하기 위한 인증 방식 - `iam`, `password`, `no-password-required`
+-   `passwords` : 사용자의 PW (최대 2개까지 설정 가능)
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

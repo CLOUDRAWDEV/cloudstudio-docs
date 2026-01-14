@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Base, Base]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.webp"
     }
 />
 
@@ -23,20 +21,19 @@ Cloudstudio에서 등록한 사용자 Credential을 선택합니다.
 
 ## 연관 리소스
 
-### 상위 리소스
+### 하위 리소스
 
+-   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
 ## 리소스 설정 값
 
--   `credential_id` : CloudStudio에서 등록한 사용자 Credential 선택 - `AWS Credential`, `Azure Credential`, `Ncloud Credential`
+#### 기본 설정
 
-
-
-
-
+-   `credential_id` : Kubernetes 클러스터에 접근하기 위해 사용할 사용자 자격증명 선택
 
 ---
 
 ## 참고 자료
 
-
+-   [Kubernetes 인증 정보 구성(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+-   [kubeconfig 파일 참조(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/)

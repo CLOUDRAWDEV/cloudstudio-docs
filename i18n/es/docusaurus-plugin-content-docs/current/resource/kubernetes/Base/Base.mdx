@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, Recurso, Base, Base]
 ---
 
-
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.webp"
     }
 />
 
@@ -23,18 +21,19 @@ Selecciona las credenciales de usuario registradas en Cloudstudio.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recursos secundarios
 
+-   [**Cluster**](https://docs.cstudio.app/es/docs/resource/kubernetes/Base/Cluster)
 
 ## Valores de configuración del recurso
 
--   `credential_id` : Selección de la credencial de usuario registrada en CloudStudio - `AWS Credential`, `Azure Credential`, `Ncloud Credential`
+#### Configuración básica
 
-
-
-
-
+-   `credential_id` : Selección de las credenciales de usuario utilizadas para acceder al clúster de Kubernetes
 
 ---
 
-## Documentación de referencia
+## Referencias
+
+-   [Configuración de credenciales de Kubernetes(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+-   [Referencia del archivo kubeconfig(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/)

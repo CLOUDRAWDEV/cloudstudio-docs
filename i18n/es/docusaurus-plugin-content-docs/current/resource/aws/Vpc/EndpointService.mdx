@@ -1,47 +1,53 @@
 ---
 title: EndpointService
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, Recurso, Vpc, EndpointService]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Servicio que permite conectarse de forma privada a servicios de AWS compatibles y servicios de endpoint de VPC.
+Servicio que permite a los clientes conectarse de forma privada a servicios de AWS compatibles y a servicios de VPC Endpoint
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
 
-### Recurso subordinado
+### Recursos conectados
 
--   [**LB**](https://docs.cstudio.app/docs/resource/aws/Lb/Lb)
--   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
+-   [**Lb**](https://docs.cstudio.app/es/docs/resource/aws/Lb/Lb)
+-   [**Endpoint**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Endpoint)
 
 ## Valores de configuración del recurso
 
--   `acceptance_required` : Indica si el propietario del servicio debe aceptar las solicitudes de conexión al endpoint del VPC - `false`, `true`
--   `loadbalancer_type` : Tipo de load balancer que se conectará al servicio de endpoint - `network`, `gateway`
--   `linked_lb_names` : Uno o más nombres de recursos LB conectados al servicio de endpoint
--   `manual_lb_arns` : Uno o más ARN (Amazon Resource Name) de dispositivos de balanceo de carga conectados al servicio de endpoint
--   `supported_ip_address_types` : Tipos de direcciones IP compatibles - `ipv4`
--   `activate_private_dns_name` : Nombre DNS privado del servicio
+#### Configuración básica
+
+-   `acceptance_required` : Indica si el propietario del servicio debe aceptar las solicitudes de conexión - `true`, `false`
+-   `load_balancer_type` : Tipo de Load Balancer a conectar - `network`, `gateway`
+-   `linked_lb_names` : Lista de nombres de Load Balancer conectados
+-   `manual_lb_arns` : Lista de ARN de Load Balancer conectados
+-   `supported_ip_address_types` : Lista de tipos de direcciones IP compatibles - `ipv4`
+-   `activate_private_dns_name` : Nombre DNS privado configurado para el servicio
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [AWS EndPointService (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/configure-endpoint-service.html)
--   [AWS EndPointSerivce (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)
+-   [AWS EndPoint Service (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/privatelink/configure-endpoint-service.html)
+-   [AWS EndPoint Service (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint_service)

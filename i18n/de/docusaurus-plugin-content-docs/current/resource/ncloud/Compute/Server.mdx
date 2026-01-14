@@ -1,7 +1,7 @@
 ---
 title: Server
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Compute, Server]
+sidebar_position: 2
+tags: [Ncloud, Ressource, Compute, Server]
 ---
 
 <hr />
@@ -11,38 +11,42 @@ tags: [Ncloud, Ressourcen, Compute, Server]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies sind Computing-Ressourcen, die die Flexibilität der Virtualisierung bieten, ohne dass eine tatsächliche Hardwareverwaltung erforderlich ist. Durch die Erstellung von Servern in einer Cloud-Umgebung ist es in Bezug auf Zeit und Kosten effizient und eignet sich besonders für Situationen, in denen der Betrieb der Infrastruktur eine Belastung darstellt oder vorübergehend viele Serverressourcen benötigt werden.
+Eine Computing-Ressource, die die Flexibilität der Virtualisierung bietet, ohne dass physische Hardware verwaltet werden muss.  
+Sie ermöglicht die effiziente Erstellung von Servern in Cloud-Umgebungen und eignet sich besonders für Szenarien mit temporär hohem Ressourcenbedarf oder reduziertem Infrastrukturverwaltungsaufwand.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**BlockStorage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
--   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIP)
--   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**BlockStorage**](https://docs.cstudio.app/de/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/PublicIp)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `include_subnet_name` : Name des Subnetzes, in dem sich der Server befindet
--   `server_image_product_code` : Code des Betriebssystem-Images, das verwendet wird
--   `server_product_code` : Code für die Hardwarekonfiguration des Servers
--   `login_key_name` : Name des zu verwendenden login_key
--   `init_script` : Name des zu verwendenden init_script
--   `is_encrypted_base_block_storage_volume` : Ob die Speicherung verschlüsselt wird
--   `linked_network_interface_name` : Dem Server zugewiesene Netzwerkschnittstelle
+#### Grundeinstellungen
 
+-   `included_subnet_name` : Name des Subnetzes, in dem der Server platziert wird
+-   `server_image_product_code` : Betriebssystem-Image-Code – `ncloudServerImage`
+-   `server_product_code` : Hardwarekonfigurationscode des Servers – `ncloudServerType`
+-   `login_key_name` : Name des zu verwendenden Login-Schlüssels
+-   `init_script` : Name des zu verwendenden Init-Skripts
+-   `is_encrypted_base_block_storage_volume` : Aktivierung der Block-Storage-Verschlüsselung – `true`, `false`
+-   `linked_network_interface_names` : Dem Server zugewiesene Netzwerkschnittstellen
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)
+-   [Server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

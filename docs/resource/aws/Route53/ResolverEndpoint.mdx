@@ -19,22 +19,31 @@ tags: [AWS, 리소스, Route53, ResolverEndpoint]
 
 Amazon Vpc와 송수신하는 DNS 쿼리에 대한 엔드포인트 서비스
 
+## 연관 리소스
+
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ### 연결 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 -   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 -   [**ResolverRule**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverRule)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `direction` : DNS 쿼리 방향 - `INBOUND`, `OUTBOUND`
 -   `linked_vpc_name` : 엔드포인트와 연결할 VPC 이름
--   `linked_security_group_names` : 엔드포인트에 대한 보안 그룹 이름
--   `ip_address` : IP 주소에 대한 이름
+-   `linked_security_group_names` : 엔드포인트에 적용할 보안 그룹 이름 목록
+-   `ip_address.subnet_name` : 사용할 Subnet 이름
+-   `ip_address.ip` : Subnet 내의 사용 가능한 IP 주소
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

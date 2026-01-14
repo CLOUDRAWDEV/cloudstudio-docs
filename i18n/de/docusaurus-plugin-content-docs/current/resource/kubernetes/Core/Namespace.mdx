@@ -1,72 +1,68 @@
 ---
 title: Namespace
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Core, Namespace]
+tags: [Kubernetes, Ressource, Core, Namespace]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Ressource in Kubernetes, die verwendet wird, um Objekte innerhalb des Clusters zu gruppieren und zu isolieren.
+Eine Kubernetes-Ressource zur Gruppierung und Isolation von Objekten innerhalb eines Clusters.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
 
 ### Untergeordnete Ressourcen
 
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**HPA**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/HorizontalPodAutoscaling)
--   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
--   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**ServiceAccount**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ServiceAccount)
--   [**CertManager**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/CertManager)
--   [**CustomChart**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/CustomChart)
--   [**HashicorpVault**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/HashicorpVault)
--   [**IstioCrds**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/IstioCrds)
--   [**IstioGateway**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/IstioGateway)
--   [**Istiod**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/Istiod)
--   [**NginxIngress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
--   [**Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/Issuer)
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
--   [**NetworkPolicy**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/NetworkPolicy)
--   [**Role**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/Role)
--   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/RoleBinding)
+-   [**DaemonSet**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Deployment**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/de/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**CronJob**](https://docs.cstudio.app/de/docs/resource/kubernetes/Batch/CronJob)
+-   [**Job**](https://docs.cstudio.app/de/docs/resource/kubernetes/Batch/Job)
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ConfigMap)
+-   [**DefaultServiceAccount**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/DefaultServiceAccount)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Pod**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Pod)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
+-   [**Service**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Service)
+-   [**ServiceAccount**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**CertManager**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/CertManager)
+-   [**CustomChart**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/CustomChart)
+-   [**HashicorpVault**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/HashicorpVault)
+-   [**IstioCrds**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/IstioCrds)
+-   [**IstioGateway**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/IstioGateway)
+-   [**Istiod**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/Istiod)
+-   [**NginxIngress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/NginxIngress)
+-   [**Issuer**](https://docs.cstudio.app/de/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/Ingress)
+-   [**NetworkPolicy**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/NetworkPolicy)
+-   [**Role**](https://docs.cstudio.app/de/docs/resource/kubernetes/Rbac/Role)
+-   [**RoleBinding**](https://docs.cstudio.app/de/docs/resource/kubernetes/Rbac/RoleBinding)
 
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-## Ressourcen-Einstellwerte
-
--   `service_name` : ConfigMap-Ressourcenname
--   `annotations` : Wird verwendet, um benötigte Informationen im Kubernetes-System in Form von Schlüssel-Wert-Paaren anzuzeigen
--   `labels` : Wird verwendet, um benutzerdefinierte Werte zur Unterscheidung von Objekten festzulegen
-
+-   `annotations` : Kubernetes-Systemmetadaten
+-   `labels` : Benutzerdefinierte Labels zur Namespace-Identifikation und -Klassifizierung
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Namespace(Kubernetes)](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 -   [Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace)

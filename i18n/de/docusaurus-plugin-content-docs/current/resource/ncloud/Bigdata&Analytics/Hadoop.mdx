@@ -1,0 +1,66 @@
+---
+title: Hadoop
+sidebar_position: 3
+tags: [Ncloud, Ressource, BigData, Hadoop]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-hadoop.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Hadoop ist eine **Ncloud-Big-Data-Plattform**, die für die verteilte Verarbeitung großer Datenmengen konzipiert ist.  
+Sie ermöglicht den einfachen Aufbau von Clustern mit Edge-, Master- und Worker-Nodes, die über die Ambari-Konsole verwaltet werden können, und erlaubt das optionale Hinzufügen von Add-ons wie Spark, HBase, Impala und weiteren.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name des VPC, in dem der Hadoop-Cluster erstellt wird
+-   `cluster_name` : Name des Clusters
+-   `cluster_type_code` : Cluster-Typ-Code (z. B. inklusive Spark)
+-   `admin_user_name` : Benutzername des Ambari-Administrators
+-   `admin_user_password` : Passwort des Ambari-Administrators
+-   `login_key_name` : Name des Login-Schlüssels (für schlüsselbasierte Anmeldung)
+-   `edge_node_subnet_no` : Subnet-ID des Edge-Nodes
+-   `master_node_subnet_no` : Subnet-ID des Master-Nodes
+-   `worker_node_subnet_no` : Subnet-ID des Worker-Nodes
+-   `bucket_name` : Name des Object-Storage-Buckets zur Datenspeicherung
+-   `master_node_data_storage_type` : Storage-Typ des Master-Nodes (`SSD`, `HDD`)
+-   `worker_node_data_storage_type` : Storage-Typ des Worker-Nodes (`SSD`, `HDD`)
+-   `master_node_data_storage_size` : Storage-Größe des Master-Nodes
+-   `worker_node_data_storage_size` : Storage-Größe des Worker-Nodes
+-   `image_product_code` : Produktcode des Hadoop-Server-Images
+-   `engine_version_code` : Hadoop-Engine-Version (`HADOOP2.2`, `HADOOP2.3`)
+-   `edge_node_product_code` : Produktcode des Edge-Nodes
+-   `master_node_product_code` : Produktcode des Master-Nodes
+-   `worker_node_product_code` : Produktcode des Worker-Nodes
+-   `add_on_code_list` : Liste der zu installierenden Add-ons (`HBASE`, `IMPALA`, `KUDU`, `TRINO`, `NIFI`)
+-   `worker_node_count` : Anzahl der Worker-Nodes (`2~8`)
+-   `use_kdc` : Verwendung der KDC-Authentifizierung (`true`, `false`)
+-   `kdc_realm` : Name des KDC-Realm
+-   `kdc_password` : KDC-Passwort
+-   `use_bootstrap_script` : Verwendung eines Bootstrap-Skripts
+-   `bootstrap_script` : Pfad zum auszuführenden Bootstrap-Skript
+-   `use_data_catalog` : Verwendung des Datenkatalogs
+
+---
+
+## Referenzen
+
+-   [Hadoop(Ncloud)](https://www.ncloud.com/product/bigdata/cloudHadoop)
+-   [ncloud_hadoop(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/hadoop)

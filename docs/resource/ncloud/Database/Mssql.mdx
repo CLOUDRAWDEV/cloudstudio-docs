@@ -25,24 +25,26 @@ Cloud DB for MSSQL은 MSSQL 데이터베이스를 손쉽게 구축하고 자동�
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-### 하위 리소스
-
 ## 리소스 설정 값
 
--   `enable_high_availability` : 고가용성 기능 사용 여부
+#### 기본 설정
+
+-   `included_subnet_name` : MSSQL이 포함된 Subnet 이름
+-   `enable_high_availability` : 고가용성 기능 사용 여부 - `true`, `false`
 -   `user_name` : MSSQL 사용자 접근 ID
 -   `user_password` : MSSQL 사용자 접근 비밀번호
--   `image_product_code` : 생성할 MSSQL 인스턴트 서버 이미지 스펙에 대한 이미지 제품 번호
--   `product_code` : 생성할 MSSQL 인스턴스 서버 이미지 스펙에 대한 제품 번호
+-   `image_product_code` : 생성할 MSSQL 인스턴스 서버 이미지 제품 번호 - `imageProductCode`
+-   `product_code` : 생성할 MSSQL 인스턴스 서버 제품 번호 - `productCode`
 -   `data_storage_type` : 데이터 스토리지 종류 - `SSD`, `HDD`
--   `backup_file_retention_period` : 백업 파일 보관 기간, 백업은 매일 단위로 진행되며, 백업 파일은 별도의 스토리지에 저장 - `1~30`
--   `enable_automatic_backup` : 백업 자동화 사용 여부
--   `port` : MySQL 접속포트 - `3306~20000`
--   `character_set_name` : DB 문자 세트. 한글과 영문 조합 중에서 선택 가능
+-   `backup_file_retention_period` : 백업 파일 보관 기간 (일 단위) - `1` ~ `30`
+-   `enable_automatic_backup` : 백업 자동화 사용 여부 - `true`, `false`
+-   `backup_time` : 사용자가 원하는 특정 백업 시간
+-   `port` : MSSQL 접근을 위한 TCP 포트 번호 (기본값: `1433`)
+-   `character_set_name` : DB 문자 세트 - `characterSetName`
 
 ---
 
 ## 참고 자료
 
--   [Mssql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
--   [ncloud_mssql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)
+-   [MSSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
+-   [MSSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

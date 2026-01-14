@@ -1,44 +1,42 @@
 ---
 title: LaunchConfiguration
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Risorsa, Compute, LaunchConfiguration]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È un template che configura le specifiche dei server virtuali che vengono automaticamente creati quando è necessario espandere i server durante l'esecuzione dell'Auto Scaling.
+Template che definisce le specifiche dei server virtuali creati automaticamente durante le operazioni di Auto Scaling.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `server_image_product_code` : Codice dell'immagine del sistema operativo da utilizzare (CNTOS: CentOS, UBNTU: Ubuntu, WND: Windows / MYSQL, MARIA: Database / SVR: Server, EN: English Edition)
--   `server_product_code` : Codice per la configurazione hardware del server (HICPU: High CPU, STAND: Standard, HIMEM: High Memory / C numero di core, M memoria (GB))
--   `login_key_name` : Risorsa necessaria per l'accesso all'istanza del server e per la cifratura e decifratura
--   `init_script`
-    -   `content` : Contenuto dello script da eseguire automaticamente quando il server viene creato
--   `is_encrypted_volume` : Se la memorizzazione di base (Basic block storage) è cifrata o meno
-
+-   `server_image_product_code` : Codice dell’immagine OS da utilizzare - `ncloudServerImage`
+-   `server_product_code` : Codice della configurazione hardware del server - `ncloudServerType`
+-   `login_key_name` : Nome della login key pubblica
+-   `init_script` : Script da eseguire alla creazione del server
+-   `is_encrypted_volume` : Abilitazione della crittografia del block storage di base
 
 ---
 
+## Riferimenti
 
-## Materiale di riferimento
-
--   [ncloud_launch_configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)
+-   [Launch Configuration (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

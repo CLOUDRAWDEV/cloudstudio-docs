@@ -26,40 +26,32 @@ Ncloud에서는 고가용성(HA), 백업 자동화, 암호화 스토리지 기�
 ### 상위 리소스
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/VPC)
-
-### 연결 리소스
-
--   [**Security Group**](https://docs.cstudio.app/docs/resource/ncloud/Networking/SecurityGroup)
--   [**Login Key**](https://docs.cstudio.app/docs/resource/ncloud/Compute/LoginKey)
-
----
 
 ## 리소스 설정 값
 
--   `server_name_prefix` : PostgreSQL 서버 이름 접두사 (3~30자, 영소문자/숫자/하이픈)
--   `included_vpc_name` : PostgreSQL이 포함된 VPC 이름
--   `included_subnet_name` : PostgreSQL이 포함된 Subnet 이름
--   `enable_high_availability` : 고가용성 기능 사용 여부 (`true`, `false`)
--   `user_name` : PostgreSQL 사용자 접근 ID
--   `user_password` : PostgreSQL 사용자 접근 비밀번호
--   `image_product_code` : PostgreSQL 인스턴스 이미지 코드  
-    (예: `SW.VPGSL.OS.LNX64.ROCKY.0810.PGSQL.B050`)
--   `product_code` : PostgreSQL 인스턴스 서버 사양 코드  
-    (예: `SVR.VPGSL.DBSVR.HICPU.C002.M004.NET.SSD.B050.G002`)
--   `data_storage_type` : 데이터 스토리지 종류 (`SSD`, `HDD`)
--   `is_backup` : 백업 사용 여부 (`true`, `false`)
--   `backup_file_retention_period` : 백업 파일 보관 기간 (1~30일)
--   `enable_automatic_backup` : 백업 자동화 사용 여부 (`true`, `false`)
--   `backup_time` : 특정 백업 실행 시간
--   `port` : PostgreSQL 접속 포트 (`기본값: 5432`)
--   `client_cidr` : 클라이언트 접근 허용 IP 범위 (CIDR)
--   `database_name` : 기본 데이터베이스 이름
--   `enable_storage_encryption` : 스토리지 암호화 기능 사용 여부 (`true`, `false`)
+#### 기본 설정
+
+-   `server_name_prefix` : Postgresql 서버 이름 (영소문자/숫자/하이픈 허용, 영소문자로 시작, 영소문자 또는 숫자로 종료, 3~30자)
+-   `included_vpc_name` : Postgresql이 포함된 VPC 이름
+-   `included_subnet_name` : Postgresql이 포함된 Subnet 이름
+-   `enable_high_availability` : 고가용성 기능 사용 여부 - `true`, `false`
+-   `user_name` : Postgresql 사용자 접근 ID
+-   `user_password` : Postgresql 사용자 접근 비밀번호
+-   `image_product_code` : Postgresql 서버 이미지 제품 코드
+-   `product_code` : Postgresql 인스턴스 서버 사양 제품 코드
+-   `data_storage_type` : 데이터 스토리지 종류 - `SSD`, `HDD`
+-   `is_backup` : 백업 사용 여부 - `true`, `false`
+-   `backup_file_retention_period` : 백업 파일 보관 기간(일 단위) - `1` ~ `30`
+-   `enable_automatic_backup` : 자동 백업 사용 여부 - `true`, `false`
+-   `backup_time` : 사용자 지정 백업 시간
+-   `port` : Postgresql 접속 포트 번호
+-   `client_cidr` : 클라이언트 IP 주소가 할당되는 IP 주소 범위
+-   `database_name` : 기본 DB 이름
+-   `enable_storage_encryption` : 스토리지 암호화 사용 여부 - `true`, `false`
 
 ---
 
 ## 참고 자료
 
--   [PostgreSQL (Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
--   [ncloud_postgresql (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

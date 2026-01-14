@@ -1,41 +1,58 @@
 ---
 title: Region
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Recurso, Region]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/base-region.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/base-region.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso que especifica la región donde se desplegarán los recursos de Naver Cloud. Se admiten Corea (KR), Japón (JPN) y Singapur (SGN).
+Recurso que permite seleccionar la región donde se desplegarán los recursos de Ncloud.  
+Admite Corea (KR), Japón (JPN) y Singapur (SGN).
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Base**](https://docs.cstudio.app/docs/resource/ncloud/Base/)
+-   [**Base**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/)
 
-### Recursos subordinados
+### Recursos secundarios
 
--   [**Network Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Network/Vpc)
--   [**Network Vpc Peering**](https://docs.cstudio.app/docs/resource/ncloud/Network/VpcPeering)
+-   [**CdssConfigGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
+-   [**InitScript**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/InitScript)
+-   [**LaunchConfiguration**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/LaunchConfiguration)
+-   [**NasVolume**](https://docs.cstudio.app/es/docs/resource/ncloud/Storage/NasVolume)
+-   [**PublicIp**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/PublicIp)
+-   [**RedisConfigGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/RedisConfigGroup)
+-   [**SourceBuild**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceDeploy)
+-   [**SourcePipeline**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourcePipeline)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+-   [**VpcPeering**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/VpcPeering)
+-   [**BlockStorage**](https://docs.cstudio.app/es/docs/resource/ncloud/Storage/BlockStorage)
+-   [**ObjectStorage**](https://docs.cstudio.app/es/docs/resource/ncloud/Storage/ObjectStorage)
 
 ## Valores de configuración del recurso
 
--   `region` : Región de despliegue
+#### Configuración básica
+
+-   `region` : Región de Ncloud donde se desplegarán los recursos - `KR`, `JPN`, `SGN`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
--   [ncloud_regions(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/data-sources/regions)
+-   [Ncloud Environment Overview(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
+-   [Ncloud Environment Products by Region(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environmentproducts)
+-   [Ncloud Regions(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/data-sources/regions)

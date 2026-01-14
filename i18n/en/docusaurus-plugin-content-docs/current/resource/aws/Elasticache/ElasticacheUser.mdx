@@ -1,6 +1,6 @@
 ---
-title: Elasticache User
-sidebar_position: 0
+title: ElasticacheUser
+sidebar_position: 1
 tags: [AWS, Resource, Elasticache, ElasticacheUser]
 ---
 
@@ -11,34 +11,37 @@ tags: [AWS, Resource, Elasticache, ElasticacheUser]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
     }
 />
 
 ## Resource Overview
 
-An AWS ElastiCache User is an IAM user required to work with ElastiCache clusters. 
-The ElastiCache User has permissions to create, modify, and delete ElastiCache clusters. 
-This user is created in AWS IAM and is typically assigned to applications or developers who use ElastiCache. 
-The ElastiCache User is responsible for security and access control to the ElastiCache clusters, helping to protect applications and data. 
-The ElastiCache User can also be used alongside other resources within the AWS account.
+An AWS ElastiCache User is an IAM user required to use an ElastiCache cluster. The user has permissions to create, modify, and delete ElastiCache clusters. ElastiCache Users are created in AWS IAM and are typically assigned to applications or developers that use ElastiCache. They are responsible for security and access control for ElastiCache clusters and help protect applications and data.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ## Resource Setting Values
 
--   `user_id`: Each user's unique ID
--   `access_string`: A string containing the permission to be applied to the user
--   `authentication_type`: Authentication method for users to access the cluster
+#### Basic Settings
+
+-   `user_id` : Unique identifier for each user
+-   `access_string` : String defining the permissions applied to the user
+-   `authentication_type` : Authentication method used to access the cluster - `iam`, `password`, `no-password-required`
+-   `passwords` : User passwords (up to 2 allowed)
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis Price(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis Pricing(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

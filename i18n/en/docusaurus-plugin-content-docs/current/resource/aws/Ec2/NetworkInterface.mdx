@@ -1,6 +1,6 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, Resource, Ec2, NetworkInterface]
 ---
 
@@ -11,33 +11,42 @@ tags: [AWS, Resource, Ec2, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
 ## Resource Overview
 
-A logical networking component representing a virtual network card within a VPC
+A logical networking component that represents a virtual network card in a VPC.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
 
 ### Connected Resources
 
 -   [**Eip**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
 
 ## Resource Setting Values
 
--   `private_ips`: List of private IP addresses
--   `linked_security_group_names`: The name of the Security Group to use for the Network interface
--   `linked_eip_names`: The name of Elastic Ip to use
+#### Basic Settings
+
+-   `included_subnet_name` : Name of the subnet where the network interface is located
+-   `private_ips` : List of private IP addresses
+-   `linked_security_group_names` : Security Group names used by the network interface
+-   `linked_eip_names` : Elastic IP names to associate
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
 -   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

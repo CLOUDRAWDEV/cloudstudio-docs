@@ -1,56 +1,49 @@
 ---
 title: TargetGroup
-sidebar_position: 0
-tags: [Ncloud, Risorsa, Network, TargetGroup]
+sidebar_position: 7
+tags: [Ncloud, Resource, Network, TargetGroup]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Risorsa che rappresenta un insieme di target per gestire le richieste del load balancer.
+A resource that represents a group of targets responsible for handling requests from a Load Balancer.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
 
-### Risorse collegate
+### Connected Resources
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/AutoScaling)
 
+## Resource Setting Values
 
-## Impostazioni della risorsa
+#### Basic Settings
 
--   `included_vpc_name` : Nome della VPC in cui esiste il gruppo di destinazione
--   `protocol` : Tipo di protocollo da applicare per il routing del traffico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
--   `port` : Numero della porta per ricevere il traffico
--   `algorithm_type` : Tipo di algoritmo da utilizzare per il bilanciamento del carico, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
--   `health_check_protocol` : Tipo di protocollo da utilizzare per il controllo dello stato del target, per il bilanciamento del carico, RR/SIPHS/LC - `TCP`, `HTTP`, `HTTPS`
--   `health_check_http_method` : Metodo HTTP da utilizzare per il controllo dello stato del target, se il protocollo è HTTP/HTTPS, HEAD o GET - `HEAD`, `GET`
--   `health_check_port` : Numero della porta per il controllo dello stato del target
--   `health_check_cycle` : Ciclo di controllo dello stato del target (in secondi), intervallo tra 5 e 300 secondi
--   `health_check_up_threshold` : Soglia di stato normale, numero di controlli necessari affinché un target non normale venga considerato normale, intervallo tra 2 e 10
--   `health_check_down_threshold` : Soglia di errore, numero di controlli necessari affinché un target normale venga considerato non normale, intervallo tra 2 e 10
--   `linked_server_names` : Elenco dei nomi dei server a cui connettersi
-
-
+-   `included_vpc_name` : Name of the VPC in which the Target Group will be created
+-   `target_group_name` : Name of the Target Group
+-   `target_type` : Target type (`SERVER`, `AUTO_SCALING_GROUP`)
+-   `protocol` : Protocol type (`HTTP`, `HTTPS`, `TCP`)
+-   `port` : Target port number
 
 ---
 
-## Materiale di riferimento
+## References
 
-
--   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)
+-   [Target Group(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/target_group)

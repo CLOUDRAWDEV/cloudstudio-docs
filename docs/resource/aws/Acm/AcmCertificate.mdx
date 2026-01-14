@@ -23,14 +23,21 @@ ACM Certificate 리소스를 사용하면 Amazon Certificate Manager에서 인�
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-## 연관 리소스
-
 ## 리소스 설정 값
 
--   `enabled_import` : 인증서 불러오기
--   `certificate_body` : 불러올 인증서의 PEM 인코딩된 본문
--   `certificate_private_key` : 불러올 인증서의 PEM 인코딩된 프라이빗 키
--   `certificate_chain` : 불러올 인증서의 PEM 인코딩된 인증서 체인
+#### 기본 설정
+
+-   `enabled_import` : 인증서 불러오기 여부 - `true`, `false`
+-   `domain_name` : 인증서에 대한 정규화된 도메인 이름
+-   `validation_method` : 도메인 소유권을 검증하기 위한 방법 - `DNS`, `EMAIL`
+-   `key_algorithm` : 암호화 알고리즘 - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
+-   `certificate_body` : 불러올 인증서의 PEM 인코딩된 본문 - 최대 `5000`자
+-   `certificate_private_key` : 불러올 인증서의 PEM 인코딩된 프라이빗 키 - 최대 `5000`자
+-   `certificate_chain` : 불러올 인증서의 PEM 인코딩된 인증서 체인 - 최대 `5000`자
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ## 참고 자료
 

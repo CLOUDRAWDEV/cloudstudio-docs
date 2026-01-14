@@ -17,45 +17,45 @@ tags: [Azure, Network, NetworkSecurityGroup, Security]
 
 ## Resource Overview
 
-A Network Security Group is a security resource that controls inbound and outbound network traffic to Azure resources within a Virtual Network based on rule definitions.  
-Using priority-based security rules, you can allow or deny traffic by protocol, port, and IP address range, and apply the rules by associating them with a Subnet or a Network Interface.  
-This enables precise control over application network access and helps strengthen the overall security posture.
+Network Security Group is a security resource that controls inbound and outbound network traffic to Azure resources within a Virtual Network using rule-based filtering.  
+Using priority-based security rules, traffic can be allowed or denied based on protocol, port, and IP address ranges, and applied at the Subnet or Network Interface level.  
+This enables precise control over network access boundaries and enhances the overall security posture of applications.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
+-   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `linked_subnet_names` : Names of the Subnets to associate with the Network Security Group
 -   `linked_network_interface_names` : Names of the Network Interfaces to associate with the Network Security Group
 
 #### Security Rules (`security_rules`)
 
--   `security_rules.priority` : Priority of the rule - `100` ~ `4096`
+-   `security_rules.priority` : Rule priority - `100` ~ `4096`
 -   `security_rules.direction` : Traffic direction to which the rule applies - `Inbound`, `Outbound`
--   `security_rules.access` : Whether to allow or deny network traffic - `Allow`, `Deny`
+-   `security_rules.access` : Whether network traffic is allowed - `Allow`, `Deny`
 -   `security_rules.protocol` : Network protocol to which the rule applies - `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah`, `*`
 -   `security_rules.source_port_ranges` : Source port or port range - integer or `0` ~ `65535`
 -   `security_rules.destination_port_ranges` : Destination port or port range - integer or `0` ~ `65535`
--   `security_rules.source_address_prefixes` : CIDR or source IP address range
--   `security_rules.destination_address_prefixes` : CIDR or destination IP address range
+-   `security_rules.source_address_prefixes` : CIDR or source IP range
+-   `security_rules.destination_address_prefixes` : CIDR or destination IP range
 -   `security_rules.description` : Description of the security rule
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Network Security Groups Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview)
--   [NSG Security Rules (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview#security-rules)
+-   [Network Security Groups Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview)
+-   [NSG Security Rules(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/network-security-groups-overview#security-rules)

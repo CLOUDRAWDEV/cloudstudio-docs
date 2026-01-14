@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Core, Namespace]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.webp"
     }
 />
 
@@ -27,16 +25,16 @@ tags: [Kubernetes, 리소스, Core, Namespace]
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
-
 ### 하위 리소스
 
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
 -   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**HPA**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/HorizontalPodAutoscaling)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
 -   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
 -   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
 -   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**DefaultServiceAccount**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DefaultServiceAccount)
 -   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
 -   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
 -   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
@@ -51,18 +49,16 @@ tags: [Kubernetes, 리소스, Core, Namespace]
 -   [**NginxIngress**](https://docs.cstudio.app/docs/resource/kubernetes/Helm/NginxIngress)
 -   [**Issuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/Issuer)
 -   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
--   [**NetworkPolicy**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/NetworkPolicy)
+-   [**NetworkPolicy**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/NetworkPolicy)
 -   [**Role**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/Role)
 -   [**RoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/RoleBinding)
 
-
-
 ## 리소스 설정 값
 
--   `service_name` : ConfigMap 리소스 이름
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
+#### 기본 설정
 
+-   `annotations` : Kubernetes 시스템 메타데이터
+-   `labels` : 네임스페이스 식별 및 분류를 위한 사용자 정의 라벨
 
 ---
 

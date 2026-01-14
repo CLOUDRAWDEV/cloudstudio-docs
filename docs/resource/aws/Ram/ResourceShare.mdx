@@ -17,23 +17,27 @@ tags: [AWS, RAM, ResourceShare, Sharing]
 
 ## 연관 리소스
 
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
 ### 연결 리소스
 
--   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Network/TransitGateway)
--   [**IAM Role**](https://docs.cstudio.app/docs/resource/aws/IAM/IamRole)
-
----
+-   [**ResourceShareAccepter**](https://docs.cstudio.app/docs/resource/aws/Ram/ResourceShareAccepter)
 
 ## 리소스 설정 값
 
 #### 기본 설정
 
--   `shared_resource_types` : 공유할 리소스 종류 (체크 리스트)
--   `transit_gateway_names` : 공유할 Transit Gateway 이름 목록 (체크 리스트)
+-   `shared_resource_types` : 공유할 리소스 유형 목록
+-   `transit_gateway_names` : 공유할 Transit Gateway 이름 목록
 -   `resource_arns` : 공유할 리소스 ARN 목록
--   `enabled_allow_external_principals` : 외부 계정 공유 허용 여부 - `true`, `false`
--   `principal_arns` : 공유를 허용할 보안 주체 ARN 또는 계정 ID 목록
--   `tag` : 리소스 분류 태그 - `key`:`value`
+-   `enabled_allow_external_principals` : 외부 AWS 계정에 대한 공유 허용 여부 - `true`, `false`
+-   `principal_arns` : 공유를 허용할 보안 주체 ARN 또는 AWS 계정 ID 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 

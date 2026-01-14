@@ -1,33 +1,50 @@
 ---
-title: Nas Volume
-sidebar_position: 0
-tags: [Ncloud, Risorsa, Storage, NasVolume]
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Resource, Storage, NasVolume]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Servizio di storage che collega più server alla rete per consentire la condivisione dei dati tra numerosi utenti. È uno spazio di archiviazione connesso tramite rete, ideale per la condivisione dei dati tra più utenti.
+A storage service that connects multiple servers over a network, allowing multiple users to share data.  
+It is suitable for shared storage environments accessed by multiple servers.
 
-## Impostazioni della risorsa
+## Associated Resources
 
--   `volume_name_postfix` : Nome del volume NAS, consentiti caratteri alfanumerici, intervallo da 3 a 20 caratteri
--   `volume_size` : Dimensione del volume (100GB), intervallo da 500 a 10.000
--   `volume_allotment_protocol_type` : Tipo di protocollo, server che possono essere montati: NFS per Linux / CIFS per Windows - `NFS`, `CIFS`
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
+
+### Connected Resources
+
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `volume_name_postfix` : NAS volume name postfix (alphanumeric, 3 ~ 20 characters)
+-   `volume_size` : Volume size (in units of 100GB) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protocol type - `NFS`, `CIFS`
+-   `cifs_user_name` : User ID for CIFS authentication
+-   `cifs_user_password` : Password for CIFS authentication
+-   `linked_instances` : List of server instance names to attach the NAS volume
+-   `is_encrypted` : Whether volume-level encryption based on AES-256 is enabled
 
 ---
 
-## Materiale di riferimento
+## References
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

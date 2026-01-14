@@ -4,57 +4,49 @@ sidebar_position: 0
 tags: [Kubernetes, Risorsa, Core, ConfigMap]
 ---
 
-
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È una risorsa Kubernetes utilizzata per separare e memorizzare le informazioni di configurazione dell'applicazione e per trasferirle ai contenitori all'interno del pod.
+Risorsa Kubernetes utilizzata per separare e archiviare le informazioni di configurazione dell’applicazione e fornirle ai container all’interno dei Pod.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
 
 ### Risorse collegate
 
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Core/DaemonSet)
--   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
--   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
--   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+-   [**Pod**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/it/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/it/docs/resource/kubernetes/Batch/CronJob)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `service_name` : Nome della risorsa ConfigMap
--   `namespace` : Namespace in cui la risorsa ConfigMap sarà distribuita
--   `annotations` : Coppie chiave-valore utilizzate per visualizzare informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori personalizzati definiti dall'utente per distinguere gli oggetti
--   `data` : Dati generali in formato coppia chiave-valore - Utilizzato per memorizzare configurazioni in formato testo come file di configurazione, variabili di ambiente, ecc.
-    -   `data.name` : Valore key dei dati
-    -   `data.value` : Valore value dei dati
--   `binary_data` : Dati binari per una determinata chiave - Utilizzato per memorizzare file binari o altri dati in formato binario
-    -   `data.name` : Valore key dei binary data
-    -   `data.value` : Valore value dei binary data
-
+-   `namespace` : Namespace in cui verrà distribuita la risorsa ConfigMap
+-   `annotations` : Metadati di sistema Kubernetes
+-   `data` : Archiviazione dei dati di configurazione testuali in formato key-value
+-   `labels` : Etichette personalizzate per identificazione e classificazione della risorsa
+-   `binary_data` : Archiviazione di dati in formato binario in formato key-value
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [ConfigMap(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
--   [ConfigMap(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)
+-   [ConfigMap (Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
+-   [ConfigMap (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)

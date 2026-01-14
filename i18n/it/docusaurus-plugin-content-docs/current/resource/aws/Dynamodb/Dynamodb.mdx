@@ -7,41 +7,46 @@ tags: [AWS, Risorsa, Dynamodb]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.webp"
     }
 />
 
-## Panoramica della risorsa
-
-Amazon DynamoDB è un servizio di database NoSQL completamente gestito che offre prestazioni veloci e prevedibili con scalabilità senza interruzioni. Utilizzando Amazon DynamoDB, è possibile creare tabelle di database per archiviare o recuperare qualsiasi quantità di dati e gestire qualsiasi livello di traffico di richieste. Amazon DynamoDB distribuisce automaticamente i dati e il traffico delle tabelle su un numero sufficiente di server, mantenendo prestazioni coerenti e rapide mentre gestisce la capacità di richiesta e la quantità di dati archiviati specificate dal cliente.
-
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `billing_mode` : Il metodo di addebito per la capacità di lettura e scrittura di DynamoDB e come vengono gestiti i costi - `PROVISIONED`,`PAY_PER_REQUEST`
--   `read_capacity` : Numero di unità di lettura per la tabella DynamoDB
--   `write_capacity` : Numero di unità di scrittura per la tabella DynamoDB
--   `hash_key` : Attributo da utilizzare come chiave di hash (partizione)
--   `hash_key_type` : Tipo di chiave di hash (partizione) - `S`, `N`, `B`
--   `range_key` : Attributo da utilizzare come chiave di intervallo (ordinamento)s
--   `range_key_type` : Tipo di chiave di intervallo (ordinamento) - `S`, `N`, `B`
--   `point_in_time_recovery_enabled` : Attivazione della funzione di recupero a un punto nel tempo - `true`, `false`
--   `server_side_encryption` : Nome della Server Side Encryption
-    -   `encryption_enabled` : Abilitazione della crittografia dei dati memorizzati utilizzando la chiave cliente KMS gestita da AWS - `true`, `false`
+#### Impostazioni di base
+
+-   `billing_mode` : Modalità di fatturazione e gestione della capacità di lettura e scrittura di DynamoDB - `PROVISIONED`, `PAY_PER_REQUEST`
+-   `read_capacity` : Numero di unità di lettura della tabella DynamoDB
+-   `write_capacity` : Numero di unità di scrittura della tabella DynamoDB
+-   `hash_key` : Attributo utilizzato come chiave hash (partizione)
+-   `hash_key_type` : Tipo dell’attributo della chiave hash - `S`, `N`, `B`
+-   `range_key` : Attributo utilizzato come chiave di range (ordinamento)
+-   `range_key_type` : Tipo dell’attributo della chiave di range - `S`, `N`, `B`
+-   `point_in_time_recovery_enabled` : Abilitazione del ripristino a un punto temporale specifico - `true`, `false`
+
+#### Crittografia lato server (`server_side_encryption`)
+
+-   `server_side_encryption.encryption_enabled` : Abilitazione della crittografia dei dati a riposo tramite chiave KMS gestita da AWS - `true`, `false`
+-   `server_side_encryption.kms_key_name` : Nome della CMK AWS KMS utilizzata per la crittografia
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
 -   [Amazon DynamoDB(AWS)](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/Introduction.html)
--   [Amazon DynamoDB(AWS)](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)
+-   [Prezzi di Amazon DynamoDB(AWS)](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)
 -   [Amazon DynamoDB(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_contributor_insights)

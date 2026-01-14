@@ -1,42 +1,44 @@
 ---
-title: Vpc Peering
-sidebar_position: 0
-tags: [Ncloud, Risorsa, Network, VpcPeering]
+title: VpcPeering
+sidebar_position: 8
+tags: [Ncloud, Resource, Network, VpcPeering]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.webp"
     }
 />
 
-## Panoramica della risorsa
+## Resource Overview
 
-Risorsa che configura il VPC peering per la comunicazione tra VPC.
+A resource used to configure VPC peering for communication between VPCs.
 
-## Risorse correlate
+## Associated Resources
 
-### Risorse superiori
+### Parent Resource
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
 
-### Risorse collegate
+### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
 
-## Impostazioni della risorsa
+## Resource Setting Values
 
--   `linked_vpc_name_01` : Nome della VPC che invia la richiesta
--   `linked_vpc_name_02` : Nome della VPC che riceve la richiesta
+#### Basic Settings
+
+-   `linked_vpc_name_01` : Name of the VPC sending the peering request (read-only)
+-   `linked_vpc_name_02` : Name of the VPC receiving the peering request (read-only)
 
 ---
 
-## Materiale di riferimento
+## References
 
--   [VPC Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
--   [ncloud_vpc_peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)
+-   [Vpc Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
+-   [Vpc Peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)

@@ -1,0 +1,81 @@
+---
+title: ClusterIssuer
+sidebar_position: 1
+tags: [Kubernetes, CertManager, Certificate, ClusterIssuer]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-cluster_issuer.webp"
+    }
+/>
+
+## Resource Overview
+
+ClusterIssuer is a cluster-scoped Kubernetes resource used by cert-manager to receive Certificate Signing Requests (CSRs) and obtain signed certificates from a Certificate Authority (CA). Unlike Issuer, it is not bound to a specific namespace and can be commonly referenced by Certificate resources across the entire cluster. It uses ACME-based Certificate Authorities (for example, Let’s Encrypt) and verifies domain ownership through HTTP-01 or DNS-01 challenges.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
+
+## Resource Setting Values
+
+#### ACME Settings (`acme`)
+
+-   `acme.server` : Endpoint address of the ACME server
+-   `acme.email` : Email address used by Let's Encrypt to contact regarding certificate-related issues or expiration
+-   `acme.private_key_secret_ref` : Name of the Kubernetes Secret that stores the client key used to communicate with the ACME server
+
+#### DNS Solver Settings (`dns_solvers`)
+
+-   `dns_solvers.provider` : DNS-01 challenge provider type - `AzureDNS`, `Route53`, `ACMEDNS`
+
+#### ACME DNS Settings (`dns_solvers.acme_dns`)
+
+-   `dns_solvers.acme_dns.host` : Endpoint address of the acme-dns server
+-   `dns_solvers.acme_dns.account_secret_ref_name` : Name of the Kubernetes Secret that stores account information for the acme-dns server
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Key name in the Kubernetes Secret that stores account information for the acme-dns server
+
+#### Azure DNS Settings (`dns_solvers.azure_dns`)
+
+-   `dns_solvers.azure_dns.client_id` : Client ID of the Azure Service Principal application
+-   `dns_solvers.azure_dns.client_secret_name` : Name of the Kubernetes Secret that stores the client secret of the Azure Service Principal application
+-   `dns_solvers.azure_dns.client_secret_key` : Name of the key used in the Secret
+-   `dns_solvers.azure_dns.subscription_id` : ID of the Azure subscription
+-   `dns_solvers.azure_dns.tenant_id` : Tenant ID of the Azure subscription
+-   `dns_solvers.azure_dns.resource_group_name` : Name of the resource group where the Azure DNS Zone resource belongs
+-   `dns_solvers.azure_dns.hosted_zone_name` : Name of the hosted zone of the Azure DNS Zone
+
+#### Route53 Settings (`dns_solvers.route53`)
+
+-   `dns_solvers.route53.region` : AWS region where the Route 53 service is used
+-   `dns_solvers.route53.access_key_id` : AWS access key ID
+-   `dns_solvers.route53.access_key_secret_name` : Name of the Kubernetes Secret that stores the AWS secret access key
+-   `dns_solvers.route53.access_key_secret_key` : Name of the key used in the Secret
+-   `dns_solvers.route53.secret_access_key_secret_name` : Name of the Secret that stores the AWS secret access key
+-   `dns_solvers.route53.secret_access_key_secret_key` : Name of the key in the Secret that stores the AWS secret access key
+-   `dns_solvers.route53.role` : AWS IAM role that can manage Route53 DNS
+
+#### HTTP Solver Settings (`http_solvers`)
+
+-   `http_solvers.provider` : HTTP-01 challenge solver type - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Name of the Ingress Class to use
+
+#### Gateway Settings (`http_solvers.gateway_parent_refs`)
+
+-   `http_solvers.gateway_parent_refs.name` : Name of the Gateway resource to connect to
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace where the Gateway resource belongs
+
+---
+
+## References
+
+-   [ClusterIssuer(cert-manager)](https://cert-manager.io/docs/configuration/acme/)
+-   [ClusterIssuer API Reference](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.ClusterIssuer)

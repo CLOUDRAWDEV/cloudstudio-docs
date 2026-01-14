@@ -1,61 +1,56 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Core, PersistentVolume]
+sidebar_position: 2
+tags: [Kubernetes, Ressource, Core, PersistentVolume]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist eine Kubernetes-Ressource, die Netzwerk-gebundenen Speicher für das Cluster bereitstellt.
+Eine Kubernetes-Ressource, die netzwerkgebundenen Speicher für den Cluster bereitstellt.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
 
 ### Verbundene Ressourcen
 
--   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**StorageClass**](https://docs.cstudio.app/de/docs/resource/kubernetes/Storage/StorageClass)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/de/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `service_name` : PersistentVolume Ressource Name
--   `annotations` : Informationen, die vom Kubernetes-System benötigt werden, werden als Schlüssel-Wert-Paare angezeigt
--   `labels` : Vom Benutzer benutzerdefinierte Werte, um Objekte zu kennzeichnen
--   `spec` : Definiert die spezifischen Spezifikationen des Persistent Volumes
-    -   `spec.storage_class_name` : Der Name der zu verwendenden StorageClass angeben
-    -   `spec.storage_capacity` : Die zu verwendende Speicherkapazität festlegen
-    -   `spec.volume_driver` : Den zu verwendenden Volume-Treiber festlegen
-    -   `spec.volume_handle` : Der Bezeichner, der das PV mit der tatsächlichen Speicherressource verbindet
-    -   `spec.persistent_volume_reclaim_policy` : Die Volumenrückgewinnungsrichtlinie, wenn es aus einer Anforderung entfernt wird - `retain`,`delete`,`recycle`
-    -   `spec.read_only` : Gibt an, ob das Volume im Mount als schreibgeschützt gesetzt werden soll - `false`,`true`
-    -   `spec.volume_attributes` : Die Attribute des zu verwendenden Volumes festlegen
-    -   `spec.access_modes` : Legt die Arten fest, wie das Volume gemountet werden kann - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
-    -   `spec.mount_options` : Zusätzliche Mount-Optionen festlegen
--   `node_stage_secret_ref` : Kubernetes-Geheimnisse, die die Authentifizierung für den Zugriff auf den Speicher enthalten
-    -   `node_stage_secret_ref.name` : Name des Geheimnisses festlegen
-    -   `node_stage_secret_ref.namespace` : Das Namespace des Geheimnisses festlegen
+#### Grundeinstellungen
 
+-   `annotations` : Kubernetes-Systemmetadaten
+-   `labels` : Benutzerdefinierte Labels zur Identifikation und Klassifizierung von PVs
+-   `spec.storage_class_name` : Name der zu verwendenden StorageClass
+-   `spec.storage_capacity` : Speicherkapazität
+-   `spec.volume_driver` : CSI-basierter Volume-Treiber
+-   `spec.volume_handle` : Kennung der tatsächlichen Speicherressource
+-   `spec.persistent_volume_reclaim_policy` : Richtlinie zur Volume-Behandlung nach Freigabe des Claims – `Retain / Delete / Recycle`
+-   `spec.read_only` : Ob das Volume schreibgeschützt ist
+-   `spec.volume_attributes` : Zusätzliche volumespezifische Attribute des Treibers
+-   `spec.access_modes` : Zugriffsmodi des Volumes – `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : Zusätzliche Mount-Optionen
+-   `node_stage_secret_ref` : Referenz auf ein Secret mit Authentifizierungsinformationen für den Speicherzugriff
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [PersistentVolume(Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
 -   [PersistentVolume(Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

@@ -27,25 +27,40 @@ AWS 계정의 리소스 구성 정보를 기록하여 리소스 간 관계를 �
 
 ### 연결 리소스
 
--   [**S3 Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
--   [**Sns Topic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+-   [**S3Bucket**](https://docs.cstudio.app/docs/resource/aws/S3/S3Bucket)
+-   [**SnsTopic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
 
 ## 리소스 설정 값
 
--   `enable_config_recorder` : 구성 레코더를 활성화할지 또는 비활성화할지 여부 - `false`, `true`
+#### 기본 설정
+
+-   `enable_config_recorder` : 구성 레코더를 활성화할지 또는 비활성화할지 여부 - `true`, `false`
 -   `role_name` : AWS Config에서 사용할 Iam Role의 이름
--   `recording_method`
--   `recording_method.enable_all_supported` : AWS Config가 지원되는 모든 지역 리소스 유형에 대한 구성 변경 사항을 기록하는지 여부 - `false`,`true`
--   `recording_method.exclude_resource_types` : WS Configuration에서 구성 변경을 기록할 AWS 리소스 유형을 지정하는 목록
--   `recording_method.include_global_resource_types` : AWS Config가 기록하는 리소스와 함께 지원되는 모든 유형의 글로벌 리소스를 포함하는지 여부 - `false`,`true`
 -   `linked_s3_bucket_name` : 구성 기록을 저장하는 데 사용되는 S3 버킷 이름
 -   `s3_key_prefix` : 사용할 S3 버킷의 prefix
--   `enable_sns_topic` : AWS Config가 알림을 전달하는 Sns Topic을 활성화할지 여부
--   `delivery_frequency` : AWS Config가 구성 스냅샷을 정기적으로 전송하는 빈도
--   `config_rule`
--   `config_rule.name` : config rule 이름
--   `config_rule.rule_owner` : AWS 또는 고객이 AWS 구성 규칙을 소유 및 관리하는지 여부 - `AWS`,`customLambda`,`customPolicy`
+-   `enable_sns_topic` : AWS Config가 알림을 전달하는 Sns Topic을 활성화할지 여부 - `true`, `false`
+-   `linked_sns_topic_name` : AWS Config가 알림을 전달하는 Sns Topic의 이름
+-   `delivery_frequency` : AWS Config가 구성 스냅샷을 정기적으로 전송하는 빈도 - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+
+#### 기록 방식 (`recording_method`)
+
+-   `recording_method.enable_all_supported` : AWS Config가 지원되는 모든 지역 리소스 유형에 대한 구성 변경 사항을 기록하는지 여부 - `true`, `false`
+-   `recording_method.exclude_resource_types` : AWS Configuration에서 구성 변경을 기록할 AWS 리소스 유형을 지정하는 목록
+-   `recording_method.include_global_resource_types` : AWS Config가 기록하는 리소스와 함께 지원되는 모든 유형의 글로벌 리소스를 포함하는지 여부 - `true`, `false`
+-   `recording_method.specific_resource_types` : AWS Config가 기록하는 리소스와 함께 지원되는 모든 유형의 글로벌 리소스를 포함하는지 여부
+
+#### 구성 규칙 (`config_rule`)
+
+-   `config_rule.rule_owner` : AWS 또는 고객이 AWS 구성 규칙을 소유 및 관리하는지 여부 - `AWS`, `customLambda`, `customPolicy`
 -   `config_rule.source_identifier` : AWS 구성 관리 규칙의 경우 미리 정의된 식별자
+-   `config_rule.target_lambda_name` : 커스텀 Lambda 규칙에서 사용할 Lambda 함수의 이름
+-   `config_rule.custom_policy_message_type` : 규칙에 대한 평가를 실행하도록 AWS Config를 트리거하는 알림 유형 - `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, `ScheduledNotification`, `ConfigurationSnapshotDeliveryCompleted`
+-   `config_rule.maximum_execution_frequency` : AWS Config에서 주기적으로 트리거되는 규칙에 대한 평가를 실행할 빈도 - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+-   `config_rule.custom_policy_text` : 사용자 지정 정책 구성 규칙이 포함된 정책 정의
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

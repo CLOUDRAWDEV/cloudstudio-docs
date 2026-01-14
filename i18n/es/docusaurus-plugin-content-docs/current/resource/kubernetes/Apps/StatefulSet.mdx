@@ -4,90 +4,58 @@ sidebar_position: 0
 tags: [Kubernetes, Recurso, Apps, StatefulSet]
 ---
 
-
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso de Kubernetes que gestiona el despliegue y escalado de un conjunto de Pods, garantizando el orden y la unicidad de dichos Pods.
+Recurso de Kubernetes que administra el despliegue y la escalabilidad de un conjunto de Pods, proporcionando garantías sobre el orden y la identidad única de dichos Pods.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
 
 ### Recursos conectados
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/es/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/es/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Service)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del recurso StatefulSet
+#### Configuración básica
+
 -   `namespace` : Namespace donde se desplegará el recurso StatefulSet
--   `annotations` : Key-value utilizado para mostrar información necesaria dentro del sistema Kubernetes
--   `labels` : Valores definidos por el usuario utilizados para distinguir objetos
--   `template_labels` : Labels aplicadas a los Pods generados por nodo
--   `pod_management_policy` : Controla cómo se crean los Pods al sustituirlos o reducirlos en los nodos - `Parallel`,`OrderedReady`
--   `revision_history_limit` : Número máximo de revisiones que se conservarán en el historial del StatefulSet - valor por defecto: 10
--   `service_name` : Nombre del servicio Headless que gestiona el StatefulSet
--   `replicas` : Número deseado de réplicas de Pods - valor por defecto: 1
-
--   `containers` : Plantilla que define los contenedores incluidos en el Pod - se configuran primero los valores predeterminados y luego los específicos
-    -   `name` : Nombre del contenedor
-        -   `image` : Nombre de la imagen Docker a utilizar
-        -   `args` : Comandos que se ejecutarán dentro del contenedor
-        -   `command` : Comandos que se ejecutarán dentro del contenedor
-        -   `port` : Lista de puertos que se expondrán desde el contenedor 
-
-        -   `resources` : Cantidad de recursos de cómputo asignados al contenedor - configuración detallada
-            -   `name` : Define los recursos mínimos/máximos - `Limits`, `requests`
-            -   `cpu` : Cantidad de CPU asignada
-            -   `memory` : Cantidad de memoria asignada
-
-        -   `probe` : Define los métodos de diagnóstico del estado del Pod - configuración detallada
-            -   `name` : Tipo de Probe - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Ruta para acceder al servidor HTTP
-            -   `http_get_port` : Puerto al que se accederá en el contenedor
-            -   `http_header` : Encabezados personalizados para la solicitud
-            -   `initial_delay_seconds` : Tiempo (en segundos) que se espera tras el arranque antes de iniciar el probe
-            -   `period_seconds` : Frecuencia (en segundos) con la que se ejecuta el probe
-
-        -   `env` : Bloque de pares key-value para configurar variables de entorno del contenedor - configuración detallada
-            -   `name` : Nombre de la variable de entorno
-            -   `value` : Valor asignado a la variable de entorno
-
-        -   `volume_mount` : Volumen del Pod montado en el sistema de archivos del contenedor - configuración detallada
-            -   `name` : Nombre del volumen a montar
-            -   `path` 
-                -   `mount_path` : Ruta dentro del contenedor donde se montará el volumen
-                -   `sub_path` : Subruta específica dentro del volumen a montar en el contenedor
-            
--   `volume` : Lista de volúmenes que pueden montarse en los contenedores del Pod
-    -   `name` : Nombre del volumen
-        -   `type` : Tipo de volumen a montar - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Nombre del PersistentVolumeClaim
-        -   `default_mode` : Modo de los archivos creados - entre 0 y 0777, valor por defecto: 0644
-        -   `read_only` : Si es `true`, el volumen se montará en modo solo lectura; de lo contrario, será de lectura/escritura
-
--   `image_pull_secrets` : Secret en el mismo namespace que contiene los permisos necesarios para descargar las imágenes utilizadas por el contenedor
+-   `annotations` : Metadatos key-value del sistema Kubernetes
+-   `labels` : Etiquetas para identificar el recurso StatefulSet
+-   `template_labels` : Etiquetas aplicadas a los Pods creados
+-   `pod_management_policy` : Política de control del orden de creación y eliminación de Pods (`Parallel`, `OrderedReady`)
+-   `revision_history_limit` : Número de revisiones que se conservarán
+-   `linked_service_name` : Nombre del Headless Service que gestiona el StatefulSet
+-   `replicas` : Número de réplicas de Pod a mantener
+-   `pod_security_context` : Configuración de seguridad y privilegios a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización
+-   `containers` : Definición de contenedores incluidos en el Pod
+-   `volume` : Definición de volúmenes utilizados por el Pod
+-   `dns_policy` : Política DNS del Pod
+-   `enable_service_links` : Habilitar inyección automática de variables de entorno de servicios
+-   `host_network` : Habilitar el uso de la red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [StatefulSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 -   [StatefulSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/stateful_set)

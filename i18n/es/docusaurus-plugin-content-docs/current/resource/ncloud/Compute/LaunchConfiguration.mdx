@@ -1,44 +1,42 @@
 ---
 title: LaunchConfiguration
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Recurso, Compute, LaunchConfiguration]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Plantilla que define las especificaciones del servidor virtual que se creará automáticamente durante la ejecución del Auto Scaling cuando se requiera expansión.
+Plantilla que define las especificaciones de los servidores virtuales que se crean automáticamente cuando se requiere una expansión durante el Auto Scaling.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
-
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
 
 ## Valores de configuración del recurso
 
--   `server_image_product_code` : Código de la imagen del sistema operativo a utilizar (CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Base de datos / SVR:Servidor, EN:Edición en inglés)
--   `server_product_code` : Código de configuración del hardware del servidor (HICPU:Alta CPU, STAND:Estándar, HIMEM:Alta memoria / C núcleos, M memoria en GB)
--   `login_key_name` : Recurso necesario para acceder, cifrar y descifrar la instancia del servidor
--   `init_script`
-    -   `content` : Contenido del script que se ejecutará automáticamente al crear el servidor
--   `is_encrypted_volume` : Indica si el Basic Block Storage estará cifrado
+#### Configuración básica
 
+-   `server_image_product_code` : Código de la imagen del sistema operativo a utilizar (CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition) - `ncloudServerImage`
+-   `server_product_code` : Código para la configuración de hardware del servidor (HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C núcleos, M memoria(GB)) - `ncloudServerType`
+-   `login_key_name` : Nombre de la clave pública de inicio de sesión para cifrado
+-   `init_script` : Script que se ejecutará automáticamente al crear el servidor
+-   `is_encrypted_volume` : Cifrado del Basic block storage - `true`, `false`
 
 ---
 
+## Referencias
 
-## Documentación de referencia
-
--   [ncloud_launch_configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)
+-   [Launch Configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

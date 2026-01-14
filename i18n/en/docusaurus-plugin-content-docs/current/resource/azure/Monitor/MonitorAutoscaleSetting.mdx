@@ -18,20 +18,20 @@ tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
 ## Resource Overview
 
 Monitor Autoscale Setting is an Azure Monitor–based autoscaling feature that **automatically adjusts the number of resource instances** to handle application load.  
-Resources can be flexibly scaled out or in based on metrics such as CPU, memory, disk, and network, as well as schedule-based conditions.
+Resources can be scaled up or down dynamically based on metrics such as CPU, memory, disk, and network usage, as well as schedule-based conditions.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
--   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**LinuxVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**WindowsVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### Target Resource
 
@@ -39,26 +39,26 @@ Resources can be flexibly scaled out or in based on metrics such as CPU, memory,
 
 ---
 
-#### Scale Condition (`scale_condition`)
+#### Scale Conditions (`scale_condition`)
 
-Defines the scale profile that is applied when the autoscale engine runs.
+Defines the scale profile applied when the autoscale engine runs.
 
 ##### Instance Count Settings
 
 -   `scale_condition.min_instance_count` : Minimum number of instances - `0` ~ `1000`
 -   `scale_condition.max_instance_count` : Maximum number of instances - `1` ~ `1000`
--   `scale_condition.default_instance_count` : Default number of instances to maintain when metrics cannot be read and the current capacity is below the default capacity
+-   `scale_condition.default_instance_count` : Default number of instances to maintain when metrics cannot be read and current capacity is below the default
 
 ---
 
-##### Scaling Rules (`scale_condition.rule`)
+##### Scale Rules (`scale_condition.rule`)
 
-Defines the conditions under which scaling actions are triggered based on metrics.
+Defines the conditions under which scaling occurs based on metrics.
 
 -   `rule.metric_name` : Name of the metric monitored by the rule
 -   `rule.operator` : Operator used to compare the metric value with the threshold
     -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
--   `rule.metric_threshold` : Metric value used to evaluate whether a scaling action should be triggered
+-   `rule.metric_threshold` : Metric value used to evaluate whether scaling should occur
 
 ##### Metric Evaluation Settings
 
@@ -68,13 +68,13 @@ Defines the conditions under which scaling actions are triggered based on metric
 -   `rule.time_aggregation` : Method used to aggregate sampled metrics
     -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
 
-##### Scaling Actions
+##### Scale Actions
 
 -   `rule.scale_direction` : Scaling direction - `Increase`, `Decrease`
 -   `rule.scale_operation` : Type of scaling operation
     -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
--   `rule.scale_instance_count` : Number of instances associated with the scaling operation - `1` ~ `1000`
--   `rule.scale_cooldown` : Cooldown period before the next scaling action (minutes) - `1` ~ `10080`
+-   `rule.scale_instance_count` : Number of instances involved in the scaling operation - `1` ~ `1000`
+-   `rule.scale_cooldown` : Cooldown period (minutes) before the next scaling action - `1` ~ `10080`
 
 ---
 
@@ -87,7 +87,7 @@ Allows scaling actions to be applied based on a schedule.
 -   `timezone` : Time zone in which the schedule applies
 -   `start_date` : Schedule start date
 -   `end_date` : Schedule end date
--   `repeat_days` : Days of the week on which the schedule is applied
+-   `repeat_days` : Days of the week when the schedule applies
 -   `start_time` : Schedule start time
 -   `end_time` : Schedule end time
 
@@ -95,12 +95,12 @@ Allows scaling actions to be applied based on a schedule.
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Autoscale Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
--   [Configure Autoscale Settings (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
--   [Azure Monitor Metrics (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)
+-   [Azure Autoscale Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
+-   [Configure Autoscale Settings(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
+-   [Azure Monitor Metrics(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)

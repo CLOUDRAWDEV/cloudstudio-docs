@@ -17,28 +17,28 @@ tags: [Azure, Policy, PolicyDefinition]
 
 ## Resource Overview
 
-Azure PolicyDefinition is a **policy definition resource that defines the rules and conditions that resources must comply with, as well as the effects applied when those conditions are violated**.  
-Based on the policy type and enforcement mode, it enables consistent management of compliance status across Azure resources.
+Azure PolicyDefinition is a **policy definition resource that defines the rules and conditions that resources must comply with, as well as the effects applied when conditions are violated**.  
+Based on policy type and evaluation mode, it enables consistent governance and compliance management across Azure resources.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resources
 
 -   [**Subscription**](https://docs.cstudio.app/en/docs/resource/azure/Base/Subscription)
--   [**Policy Set Definition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicySetDefinition)
+-   [**PolicySetDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicySetDefinition)
 
 ### Connected Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `type` : Type of policy definition - `Custom`, `BuiltIn`, `NotSpecified`
--   `mode` : Mode that determines the resource types evaluated by the policy
+-   `type` : Policy definition type - `Custom`, `BuiltIn`, `NotSpecified`
+-   `mode` : Resource type evaluation mode for the policy
 -   `display_name` : Display name of the policy definition
--   `linked_resource_group_name` : Resource Group information to which the policy is applied
+-   `linked_resource_group_name` : Information about the Resource Group to which the policy is applied
 
 ## References
 
--   [Azure Policy Definition Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure)
--   [Azure Policy Mode Description (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure#mode)
+-   [Azure Policy Definition Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure)
+-   [Azure Policy Mode Description(Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure#mode)

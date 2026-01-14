@@ -1,7 +1,7 @@
 ---
-title: Block Storage
+title: BlockStorage
 sidebar_position: 0
-tags: [Ncloud, 리소스, Storage, BlockStorage]
+tags: [Ncloud, Recurso, Storage, BlockStorage]
 ---
 
 <hr />
@@ -11,34 +11,37 @@ tags: [Ncloud, 리소스, Storage, BlockStorage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Es un servicio de almacenamiento HDD o SSD adicional al almacenamiento básico del servidor. Puede crearse en poco tiempo, conectarse inmediatamente al servidor y devolverse fácilmente si ya no es necesario.
+Servicio de almacenamiento HDD o SSD adicional proporcionado además del almacenamiento base del servidor.  
+Puede crearse rápidamente y conectarse de inmediato, y devolverse cuando ya no sea necesario.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
 
 ### Recursos conectados
 
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
 
 ## Valores de configuración del recurso
 
--   `linked_server_name` : Nombre del servidor al que se conectará el block storage
--   `storage_size` : Tamaño del block storage (GB), en el rango de 10 ~ 2000
--   `storage_disk_type` : Tipo de disco del block storage, SSD o HDD - `SSD`, `HDD`
--   `snapshot_name` : Nombre del snapshot a crear
+#### Configuración básica
+
+-   `zone` : Zona física donde se ubicará el Block Storage - `KR-1`, `KR-2`
+-   `linked_server_name` : Nombre del servidor al que se conectará el Block Storage
+-   `storage_size` : Tamaño del almacenamiento (GB) - `10` ~ `16380`
+-   `storage_disk_type` : Tipo de disco - `SSD`, `HDD`
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
--   [ncloud_block_storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)
+-   [Block Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)

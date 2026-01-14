@@ -1,7 +1,7 @@
 ---
 title: SourcePipeline
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, DeveloperTool, SourcePipeline]
+sidebar_position: 4
+tags: [Ncloud, Ressource, DeveloperTool, SourcePipeline]
 ---
 
 <hr />
@@ -11,71 +11,72 @@ tags: [Ncloud, Ressourcen, DeveloperTool, SourcePipeline]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Die Integration der Dienste SourceCommit, SourceBuild und SourceDeploy ermöglicht einen automatisierten Prozess für eine schnelle und stabile Softwareveröffentlichung
+Ein Service zur Prozessautomatisierung für schnelle und stabile Software-Releases durch Integration von SourceCommit, SourceBuild und SourceDeploy.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+
 ### Untergeordnete Ressourcen
 
+-   [**SourceBuild**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
+## Ressourcen-Einstellungswerte
 
-## Ressourcen-Einstellwerte
+#### Grundeinstellungen
 
--   `default_task` : Erste Aufgabe, die der Pipeline ausführen wird
-    -   `name` : Name der ersten Aufgabe, die der Pipeline ausführen wird 
-    -   `type` : Art der Task - `SourceBuild`,`SourceDeploy`
+-   `description` : Beschreibung des Pipeline-Projekts – max. 500 Zeichen
 
-    - Wenn der Typ SourceBuild ist
-        - `target_source_build_project` : Projektname der SourceBuild-Aufgabe
-        - `repository_branch` : Branch-Name des Ziel-Repositorys der SourceBuild-Aufgabe
+#### Standard-Task (`default_task`)
 
-    - Wenn der Typ SourceDeploy ist
-        -  `target_source_deploy_project` : Projektname der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_stage` : Stage-Name der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_scenario` : Szenario-Name der SourceDeploy-Aufgabe
+-   `default_task.name` : Name des ersten Tasks – alphanumerisch/`-`/`_`, 1–50 Zeichen
+-   `default_task.type` : Task-Typ – `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Ziel-SourceBuild-Projekt
+-   `default_task.target_source_deploy_project` : Ziel-SourceDeploy-Projekt
+-   `default_task.target_source_deploy_project_stage` : Stage-Name
+-   `default_task.target_source_deploy_project_scenario` : Szenario-Name
+-   `default_task.repository_branch` : Repository-Branch
 
--   `additional_task` : Aufgabe, die die Pipeline ausführen wird
-    -   `name` : Name der Aufgabe, die die Pipeline ausführen wird
-    -   `type` : Art der Task - `SourceBuild`,`SourceDeploy`
+#### Zusätzliche Tasks (`additional_task`)
 
-    - Wenn der Typ SourceBuild ist
-        - `target_source_build_project` : Projektname der SourceBuild-Aufgabe
-        - `repository_branch` : Branch-Name des Ziel-Repositorys der SourceBuild-Aufgabe
-        -  `pre_tasks` : Liste der Aufgaben, die vorab ausgeführt werden sollen
-    
-    - Wenn der Typ SourceDeploy ist
-        -  `target_source_deploy_project` : Projektname der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_stage` : Stage-Name der SourceDeploy-Aufgabe
-        -  `target_source_deploy_project_scenario` : Szenario-Name der SourceDeploy-Aufgabe
-        -  `pre_tasks` : Liste der Aufgaben, die vorab ausgeführt werden sollen
+-   `additional_task.type` : Task-Typ – `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Ziel-SourceBuild-Projekt
+-   `additional_task.target_source_deploy_project` : Ziel-SourceDeploy-Projekt
+-   `additional_task.target_source_deploy_project_stage` : Stage-Name
+-   `additional_task.target_source_deploy_project_scenario` : Szenario-Name
+-   `additional_task.repository_branch` : Repository-Branch
+-   `additional_task.pre_tasks` : Vorher auszuführende Tasks
 
--   `trigger_push_repository` : Definieren des Triggers, der die Pipeline auslöst
-    -   `type_of_repository` : Repository-Typ, der für den Trigger verwendet werden soll - `sourcecommit`
-    -   `name_of_repository` : Repository-Name, der für den Trigger verwendet werden soll
-    -   `branch_of_repository` : Branch-Name des Repositories, der für den Trigger verwendet werden soll
+#### Push-Trigger (`trigger_push_repository`)
 
--   `trigger_schedule` : Zeitplan für die automatische Ausführung der Pipeline festlegen
-    - `day` : Wochentag, an dem die Bereitstellung geplant werden soll
-    - `time` : Uhrzeit, zu der die Bereitstellung geplant werden soll
-    - `timezone` : Zeitzone der geplanten Uhrzeit für die Bereitstellung
-    - `execute_only_with_change` : Ob der geplante Trigger immer innerhalb des Zeitrahmens ausgeführt wird, wenn sich die SourcePipeline-Projektkonfiguration oder das SourceCommit-Repository ändert
+-   `trigger_push_repository.type_of_repository` : Repository-Typ – `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository-Name
+-   `trigger_push_repository.branch_of_repository` : Repository-Branch
 
--   `trigger_target_sourcecpipeline_id` : Liste der Pipeline-IDs, die automatisch nach Abschluss der konfigurierten Pipeline ausgeführt werden
- 
+#### Zeitplan-Trigger (`trigger_schedule`)
 
+-   `trigger_schedule.day` : Wochentag – `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Ausführungszeit
+-   `trigger_schedule.timezone` : Zeitzone
+-   `trigger_schedule.execute_only_with_change` : Nur bei Änderungen ausführen – `true`, `false`
+
+#### Pipeline-Verkettung (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : Liste der Pipeline-IDs für automatische Folgeausführung
 
 ---
 
-
-## Referenzmaterial
+## Referenzen
 
 -   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
--   [ncloud_sourcepipeline(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

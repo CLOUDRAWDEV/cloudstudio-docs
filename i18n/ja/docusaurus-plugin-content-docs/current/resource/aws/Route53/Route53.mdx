@@ -7,38 +7,49 @@ tags: [AWS, リソース, Route53]
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-route53.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-route53.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-Amazon Route 53 は可用性と拡張性に優れたドメイン名システム(DNS)ウェブサービスです。
+Amazon Route 53 は、高い可用性とスケーラビリティを備えたドメインネームシステム（DNS）Web サービスです。
 
-### 上位リソース
+## Associated Resources
 
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/)
+### Parent Resource
 
-### 接続リソース
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+### Connected Resources
 
-## リソース設定値
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
--   `linked_vpc_names` : Route53 Zone を接続する VPC 名
--   `record` : Route53 Zone に生成する Record の名前
-    -   `type` : Record のタイプ - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
-    -   `ttl` : Record の ttl
-    -   `records` : レコードの文字列リスト
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `routing_type` : Route53 Zone のルーティングタイプ - `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : Route53 Zone を関連付ける VPC 名一覧
+
+#### Record (`record`)
+
+-   `record.type` : Record タイプ - `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : Record の TTL
+-   `record.records` : レコード文字列一覧
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
 -   [Amazon Route 53(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
--   [Amazon Route 53 料金(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
+-   [Amazon Route 53 요금(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
 -   [aws-route53(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)

@@ -1,7 +1,7 @@
 ---
 title: NetworkFirewallPolicy
-sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc, NetworkFirewallPolicy]
+sidebar_position: 11
+tags: [AWS, Ressource, Vpc, NetworkFirewallPolicy]
 ---
 
 <hr />
@@ -11,45 +11,39 @@ tags: [AWS, Ressourcen, Vpc, NetworkFirewallPolicy]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Die AWS Network Firewall Policy definiert die Überwachungs- und Schutzmaßnahmen für die Network Firewall.
-## Verwandte Ressourcen
+Eine AWS Network Firewall Policy definiert Überwachungs- und Schutzverhalten für Network Firewalls.
 
-### Übergeordnete Ressourcen
+## Zugehörige Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+### Übergeordnete Ressource
 
-### Verbundene Ressourcen
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
 
--   [**Network Firewall**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewall)
--   [**Network Firewall Rule Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+### Verknüpfte Ressourcen
 
+-   [**NetworkFirewallRuleGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewall**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewall)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `description` : Beschreibung der Firewall-Policy
--   `stream_exception_policy` : Wie der Traffic mit unterbrochener Midstream behandelt wird - `drop`,`continue`,`reject`
--   `stateless_default_action` : Einstellung der stateless_default_action
-    -   `enabled_fragment_packet_action` : Aktivierung von Fragment-Paket-Operationen - `false`,`true`
-    -   `default_action` : Liste der Aktionen, die durchgeführt werden, wenn Pakete nicht mit den stateless Regeln der Policy übereinstimmen - `aws:drop`,`aws:pass`,`aws:forward_to_sfe`
--   `stateless_rule_group_names` : Stateless Regelgruppen, die in der Policy verwendet werden
--   `stateful_default_action` : Konfiguration der stateful Standardaktion
-    -   `rule_evaluation_order` : Wie die Reihenfolge der Bewertung der stateful Regeln in der Policy verwaltet wird
-    -   `default_actions` : Liste der Aktionen, die durchgeführt werden, wenn Pakete nicht mit den stateful Regeln der Policy übereinstimmen - `aws:drop_strict`,`aws:drop_established`,`aws:alert_strict`,`aws:alert_established`
--   `strict_stateful_rule_group_names` : Liste der Aktionen, die durchgeführt werden, wenn Pakete nicht mit den stateful Regeln der Policy übereinstimmen
--   `rule_variables` : Variablen, die zum Überschreiben der Standardwiederherstellungsdateneinstellungen in der Firewall-Policy verwendet werden können
--   `encryption_configuration.
-    -   `enabled_custom_configuration` : Daten mit AWS verwalteten Schlüsseln verschlüsseln - `false`,`true`
+#### Grundeinstellungen
 
+-   `description` : Beschreibung der Firewall-Richtlinie (maximal 256 Zeichen)
+-   `stream_exception_policy` : Umgang mit unterbrochenem Midstream-Datenverkehr – `DROP`, `CONTINUE`, `REJECT`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [NetworkFirewallPolicy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
 -   [NetworkFirewallPolicy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)

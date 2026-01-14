@@ -1,0 +1,57 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, Ressource, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+PostgreSQL ist ein **Open-Source-relationales Datenbankmanagementsystem (RDBMS)**.  
+Bei Ncloud wird es als vollständig verwalteter Datenbankservice mit Hochverfügbarkeit (HA), automatisierter Sicherung und verschlüsseltem Storage angeboten.  
+So lässt sich eine PostgreSQL-Umgebung ohne komplexe Infrastrukturkonfiguration einfach bereitstellen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `server_name_prefix` : Name des PostgreSQL-Servers (Kleinbuchstaben/Zahlen/Bindestrich erlaubt, Beginn mit Kleinbuchstabe, Ende mit Kleinbuchstabe oder Zahl, 3–30 Zeichen)
+-   `included_vpc_name` : Name des VPC, in dem PostgreSQL enthalten ist
+-   `included_subnet_name` : Name des Subnetzes, in dem PostgreSQL enthalten ist
+-   `enable_high_availability` : Aktivierung der Hochverfügbarkeitsfunktion – `true`, `false`
+-   `user_name` : PostgreSQL-Benutzer-ID
+-   `user_password` : Passwort des PostgreSQL-Benutzers
+-   `image_product_code` : Image-Produktcode des PostgreSQL-Servers
+-   `product_code` : Produktcode der PostgreSQL-Instanz
+-   `data_storage_type` : Datenspeichertyp – `SSD`, `HDD`
+-   `is_backup` : Verwendung von Backups – `true`, `false`
+-   `backup_file_retention_period` : Aufbewahrungsdauer der Backup-Dateien (Tage) – `1` ~ `30`
+-   `enable_automatic_backup` : Aktivierung automatischer Backups – `true`, `false`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `port` : Portnummer für den PostgreSQL-Zugriff
+-   `client_cidr` : IP-Adressbereich für Client-Zugriffe
+-   `database_name` : Name der Standarddatenbank
+-   `enable_storage_encryption` : Aktivierung der Storage-Verschlüsselung – `true`, `false`
+
+---
+
+## Referenzen
+
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

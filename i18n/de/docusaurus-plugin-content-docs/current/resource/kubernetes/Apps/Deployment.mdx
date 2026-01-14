@@ -1,90 +1,59 @@
 ---
 title: Deployment
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Apps, Deployment]
+tags: [Kubernetes, Ressource, Apps, Deployment]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-deployment.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-deployment.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Ein Kubernetes-Dienst, der sicherstellt, dass eine festgelegte Anzahl von Pod-Replikaten jederzeit ausgeführt wird.
+Ein Kubernetes-Service, der sicherstellt, dass eine festgelegte Anzahl von Pod-Replikaten jederzeit ausgeführt wird.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
 
 ### Verbundene Ressourcen
 
--   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/de/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Service)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `service_name` : Name der Deployment-Ressource
--   `namespace` : Der Namespace, in dem der Deployment-Dienst bereitgestellt wird
--   `annotations` : Schlüssel-Wert-Paare, die im Kubernetes-System zur Kennzeichnung von notwendigen Informationen verwendet werden
--   `labels` : Vom Benutzer angegebene Werte zur Unterscheidung von Objekten
--   `template_labels` : Labels, die für die Pods, die auf den Knoten erstellt werden, konfiguriert werden
--   `replicas` : Die gewünschte Anzahl von Pod-Replikaten – der Standardwert ist 1
+#### Grundeinstellungen
 
--   `containers` : Definiert die Vorlage für Container, die zu einem Pod gehören – Standardwerte werden festgelegt und nachfolgend mit den spezifischen Einstellungen konfiguriert.
-    -   `containers.name` : Der Name des Containers
-        -   `image` : Der Name des zu verwendenden Docker-Images
-        -   `args` : Die Befehlszeilenargumente, die im Container ausgeführt werden
-        -   `command` : Der Befehl, der im Container ausgeführt wird
-        -   `port` : Die Liste der Ports, die vom Container exponiert werden
-
-        -   `resources` : Die Menge der Rechenressourcen, die dem Container zugewiesen werden – Detaillierte Konfiguration
-            -   `resources.name` : Die Menge der minimalen/maximalen Rechenressourcen   - `Limits`, `requests`     
-            -   `resources.cpu` : Die Menge der CPU-Ressourcen    
-            -   `resources.memory` : Die Menge des zugewiesenen Speichers
-
-        -   `probe` : Definiert, wie der Zustand des Pods überprüft wird – Detaillierte Konfiguration 
-            -   `probe.name` : Wählen Sie die Art der Probe - `startup`,`liveness`,`readiness`
-            -   `probe.http_get_path` : Der Pfad, um auf den HTTP-Server zuzugreifen
-            -   `probe.http_get_port` : Die Portnummer, die im Container zum Zugreifen verwendet wird
-            -   `probe.http_header` : Die benutzerdefinierten Header, die in der Anfrage festgelegt werden
-            -   `probe.initial_delay_seconds` : Die Zeit (in Sekunden), die gewartet wird, bevor die Probe nach dem Start des Containers beginnt
-            -   `probe.period_seconds` : Die Häufigkeit (in Sekunden), mit der die Probe durchgeführt wird
-
-        -   `env` : Block mit Schlüssel-Wert-Paaren, die als Umgebungsvariablen für den Container festgelegt werden – Detaillierte Einstellungen
-            -   `env.name` : Der Name der Umgebungsvariablen
-            -   `env.value` : Der Wert, der für die Umgebungsvariable festgelegt wird
-
-        -   `volume_mount` : Definiert das Volumen, das in das Dateisystem des Containers gemountet werden soll – Detaillierte Einstellungen
-            -   `volume_mount.name` : Der Name des Volume-Mounts
-            -   `volume_mount.path` 
-                -   `volume_mount.path.mount_path` : Der Pfad im Container, an dem das Volumen gemountet werden soll
-                -   `volume_mount.path.sub_path` : Der Unterpfad im Container, an dem das Volumen gemountet werden soll
-            
--   `volume` : Liste der Volumen, die vom Container innerhalb des Pods verwendet werden können
-    -   `volume.name` : Der Name des Volumens
-        -   `volume.type` : Der Typ des Volumens, das gemountet werden soll - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `volume.target_name` : Der Name des PersistentVolumeClaims
-        -   `volume.default_mode` : Der Modus, der für die erstellten Dateien verwendet wird - zwischen 0 und 0777, der Standardwert ist 0644
-        -   `volume.read_only` : Gibt an, ob das Volumen nur schreibgeschützt gemountet werden soll true oder ob es Lese-/Schreibzugriff gibt
-
--   `image_pull_secrets` : Geheimnisse aus dem gleichen Namespace, die die Berechtigungen zum Abrufen von Images für den Container enthalten
+-   `namespace` : Namespace, in dem die Deployment-Ressource bereitgestellt wird
+-   `annotations` : Kubernetes-Systemmetadaten im Key-Value-Format
+-   `labels` : Labels zur Identifizierung der Deployment-Ressource
+-   `template_labels` : Labels, die auf die zu erstellenden Pods angewendet werden
+-   `replicas` : Anzahl der beizubehaltenden Pod-Replikate
+-   `pod_security_context` : Sicherheits- und Berechtigungseinstellungen auf Pod-Ebene
+-   `init_containers` : Definition von Initialisierungs-Containern vor Ausführung des Haupt-Containers
+-   `containers` : Definition der im Pod enthaltenen Container
+-   `volume` : Definition der im Pod verwendeten Volumes
+-   `dns_policy` : DNS-Richtlinie des Pods
+-   `enable_service_links` : Ob Service-Umgebungsvariablen automatisch injiziert werden
+-   `host_network` : Ob das Host-Netzwerk verwendet wird
+-   `image_pull_secrets` : Liste der Secrets, die beim Image-Pull verwendet werden
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Deployment(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 -   [Deployment(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment)

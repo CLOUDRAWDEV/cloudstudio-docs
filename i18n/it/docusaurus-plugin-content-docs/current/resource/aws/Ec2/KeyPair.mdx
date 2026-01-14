@@ -1,37 +1,43 @@
 ---
 title: KeyPair
-sidebar_position: 0
+sidebar_position: 3
 tags: [AWS, Risorsa, Ec2, KeyPair]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-key_pair.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-key_pair.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Set di credenziali di sicurezza utilizzato per la verifica delle credenziali quando si collega a un'istanza AWS EC2.
+Insieme di credenziali di sicurezza utilizzate per l’autenticazione durante la connessione alle istanze AWS EC2.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `public_key` : Chiave pubblica del key pair creato dall'utente
+#### Impostazioni di base
+
+-   `public_key` : Chiave pubblica della Key Pair creata dall’utente
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Amazon KeyPair(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/create-key-pairs.html)
--   [Amazon KeyPair(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair)
+-   [Amazon Key Pair(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/create-key-pairs.html)
+-   [Amazon Key Pair(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair)

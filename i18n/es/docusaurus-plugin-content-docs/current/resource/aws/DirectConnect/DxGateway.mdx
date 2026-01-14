@@ -1,7 +1,7 @@
 ---
 title: DxGateway
 sidebar_position: 0
-tags: [AWS, recurso, DirectConnect, DxGateway]
+tags: [AWS, Recurso, DirectConnect, DxGateway]
 ---
 
 <hr />
@@ -11,7 +11,7 @@ tags: [AWS, recurso, DirectConnect, DxGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_gateway.webp"
     }
 />
 
@@ -21,23 +21,24 @@ DxGateway permite acceder a VPCs en regiones de AWS a través de una conexión D
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+-   [**Base**](https://docs.cstudio.app/es/docs/resource/aws/Base/Base)
 
-### Recursos secundarios
+### Recursos conectados
 
--   [**Transit Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)  
--   [**Vpn Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpnGateway)
-
+-   [**TransitGateway**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpnGateway**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/VpnGateway)
 
 ## Valores de configuración del recurso
 
--   `side_asn` : ASN (Número de Sistema Autónomo) del lado de Amazon – `64512 ~ 4294967294`
+#### Configuración básica
+
+-   `side_asn` : ASN(Autonomous System Number) del lado de Amazon
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon DxGateway(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/direct-connect-gateways-intro.html)
 -   [Amazon DxGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_gateway)

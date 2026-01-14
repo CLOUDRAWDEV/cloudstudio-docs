@@ -1,49 +1,63 @@
 ---
 title: Log
-sidebar_position: 0
-tags: [AWS, リソース, Cloudwatch, Log]
+sidebar_position: 1
+tags: [AWS, Resource, Cloudwatch, Log]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-Amazon CloudWatch Logs を使用して Amazon Elastic Compute Cloud(Amazon EC2)インスタンス、AWS CloudTrail、Route 53 および他のソースから
-システム、アプリケーション、およびユーザー指定ログファイルをモニタリング、保存、およびアクセスすることができます。
-CloudWatch Logs は 拡張性に優れた単一サービスで使用するすべてのシステム、アプリケーション、および AWS サービスでログを集中化できます。
-次に、ログを簡単に見て、特定のエラー コードまたはパターンがあるかどうかを検索し、特定のフィールドに基づいてフィルタリングするか、または将来の分析のために安全に保管できます。
-CloudWatch Logs を使用すると、ソースに関係なくすべてのログを時間別に整列された一貫した単一イベントの流れとして見ることができ、他の次元を基準にクエリー及び整列し、特定のフィールド別にグループ化し、強力なクエリー言語でユーザ指定計算を生成し、ログデータを視覚化することができます。
+Amazon CloudWatch Logsを使用すると、Amazon EC2、AWS CloudTrail、Route 53など、さまざまなソースからのシステム・アプリケーション・カスタムログを監視、保存、アクセスできます。  
+CloudWatch Logsは高いスケーラビリティを備え、すべてのAWSサービスやアプリケーションのログを一元管理できます。  
+ログの検索、フィルタリング、分析、可視化を行い、時系列で一貫したイベントストリームとして確認できます。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## リソース設定値
+### Connected Resources
 
--   `retention_in_days` : ロググループでログを保存している期間
--   `kms_key_name` : ログデータを暗号化するために使用する KMS Key の名前
--   `log_stream_name` : ログ Stream の名前
--   `metric_filter` : ロググループの metric フィルターの名前、最大 512 文字
-    -   `pattern` : 収集されたログイベントから指標データを抽出するための有効な CloudWatch Logs フィルターパターン
-    -   `metric_name` : モニタリングされるログ情報を掲示しなければならない CloudWatch 指標の名前、最大 255 文字に指定、コロン(:)、星印(\*)、ドル記号($)、および空白()を除くすべての文字が有効
-    -   `metric_namespace` : CloudWatch 指標の対象ネームスペース、最大 255 文字で指定、コロン(:)、星印(\*)、ドル記号($)および空白()を除いたすべての文字が有効
-    -   `metric_value` : 測定項目に掲示する項目、有効な指標値は浮動小数点数(1,99.9 など)、数字フィールド識別子(1USD、2USD など)または命名されたフィールド識別子(例:記号で区分されたフィルターパターンの$requestSizeまたはJSONベースのフィルターパターンの$.status - ドル記号($)またはドル記号と点($.)の後に英数字および/または下線(\_)文字)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**FlowLog**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/FlowLog)
 
 ---
 
-## 参考資料
+## Resource 設定値
 
--   [Amazon CloudWatch Log(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)
--   [Amazon CloudWatch 価格(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
--   [Amazon CloudWatch Log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)
+#### Basic Settings
+
+-   `retention_in_days` : ロググループでログを保持する日数
+-   `kms_key_name` : ログ暗号化に使用するKMS Key名
+-   `log_stream_names` : ロググループ内に作成するログストリーム名一覧
+
+#### Metric Filter 設定 (`metric_filter`)
+
+-   `metric_filter.pattern` : メトリクス抽出用CloudWatch Logsフィルターパターン
+-   `metric_filter.metric_name` : 発行されるCloudWatch Metric名
+-   `metric_filter.metric_namespace` : CloudWatch Metricネームスペース
+-   `metric_filter.metric_value` : Metricに発行する値
+    -   数値、数値フィールド識別子、`$requestSize`, `$.status` など参照可能
+
+#### タグ設定 (`tag`)
+
+-   `tag` : Resource分類用タグ一覧
+
+---
+
+## References
+
+-   [Amazon CloudWatch Logs（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)
+-   [Amazon CloudWatch 料金（AWS）](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Logs（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)

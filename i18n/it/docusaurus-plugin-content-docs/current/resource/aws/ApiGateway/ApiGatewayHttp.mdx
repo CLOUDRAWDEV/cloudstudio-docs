@@ -7,55 +7,49 @@ tags: [AWS, Risorsa, ApiGatewayHttp]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.webp"
     }
 />
 
-## Panoramica Risorse
+## Panoramica della risorsa
 
-L'HTTP API in API Gateway è un tipo di API Gateway progettato per creare API basate sul protocollo HTTP in modo semplice e leggero.
-L'HTTP API è più semplice e più economica rispetto al tradizionale REST API ed è principalmente adatta per applicazioni web serverless e microservizi semplici.
+In API Gateway, HTTP API è un tipo di API Gateway progettato per creare API semplici e leggere basate sul protocollo HTTP.
+Le HTTP API sono più semplici e convenienti rispetto alle REST API tradizionali e sono particolarmente adatte per applicazioni web serverless e microservizi semplici.
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Regione**](https://docs.cstudio.app/if/docs/resource/aws/Base/Region)
 
 ## Risorse correlate
 
--   [**Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/if/docs/resource/aws/Lambda/LambdaFunction)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `integration` : Nome di API Gateway Integration
-    -   `http_integration`
-        -   `integration_type` : Tipo di API Gateway Integration - `Http`, `Lambda`
-        -   `integration_method` : API Gateway Integration의 HTTP Method
-        -   `integration_url` : Specifica dell'URL normalizzato per l'integrazione HTTP
-    -   `lambda_integration`
-        -   `integration_type` : Tipo di API Gateway Integration - `Http`, `Lambda`
-        -   `integration_method` : API Gateway Integration의 HTTP Method
-        -   `linked_lambda_name` : Nome della funzione Lambda per l'integrazione Lambda Proxy
--   `route`
+#### Impostazioni di base
 
-    -   `route_method` : Metodo HTTP per l'HTTP API
-    -   `route_path` : Percorso della risorsa per l'HTTP API
-    -   `target_integration` : Nome dell'integrazione API Gateway a cui collegare la route - `http_integration`, `lambda_integration`
+#### Impostazioni Integration (`integration`)
 
--   `deployment`
+-   `integration.integration_type` : Tipo di integrazione di API Gateway - `Http`, `Lambda`
+-   `integration.integration_method` : Metodo HTTP dell’integrazione API Gateway - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : Specifica dell’URL completamente qualificato per l’integrazione HTTP
+-   `integration.linked_lambda_name` : Nome della funzione Lambda per l’integrazione proxy Lambda
 
-    -   `description` : Descrizione API Gateway Development
+#### Impostazioni Route (`route`)
 
--   `stage`
-    -   `dev`
-        -   `enable_deployment` : Distribuzione API Gateway Stage
-        -   `auto_deployment` : Attivazione della distribuzione automatica
-    -   `test`
-        -   `enable_deployment` : Distribuzione API Gateway Stage
-        -   `auto_deployment` : Attivazione della distribuzione automatica
-        -   `deployment_name` : Nome API Gateway Deployment da collegare
-    -   `prod`
-        -   `enable_deployment` : Distribuzione API Gateway Stageß
+-   `route.route_method` : Metodo HTTP per l’HTTP API - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : Percorso della risorsa per l’HTTP API
+-   `route.target_integration` : Nome dell’integrazione API Gateway da collegare alla route
+
+#### Impostazioni Deployment (`deployment`)
+
+-   `deployment.description` : Descrizione del Deployment di API Gateway
+
+#### Impostazioni Stage (`stage`)
+
+-   `stage.auto_deployment` : Abilitazione del deployment automatico - `true`, `false`
+-   `stage.deployment_name` : Nome del Deployment di API Gateway da collegare

@@ -4,56 +4,50 @@ sidebar_position: 0
 tags: [Kubernetes, Risorsa, RBAC, ClusterRole]
 ---
 
-
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Una risorsa di Kubernetes che crea un ruolo applicabile a livello di cluster e in tutti i namespace.
+Risorsa Kubernetes che consente di creare ruoli applicabili a livello di cluster e a tutti i namespace.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Cluster**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Cluster)
 
 ### Risorse collegate
 
--   [**ClusterRolebinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRolebinding)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/it/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `service_name` : Nome della risorsa ClusterRole
--   `annotations` : Key-value utilizzato per visualizzare le informazioni necessarie al sistema Kubernetes
--   `labels` : Valori arbitrari definiti dall'utente per distinguere gli oggetti
--   `rule` : Ruolo di politica per il clusterrole specificato
-    -   `name` : Nome del ruolo di politica
-    -   `api_groups` : Gruppo API che contiene le risorse per le quali è consentita l'operazione
-    -   `resources` : Elenco delle risorse a cui si applica questa regola
-    -   `resource_names` : Specifica le istanze individuali di una risorsa se selezionate - se vuoto, include tutte le risorse di quel tipo
-    -   `non_resource_urls` : Usato per specificare una regola in formato URL per risorse non legate a Kubernetes - utile per configurare URL come endpoint di health check
-    -   `verbs` : Elenco dei verbi che si applicano a tutte le risorse incluse nella regola
+-   `annotations` : Key-value utilizzati per visualizzare le informazioni necessarie al sistema Kubernetes
+-   `labels` : Valori definiti liberamente dall’utente per distinguere gli oggetti
 
+#### Regole di policy (`rule`)
 
-
-
-
+-   `rule.rule_type` : Tipo di regola del ClusterRole - `ApiGroup`, `ResourceUrl`
+-   `rule.api_groups` : API Group che includono le risorse per cui sono consentite le operazioni
+-   `rule.resources` : Elenco delle risorse a cui si applica questa regola
+-   `rule.resource_names` : Specifica le singole istanze di risorsa quando selezionate individualmente
+-   `rule.non_resource_urls` : Utilizzato quando le regole vengono definite come URL e non come risorse
+-   `rule.verbs` : Elenco dei verbi applicabili a tutte le risorse incluse nella regola - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [ClusterRole(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [ClusterRole(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
 -   [ClusterRole(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

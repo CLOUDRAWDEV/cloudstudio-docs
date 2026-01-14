@@ -22,15 +22,28 @@ VPC 피어링 연결은 프라이빗 IPv4 주소 또는 IPv6 주소를 사용하
 
 ## 연관 리소스
 
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
 ### 연결 리소스
 
 -   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
 
 ## 리소스 설정 값
 
--   `linked_vpc_name_01` : Peering을 할 VPC 이름
--   `linked_vpc_name_02` : Peering을 할 VPC 이름
--   `auto_accept` : Peering 연결을 자동 승낙 여부 - `true`, `false`
+#### 기본 설정
+
+-   `linked_vpc_name_01` : Peering 연결을 요청할 VPC 이름
+-   `linked_vpc_name_02` : Peering 연결 대상 VPC 이름
+-   `auto_accept` : Peering 연결 자동 승인 여부 - `true`, `false`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

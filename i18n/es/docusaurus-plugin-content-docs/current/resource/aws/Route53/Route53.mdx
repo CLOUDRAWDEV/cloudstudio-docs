@@ -7,11 +7,11 @@ tags: [AWS, Recurso, Route53]
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-route53.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-route53.webp"
     }
 />
 
@@ -19,25 +19,36 @@ tags: [AWS, Recurso, Route53]
 
 Amazon Route 53 es un servicio web de sistema de nombres de dominio (DNS) altamente disponible y escalable.
 
-### Recurso superior
+## Recursos relacionados
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+### Recurso principal
 
-### Recurso conectado
+-   [**Base**](https://docs.cstudio.app/es/docs/resource/aws/Base)
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+### Recursos conectados
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
 
 ## Valores de configuración del recurso
 
--   `linked_vpc_names` : Nombre del VPC que se conectará a la zona Route53
--   `record` : Nombre del Record que se creará en la zona Route53
-    -   `type` : Tipo del Record - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
-    -   `ttl` : TTL del Record
-    -   `records` : Lista de cadenas del Record
+#### Configuración básica
+
+-   `routing_type` : Tipo de enrutamiento de la zona Route53 - `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : Lista de nombres de VPC a conectar con la zona Route53
+
+#### Registro (`record`)
+
+-   `record.type` : Tipo de registro - `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : TTL del registro
+-   `record.records` : Lista de valores de cadena del registro
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon Route 53 (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
 -   [Precios de Amazon Route 53 (AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)

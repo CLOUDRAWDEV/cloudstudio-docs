@@ -11,17 +11,17 @@ tags: [Kubernetes, リソース, Storage, StorageClass]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
     }
 />
 
 ## リソース概要
 
-特定のストレージ プロビジョナと一緒に動作する動的ストレージ プロビジョニングを定義するクバネティス リソース
+特定のストレージプロビジョナーと連携し、動的ストレージプロビジョニングを定義する Kubernetes リソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 
@@ -31,19 +31,19 @@ tags: [Kubernetes, リソース, Storage, StorageClass]
 
 ## リソース設定値
 
--   `service_name` : StorageClass リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `storage_Provisioner` : ストレージ プロバイダーのタイプ
--   `reclaim_policy` : 使用する回収ポリシー - 指定しないとデフォルトは Delete
--   `volume_binding_mode` : ボリュームバインディングと動的プロビジョニングが発生する必要がある時期 - `Immediate`, `WaitForFirstConsumer`
--   `allow_volume_expansion` : ストレージクラスがボリューム拡張を許可しているかどうかの可否 - `False`, `True`
--   `parameters` : ストレージクラスのボリュームを作成する必要があるプロビジョナのパラメータ
--   `mount_options` : ストレージ クラスによって動的に生成される永続ボリュームには、マウントオプションが指定
+#### 基本設定
+
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : StorageClass 識別用ラベル
+-   `storage_provisioner` : 実際にストレージを作成するプロビジョナー
+-   `reclaim_policy` : ボリューム解放時のポリシー - `Retain`, `Delete`
+-   `volume_binding_mode` : バインディングタイミング - `Immediate`, `WaitForFirstConsumer`
+-   `allow_volume_expansion` : ボリュームサイズ拡張可否
+-   `parameters` : プロビジョナーに渡す追加パラメータ
+-   `mount_options` : 動的生成 PV に適用するマウントオプション
 
 ---
 
 ## 参考資料
 
--   [StorageClass(kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
--   [StorageClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class)
+-   [StorageClass(Kubernetes)](https:)

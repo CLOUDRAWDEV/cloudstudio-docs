@@ -17,29 +17,29 @@ tags: [Azure, Network, VirtualHub]
 
 ## Resource Overview
 
-Azure Virtual Hub is a **regional hub resource responsible for centralized routing and network connectivity within a Virtual WAN environment**.  
-It aggregates VPN, ExpressRoute, and VNet connections to control traffic flow and is used as a core component of a global network topology.
+Azure Virtual Hub is a regional hub resource in a Virtual WAN environment that **handles centralized routing and network connectivity**.  
+It aggregates VPN, ExpressRoute, and VNet connections to control traffic flow and serves as a core component of a global network topology.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Virtual WAN**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualWan)
+-   [**VirtualWAN**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualWan)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `included_virtual_wan_name` : Name of the parent Virtual WAN to which the Virtual Hub is connected
--   `address_prefix` : Address space (CIDR block) used within the Virtual Hub
--   `hub_routing_preference` : Priority for selecting internet routing paths for traffic
+-   `address_prefix` : Address space used within the Virtual Hub (CIDR block)
+-   `hub_routing_preference` : Priority for selecting internet routing paths
     -   `ExpressRoute`
     -   `ASPath`
     -   `VpnGateway`
 
 #### Connection (`connection`)
 
--   `connection.target_virtual_network_name` : Name of the target Virtual Network (VNet) to connect to the Virtual Hub
+-   `connection.target_virtual_network_name` : Name of the target Virtual Network (VNet) connected to the Virtual Hub
 
 ## References
 
--   [Azure Virtual Hub Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-hub-about)
--   [Azure Virtual WAN Architecture (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)
+-   [Azure Virtual Hub Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-hub-about)
+-   [Azure Virtual WAN Architecture(Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

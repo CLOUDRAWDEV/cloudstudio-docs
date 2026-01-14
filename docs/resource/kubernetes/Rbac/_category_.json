@@ -1,7 +1,7 @@
 {
-  "label": "Rbac",
-  "position": 8,
-  "link": {
-    "type": "generated-index"
-  }
+    "label": "Rbac",
+    "position": 5,
+    "link": {
+        "type": "generated-index"
+    }
 }

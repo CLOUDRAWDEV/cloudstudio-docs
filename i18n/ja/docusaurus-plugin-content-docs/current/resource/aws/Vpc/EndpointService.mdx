@@ -1,6 +1,6 @@
 ---
 title: EndpointService
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, リソース, Vpc, EndpointService]
 ---
 
@@ -11,13 +11,13 @@ tags: [AWS, リソース, Vpc, EndpointService]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint_service.webp"
     }
 />
 
 ## リソース概要
 
-고객이 지원하는 AWS 서비스 및 VPC endpoint 서비스에 private하게 연결할 수 있는 서비스
+サポート対象の AWS サービスおよび VPC Endpoint へのプライベート接続を提供するサービス
 
 ## 関連リソース
 
@@ -25,21 +25,25 @@ tags: [AWS, リソース, Vpc, EndpointService]
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 下位リソース
+### 接続リソース
 
--   [**LB**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/Lb)
+-   [**Lb**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/Lb)
 -   [**Endpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Endpoint)
 
 ## リソース設定値
 
--   `acceptance_required` : サービスへの VPC エンドポイント接続リクエストをサービスオーナーが受け入れる必要があるかどうかの可否 - `false`,`true`
--   `loadbalancer_type` : Endpoint service で接続する load balancer タイプ - `network`, `gateway`
--   `linked_lb_names` : エンドポイントサービスに対する 1 つ以上のリンクされた Lb リソース名
--   `manual_lb_arns` : エンドポイントサービスの 1 つ以上のロードバランシングデバイスの Amazon Resource Names(ARNs)
--   `supported_ip_address_types` : サポートされている IP アドレス タイプ - `ipv4`
--   `activate_private_dns_name` : サービスのプライベート DNS 名
+#### 基本設定
 
----
+-   `acceptance_required` : Endpoint 接続要求に対するサービス所有者承認要否 - `true`, `false`
+-   `load_balancer_type` : 接続する Load Balancer 種別 - `network`, `gateway`
+-   `linked_lb_names` : 接続する Load Balancer 名一覧
+-   `manual_lb_arns` : 接続する Load Balancer ARN 一覧
+-   `supported_ip_address_types` : サポート対象 IP アドレス種別 - `ipv4`
+-   `activate_private_dns_name` : サービスに設定するプライベート DNS 名
+
+#### タグ
+
+-   `tag` : リソースをカテゴリ別に分類するためのタグ
 
 ## 参考資料
 

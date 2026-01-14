@@ -7,11 +7,11 @@ tags: [AWS, Risorsa, Sns, SnsTopic]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/sns-sns_topic.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/sns-sns_topic.webp"
     }
 />
 
@@ -21,24 +21,30 @@ Punto di accesso logico che funge da canale di comunicazione in AWS SNS
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
 ### Risorse collegate
 
--   [**Metric**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/Metric)
--   [**Config**](https://docs.cstudio.app/docs/resource/aws/Config/Config)
+-   [**Metric**](https://docs.cstudio.app/it/docs/resource/aws/Cloudwatch/Metric)
+-   [**Config**](https://docs.cstudio.app/it/docs/resource/aws/Config/)
 
-## Impostazioni della risorsa
+## Valori di configurazione della risorsa
 
--   `display_name` : Nome visualizzato del SNS Topic
--   `type` : Tipo di SNS Topic - `FIFO`, `Standard`
--   `kms_key_name` : Nome della KMS Key da utilizzare per il SNS Topic
+#### Impostazioni di base
+
+-   `display_name` : Nome visualizzato del topic SNS
+-   `type` : Tipo di topic SNS (`FIFO`, `Standard`)
+-   `kms_key_name` : Nome della chiave KMS utilizzata dal topic SNS
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Sns Topic(AWS)]https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
--   [Sns Topic(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)
+-   [SNS Topic (AWS)](https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
+-   [SNS Topic (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)

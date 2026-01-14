@@ -1,7 +1,7 @@
 ---
-title: Route Table
-sidebar_position: 0
-tags: [AWS, Ressourcen, Vpc, RouteTable]
+title: RouteTable
+sidebar_position: 13
+tags: [AWS, Ressource, Vpc, RouteTable]
 ---
 
 <hr />
@@ -11,41 +11,49 @@ tags: [AWS, Ressourcen, Vpc, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-route_table.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Die Route Table in einer AWS VPC (Virtual Private Cloud) ist eine AWS-Ressource, die definiert, an welches Ziel der Datenverkehr für Subnetze innerhalb der VPC weitergeleitet wird. Alle Subnetze innerhalb der VPC sind mit einer oder mehreren Routing-Tabellen verbunden, und die Routing-Tabelle spezifiziert Routing-Regeln für Ziele wie Internet-Gateways, NAT-Gateways, VPC-Endpunkte oder VPN-Verbindungen. Die Routing-Tabelle leitet den Datenverkehr in der Reihenfolge der Routing-Regeln weiter, und aller Datenverkehr, der in einem Subnetz erzeugt wird, wird über die verbundene Routing-Tabelle an das Ziel weitergeleitet. Dies ermöglicht es den Subnetzen innerhalb der VPC, sicher mit dem Internet oder anderen VPCs zu kommunizieren.
+Die Route Table einer AWS VPC (Virtual Private Cloud) ist eine AWS-Ressource, die definiert, an welches Ziel der Datenverkehr von Subnetzen innerhalb der VPC weitergeleitet wird. Jedes Subnetz in einer VPC ist mit einer oder mehreren Routing-Tabellen verknüpft. Routing-Tabellen enthalten Routing-Regeln für Ziele wie Internet-Gateways, NAT-Gateways, VPC-Endpunkte oder VPN-Verbindungen.  
+Der Datenverkehr wird entsprechend der Reihenfolge der Routing-Regeln weitergeleitet, und sämtlicher aus einem Subnetz erzeugter Verkehr wird über die zugeordnete Routing-Tabelle an das Ziel gesendet. Dadurch können Subnetze innerhalb einer VPC sicher mit dem Internet oder anderen VPCs kommunizieren.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
-### Übergeordnete Ressourcen
+### Übergeordnete Ressource
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
 
-### Verbundene Ressourcen
+### Verknüpfte Ressourcen
 
--   [**Ec2 Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Nat Gateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/NatGateway)
--   [**Vpc Peering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
+-   [**InternetGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/InternetGateway)
+-   [**Instance**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/Instance)
+-   [**NatGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NatGateway)
+-   [**TransitGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpcPeering**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/VpcPeering)
 
-## Ressourcen-Einstellwerte
+## Ressourceneinstellungen
 
--   `included_vpc_name` : Name der VPC, die die Routing-Tabelle enthält
--   `subnet_names` : Beschreibung der Routing-Tabelle
--   `linked_route` : Name des Routing-Pfads
-    -   `cidr_block` : CIDR des Zielressourcen für das Routing
-    -   `internet_gateway_name` : Name des Internet-Gateways, das für den Routing-Pfad festgelegt wird
-    -   `ec2_instance_name` : Name der EC2-Instanz, die für den Routing-Pfad festgelegt wird
-    -   `nat_gateway_name` : Name des NAT-Gateways, das für den Routing-Pfad festgelegt wird
-    -   `vpc_peering_name` : Name des NAT-Gateways, das für den Routing-Pfad festgelegt wird
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name der VPC, zu der die Route Table gehört
+-   `subnet_names` : Liste der Subnetznamen, die mit der Route Table verknüpft werden
+
+#### Routing-Pfade (`linked_route`)
+
+-   `linked_route.cidr_block` : CIDR-Block der Zielressource für das Routing
+-   `linked_route.resource_type` : Typ der Zielressource – `internet_gateway`, `ec2_instance`, `nat_gateway`, `transit_gateway`, `vpc_peering`
+-   `linked_route.linked_resource_name` : Name der Zielressource für das Routing
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [Routing-Tabelle konfigurieren(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
--   [aws_default_route_table(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)
+-   [Routing-Tabellen konfigurieren (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Route_Tables.html)
+-   [aws_default_route_table (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table)

@@ -11,7 +11,7 @@ tags: [AWS, Resource, Route53]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-route53.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-route53.webp"
     }
 />
 
@@ -19,26 +19,37 @@ tags: [AWS, Resource, Route53]
 
 Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.
 
-### Parent Resources
+## Associated Resources
 
--   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base/)
+### Parent Resource
+
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base)
 
 ### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ## Resource Setting Values
 
--   `linked_vpc_names` : VPC name to connect Route53 Zone to
--   `record` : Name of record to be created in Route53 Zone
-    -   `type` : Type of Record - `A`, `CAA`, `CNAME`, `DS`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
-    -   `ttl` : TTL of Record
-    -   `records` : A string list of Records
+#### Basic Settings
+
+-   `routing_type` : Route53 zone routing type - `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : List of VPC names connected to the Route53 zone
+
+#### Record (`record`)
+
+-   `record.type` : Record type - `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : Record TTL
+-   `record.records` : List of record strings
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [Amazon Route 53(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
--   [Amazon Route 53 Price(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
+-   [Amazon Route 53 (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
+-   [Amazon Route 53 Pricing (AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
 -   [aws-route53(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)

@@ -17,11 +17,11 @@ tags: [Azure, MssqlServer, MSSQL, SQLServer, Database]
 
 ## Resource Overview
 
-Azure SQL Server (Microsoft SQL Server) is a fully managed PaaS database engine that handles most database management tasks—such as upgrades, patching, backups, and monitoring—without user intervention.
+Azure SQL Server (Microsoft SQL Server) is a fully managed PaaS database engine that handles most database management functions such as upgrades, patching, backups, and monitoring without user intervention.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
@@ -31,19 +31,19 @@ Azure SQL Server (Microsoft SQL Server) is a fully managed PaaS database engine 
 
 ### Connected Resources
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
--   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
--   [**Private EndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+-   [**LogAnalyticsWorkspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**StorageAccount**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**PrivateEndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 #### Basic Settings
 
--   `version` : Microsoft SQL Server version to use – `2.0`, `12.0`
--   `admin_username` : Administrator username for the server; alphanumeric characters only, must start with a letter, reserved words are not allowed
--   `admin_password` : Administrator login password for the server; must include at least three of the following: lowercase letters, uppercase letters, numbers, and special characters; cannot contain three or more consecutive alphanumeric characters from the login name; `8` ~ `128` characters
--   `minimum_tls_version` : Minimum supported TLS version for the server – `1.2`, `Disabled`
--   `public_network_access_enabled` : Allow public network access to the server – `true`, `false`
+-   `version` : Microsoft SQL Server version to use - `2.0`, `12.0`
+-   `admin_username` : Administrator username for the server, alphanumeric only, must start with a letter, reserved words not allowed
+-   `admin_password` : Administrator login password for the server, must include at least 3 of lowercase, uppercase, numeric, and special characters, cannot contain more than 3 consecutive alphanumeric characters from the login name, `8` ~ `128` characters
+-   `minimum_tls_version` : Minimum TLS version supported by the server - `1.2`, `Disabled`
+-   `public_network_access_enabled` : Whether to allow public network access to the server - `true`, `false`
 
 #### Firewall Rules (`firewall_rule`)
 
@@ -52,30 +52,30 @@ Azure SQL Server (Microsoft SQL Server) is a fully managed PaaS database engine 
 
 #### Security Alert Policy (`security_alert_policy`)
 
--   `security_alert_policy.alert_policy_state` : Enabled state of the policy to apply – `Enabled`, `Disabled`
+-   `security_alert_policy.alert_policy_state` : Activation state of the applied policy - `Enabled`, `Disabled`
 -   `security_alert_policy.disabled_alerts` : List of security alerts to disable
--   `security_alert_policy.alert_retention_days` : Retention period (days) for threat detection audit logs – `0` ~ `3265`
--   `security_alert_policy.alert_email_account_admins` : Enable sending security alerts to account administrators by email – `true`, `false`
+-   `security_alert_policy.alert_retention_days` : Retention period (days) for threat detection audit logs - `0` ~ `3265`
+-   `security_alert_policy.alert_email_account_admins` : Whether to enable sending security alerts via email - `true`, `false`
 -   `security_alert_policy.alert_email_addresses` : List of email addresses to receive security alerts
 
 #### Auditing Policy (`auditing_policy`)
 
--   `auditing_policy.enable_storage_destination` : Enable Storage account as the audit destination – `true`, `false`
--   `auditing_policy.linked_storage_account_name` : Name of the Storage account
--   `auditing_policy.storage_access_key_is_second` : Use the secondary access key for auditing – `true`, `false`
--   `auditing_policy.storage_retention_days` : Number of days to retain logs in the Storage account
--   `auditing_policy.enable_log_analytics_destination` : Enable auditing to a Log Analytics workspace – `true`, `false`
--   `auditing_policy.linked_log_analytics_workspace_name` : Name of the Log Analytics workspace for auditing
--   `auditing_policy.log_analytics_diagnostic_setting_name` : Name of the Log Analytics diagnostic setting
+-   `auditing_policy.enable_storage_destination` : Whether to enable the storage account destination - `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Storage account name
+-   `auditing_policy.storage_access_key_is_second` : Whether to use the secondary access key for auditing - `true`, `false`
+-   `auditing_policy.storage_retention_days` : Number of days to retain logs in the storage account
+-   `auditing_policy.enable_log_analytics_destination` : Whether to enable auditing policy to Log Analytics workspace - `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Log Analytics workspace auditing policy name
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Log Analytics workspace name
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource – maximum 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
--   [Azure SQL Security Alert Policy (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
--   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)
+-   [Azure SQL Database(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Security Alert Policy(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
+-   [Azure SQL Auditing(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)

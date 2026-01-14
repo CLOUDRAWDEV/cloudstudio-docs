@@ -1,5 +1,5 @@
 ---
-title: Lambda Function
+title: LambdaFunction
 sidebar_position: 0
 tags: [AWS, リソース, Lambda, LambdaFunction]
 ---
@@ -11,16 +11,15 @@ tags: [AWS, リソース, Lambda, LambdaFunction]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.webp"
     }
 />
 
 ## リソース概要
 
-AWS Lambda はサーバーをプロビジョニングしたり管理しなくても、コードを実行できるようにするコンピューティングサービスです。
-Lambda は高可用性コンピューティングインフラでコードを実行し、サーバーとオペレーティングシステムの維持管理、容量プロビジョニングと自動調整、コードとセキュリティパッチの配布、ロギングなど、すべてのコンピューティングリソースの管理を行います。
-Lambda を使用するとほぼすべてのタイプのアプリケーションまたはバックエンドサービスに対するコードを実行することができます
-Lambda がサポートする言語の一つにコードを供給するだけです。
+AWS Lambda は、サーバーをプロビジョニングや管理することなくコードを実行できるコンピューティングサービスです。  
+高可用性インフラ上でコードを実行し、サーバーや OS の管理、キャパシティ調整、パッチ適用、ロギングなどを自動で処理します。  
+対応する言語でコードを提供するだけで、ほぼすべてのアプリケーションやバックエンドサービスを実行できます。
 
 ## 関連リソース
 
@@ -31,28 +30,37 @@ Lambda がサポートする言語の一つにコードを供給するだけで�
 
 ### 接続リソース
 
--   [**Lambda Function**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LbTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
 
 ## リソース設定値
 
--   `architectures` : Lambda ファンクションに対するコマンドセットアーキテクチャ - `x86_64`, `arm64`
--   `runtime` : Lambda ファンクションのランタイムの識別子 - `nodejs`, `nodejs4.3`, `nodejs6.10`, `nodejs8.10`, `nodejs10.x`, `nodejs12.x`, `nodejs14.x`, `java8`, `java8.al2`, `java11`, `python2.7`, `python3.6`, `python3.7`, `python3.8`, `python3.9`, `dotnetcore1.0`, `dotnetcore2.0`, `dotnetcore2.1`, `dotnetcore3.1`, `nodejs4.3-edge`, `go1.x`, `ruby2.5`, `ruby2.7`, `provided`, `provided.al2`
--   `memory_size` : Lambda ファンクションがランタイムに使用できるメモリ量(MB)、128~10240(MB) - `128`, `512`, `1024`, `1536`, `2048`, `3072`, `4096`, `5120`, `6144`, `7168`, `8192`, `9216`, `10240`
--   `handler` : コードのファンクションエントリポイント
--   `s3_bucket_name` : ファンクションのデプロイパッケージを保有する S3 名
--   `file_directory` : S3 内でファンクションのデプロイパッケージへのパス（zip ファイル形式）
--   `included_subnet_names` : Lambda ファンクションと接続されたサブネット ID のリスト、少なくとも 2 個以上
--   `security_group_names` : Lambda ファンクションと接続されたセキュリティグループ ID のリスト
+#### 基本設定
 
--   `tracing_enabled` : AWS X-Ray トレースを有効にする - `true`, `false`
--   `tracing_mode` : AWS X-Ray トレース方式 - `PassThrough`, `Active`
+-   `architectures` : 命令セットアーキテクチャ - `x86_64`, `arm64`
+-   `runtime` : Lambda ランタイム識別子
+-   `memory_size` : 使用可能メモリ（MB）
+-   `handler` : 関数エントリポイント
+-   `s3_bucket_name` : 配布パッケージを格納する S3 Bucket 名
+-   `file_directory` : S3 内のパッケージパス
+-   `role_name` : 適用する IAM Role 名
+-   `included_subnet_names` : 接続する Subnet 名一覧
+-   `linked_security_group_names` : 接続する Security Group 名一覧
+-   `tracing_mode` : X-Ray トレース方式
 
--   `environment_variable` : Lambda 実行中、Function で使用できる環境変数設定
+#### 環境変数 (`environment_variable`)
+
+-   `environment_variable` : 実行時に使用する環境変数
+
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [AWS Lambda(AWS)](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
--   [AWS Lambda 料金(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
--   [aws_lambda_function(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)
+-   [AWS Lambda（AWS）](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
+-   [AWS Lambda 料金（AWS）](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
+-   [aws_lambda_function (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)

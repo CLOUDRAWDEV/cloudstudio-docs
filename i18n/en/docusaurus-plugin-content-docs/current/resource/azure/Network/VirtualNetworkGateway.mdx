@@ -17,10 +17,10 @@ tags: [Azure, Network, VirtualNetworkGateway, VPN]
 
 ## Resource Overview
 
-Virtual Network Gateway is a network gateway that provides **encrypted traffic communication paths** between an Azure Virtual Network and an on-premises network or another Virtual Network.  
-It can be connected using VPN or ExpressRoute, and is a core component for hybrid network configurations and secure dedicated connections.
+Virtual Network Gateway is a network gateway that provides **encrypted traffic communication paths** between an Azure Virtual Network and on-premises networks or other Virtual Networks.  
+It supports VPN or ExpressRoute connections and is a core component for hybrid networking and secure dedicated connectivity.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
@@ -28,26 +28,28 @@ It can be connected using VPN or ExpressRoute, and is a core component for hybri
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**PublicIp**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
-## Resource Configuration Values
+## Resource Setting Values
 
--   `included_subnet_name` : Name of the Subnet through which traffic is sent and received by the Virtual Network Gateway
+#### Basic Settings
+
+-   `included_subnet_name` : Name of the Subnet used to send and receive traffic through the Virtual Network Gateway
 -   `gateway_type` : Type of the Virtual Network Gateway - `Vpn`, `ExpressRoute`
--   `vpn_type` : Type of VPN connection - `RouteBased`, `PolicyBased`
+-   `vpn_type` : VPN connection type - `RouteBased`, `PolicyBased`
 -   `sku` : Pricing tier of the Virtual Network Gateway
--   `generation` : Generation of the Virtual Network Gateway - `Generation1`, `Generation2`
--   `enabled_active_active_mode` : Whether Active-Active mode is enabled
--   `enabled_configure_bgp` : Whether BGP is enabled
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `generation` : Virtual Network Gateway generation - `Generation1`, `Generation2`
+-   `enabled_active_active_mode` : Whether to enable Active-Active mode
+-   `enabled_configure_bgp` : Whether to enable BGP
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 #### IP Configuration (`ip_configuration`)
 
--   `ip_configuration.linked_public_ip_name` : Name of the Public IP to associate with the Virtual Network Gateway
+-   `ip_configuration.linked_public_ip_name` : Name of the Public IP associated with the Virtual Network Gateway
 
 ---
 
 ## References
 
--   [Azure Virtual Network Gateway Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
--   [VPN Gateway Configuration Options (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)
+-   [Azure Virtual Network Gateway Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [VPN Gateway Configuration Options(Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)

@@ -1,59 +1,58 @@
 ---
 title: Service
-sidebar_position: 0
+sidebar_position: 6
 tags: [Kubernetes, Risorsa, Core, Service]
 ---
-
 
 <hr />
 <br />
 
-
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È una risorsa astratta di Kubernetes che fornisce un singolo punto di ingresso per un Pod e gestisce la comunicazione tra quei Pod.
+Risorsa Kubernetes astratta che fornisce un punto di ingresso unico ai Pod e gestisce la comunicazione tra di essi.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa principale
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
 
 ### Risorse collegate
 
--   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
--   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
--   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+-   [**Deployment**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Pod**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/it/docs/resource/kubernetes/Networking/Ingress)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `service_name` : Nome delle risorse del Service
--   `namespace` : Namespace in cui verranno distribuite le risorse del Service
--   `annotations` : Pair chiave-valore utilizzato per visualizzare le informazioni necessarie nel sistema Kubernetes
--   `labels` : Valori che l'utente può definire arbitrariamente per distinguere gli oggetti
--   `selector` : Usa le coppie chiave-valore delle etichette che corrispondono al selector per indirizzare il traffico del servizio ai Pod
--   `type` : Tipo di servizio - `ClusterIP`,`NodePort`,`LoadBalancer`
--   `session_affinity` : Politica che mantiene le richieste del client indirizzate sempre allo stesso Pod - `None`,`clientIP`
--   `port` : Elenco delle porte esposte dal servizio
-    -   `name` : Nome della configurazione della porta 
-        -   `protocol` : Protocollo IP della porta - `TCP`,`UDP`
-        -   `port` : Numero della porta esposta dal servizio
-        -   `target_port` : Numero della porta del Pod di destinazione a cui il servizio accede
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Service
+-   `annotations` : Metadati di sistema Kubernetes
+-   `labels` : Etichette per identificazione e classificazione del Service
+-   `selector` : Selettore di etichette per scegliere i Pod a cui inoltrare il traffico
+-   `type` : Tipo di Service - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : Se fissare le richieste dello stesso client a uno specifico Pod - `None`, `ClientIP`
 
+#### Configurazione delle porte (`port`)
+
+-   `port.protocol` : Protocollo utilizzato dalla porta del servizio - `TCP`, `UDP`
+-   `port.port` : Numero di porta del Service esposto esternamente
+-   `port.target_port` : Numero di porta del Pod che riceve effettivamente il traffico
 
 ---
 
-## Materiale di riferimento
+## Riferimenti
 
--   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
--   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)
+-   [Service (Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

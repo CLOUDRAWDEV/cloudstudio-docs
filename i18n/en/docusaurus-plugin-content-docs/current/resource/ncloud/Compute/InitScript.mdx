@@ -1,6 +1,6 @@
 ---
 title: InitScript
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, Resource, Compute, Initscript]
 ---
 
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Compute, Initscript]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.webp"
     }
 />
 
 ## Resource Overview
 
-The Init Script feature allows you to automatically execute pre-written scripts during server creation. It can be used in various scenarios, such as when creating multiple servers with the same purpose in bulk, regularly creating servers with the same environment, or managing initial server environments for different purposes.
+Init Script is a feature that allows pre-written scripts to be executed automatically when a server is created. It can be used in various scenarios, such as creating multiple servers with the same purpose at once, periodically creating servers with identical environments, or managing initial server environments by purpose.
 
 ## Associated Resources
 
@@ -25,14 +25,16 @@ The Init Script feature allows you to automatically execute pre-written scripts 
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
-
 ## Resource Setting Values
 
--   `OS_type` : The type of O/S to apply server instance - `LNX`, `WND`
--   `Content` : The script to run automatically when the server is created, ex) #!/bin/bash yum install -y httpd && systemctl start httpd
+#### Basic Settings
+
+-   `os_type` : Type of server instance to use - `LNX`, `WND`
+-   `content` : Script content to be executed automatically when the server is created
+-   `description` : Description of the Init Script to be created
 
 ---
 
-## Reference Materials
+## References
 
--   [ncloud_InitScript(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)
+-   [Init Script(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)

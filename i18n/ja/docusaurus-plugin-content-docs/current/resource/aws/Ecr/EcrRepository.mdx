@@ -1,45 +1,57 @@
 ---
-title: Ecr Repository
+title: EcrRepository
 sidebar_position: 0
-tags: [AWS, リソース, Ecr, EcrRepository]
+tags: [AWS, Resource, Ecr, EcrRepository]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
+## Resource アイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-Amazon Elastic Container Registry(Amazon ECR)は安全で拡張可能で信頼できる AWS 管理型コンテナイメージレジストリサービスです。
-Amazon ECR は AWS IAM を使用してリソースベースの権限を持つプライベートリポジトリをサポートします。
-したがって、指定されたユーザーまたは Amazon EC2 インスタンスがコンテナリポジトリ及びイメージにアクセスできます。
-希望する CLI を使用して Docker イメージ、 Open Container Initiative(OCI)イメージ及び OCI 互換アーティファクトをプッシュ、プル及び管理することができます。
+Amazon Elastic Container Registry（Amazon ECR）は、安全でスケーラブルかつ信頼性の高いAWSマネージド型コンテナイメージレジストリサービスです。  
+Amazon ECRは、AWS IAMを使用したResourceベースの権限を持つプライベートリポジトリをサポートします。  
+これにより、指定されたユーザーまたはAmazon EC2インスタンスがコンテナリポジトリおよびイメージにアクセスできます。  
+任意のCLIを使用して、Dockerイメージ、OCI（Open Container Initiative）イメージ、OCI互換アーティファクトのプッシュ、プル、管理が可能です。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## リソース設定値
+## Resource 設定値
 
--   `image_tag_mutability` : リポジトリのタグ変更可能設定 - `IMMUTABLE`, `MUTABLE`
--   `scan_on_push` : イメージがリポジトリにプッシュされてからスキャンされるかどうかを設定 - `true`, `false`
--   `encryption_type` : リポジトリに使用する暗号化タイプ - `KMS`, `AES256`
--   `kms_key_name` : 使用する KMS Key の ARN 名
--   `target_principal_arn` : Policy を適用する対象の ARN
+#### Basic Settings
+
+-   `image_tag_mutability` : リポジトリタグの変更可否設定 - `IMMUTABLE`, `MUTABLE`
+-   `scan_on_push` : イメージがプッシュされた後にスキャンを実行するかどうか - `true`, `false`
+-   `encryption_type` : リポジトリに使用する暗号化方式 - `KMS`, `AES256`
+-   `kms_key_name` : 使用するKMS KeyのARN名
+
+#### ポリシー (`policy`)
+
+-   `policy.effect` : ポリシーステートメントの許可可否 - `Allow`, `Deny`
+-   `policy.principal_arn` : ポリシーを適用する対象のARN
+-   `policy.enabled_not_actions` : 指定されたアクションを除外するかどうか - `true`, `false`
+-   `policy.actions` : 指定するアクション一覧
+
+#### タグ
+
+-   `tag` : Resourceを分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
--   [Amazon Elastic Container Registry(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
--   [aws_ecr_repository(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)
+-   [Amazon Elastic Container Registry（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
+-   [Amazon Elastic Container Registry 料金（AWS）](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
+-   [aws_ecr_repository（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)

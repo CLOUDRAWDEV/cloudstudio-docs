@@ -1,40 +1,47 @@
 ---
 title: SourceCommit
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, Recurso, DeveloperTool, SourceCommit]
 ---
 
 <hr />
 <br />
 
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_commit.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_commit.webp"
     }
 />
 
 ## Descripción general del recurso
 
-SourceCommit es un servicio de repositorios Git privados para almacenar de forma segura código fuente y diversos archivos. Permite crear repositorios dentro de SourceCommit para gestionar eficientemente proyectos en equipo y almacenar fácilmente datos como el código fuente.
+SourceCommit es un servicio de repositorio Git privado que permite almacenar de forma segura código fuente y diversos archivos.  
+Permite crear repositorios para gestionar eficientemente proyectos en equipo y almacenar datos como código fuente de manera sencilla.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
-### Recursos subordinados
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
+### Recursos conectados
+
+-   [**SourceBuild**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceDeployStage**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
 ## Valores de configuración del recurso
 
--   `enable_file_safer` : Indica si se habilita el uso de file_safer
+#### Configuración básica
 
+-   `enable_file_safer` : Uso de File Safer - `true`, `false`
+-   `description` : Descripción del repositorio - máximo 500 caracteres
 
 ---
 
-## Documentación de referencia
-
+## Referencias
 
 -   [Source Commit(Ncloud)](https://www.ncloud.com/product/devTools/sourceCommit)
--   [ncloud_source_commit(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)
+-   [Repositorio Source Commit(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcecommit_repository)

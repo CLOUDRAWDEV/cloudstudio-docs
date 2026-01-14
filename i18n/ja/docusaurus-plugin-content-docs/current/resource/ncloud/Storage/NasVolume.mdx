@@ -1,6 +1,6 @@
 ---
-title: Nas Volume
-sidebar_position: 0
+title: NasVolume
+sidebar_position: 1
 tags: [Ncloud, リソース, Storage, NasVolume]
 ---
 
@@ -11,23 +11,40 @@ tags: [Ncloud, リソース, Storage, NasVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-多数のユーザーがデータを共有するように、複数のサーバーをネットワークに接続したストレージ サービスです。ネットワークに接続するストレージ容量で、多数のユーザーがデータを共有するのに適しています。
+複数のサーバーをネットワークで接続し、多数のユーザーがデータを共有できるストレージサービスです。  
+ネットワーク経由の共有ストレージとして、共同利用に適しています。
 
-## リソース設定値
+## Associated Resources
 
--   `volume_name_postfix` : NAS ボリュームの名前、英数字が許可されており、3〜20 文字以内
--   `volume_size` : ボリュームサイズ(100GB)、500 から 10,000 の範囲
--   `volume_allotment_protocol_type` : プロトコルの種類、マウント可能なサーバー: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+
+### Connected Resources
+
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `volume_name_postfix` : NAS ボリューム名の接尾辞（英数字、3 ~ 20 文字）
+-   `volume_size` : ボリューム容量（100GB 単位） - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : プロトコルタイプ - `NFS`, `CIFS`
+-   `cifs_user_name` : CIFS 認証用ユーザー ID
+-   `cifs_user_password` : CIFS 認証用パスワード
+-   `linked_instances` : NAS ボリュームを接続するサーバーインスタンス名一覧
+-   `is_encrypted` : AES-256 ベースのボリューム単位暗号化可否
 
 ---
 
-## 参考資料
+## References
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

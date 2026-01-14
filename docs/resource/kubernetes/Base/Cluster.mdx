@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, 리소스, Base, Cluster]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
     }
 />
 
@@ -25,22 +23,30 @@ tags: [Kubernetes, 리소스, Base, Cluster]
 
 ### 상위 리소스
 
--   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base)
+-   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Base)
 
-### 연결 리소스
+### 하위 리소스
 
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
 
 ## 리소스 설정 값
 
--   `target_cluster` : 사용할 Cluster 선택
--   `Token` : Ncloud Kuberntes Service 연결용 토큰 - `Ncloud Kubernetes Service`만 사용
+#### 기본 설정
 
-
-
-
+-   `target_cluster` : 연결할 Ncloud Kubernetes 클러스터 선택
+-   `token` : Ncloud Kubernetes Service 연결에 사용되는 인증 토큰
 
 ---
 
 ## 참고 자료
 
-
+-   [Kubernetes 클러스터 개요(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Kubernetes 인증(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [kubectl 클러스터 설정(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [kubectl 사용자 인증 설정(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

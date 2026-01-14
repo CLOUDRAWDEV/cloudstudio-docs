@@ -18,105 +18,105 @@ tags: [Azure, ContainerApps, Container, Serverless]
 ## Resource Overview
 
 Azure Container Apps is a managed serverless execution environment for running container-based applications.  
-Based on a connected Container Apps Environment, you can deploy and operate applications by configuring revision management, init containers, storage volume mounting, and ingress (external access) settings.
+Applications can be deployed and operated by configuring revision management, init containers, storage volume attachments, and ingress (external access) settings based on a connected Container Apps Environment.
 
-## Related Resources
+## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Container Apps Environment**](https://docs.cstudio.app/en/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
+-   [**ContainerAppsEnvironment**](https://docs.cstudio.app/en/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `included_container_apps_environment` : Resource ID of the connected Container Apps Environment
 
--   `revision_mode` : Versioning mode for the container app – `Single`, `Multiple`
+-   `revision_mode` : Versioning mode of the container app - `Single`, `Multiple`
 
--   `max_replicas` : Maximum number of container instances that can be created during autoscaling – `1` ~ `300`
+-   `max_replicas` : Maximum number of container instances that can be created during autoscaling - `1` ~ `300`
 
--   `min_replicas` : Minimum number of container instances to always keep running – `1` ~ `300`
+-   `min_replicas` : Minimum number of container instances to always maintain - `1` ~ `300`
 
 ### Init Container Settings (`init_container`)
 
--   `init_container.args` : List of arguments passed when the container starts
+-   `init_container.args` : List of arguments passed at container startup
 
--   `init_container.command` : Command to be executed in the container
+-   `init_container.command` : Command to execute in the container
 
--   `init_container.cpu_memory` : CPU and memory resources allocated to the container – `CPU/Memory` format
+-   `init_container.cpu_memory` : CPU and memory resource allocation for the container - `CPU/Memory` format
 
 -   `init_container.image` : Container image used for the init container
 
 ### Volume Settings (`volume`)
 
--   `volume.storage_type` : Type of storage to attach – `AzureFile`, `EmptyDir`, `Secret`
+-   `volume.storage_type` : Type of storage to attach - `AzureFile`, `EmptyDir`, `Secret`
 
 ### Container Settings (`container`)
 
--   `container.args` : List of arguments passed when the container starts
+-   `container.args` : List of arguments passed at container startup
 
--   `container.command` : Command to be executed in the container
+-   `container.command` : Command to execute in the container
 
--   `container.cpu_memory` : CPU and memory resources allocated to the container – `CPU/Memory` format
+-   `container.cpu_memory` : CPU and memory resource allocation for the container - `CPU/Memory` format
 
--   `container.image` : Container image used by the container
+-   `container.image` : Container image used in the container
 
 #### Liveness Probe Settings (`container.liveness_probe`)
 
--   `container.liveness_probe.failure_count_threshold` : Number of consecutive failures allowed before considering the probe failed – `1` ~ `30`
+-   `container.liveness_probe.failure_count_threshold` : Number of consecutive failures allowed before considering the probe failed - `1` ~ `30`
 
--   `container.liveness_probe.enable_header` : Whether to enable custom headers – `true`, `false`
+-   `container.liveness_probe.enable_header` : Whether to enable custom headers - `true`, `false`
 
--   `container.liveness_probe.header` : Custom headers to send – `header_name`:`header_value`
+-   `container.liveness_probe.header` : Custom headers to send - `header_name`:`header_value`
 
--   `container.liveness_probe.host` : Host name to which the probe request is sent
+-   `container.liveness_probe.host` : Host name to send the probe request to
 
--   `container.liveness_probe.initial_delay` : Delay (seconds) before the first probe after container start – `0` ~ `60`
+-   `container.liveness_probe.initial_delay` : Delay before the first probe after container startup (seconds) - `0` ~ `60`
 
--   `container.liveness_probe.interval_seconds` : Interval between probe executions (seconds) – `1` ~ `240`
+-   `container.liveness_probe.interval_seconds` : Probe execution interval (seconds) - `1` ~ `240`
 
 -   `container.liveness_probe.path` : Path to call for HTTP probe requests
 
--   `container.liveness_probe.port` : Container port number that receives probe requests – `1` ~ `65535`
+-   `container.liveness_probe.port` : Container port number that receives probe requests - `1` ~ `65535`
 
--   `container.liveness_probe.timeout` : Maximum response wait time (seconds) – `1` ~ `240`
+-   `container.liveness_probe.timeout` : Maximum response wait time (seconds) - `1` ~ `240`
 
--   `container.liveness_probe.transport` : Protocol used for the probe – `TCP`, `HTTP`, `HTTPS`
+-   `container.liveness_probe.transport` : Probe transport protocol - `TCP`, `HTTP`, `HTTPS`
 
 #### Volume Mount Settings (`container.volume_mounts`)
 
 -   `container.volume_mounts.target_volume_name` : Name of the volume to mount
 
--   `container.volume_mounts.path` : Path inside the container where the volume is mounted
+-   `container.volume_mounts.path` : Path inside the container where the volume will be mounted
 
 ### Ingress Settings (`ingress`)
 
--   `ingress.enable_insecure_connections` : Whether to allow unsecured connections over HTTP – `true`, `false`
+-   `ingress.enable_insecure_connections` : Whether to allow unsecured connections over HTTP - `true`, `false`
 
--   `ingress.enable_external_connections` : Whether the container app is accessible from outside – `true`, `false`
+-   `ingress.enable_external_connections` : Whether external access to the container app is allowed - `true`, `false`
 
--   `ingress.transport` : Protocol used to communicate with the container app – `auto`, `http`, `http2`, `tcp`
+-   `ingress.transport` : Protocol used to communicate with the container app - `auto`, `http`, `http2`, `tcp`
 
 #### IP Restriction Settings (`ingress.ip_security_restriction`)
 
--   `ingress.ip_security_restriction.action` : Whether to allow or deny the specified IP range – `true`, `false`
+-   `ingress.ip_security_restriction.action` : Whether to allow or deny the specified IP range - `true`, `false`
 
 -   `ingress.ip_security_restriction.ip_address_range` : IP address range to apply
 
--   `ingress.target_port` : Port number the container listens on internally
+-   `ingress.target_port` : Port number listened to inside the container
 
 -   `ingress.exposed_port` : Port number exposed externally
 
 #### Traffic Splitting Settings (`ingress.traffic_weight`)
 
--   `ingress.traffic_weight.enable_using_latest_revision` : Whether to always route traffic to the latest revision – `true`, `false`
+-   `ingress.traffic_weight.enable_using_latest_revision` : Whether to always route traffic to the latest revision - `true`, `false`
 
 -   `ingress.traffic_weight.revision_suffix` : Suffix used to distinguish revisions
 
--   `ingress.traffic_weight.percentage` : Percentage of traffic allocated to the revision
+-   `ingress.traffic_weight.percentage` : Percentage of traffic assigned to the revision
 
 ---
 
 ## References
 
--   [Azure Container Apps (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-apps/)
+-   [Azure Container Apps(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-apps/)
 -   [Terraform azurerm_container_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app)

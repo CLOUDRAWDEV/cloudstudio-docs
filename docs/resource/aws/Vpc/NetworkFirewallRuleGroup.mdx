@@ -27,32 +27,65 @@ tags: [AWS, 리소스, Vpc, NetworkFirewallRuleGroup]
 
 ### 연결 리소스
 
--   [**Network Firewall Policy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
 
 ## 리소스 설정 값
 
--   `description` : 네트워크 방화벽 규칙 그룹의 설명
--   `rule_group_type` : 규칙 그룹 유형 - `STATEFUL`,`STATELESS`
--   `generated_rules_type` : 규칙 그룹 형식 - `StandardStatefulRules`,`DomainList`,`SuricataRuleStrings`
--   `rule_evaluation_order` : `STRICT_ORDER`,`DEFAULT_ACTION_ORDER`
--   `capacity` : 수명 주기 동안 이 규칙 그룹에 포함될 것으로 예상되는 규칙의 수 - `1-30000`
--   `ip_set` : IP 세트 변수
-    -   `name` : IP 세트 변수 이름
-    -   `cidrs` : IP 세트 변수 값
--   `port_set` : 포트 변수
-    -   `name` : 포트 변수 이름
-    -   `cidrs` : 포트 변수 값
--   `stateful_rule` : 표준 상태 저장 규칙
-    -   `name` : 표준 상태 저장 규칙 이름
-    -   `protocol` : 검사할 전송 프로토콜 - `IP`,`TCP`,`UDP`,`ICMP`,`HTTP`
-    -   `source_ip_or_cidr` : 검사할 소스 IP 주소 및 주소 범위
-    -   `source_port` : 검사할 소스 포트 또는 포트 범위
-    -   `target_ip_or_cidr` : 검사할 대상 IP 주소 및 주소 범위
-    -   `target_ip_or_cidr` : 검사할 대상 IP 주소 및 주소 범위
-    -   `traffic_direction` : 검사할 트래픽 방향 - `ANY`,`FORWARD`
-    -   `action` : 패킷이 규칙 설정과 일치할 때 네트워크 방화벽이 수행할 작업 - `ALERT`,`DROP`,`PASS`,`REJECT`
--   `encryption_configuration.
-    -   `enabled_custom_configuration` : AWS 관리형 키를 사용하여 데이터를 암호화 - `false`,`true`
+#### 기본 설정
+
+-   `description` : 네트워크 방화벽 규칙 그룹의 설명 (최대 256자)
+-   `rule_group_type` : 규칙 그룹 유형 - `STATEFUL`, `STATELESS`
+-   `generated_rules_type` : 규칙 그룹 형식 - `StandardStatefulRules`, `DomainList`, `SuricataRuleStrings`
+-   `rule_evaluation_order` : 상태 저장 규칙 평가 순서 - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `capacity` : 규칙 그룹 용량 (WCU 기준) - `1` ~ `30000`
+
+#### IP 세트 (`ip_set`)
+
+-   `ip_set.cidrs` : IP 세트 변수에 사용할 CIDR 목록
+
+#### 포트 세트 (`port_set`)
+
+-   `port_set.ports` : 포트 변수 값 목록
+
+#### 도메인 리스트 규칙 (`domain_list_rule`)
+
+-   `domain_list_rule.domain_names` : 허용 또는 차단할 도메인 이름 목록
+-   `domain_list_rule.protocols` : 검사할 프로토콜 - `HTTP`, `HTTPS`
+-   `domain_list_rule.action` : 도메인 규칙 동작 - `ALLOWLIST`, `DENYLIST`
+-   `domain_list_rule.cidr_ranges` : 검사할 소스 트래픽 CIDR 범위
+
+#### Suricata 규칙 (`suricata_compatible_rule_string`)
+
+-   `suricata_compatible_rule_string` : Suricata 호환 규칙 문자열
+
+#### 상태 저장 규칙 (`stateful_rule`)
+
+-   `stateful_rule.protocol` : 검사할 전송 프로토콜
+-   `stateful_rule.source_ip_or_cidr` : 소스 IP 또는 CIDR 목록
+-   `stateful_rule.source_port` : 소스 포트 또는 포트 범위
+-   `stateful_rule.target_ip_or_cidr` : 대상 IP 또는 CIDR 목록
+-   `stateful_rule.target_port` : 대상 포트 또는 포트 범위
+-   `stateful_rule.traffic_direction` : 트래픽 방향 - `ANY`, `FORWARD`
+-   `stateful_rule.action` : 규칙과 일치 시 동작 - `ALERT`, `DROP`, `PASS`, `REJECT`
+
+#### 비상태 규칙 (`stateless_rule`)
+
+-   `stateless_rule.priority` : 규칙 우선순위
+-   `stateless_rule.protocols` : 검사할 전송 프로토콜 목록
+-   `stateless_rule.source_ip_or_cidr` : 소스 IP 또는 CIDR 목록
+-   `stateless_rule.source_port` : 소스 포트 또는 포트 범위
+-   `stateless_rule.target_ip_or_cidr` : 대상 IP 또는 CIDR 목록
+-   `stateless_rule.target_port` : 대상 포트 또는 포트 범위
+-   `stateless_rule.action` : 패킷 처리 방식 - `aws:pass`, `aws:drop`, `aws:forward_to_sfe`
+
+#### 암호화 설정 (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : AWS 관리형 키 암호화 활성화 여부 - `true`, `false`
+-   `encryption_configuration.kms_key_name` : 사용할 KMS Key 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

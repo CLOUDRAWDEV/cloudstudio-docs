@@ -5,7 +5,7 @@ tags: [Azure, Network, PrivateEndpoint]
 ---
 
 <hr />
-<br />ㅇ
+<br />
 
 ## Resource Icon
 
@@ -17,11 +17,11 @@ tags: [Azure, Network, PrivateEndpoint]
 
 ## Resource Overview
 
-A Private Endpoint is a network resource that provides **private connectivity (Private Link)** to Azure services within a Virtual Network without using a public IP address.  
-The service endpoint is exposed through a Private IP assigned to a Subnet, enabling a secure communication path that does not traverse the Internet.  
-By integrating with a Private DNS Zone, the service FQDN can be naturally resolved within the internal network.
+Private Endpoint is a network resource that provides **private connectivity (Private Link)** to Azure services within a Virtual Network without using public IP addresses.  
+Service endpoints are exposed through Private IPs assigned to a Subnet, enabling secure communication paths that do not traverse the internet.  
+By integrating with Private DNS Zones, service FQDNs can be resolved naturally within the internal network.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
@@ -31,10 +31,10 @@ By integrating with a Private DNS Zone, the service FQDN can be naturally resolv
 
 -   [**Linux App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
 -   [**Windows App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
--   [**Container Registry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
--   [**Cosmosdb Cassandra**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
--   [**Cosmosdb Gremlin**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
--   [**Cosmosdb Mongo**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbMongo)
+-   [**ContainerRegistry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
+-   [**CosmosdbCassandra**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
+-   [**CosmosdbGremlin**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
+-   [**CosmosdbMongo**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbMongo)
 -   [**Cosmosdb Sql**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbSql)
 -   [**Cosmosdb Table**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbTable)
 -   [**Mssql Server**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlServer)
@@ -43,20 +43,22 @@ By integrating with a Private DNS Zone, the service FQDN can be naturally resolv
 -   [**Redis Cache**](https://docs.cstudio.app/en/docs/resource/azure/RedisCache/)
 -   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
 
-## Resource Configuration Values
+## Resource Setting Values
+
+#### Basic Settings
 
 -   `included_subnet_name` : Name of the Subnet that contains the Private IP address assigned to the Private Endpoint
 -   `connection_name` : Name of the connection between the Private Endpoint and the resource
--   `linked_connection_resource_name` : Name of the resource to which the Private Endpoint will be connected
--   `subresource_name` : Name of the subresource to which the Private Endpoint will be connected
--   `dns_zone_group_name` : Name of the Private DNS Zone group to associate with the Private Endpoint
+-   `linked_connection_resource_name` : Name of the resource to which the Private Endpoint is connected
+-   `subresource_name` : Name of the subresource to which the Private Endpoint is connected
+-   `dns_zone_group_name` : Name of the Private DNS Zone group associated with the Private Endpoint
 -   `private_dns_zone_names` : List of Private DNS Zone names to associate with the Private Endpoint
--   `manual_connection` : Whether manual approval by the external resource owner is required - `true`, `false`
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `manual_connection` : Whether manual approval from the external resource owner is required - `true`, `false`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
 ## References
 
--   [Azure Private Endpoint Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
--   [Private Endpoint DNS Configuration (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)
+-   [Azure Private Endpoint Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
+-   [Private Endpoint DNS Configuration(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

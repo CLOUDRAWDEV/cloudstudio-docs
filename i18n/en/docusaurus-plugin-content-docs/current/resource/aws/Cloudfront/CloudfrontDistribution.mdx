@@ -1,5 +1,5 @@
 ---
-title: Cloudfront Distribution
+title: CloudfrontDistribution
 sidebar_position: 0
 tags: [AWS, Resource, Cloudfront, CloudfrontDistribution]
 ---
@@ -11,68 +11,89 @@ tags: [AWS, Resource, Cloudfront, CloudfrontDistribution]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.webp"
     }
 />
 
 ## Resource Overview
 
-Amazon CloudFront accelerates the distribution of static and dynamic web content such as .html, .css, .php, images, and media files. 
-When a user requests content, CloudFront serves it through a network of edge locations around the world, providing low latency and high performance.
+Amazon CloudFront accelerates the delivery of static and dynamic web content such as .html, .css, .php, images, and media files. When users request content, CloudFront delivers it through a global network of edge locations that provide low latency and high performance.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base/Base)
 
 ### Connected Resources
 
--   [**Cloudfront Cache Policy**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudfrontDistribution)
--   [**S3 Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
--   [**Waf Web Acl**](https://docs.cstudio.app/en/docs/resource/aws/Waf/WafWebAcl)
+-   [**CloudfrontCachePolicy**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudFrontCachePolicy)
+-   [**S3Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
+-   [**WafWebAcl**](https://docs.cstudio.app/en/docs/resource/aws/WAF/WafWebAcl)
+
+---
 
 ## Resource Setting Values
 
--   `enabled` : Whether the distribution is enabled to accept end user requests for content - `true`, `false`
--   `origin` : A unique identifier for the origin
--   `cache_policy` : Cache Policy name
-    -   `min_ttl` : Minimum amount of time (in seconds) that an object should remain in the CloudFront cache
-    -   `max_ttl` : Maximum amount of time (in seconds) that an object should remain in the CloudFront cache
-    -   `default_ttl` : Default amount of time (in seconds) that an object should remain in the CloudFront cache
-    -   `cookie_behavior` : Determines whether cookies from end-user requests are included in the cache key and automatically included in requests CloudFront sends to the origin - `whitelist`, `all`, `none`, `allExcept`
-    -   `cookies_items` : List of cookies to be passed to the origin server
-    -   `header_behavior` : Whether to cache objects based on the values of specified headers - `whitelist`, `none`
-    -   `headers_items` : List of headers to specify when caching an object
-    -   `query_string_behavior` : Whether to cache different versions of content based on query string parameter values - `whitelist`, `all`, `none`, `allExcept`
-    -   `query_strings_items` : List of query string parameters
--   `cache_behavior`
-    -   `path_pattern` : Pattern that specifies which requests you want this cache behavior to apply to
-    -   `compress` : Whether you want CloudFront to automatically compress content for web requests - `true`, `false`
-    -   `viewer_protocol_policy` : Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern - `allow-all`, `https-only`, `redirect-to-https`
-    -   `allowed_methods` : Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin - `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`, `DELETE`
-    -   `cached_methods` : Controls whether CloudFront caches the response to requests using the specified HTTP methods - `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT`, `DELETE`
-    -   `origin_name` : The origin name that you want CloudFront to route requests to when a request matches the path pattern
-    -   `linked_cache_policy_name` : The ID of the Cache Policy that is attached to the behavior
+#### Basic Settings
 
--   `restriction`
-    -   `type` : The method that you want to use to restrict distribution of your content by country - `whitelist`, `blacklist`, `none`
-    -   `locations` : The ISO 3166-1-alpha-2 codes for which you want CloudFront either to distribute your content or not distribute your content
+-   `enabled` : Whether the distribution is enabled - `true`, `false`
+-   `price_class` : Pricing class for the CloudFront distribution - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : Maximum supported HTTP version - `http1.1`, `http2`
+-   `is_ipv6_enabled` : Whether IPv6 is enabled - `true`, `false`
+-   `linked_waf_web_acl_name` : Name of the WAF Web ACL used for security protection
+-   `tag` : Tags used to categorize the resource
 
--   `viewer_certificate`
-    -   `default_certificate_enabled` : If you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution - `true`, `false`
+#### Origin Settings (`origin`)
 
--   `price_class` : The price class for Cloudfront distribution - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
--   `http_version` : The maximum HTTP version to support on the distribution - `http1.1`, `http2`
--   `is_ipv6_enabled` : Whether the IPv6 is enabled for the distribution - `true`, `false`
+-   `origin.origin_type` : Origin type - `s3`, `custom`
+-   `origin.linked_resource_name` : S3 Bucket to associate when using an S3 origin
+-   `origin.domain` : DNS domain name when using a custom origin
+-   `origin.shield_enabled` : Whether Origin Shield is enabled - `true`, `false`
+-   `origin.shield_region` : AWS region code for Origin Shield
 
--   `logging`
-    -   `logging_enabled` : Enable logging - `true`, `false`
+#### Origin Group (`origin_group`)
 
--   `linked_waf_web_acl_name` : The name of WAF WEB ACL to use when enabling security protections
+-   `origin_group.first_origin_name` : First origin name
+-   `origin_group.second_origin_name` : Second origin name
+-   `origin_group.failover_criteria` : List of HTTP status codes for failover criteria
 
-## Reference Materials
+#### Cache Behavior (`cache_behavior`)
+
+-   `cache_behavior.path_pattern` : Request path pattern to which the cache behavior applies
+-   `cache_behavior.compress` : Whether automatic compression is enabled - `true`, `false`
+-   `cache_behavior.viewer_protocol_policy` : Viewer protocol policy - `allow-all`, `https-only`, `redirect-to-https`
+-   `cache_behavior.allowed_methods` : List of HTTP methods that CloudFront processes
+-   `cache_behavior.cached_methods` : List of HTTP methods to cache
+-   `cache_behavior.origin_name` : Origin name to forward requests to
+-   `cache_behavior.linked_cache_policy_name` : Cache Policy to associate
+
+#### Distribution Restrictions (`restriction`)
+
+-   `restriction.type` : Geographic restriction type - `whitelist`, `blacklist`, `none`
+-   `restriction.locations` : List of ISO 3166-1 alpha-2 country codes
+
+#### Certificate Settings (`viewer_certificate`)
+
+-   `viewer_certificate.default_certificate_enabled` : Whether to use the default CloudFront certificate
+-   `viewer_certificate.acm_certificate_name` : Name of the ACM certificate to use
+-   `viewer_certificate.iam_certificate_id` : IAM certificate ID to use
+-   `viewer_certificate.legacy_client_support_enabled` : Whether legacy HTTPS clients are supported
+-   `viewer_certificate.minimum_protocol_version` : Minimum SSL/TLS protocol version
+
+#### Logging Settings (`logging`)
+
+-   `logging.logging_enabled` : Whether access logging is enabled - `true`, `false`
+-   `logging.logging_s3_bucket_name` : S3 Bucket used to store logs
+-   `logging.logging_file_prefix` : Log file prefix
+-   `logging.logging_include_cookies` : Whether cookies are included in logs - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+## References
 
 -   [Amazon CloudFront(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
--   [Amazon CloudFront (AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)
+-   [Amazon CloudFront Pricing(AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)
 -   [Amazon CloudFront Distribution(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)

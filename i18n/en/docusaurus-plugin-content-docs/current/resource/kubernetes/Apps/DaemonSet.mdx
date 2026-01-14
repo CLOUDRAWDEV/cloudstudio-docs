@@ -4,89 +4,53 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Apps, Daemonset]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.webp"
     }
 />
 
 ## Resource Overview
 
-A DaemonSet is a Kubernetes resource that ensures all(or some) nodes run a copy of a Pod. When a new node is added to the cluster, a Pod is automatically added to that node.
+A DaemonSet is a Kubernetes resource that ensures all (or some) nodes run a copy of a Pod. When a node is added to the cluster, a Pod is automatically added to that node.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
 -   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
 -   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
 
 ## Resource Setting Values
 
--   `service_name` : Name of the DaemonSet resource
+#### Basic Settings
 
--   `namespace` : Namespace where DaemonSet resources will be deployed
+-   `namespace` : Namespace where the DaemonSet resource will be deployed
+-   `annotations` : Metadata key-value pairs used by the Kubernetes system
+-   `labels` : User-defined labels for identifying the DaemonSet resource
+-   `template_labels` : Labels applied to the Pods that will be created
+-   `pod_security_context` : Pod-level security and permission settings
+-   `init_containers` : Definition of initialization containers executed before the main containers
+-   `containers` : Definition of containers included in the Pod
+-   `volume` : Definition of volumes used by the Pod
+-   `dns_policy` : DNS policy for the Pod
+-   `enable_service_links` : Whether to automatically inject service environment variables
+-   `host_network` : Whether to use the host network
+-   `image_pull_secrets` : List of Secrets used when pulling container images
 
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
+---
 
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
-
--   `template_labels` : Labels applied to Pods created per node
-
--   `containers` : Defines templates for containers belonging to a pod - You can set default values and apply them, and then configure detailed settings.
- 
-    -   `containers.name` : Name of the container
-
-        -   `image` : Docker image name to use
-
-        -   `args` : Commands to be executed in the container
-
-        -   `command` : Commands to be executed in the container
-
-        -   `port` : List of ports to expose in container
-
-        -   `resources` : Specifies the amount of resources in the container - Detailed settings
-
-            -   `name` : Specify minimum/maximum amount of computing resources - `Limits`, `requests`
-            -   `cpu` : Specifies the amount of cpu(m)
-            -   `memory` : Specifies the amount of memory(Mi)
-        -   `probe` : Define how to diagnose the health of a Pod - Detailed settings
-            -   `name` : Probe method selection - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-        -   `env` : Block of key-value pairs to set in container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-        -   `volume_mount` : The Pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path`
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
--   `volume` : List of volumes that containers in a Pod can mount
-    -   `name` : Volume name
-    -   `type` : Type of volume to mount - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-    -   `target_name` : Name of persistent volume claim
-    -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-    -   `read_only` : If true, mounted read-only, otherwise read/write
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the Container
-
-## Reference Materials
+## References
 
 -   [DaemonSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
 -   [DaemonSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/daemonset)

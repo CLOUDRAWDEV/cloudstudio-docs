@@ -17,41 +17,41 @@ tags: [Azure, Storage, StorageAccount]
 
 ## Resource Overview
 
-Azure Storage Account is a fundamental storage resource that provides storage services such as Blob, File, Queue, and Table within a single account.  
+Azure Storage Account is a **foundational storage resource that provides Blob, File, Queue, and Table storage services within a single account**.  
 It supports a wide range of application workloads through scalable data storage, high availability, and secure network access control.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
 -   [**Backup**](https://docs.cstudio.app/en/docs/resource/azure/RecoveryServices/Backup)
 -   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/Metric)
 -   [**Eventhub**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/Eventhub)
--   [**Private Endpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ## Resource Setting Values
 
 -   `account_kind` : Type of the Storage Account - `StorageV2`, `Storage`
--   `account_tier` : Performance tier of the Storage Account - `Standard`, `Premium`
+-   `account_tier` : Performance tier for using the Storage Account - `Standard`, `Premium`
 -   `account_replication_type` : Data replication type of the Storage Account - `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, `RAGZRS`
--   `access_tier` : Data access pattern tier - `Hot`, `Cool`
+-   `access_tier` : Data usage tier - `Hot`, `Cool`
 -   `min_tls_version` : Minimum supported TLS version for the Storage Account - `TLS1_0`, `TLS1_1`, `TLS1_2`
--   `enable_https_traffic_only` : Whether to allow access only via HTTPS - `true`, `false`
--   `tag` : Tags used to categorize the resource
+-   `enable_https_traffic_only` : Whether to allow access only through HTTPS - `true`, `false`
+-   `tag` : Tags used to categorize resources
 
 #### Networking (`networking`)
 
--   `networking.public_network_access` : Public network access policy - `All`, `Selected`, `Disabled`
--   `networking.ip_rules` : List of IP address ranges to apply network rules
+-   `networking.public_network_access` : Public Network Access policy - `All`, `Selected`, `Disabled`
+-   `networking.ip_rules` : List of IP address ranges to which network rules are applied
 -   `networking.bypass` : Traffic bypass targets - `AzureServices`, `Logging`, `Metrics`
 
 #### Storage Container (`storage_container`)
 
--   `storage_container.container_access_type` : Access level of the Storage Container - `private`, `blob`, `container`
+-   `storage_container.container_access_type` : Storage Container access level - `private`, `blob`, `container`
 
 #### Storage Queue (`storage_queue`)
 
@@ -67,8 +67,8 @@ It supports a wide range of application workloads through scalable data storage,
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure Storage Account Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-account-overview)
--   [Azure Storage Redundancy Options (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-redundancy)
--   [Azure Storage Network Security (Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-network-security)
+-   [Azure Storage Account Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-account-overview)
+-   [Azure Storage Replication Options(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-redundancy)
+-   [Azure Storage Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-network-security)

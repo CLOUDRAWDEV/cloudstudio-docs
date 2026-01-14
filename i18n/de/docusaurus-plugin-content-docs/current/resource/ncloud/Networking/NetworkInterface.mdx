@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Networking, NetworkInterface]
+sidebar_position: 2
+tags: [Ncloud, Ressource, Networking, NetworkInterface]
 ---
 
 <hr />
@@ -11,34 +11,35 @@ tags: [Ncloud, Ressourcen, Networking, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist ein Service, der Netzwerkinterfaces für Server erstellt. Server, auf denen Netzwerkinterfaces angewendet werden, können über Subnetze unabhängige Netzwerkkommunikation durchführen.
+Ein Dienst zur Erstellung von Netzwerkschnittstellen, die Servern zugewiesen werden können.  
+Server mit zugewiesener Netzwerkschnittstelle können über Subnetze unabhängig kommunizieren.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
 
 ### Verbundene Ressourcen
 
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
--   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**AccessControlGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/AccessControlGroup)
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `included_subnet_name` : Der Name des Subnetzes, in dem das Netzwerkinterface enthalten ist
--   `linked_acg_names` : Eine Liste der ACG-Namen, auf die das Netzwerkinterface angewendet werden soll
+#### Grundeinstellungen
 
+-   `included_subnet_name` : Subnet-Name der Netzwerkschnittstelle
+-   `linked_acg_names` : Liste der zugeordneten Access-Control-Groups
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

@@ -1,46 +1,61 @@
 ---
 title: Log
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Risorsa, Cloudwatch, Log]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-Con Amazon CloudWatch Logs, è possibile monitorare, archiviare e accedere ai file di log di sistema, applicazione e personalizzati da istanze Amazon Elastic Compute Cloud (Amazon EC2), AWS CloudTrail, Route 53 e altre origini.
-CloudWatch Logs centralizza i log da tutti i sistemi, le applicazioni e i servizi AWS in un unico servizio scalabile. Successivamente, è possibile visualizzare facilmente i log, cercare eventuali codici di errore o modelli, filtrare in base a specifici campi o archiviare in modo sicuro per future analisi. Utilizzando CloudWatch Logs, è possibile visualizzare tutti i log, indipendentemente dalla loro origine, come un flusso di eventi coerente ordinato cronologicamente, eseguire query e ordinamenti in base ad altre dimensioni, raggruppare per campi specifici, creare calcoli personalizzati con un potente linguaggio di query e visualizzare i dati di log.
+Amazon CloudWatch Logs consente di monitorare, archiviare e accedere ai file di log di sistema, applicazione e personalizzati provenienti da istanze Amazon Elastic Compute Cloud (Amazon EC2), AWS CloudTrail, Route 53 e altre origini. CloudWatch Logs permette di centralizzare i log di tutti i sistemi, applicazioni e servizi AWS in un unico servizio altamente scalabile. I log possono essere facilmente visualizzati, ricercati per specifici codici di errore o pattern, filtrati in base a campi specifici o archiviati in modo sicuro per analisi future. CloudWatch Logs consente inoltre di visualizzare tutti i log come un flusso di eventi unico e coerente ordinato temporalmente, di eseguire query e ordinamenti basati su diverse dimensioni, di raggruppare per campi specifici, di creare calcoli personalizzati tramite un potente linguaggio di query e di visualizzare i dati di log.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
-## Impostazioni della risorsa
+### Risorse collegate
 
--   `retention_in_days` : Periodo di conservazione dei log nel gruppo di log
--   `kms_key_name` : Nome della chiave KMS da utilizzare per criptare i dati di log
--   `log_stream_name` : Nome dello Stream di log
--   `metric_filter` : Nome del filtro delle metriche del gruppo di log, massimo 512 caratteri
-    -   `pattern` : Pattern valido del filtro CloudWatch Logs per estrarre i dati delle metriche dagli eventi di log raccolti
-    -   `metric_name` : Nome della metrica CloudWatch su cui devono essere pubblicate le informazioni di log monitorate, massimo 255 caratteri. Tutti i caratteri sono validi, tranne i due punti (:), l'asterisco (*), il simbolo del dollaro ($) e lo spazio ( )
-    -   `metric_namespace` : Namespace di destinazione per la metrica CloudWatch, massimo 255 caratteri. Tutti i caratteri sono validi, tranne i due punti (:), l'asterisco (*), il simbolo del dollaro ($) e lo spazio ( )
-    -   `metric_value` : Valore da pubblicare sulla metrica. I valori validi per le metriche sono numeri in virgola mobile (1, 99.9, ecc.), identificatori di campo numerico (1 USD, 2 USD, ecc.) o identificatori di campo denominati (es. $requestSize nei pattern di filtro separati da simboli o $.status nei pattern di filtro basati su JSON - i caratteri alfanumerici e/o l'underscore (_) sono validi dopo il simbolo del dollaro ($) o il simbolo del dollaro seguito da un punto ($.))
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**FlowLog**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/FlowLog)
 
 ---
 
-## Materiale di riferimento
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `retention_in_days` : Periodo (in giorni) di conservazione dei log nel log group
+-   `kms_key_name` : Nome della chiave KMS utilizzata per crittografare i dati di log
+-   `log_stream_names` : Elenco dei nomi degli stream di log da creare nel log group
+
+#### Impostazioni del filtro metrico (`metric_filter`)
+
+-   `metric_filter.pattern` : Pattern di filtro di CloudWatch Logs per estrarre dati metrici dagli eventi di log
+-   `metric_filter.metric_name` : Nome della metrica CloudWatch su cui pubblicare il valore estratto
+-   `metric_filter.metric_namespace` : Namespace in cui verrà pubblicata la metrica CloudWatch
+-   `metric_filter.metric_value` : Valore da pubblicare nella metrica
+    -   Supporta valori numerici, identificatori di campi numerici e riferimenti a campi come `$requestSize`, `$.status`
+
+#### Impostazioni dei tag (`tag`)
+
+-   `tag` : Elenco dei tag per classificare la risorsa
+
+---
+
+## Riferimenti
 
 -   [Amazon CloudWatch Log(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)
--   [Amazon CloudWatch 가격(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Prezzi di Amazon CloudWatch(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
 -   [Amazon CloudWatch Log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)

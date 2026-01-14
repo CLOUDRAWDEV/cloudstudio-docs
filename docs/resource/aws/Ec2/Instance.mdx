@@ -25,21 +25,39 @@ Amazon Elastic Compute Cloud(Amazon EC2)는 Amazon Web Services(AWS) 클라우�
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
+### 연결 리소스
+
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/aws/Ec2/NetworkInterface)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+-   [**LbTargetGroup**](https://docs.cstudio.app/docs/resource/aws/Lb/LbTargetGroup)
+
 ## 리소스 설정 값
+
+#### 기본 설정
 
 -   `ami` : 인스턴스를 실행하기 위해 필요한 정보를 갖고 있는 이미지(AWS에서 제공, 지원)
 -   `instance_type` : EC2 인스턴스의 type
--   `included_subnet_name` : EC2 인스턴스를 배포할 Subnet의 이름
--   `security_group_name` : EC2 인스턴스의 NIC에 지정할 Security Group의 이름
--   `eip_enable` : EC2 인스턴스에 EIP를 사용할지 말지 설정 - `true`, `false`
--   `eip_name` : EIP 이름
+-   `key_pair_name` : EC2 인스턴스에 사용할 Key Pair 이름
+-   `linked_network_interface_names` : EC2 인스턴스에 사용할 네트워크 인터페이스 이름 목록
 -   `http_endpoint` : 메타데이터 서비스를 사용할 수 있는지 설정 - `enabled`, `disabled`
 -   `http_tokens` : 메타데이터 서비스에 세션 토큰이 필요한지 설정 - `required`, `optional`
--   `root_volume_type` : Root Volume의 유형 - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
--   `root_volume_size` : Root Volume의 Size (GiB)
--   `ebs_block_device`
-    -   `volume_size` : EBS Volume의 Size (GiB)
-    -   `volume_type` : EBS Volume의 유형
+-   `cloudinit_config` : 서버가 생성될 때 자동으로 실행할 스크립트 내용
+
+#### 루트 볼륨 (`root_volume`)
+
+-   `root_volume.volume_type` : Root Volume의 유형 - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Root Volume의 Size (GiB)
+-   `root_volume.enabled_volume_encryption` : Root Volume의 암호화 여부 - `true`, `false`
+
+#### EBS 블록 디바이스 (`ebs_block_device`)
+
+-   `ebs_block_device.volume_type` : EBS Volume의 유형 - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `ebs_block_device.volume_size` : EBS Volume의 Size (GiB)
+-   `ebs_block_device.enabled_volume_encryption` : EBS Volume의 암호화 여부 - `true`, `false`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

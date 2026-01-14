@@ -7,52 +7,75 @@ tags: [AWS, Risorsa, Efs]
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/efs-efs.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/efs-efs.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-È possibile creare un file system, montarlo su un'istanza EC2, leggere i dati dall'istanza EC2 e scrivere sul file system o condividere file.
+Consente di creare un file system, montarlo su istanze EC2, leggere dati dalle istanze EC2, scrivere dati nel file system e condividere file.
+
 ## Risorse correlate
 
-### Risorse superiori
+### Risorse principali
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
 
+## Valori di configurazione della risorsa
 
-## Impostazioni della risorsa
+#### Impostazioni di base
 
--   `create_token` : Nome unico utilizzato come riferimento quando si crea un Elastic File System per garantire la creazione del file system
+-   `creation_token` : Nome univoco utilizzato come riferimento durante la creazione del file system Elastic per garantire l’idempotenza
 -   `availability_zone_name` : Zona di disponibilità AWS in cui verrà creato il file system
--   `enabled_encrypted` : Se la crittografia del file system è abilitata o meno - `false`,`true`
--   `throughput_mode` : Modalità di throughput del file system - `provisioned`,`elastic`, `bursting`
--   `provisioned_throughput_in_mibps` : Throughput (in MiB/s) da allocare per il file system - `1-3414`
--   `performance_mode` : Modalità di performance del file system - `generalPurpose`, `maxIO`
--   `lifecycle_policy` : Gestione del ciclo di vita, riducendo automaticamente i costi in base ai cambiamenti nei modelli di accesso
-    -   `transition_to_ia` : Tempo necessario per spostare i file nella classe di archiviazione IA - `1`,`7`,`14`,`30`,`60`
-    -   `ransition_to_primary_storage_class` : Politica utilizzata per spostare i file dalla classe di archiviazione di accesso alla classe di archiviazione primaria - `None`,`FirstAccess`
--   `mount_target_subnets` : Elenco delle subnet in cui aggiungere i target di montaggio
--   `file_system_policy` : Politica del file system in formato JSON per il file system EFS
--   `enable_backup_policy` : Se la politica di backup è abilitata o meno - `false`,`true`
--   `enable_replica` : Se la replica deve essere creata o meno - `false`,`true`
--   `access_point` : Punto di accesso per il file system EFS che rende più facile gestire l'accesso dell'applicazione a un set di dati condiviso
-    -   `root_directory_path` : Percorso nel file system EFS da esporre come Root Directory per i client NFS che accedono al file system tramite il punto di accesso
-    -   `posix_user_uid` : ID utente POSIX utilizzato per tutte le operazioni sul file system tramite questo punto di accesso - inferiore a `4294967295`
-    -   `posix_user_gid` : ID gruppo POSIX utilizzato per tutte le operazioni sul file system tramite questo punto di accesso - inferiore a `4294967295`
-    -   `posix_user_secondary_gids` : ID gruppi POSIX secondari utilizzati per tutte le operazioni sul file system tramite questo punto di accesso
-    -   `root_owner_uid` : ID utente POSIX da applicare alla Root Directory - inferiore a `4294967295`
-    -   `root_owner_gid` : ID gruppo POSIX da applicare alla Root Directory - inferiore a `4294967295`
-    -   `root_permissions` : Permessi POSIX applicabili alla Root Directoryin formato ottale che rappresentano i bit di modalità del file
+-   `enable_encrypted` : Abilitazione della crittografia del file system - `true`, `false`
+-   `throughput_mode` : Modalità di throughput del file system - `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : Throughput da allocare al file system (in MiB/s) - `1` ~ `3414`
+-   `performance_mode` : Modalità di prestazioni del file system - `generalPurpose`, `maxIO`
 
+#### Politica del ciclo di vita (`lifecycle_policy`)
 
+-   `lifecycle_policy.transition_to_ia` : Tempo necessario per spostare i file nella classe di storage IA - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : Politica per riportare i file nello storage primario - `None`, `firstAccess`
 
-## Materiale di riferimento
+#### Target di montaggio (`mount_target_subnets`)
+
+-   `mount_target_subnets` : Elenco delle subnet a cui aggiungere i target di montaggio
+
+#### Politica del file system
+
+-   `file_system_policy` : Politica del file system EFS in formato JSON
+
+#### Impostazioni di backup e replica
+
+-   `enable_backup_policy` : Abilitazione della politica di backup - `true`, `false`
+-   `enable_replica` : Abilitazione della creazione della replica - `true`, `false`
+
+#### Impostazioni di replica (`replication_configuration`)
+
+-   `replication_configuration.replication_region` : Regione AWS in cui creare la replica
+-   `replication_configuration.replication_region_availability_zone_name` : Zona di disponibilità in cui creare la replica
+-   `replication_configuration.kms_key_name` : Nome della chiave KMS da utilizzare per la replica
+
+#### Access point (`access_point`)
+
+-   `access_point.root_directory_path` : Percorso del file system esposto come directory root ai client NFS
+-   `access_point.posix_user_uid` : ID utente POSIX applicato quando si utilizza l’access point - `0` ~ `4294967295`
+-   `access_point.posix_user_gid` : ID gruppo POSIX applicato quando si utilizza l’access point - `0` ~ `4294967295`
+-   `access_point.posix_user_secondary_gids` : Elenco degli ID gruppo POSIX secondari
+-   `access_point.root_owner_uid` : ID utente POSIX applicato alla directory root - `0` ~ `4294967295`
+-   `access_point.root_owner_gid` : ID gruppo POSIX applicato alla directory root - `0` ~ `4294967295`
+-   `access_point.root_permissions` : Permessi POSIX (ottali) applicati alla directory root
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## Riferimenti
 
 -   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
 -   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

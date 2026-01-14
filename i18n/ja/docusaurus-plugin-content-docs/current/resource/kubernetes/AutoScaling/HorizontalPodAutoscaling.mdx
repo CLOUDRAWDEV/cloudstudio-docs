@@ -1,7 +1,7 @@
 ---
-title: HorizontalPodAutoscaling
+title: HorizontalPodAutoscaler
 sidebar_position: 0
-tags: [Kubernetes, リソース, AutoScaling, HorizontalPodAutoscaling]
+tags: [Kubernetes, リソース, AutoScaling, HorizontalPodAutoscaler]
 ---
 
 <hr />
@@ -11,40 +11,36 @@ tags: [Kubernetes, リソース, AutoScaling, HorizontalPodAutoscaling]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaling.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaler.webp"
     }
 />
 
 ## リソース概要
 
-観察された CPU 使用率に基づいて Deployment、Replicaset、StatefulSet のポッド数を自動的に拡張する kubernetes リソースです。
+観測された CPU 使用率を基準として、Deployment、ReplicaSet、StatefulSet の Pod 数を自動的にスケーリングする Kubernetes リソース。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
--   [**Deployment**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/Deployment)
--   [**StatefulSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
 
 ## リソース設定値
 
--   `service_name` : HPA リソース名
--   `namespace` : HPA リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `min_replicas` : HPA で設定できる Pod の数の最小値 - 基本値は 1
--   `max_replicas` : HPA で設定できる Pod の数の最大値
--   `target_cpu_utilization_percentage` : Pod に対する目標平均 CPU 使用率(リクエストされた CPU の割合で表示)
--   `scale_target_ref` : 拡張されたリソースへの参照
-    -   `name` : リソースの名前
-    -   `kind` : リソースの種類 - `Deployment`, `StatefulSet`
+#### 基本設定
 
----
+-   `namespace` : HPA リソースをデプロイするネームスペース
+-   `annotations` : Kubernetes システムメタデータ key-value
+-   `labels` : HPA リソース識別用ラベル
+-   `min_replicas` : 自動スケーリング時の最小 Pod 数
+-   `max_replicas` : 自動スケーリング時の最大 Pod 数
+-   `target_cpu_utilization_percentage` : Pod 平均 CPU 使用率目標値
+-   `scale_target_ref` : スケーリング対象コントローラ参照（Deployment, StatefulSet）
 
 ## 参考資料
 

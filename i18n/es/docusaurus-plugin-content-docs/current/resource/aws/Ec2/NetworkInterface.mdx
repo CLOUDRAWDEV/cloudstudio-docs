@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [AWS, recurso, Ec2, NetworkInterface]
+sidebar_position: 5
+tags: [AWS, Recurso, Ec2, NetworkInterface]
 ---
 
 <hr />
@@ -11,7 +11,7 @@ tags: [AWS, recurso, Ec2, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
@@ -21,23 +21,32 @@ Componente lógico de red que representa una tarjeta de red virtual dentro de un
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
 
-### Recurso conectado
+### Recursos conectados
 
--   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**Eip**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
 
 ## Valores de configuración del recurso
 
--   `private_ips` : Lista de direcciones IP privadas  
--   `linked_security_group_names` : Nombres de los Security Groups a usar con la interfaz de red  
--   `linked_eip_names` : Nombre del Elastic IP a utilizar
+#### Configuración básica
+
+-   `included_subnet_name` : Nombre del Subnet donde se encuentra la interfaz de red
+-   `private_ips` : Lista de direcciones IP privadas
+-   `linked_security_group_names` : Nombres de los Security Groups utilizados por la interfaz de red
+-   `linked_eip_names` : Nombres de las Elastic Ip a utilizar
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
 
 ---
 
-## Documentación de referencia
+## Referencias
 
 -   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
 -   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

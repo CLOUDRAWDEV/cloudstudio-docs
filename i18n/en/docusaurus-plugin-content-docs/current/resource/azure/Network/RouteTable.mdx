@@ -17,29 +17,29 @@ tags: [Azure, Network, RouteTable]
 
 ## Resource Overview
 
-A Route Table is an Azure network resource that is applied to Subnets within a Virtual Network to **customize and control network traffic routing**.  
-In addition to the default system routes, you can explicitly define traffic flows to destinations such as virtual appliances, the Internet, or gateways.
+Route Table is an Azure network resource applied to Subnets within a Virtual Network to **control network traffic routing using user-defined rules**.  
+In addition to default system routing, traffic flows to virtual appliances, the internet, or gateways can be explicitly defined.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `enable_bgp_route_propagation` : Whether to enable gateway route propagation - `true`, `false`
 -   `linked_subnet_names` : List of Subnet names to associate with the Route Table
--   `tag` : Tags used to categorize the resource - up to 512 characters, `key`:`value`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
-#### Route Configuration (`route`)
+#### Route Settings (`route`)
 
--   `route.route_address_prefix` : IP address prefix (CIDR) that represents the route
--   `route.next_hop_type` : Type of the next hop
+-   `route.route_address_prefix` : IP address prefix representing the route (CIDR)
+-   `route.next_hop_type` : Next hop type
     -   `VirtualNetworkGateway`
     -   `VnetLocal`
     -   `Internet`
@@ -50,4 +50,4 @@ In addition to the default system routes, you can explicitly define traffic flow
 
 ## References
 
--   [Azure Route Table Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-udr-overview)
+-   [Azure Route Table Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-udr-overview)

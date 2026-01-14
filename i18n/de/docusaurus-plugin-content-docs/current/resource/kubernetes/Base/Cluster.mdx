@@ -1,46 +1,52 @@
 ---
 title: Cluster
 sidebar_position: 0
-tags: [Kubernetes, Ressourcen, Base, Cluster]
+tags: [Kubernetes, Ressource, Base, Cluster]
 ---
-
 
 <hr />
 <br />
-
 
 ## Ressourcen-Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Wählen Sie den Cluster aus, der mit den Benutzeranmeldeinformationen verbunden ist.
+Wählen Sie einen Cluster aus, der mit den Benutzer-Credentials verknüpft ist.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Base**](https://docs.cstudio.app/docs/resource/kubernetes/Base)
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Base)
 
-### Verbundene Ressourcen
+### Untergeordnete Ressourcen
 
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/de/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/de/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/de/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/de/docs/resource/kubernetes/Storage/StorageClass)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `target_cluster` : Wählen Sie den zu verwendenden Cluster aus
--   `Token` : Token für die Verbindung mit dem Ncloud Kubernetes Service - Nur für den `Ncloud Kubernetes Service` verwenden
+#### Grundeinstellungen
 
-
-
-
+-   `target_cluster` : Auswahl des zu verbindenden Ncloud-Kubernetes-Clusters
+-   `token` : Authentifizierungs-Token für die Verbindung zum Ncloud Kubernetes Service
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
-
+-   [Übersicht über Kubernetes-Cluster(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Kubernetes-Authentifizierung(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [kubectl-Cluster-Konfiguration(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [kubectl-Benutzerauthentifizierung konfigurieren(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

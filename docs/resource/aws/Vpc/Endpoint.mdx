@@ -23,22 +23,44 @@ tags: [AWS, 리소스, Vpc, Endpoint]
 
 ### 상위 리소스
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
 
-### 하위 리소스
+### 연결 리소스
 
--   [**Endpoint Service**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
 
 ## 리소스 설정 값
 
--   `service_range` : Endpoint 서비스를 사용할 서비스의 범주 - `awsService`,`endpointService`
--   `aws_service_name` : Endpoint 서비스를 사용할 AWS 서비스의 이름
--   `vpc_endpoint_type` : Endpoint 서비스를 사용할 다른 endpoint 서비스의 이름 - `gateway`, `interface`, `gatewayloadbalancer`
--   `included_vpc_name` : 엔드포인트를 생성할 VPC 이름
--   `route_table_names` : endpoin와 연결할 하나 이상의 경로 테이블 ID
--   `policy_access` : 서비스 액세스를 제어하는 endpoint의 연결할 정책 액세스 범위 - `Full`, `Custom`
+#### 기본 설정
+
+-   `service_range` : Endpoint 서비스를 사용할 서비스 범주 - `awsService`, `endpointService`
+-   `aws_service_name` : Endpoint 서비스를 사용할 AWS 서비스 이름
+-   `vpc_endpoint_type` : Endpoint 유형 - `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Endpoint를 생성할 VPC 이름
+-   `enabled_private_dns` : 프라이빗 DNS 활성화 여부 - `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : 인바운드 요청에 대해 프라이빗 DNS만 활성화 여부 - `true`, `false`
+-   `dns_record_ip_type` : DNS 레코드 IP 유형 - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : Endpoint IP 주소 유형 - `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Endpoint에 연결할 정책 접근 범위 - `Full`, `Custom`
+-   `custom_policy` : 서비스 접근을 제어하는 커스텀 정책
+
+#### Endpoint Service 설정 (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Endpoint Service ARN 직접 입력 여부 - `true`, `false`
+-   `endpoint_service.service_name` : Endpoint Service 이름
+-   `endpoint_service.linked_endpoint_service_name` : 연결된 Endpoint Service 이름
+
+#### 네트워크 설정
+
+-   `linked_security_group_names` : Endpoint에 연결할 Security Group 목록
+-   `linked_subnet_names` : 네트워크 인터페이스를 생성할 Subnet 목록
+-   `route_table_names` : Endpoint와 연결할 Route Table 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Nas Volume
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Storage, NasVolume]
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Ressource, Storage, NasVolume]
 ---
 
 <hr />
@@ -11,23 +11,40 @@ tags: [Ncloud, Ressourcen, Storage, NasVolume]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist ein Speicherdienst, bei dem mehrere Server über ein Netzwerk verbunden werden, um Daten zu teilen. Es ist ideal für Szenarien, in denen mehrere Benutzer Daten über das Netzwerk gemeinsam nutzen müssen.
+Ein netzwerkbasierter Speicherdienst, der mehreren Benutzern und Servern das gemeinsame Nutzen von Daten ermöglicht.  
+Geeignet für Szenarien, in denen mehrere Nutzer gleichzeitig auf denselben Speicher zugreifen müssen.
 
-## Ressourcen-Einstellwerte
+## Zugehörige Ressourcen
 
--   `volume_name_postfix` : Name des NAS-Volumes, alphanumerisch, 3 bis 20 Zeichen
--   `volume_size` : Volumengröße (in 100 GB-Schritten), im Bereich von 500 bis 10,000
--   `volume_allotment_protocol_type` : Protokolltyp, 마Server, auf dem das Volume gemountet werden kann: NFS-Linux/CIFS-Windows - `NFS`, `CIFS`
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `volume_name_postfix` : Suffix des NAS-Volume-Namens (alphanumerisch, 3–20 Zeichen)
+-   `volume_size` : Volume-Größe (in 100-GB-Einheiten) – `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protokolltyp – `NFS`, `CIFS`
+-   `cifs_user_name` : Benutzer-ID für CIFS-Authentifizierung
+-   `cifs_user_password` : Passwort für CIFS-Authentifizierung
+-   `linked_instances` : Liste der Serverinstanzen, die mit dem NAS-Volume verbunden werden
+-   `is_encrypted` : Aktivierung der volumenbasierten AES-256-Verschlüsselung
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
--   [ncloud_nas_volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

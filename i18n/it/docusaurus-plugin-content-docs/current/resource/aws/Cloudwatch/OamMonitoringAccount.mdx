@@ -1,50 +1,51 @@
 ---
 title: OamMonitoringAccount
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, Risorsa, Cloudwatch, OamMonitoringAccount]
 ---
 
 <hr />
 <br />
 
-## Icona Risorsa
+## Icona della risorsa
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.webp"
     }
 />
 
 ## Panoramica della risorsa
 
-AWS CloudWatch OAM Monitoring Accounts è un servizio che consente di configurare un account di monitoraggio centrale per monitorare le applicazioni di più account.
+AWS CloudWatch OAM Monitoring Account è un servizio che consente di configurare un account di monitoraggio centrale per osservare le applicazioni distribuite su più account.
 
 ## Risorse correlate
 
-### Risorse superiori
+### Risorsa padre
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
 ### Risorse collegate
 
--   [**Oam Source Account**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/OamSourceAccount)
-
-## Impostazioni della risorsa
-
--   `oam_source_accounts` : Account, percorso dell'organizzazione o ID dell'organizzazione degli account con cui condividere i dati di monitoraggio
--   `resource_types` : Tipo di dati che si desidera condividere
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
-
-
+-   [**OamSourceAccount**](https://docs.cstudio.app/it/docs/resource/aws/CloudWatch/OamSourceAccount)
 
 ---
 
-## Materiale di riferimento
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `oam_source_accounts` : Elenco degli account sorgente che condividono dati con l’account di monitoraggio (ID account, percorso organizzativo o ID organizzazione)
+-   `resource_types` : Tipologie di dati condivisi dagli account sorgente - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+
+#### Impostazioni dei tag
+
+-   `tag` : Elenco dei tag per classificare la risorsa
+
+---
+
+## Riferimenti
 
 -   [Amazon CloudWatch Oam Monitoring Account(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
 -   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
 -   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)
-

@@ -19,11 +19,7 @@ AWS Bedrock 에이전트가 실행할 수 있는 특정 작업을 정의하고 �
 
 ### 상위 리소스
 
--   [**BedrockAgent**](https://docs.cstudio.app/docs/resource/aws/Bedrock/BedrockAgent)
-
-### 연결 리소스
-
--   [**AWS Lambda Function**](https://docs.cstudio.app/docs/resource/aws/Compute/Lambda)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ---
 
@@ -31,18 +27,20 @@ AWS Bedrock 에이전트가 실행할 수 있는 특정 작업을 정의하고 �
 
 #### 기본 설정
 
--   `target_bedrock_agent` : 액션 그룹이 연결될 대상 Bedrock 에이전트 지정
--   `enable_action_group_state` : Bedrock Action Group의 상태 유지 기능 활성화 여부 - `ENABLED`, `DISABLED`
--   `custom_control_method` : 사용자 정의 제어 방식 - `custom_control`, `lambda_function`
--   `target_lambda_function` : 액션 실행 시 호출할 AWS Lambda 함수 지정
+-   `target_bedrock_agent` : 액션 그룹이 연결될 대상 Bedrock 에이전트
+-   `enable_action_group_state` : Action Group 상태 유지 기능 활성화 여부 - `ENABLED`, `DISABLED`
+-   `custom_control_method` : 에이전트 동작 제어 방식 - `custom_control`, `lambda_function`
+-   `target_lambda_function` : 액션 실행 시 호출할 AWS Lambda 함수
 
 #### 함수 정의 (`functions`)
 
--   `functions.description` : 해당 함수가 수행하는 작업의 목적이나 기능 (최대 5000자)
--   `functions.parameters` : 함수 실행에 필요한 입력값 정의
-    -   `parameters.type` : 매개변수의 데이터 유형 - `string`, `number`, `integer`, `boolean`, `array`
-    -   `parameters.description` : 매개변수의 의미나 용도
-    -   `parameters.required` : 필수 여부 - `true`, `false`
+-   `functions.description` : 함수가 수행하는 작업의 목적 또는 기능 설명 (최대 5000자)
+
+##### 함수 매개변수 (`functions.parameters`)
+
+-   `functions.parameters.type` : 매개변수 데이터 유형 - `string`, `number`, `integer`, `boolean`, `array`
+-   `functions.parameters.description` : 매개변수의 의미 또는 용도
+-   `functions.parameters.required` : 필수 입력값 여부 - `true`, `false`
 
 ---
 

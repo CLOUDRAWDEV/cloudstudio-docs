@@ -27,22 +27,36 @@ Amazon Simple Storage Service(Amazon S3)는 업계 최고의 확장성, 데이�
 
 ### 연결 리소스
 
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudFrontDistribution)
+-   [**CloudTrail**](https://docs.cstudio.app/docs/resource/aws/CloudTrail/)
+-   [**Config**](https://docs.cstudio.app/docs/resource/aws/Config/)
+-   [**FlowLog**](https://docs.cstudio.app/docs/resource/aws/Vpc/FlowLog)
+
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `versioning_status` : 버킷의 버전 관리 상태 - `Enabled`, `Suspended`
+-   `enabled_logging` : 로깅 활성화 여부 - `true`, `false`
 -   `logging_target_prefix` : 모든 로그 개체 키에 대한 접두사
--   `sse_algorithm` : 사용할 서버 측 암호화 알고리즘 - `aws:kms`, `AES256
--   `kms_key_name` : SSE-KMS 암호화에 사용되는 AWS KMS 마스터 키 이름
--   `public_access_block` : S3 Public Access Block 이름
+-   `sse_algorithm` : 서버 측 암호화 알고리즘 - `aws:kms`, `AES256`
+-   `kms_key_name` : SSE-KMS 암호화에 사용할 KMS 키 이름
 
-    -   `block_public_acls` : Amazon S3가 버킷에 대한 퍼블릭 ACL을 차단해야 하는지 여부 - `true`, `false`
-    -   `block_public_policy` : Amazon S3가 이 버킷에 대한 퍼블릭 버킷 정책을 차단해야 하는지 여부 - `true`, `false`
-    -   `ignore_public_acls` : Amazon S3가 이 버킷에 대한 퍼블릭 ACL을 무시해야 하는지 여부 - `true`, `false`
-    -   `restrict_public_buckets` : Amazon S3가 이 버킷에 대한 퍼블릭 버킷 정책을 제한해야 하는지 여부 - `true`, `false`
+#### 퍼블릭 액세스 차단 (`public_access_block`)
 
--   `ownership_control`
-    -   `acl_enabled` : S3 버킷에 작성한 객체의 소유권 및 ACL의 사용 활성화 - `true`, `false`
-    -   `object_ownership` : S3 버킷에 작성한 객체 소유권 방식 - `BucketOwnerEnforced`, `BucketOwnerPreferred`, `ObjectWriter`
+-   `public_access_block.block_public_acls` : 퍼블릭 ACL 차단 여부 - `true`, `false`
+-   `public_access_block.block_public_policy` : 퍼블릭 버킷 정책 차단 여부 - `true`, `false`
+-   `public_access_block.ignore_public_acls` : 퍼블릭 ACL 무시 여부 - `true`, `false`
+-   `public_access_block.restrict_public_buckets` : 퍼블릭 버킷 정책 제한 여부 - `true`, `false`
+
+#### 객체 소유권 설정 (`ownership_control`)
+
+-   `ownership_control.acl_enabled` : 객체 ACL 사용 여부 - `true`, `false`
+-   `ownership_control.object_ownership` : 객체 소유권 방식 - `BucketOwnerEnforced`, `BucketOwnerPreferred`, `ObjectWriter`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

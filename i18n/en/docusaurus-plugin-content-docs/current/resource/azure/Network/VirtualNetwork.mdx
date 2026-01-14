@@ -17,33 +17,33 @@ tags: [Azure, Network, VirtualNetwork, VNet]
 
 ## Resource Overview
 
-A Virtual Network is a **virtual network resource** used to enable communication between Azure resources and to configure connectivity with the Internet or on-premises networks.  
-By defining subnets, security policies, and peering based on an IP address space (Address Space), you can design the network architecture of the Azure environment.
+Virtual Network is a **virtual network resource** that enables communication between Azure resources and provides connectivity to the internet or on-premises networks.  
+Based on an IP address space, it allows defining subnets, security policies, and peering to structure the Azure network environment.
 
-## Related Resources
+## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Child Resources
 
--   [**Linux Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
--   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
--   [**Windows Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
--   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**LinuxVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**WindowsVirtualMachineScaleSet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
--   [**Private Dns Resolver**](https://docs.cstudio.app/en/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+-   [**PrivateDnsResolver**](https://docs.cstudio.app/en/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
 
 ### Connected Resources
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
 
-## Resource Configuration Values
+## Resource Setting Values
 
 -   `vnet_address_space` : IP address space used by the Virtual Network
 
-    -   One or more addresses can be specified in CIDR format
+    -   One or more CIDR-formatted address ranges can be specified
 
 -   `enable_ddos_protection` : Whether to apply a DDoS Protection Plan to the Virtual Network
     -   `true`, `false`
@@ -51,24 +51,24 @@ By defining subnets, security policies, and peering based on an IP address space
 
 #### VNet Peering (`peering`)
 
-Defines connection settings with other Virtual Networks.
+Defines connectivity settings with other Virtual Networks.
 
--   `peering.linked_vnet_name` : Name of the target Virtual Network to connect to (read-only)
+-   `peering.linked_vnet_name` : Name of the target Virtual Network (read-only)
 -   `peering.allow_access_to_remote_vnet` : Whether to allow access to the remote Virtual Network
--   `peering.allow_receive_forwarded_traffic` : Whether to allow receiving forwarded traffic
+-   `peering.allow_receive_forwarded_traffic` : Whether to allow forwarded traffic
 -   `peering.allow_forward_traffic_to_remote_vnet` : Whether to allow forwarding traffic to the remote Virtual Network
--   `peering.allow_use_remote_gateway` : Whether to use the gateway of the remote Virtual Network
-    -   Value for each option: `true`, `false`
+-   `peering.allow_use_remote_gateway` : Whether to use the remote Virtual Network gateway
+    -   Each value: `true`, `false`
 
 #### Tags
 
--   `tag` : Tags used to categorize the resource
-    -   Up to 512 characters, in `key`:`value` format
+-   `tag` : Tags used to categorize resources
+    -   Maximum 512 characters, `key`:`value` format
 
 ---
 
 ## References
 
--   [Azure Virtual Network Overview (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
--   [Virtual Network Address Space (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-addresses)
--   [Virtual Network Peering (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-peering-overview)
+-   [Azure Virtual Network Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
+-   [Virtual Network Address Space(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-addresses)
+-   [Virtual Network Peering(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-peering-overview)

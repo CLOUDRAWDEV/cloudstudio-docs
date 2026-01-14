@@ -1,7 +1,7 @@
 ---
-title: Vpc Peering
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Network, VpcPeering]
+title: VpcPeering
+sidebar_position: 8
+tags: [Ncloud, Ressource, Network, VpcPeering]
 ---
 
 <hr />
@@ -11,32 +11,34 @@ tags: [Ncloud, Ressourcen, Network, VpcPeering]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Dies ist eine Ressource zur Einrichtung einer VPC-Peering-Verbindung für die Kommunikation zwischen VPCs.
+Eine Ressource zur Einrichtung von VPC-Peering für die Kommunikation zwischen verschiedenen VPCs.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
 
 ### Verbundene Ressourcen
 
--   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-## Ressourcen-Einstellwerte
+## Ressourcen-Einstellungswerte
 
--   `linked_vpc_name_01` : Name der anfragenden VPC
--   `linked_vpc_name_02` : Name der empfangenden VPC
+#### Grundeinstellungen
+
+-   `linked_vpc_name_01` : Name des anfragenden VPC (schreibgeschützt)
+-   `linked_vpc_name_02` : Name des empfangenden VPC (schreibgeschützt)
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
--   [VPC Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
--   [ncloud_vpc_peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)
+-   [Vpc Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
+-   [Vpc Peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)

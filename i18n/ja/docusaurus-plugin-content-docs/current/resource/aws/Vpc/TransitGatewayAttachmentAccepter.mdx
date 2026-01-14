@@ -1,6 +1,6 @@
 ---
 title: TransitGatewayAttachmentAccepter
-sidebar_position: 0
+sidebar_position: 17
 tags: [AWS, リソース, VPC, TransitGatewayAttachmentAccepter]
 ---
 
@@ -11,13 +11,13 @@ tags: [AWS, リソース, VPC, TransitGatewayAttachmentAccepter]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.webp"
     }
 />
 
 ## リソース概要
 
-他のアカウントのリソース共有を許可するかどうかを決定するリソース
+他アカウントの Resource 共有に対する許可可否を決定する Resource。
 
 ## 関連リソース
 
@@ -31,12 +31,19 @@ tags: [AWS, リソース, VPC, TransitGatewayAttachmentAccepter]
 
 ## リソース設定値
 
--   `is_manual` : 接続する Transit gateway Attachment ID を直接入力するかどうかの可否 - `false`,`true`
--   `linked_transit_gateway_attachment_name` : 共有を許可する他の Transit Gateway Attachment の名前
+#### 基本設定
+
+-   `is_manual` : Transit Gateway Attachment ID を直接入力するか 여부 - `true`, `false`
+-   `transit_gateway_attachment_id` : 共有を許可する Transit Gateway Attachment ID
+-   `linked_transit_gateway_attachment_name` : 共有を許可する Transit Gateway Attachment 名
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
 -   [TransitGatewayAttachmentAccepter(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
 -   [TransitGatewayAttachmentAccepter(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

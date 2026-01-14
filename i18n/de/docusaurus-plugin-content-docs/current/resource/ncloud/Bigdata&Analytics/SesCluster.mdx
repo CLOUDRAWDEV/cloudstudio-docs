@@ -1,7 +1,7 @@
 ---
 title: SesCluster
-sidebar_position: 0
-tags: [Ncloud, Ressourcen, Bigdata&Analytics, SesCluster]
+sidebar_position: 2
+tags: [Ncloud, Ressource, Bigdata&Analytics, SesCluster]
 ---
 
 <hr />
@@ -11,46 +11,58 @@ tags: [Ncloud, Ressourcen, Bigdata&Analytics, SesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.webp"
     }
 />
 
 ## Ressourcenübersicht
 
-Es ist eine Ressource, die eine bequeme Verwaltung von Elasticsearch- und OpenSearch-Clustern ermöglicht und es Ihnen erlaubt, den Cluster mit verschiedenen Servertypen und Speichergrößen zu konfigurieren, bereitzustellen, zu betreiben und zu skalieren.
+Eine Ressource, die eine komfortable Umgebung zur Verwaltung von Elasticsearch- und OpenSearch-Clustern bereitstellt und die einfache Bereitstellung, den Betrieb und die Skalierung durch Auswahl verschiedener Servertypen und Speichergrößen ermöglicht.
 
-## Verwandte Ressourcen
+## Zugehörige Ressourcen
 
 ### Übergeordnete Ressourcen
 
--   [**VPC**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
 
-### Verbundene Ressourcen
+## Ressourcen-Einstellungswerte
 
+#### Grundeinstellungen
 
-## Ressourcen-Einstellwerte
+-   `included_vpc_name` : Name des VPC zur Erstellung von SES
+-   `os_image_code` : Zu verwendender OS-Typ – `osImageName`
+-   `enable_master_node` : Verwendung eines Master-Nodes – `true`, `false`
+-   `login_key_name` : Name des öffentlichen Login-Schlüssels für Verschlüsselung
 
--   `os_image_code` : Verwendeter OS-Typ
--   `search_engine` : Wichtige Punkte des Search Engine Knotens
-    -   `version_code` : Verwendeter Search Engine Versionscode
-    -   `user_name` : Benutzername für die Search Engine
-    -   `user_password` : Passwort für die Search Engine
-    -   `dashboard_port` : Port des Dashboards der Search Engine (1024 ~ 65535)
--   `manager_node` : Wichtige Punkte des Manager Knotens
-    -   `enable_dual_manager` : Redundanz des Manager Knotens
-    -   `manager_node_product_code` : Verwendeter Manager Node Produkttyp
-    -   `manager_node_subnet_name` : Name des Subnetzes, in dem der Manager Node platziert wird
--   `data_node` : Wichtige Punkte des Data Knotens
-    -   `data_node_product_code` : Verwendeter Data Node Produkttyp
-    -   `data_node_subnet_name` : Name des Subnetzes, in dem der Data Node platziert wird
-    -   `data_node_count` : Anzahl der Data Nodes (3 ~ 10)
-    -   `data_node_storage_size` : Speicherkapazität des Data Nodes (100 ~ 2000)
--   `enable_master_node` : Verwendung des Master Knotens
--   `login_key_name` : Name des öffentlichen Login-Schlüssels für die Verschlüsselung
+#### Search-Engine-Konfiguration (`search_engine`)
+
+-   `search_engine.version_code` : Version der Search Engine – `versionCode`
+-   `search_engine.user_name` : Benutzername der Search Engine
+-   `search_engine.user_password` : Passwort der Search Engine
+-   `search_engine.dashboard_port` : Port des Search-Engine-Dashboards – `1024` ~ `65535`
+
+#### Manager-Node-Konfiguration (`manager_node`)
+
+-   `manager_node.enable_dual_manager` : Aktivierung der Manager-Node-Redundanz – `true`, `false`
+-   `manager_node.manager_node_subnet_name` : Subnet-Name für den Manager-Node
+-   `manager_node.manager_node_product_code` : Produktcode des Manager-Nodes – `managerNodeProductCode`
+
+#### Data-Node-Konfiguration (`data_node`)
+
+-   `data_node.data_node_subnet_name` : Subnet-Name für den Data-Node
+-   `data_node.data_node_product_code` : Produktcode des Data-Nodes – `managerNodeProductCode`
+-   `data_node.data_node_count` : Anzahl der Data-Nodes – `3` ~ `10`
+-   `data_node.data_node_storage_size` : Storage-Größe der Data-Nodes – `100` ~ `2000`
+
+#### Master-Node-Konfiguration (`master_node`)
+
+-   `master_node.master_node_subnet_name` : Subnet-Name für den Master-Node
+-   `master_node.master_node_product_code` : Produktcode des Master-Nodes – `managerNodeProductCode`
+-   `master_node.master_node_count` : Anzahl der Master-Nodes – `3` ~ `5`
 
 ---
 
-## Referenzmaterial
+## Referenzen
 
 -   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
 -   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

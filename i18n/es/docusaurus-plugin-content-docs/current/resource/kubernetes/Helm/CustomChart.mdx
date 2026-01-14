@@ -4,45 +4,39 @@ sidebar_position: 0
 tags: [Kubernetes, Recurso, Helm, CustomChart]
 ---
 
-
 <hr />
 <br />
 
-
-## Ícono del recurso
+## Icono del recurso
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.webp"
     }
 />
 
 ## Descripción general del recurso
 
-Recurso que permite desplegar un chart de Helm básico configurado con valores personalizados por el usuario
+Recurso que permite desplegar un Helm Chart configurándolo con los valores definidos por el usuario.
 
 ## Recursos relacionados
 
-### Recurso superior
+### Recurso principal
 
--   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
-
-### Recursos conectados
-
-
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ## Valores de configuración del recurso
 
--   `service_name` : Nombre del release del chart personalizado de Helm
--   `namespace` : Namespace donde se desplegará el Helm Custom
--   `repository` : Repositorio utilizado para almacenar y compartir charts de Helm (especifica el repositorio donde se encuentra el chart personalizado)
--   `chart` : Nombre del chart de Helm que se desea personalizar
--   `version` : Versión del chart de Helm que se desea personalizar
--   `set` : Modificación dinámica de valores por defecto del chart
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Custom Helm Chart
+-   `repository` : Dirección del repositorio donde se almacena el Helm Chart a personalizar
+-   `chart` : Nombre del Helm Chart a personalizar
+-   `version` : Versión del Helm Chart a personalizar
+-   `set` : Configuración key-value para modificar dinámicamente los valores del Helm Chart base
 
 ---
 
-## Documentación de referencia
-
+## Referencias
 
 -   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)
