@@ -4,6 +4,11 @@ sidebar_position: 0
 tags: [AWS, 리소스, Vpc, Subnet]
 ---
 
+import subnet01 from "./img/subnet01.png"
+import subnet02 from "./img/subnet02.png"
+import subnet03 from "./img/subnet03.png"
+import subnet04 from "./img/subnet04.png"
+
 <hr />
 <br />
 
@@ -49,6 +54,53 @@ tags: [AWS, 리소스, Vpc, Subnet]
 -   `availability_zone` : Subnet을 배포할 가용성 영역
 -   `pip_enable` : 퍼블릭 IP 할당
 
+## Private Subnet -> Public Subnet 전환 방법
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet01} alt="subnet01" />
+</div>
+
+<br />
+
+-   외부 인터넷과 통신을 가능하게 해주는 **Internet Gateway** 리소스와 Internet
+    Gateway로 가는 경로를 지정하는 **Route Table** 리소스를 캔버스에 올립니다.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet02} alt="subnet02" />
+</div>
+
+<br />
+
+-   라우팅 테이블의 규칙이 적용될 **Subnet**을 선택합니다.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet03} alt="subnet03" />
+</div>
+
+<br />
+
+-   Linked Route 옵션에서 **Cidr Block** 값을 **[0.0.0.0/0]**으로 지정합니다.​
+-   **Resource Type** 값을 **[internet_gateway]**로 설정합니다.​
+-   **Linked Resource Name**의 drop_down을 클릭하여 라우팅 테이블과 연결된 **Internet Gateway**를 선택합니다.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet04} alt="subnet04" />
+</div>
+
+<br />
+
+-   **Private Subnet**이 **Public Subnet**으로 바뀐 것을 확인합니다.
 
 ---
 

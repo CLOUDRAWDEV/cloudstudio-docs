@@ -4,6 +4,13 @@ sidebar_position: 0
 tags: [AWS, 리소스, Lb]
 ---
 
+import lb01 from "./img/lb01.png"
+import lb02 from "./img/lb02.png"
+import lb03 from "./img/lb03.png"
+import lb04 from "./img/lb04.png"
+import lb05 from "./img/lb05.png"
+import lb06 from "./img/lb06.png"
+
 <hr />
 <br />
 
@@ -54,6 +61,83 @@ Elastic Load Balancing은 수신되는 애플리케이션 트래픽을 EC2 인�
     -   `target_group_name` : 트래픽을 라우팅할 대상 그룹의 이름
 
 ---
+
+## LB 설정 방법
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb01} alt="lb01" />
+</div>
+
+<br />
+
+-   Base → Region → VPC → Subnet → EC2 → Network Interface 까지 배치된 상태를 기준으로 Load Balancer를 설정합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb02} alt="lb02" />
+</div>
+
+<br />
+
+-   외부 인터넷에서 발생한 트래픽이 VPC 내부 리소스까지 도달할 수 있도록 하기 위해
+    VPC의 인터넷 출입구 역할을 하는 **Internet Gateway**를 배치합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb03} alt="lb03" />
+</div>
+
+<br />
+
+-   외부에서 들어오는 요청을 단일 진입점으로 수신하고,
+    여러 EC2 인스턴스로 트래픽을 분산 처리하기 위해 **Load Balancer**를 배치하고 서로 다른 가용 영역으로 설정할 Subnet에 각각 연결합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb04} alt="lb04" />
+</div>
+
+<br />
+
+-   Load Balancer가 실제로 트래픽을 전달할 대상 리소스 집합을 정의하기 위해
+    **Load Balancer Target Group**을 배치하고 **[Load Balancer -> Load Balancer Target Group]** 방향으로 선을 연결합니다.
+
+-   Load Balancer Target Group에 실제 트래픽을 처리할 EC2 인스턴스 방향으로 선을 연결하여,
+    Load Balancer가 요청을 분산 전달할 수 있도록 구성합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb05} alt="lb05" />
+</div>
+
+<br />
+
+-   Load Balancer의 **[Listener - Linked Target Group Name]** 옵션에서 연결한 **Target Group** 이름을 선택합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb06} alt="lb06" />
+</div>
+
+<br />
+
+-   허용된 포트와 프로토콜만 Load Balancer에 접근할 수 있도록 하기 위해
+    Security Group을 배치하고 **[Security Group -> Load Balancer]** 방향으로 선을 연결합니다.
+
+<br />
+<br />
 
 ## 참고 자료
 

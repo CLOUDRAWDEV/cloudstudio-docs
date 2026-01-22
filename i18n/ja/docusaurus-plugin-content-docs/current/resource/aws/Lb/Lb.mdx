@@ -58,6 +58,90 @@ Application Load Balancer、 Network Load Balancer、Classic Load Balancer.
 
 ---
 
+## LB 設定方法
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb01} alt="lb01" />
+</div>
+
+<br />
+
+-   Base → Region → VPC → Subnet → EC2 → Network Interface まで配置された状態を前提として、
+    Load Balancer の設定を行います。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb02} alt="lb02" />
+</div>
+
+<br />
+
+-   外部インターネットから発生したトラフィックが VPC 内部のリソースへ到達できるようにするため、
+    VPC のインターネット出入口として機能する **Internet Gateway** を配置します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb03} alt="lb03" />
+</div>
+
+<br />
+
+-   外部からのリクエストを単一のエントリーポイントで受信し、
+    複数の EC2 インスタンスへトラフィックを分散処理するため、
+    **Load Balancer** を配置します。
+-   Load Balancer を、異なるアベイラビリティゾーンに設定された
+    各 Subnet に接続します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb04} alt="lb04" />
+</div>
+
+<br />
+
+-   Load Balancer が実際にトラフィックを転送する対象リソースの集合を定義するため、
+    **Load Balancer Target Group** を配置し、
+    **[Load Balancer -> Load Balancer Target Group]** の方向に線を接続します。
+
+-   Load Balancer Target Group を、各 Subnet に配置された EC2 インスタンスへ接続し、
+    Load Balancer がリクエストを分散できるように構成します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb05} alt="lb05" />
+</div>
+
+<br />
+
+-   Load Balancer の **[Listener - Linked Target Group Name]** オプションで、
+    接続した **Target Group** の名前を選択します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={lb06} alt="lb06" />
+</div>
+
+<br />
+
+-   許可されたポートおよびプロトコルのみが Load Balancer にアクセスできるようにするため、
+    Security Group を配置し、
+    **[Security Group -> Load Balancer]** の方向に線を接続します。
+
+<br />
+<br />
+
 ## 参考資料
 
 -   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
