@@ -4,6 +4,11 @@ sidebar_position: 0
 tags: [AWS, リソース, Vpc, Subnet]
 ---
 
+import subnet01 from "./img/subnet01.png"
+import subnet02 from "./img/subnet02.png"
+import subnet03 from "./img/subnet03.png"
+import subnet04 from "./img/subnet04.png"
+
 <hr />
 <br />
 
@@ -50,6 +55,55 @@ Subnet は VPC の IP アドレス範囲です。特定のサブネットから 
 -   `pip_enable` : Public IP 割り当て
 
 ---
+
+## Private Subnet → Public Subnet への切り替え方法
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet01} alt="subnet01" />
+</div>
+
+<br />
+
+-   外部インターネットとの通信を可能にする **Internet Gateway** リソースと、
+    Internet Gateway への経路を指定する **Route Table** リソースをキャンバスに配置します。​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet02} alt="subnet02" />
+</div>
+
+<br />
+
+-   ルーティングテーブルのルールが適用される **Subnet** を選択します。​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet03} alt="subnet03" />
+</div>
+
+<br />
+
+-   Linked Route オプションで **Cidr Block** の値を **[0.0.0.0/0]** に設定します。​
+-   **Resource Type** の値を **[internet_gateway]** に設定します。​
+-   **Linked Resource Name** の drop_down をクリックし、
+    ルーティングテーブルに接続された **Internet Gateway** を選択します。​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet04} alt="subnet04" />
+</div>
+
+<br />
+
+-   **Private Subnet** が **Public Subnet** に変更されたことを確認します。
 
 ## 参考資料
 

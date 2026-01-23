@@ -4,6 +4,11 @@ sidebar_position: 0
 tags: [AWS, Resource, Vpc, Subnet]
 ---
 
+import subnet01 from "./img/subnet01.png"
+import subnet02 from "./img/subnet02.png"
+import subnet03 from "./img/subnet03.png"
+import subnet04 from "./img/subnet04.png"
+
 <hr />
 <br />
 
@@ -49,8 +54,56 @@ A subnet is a range of IP addresses within a VPC. AWS resources, such as EC2 ins
 -   `availability_zone` : Availability Zone in which to deploy the Subnet
 -   `pip_enable` : Allocate Public IP
 
-
 ---
+
+## How to Convert a Private Subnet to a Public Subnet
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet01} alt="subnet01" />
+</div>
+
+<br />
+
+-   Place the **Internet Gateway** resource, which enables communication with the external internet,
+    and the **Route Table** resource that defines the route to the Internet Gateway on the canvas.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet02} alt="subnet02" />
+</div>
+
+<br />
+
+-   Select the **Subnet** to which the routing table rules will be applied.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet03} alt="subnet03" />
+</div>
+
+<br />
+
+-   In the Linked Route option, set the **Cidr Block** value to **[0.0.0.0/0]**.​
+-   Set the **Resource Type** value to **[internet_gateway]**.​
+-   Click the drop_down of **Linked Resource Name** and select the **Internet Gateway**
+    connected to the routing table.​
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="400px" src={subnet04} alt="subnet04" />
+</div>
+
+<br />
+
+-   Verify that the **Private Subnet** has been converted to a **Public Subnet**.
 
 ## Reference Materials
 
