@@ -8,8 +8,6 @@ import lb01 from "./img/lb01.png"
 import lb02 from "./img/lb02.png"
 import lb03 from "./img/lb03.png"
 import lb04 from "./img/lb04.png"
-import lb05 from "./img/lb05.png"
-import lb06 from "./img/lb06.png"
 
 <hr />
 <br />
@@ -68,78 +66,52 @@ Elastic Load Balancing supports three types of load balancers: Application Load 
 <br />
 
 <div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb01} alt="lb01" />
+    <img width="600px" src={lb01} alt="lb01" />
 </div>
 
 <br />
 
--   Configure the Load Balancer based on a state where Base → Region → VPC → Subnet → EC2 → Network Interface have already been placed.
+-   This guide explains how to configure a Load Balancer based on an environment where **Base → Region → VPC → Subnet → Internet Gateway → Route Table** have already been placed.
+-   Refer to [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet) and configure the top two Subnets as **Public Subnets**.
 
 <br />
 <br />
 
 <div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb02} alt="lb02" />
+    <img width="600px" src={lb02} alt="lb02" />
 </div>
 
 <br />
 
--   To allow traffic originating from the external internet to reach resources inside the VPC,
-    place an **Internet Gateway**, which acts as the internet entry point for the VPC.
+-   Place a **Security Group** and connect it to the Load Balancer.
+-   To receive external requests through a single entry point and distribute traffic across multiple EC2 instances,
+    place a **Load Balancer** and connect it to **Public Subnets** configured in different Availability Zones.
+-   To define the set of target resources to which the Load Balancer will forward traffic,
+    place a **Load Balancer Target Group** and connect it in the **[Load Balancer -> Load Balancer Target Group]** direction.
 
 <br />
 <br />
 
 <div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb03} alt="lb03" />
+    <img width="300px" src={lb03} alt="lb03" />
 </div>
 
 <br />
 
--   Place a **Load Balancer** to receive incoming requests from external sources through a single entry point,
-    and distribute traffic across multiple EC2 instances.
--   Connect the Load Balancer to each Subnet configured in different Availability Zones.
+-   In the Load Balancer **[Listener - Linked Target Group Name]** option, select the name of the connected **Load Balancer Target Group**.
 
 <br />
 <br />
 
 <div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb04} alt="lb04" />
+    <img width="600px" src={lb04} alt="lb04" />
 </div>
 
 <br />
 
--   To define the group of target resources that will actually receive traffic from the Load Balancer,
-    place a **Load Balancer Target Group** and connect it in the direction of
-    **[Load Balancer -> Load Balancer Target Group]**.
-
--   Connect the Load Balancer Target Group to the EC2 instances located in each Subnet,
-    allowing the Load Balancer to distribute requests accordingly.
-
-<br />
-<br />
-
-<div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb05} alt="lb05" />
-</div>
-
-<br />
-
--   In the **[Listener - Linked Target Group Name]** option of the Load Balancer,
-    select the name of the connected **Target Group**.
-
-<br />
-<br />
-
-<div style={{ textAlign: "center" }}>
-    <img width="400px" src={lb06} alt="lb06" />
-</div>
-
-<br />
-
--   To ensure that only permitted ports and protocols can access the Load Balancer,
-    place a Security Group and connect it in the direction of
-    **[Security Group -> Load Balancer]**.
+-   Place **EC2 Instances** and **Network Interfaces** in the **Private Subnet** area, then configure the AMI for the EC2 instances.
+-   Connect the **Load Balancer Target Group** to the EC2 instances that will handle actual traffic,
+    allowing the Load Balancer to distribute requests appropriately.
 
 <br />
 <br />
