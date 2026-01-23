@@ -4,6 +4,11 @@ sidebar_position: 0
 tags: [AWS, 리소스, Lb]
 ---
 
+import lb01 from "./img/lb01.png"
+import lb02 from "./img/lb02.png"
+import lb03 from "./img/lb03.png"
+import lb04 from "./img/lb04.png"
+
 <hr />
 <br />
 
@@ -54,6 +59,61 @@ Elastic Load Balancing은 수신되는 애플리케이션 트래픽을 EC2 인�
     -   `target_group_name` : 트래픽을 라우팅할 대상 그룹의 이름
 
 ---
+
+## LB 설정 방법
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={lb01} alt="lb01" />
+</div>
+
+<br />
+
+-   **Base → Region → VPC → Subnet → Internet Gateway → Route Table**까지 배치된 상태를 기준으로 Load Balancer 설정을 안내합니다.
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)을 참고하여 상단 2개의 Subnet을 **Public Subnet**으로 설정합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={lb02} alt="lb02" />
+</div>
+
+<br />
+
+-   **Security Group**을 배치하고 Load Balancer에 연결합니다.
+-   외부에서 들어오는 요청을 단일 진입점으로 수신하고,
+    여러 EC2 인스턴스로 트래픽을 분산 처리하기 위해 **Load Balancer**를 배치하고 서로 다른 가용 영역으로 설정한 **Public Subnet**에 각각 연결합니다.
+-   Load Balancer가 실제로 트래픽을 전달할 대상 리소스 집합을 정의하기 위해
+    **Load Balancer Target Group**을 배치하고 **[Load Balancer -> Load Balancer Target Group]** 방향으로 선을 연결합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="300px" src={lb03} alt="lb03" />
+</div>
+
+<br />
+
+-   Load Balancer의 **[Listener - Linked Target Group Name]** 옵션에서 연결한 **Load Balancer Target Group**의 이름을 선택합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={lb04} alt="lb04" />
+</div>
+
+<br />
+
+-   **EC2 Instance, Network Interface**를 **Private Subnet** 영역에 배치한 후, EC2 Instance의 AMI를 설정합니다.
+-   **Load Balancer Target Group**으로부터 실제 트래픽을 처리할 EC2 인스턴스 방향으로 선을 연결하여,
+    Load Balancer가 요청을 분산 전달할 수 있도록 구성합니다.
+
+<br />
+<br />
 
 ## 참고 자료
 
