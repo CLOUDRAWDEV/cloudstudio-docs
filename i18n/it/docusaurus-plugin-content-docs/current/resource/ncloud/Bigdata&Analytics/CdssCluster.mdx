@@ -1,0 +1,63 @@
+---
+title: CdssCluster
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Bigdata&Analytics, CdssCluster]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio che consente di distribuire, proteggere, gestire ed espandere facilmente un cluster Apache Kafka, una piattaforma open source per pipeline di streaming dati in tempo reale e per la creazione di applicazioni.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
+
+### Risorse collegate
+
+-   [**CdssConfigGroup**](https://docs.cstudio.app/it/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `included_vpc_name` : Nome della VPC in cui creare il CDSS
+-   `kafka_version_code` : Versione di Kafka da utilizzare nel CDSS - `kafkaVersionCode`
+-   `linked_config_group_name` : Nome del CDSS Config Group da utilizzare
+-   `os_image` : Tipo di immagine OS da utilizzare - `osImage`
+
+#### Impostazioni CMAK (`cmak`)
+
+-   `cmak.user_name` : ID di accesso CMAK
+-   `cmak.user_password` : Password di accesso CMAK
+
+#### Impostazioni nodo manager (`manager_node`)
+
+-   `manager_node.manager_node_subnet_name` : Nome della subnet in cui si trova il nodo manager
+-   `manager_node.manager_node_product_code` : Codice prodotto hardware del nodo manager - `managerNodeProductCode`
+
+#### Impostazioni nodo broker (`broker_node`)
+
+-   `broker_node.broker_node_subnet_name` : Nome della subnet in cui si trova il nodo broker
+-   `broker_node.broker_node_product_code` : Codice prodotto hardware del nodo broker - `managerNodeProductCode`
+-   `broker_node.broker_node_count` : Numero di nodi broker - `3` ~ `10`
+-   `broker_node.broker_node_storage_size` : Capacità di storage del nodo broker - `100` ~ `2000`
+
+---
+
+## Riferimenti
+
+-   [Cloud Data Streaming Service Cluster (Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
+-   [CDSS Cluster (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)

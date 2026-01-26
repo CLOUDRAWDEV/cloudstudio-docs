@@ -1,0 +1,39 @@
+---
+title: Esportazione
+sidebar_position: 6
+tags: [Esportazione, png, Architettura, tf, Canvas]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+
+<hr />
+<br />
+
+Quando si esegue l'esportazione di file da Cloud Studio, è possibile ottenere tre diversi formati di file.
+
+## Formati
+
+-   File png
+-   Tre file tf (main, output, variables)
+-   File state (infrastruttura in gestione)
+-   File nodes.json
+
+### 1. File architecture.png 
+
+Questo è il file png dell'architettura del canvas disegnata dall'utente.
+
+### 2. File tf
+
+L'utente può ottenere tre file tf:
+
+`main.tf`: Questo è il file Terraform che mostra la struttura dell'infrastruttura creata.
+`output.tf`: Questo è il file Terraform che fornisce informazioni relative dopo la distribuzione dell'infrastruttura.
+`variables.tf`: Questo è il file Terraform che mostra le variabili utilizzate.
+
+### 3. File terraform.state
+
+Questo è il file Terraform che gestisce lo stato dell'infrastruttura dopo la distribuzione. (Non fornito prima della distribuzione.)
+
+### 4. File nodes.json
+
+Questo è il file contenente i dati delle coordinate per disegnare il canvas.

@@ -1,0 +1,50 @@
+---
+title: SnsTopic
+sidebar_position: 0
+tags: [AWS, Ressource, Sns, SnsTopic]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/sns-sns_topic.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein logischer Zugriffspunkt, der in AWS SNS als Kommunikationskanal fungiert
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**Metric**](https://docs.cstudio.app/de/docs/resource/aws/Cloudwatch/Metric)
+-   [**Config**](https://docs.cstudio.app/de/docs/resource/aws/Config/)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `display_name` : Anzeigename des SNS-Themas
+-   `type` : Typ des SNS-Themas (`FIFO`, `Standard`)
+-   `kms_key_name` : Name des KMS-Schlüssels, der für das SNS-Thema verwendet wird
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Sns Topic(AWS)](https://docs.aws.amazon.com/ko_kr/sns/latest/dg/sns-create-topic.html)
+-   [Sns Topic(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic)

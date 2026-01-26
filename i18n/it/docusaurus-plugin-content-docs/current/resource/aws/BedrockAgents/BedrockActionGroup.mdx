@@ -1,0 +1,50 @@
+---
+title: BedrockActionGroup
+sidebar_position: 2
+tags: [AWS, Bedrock, BedrockActionGroup, Lambda, AI, Agent]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_action_group.webp" />
+
+## Panoramica della risorsa
+
+Risorsa che definisce e gestisce azioni specifiche che un agente AWS Bedrock può eseguire.
+
+## Risorse correlate
+
+### Risorsa padre
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `target_bedrock_agent` : Agente Bedrock di destinazione a cui collegare l’action group
+-   `enable_action_group_state` : Abilitazione della conservazione dello stato dell’Action Group - `ENABLED`, `DISABLED`
+-   `custom_control_method` : Metodo di controllo del comportamento dell’agente - `custom_control`, `lambda_function`
+-   `target_lambda_function` : Funzione AWS Lambda da invocare durante l’esecuzione dell’azione
+
+#### Definizione delle funzioni (`functions`)
+
+-   `functions.description` : Descrizione dello scopo o della funzionalità eseguita dalla funzione (massimo 5000 caratteri)
+
+##### Parametri della funzione (`functions.parameters`)
+
+-   `functions.parameters.type` : Tipo di dato del parametro - `string`, `number`, `integer`, `boolean`, `array`
+-   `functions.parameters.description` : Significato o utilizzo del parametro
+-   `functions.parameters.required` : Indica se il parametro è obbligatorio - `true`, `false`
+
+---
+
+## Riferimenti
+
+-   [Amazon Bedrock Agents (Documentazione ufficiale AWS)](https://docs.aws.amazon.com/bedrock/)
+-   [Funzioni AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)

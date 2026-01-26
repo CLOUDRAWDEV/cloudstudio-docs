@@ -1,6 +1,6 @@
 ---
-title: Transit Gateway
-sidebar_position: 0
+title: TransitGateway
+sidebar_position: 15
 tags: [AWS, リソース, Ec2, TransitGateway]
 ---
 
@@ -11,15 +11,15 @@ tags: [AWS, リソース, Ec2, TransitGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-transit_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Transit Gateway は仮想プライベートクラウド(VPC)とオンプレミスネットワークを相互接続するために使用できるネットワーク伝送ハブです。
-クラウドインフラが世界的に拡張されるにつれて、リージョン間のピアリングは AWS グローバルインフラを使用して Transit Gateway を一緒に接続します。
-データは自動的に暗号化され、パブリック インターネット経由では送信されません。
+Transit Gateway は、VPC とオンプレミスネットワークを相互接続するためのネットワーク転送ハブ。  
+クラウドインフラがグローバルに拡張されるにつれ、リージョン間ピアリングは AWS グローバルインフラを使用して Transit Gateway 同士を接続する。  
+データは自動的に暗号化され、パブリックインターネットを経由しない。
 
 ## 関連リソース
 
@@ -29,22 +29,35 @@ Transit Gateway は仮想プライベートクラウド(VPC)とオンプレミ�
 
 ### 接続リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+-   [**DxGateway**](https://docs.cstudio.app/ja/docs/resource/aws/DirectConnect/DxGateway)
+-   [**RouteTable**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/RouteTable)
+-   [**CustomerGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/CustomerGateway)
+-   [**TransitGateway Attachment**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
 ## リソース設定値
 
--   `dns_support` : 接続された VPC に対する DNS システム確認活性化 - `enable`, `disable`
--   `vpn_ecmp_support` : 接続された VPN の ECMP(マルチパス)ルーティングのサポート - `enable`, `disable`
--   `default_route_table_association` : Attachment をデフォルトのルーティングテーブルと自動接続 - `enable`, `disable`
--   `default_route_table_propagation` : デフォルトのルーティングテーブルで Attachment を自動伝播 - `enable`, `disable`
--   `multicast_support` : マルチキャストドメインの生成を有効にする - `enable`, `disable`
--   `transit_gateway_cidr_blocks` : Transit Gateway Cidr ブロック
--   `vpc_attachment`
+#### 基本設定
+
+-   `dns_support` : 接続された VPC に対する DNS 解決有効化 여부 - `enable`, `disable`
+-   `vpn_ecmp_support` : 接続 VPN に対する ECMP ルーティング対応 여부 - `enable`, `disable`
+-   `default_route_table_association` : Attachment をデフォルトルートテーブルに自動関連付け - `enable`, `disable`
+-   `default_route_table_propagation` : Attachment をデフォルトルートテーブルへ自動伝播 - `enable`, `disable`
+-   `multicast_support` : マルチキャストドメイン生成有効化 여부 - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Transit Gateway に割り当てる CIDR ブロック一覧
+
+#### Direct Connect Gateway 設定 (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : 接続する Direct Connect Gateway 名
+-   `dx_gateway.allowed_prefixes` : オンプレミスネットワークへ広告する VPC Prefix(CIDR) 一覧
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
 -   [AWS Transit Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
--   [AWS Transit Gateway 価格(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [AWS Transit Gateway 料金(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
 -   [aws_ec2_transit_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

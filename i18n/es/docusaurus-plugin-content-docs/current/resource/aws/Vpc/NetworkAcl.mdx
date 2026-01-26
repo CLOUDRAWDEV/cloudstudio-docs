@@ -1,0 +1,67 @@
+---
+title: NetworkAcl
+sidebar_position: 9
+tags: [AWS, Recurso, Vpc, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+La lista de control de acceso de red (ACL) permite o deniega tráfico entrante o saliente específico a nivel de subred.  
+Es posible utilizar la ACL de red predeterminada del VPC o crear ACL de red personalizadas con reglas similares a las de los Security Groups para añadir una capa adicional de seguridad al VPC.
+
+El uso de Network ACL no genera cargos adicionales.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+
+### Recursos conectados
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se creará la ACL
+-   `nacl_description` : Descripción de la ACL
+
+#### Reglas entrantes (`inbound_rule`)
+
+-   `inbound_rule.priority` : Prioridad de la regla entrante - `0` ~ `199`
+-   `inbound_rule.protocol` : Protocolo del tráfico entrante - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Acción sobre el tráfico entrante - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Rango CIDR de origen del tráfico entrante
+-   `inbound_rule.port_range` : Rango de puertos al que se aplica la regla - `1` ~ `65535`
+
+#### Reglas salientes (`outbound_rule`)
+
+-   `outbound_rule.priority` : Prioridad de la regla saliente - `0` ~ `199`
+-   `outbound_rule.protocol` : Protocolo del tráfico saliente - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Acción sobre el tráfico saliente - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Rango CIDR de destino del tráfico saliente
+-   `outbound_rule.port_range` : Rango de puertos al que se aplica la regla - `1` ~ `65535`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Controlar el tráfico de subred con Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [aws_network_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

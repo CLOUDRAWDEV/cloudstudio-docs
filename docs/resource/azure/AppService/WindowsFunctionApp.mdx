@@ -1,7 +1,7 @@
 ---
-title: Windows Function app
-sidebar_position: 3
-tags: [Template, 자주 사용하는 리소스, App Service, Azure]
+title: WindowsFunctionApp
+sidebar_position: 4
+tags: [Azure, FunctionApp, WindowsFunctionApp]
 ---
 
 <hr />
@@ -11,46 +11,50 @@ tags: [Template, 자주 사용하는 리소스, App Service, Azure]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/app_service-function_app.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-windows_function_app.webp"
     }
 />
 
 ## 리소스 개요
 
-Azure App Service는 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹앱, 모바일 백 엔드 및 RESTful API를 빌드하고 호스팅할 수 있는 PaaS 서비스입니다.
-App Service는 Auto Scailing 및 고가용성을 제공하고, 운영체제로 Windows 및 Linux를 모두 지원합니다.
-Github, Azure DevOps 또는 Git 리포지토리에서 자동으로 배포할 수 있습니다.
+Windows Function App은 이벤트 기반 서버리스 코드를 Windows 환경에서 실행할 수 있도록 제공되는 완전관리형 Function App 서비스입니다.  
+HTTP 요청, 타이머, 메시지 큐, 이벤트 스트림 등 다양한 트리거를 기반으로 코드를 실행할 수 있으며, 인프라 관리 없이 애플리케이션 로직에만 집중할 수 있도록 지원합니다.
 
 ## 연관 리소스
 
 ### 상위 리소스
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
 
 ### 연결 리소스
 
--   [**Network Traffic Manager**](https://docs.cstudio.app/docs/resource/azure/Network/TrafficManager)
+-   [**ServicePlan**](https://docs.cstudio.app/docs/resource/azure/AppService/ServicePlan)
 
 ## 리소스 설정 값
 
--   `kind` : App Service가 사용할 운영 체제- `Windows`, `WindowsContainer`
--   `sku_tier` : App Service 요금제의 가격 책정 계층
+-   `linked_service_plan_name` : 함수 앱이 실행될 Service Plan의 이름
+
 -   `delegated_subnet_name` : 가상 네트워크 위임을 위한 Subnet 이름
--   `app_service` : 앱서비스의 이름
-    -   `client_cert_enabled` : 클라이언트 인증서를 활성화 - `true`, `false`
-    -   `auth_settings_enabled` : App에서 발생하는 모든 통신이 인증이 될 수 있도록 Authentication을 활성화 - `true`, `false`
-    -   `detailed_error_messages_enabled` : HTTP 오류 발생 시, 오류 페이지에 자세한 오류 메시지를 포함 - `true`, `false`
-    -   `failed_request_tracing_enabled` : 실패한 요청에 대해 자세한 추적 정보 로킹을 활성화 - `true`, `false`
-    -   `retention_in_days` : HTTP 요청과 관련된 로그 기록 보관 일 수(일) - `0`~`99999`
-    -   `retention_in_mb` : HTTP 요청과 관련된 로그 기록 보관 용량(MB) - `25`~`100`
-    -   `ftps_state` : FTP를 사용하는 경우, 보안을 위해 FTP에 TLS/SSL을 적용 - `Disabled`, `FtpsOnly`, `AllAllowed`
-    -   `http2_enabled` : 보안을 위해 최신 버전의 HTTP 프로토콜을 사용 - `true`, `false`
+
+-   `target_storage_account_name` : Function App 실행에 필요한 파일, 로그, 메타데이터를 저장할 스토리지 계정 이름
+
+-   `https_only` : 암호화 및 인증된 보안 연결을 위해 HTTPS 접근만 허용 여부 - `true`, `false`
+
+-   `auth_settings_enabled` : Function App에 대한 인증/인가 기능 활성화 여부 - `true`, `false`
+
+-   `http2_enabled` : HTTP/2 프로토콜 사용 여부 - `true`, `false`
+
+-   `target_content_safety_name` : 연동할 Azure Content Safety 리소스의 이름
+
+-   `target_ai_service_name` : 연동할 Azure AI Service 리소스 이름
+
+-   `target_search_service_name` : 연동할 Azure Search Service 리소스의 이름
 
 <hr />
 
 ## 참고 자료
 
--   [Azure App Service(Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Azurerm App Service 가격(Microsoft)](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
--   [Azurerm App Service(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Azure Functions(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Windows Function App(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Windows Function App(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app)

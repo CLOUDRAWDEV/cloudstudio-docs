@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Backup, BackupPlan]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
     }
 />
 
@@ -19,30 +19,42 @@ tags: [AWS, 리소스, Backup, BackupPlan]
 
 AWS 리소스를 백업하려는 시기와 방법을 정의하는 정책 표현식입니다. Backup Plan에 리소스를 할당할 수 있으며, AWS 백업은 Backup Plan에 따라 해당 리소스에 대한 백업을 자동으로 백업하고 유지합니다.
 
+## 연관 리소스
+
 ### 상위 리소스
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
-## 연관 리소스
-
 ## 리소스 설정 값
 
-- `rule`
-  - `rule_name` : 백업 규칙 이름
-  - `backup_vault_name` : 백업 저장에 사용되는 논리적 컨테이너 이름
-  - `frequency_type` : 백업에 대한 주기 타이밍
-  - `frequency_hour` : 백업 계획을 초기화할 시간 - `1 이상`
-  - `start_time` : 백업 계획 시작 시간
-  - `start_after_minutes` : 백업을 시작하기까지 총 걸리는 시간 - `60 이상`
-  - `complete_after_minutes` : 작업을 취소하고 오류를 반환하기 전까지 AWS Backup에서 백업을 시도하는 시간(분) - `121 이상`
-  - `enabled_use_cold_storage` : cold storage 사용 여부
-  - `warm_storage_retention_days` : 생성 후 복구 지점을 콜드 스토리지로 이동할 지정 일 수 - `1 ~ 36410`
-  - `cold_retention_days` : 생성 후 복구 지점을 삭제할 지정 일 수 - `91 ~ 36500`
+#### 기본 설정
 
-- `resource_assignment`
-  - `name`
-  - `iam_role_arn` : 대상 리소스를 복원 및 백업할 때 AWS 백업에서 인증하는 데 사용하는 IAM 역할의 ARN
-  - `enabled_contain_all` : 모든 리소스를 포함 여부 - `false`,`true`
+#### 규칙 (`rule`)
+
+-   `rule.rule_name` : 백업 규칙 이름, 1 ~ 50자 이내의 영숫자 혹은 -, \_, .을 포함하는 문자
+-   `rule.backup_vault_name` : 백업 저장에 사용되는 논리적 컨테이너 이름
+-   `rule.frequency_type` : 백업에 대한 주기 타이밍 - `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : 백업 계획을 초기화할 시간 - 최소 `1`
+-   `rule.frequency_days` : 백업 계획을 초기화할 날짜 - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `rule.frequency_date` : 백업 계획을 초기화할 요일 - `1` ~ `31`
+-   `rule.start_time` : 백업 계획 시작 시간
+-   `rule.custom_cron_expression` : 백업 계획을 시작할 시기에 대한 사용자 정의 표현식
+-   `rule.start_after_minutes` : 백업을 시작하기까지 총 걸리는 시간 - 최소 `60`
+-   `rule.complete_after_minutes` : 작업을 취소하고 오류를 반환하기 전까지 AWS Backup에서 백업을 시도하는 시간(분)
+-   `rule.enabled_use_cold_storage` : cold storage 사용 여부 - `true`, `false`
+-   `rule.warm_storage_retention_days` : 생성 후 복구 지점을 콜드 스토리지로 이동할 지정 일 수 - `1` ~ `36410`
+-   `rule.total_retention_days` : 복구 지점이 생성된 후 복구 지점을 삭제할 지정 일 수 - `1` ~ `36500`
+
+#### 리소스 할당 (`resource_assignment`)
+
+-   `resource_assignment.iam_role_arn` : 대상 리소스를 복원 및 백업할 때 AWS 백업에서 인증하는 데 사용하는 IAM 역할의 ARN
+-   `resource_assignment.enabled_contain_all` : 모든 리소스를 포함 여부 - `true`, `false`
+-   `resource_assignment.contain_arn_or_pattern` : Amazon Resource Name을 포함하거나 백업 계획에 할당할 리소스 패턴과 일치하는 문자열 배열
+-   `resource_assignment.exclude_arn_or_pattern` : 백업 계획에서 제외할 리소스 패턴과 일치하거나 Amazon 리소스 이름(ARN)을 포함하는 문자열 배열
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 

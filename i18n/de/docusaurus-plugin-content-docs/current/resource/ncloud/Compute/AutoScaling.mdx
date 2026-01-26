@@ -1,0 +1,66 @@
+---
+title: AutoScaling
+sidebar_position: 0
+tags: [Ncloud, Ressource, Compute, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Service, der die Anzahl virtueller Server automatisch anhand von Zeitplänen oder Monitoring-Ergebnissen erhöht oder verringert, um flexibel auf Nachfrageschwankungen zu reagieren und einen stabilen Betrieb sicherzustellen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**AccessControlGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `linked_acg_names` : Liste der auf Auto Scaling anzuwendenden ACG-Namen
+-   `included_subnet_name` : Subnet-Name für die Servererstellung
+-   `launch_configuration_name` : Name der zu verwendenden Launch-Konfiguration
+-   `health_check_type_code` : Typ des Health-Checks – Server oder Load Balancer (`SVR`, `LOADB`)
+-   `health_check_grace_period` : Wartezeit vor Health-Check nach Serverstart – `1` ~ `2147486347`
+-   `linked_target_group_list` : Liste der zu verbindenden Target-Gruppen
+-   `min_size` : Minimale Größe der Auto-Scaling-Gruppe – `1` ~ `30`
+-   `max_size` : Maximale Größe der Auto-Scaling-Gruppe – `1` ~ `30`
+
+#### Auto-Scaling-Richtlinien (`policy`)
+
+-   `policy.adjustment_type_code` : Skalierungstyp – Änderung (`CHANG`), Prozent (`PRCNT`), Exakt (`EXACT`)
+-   `policy.scaling_adjustment` : Skalierungswert
+-   `policy.cooldown` : Cooldown-Zeit in Sekunden – `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Minimale Anpassungseinheit der Instanzanzahl
+
+#### Auto-Scaling-Zeitpläne (`schedule`)
+
+-   `schedule.min_size` : Minimale Gruppengröße
+-   `schedule.max_size` : Maximale Gruppengröße
+-   `schedule.desired_capacity` : Erwartete Gruppengröße
+-   `schedule.start_time` : Startdatum und -zeit des Zeitplans
+-   `schedule.end_time` : Enddatum und -zeit des Zeitplans
+
+---
+
+## Referenzen
+
+-   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
+-   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

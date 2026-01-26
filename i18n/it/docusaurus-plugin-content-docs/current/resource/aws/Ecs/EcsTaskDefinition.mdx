@@ -1,0 +1,66 @@
+---
+title: EcsTaskDefinition
+sidebar_position: 1
+tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.webp"
+    }
+/>
+
+## 리소스 개요
+
+Amazon ECS Task Definition definisce come devono essere eseguiti i container all’interno di un task ECS, inclusi immagini, risorse, rete e volumi.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `app_environment` : Tipo di avvio richiesto per il task - `EC2`, `FARGATE`
+-   `os_architecture` : Famiglia del sistema operativo utilizzata per registrare la task definition - `LINUX X86_64`
+-   `task_cpu` : Numero di unità CPU utilizzate dal task
+-   `task_memory` : Quantità di memoria utilizzata dal task (MiB)
+-   `network_mode` : Modalità di rete utilizzata dai container del task - `awsvpc`, `none`, `bridge`, `host`
+
+#### 컨테이너 (`container`)
+
+-   `container.image_url` : Immagine del container da eseguire nel cluster ECS
+-   `container.essential_enabled` : Imposta se arrestare anche le altre risorse correlate quando il container si ferma - `true`, `false`
+-   `container.port_mapping.container_port` : Porta utilizzata dal container per inviare o ricevere traffico
+-   `container.port_mapping.protocol` : Protocollo utilizzato per il port mapping - `tcp`, `udp`
+-   `container.port_mapping.app_protocol` : Protocollo applicativo utilizzato per la connessione del Service - `http`, `http2`, `grpc`, `none`
+-   `container.cpu` : Capacità CPU del container in esecuzione nel cluster ECS
+-   `container.memory` : Capacità di memoria del container in esecuzione nel cluster ECS
+
+#### 볼륨 (`volume`)
+
+-   `volume.host_path` : Percorso dell’istanza host fornito al container
+
+#### 볼륨 마운트 (`volume_mount`)
+
+-   `volume_mount.container_name` : Nome del container su cui montare il volume
+-   `volume_mount.volume_name` : Nome del volume da montare
+-   `volume_mount.container_path` : Percorso del container su cui montare il volume
+-   `volume_mount.read_only` : Imposta se il container può accedere al volume solo in modalità read-only - `true`, `false`
+
+#### 태그
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## 참고 자료
+
+-   [Amazon ECS Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
+-   [Amazon ECS Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

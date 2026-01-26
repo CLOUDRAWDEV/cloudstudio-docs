@@ -1,0 +1,51 @@
+---
+title: Server
+sidebar_position: 2
+tags: [Ncloud, Risorsa, Compute, Server]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa di calcolo che fornisce flessibilità grazie alla virtualizzazione, consentendo di creare server nel cloud in modo efficiente in termini di tempo e costi, ideale per carichi variabili o temporanei.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+### Risorse collegate
+
+-   [**NetworkInterface**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**BlockStorage**](https://docs.cstudio.app/it/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/PublicIp)
+-   [**TargetGroup**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/TargetGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `included_subnet_name` : Nome della subnet in cui risiede il server
+-   `server_image_product_code` : Codice dell’immagine OS da utilizzare
+-   `server_product_code` : Codice della configurazione hardware del server
+-   `login_key_name` : Nome della login key
+-   `init_script` : Nome dell’Init Script da utilizzare
+-   `is_encrypted_base_block_storage_volume` : Abilitazione della crittografia del block storage
+-   `linked_network_interface_names` : Interfacce di rete assegnate al server
+
+---
+
+## Riferimenti
+
+-   [Server (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

@@ -1,7 +1,7 @@
 ---
 title: DnsZone
 sidebar_position: 0
-tags: [Azure, Resource, Dns, DnsZone]
+tags: [Azure, DNS, DnsZone, Network]
 ---
 
 <hr />
@@ -11,62 +11,60 @@ tags: [Azure, Resource, Dns, DnsZone]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.webp"
     }
 />
 
 ## Resource Overview
 
-Azure DNS zones are a service provided by Microsoft Azure that allows you to host DNS domains and manage DNS records in the cloud. 
-You can manage DNS records such as A, AAAA, CNAME, MX, and TXT, and configure DNS settings like SOA (Start of Authority), NS (Name Server), and PTR (Pointer) records.
-By using Azure DNS zones, you can have a highly available and scalable DNS solution that integrates with other Azure services such as Virtual Machines, Load Balancers, and App Services. 
-It can also be used with on-premises resources to provide an integrated and consistent DNS management environment.
-Azure DNS zones support both public and private DNS zones. 
-Public DNS zones are used to map domain names to IP addresses accessible over the internet, while private DNS zones are used to map domain names to private IP addresses accessible only within a virtual network.
+A DNS Zone is a container that hosts DNS records for a specific domain, allowing you to create and manage individual DNS records.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ## Resource Setting Values
 
--   `dns_a_record`
+#### A Record (`dns_a_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_a_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_a_record.records` : List of IPv4 addresses
 
--   `dns_aaaa_record`
+#### AAAA Record (`dns_aaaa_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_aaaa_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_aaaa_record.records` : List of IPv6 addresses
 
--   `dns_cname_record`
+#### CNAME Record (`dns_cname_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_cname_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_cname_record.record` : Alias used to map a subdomain to another record
 
--   `dns_ns_record`
+#### NS Record (`dns_ns_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_ns_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_ns_record.records` : List of name server records
 
--   `dns_ptr_record`
+#### PTR Record (`dns_ptr_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_ptr_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_ptr_record.records` : List of domain names for pointer record types
 
--   `dns_txt_record`
+#### TXT Record (`dns_txt_record`)
 
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
+-   `dns_txt_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `dns_txt_record.records` : List of text-type records
 
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
 ---
 
-## Reference Materials
+## References
 
--   [Azure DnsZone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
--   [Azure DnsZone Price](https://azure.microsoft.com/en-us/pricing/details/dns/)
--   [Azure DnsZone(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_zone)
+-   [Azure DNS Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Azure DNS Record Management(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
+-   [Azure Private DNS Zone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)

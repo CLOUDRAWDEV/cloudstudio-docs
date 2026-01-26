@@ -1,0 +1,52 @@
+---
+title: SearchService
+sidebar_position: 0
+tags: [Azure, Search, CognitiveSearch, SearchService]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/search-search_service.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Search Service is a **fully managed search service that provides search, filtering, and ranking capabilities for large-scale text, document, and data workloads**.  
+It delivers fast query performance and scalable search capabilities based on search indexes, while controlling service access through security and network access policies.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Connected Resources
+
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
+
+## Resource Setting Values
+
+-   `sku_name` : Pricing tier for the Search Service - `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1`, `storage_optimized_l2`
+-   `public_network_access_enabled` : Whether to allow resource access via the public internet - `true`, `false`
+-   `allowed_ips` : List of IP addresses or CIDR ranges allowed to access the Search Service
+-   `local_authentication_enabled` : Whether to use local authentication with API keys - `true`, `false`
+-   `authentication_failure_mode` : Operation mode determining whether to block or partially allow requests on client authentication failure - `http401WithBearerChallenge`, `http403`
+-   `partition_count` : Number of partitions for distributing indexed data - `1`, `2`, `3`, `4`, `6`, `12`
+-   `replica_count` : Number of replicas for handling search queries
+
+#### Private Link (`private_link`)
+
+-   `private_link.target_ai_service_name` : Name of the target AI Service resource for creating the Private Link connection
+-   `private_link.request_message` : Description or message sent to the approver when requesting the Private Link connection
+
+## References
+
+-   [Azure Cognitive Search Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-what-is-azure-search)
+-   [Azure Cognitive Search Pricing and SKU(Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-sku-tier)
+-   [Azure Cognitive Search Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-security-overview)

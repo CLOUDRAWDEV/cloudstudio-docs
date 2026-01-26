@@ -1,0 +1,75 @@
+---
+title: CosmosdbTable
+sidebar_position: 4
+tags: [Azure, CosmosdbTable, CosmosDB, Table, Database]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_table.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Cosmos DB Table API è un’API per tabelle ad alta disponibilità che consente di utilizzare l’indicizzazione automatica senza dover gestire manualmente gli indici.  
+Offre scalabilità e affidabilità grazie alla distribuzione globale, al failover automatico, ai backup e alle politiche di coerenza.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private EndPoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `capabilities_list` : Elenco delle API di Cosmos DB da utilizzare
+-   `enable_multiple_write_locations` : Abilitazione della scrittura multi-regione – `true`, `false`
+-   `public_network_access_enabled` : Abilitazione dell’accesso pubblico all’account tramite IP pubblico o service endpoint – `true`, `false`
+-   `enable_automatic_failover` : Abilitazione del failover automatico – `true`, `false`
+-   `virtual_network_filter_enabled` : Abilitazione del filtro per consentire l’accesso all’account solo da subnet specifiche della rete virtuale – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Abilitazione del bypass ACL per i servizi Azure – `true`, `false`
+
+#### Impostazioni di area geografica (`geo_location`)
+
+-   `geo_location.failover_priority` : Priorità di failover della regione
+-   `geo_location.zone_redundant` : Abilitazione della replica automatica tra zone per la resilienza agli errori – `true`, `false`
+
+#### Politica di coerenza (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Livello di coerenza per la disponibilità e le prestazioni del database
+-   `consistency_policy.max_interval_in_seconds` : Tempo massimo di staleness consentito (secondi) quando si utilizza Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Numero massimo di richieste stale consentite quando si utilizza Bounded Staleness
+
+#### Impostazioni di backup (`backup`)
+
+-   `backup.type` : Tipo di policy di backup – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Frequenza di esecuzione del backup in minuti – `60` ~ `1440`
+-   `backup.retention_in_hours` : Periodo di conservazione del backup in ore – `8` ~ `720`
+
+#### Impostazioni della tabella (`table`)
+
+-   `table.throughput` : Throughput della tabella Cosmos DB – `400` ~ `1000000`
+-   `table.enable_autoscale` : Abilitazione dell’Auto Scaling – `true`, `false`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria – massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB Table API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/table/introduction)

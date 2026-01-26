@@ -1,0 +1,58 @@
+---
+title: Servicebus
+sidebar_position: 0
+tags: [Azure, Messaging, ServiceBus]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/servicebus-servicebus.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Service Bus è un servizio di messaggistica enterprise completamente gestito che supporta la messaggistica asincrona tra applicazioni.  
+Attraverso modelli di coda e di topic/sottoscrizione, consente una consegna affidabile dei messaggi, riduce l'accoppiamento tra sistemi distribuiti e supporta scenari di elaborazione di eventi su larga scala.
+
+## Risorse associate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+## Valori di configurazione della risorsa
+
+-   `sku` : Livello di prezzo di Service Bus - `Basic`, `Standard`, `Premium`
+-   `capacity` : Unità di capacità utilizzata per controllare le prestazioni nel SKU Premium
+-   `premium_messaging_partitions` : Numero di partizioni utilizzate nel livello di messaggistica Premium - `1`, `2`, `4`
+-   `default_action` : Azione predefinita quando si applicano le regole di rete - `Allow`, `Deny`
+-   `public_network_access_enabled` : Consentire l'accesso a Service Bus dalla rete pubblica - `true`, `false`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.target_subnet_name` : Nome della subnet di destinazione a cui si applicano le regole di rete
+-   `network_rules.ignore_missing_vnet_service_endpoint` : Indica se ignorare l'assenza di endpoint di servizio VNet nella subnet - `true`, `false`
+
+#### Topic (`topic`)
+
+-   `topic.status` : Stato di attivazione del Topic - `Active`, `Disabled`
+-   `topic.enable_partitioning` : Abilitare il partizionamento dei messaggi - `true`, `false`
+
+#### Subscription (`subscription`)
+
+-   `subscription.target_topic_name` : Nome del Topic di destinazione a cui è collegata la sottoscrizione
+-   `subscription.max_delivery_count` : Numero massimo di tentativi di consegna del messaggio
+
+---
+
+## Materiale di riferimento
+
+-   [Panoramica di Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Pattern di messaggistica di Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Sicurezza di rete di Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

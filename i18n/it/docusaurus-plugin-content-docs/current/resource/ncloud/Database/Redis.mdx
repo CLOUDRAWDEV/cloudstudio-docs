@@ -1,0 +1,54 @@
+---
+title: Redis
+sidebar_position: 3
+tags: [Ncloud, Resource, Database, Redis]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
+    }
+/>
+
+## Resource Overview
+
+Cloud DB for Redis is a fully managed cloud cache service that allows easy deployment and stable operation of Redis caches with optimized settings and automatic recovery.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `server_name_prefix` : Redis server name (lowercase letters, numbers, hyphens allowed; must start with a lowercase letter and end with a lowercase letter or number; 3–15 characters)
+-   `included_vpc_name` : Name of the VPC where Redis is located
+-   `included_subnet_name` : Name of the Subnet where Redis is located
+-   `redis_mode` : Redis deployment mode - `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Redis engine version
+-   `image_product_code` : Redis server image product code
+-   `product_code` : Redis instance server product code
+-   `target_config_group_name` : Name of the Redis Config Group to connect
+-   `shard_count` : Number of shards (based on master nodes) - `3` ~ `10`
+-   `shard_copy_count` : Number of replicas per shard (slave nodes) - `0` ~ `4`
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `enable_backup` : Whether to enable backup (automatically enabled when HA is used)
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `7`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : Redis access port - `6379` ~ `20000`
+
+---
+
+## References
+
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

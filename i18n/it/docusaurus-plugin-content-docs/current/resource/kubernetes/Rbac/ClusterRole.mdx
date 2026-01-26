@@ -1,0 +1,53 @@
+---
+title: ClusterRole
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, RBAC, ClusterRole]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes che consente di creare ruoli applicabili a livello di cluster e a tutti i namespace.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Cluster**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Cluster)
+
+### Risorse collegate
+
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/it/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `annotations` : Key-value utilizzati per visualizzare le informazioni necessarie al sistema Kubernetes
+-   `labels` : Valori definiti liberamente dall’utente per distinguere gli oggetti
+
+#### Regole di policy (`rule`)
+
+-   `rule.rule_type` : Tipo di regola del ClusterRole - `ApiGroup`, `ResourceUrl`
+-   `rule.api_groups` : API Group che includono le risorse per cui sono consentite le operazioni
+-   `rule.resources` : Elenco delle risorse a cui si applica questa regola
+-   `rule.resource_names` : Specifica le singole istanze di risorsa quando selezionate individualmente
+-   `rule.non_resource_urls` : Utilizzato quando le regole vengono definite come URL e non come risorse
+-   `rule.verbs` : Elenco dei verbi applicabili a tutte le risorse incluse nella regola - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
+
+---
+
+## Riferimenti
+
+-   [ClusterRole(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [ClusterRole(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

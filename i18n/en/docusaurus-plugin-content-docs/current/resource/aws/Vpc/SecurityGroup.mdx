@@ -1,6 +1,6 @@
 ---
-title: Security Group
-sidebar_position: 0
+title: SecurityGroup
+sidebar_position: 14
 tags: [AWS, Resource, Vpc, SecurityGroup]
 ---
 
@@ -11,51 +11,70 @@ tags: [AWS, Resource, Vpc, SecurityGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.webp"
     }
 />
 
 ## Resource Overview
 
-A security group controls the traffic that can reach and leave the associated resources. 
-For instance, when a security group is attached to an EC2 instance, it manages the inbound and outbound traffic to and from that instance. 
-Security groups can only be associated with resources within the VPC where the security group was created.
-When a VPC is created, it comes with a default security group. 
-Additional security groups can be created for each VPC.
-There is no additional charge for using security groups.
+A security group controls inbound and outbound traffic for associated resources. For example, when a security group is associated with an EC2 instance, it controls inbound and outbound traffic for that instance. A security group can be associated only with resources in the VPC in which the security group was created. When a VPC is created, it comes with a default security group, and additional security groups can be created for each VPC. Using security groups does not incur additional charges.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ### Connected Resources
 
--
+-   [**Lb**](https://docs.cstudio.app/en/docs/resource/aws/Networking/LoadBalancer)
+-   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/en/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/en/docs/resource/aws/Elasticsearch/)
+-   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Postgresql)
+-   [**LaunchTemplate**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/LaunchTemplate)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
 
 ## Resource Setting Values
 
--   `description`: Description of Security Group
--   `included_vpc_name`: The name of the VPC with the Security Group
--   `ingress`: Ingress rule name in Security Group
-    -   `rule_name`: Ingress rule name in Security Group
-    -   `description`: Description of Ingress rules
-    -   `from_port`: Port number coming into the Ingress rule
-    -   `to_port`: Outgoing port number through the Ingress rule
-    -   `protocol`: Protocol in Ingress Rule - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block`: CIDR to apply the Ingress rule to
--   `egress`: Egress rule name in Security Group
-    -   `rule_name`: Egress rule name in Security Group
-    -   `description`: Description of Egress rules
-    -   `from_port`: Port number coming into the Egress rule
-    -   `to_port`: Outgoing port number through the Egress rule
-    -   `protocol`: Protocol in Egress Rule - `tcp`, `udp`, `icmp`, `all`
-    -   `cidr_block`: CIDR to apply the Egress rule to
+#### Basic Settings
+
+-   `description` : Description of the security group
+-   `included_vpc_name` : Name of the VPC that contains the security group
+
+#### Inbound Rules (`ingress`)
+
+-   `ingress.rule_name` : Ingress rule name
+-   `ingress.description` : Ingress rule description
+-   `ingress.from_port` : Start port number to allow
+-   `ingress.to_port` : End port number to allow
+-   `ingress.protocol` : Protocol - `tcp`, `udp`, `icmp`, `all`
+-   `ingress.cidr_block` : Source CIDR block to allow
+
+#### Outbound Rules (`egress`)
+
+-   `egress.rule_name` : Egress rule name
+-   `egress.description` : Egress rule description
+-   `egress.from_port` : Start port number to allow
+-   `egress.to_port` : End port number to allow
+-   `egress.protocol` : Protocol - `tcp`, `udp`, `icmp`, `icmpv6`, `all`
+-   `egress.cidr_block` : Destination CIDR block to allow
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [Controlling traffic to resources using Security Groups(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
--   [aws_security_group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)
+-   [Controlling traffic to resources using security groups (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [aws_security_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

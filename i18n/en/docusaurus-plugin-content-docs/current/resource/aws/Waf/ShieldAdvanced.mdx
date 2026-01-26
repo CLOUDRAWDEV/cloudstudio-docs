@@ -1,0 +1,49 @@
+---
+title: ShieldAdvanced
+sidebar_position: 0
+tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-shield_advanced.webp" />
+
+## Resource Overview
+
+AWS Shield Advanced protects AWS resources from DDoS attacks and allows configuration of resource aggregation methods and health check settings for resources included in protection groups.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `aggregation` : Method by which AWS Shield aggregates group resource data to detect, mitigate, and report events - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : Criteria for selecting protected resources to include in the group - `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Resource type to include in the protection group
+
+#### Health Check Settings
+
+-   `health_check_ip_address` : IP address of the endpoint to check
+-   `health_check_fqdn` : Fully qualified domain name of the endpoint to check
+-   `health_check_type` : Protocol used for health checks - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : Interval between health check requests (seconds) - `10`, `30`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+---
+
+## References
+
+-   [AWS Shield Advanced (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)
+-   [Shield Advanced protections and protection groups (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview-shield-advanced.html)
+-   [Amazon Route 53 health checks (AWS)](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)

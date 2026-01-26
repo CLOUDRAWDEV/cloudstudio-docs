@@ -1,0 +1,52 @@
+---
+title: RedisCache
+sidebar_position: 0
+tags: [Azure, Cache, Redis, RedisCache]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/redis_cache-redis_cache.webp"
+    }
+/>
+
+## Descripción del recurso
+
+Azure Redis Cache es un servicio de almacenamiento de datos en memoria administrado que ofrece alto rendimiento y baja latencia mediante el almacenamiento en caché de datos de acceso frecuente en memoria.  
+Se utiliza en escenarios como la gestión de sesiones, capas de caché y procesamiento de datos en tiempo real para reducir la carga del backend y mejorar los tiempos de respuesta de las aplicaciones.
+
+## Recursos asociados
+
+### Recurso principal
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Private Endpoint**](https://docs.cstudio.app/es/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valores de configuración del recurso
+
+-   `sku_name` : Nivel de precios del Redis Cache - `Basic`, `Standard`, `Premium`, `Enterprise`
+-   `cache_type` : Tamaño y nivel de rendimiento del Redis Cache (tipo de SKU detallado)
+-   `version` : Versión de Redis - `6`
+-   `enable_non_ssl_port` : Habilitar el puerto sin SSL - `true`, `false`
+-   `minimum_tls_version` : Versión mínima de TLS aplicada a Redis - `1.0`, `1.1`, `1.2`
+-   `public_network_access_enabled` : Permitir acceso público a Redis - `true`, `false`
+-   `tag` : Etiquetas para categorizar el recurso
+
+#### Regla de firewall de Redis (`redis_firewall_rule`)
+
+-   `redis_firewall_rule.start_ip` : Dirección IP inicial permitida
+-   `redis_firewall_rule.end_ip` : Dirección IP final permitida
+
+## Material de referencia
+
+-   [Descripción general de Azure Redis Cache (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-overview)
+-   [Comparación de SKU de Azure Redis Cache (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-overview#service-tiers)
+-   [Configuración de red de Azure Redis Cache (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-networking)

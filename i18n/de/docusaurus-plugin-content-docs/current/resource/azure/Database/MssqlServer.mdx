@@ -1,0 +1,81 @@
+---
+title: MssqlServer
+sidebar_position: 0
+tags: [Azure, MssqlServer, MSSQL, SQLServer, Database]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure SQL Server (Microsoft SQL Server) ist eine vollständig verwaltete PaaS-Datenbank-Engine, die den Großteil der Datenbankverwaltungsaufgaben wie Upgrades, Patches, Backups und Überwachung ohne Benutzereingriff übernimmt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Untergeordnete Ressourcen
+
+-   [**MssqlDatabase**](https://docs.cstudio.app/de/docs/resource/azure/Database/MssqlDatabase)
+
+### Verbundene Ressourcen
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
+
+## Ressourcenkonfigurationswerte
+
+#### Grundeinstellungen
+
+-   `version` : Zu verwendende Microsoft SQL Server-Version – `2.0`, `12.0`
+-   `admin_username` : Administrator-Benutzername des Servers; nur alphanumerische Zeichen erlaubt, muss mit einem Buchstaben beginnen, reservierte Wörter sind nicht zulässig
+-   `admin_password` : Administrator-Anmeldekennwort des Servers; muss mindestens drei der folgenden Zeichenarten enthalten: Kleinbuchstaben, Großbuchstaben, Zahlen, Sonderzeichen; darf keine drei oder mehr aufeinanderfolgenden alphanumerischen Zeichen des Anmeldenamens enthalten; `8` ~ `128` Zeichen
+-   `minimum_tls_version` : Minimal unterstützte TLS-Version des Servers – `1.2`, `Disabled`
+-   `public_network_access_enabled` : Zulassen des öffentlichen Netzwerkzugriffs auf den Server – `true`, `false`
+
+#### Firewall-Regeln (`firewall_rule`)
+
+-   `firewall_rule.start_ip_address` : Start-IP-Adresse der Firewall-Regel
+-   `firewall_rule.end_ip_address` : End-IP-Adresse der Firewall-Regel
+
+#### Sicherheitswarnrichtlinie (`security_alert_policy`)
+
+-   `security_alert_policy.alert_policy_state` : Aktivierungsstatus der anzuwendenden Richtlinie – `Enabled`, `Disabled`
+-   `security_alert_policy.disabled_alerts` : Liste der zu deaktivierenden Sicherheitswarnungen
+-   `security_alert_policy.alert_retention_days` : Aufbewahrungsdauer der Bedrohungserkennungs-Auditprotokolle (Tage) – `0` ~ `3265`
+-   `security_alert_policy.alert_email_account_admins` : Aktivieren des Versands von Sicherheitswarnungen per E-Mail an Kontoadministratoren – `true`, `false`
+-   `security_alert_policy.alert_email_addresses` : Liste der E-Mail-Adressen zum Empfang von Sicherheitswarnungen
+
+#### Überwachungsrichtlinie (`auditing_policy`)
+
+-   `auditing_policy.enable_storage_destination` : Aktivieren eines Storage-Kontos als Ziel – `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Name des Storage-Kontos
+-   `auditing_policy.storage_access_key_is_second` : Verwendung des sekundären Zugriffsschlüssels für die Überwachung – `true`, `false`
+-   `auditing_policy.storage_retention_days` : Aufbewahrungsdauer der Protokolle im Storage-Konto
+-   `auditing_policy.enable_log_analytics_destination` : Aktivieren der Überwachungsrichtlinie für Log Analytics Workspace – `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Name der Log Analytics Workspace-Überwachungsrichtlinie
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Name der Log Analytics Workspace-Diagnoseeinstellung
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Sicherheitswarnrichtlinien (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
+-   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)

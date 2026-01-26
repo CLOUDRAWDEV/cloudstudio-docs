@@ -1,0 +1,69 @@
+---
+title: MssqlDatabase
+sidebar_position: 1
+tags: [Azure, MssqlDatabase, MSSQL, SQLServer, Database]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_database.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure SQL Database (Microsoft SQL Database) ist eine vollständig verwaltete PaaS-Datenbank-Engine, die den Großteil der Datenbankverwaltungsaufgaben wie Upgrades, Patches, Backups und Überwachung ohne Benutzereingriffe übernimmt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**MssqlServer**](https://docs.cstudio.app/de/docs/resource/azure/Database/MssqlServer)
+
+### Verbundene Ressourcen
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
+-   [**Metric**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/Metric)
+
+## Ressourcenkonfigurationswerte
+
+#### Grundeinstellungen
+
+-   `included_mssql_server_name` : Name des Microsoft SQL Servers, auf dem die Datenbank erstellt wird
+-   `sku_name` : Preis- und Leistungsstufe der Microsoft SQL-Datenbank
+-   `max_size_gb` : Maximale Größe der Datenbank (GB) – `1` ~ `1024`
+-   `collation` : Datensortierungs- und Vergleichsregeln der Microsoft SQL-Datenbank
+-   `license_type` : Lizenztyp, der auf die Datenbank angewendet wird – `LicenseIncluded`, `BasePrice`
+-   `min_capacity` : Minimale Anzahl an vCores für automatisches Skalieren – mindestens `0.5`
+-   `auto_pause_delay_in_minutes` : Wartezeit (in Minuten), bis die Datenbank bei Inaktivität automatisch pausiert wird – `60` ~ `10080`
+-   `read_scale` : Aktiviert das Auslagern von schreibgeschützten Workloads auf eine der schreibgeschützten Replikate – `true`, `false`
+-   `zone_redundant` : Aktiviert Zonenredundanz für Wartungsvorgänge der Datenbank – `true`, `false`
+
+#### Auditing-Richtlinie (`auditing_policy`)
+
+-   `auditing_policy.enable_storage_destination` : Aktivierung eines Storage Accounts für Auditing – `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Name des Storage Accounts
+-   `auditing_policy.storage_access_key_is_second` : Verwendung des sekundären Zugriffsschlüssels für den Auditing-Storage-Account – `true`, `false`
+-   `auditing_policy.storage_retention_days` : Anzahl der Tage, für die Protokolle im Storage Account aufbewahrt werden
+-   `auditing_policy.enable_log_analytics_destination` : Aktivierung des Auditing über einen Log Analytics Workspace – `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Name der Auditing-Richtlinie im Log Analytics Workspace
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Name des Log Analytics Workspace
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)
+-   [Azure SQL Database – Preise (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/purchasing-models)
+-   [Azure SQL Database Serverless (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/serverless-tier-overview)

@@ -1,0 +1,82 @@
+---
+title: SourcePipeline
+sidebar_position: 4
+tags: [Ncloud, Recurso, DeveloperTool, SourcePipeline]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de automatización de procesos para un lanzamiento de software rápido y estable mediante la integración de SourceCommit, SourceBuild y SourceDeploy.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
+
+### Recursos secundarios
+
+-   [**SourceBuild**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/es/docs/resource/ncloud/DeveloperTool/SourceDeploy)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `description` : Descripción del proyecto pipeline a crear - máximo 500 caracteres
+
+#### Tarea por defecto (`default_task`)
+
+-   `default_task.name` : Nombre de la primera tarea del pipeline (letras/números/`-`/`_`, 1~50 caracteres)
+-   `default_task.type` : Tipo de tarea - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Nombre del proyecto SourceBuild a conectar
+-   `default_task.target_source_deploy_project` : Nombre del proyecto SourceDeploy a conectar
+-   `default_task.target_source_deploy_project_stage` : Nombre del Stage del proyecto SourceDeploy
+-   `default_task.target_source_deploy_project_scenario` : Nombre del Scenario del proyecto SourceDeploy
+-   `default_task.repository_branch` : Nombre de la rama del repositorio objetivo de SourceBuild
+
+#### Tareas adicionales (`additional_task`)
+
+-   `additional_task.type` : Tipo de tarea - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Nombre del proyecto SourceBuild
+-   `additional_task.target_source_deploy_project` : Nombre del proyecto SourceDeploy
+-   `additional_task.target_source_deploy_project_stage` : Nombre del Stage
+-   `additional_task.target_source_deploy_project_scenario` : Nombre del Scenario
+-   `additional_task.repository_branch` : Rama del repositorio objetivo
+-   `additional_task.pre_tasks` : Lista de tareas previas
+
+#### Trigger por push (`trigger_push_repository`)
+
+-   `trigger_push_repository.type_of_repository` : Tipo de repositorio del trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Nombre del repositorio
+-   `trigger_push_repository.branch_of_repository` : Rama del repositorio
+
+#### Trigger por programación (`trigger_schedule`)
+
+-   `trigger_schedule.day` : Día programado - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Hora programada
+-   `trigger_schedule.timezone` : Zona horaria
+-   `trigger_schedule.execute_only_with_change` : Ejecutar solo cuando haya cambios - `true`, `false`
+
+#### Encadenamiento de pipeline (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : Lista de IDs de pipelines a ejecutar automáticamente tras finalizar el pipeline actual
+
+---
+
+## Referencias
+
+-   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

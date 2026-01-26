@@ -1,0 +1,49 @@
+---
+title: TransitGatewayAttachmentAccepter
+sidebar_position: 17
+tags: [AWS, Ressource, VPC, TransitGatewayAttachmentAccepter]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment_accepter.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Ressource zur Entscheidung über die Genehmigung der gemeinsamen Nutzung von Ressourcen aus anderen AWS-Konten
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**TransitGatewayAttachment**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/TransitGatewayAttachment)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `is_manual` : Gibt an, ob die ID des Transit-Gateway-Attachments manuell eingegeben wird – `true`, `false`
+-   `transit_gateway_attachment_id` : ID des Transit-Gateway-Attachments, dessen Freigabe erlaubt wird
+-   `linked_transit_gateway_attachment_name` : Name des Transit-Gateway-Attachments, dessen Freigabe erlaubt wird
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Transit Gateway Attachment Accepter (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [TransitGatewayAttachmentAccepter (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment_accepter)

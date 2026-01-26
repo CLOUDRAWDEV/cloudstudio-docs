@@ -1,6 +1,6 @@
 ---
 title: LaunchConfiguration
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, リソース, Compute, LaunchConfiguration]
 ---
 
@@ -11,31 +11,32 @@ tags: [Ncloud, リソース, Compute, LaunchConfiguration]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-launch_configuration.webp"
     }
 />
 
 ## リソース概要
 
-Auto Scaling 遂行中にサーバー拡張が必要な時に自動的に生成される仮想サーバーのスペックを構成するテンプレートです。
+Auto Scaling の実行中にサーバー拡張が必要な場合、自動的に生成される仮想サーバーのスペックを定義するテンプレートです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/Region)
 
 ## リソース設定値
 
--   `server_image_product_code` : 使用するオペレーティングシステムイメージコード(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
--   `server_product_code` : サーバのハードウェア構成のためのコード(HICPU:High CPU、STAND:Standard、HIMEM:High Memory/C コア数、M メモリ(GB))
--   `login_key_name` : サーバー インスタンスへの接続と暗号化、復号化に必要なリソース
--   `init_script`
-    -   `content` : サーバーが生成されたときに自動的に実行するスクリプトの内容
--   `is_encrypted_volume` : Basic block storage が暗号化されているかどうか
+#### 基本設定
+
+-   `server_image_product_code` : 使用する OS イメージコード（CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition） - `ncloudServerImage`
+-   `server_product_code` : サーバーのハードウェア構成コード（HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C:コア数, M:メモリ(GB)） - `ncloudServerType`
+-   `login_key_name` : 暗号化用の公開ログインキー名
+-   `init_script` : サーバー作成時に自動実行されるスクリプト内容
+-   `is_encrypted_volume` : Basic Block Storage の暗号化有無 - `true`, `false`
 
 ---
 
 ## 参考資料
 
--   [ncloud_launch_configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)
+-   [Launch Configuration(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/launch_configuration)

@@ -1,0 +1,64 @@
+---
+title: Postgresql
+sidebar_position: 0
+tags: [AWS, Ressourcen, Rds, Postgresql]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/rds-postgresql.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Die Nutzung von PostgreSQL auf AWS zur Einrichtung von RDS erleichtert den Betrieb und die Verwaltung der Datenbank und bietet hohe Skalierbarkeit. Darüber hinaus bietet RDS automatische Backup- und Wiederherstellungsfunktionen für Datenbankinstanzen, um Datenverluste zu verhindern, und gewährleistet die Datensicherheit durch die von AWS bereitgestellten Sicherheitsfunktionen.
+
+## Verwandte Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+
+## Ressourcenkonfigurationswerte
+
+-   `database_name` : Anfangsname der Datenbank
+-   `engine_version` : PostgreSQL-Version für RDS
+-   `instance_class` : Preisstufe der RDS-Datenbank
+-   `storage_type` : Speichertyp der RDS-Instanz - `gp2`, `io1`, `standard`
+-   `allocated_storage` : Speicherkapazität der RDS-Instanz (Gigabyte)
+-   `max_allocated_storage` : Obergrenze für die automatische Speichererweiterung von Amazon RDS für die DB-Instanz
+-   `multi_az_enabled` : Multi-AZ-Bereitstellung aktivieren - `true`, `false`
+-   `username` : Benutzername für RDS
+-   `password` : Passwort für RDS Benutzen
+-   `skip_final_snapshot` : Entscheidung, ob vor dem Löschen der DB-Instanz ein endgültiger DB-Snapshot erstellt werden soll
+-   `included_subnet_names` : Subnet-Name zur Verbindung mit der RDS-Subnetzgruppe
+-   `backup_retention_period` : Aufbewahrungsdauer der Backup-Daten
+-   `storage_encrypted` : Festlegung, ob die DB-Instanz verschlüsselt wird - `true`, `false`
+-   `publicly_accessible` : Ob die Instanz öffentlich zugänglich ist - `true`, `false`
+-   `monitoring`
+    -   `performance_insights_enabled` : Aktivierung von Performance Insights
+-   `encryption`
+    -   `storage_encrypted` : Festlegung, ob die DB-Instanz verschlüsselt wird - `true`, `false`
+    -   `kms_key_name` : Name des KMS-Schlüssels für die Verschlüsselung
+-   `backup`
+    -   `backup_retention_period` : Aufbewahrungsdauer der Backup-Daten - `1`~`35`
+    -   `final_snapshot_enabled` : Entscheidung, ob vor dem Löschen der DB-Instanz ein endgültiger DB-Snapshot erstellt werden soll - `true`, `false`
+    -   `final_snapshot_name` : Name des endgültigen Snapshots - `true`, `false`
+
+---
+
+## Referenzmaterial
+
+-   [Amazon RDS for PostgreSQL(Amazon RDS)(AWS)](https://aws.amazon.com/ko/rds/postgresql/)
+-   [What is PostgreSQL?(AWS)](https://aws.amazon.com/ko/rds/postgresql/what-is-postgresql/)
+-   [Amazon RDS for PostgreSQL Kosten](https://aws.amazon.com/ko/rds/postgresql/pricing/)

@@ -1,0 +1,44 @@
+---
+title: PolicyDefinition
+sidebar_position: 0
+tags: [Azure, Policy, PolicyDefinition]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Symbol
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/policy-policy_definition.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure PolicyDefinition ist eine **Ressource zur Definition von Richtlinien, die Regeln und Bedingungen festlegt, denen Ressourcen entsprechen müssen, sowie die Auswirkungen bei Regelverstößen definiert**.  
+Basierend auf dem Richtlinientyp und dem Durchsetzungsmodus ermöglicht sie eine konsistente Verwaltung des Compliance-Status aller Azure-Ressourcen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subscription**](https://docs.cstudio.app/de/docs/resource/azure/Base/Subscription)
+-   [**Policy Set Definition**](https://docs.cstudio.app/de/docs/resource/azure/Policy/PolicySetDefinition)
+
+### Verbundene Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+## Ressourcenkonfigurationswerte
+
+-   `type` : Typ der Richtliniendefinition – `Custom`, `BuiltIn`, `NotSpecified`
+-   `mode` : Modus zur Festlegung der durch die Richtlinie bewerteten Ressourcentypen
+-   `display_name` : Anzeigename der Richtliniendefinition
+-   `linked_resource_group_name` : Resource Group, auf die die Richtlinie angewendet wird
+
+## Referenzen
+
+-   [Übersicht über Azure Policy-Definitionen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure)
+-   [Beschreibung der Azure Policy-Modi (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/definition-structure#mode)

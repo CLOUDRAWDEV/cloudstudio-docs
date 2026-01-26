@@ -1,0 +1,54 @@
+---
+title: ExpressRouteCircuit
+sidebar_position: 10
+tags: [Azure, Network, ExpressRoute, ExpressRouteCircuit]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+ExpressRoute Circuit è una risorsa di rete di Azure utilizzata per collegare una rete on-premises alla cloud Microsoft tramite una **connessione privata e dedicata**.  
+Fornisce una connessione stabile che non transita su Internet pubblico ed è comunemente utilizzata in ambienti enterprise con requisiti elevati in termini di larghezza di banda, latenza e sicurezza.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+## Valori di configurazione della risorsa
+
+-   `service_provider` : Provider ISP che fornisce il circuito ExpressRoute
+-   `peering_location` : Località di peering in cui l’ISP effettua il provisioning del circuito
+-   `bandwidth_in_mbps` : Larghezza di banda del circuito ExpressRoute (Mbps)
+-   `sku_tier` : Livello di prezzo del circuito ExpressRoute - `Basic`, `Local`, `Standard`, `Premium`
+-   `sku_family` : Modello di fatturazione per il trasferimento dati in uscita - `MeteredData`, `UnlimitedData`
+-   `authorization_names` : Elenco dei nomi di autorizzazione consentiti per l’utilizzo del circuito
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+#### Configurazione del peering del circuito (`circuit_peering`)
+
+-   `circuit_peering.enabled_peering` : Indica se il tipo di peering specifico è abilitato - `true`, `false`
+-   `circuit_peering.peer_asn` : Valore ASN utilizzato per il peering BGP
+-   `circuit_peering.primary_peer_address` : Subnet IPv4 `/30` per il collegamento primario
+-   `circuit_peering.secondary_peer_address` : Subnet IPv4 `/30` per il collegamento secondario
+-   `circuit_peering.vlan_id` : ID VLAN per la configurazione del peering
+-   `circuit_peering.advertised_public_prefixes` : Elenco dei prefissi di indirizzi IPv4 pubblici annunciati tramite la sessione BGP
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure ExpressRoute (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-introduction)
+-   [Circuiti e SKU di ExpressRoute (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings)
+-   [Configurazione del peering ExpressRoute (Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-howto-routing-portal)

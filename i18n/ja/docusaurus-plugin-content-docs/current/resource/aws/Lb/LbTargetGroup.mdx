@@ -1,6 +1,6 @@
 ---
 title: LbTargetGroup
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, リソース, Lb, LbTargetGroup]
 ---
 
@@ -11,38 +11,47 @@ tags: [AWS, リソース, Lb, LbTargetGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lb-lb_target_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb_target_group.webp"
     }
 />
 
 ## リソース概要
 
-指定したプロトコルとポート番号を使用して EC2 インスタンスのような 1 つ以上の登録された対象にリクエストをルーティングするサービス
+指定したプロトコルとポートを使用して、EC2 インスタンスなどの対象にリクエストをルーティングするサービスです。
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
 ### 接続リソース
 
--   [**Ec2 Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
--   [**Lambda Function**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
--   [**Lb**](https://docs.cstudio.app/ja/docs/resource/aws/Lb)
+-   [**Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
+-   [**LambdaFunction**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Lb**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/Lb)
 
 ## リソース設定値
 
--   `target_type` : LB ターゲットの種類 - `Instance`, `Ip`, `Lambda`, `Alb`
--   `protocol` : トラフィックへのルーティングに使用するプロトコル - `HTTP`,`HTTPS`,`TCP`,`TCP_UDP`,`TLS`
--   `port` : トラフィックを受信するポート - `1~65535`
--   `included_vpc_name` : ターゲットグループを生成する VPC の名前
--   `linked_instance_names` : Target Instance の名前リスト
+#### 基本設定
+
+-   `target_type` : 対象タイプ
+-   `protocol` : 使用プロトコル
+-   `port` : ポート番号
+-   `included_vpc_name` : VPC 名
+-   `linked_instance_names` : Instance 名一覧
+-   `ips` : Target IP 一覧
+-   `linked_lambda_name` : Lambda 名
+-   `linked_application_lb_name` : ALB 名
+
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [LB Target Group(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
--   [LB Target Group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)
+-   [LB Target Group（AWS）](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+-   [LB Target Group（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)

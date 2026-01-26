@@ -11,40 +11,51 @@ tags: [AWS, Resource, Cloudwatch, Metric]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
     }
 />
 
 ## Resource Overview
 
-AWS CloudWatch Metrics are name-value pairs that represent measurements collected from monitored resources. 
-For example, metrics such as CPU utilization, network input, and output can be collected from EC2 instances. 
-These metrics are stored as CloudWatch Metrics and are used for dashboards, alerts, and analysis. 
-Additionally, you can create custom metrics to monitor data collected from your applications and services. 
-CloudWatch Metrics are integrated with various services provided by AWS.
+An AWS CloudWatch Metric is a name-value pair that represents a measurement collected from a monitored resource. For example, measurements such as CPU utilization and network input and output can be collected from EC2 instances. These measurements are stored as CloudWatch Metrics and are used for dashboards, alarms, and analysis. You can also create custom metrics to monitor data collected from applications and services. CloudWatch Metrics are integrated with a wide range of AWS services.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
-## Resource Setting Values
+### Connected Resources
 
--   `comparison_operator`: The arithmetic operation to use when comparing the specified Statistic and Threshold
--   `evaluation_periods`: The number of periods over which data is compared to the specified threshold
--   `metric_name`: The name for the alarm's associated metric
--   `namespace`: The namespace for the alarm's associated metric
--   `period`: The period in seconds over which the specified statistic is applied
--   `statistic`: The statistic to apply to the alarm's associated metric
--   `threshold`: The value against which the specified statistic is compared
--   `alarm_description`: The description for the alarm
--   `insufficient_data_actions`: SNS list to send alarms for data shortage indicators
+-   [**SnsTopic**](https://docs.cstudio.app/en/docs/resource/aws/Sns/SnsTopic)
 
 ---
 
-## Reference Materials
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `comparison_operator` : Comparison operator used to compare metric values with thresholds - `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
+-   `evaluation_periods` : Number of evaluation periods over which the metric is compared to the threshold
+-   `metric_name` : Name of the CloudWatch metric associated with the alarm
+-   `namespace` : Namespace of the CloudWatch metric associated with the alarm
+-   `period` : Period (in seconds) over which the metric is aggregated
+-   `statistic` : Statistical method applied to the metric - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : Threshold value that triggers the alarm
+-   `alarm_description` : Description of the alarm
+-   `linked_sns_names` : List of SNS Topics associated for use with the metric
+-   `alarm_sns_names` : List of SNS Topics to notify when the metric breaches the threshold
+-   `ok_sns_names` : List of SNS Topics to notify when the metric returns to a normal state
+-   `insufficient_data_sns_names` : List of SNS Topics to notify when the metric is in an insufficient data state
+
+#### Tags
+
+-   `tag` : List of tags used to categorize resources
+
+---
+
+## References
 
 -   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
--   [Amazon CloudWatch Price(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Pricing(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
 -   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)

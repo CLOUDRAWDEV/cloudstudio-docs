@@ -11,37 +11,43 @@ tags: [AWS, Resource, CloudTrail]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.webp"
     }
 />
 
 ## Resource Overview
 
-AWS CloudTrail allows you to monitor your AWS deployment in the cloud by retrieving a history of AWS API calls made through the AWS Management Console, AWS SDK, command-line tools, and higher-level AWS services. 
-It also provides insights into which users and accounts called AWS APIs for CloudTrail-supported services, the source IP addresses of those calls, and the times when the calls occurred. 
-You can integrate CloudTrail with your applications using APIs, automate the creation of trails for your organization, check trail status, and control how administrators enable and disable CloudTrail logging.
+AWS CloudTrail enables monitoring of AWS deployments in the cloud by retrieving records of AWS API calls made on your account, including calls made through the AWS Management Console, AWS SDKs, command line tools, and higher-level AWS services. It allows you to identify which users and accounts called AWS APIs supported by CloudTrail, the source IP addresses from which calls were made, and the time at which calls occurred. You can integrate CloudTrail into applications using APIs, automate trail creation for organizations, check trail status, and control how administrators enable and disable CloudTrail logging.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ### Connected Resources
 
--   [**S3 Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
-
-## Resource Setting Values
-
--   `linked_s3_bucket_name`: Name of the S3 bucket designated for publishing log files
--   `s3_key_prefix`: S3 key prefix that follows the name of the bucket you have designated for log file delivery
--   `multi_region_enabled`: Enable multi-region trail
--   `global_service_events`: Whether the trail is publishing events from global services such as IAM to the log files - `true`, `false`
+-   [**S3Bucket**](https://docs.cstudio.app/en/docs/resource/aws/S3/S3Bucket)
 
 ---
 
-## Reference Materials
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `linked_s3_bucket_name` : Name of the S3 Bucket used to store CloudTrail log files
+-   `s3_key_prefix` : S3 object key prefix used when storing log files
+-   `multi_region_enabled` : Whether multi-region trails are enabled - `true`, `false`
+-   `global_service_events` : Whether to include global service events such as IAM in logs - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+---
+
+## References
 
 -   [Amazon CloudTrail(AWS)](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
--   [Amazon CloudTrail Price(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
+-   [Amazon CloudTrail Pricing(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
 -   [Amazon CloudTrail(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)

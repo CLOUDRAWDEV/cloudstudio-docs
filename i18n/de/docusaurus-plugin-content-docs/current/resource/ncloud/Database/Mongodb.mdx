@@ -1,0 +1,74 @@
+---
+title: Mongodb
+sidebar_position: 2
+tags: [Ncloud, Ressource, Database, Mongodb]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Cloud DB for MongoDB ist ein vollständig verwalteter Cloud-Datenbankservice, der die einfache Bereitstellung und den stabilen Betrieb von MongoDB-Datenbanken ermöglicht.  
+Er bietet automatische Wiederherstellung bei Ausfällen und nutzt optimierte Konfigurationen von Ncloud.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `server_name_prefix` : MongoDB-Servername (Kleinbuchstaben/Zahlen/Bindestrich erlaubt, Länge 3–15)
+-   `user_name` : MongoDB-Benutzer-ID
+-   `user_password` : Passwort des MongoDB-Benutzers
+-   `included_vpc_name` : Name des VPC
+-   `included_subnet_name` : Name des Subnetzes
+-   `cluster_type_code` : Cluster-Typ-Code – `clusterTypeCode`
+-   `shard_count` : Anzahl der MongoDB-Shards – `2`, `3`
+-   `image_product_code` : Image-Produktcode – `imageProductCode`
+-   `backup_file_retention_period` : Aufbewahrungsdauer der Backups (Tage) – `1` ~ `30`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `data_storage_type` : Storage-Typ – `SSD`, `HDD`
+-   `compress_code` : Komprimierungsalgorithmus – `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+
+#### MongoDB-Member (`member`)
+
+-   `member.member_port` : TCP-Port – `10000` ~ `65535`
+-   `member.member_product_code` : Produktcode – `memberProductCode`
+-   `member.member_server_count` : Anzahl der Member-Server – `3` ~ `7`
+
+#### MongoDB-Arbiter (`arbiter`)
+
+-   `arbiter.arbiter_server_count` : Anzahl der Arbiter – `0`, `1`
+-   `arbiter.arbiter_product_code` : Produktcode – `arbiterProducCode`
+
+#### MongoDB-Mongos (`mongos`)
+
+-   `mongos.mongos_port` : TCP-Port – `10000` ~ `65535`
+-   `mongos.mongos_product_code` : Produktcode – `mongosProductCode`
+-   `mongos.mongos_server_count` : Anzahl der Mongos – `2` ~ `5`
+
+#### MongoDB-Config (`config`)
+
+-   `config.config_port` : TCP-Port – `10000` ~ `65535`
+-   `config.config_product_code` : Produktcode – `configProductCode`
+-   `config.config_server_count` : Anzahl der Config-Server – `3` ~ `7`
+
+---
+
+## Referenzen
+
+-   [MongoDB Database(Ncloud)](https://www.gov-ncloud.com/v2/product/database/cloudDbCache)
+-   [MongoDB Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

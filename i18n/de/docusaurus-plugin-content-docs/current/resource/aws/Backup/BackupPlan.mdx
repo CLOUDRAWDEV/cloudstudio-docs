@@ -1,0 +1,65 @@
+---
+title: BackupPlan
+sidebar_position: 0
+tags: [AWS, Ressource, Backup, BackupPlan]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Richtlinienausdrucksdefinition, die festlegt, wann und wie AWS-Ressourcen gesichert werden.  
+Ressourcen können einem Backup-Plan zugewiesen werden, und AWS Backup sichert und verwaltet diese Ressourcen automatisch gemäß dem Backup-Plan.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+#### Regeln (`rule`)
+
+-   `rule.rule_name` : Name der Sicherungsregel, 1–50 alphanumerische Zeichen oder Zeichen wie -, \_, .
+-   `rule.backup_vault_name` : Name des logischen Containers, der für die Sicherungsspeicherung verwendet wird
+-   `rule.frequency_type` : Zeitplan-Typ für die Sicherung – `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : Uhrzeit zur Initialisierung des Sicherungsplans – mindestens `1`
+-   `rule.frequency_days` : Wochentag zur Initialisierung des Sicherungsplans – `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `rule.frequency_date` : Kalendertag zur Initialisierung des Sicherungsplans – `1` ~ `31`
+-   `rule.start_time` : Startzeit des Sicherungsplans
+-   `rule.custom_cron_expression` : Benutzerdefinierter Ausdruck für den Startzeitpunkt des Sicherungsplans
+-   `rule.start_after_minutes` : Gesamtzeit bis zum Start der Sicherung – mindestens `60`
+-   `rule.complete_after_minutes` : Zeit (in Minuten), die AWS Backup versucht zu sichern, bevor der Vorgang abgebrochen und ein Fehler zurückgegeben wird
+-   `rule.enabled_use_cold_storage` : Aktivierung der Nutzung von Cold Storage – `true`, `false`
+-   `rule.warm_storage_retention_days` : Anzahl der Tage bis zur Verschiebung eines Wiederherstellungspunkts in Cold Storage – `1` ~ `36410`
+-   `rule.total_retention_days` : Anzahl der Tage bis zur Löschung eines Wiederherstellungspunkts – `1` ~ `36500`
+
+#### Ressourcenzuweisung (`resource_assignment`)
+
+-   `resource_assignment.iam_role_arn` : ARN der IAM-Rolle, die AWS Backup für Sicherung und Wiederherstellung der Zielressourcen verwendet
+-   `resource_assignment.enabled_contain_all` : Gibt an, ob alle Ressourcen eingeschlossen werden – `true`, `false`
+-   `resource_assignment.contain_arn_or_pattern` : Array von Zeichenketten, die Amazon Resource Names enthalten oder mit Ressourcenmustern übereinstimmen
+-   `resource_assignment.exclude_arn_or_pattern` : Array von Zeichenketten, die Ressourcenmuster oder Amazon Resource Names enthalten, die ausgeschlossen werden sollen
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Amazon BackupPlan(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
+-   [Amazon BackupPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)

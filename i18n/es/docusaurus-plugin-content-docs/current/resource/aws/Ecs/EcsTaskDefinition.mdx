@@ -1,0 +1,66 @@
+---
+title: EcsTaskDefinition
+sidebar_position: 1
+tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Define cómo se ejecutan los contenedores dentro de Amazon ECS.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `app_environment` : Tipo de inicio requerido para la tarea - `EC2`, `FARGATE`
+-   `os_architecture` : Familia de sistema operativo utilizada al registrar la definición de tarea - `LINUX X86_64`
+-   `task_cpu` : Cantidad de unidades de CPU utilizadas por la tarea
+-   `task_memory` : Cantidad de memoria utilizada por la tarea(MiB)
+-   `network_mode` : Modo de red utilizado por los contenedores de la tarea - `awsvpc`, `none`, `bridge`, `host`
+
+#### Contenedor (`container`)
+
+-   `container.image_url` : Imagen del contenedor que se ejecutará en el ECS Cluster
+-   `container.essential_enabled` : Indica si otros objetos del contenedor se detienen cuando el contenedor se detiene - `true`, `false`
+-   `container.port_mapping.container_port` : Puerto utilizado para enviar o recibir tráfico
+-   `container.port_mapping.protocol` : Protocolo utilizado para el mapeo de puertos - `tcp`, `udp`
+-   `container.port_mapping.app_protocol` : Protocolo de aplicación utilizado para la conexión del servicio - `http`, `http2`, `grpc`, `none`
+-   `container.cpu` : Capacidad de CPU del contenedor
+-   `container.memory` : Capacidad de memoria del contenedor
+
+#### Volumen (`volume`)
+
+-   `volume.host_path` : Ruta del host proporcionada al contenedor
+
+#### Montaje de volumen (`volume_mount`)
+
+-   `volume_mount.container_name` : Nombre del contenedor donde se montará el volumen
+-   `volume_mount.volume_name` : Nombre del volumen a montar
+-   `volume_mount.container_path` : Ruta del contenedor donde se montará el volumen
+-   `volume_mount.read_only` : Indica si el contenedor solo tiene acceso de lectura - `true`, `false`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+## Referencias
+
+-   [Amazon Ecs Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
+-   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

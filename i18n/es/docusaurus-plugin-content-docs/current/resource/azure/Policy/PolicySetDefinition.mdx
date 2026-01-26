@@ -1,0 +1,46 @@
+---
+title: PolicySetDefinition
+sidebar_position: 1
+tags: [Azure, Policy, PolicySetDefinition]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/policy-policy_set_definition.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure PolicySetDefinition es un **recurso de definición de conjunto de políticas que agrupa varias Policy Definitions en un único conjunto lógico para su gestión centralizada**.  
+Al organizar políticas con un objetivo común en una sola unidad, permite aplicar y gestionar políticas de forma coherente incluso en entornos a gran escala.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Subscription**](https://docs.cstudio.app/es/docs/resource/azure/Base/Subscription)
+
+### Recursos secundarios
+
+-   [**Policy Definition**](https://docs.cstudio.app/es/docs/resource/azure/Policy/PolicyDefinition)
+
+### Recursos conectados
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+## Valores de configuración del recurso
+
+-   `type` : Tipo de definición del conjunto de políticas - `Custom`, `BuiltIn`
+-   `display_name` : Nombre visible del conjunto de políticas
+-   `definition_names` : Lista de nombres de Policy Definition incluidos en el conjunto
+
+## Referencias
+
+-   [Descripción general de Azure Policy Set Definition (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition-structure)
+-   [Concepto de Azure Policy Initiative (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition)

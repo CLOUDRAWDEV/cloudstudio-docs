@@ -1,6 +1,6 @@
 ---
 title: TransitGatewayAttachment
-sidebar_position: 0
+sidebar_position: 16
 tags: [AWS, リソース, VPC, TransitGatewayAttachment]
 ---
 
@@ -11,13 +11,13 @@ tags: [AWS, リソース, VPC, TransitGatewayAttachment]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment.webp"
     }
 />
 
 ## リソース概要
 
-VPC とオンプレミスネットワークを接続するために使用できるサービス
+VPC とオンプレミスネットワークを接続するために使用されるサービス。
 
 ## 関連リソース
 
@@ -27,20 +27,31 @@ VPC とオンプレミスネットワークを接続するために使用でき�
 
 ### 接続リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 -   [**TransitGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
 -   [**TransitGatewayAttachmentAccepter**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
 
 ## リソース設定値
 
--   `linked_tranit_gateway_name` : VPC と接続する Transit Gateway 名
--   `is_manual` : 接続する VPC ID を直接入力するかどうかの可否 - `false`,`true`
+#### 基本設定
+
+-   `linked_transit_gateway_name` : VPC と接続する Transit Gateway 名
+-   `is_manual` : 接続する VPC ID を手動入力するか 여부 - `true`, `false`
 -   `linked_vpc_name` : Transit Gateway を接続する VPC 名
--   `subnet_names` : Transit Gateway を接続する Subnet 名
+-   `subnet_names` : Transit Gateway と接続する Subnet 名一覧
+
+#### 手動接続設定 (`manual`)
+
+-   `vpc_id` : Transit Gateway を接続する VPC ID
+-   `subnet_ids` : 指定した VPC 内の Subnet ID 一覧
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
 -   [TransitGatewayAttachment(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
 -   [TransitGatewayAttachment(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment)

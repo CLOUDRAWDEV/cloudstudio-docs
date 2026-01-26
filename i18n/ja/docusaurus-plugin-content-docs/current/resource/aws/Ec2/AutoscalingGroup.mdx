@@ -1,0 +1,50 @@
+---
+title: AutoscalingGroup
+sidebar_position: 0
+tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
+---
+
+<hr />
+<br />
+
+## Resource アイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
+
+## Resource Overview
+
+アプリケーション需要に応じてEC2インスタンスを自動的に起動・終了し、Resourceを調整するAuto Scaling Group（ASG）です。
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+
+### Connected Resources
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/LbTargetGroup)
+
+## Resource 設定値
+
+#### Basic Settings
+
+-   `launch_template_name` : Auto Scaling Groupで使用するLaunch Template名
+-   `subnet_ids` : Auto Scaling GroupがResourceを作成するサブネットID一覧
+-   `linked_targetgroup_name` : 接続するTarget Group名
+-   `desired_capacity` : 維持するインスタンスの目標数
+-   `min_size` : 維持するインスタンスの最小数
+-   `max_size` : 維持するインスタンスの最大数
+-   `default_cooldown` : スケーリング後、次のスケーリングまで待機する時間（秒）
+
+#### タグ
+
+-   `tags` : Resourceを分類するためのタグ
+
+---
+
+## References
+
+-   [Auto Scaling Groups（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+-   [Launch Template の設定（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html)
+-   [Scaling Cooldowns（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html)

@@ -1,0 +1,95 @@
+---
+title: FrontDoor
+sidebar_position: 0
+tags: [Azure, Cdn, FrontDoor]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cdn-frontdoor.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure Front Door es un servicio global de aceleración de aplicaciones que utiliza la red perimetral global de Microsoft, distribuida en todo el mundo, para ofrecer contenido web a los usuarios de forma rápida y confiable.  
+Admite enrutamiento de tráfico, balanceo de carga, sondas de estado, terminación TLS y comunicaciones seguras, proporcionando alta disponibilidad y baja latencia incluso en entornos con múltiples orígenes.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+## Valores de configuración del recurso
+
+### Configuración básica
+
+-   `sku` : SKU del perfil de Front Door – `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`
+
+-   `endpoint_names` : Lista de nombres de los endpoints a utilizar
+
+### Configuración del grupo de orígenes (`origin_group`)
+
+-   `restore_traffic_time_in_minutes` : Tiempo de espera (en minutos) antes de cambiar el tráfico cuando ocurre una falla en un endpoint o se agrega un nuevo endpoint – `0` ~ `50`
+
+-   `session_affinity_enabled` : Indica si se habilita la afinidad de sesión – `true`, `false`
+
+-   `health_probe_path` : Ruta relativa utilizada para comprobar el estado del origen
+
+-   `health_probe_protocol` : Protocolo utilizado para las sondas de estado – `Http`, `Https`
+
+-   `health_probe_method` : Método de solicitud de la sonda de estado – `HEAD`, `GET`
+
+-   `health_probe_interval_in_seconds` : Intervalo de ejecución de las sondas de estado (en segundos)
+
+-   `load_balancing_latency_in_milliseconds` : Latencia adicional (ms) incluida en el bucket de menor latencia
+
+-   `load_balancing_sample_size` : Número de muestras utilizadas para las decisiones de balanceo de carga
+
+-   `load_balancing_sample_required` : Número de muestras exitosas necesarias para considerarse saludable
+
+### Configuración del origen (`origin`)
+
+-   `origin_group_name` : Nombre del grupo de orígenes al que pertenece el origen
+
+-   `host_name` : Nombre de host del origen (IPv4, IPv6 o dominio)
+
+-   `origin_host_header` : Valor del encabezado Host enviado al origen
+
+-   `certificate_name_check_enabled` : Indica si se habilita la verificación del nombre del certificado – `true`, `false`
+
+-   `enabled` : Indica si el origen está habilitado – `true`, `false`
+
+-   `priority` : Prioridad del origen – `1` ~ `5`
+
+-   `weight` : Peso para el balanceo de carga – `1` ~ `1000`
+
+-   `http_port` : Número de puerto HTTP – `1` ~ `65535`
+
+-   `https_port` : Número de puerto HTTPS – `1` ~ `65535`
+
+### Configuración de rutas (`route`)
+
+-   `endpoint_name` : Nombre del endpoint de Front Door al que se aplica la ruta
+
+-   `origin_group_name` : Nombre del grupo de orígenes al que se redirige el tráfico
+
+-   `patterns_to_match` : Lista de patrones de ruta
+
+-   `supported_protocols` : Protocolos permitidos por Front Door – `Http`, `Https`
+
+-   `forwarding_protocol` : Protocolo utilizado al reenviar el tráfico al backend – `HttpOnly`, `HttpsOnly`, `MatchRequest`
+
+---
+
+## Referencias
+
+-   [Azure Front Door (Microsoft)](https://learn.microsoft.com/ko-kr/azure/frontdoor/front-door-overview)
+-   [Precios de Azure Front Door](https://azure.microsoft.com/en-us/pricing/details/frontdoor/)
+-   [Azure Front Door (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint)

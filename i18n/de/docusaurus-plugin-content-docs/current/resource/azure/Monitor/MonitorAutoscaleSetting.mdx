@@ -1,0 +1,106 @@
+---
+title: MonitorAutoscaleSetting
+sidebar_position: 0
+tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Monitor Autoscale Setting ist eine auf Azure Monitor basierende Auto-Scaling-Funktion, die **die Anzahl der Ressourceninstanzen automatisch anpasst**, um die Anwendungslast zu verarbeiten.  
+Ressourcen können flexibel skaliert (hoch- oder herunterskaliert) werden, basierend auf Metriken wie CPU, Arbeitsspeicher, Datenträger und Netzwerk sowie zeitplanbasierten Bedingungen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+
+## Ressourceneinstellungen
+
+#### Zielressource
+
+-   `linked_target_resource_name` : Name der Ressource, auf die die Auto-Scaling-Einstellung angewendet wird (schreibgeschützt)
+
+---
+
+#### Skalierungsbedingungen (`scale_condition`)
+
+Definiert das Skalierungsprofil, das angewendet wird, wenn die Auto-Scaling-Engine ausgeführt wird.
+
+##### Einstellungen für die Instanzanzahl
+
+-   `scale_condition.min_instance_count` : Minimale Anzahl von Instanzen - `0` ~ `1000`
+-   `scale_condition.max_instance_count` : Maximale Anzahl von Instanzen - `1` ~ `1000`
+-   `scale_condition.default_instance_count` : Standardanzahl von Instanzen, die beibehalten wird, wenn Metriken nicht gelesen werden können und die aktuelle Kapazität unter der Standardkapazität liegt
+
+---
+
+##### Skalierungsregeln (`scale_condition.rule`)
+
+Definiert die Bedingungen, unter denen Skalierungsvorgänge basierend auf Metriken ausgelöst werden.
+
+-   `rule.metric_name` : Name der von der Regel überwachten Metrik
+-   `rule.operator` : Operator zum Vergleich des Metrikwerts mit dem Schwellenwert
+    -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
+-   `rule.metric_threshold` : Metrikwert zur Bewertung, ob ein Skalierungsvorgang ausgelöst werden soll
+
+##### Einstellungen zur Metrikbewertung
+
+-   `rule.time_window` : Zeitraum (Minuten), über den Metrikdaten gesammelt werden - `5` ~ `720`
+-   `rule.time_grain` : Abtastintervall der Metriken (Minuten) - `1` ~ `720`
+-   `rule.time_grain_statistic` : Aggregationsmethode für Metriken über mehrere Instanzen hinweg - `Average`, `Min`, `Max`
+-   `rule.time_aggregation` : Methode zur Aggregation der abgetasteten Metriken
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
+
+##### Skalierungsaktionen
+
+-   `rule.scale_direction` : Skalierungsrichtung - `Increase`, `Decrease`
+-   `rule.scale_operation` : Typ des Skalierungsvorgangs
+    -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
+-   `rule.scale_instance_count` : Anzahl der Instanzen, die mit dem Skalierungsvorgang verbunden sind - `1` ~ `1000`
+-   `rule.scale_cooldown` : Abkühlzeit vor dem nächsten Skalierungsvorgang (Minuten) - `1` ~ `10080`
+
+---
+
+#### Zeitplaneinstellungen
+
+Ermöglicht die Anwendung von Skalierungsvorgängen basierend auf einem Zeitplan.
+
+-   `schedule_type` : Zeitplantyp, der auf Skalierungsvorgänge angewendet wird
+    -   `start_end_dates`, `repeat_days`
+-   `timezone` : Zeitzone, in der der Zeitplan gilt
+-   `start_date` : Startdatum des Zeitplans
+-   `end_date` : Enddatum des Zeitplans
+-   `repeat_days` : Wochentage, an denen der Zeitplan angewendet wird
+-   `start_time` : Startzeit des Zeitplans
+-   `end_time` : Endzeit des Zeitplans
+
+---
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure Autoscale Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
+-   [Konfigurieren von Autoscale-Einstellungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
+-   [Azure Monitor Metriken (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)

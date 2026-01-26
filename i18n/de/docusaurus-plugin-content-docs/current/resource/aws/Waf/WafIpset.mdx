@@ -1,0 +1,51 @@
+---
+title: WafIpset
+sidebar_position: 1
+tags: [AWS, Ressource, Waf, WafIpset]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+AWS WAF IPSet ist eine Liste von IP-Adressen, die in der Web Application Firewall von Amazon Web Services verwendet wird. Damit können Benutzer Zugriffsregeln für definierte IP-Adressen erstellen und verwalten. Durch den Einsatz von IP-Sets lässt sich die Sicherheit von Webanwendungen erhöhen, indem Anfragen von bestimmten IP-Adressen zugelassen oder blockiert werden.
+
+## Ressourcenübersicht
+
+Ein AWS WAF IP Set ist eine Ressource, die eine oder mehrere IP-Adressen oder CIDR-Blöcke gruppiert, um sie in Web-ACL-Regeln zu referenzieren. Sie wird verwendet, um Zulassungs- oder Blockierungsrichtlinien für bestimmte IP-Bereiche zu konfigurieren.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `scope` : Anwendungsbereich des IP-Sets – `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : IP-Adressversion – `IPV4`, `IPV6`
+-   `addresses` : Liste von IP-Adressen oder IP-Adressblöcken im CIDR-Format
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [AWS-WAF-Funktionen (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS-WAF-Preise (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_ipset (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)

@@ -1,0 +1,50 @@
+---
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Ressource, Storage, NasVolume]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein netzwerkbasierter Speicherdienst, der mehreren Benutzern und Servern das gemeinsame Nutzen von Daten ermöglicht.  
+Geeignet für Szenarien, in denen mehrere Nutzer gleichzeitig auf denselben Speicher zugreifen müssen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+
+### Verbundene Ressourcen
+
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `volume_name_postfix` : Suffix des NAS-Volume-Namens (alphanumerisch, 3–20 Zeichen)
+-   `volume_size` : Volume-Größe (in 100-GB-Einheiten) – `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Protokolltyp – `NFS`, `CIFS`
+-   `cifs_user_name` : Benutzer-ID für CIFS-Authentifizierung
+-   `cifs_user_password` : Passwort für CIFS-Authentifizierung
+-   `linked_instances` : Liste der Serverinstanzen, die mit dem NAS-Volume verbunden werden
+-   `is_encrypted` : Aktivierung der volumenbasierten AES-256-Verschlüsselung
+
+---
+
+## Referenzen
+
+-   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

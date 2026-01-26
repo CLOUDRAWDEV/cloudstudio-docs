@@ -1,0 +1,49 @@
+---
+title: NetworkFirewallPolicy
+sidebar_position: 11
+tags: [AWS, Ressource, Vpc, NetworkFirewallPolicy]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine AWS Network Firewall Policy definiert Überwachungs- und Schutzverhalten für Network Firewalls.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**NetworkFirewallRuleGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewall**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewall)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `description` : Beschreibung der Firewall-Richtlinie (maximal 256 Zeichen)
+-   `stream_exception_policy` : Umgang mit unterbrochenem Midstream-Datenverkehr – `DROP`, `CONTINUE`, `REJECT`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [NetworkFirewallPolicy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
+-   [NetworkFirewallPolicy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)

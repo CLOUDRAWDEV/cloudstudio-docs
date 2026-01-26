@@ -1,5 +1,5 @@
 ---
-title: Block Storage
+title: BlockStorage
 sidebar_position: 0
 tags: [Ncloud, Resource, Storage, BlockStorage]
 ---
@@ -11,34 +11,36 @@ tags: [Ncloud, Resource, Storage, BlockStorage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.webp"
     }
 />
 
 ## Resource Overview
 
-This is an HDD or SSD storage service offered in addition to the server's primary storage. It can be quickly created and instantly attached to the server, and when no longer needed, it can be returned immediately.
+An HDD or SSD storage service additionally provided beyond the server's default storage. It can be created in a short time and immediately attached to a server, and can be returned immediately when no longer needed.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
-### Connected Resources
+### Connected Targets
 
 -   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
 
 ## Resource Setting Values
 
--   `linked_server_name` : The name of server to associate with the Block storage
--   `storage_size` : The size of Block storage in GB, From 10 to 16380
--   `storage_disk_type` : The type of Block storage disk, SSD or HDD - `SSD`, `HDD`
--   `snapshot_name` : Name of the snapshot to be created
+#### Basic Settings
+
+-   `zone` : Physical region where the Block Storage will be located - `KR-1`, `KR-2`
+-   `linked_server_name` : Name of the server to attach the block storage
+-   `storage_size` : Block storage size (GB) - `10` ~ `16380`
+-   `storage_disk_type` : Block storage disk type - `SSD`, `HDD`
 
 ---
 
-## Reference Materials
+## References
 
 -   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
--   [ncloud_block_storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)
+-   [Block Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)

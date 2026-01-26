@@ -1,0 +1,58 @@
+---
+title: Service
+sidebar_position: 6
+tags: [Kubernetes, Recurso, Core, Service]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes abstraído que proporciona un punto de entrada único para los Pods y gestiona la comunicación entre ellos.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Service
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas para identificar y clasificar el Service
+-   `selector` : Selector de etiquetas para determinar los Pods destino del tráfico
+-   `type` : Tipo de Service - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : Afinidad de sesión para fijar solicitudes del mismo cliente - `None`, `ClientIP`
+
+#### Configuración de puertos (`port`)
+
+-   `port.protocol` : Protocolo utilizado en el puerto del Service - `TCP`, `UDP`
+-   `port.port` : Número de puerto expuesto por el Service
+-   `port.target_port` : Puerto real del Pod que recibe el tráfico
+
+---
+
+## Referencias
+
+-   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

@@ -1,7 +1,7 @@
 ---
 title: Base
 sidebar_position: 0
-tags: [Kubernetes, リソース, Base]
+tags: [Kubernetes, リソース, Base, Base]
 ---
 
 <hr />
@@ -11,22 +11,29 @@ tags: [Kubernetes, リソース, Base]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-base.webp"
     }
 />
 
 ## リソース概要
 
-Cloudstudio で登録したユーザー Credential を選択します。
+Cloudstudio に登録されたユーザー Credential を選択。
 
 ## 関連リソース
 
-### 上位リソース
+### 下位リソース
+
+-   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 
 ## リソース設定値
 
--   `credential_id` : CloudStudio で登録したユーザークレデンシャルを選択 - `AWS Credential`, `Azure Credential`, `Ncloud Credential`
+#### 基本設定
+
+-   `credential_id` : Kubernetes クラスターへアクセスするために使用するユーザー認証情報を選択
 
 ---
 
-## 参考資料
+## References
+
+-   [Kubernetes 認証情報の構成(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+-   [kubeconfig ファイル参照(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config/)

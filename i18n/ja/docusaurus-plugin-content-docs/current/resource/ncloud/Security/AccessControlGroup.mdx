@@ -11,47 +11,53 @@ tags: [Ncloud, リソース, Security, AccessControlGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
     }
 />
 
-## リソース概要
+## Resource Overview
 
-サーバー間ネットワークアクセス制御および管理ができる IP/Port ベースのフィルタリングファイアウォールサービスです。
+サーバー間のネットワークアクセス制御および管理を行う IP／Port ベースのフィルタリング型ファイアウォールサービスです。
 
-## 関連リソース
+## Associated Resources
 
-### 上位リソース
+### Parent Resource
 
--   [**VPC**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### 接続リソース
+### Connected Resources
 
--   [**Network Interface**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/NetworkInterface)
--   [**Auto Scaling**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/AutoScaling)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
 
-## リソース設定値
+## Resource Setting Values
 
--   `included_vpc_name` : ACG を作成する VPC の名前
--   `acg_description` : ACG の説明
--   `inbound_rule`
+#### Basic Settings
 
-    -   `name` : インバウンドルールの名前
-    -   `protocol` : インバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : インバウンドルールを適用する方法 - `ip_block`, `source_name`
-    -   `ip_block` : インバウンドトラフィックの宛先、CIDR ブロック
-    -   `port_range` : 適用するポート範囲、1 から 65535
+-   `included_vpc_name` : ACG を作成する VPC 名
+-   `acg_description` : ACG に関する説明
 
--   `outbound_rule`
-    -   `name` : アウトバウンドルールの名前
-    -   `protocol` : アウトバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
-    -   `rule_apply_method` : アウトバウンドルールを適用する方法 - `ip_block`, `source_name`
-    -   `ip_block` : アウトバウンドトラフィックの宛先、CIDR ブロック
-    -   `port_range` : 適用するポート範囲、1 から 65535
+#### インバウンドルール (`inbound_rule`)
+
+-   `inbound_rule.protocol` : インバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : インバウンドルール適用方式 - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : インバウンドトラフィック宛先 IP 範囲（CIDR 形式）
+-   `inbound_rule.source_access_control_group_name` : インバウンドトラフィックの送信元 ACG 名
+-   `inbound_rule.port_range` : 適用するポート範囲 - `1` ~ `65535`
+-   `inbound_rule.description` : インバウンドルールの説明
+
+#### アウトバウンドルール (`outbound_rule`)
+
+-   `outbound_rule.protocol` : アウトバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : アウトバウンドルール適用方式 - `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : アウトバウンドトラフィック宛先 IP 範囲（CIDR 形式）
+-   `outbound_rule.source_access_control_group_name` : アウトバウンドトラフィックの送信元 ACG 名
+-   `outbound_rule.port_range` : 適用するポート範囲 - `1` ~ `65535`
+-   `outbound_rule.description` : アウトバウンドルールの説明
 
 ---
 
-## 参考資料
+## References
 
 -   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
--   [ncloud_acg(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

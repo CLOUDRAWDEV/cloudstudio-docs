@@ -1,0 +1,63 @@
+---
+title: TransitGateway
+sidebar_position: 15
+tags: [AWS, Recurso, Ec2, TransitGateway]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Transit Gateway es un hub de tránsito de red que se puede utilizar para interconectar Virtual Private Cloud (VPC) y redes on-premise.  
+A medida que la infraestructura en la nube se expande globalmente, el peering entre regiones conecta Transit Gateway utilizando la infraestructura global de AWS.  
+Los datos se cifran automáticamente y no se transmiten a través de Internet público.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**DxGateway**](https://docs.cstudio.app/es/docs/resource/aws/DirectConnect/DxGateway)
+-   [**RouteTable**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/RouteTable)
+-   [**CustomerGateway**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/CustomerGateway)
+-   [**TransitGateway Attachment**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/TransitGatewayAttachment)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `dns_support` : Habilitar resolución DNS para los VPC conectados - `enable`, `disable`
+-   `vpn_ecmp_support` : Habilitar enrutamiento ECMP para VPN conectadas - `enable`, `disable`
+-   `default_route_table_association` : Asociar automáticamente Attachments a la tabla de ruteo predeterminada - `enable`, `disable`
+-   `default_route_table_propagation` : Propagar automáticamente Attachments a la tabla de ruteo predeterminada - `enable`, `disable`
+-   `multicast_support` : Habilitar creación de dominio multicast - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Lista de bloques CIDR asignados al Transit Gateway
+
+#### Configuración de Direct Connect Gateway (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : Nombre del Direct Connect Gateway a conectar
+-   `dx_gateway.allowed_prefixes` : Lista de prefijos CIDR del VPC anunciados a la red on-premise
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [AWS Transit Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [AWS Transit Gateway precios (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

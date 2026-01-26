@@ -1,0 +1,41 @@
+---
+title: CertManager
+sidebar_position: 1
+tags: [Kubernetes, Risorsa, Helm, CertManager]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-cert_manager.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Chart Helm utilizzato per installare Cert-Manager.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace in cui verrà distribuito il Helm Chart di Cert Manager
+-   `version` : Versione del Helm Chart di Cert Manager da utilizzare
+-   `installCRDs` : Indica se installare le Custom Resource Definition(CRD) utilizzate da Cert Manager
+
+---
+
+## Riferimenti
+
+-   [Installazione Helm(CertManager)](https://cert-manager.io/docs/installation/helm/)
+-   [Provider Helm(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

@@ -1,0 +1,52 @@
+---
+title: NatGateway
+sidebar_position: 8
+tags: [AWS, Risorsa, Vpc, NatGateway]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Un NAT Gateway è un servizio di Network Address Translation (NAT).  
+Consente alle istanze presenti in subnet private di connettersi a servizi esterni al VPC, impedendo però ai servizi esterni di avviare connessioni verso tali istanze.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Network/RouteTable)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `included_subnet_name` : Nome della subnet a cui collegare il NAT Gateway
+-   `connectivity_type` : Tipo di connettività del NAT Gateway - `public`, `private`
+-   `linked_eip_name` : Nome dell’Elastic IP da associare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [NAT Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
+-   [Prezzi Amazon VPC (AWS)](https://aws.amazon.com/ko/vpc/pricing/)
+-   [aws_nat_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway)

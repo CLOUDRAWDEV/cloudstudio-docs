@@ -1,0 +1,76 @@
+---
+title: Oracle
+sidebar_position: 4
+tags: [AWS, Risorsa, Rds, Oracle]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-oracle.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon RDS for Oracle è un database commerciale completamente gestito che consente di configurare, gestire e scalare facilmente le distribuzioni Oracle nel cloud.  
+Amazon RDS si occupa automaticamente di attività complesse e dispendiose in termini di tempo come provisioning, backup, patch software, monitoraggio e ridimensionamento dell’hardware, consentendo ai clienti di concentrarsi esclusivamente sull’innovazione e sullo sviluppo applicativo.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**Oracle**](https://docs.cstudio.app/it/docs/resource/aws/Rds/Oracle)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `database_name` : Nome iniziale del database - lettere maiuscole e numeri da `1` a `8`
+-   `license` : Modello di licenza Oracle - `bring-your-own-license`, `license-included`
+-   `engine` : Tipo di motore Oracle - `oracle-ee`, `oracle-se2`
+-   `engine_version` : Versione del motore Oracle da utilizzare
+-   `instance_class` : Tipo di istanza del database RDS
+-   `storage_type` : Tipo di storage dell’istanza RDS
+-   `allocated_storage` : Capacità di storage RDS (GB) - `20` ~ `65536`
+-   `max_allocated_storage` : Limite massimo per l’espansione automatica dello storage
+-   `iops` : Numero di operazioni I/O al secondo supportate - `1000` ~ `40000`
+-   `multi_az_enabled` : Abilitazione del deployment Multi-AZ - `true`, `false`
+-   `username` : Nome utente amministratore RDS
+-   `password` : Password dell’utente amministratore RDS
+-   `publicly_accessible` : Abilitazione dell’accesso pubblico - `true`, `false`
+
+#### Configurazione di rete
+
+-   `included_subnet_names` : Elenco dei nomi delle subnet incluse nel Subnet Group RDS
+-   `subnet_group_name` : Nome del Subnet Group da utilizzare
+-   `linked_security_group_names` : Elenco dei Security Group applicati
+
+#### Configurazione di monitoraggio (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Abilitazione di Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nome della chiave KMS utilizzata per Performance Insights
+
+#### Configurazione della crittografia (`encryption`)
+
+-   `encryption.storage_encrypted` : Abilitazione della crittografia dello storage - `true`, `false`
+-   `encryption.kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+
+#### Configurazione dei backup (`backup`)
+
+-   `backup.backup_retention_period` : Periodo di conservazione dei backup (giorni) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Creazione dello snapshot finale prima dell’eliminazione del DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nome dello snapshot finale
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria

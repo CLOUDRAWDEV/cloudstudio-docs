@@ -1,7 +1,7 @@
 ---
 title: MysqlFlexible
-sidebar_position: 3
-tags: [Azure, リソース, Database, MysqlFlexible]
+sidebar_position: 2
+tags: [Azure, MysqlFlexible, MySQL, FlexibleServer, Database]
 ---
 
 <hr />
@@ -11,74 +11,69 @@ tags: [Azure, リソース, Database, MysqlFlexible]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mysql_flexible.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mysql_flexible.webp"
     }
 />
 
 ## リソース概要
 
-Azure Database for MySQL - 柔軟なサーバは、データベース管理機能および構成設定に対するより詳細なコントロールと柔軟性を提供するように設計された完全管理型プロダクション-レディデータベースサービスです。
-柔軟なサーバーは次に最適です。
-
--   バックアップ、高可用性、セキュリティ及び監視などの機能に対する配布の容易性、デフォルトのサイズ調整及び低いデータベース管理のオーバーヘッド
--   より良いコントロールとユーザー指定を通じてコミュニティバージョンの MySQL が必要なアプリケーションを開発
--   同じ領域、領域重複高可用性及び管理されるメンテナンス期間のプロダクション ワークロード
--   簡素化された開発環境
--   Enterprise 級のセキュリティ、コンプライアンス、および個人情報
+Azure MySQL Flexible Server は、MySQL Community Edition を基盤としたリレーショナルデータベースサービスです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+### 接続リソース
+
+-   [**Private Endpoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
 
 ## リソース設定値
 
--   `version` : 使用する MySQL のバージョン - `5.7`, ``8.0.21`
+#### 基本設定
 
--   `sku_name` : MySQL 価格設定階層名、Tier+コンピューティング世代+コア数の組み合わせ - `azureMysqlFlexibleSku`
-
--   `storage_gb` : MySQL Server の容量(GB) - `storageGB`
-
+-   `version` : 使用する MySQL バージョン - `5.7`, `8.0.21`
+-   `sku_name` : MySQL の価格レベル名（Tier + コンピューティング世代 + コア数の組み合わせ）
+-   `storage_gb` : MySQL Server のストレージ容量（GB）
 -   `iops` : MySQL Flexible Server のストレージ IOPS - `360` ~ `20000`
+-   `admin_username` : 作成モードが default の場合のサーバー管理者ユーザー名。英数字のみ使用可能、予約語不可 - `1` ~ `16` 文字
+-   `admin_password` : 作成モードが default の場合のサーバー管理者パスワード。小文字・大文字・数字・特殊文字のうち 3 種類以上を含む必要があり、ログイン名に含まれる 3 文字以上の連続した英数字を含めることは不可 - `8` ~ `128` 文字
+-   `auto_grow_enabled` : ストレージ自動拡張の有効化 - `true`, `false`
+-   `availability_zone` : 使用する可用性ゾーン。指定可能な値は `1`, `2`, `3` - `1` ~ `3`
+-   `enable_high_availability` : MySQL Flexible Server の高可用性有効化 - `true`, `false`
+-   `high_availability_mode` : MySQL Flexible Server の高可用性モード - `SameZone`, `ZoneRedundant`
+-   `standby_availability_zone` : スタンバイサーバーの可用性ゾーン。`1`, `2`, `3` のいずれかで、プライマリゾーンと重複不可 - `1` ~ `3`
+-   `backup_retention_days` : MySQL Flexible Server のバックアップ保持日数 - `1` ~ `35`
+-   `public_network_access_enabled` : サーバーへのパブリックネットワークアクセス許可 - `true`, `false`
+-   `delegated_subnet_name` : 仮想ネットワーク委任に使用する Subnet 名
+-   `private_dns_zone_name` : MySQL Flexible Server 作成時に使用するプライベート DNS ゾーン
 
--   `admin_username` : Creation mode がデフォルトの場合、サーバーの管理者ユーザー名
+#### サーバー構成 (`configuration`)
 
--   `admin_password` : Creation mode がデフォルトの場合、サーバーの管理者ログインパスワード
+-   `configuration.param_value` : MySQL Flexible Server の構成パラメータ値
 
--   `auto_grow_enabled` : Storage Auto Grow を有効にする - `true` , `false`
+#### データベース (`database`)
 
--   `availability_zone` : アベイラビリティ ゾーンを指定します。 指定できる値は 1、2、3 です。 - `1` ~ `3`
+-   `database.charset` : MySQL データベースの文字セット
+-   `database.collation` : MySQL データベースの照合順序
 
--   `enable_high_availability` : MySQL Flexible Server の高可用性活性化の可否 - `true` , `false`
+#### ファイアウォール規則 (`firewall_rule`)
 
--   `high_availability_mode` : MySQL Flexible Server のハイアベイラビリティモード - `SameZone` , `ZoneRedundant`
+-   `firewall_rule.start_ip_address` : ファイアウォールルールに設定する開始 IP アドレス
+-   `firewall_rule.end_ip_address` : ファイアウォールルールに設定する終了 IP アドレス
 
--   `standby_availability_zone` : スタンバイ Flexible Server を配置するアベイラビリティゾーンを指定します。使用可能な値は 1、2、3 です。可用性ゾーンは重複できません。 - `1` ~ `3`
+#### タグ
 
--   `backup_retention_days` : MySQL Flexible Server のバックアップ保存日数です。可能な値は 1 ~ 35 日です。 - `1` ~ `35`
-
--   `public_network_access_enabled` : サーバーへのパブリック ネットワークへのアクセスを許可 - `true` , `false`
-
--   `configuration`
-
-    -   `name` : MySQL Flexible Server Configuration の名前
-    -   `param_value` : MySQL Flexible Server Configuration の値
-
--   `database`
-
-    -   `charset` : MySQL データベースの文字セット - `azureMysqlChartSet`
-    -   `collation` : MySQL Database のデータ整列方式 - `azureMysqlCol`
-
--   `firewall_rule`
-    -   `start_ip_address` : Firewall Rule に接続された開始 IP アドレス
-    -   `end_ip_address` : Firewall Rule に接続された終了 IP アドレス
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure MysqlFlexible(Microsoft)](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/overview)
--   [Azure MysqlFlexible 価格](https://azure.microsoft.com/ko-kr/pricing/details/mysql/flexible-server/)
--   [Azure MysqlFlexible(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server)
+-   [Azure Database for MySQL - Flexible Server（Microsoft）](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/overview)
+-   [Azure Database for MySQL - Flexible Server ネットワーク（Microsoft）](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/concepts-networking)
+-   [Azure Database for MySQL - Flexible Server 高可用性（Microsoft）](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/concepts-high-availability)
+-   [Azure Database for MySQL - Flexible Server バックアップと復元（Microsoft）](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/concepts-backup-restore)
+-   [Azure Database for MySQL - Flexible Server ファイアウォール規則（Microsoft）](https://learn.microsoft.com/ko-kr/azure/mysql/flexible-server/how-to-manage-firewall-portal)

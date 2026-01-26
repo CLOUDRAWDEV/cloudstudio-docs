@@ -1,43 +1,73 @@
 ---
 title: ContainerRegistry
 sidebar_position: 0
-tags: [Azure, 리소스, Container, ContainerRegistry]
+tags: [Azure, ContainerRegistry, Container]
 ---
 
 <hr />
 <br />
 
-
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.webp"
     }
 />
 
 ## 리소스 개요
 
-Azure Container Registry는 오픈 소스 Docker Registry 2.0을 기반으로 하는 관리형 레지스트리 서비스입니다.
-Azure 컨테이너 레지스트리를 만들고 유지 관리하여 컨테이너 이미지와 관련 아티팩트를 저장하고 관리합니다.
+Azure Container Registry는 컨테이너 이미지와 OCI 아티팩트를 안전하게 저장하고 관리하기 위한  
+프라이빗 컨테이너 레지스트리 서비스입니다.  
+Docker 및 Kubernetes 기반 워크로드와 긴밀하게 연동되며,  
+보안, 성능, 네트워크 접근 제어를 세밀하게 설정할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**PrivateEndPoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
 
 ## 리소스 설정 값
 
--   `sku` : Container Registry의 성능 및 확장성을 위한 SKU 유형 - `Basic`, `Standard`, `Premium`
+-   `sku` :  
+    Container Registry의 성능 및 확장성을 위한 SKU 유형
 
--   `admin_enabled` : 관리자 활성화 - `true`, `false`
+    -   `Basic`
+    -   `Standard`
+    -   `Premium`
 
--   `public_network_access_enabled` : Public 네트워크 접근 허용 - `true`, `false`
+-   `admin_enabled` :  
+    관리자 계정 사용 여부 - `true`, `false`
 
--   `network_rule_set` : SKU 유형이 Premium일 경우 생성 가능
-    -   `default_action` : Rule과 일치하지 않는 요청에 대한 동작 - `Deny`, `Allow`
-    -   `ip_ranges` : Rule과 일치하는 요청의 IP 주소 CIDR
--   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
+-   `public_network_access_enabled` :  
+    Public 네트워크 접근 허용 여부 - `true`, `false`
+
+### 네트워크 규칙 설정 (`network_rule_set`)
+
+> SKU가 `Premium`인 경우에만 설정 가능합니다.
+
+-   `network_rule_set.default_action` :  
+    Rule과 일치하지 않는 요청에 대한 기본 동작
+
+    -   `Allow`
+    -   `Deny`
+
+-   `network_rule_set.ip_ranges` :  
+    Rule과 일치하는 요청의 IP 주소 CIDR 목록
+
+### 태그
+
+-   `tag` :  
+    리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
 ---
 
 ## 참고 자료
 
--   [Azure ContainerRegistry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/container-registry-intro)
--   [Azure ContainerRegistry 가격](https://azure.microsoft.com/en-us/pricing/details/container-registry/)
--   [Azure ContainerRegistry(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)
+-   [Azure Container Registry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/)
+-   [Terraform azurerm_container_registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

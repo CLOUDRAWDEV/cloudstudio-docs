@@ -1,0 +1,50 @@
+---
+title: HorizontalPodAutoscaler
+sidebar_position: 0
+tags: [Kubernetes, Recurso, AutoScaling, HorizontalPodAutoscaler]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaler.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que ajusta automáticamente el número de Pods de Deployment, ReplicaSet y StatefulSet en función del uso observado de CPU.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**Deployment**](https://docs.cstudio.app/es/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/es/docs/resource/kubernetes/Apps/StatefulSet)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso HPA
+-   `annotations` : Metadatos key-value del sistema Kubernetes
+-   `labels` : Etiquetas para identificar el recurso HPA
+-   `min_replicas` : Número mínimo de Pods a mantener durante el autoescalado
+-   `max_replicas` : Número máximo de Pods a mantener durante el autoescalado
+-   `target_cpu_utilization_percentage` : Valor objetivo del uso promedio de CPU del Pod
+-   `scale_target_ref` : Referencia al recurso controlador objetivo del escalado (Deployment, StatefulSet)
+
+---
+
+## Referencias
+
+-   [Horizontal Pod Autoscaling(Kubernetes)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/horizontal_pod_autoscaler)

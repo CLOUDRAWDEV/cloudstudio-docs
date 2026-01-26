@@ -1,6 +1,6 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, 리소스, Networking, NetworkInterface]
 ---
 
@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, Networking, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
     }
 />
 
@@ -27,18 +27,18 @@ tags: [Ncloud, 리소스, Networking, NetworkInterface]
 
 ### 연결 리소스
 
--   [**Access Control Group**](https://docs.cstudio.app/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**AccessControlGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/AccessControlGroup)
 -   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
 
 ## 리소스 설정 값
 
--   `included_subnet_name` : Network Interface가 포함될 subnet 이름
--   `linked_acg_names` : 네트워크 인터페이스를 적용할 ACG 이름 목록
+#### 기본 설정
 
+-   `included_subnet_name` : Network Interface가 포함될 Subnet 이름
+-   `linked_acg_names` : Network Interface에 적용할 Access Control Group 이름 목록
 
 ---
 
 ## 참고 자료
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

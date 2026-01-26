@@ -1,83 +1,77 @@
 ---
 title: CosmosdbCassandra
 sidebar_position: 0
-tags: [Azure, リソース, Cosmosdb, CosmosdbCassandra]
+tags: [Azure, CosmosDB, Cassandra, Database]
 ---
 
 <hr />
 <br />
 
-## リソースアイコン
-
-<img
-    src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_cassandra.png"
-    }
-/>
-
 ## リソース概要
 
-Azure Cosmos DB for Apache Cassandra は Apache Cassandra 用に作成されたアプリのデータストアとして使用することができます。
-この互換性は CQLv4 を遵守する既存の Apache ドライバを使用して、既存の Cassandra アプリケーションが Cassandra 用 API と通信できることを意味します。
-ほとんどの場合、接続文字列を変更することで Apache Cassandra の使用から Cassandra 用 API の使用に切り替えることができます。
-Cassandra 用 API を使用すると CQL(Cassandra クエリー言語), Cassandra ベースのツール(例: cqlsh) 及び既にユーザフレンドリの Cassandra クライアントドライバを使用して Azure Cosmos DB に保存されたデータと相互作用することができます。
+Azure Cosmos DB Cassandra は、Apache Cassandra API と互換性のある分散型 NoSQL データベースサービスです。  
+グローバル分散、自動スケーリング、高可用性、複数の一貫性モデルを提供し、Cassandra API ベースのアプリケーションを Azure 環境で容易に運用できます。
+
+## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
 
 ## リソース設定値
 
--   `capabilities_list` : 使用する Cosmos DB の API リスト - `EnableServerless`, `EnableAggregationPipeline`
+-   `capabilities_list` : 使用する Cosmos DB の機能（API）の一覧
+-   `enable_multiple_write_locations` : 複数リージョン書き込みの有効化 여부
+-   `public_network_access_enabled` : 公開ネットワーク経由でのアカウントアクセス許可 여부
+-   `enable_automatic_failover` : 自動フェールオーバーの有効化 여부
+-   `virtual_network_filter_enabled` : 特定の仮想ネットワーク Subnet のみアクセスを許可する 여부
+-   `network_acl_bypass_for_azure_services` : Azure サービスに対する ACL バイパスの許可 여부
 
--   `enable_multiple_write_locations` : 世界中のデータベースとコンテナに対してプロビジョニングされたスループットを活用するためのマルチゾーン書き込みを活性化 - `true`, `false`
+#### リージョン設定（`geo_location`）
 
--   `public_network_access_enabled` : パブリック IP アドレスまたはサービス エンドポイントを介して公開的にアカウントへの接続を活性化 - `true`, `false`
+-   `geo_location.failover_priority` : リージョンのフェールオーバー優先順位
+-   `geo_location.zone_redundant` : 可用性ゾーン（Zone）冗長構成の有効化 여부
 
--   `enable_automatic_failover` : 自動フェイルオーバーを活性化 - `true`, `false`
+#### 一貫性ポリシー（`consistency_policy`）
 
--   `virtual_network_filter_enabled` : 仮想ネットワーク上の特定 Subnet のみがアカウントにアクセスできるようにフィルタを活性化 - `true`, `false`
+-   `consistency_policy.consistency_level` : Cassandra DB の一貫性レベル
+-   `consistency_policy.max_interval_in_seconds` : Bounded Staleness 使用時に許容される最大遅延時間（秒）
+-   `consistency_policy.max_staleness_prefix` : Bounded Staleness 使用時に許容される最大の Stale リクエスト数
 
--   `network_acl_bypass_for_azure_services` : Azure サービスの ACL bypass を活性化 - `true`, `false`
+#### バックアップ設定（`backup`）
 
--   `geo_location`
+-   `backup.type` : バックアップポリシーの種類（`Continuous`, `Periodic`）
+-   `backup.interval_in_minutes` : バックアップ実行間隔（分）
+-   `backup.retention_in_hours` : バックアップ保持期間（時間）
 
-    -   `failover_priority` : リージョンのフェイルオーバー処理優先順位 - `0`~ `0`
-    -   `zone_redundant` : エラーに備えて自動的に zone 複製を許容 - `true`~ `false`
+#### Cassandra キースペース（`cassandra_keyspace`）
 
--   `consistency_policy`
+-   `cassandra_keyspace.throughput` : Cassandra キースペースのスループット
+-   `cassandra_keyspace.enable_autoscale` : スループット自動スケーリングの有効化 여부
 
-    -   `consistency_level` : データベースの可用性と性能設定のための Cassandra DB の一貫性レベル - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合、許容される Staleness 時間(秒) - `5`~ `86400`
-    -   `max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合、許容される最大 Stale Request 数 - `10`~`2147483647`
+#### Cassandra テーブル（`cassandra_table`）
 
--   `backup`
+-   `cassandra_table.throughput` : Cassandra テーブルのスループット
+-   `cassandra_table.column` : カラム名と型の一覧（`名前:型` 形式）
+-   `cassandra_table.partition_key` : パーティションキー名
+-   `cassandra_table.cluster_key_name` : クラスターキー名
+-   `cassandra_table.cluster_key_order` : クラスターキーの並び順
+-   `cassandra_table.enable_autoscale` : テーブルスループット自動スケーリングの有効化 여부
+-   `cassandra_table.included_cosmosdb_keyspace_name` : テーブルが作成される Cassandra キースペース名
 
-    -   `type` : バックアップ ポリシー タイプ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : バックアップを実行する毎分の頻度、60 ~ 1440 の範囲 - `60`~ `1440`
-    -   `retention_in_hours` : バックアップを保存する期間(時間)、8~720 の範囲 - '8'~'720'
+#### タグ
 
--   `cassandra_keyspace`
-
-    -   `throughput` : Cassandra キースペースの処理量 - `400`~ `1000000`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-
--   `cassandra_table`
-
-    -   `throughput` : Cassandra テーブルの処理量 - `400`~ `1000000`
-    -   `column` : Column の名前とタイプのリスト、'名前:タイプ'の形式
-    -   `partition_key` : パーティション キー名
-    -   `cluster_key_name` : 生成するクラスター キー名
-    -   `cluster_key_order` : クラスター キーのリスト基準 - `Asc` , `Desc`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-    -   `included_cosmosdb_keyspace_name` : テーブルが生成される Cassandra キースペース名
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ分けするためのタグ
 
 ---
 
 ## 参考資料
 
--   [Azure CosmosdbCassandra(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure CosmosdbCassandra 価格](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB Cassandra API（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/cassandra/introduction)
+-   [Terraform azurerm_cosmosdb_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Terraform azurerm_cosmosdb_cassandra_keyspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_keyspace)
+-   [Terraform azurerm_cosmosdb_cassandra_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_cassandra_table)

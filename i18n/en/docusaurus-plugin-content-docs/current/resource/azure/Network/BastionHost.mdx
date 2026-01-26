@@ -1,7 +1,7 @@
 ---
 title: BastionHost
-sidebar_position: 1
-tags: [Azure, Resource, Network, BastionHost]
+sidebar_position: 8
+tags: [Azure, Network, BastionHost]
 ---
 
 <hr />
@@ -11,44 +11,36 @@ tags: [Azure, Resource, Network, BastionHost]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Bastion is a service deployed to allow connections to virtual machines using a browser and the Azure Portal, or through the native SSH or RDP client already installed on your local computer. 
-The Azure Bastion service is a fully platform-managed PaaS service provisioned within your virtual network. 
-It provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure Portal via TLS. 
-When connecting through Azure Bastion, you do not need a public IP address, agent, or special client software for the virtual machine.
+Bastion Host is an Azure PaaS network service that provides **secure RDP and SSH access** to virtual machines within a Virtual Network without directly exposing public IPs on the VMs.  
+It supports browser-based access and enables a centralized access point without opening management ports, improving both security and operational convenience.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
 ## Resource Setting Values
 
--   `included_subnet_name`: The name of the Virtual Network where the Bastion Host is deployed.
+-   `included_subnet_name` : Name of the Subnet where the Bastion Host is deployed
+-   `sku` : Bastion Host SKU - `Basic`, `Standard`
+-   `linked_public_ip_name` : Name of the Public IP associated with the Bastion Host
+-   `ip_config_name` : Name of the IP Configuration used by the Bastion Host
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
--   `sku`: The SKU of the Bastion Host - `Basic`, `Standard`.
-
--   `linked_public_ip_name`: The name of the public IP to be linked with the Bastion Host.
-
--   `ip_config_name`: The name of the IP configuration.
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
 ---
 
-## Reference Materials
+## References
 
--   [Azure BastionHost(Microsoft)](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
--   [Azure BastionHost Price](https://azure.microsoft.com/en-us/pricing/details/azure-bastion/)
--   [Azure BastionHost(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host)
+-   [Azure Bastion Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview)
+-   [Azure Bastion SKU Comparison(Microsoft)](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview#sku)

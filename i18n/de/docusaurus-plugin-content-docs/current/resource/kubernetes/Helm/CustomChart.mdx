@@ -1,0 +1,42 @@
+---
+title: CustomChart
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Helm, CustomChart]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Ressource, mit der ein Helm-Chart mithilfe benutzerdefinierter Werte bereitgestellt werden kann.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die benutzerdefinierte Helm-Chart-Ressource bereitgestellt wird
+-   `repository` : Repository-URL, in dem das anzupassende Helm-Chart gespeichert ist
+-   `chart` : Name des anzupassenden Helm-Charts
+-   `version` : Version des anzupassenden Helm-Charts
+-   `set` : Key-Value-Einstellungen zur dynamischen Änderung der Standardwerte des Helm-Charts
+
+---
+
+## Referenzen
+
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

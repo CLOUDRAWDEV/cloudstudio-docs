@@ -1,0 +1,64 @@
+---
+title: Log
+sidebar_position: 1
+tags: [AWS, Recurso, Cloudwatch, Log]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-log.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Amazon CloudWatch Logs permite supervisar, almacenar y acceder a archivos de logs del sistema, de aplicaciones y logs personalizados provenientes de instancias de Amazon Elastic Compute Cloud(Amazon EC2), AWS CloudTrail, Route 53 y otras fuentes.  
+CloudWatch Logs permite centralizar logs de todos los sistemas, aplicaciones y servicios de AWS en un único servicio altamente escalable.  
+Posteriormente, los logs pueden visualizarse fácilmente, buscarse por códigos de error o patrones específicos, filtrarse por campos concretos o almacenarse de forma segura para análisis futuros.  
+Con CloudWatch Logs, todos los logs pueden visualizarse como un único flujo de eventos coherente ordenado cronológicamente, consultarse y ordenarse por distintas dimensiones, agruparse por campos específicos, generar cálculos personalizados mediante un potente lenguaje de consultas y visualizar los datos de logs.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**FlowLog**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/FlowLog)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `retention_in_days` : Período de tiempo(en días) durante el cual se almacenan los logs en el log group
+-   `kms_key_name` : Nombre de la clave KMS utilizada para cifrar los datos de logs
+-   `log_stream_names` : Lista de nombres de log streams que se crearán dentro del log group
+
+#### Configuración de filtros de métricas (`metric_filter`)
+
+-   `metric_filter.pattern` : Patrón de filtro de CloudWatch Logs para extraer datos de métricas de los eventos de logs
+-   `metric_filter.metric_name` : Nombre del CloudWatch Metric donde se publicarán las métricas extraídas
+-   `metric_filter.metric_namespace` : Namespace donde se publicará el CloudWatch Metric
+-   `metric_filter.metric_value` : Valor que se publicará en el Metric
+    -   Se pueden usar valores numéricos, identificadores de campos numéricos o referencias a campos como `$requestSize`, `$.status`
+
+#### Configuración de etiquetas (`tag`)
+
+-   `tag` : Lista de etiquetas para clasificar el recurso
+
+---
+
+## Referencias
+
+-   [Amazon CloudWatch Log(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatchLogs/latest/APIReference/Welcome.html)
+-   [Amazon CloudWatch precios(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_data_protection_policy)

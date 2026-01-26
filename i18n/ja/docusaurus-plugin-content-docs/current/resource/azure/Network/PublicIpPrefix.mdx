@@ -1,7 +1,7 @@
 ---
 title: PublicIpPrefix
-sidebar_position: 10
-tags: [Azure, リソース, Network, PublicIpPrefix]
+sidebar_position: 7
+tags: [Azure, Network, PublicIpPrefix]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, リソース, Network, PublicIpPrefix]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.webp"
     }
 />
 
 ## リソース概要
 
-Azure Public IP Prefix(共用 IP プレフィックス)は、複数の連続した共用 IP アドレス範囲を提供するリソースです。
-これは特定のシナリオで必要な大規模なパブリック IP アドレスを使用するのに役立ちます。
-Public IP Prefix を使用すると、Azure 仮想マシン、Load Balancer、Application Gateway などのような
-インターネットで露出するリソースに対して大量のパブリック IP アドレスを簡単に管理できます。
+Public IP Prefix は、Azure において **連続したパブリック IP アドレス範囲** を事前に予約して管理できるネットワークリソースです。  
+複数の Public IP を一貫したアドレスブロックから割り当てることができるため、ファイアウォール ルールの管理や外部連携システムの構成時に、予測可能性と運用のしやすさを提供します。
 
 ## 関連リソース
 
@@ -30,12 +28,12 @@ Public IP Prefix を使用すると、Azure 仮想マシン、Load Balancer、Ap
 
 ## リソース設定値
 
--   `prefix_length` : Public Ip prefix ビット数 - `28`~`31`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `prefix_length` : Public IP Prefix のビット長 - `28` ~ `31`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Public Ip(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
--   [Azure Public Ip Prefix(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix)
+-   [Azure Public IP Prefix の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix)
+-   [Public IP Prefix の制限事項（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix#limitations)

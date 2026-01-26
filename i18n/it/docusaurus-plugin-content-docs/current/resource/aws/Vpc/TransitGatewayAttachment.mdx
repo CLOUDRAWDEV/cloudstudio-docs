@@ -1,0 +1,57 @@
+---
+title: TransitGatewayAttachment
+sidebar_position: 16
+tags: [AWS, Risorsa, VPC, TransitGatewayAttachment]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway_attachment.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio utilizzato per collegare un VPC a un Transit Gateway o a una rete on-premise.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+-   [**TransitGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
+-   [**TransitGatewayAttachmentAccepter**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachmentAccepter)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `linked_transit_gateway_name` : Nome del Transit Gateway da collegare al VPC
+-   `is_manual` : Inserimento manuale dell’ID del VPC da collegare - `true`, `false`
+-   `linked_vpc_name` : Nome del VPC da collegare al Transit Gateway
+-   `subnet_names` : Elenco dei nomi delle subnet da collegare al Transit Gateway
+
+#### Impostazioni di collegamento manuale (`manual`)
+
+-   `vpc_id` : ID del VPC da collegare al Transit Gateway
+-   `subnet_ids` : Elenco degli ID delle subnet all’interno del VPC specificato da `vpc_id`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Transit Gateway Attachment (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/tgw-vpc-attachments.html)
+-   [Transit Gateway Attachment (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway_vpc_attachment)

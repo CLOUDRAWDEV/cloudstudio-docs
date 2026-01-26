@@ -1,0 +1,116 @@
+---
+title: Speichern
+sidebar_position: 3
+tags:
+    [
+        save,
+        Speichern,
+        Versionshistorie,
+        Versionsverwaltung,
+        Versionsspeicherung,
+        Starten
+    ]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import save01 from "/docs/start/img/save01.png"
+import save02 from "/docs/start/img/save02.png"
+import save03 from "/docs/start/img/save03.png"
+import save04 from "/docs/start/img/save04.png"
+import save05 from "/docs/start/img/save05.png"
+import save06 from "/docs/start/img/save06.png"
+
+<hr />
+<br />
+
+## Speichern {#save}
+
+Es gibt `zwei Arten` des Canvas-Speicherns.
+
+-   [Speichern](#save)
+-   [Version speichern](#version)
+
+Speichern bedeutet, den `aktuellen Zustand des Canvas zu speichern`. Das Speichern des Canvas ist dasselbe wie das Speichern eines Projekts.
+Das Bild, das nach dem Speichern des Canvas im Projektthumbnail angezeigt wird.
+
+<div className={styles.imgWrap}>
+    <img src={save05} width="300px" alt="Speichern Bild" />
+</div>
+
+<br />
+
+Das Speichern ist einfach. Klicken Sie auf `Datei > Speichern`.
+
+<div className={styles.imgWrap}>
+    <img src={save01} width="200px" alt="Speichern Bild" />
+</div>
+
+<p>&nbsp;</p>
+
+:::caution
+
+Wenn Fehler 🔴 im Canvas verbleiben, wird nur das Bild gespeichert. Stellen Sie sicher, dass alle Fehler behoben sind, bevor Sie das Speichern fortsetzen. Weitere Informationen zur Fehlerbehebung finden Sie [hier](/docs/canvas/edit-canvas.mdx).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Versionsspeicherung und Versionshistorie {#version}
+
+Die Versionsspeicherung ist das Speichern des Canvas, um zu einem `bestimmten Zeitpunkt zurückzukehren`. Nach der Versionsspeicherung können Sie über die Versionshistorie zum gewünschten Zeitpunkt des Canvas zurückkehren.
+
+### Version speichern {#version-save}
+
+1. Klicken Sie auf `Versionsverwaltung > Version speichern`, um eine Version zu speichern.
+
+<div className={styles.imgWrap}>
+    <img src={save02} width="200px" alt="Version speichern Bild" />
+</div>
+
+<br />
+
+2. Geben Sie eine `Tag-Nachricht` ein. Die eingegebene Tag-Nachricht erscheint als `Versionstitel` in der Versionshistorie.
+
+<div className={styles.imgWrap}>
+    <img src={save03} alt="Version speichern Bild" />
+</div>
+
+<br />
+
+3. Klicken Sie auf `Speichern`.
+
+<p>&nbsp;</p>
+
+### Versionshistorie {#version-history}
+
+1. Klicken Sie auf `Versionsverwaltung > Versionshistorie`, um die Versionshistorie anzuzeigen.
+
+<div className={styles.imgWrap}>
+    <img src={save06} width="200px" alt="Version speichern Bild" />
+</div>
+
+<br />
+
+2. Überprüfen Sie die gespeicherten Versionen in der Versionshistorie.
+
+:::note
+
+-   <highlight color="#206FD6">Latest</highlight>: Dies ist der zuletzt
+    gespeicherte Verlauf.
+-   <highlight color="#AD28DC">Manual</highlight>: Dies ist die
+    Versionsspeicherungshistorie.
+-   <highlight color="#02CDE8">Planed</highlight>: Dies ist der Verlauf der
+    Überprüfung vor der Bereitstellung.
+-   <highlight color="#5C4AF6">Applied</highlight>: Dies ist der Verlauf der
+    abgeschlossenen Bereitstellung.
+
+:::
+
+<br />
+
+3. `Klicken` Sie auf das Canvas, zu dem Sie zurückkehren möchten, um dorthin zu gelangen.
+
+<div className={styles.imgWrap}>
+    <img src={save04} alt="Versionshistorie Bild" />
+</div>

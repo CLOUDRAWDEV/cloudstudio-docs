@@ -1,0 +1,57 @@
+---
+title: ContentSafety
+sidebar_position: 0
+tags: [Azure, ContentSafety, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-content_safety.webp"
+    }
+/>
+
+## Resource Overview
+
+Content Safety is an AI-based validation service that automatically analyzes various types of content such as text and images to detect and filter harmful or inappropriate elements.  
+It is used to proactively inspect content generated or submitted by applications to prevent policy violations and provide a safe user experience.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Setting Values
+
+-   `sku_name` : Pricing tier for using Content Safety
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `custom_subdomain_name` : Custom subdomain name used for the endpoint URL
+
+### Network Access Control (`network_acls`)
+
+-   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : List of IP addresses or CIDR ranges allowed to access the resource
+
+-   `local_auth_enabled` : Whether to enable local authentication using API keys - `true`, `false`
+
+-   `public_network_access_enabled` : Whether to allow access via the public internet - `true`, `false`
+
+-   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
+
+-   `dynamic_throttling_enabled` : Whether to enable automatic request throttling based on request volume - `true`, `false`
+
+---
+
+## References
+
+-   [Azure AI Content Safety(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/content-safety/overview)
+-   [Azure Cognitive Services Pricing](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)

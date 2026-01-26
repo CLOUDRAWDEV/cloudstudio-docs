@@ -1,0 +1,48 @@
+---
+title: VirtualWan
+sidebar_position: 20
+tags: [Azure, Network, VirtualWan]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_wan.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Virtual WAN is a **global network hub service** designed to centrally connect and manage distributed network resources across multiple regions.  
+It integrates Site-to-Site VPN, Point-to-Site VPN, and ExpressRoute connections through a single control plane and is well suited for large-scale multi-region network architectures.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Child Resources
+
+-   [**VirtualHub**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualHub)
+
+### Connected Resources
+
+-   [**VpnSite**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `type` : Type of the Virtual WAN
+    -   `Basic`
+    -   `Standard`
+
+## References
+
+-   [Azure Virtual WAN Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-wan-about)
+-   [Azure Virtual WAN Architecture(Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

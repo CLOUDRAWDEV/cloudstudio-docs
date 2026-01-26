@@ -1,0 +1,67 @@
+---
+title: S3Bucket
+sidebar_position: 0
+tags: [AWS, Ressource, S3, S3Bucket]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/s3-s3_bucket.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Simple Storage Service (Amazon S3) ist ein Objektspeicherdienst, der branchenführende Skalierbarkeit, Datenverfügbarkeit, Sicherheit und Leistung bietet. Kunden jeder Größe und Branche können Amazon S3 nutzen, um beliebige Datenmengen für vielfältige Anwendungsfälle wie Data Lakes, Websites, mobile Anwendungen, Backup und Wiederherstellung, Archivierung, Unternehmensanwendungen, IoT-Geräte und Big-Data-Analysen zu speichern und zu schützen. Amazon S3 stellt Verwaltungsfunktionen bereit, mit denen der Zugriff auf Daten entsprechend spezifischer Geschäfts-, Organisations- und Compliance-Anforderungen optimiert, strukturiert und konfiguriert werden kann.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/de/docs/resource/aws/Cloudfront/CloudFrontDistribution)
+-   [**CloudTrail**](https://docs.cstudio.app/de/docs/resource/aws/CloudTrail/)
+-   [**Config**](https://docs.cstudio.app/de/docs/resource/aws/Config/)
+-   [**FlowLog**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/FlowLog)
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `versioning_status` : Status der Versionsverwaltung des Buckets – `Enabled`, `Suspended`
+-   `enabled_logging` : Aktivierung der Protokollierung – `true`, `false`
+-   `logging_target_prefix` : Präfix für alle Protokollobjektschlüssel
+-   `sse_algorithm` : Serverseitiger Verschlüsselungsalgorithmus – `aws:kms`, `AES256`
+-   `kms_key_name` : Name des für SSE-KMS verwendeten KMS-Schlüssels
+
+#### Blockierung des öffentlichen Zugriffs (`public_access_block`)
+
+-   `public_access_block.block_public_acls` : Blockieren öffentlicher ACLs – `true`, `false`
+-   `public_access_block.block_public_policy` : Blockieren öffentlicher Bucket-Richtlinien – `true`, `false`
+-   `public_access_block.ignore_public_acls` : Ignorieren öffentlicher ACLs – `true`, `false`
+-   `public_access_block.restrict_public_buckets` : Einschränkung öffentlicher Bucket-Richtlinien – `true`, `false`
+
+#### Objektbesitz-Einstellungen (`ownership_control`)
+
+-   `ownership_control.acl_enabled` : Verwendung von Objekt-ACLs – `true`, `false`
+-   `ownership_control.object_ownership` : Methode des Objektbesitzes – `BucketOwnerEnforced`, `BucketOwnerPreferred`, `ObjectWriter`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon S3(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/userguide/Welcome.html)
+-   [Amazon S3 Preise(AWS)](https://aws.amazon.com/ko/s3/pricing/?nc2=type_a)
+-   [aws-s3-bucket(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest)

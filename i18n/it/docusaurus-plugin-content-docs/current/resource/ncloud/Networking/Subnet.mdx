@@ -1,0 +1,51 @@
+---
+title: Subnet
+sidebar_position: 1
+tags: [Ncloud, Resource, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.webp"
+    }
+/>
+
+## Resource Overview
+
+A VPC sub-network that allows network segmentation by usage purpose.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
+
+### Included Resources
+
+-   [**AutoScaling**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Redis**](https://docs.cstudio.app/it/docs/resource/ncloud/Database/Redis)
+-   [**NetworkInterface**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/LoadBalancer)
+
+## Resource Setting Values
+
+#### Basic Settings
+
+-   `subnet` : IPv4 CIDR block of the Subnet
+-   `subnet_name` : Name of the Subnet
+-   `zone` : Physical zone where the Subnet will be created
+-   `subnet_type` : Subnet type (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Usage type of the Subnet (`GEN`, `LOADB`, `NATGW`)
+
+---
+
+## References
+
+-   [Subnet(Ncloud)](https://www.ncloud.com/product/networking/vpc)
+-   [Subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

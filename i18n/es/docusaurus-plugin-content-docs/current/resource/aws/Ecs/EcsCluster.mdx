@@ -1,0 +1,63 @@
+---
+title: EcsCluster
+sidebar_position: 0
+tags: [AWS, 리소스, Ecs, EcsCluster]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_cluster.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio que permite ejecutar y administrar contenedores en un clúster de Amazon ECS.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `set_container_insights` : Configura si se asigna Container Insights al clúster - `enabled`, `disabled`
+-   `kms_key_name` : Nombre de la clave AWS Key Management Service utilizada para cifrar datos entre el cliente local y los contenedores
+-   `logging` : Configuración de registros para la redirección de resultados de ejecución de comandos - `OVERRIDE`, `NONE`, `DEFAULT`
+-   `cloud_watch_encryption_enabled` : Indica si se habilita el cifrado en los logs de CloudWatch - `true`, `false`
+-   `cloud_watch_log_group_name` : Nombre del grupo de logs de CloudWatch donde se enviarán los registros
+-   `capacity_providers` : Conjunto de capacity providers a asociar con el clúster
+
+#### Servicio (`service`)
+
+-   `service.computing_option` : Método de distribución de tareas del servicio - `capacity_provider_strategy`, `launch_type`
+-   `service.capacity_provider_strategy.capacity_provider` : Capacity provider aplicado al servicio - `FARGATE`, `FARGATE_SPOT`
+-   `service.capacity_provider_strategy.base` : Número mínimo de tareas a ejecutar
+-   `service.capacity_provider_strategy.weight` : Porcentaje relativo del total de tareas ejecutadas
+-   `service.launch_type` : Tipo de inicio del servicio - `EC2`, `FARGATE`, `EXTERNAL`
+-   `service.task_definition_name` : Nombre del ECS Task Definition utilizado por el servicio
+-   `service.desired_count` : Número de instancias de definiciones de tareas a ejecutar
+-   `service.linked_security_group_names` : Lista de nombres de Security Group a utilizar
+-   `service.subnet_names` : Lista de nombres de Subnet donde se ejecutará el servicio
+-   `service.enabled_public_ip` : Indica si se utiliza una Public IP - `true`, `false`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+## Referencias
+
+-   [Amazon Ecs Cluster(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/clusters.html)
+-   [Amazon Ecs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster)

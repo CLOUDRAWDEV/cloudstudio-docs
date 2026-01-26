@@ -1,0 +1,50 @@
+---
+title: AutoscalingGroup
+sidebar_position: 0
+tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
+
+## Descripción general del recurso
+
+Auto Scaling Group(ASG) ajusta los recursos creando o terminando automáticamente instancias EC2 según la demanda de la aplicación.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+
+### Recursos conectados
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/es/docs/resource/aws/Lb/LbTargetGroup)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `launch_template_name` : Nombre del Launch Template utilizado por el Auto Scaling Group
+-   `subnet_ids` : Lista de IDs de subnets donde el Auto Scaling Group creará recursos
+-   `linked_targetgroup_name` : Nombre del Target Group vinculado
+-   `desired_capacity` : Número objetivo de instancias que debe mantener el Auto Scaling Group
+-   `min_size` : Número mínimo de instancias
+-   `max_size` : Número máximo de instancias
+-   `default_cooldown` : Tiempo de espera(en segundos) entre operaciones de escalado
+
+#### Etiquetas
+
+-   `tags` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Auto Scaling groups(AWS Auto Scaling)(AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+-   [Set up a launch template(AWS Auto Scaling)(AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html)
+-   [Scaling cooldowns(AWS Auto Scaling)(AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html)

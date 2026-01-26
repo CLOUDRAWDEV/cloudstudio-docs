@@ -1,0 +1,95 @@
+---
+title: FrontDoor
+sidebar_position: 0
+tags: [Azure, Cdn, FrontDoor]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cdn-frontdoor.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Front Door ist ein globaler Anwendungsbeschleunigungsdienst, der Webinhalte mithilfe des weltweit verteilten Microsoft-Edge-Netzwerks schnell und zuverlässig an Benutzer ausliefert.  
+Der Dienst unterstützt Traffic-Routing, Load Balancing, Health Probes, TLS-Terminierung sowie sichere Kommunikation und bietet auch in Multi-Origin-Umgebungen eine hohe Verfügbarkeit und geringe Latenz.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+## Konfigurationswerte der Ressource
+
+### Grundeinstellungen
+
+-   `sku` : SKU für das Front-Door-Profil – `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`
+
+-   `endpoint_names` : Liste der zu verwendenden Endpunktnamen
+
+### Origin-Gruppen-Einstellungen (`origin_group`)
+
+-   `restore_traffic_time_in_minutes` : Wartezeit (in Minuten) vor der Traffic-Umschaltung bei einem Endpunktausfall oder beim Hinzufügen eines neuen Endpunkts – `0` ~ `50`
+
+-   `session_affinity_enabled` : Aktivierung der Sitzungsaffinität (Session Affinity) – `true`, `false`
+
+-   `health_probe_path` : Relativer Pfad zur Überprüfung des Origin-Status
+
+-   `health_probe_protocol` : Für Health Probes verwendetes Protokoll – `Http`, `Https`
+
+-   `health_probe_method` : Anforderungsmethode für Health Probes – `HEAD`, `GET`
+
+-   `health_probe_interval_in_seconds` : Ausführungsintervall der Health Probes (in Sekunden)
+
+-   `load_balancing_latency_in_milliseconds` : Zusätzliche Latenz (ms), die in den Bucket mit der geringsten Latenz einbezogen wird
+
+-   `load_balancing_sample_size` : Anzahl der Samples für Load-Balancing-Entscheidungen
+
+-   `load_balancing_sample_required` : Anzahl der erfolgreichen Samples, die für einen erfolgreichen Status erforderlich sind
+
+### Origin-Einstellungen (`origin`)
+
+-   `origin_group_name` : Name der Origin-Gruppe, zu der der Origin gehört
+
+-   `host_name` : Hostname des Origins (IPv4, IPv6 oder Domain)
+
+-   `origin_host_header` : Host-Header-Wert, der an den Origin weitergeleitet wird
+
+-   `certificate_name_check_enabled` : Aktivierung der Zertifikatsnamen-Überprüfung – `true`, `false`
+
+-   `enabled` : Aktivierung des Origins – `true`, `false`
+
+-   `priority` : Priorität des Origins – `1` ~ `5`
+
+-   `weight` : Gewichtung für Load Balancing – `1` ~ `1000`
+
+-   `http_port` : HTTP-Portnummer – `1` ~ `65535`
+
+-   `https_port` : HTTPS-Portnummer – `1` ~ `65535`
+
+### Routen-Einstellungen (`route`)
+
+-   `endpoint_name` : Name des Front-Door-Endpunkts, auf den die Route angewendet wird
+
+-   `origin_group_name` : Name der Origin-Gruppe, an die der Traffic weitergeleitet wird
+
+-   `patterns_to_match` : Liste der Routing-Pfad-Muster
+
+-   `supported_protocols` : Von Front Door erlaubte Protokolle – `Http`, `Https`
+
+-   `forwarding_protocol` : Protokoll zur Weiterleitung des Traffics an das Backend – `HttpOnly`, `HttpsOnly`, `MatchRequest`
+
+---
+
+## Referenzen
+
+-   [Azure Front Door (Microsoft)](https://learn.microsoft.com/ko-kr/azure/frontdoor/front-door-overview)
+-   [Azure Front Door Preise](https://azure.microsoft.com/en-us/pricing/details/frontdoor/)
+-   [Azure Front Door (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint)

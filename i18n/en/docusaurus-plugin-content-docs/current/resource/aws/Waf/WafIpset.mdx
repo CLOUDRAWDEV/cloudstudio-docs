@@ -1,6 +1,6 @@
 ---
-title: Waf Ipset
-sidebar_position: 0
+title: WafIpset
+sidebar_position: 1
 tags: [AWS, Resource, Waf, WafIpset]
 ---
 
@@ -11,33 +11,41 @@ tags: [AWS, Resource, Waf, WafIpset]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.webp"
     }
 />
 
 ## Resource Overview
 
-An AWS WAF IPSet is a list of IP addresses used by the Web Application Firewall (WAF) on Amazon Web Services. 
-It allows users to create and manage access rules for specified IP addresses. 
-By using an IPSet, you can enhance web application security by allowing or blocking requests from specific IP addresses.
+AWS WAF IPSet is a list of IP addresses used by the Amazon Web Services Web Application Firewall. It allows users to create and manage access rules for defined IP addresses. By using IP sets, web application security can be enhanced by allowing or blocking requests from specific IP addresses.
+
+## Resource Overview
+
+AWS WAF IP Set is a resource that groups one or more IP addresses or CIDR blocks for reference in web ACL rules, and is used to configure allow or block policies for specific IP ranges.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ## Resource Setting Values
 
--   `scope`: Specifies whether this is for an AWS CloudFront distribution or for a regional application - `REGIONAL`, `CLOUDFRONT`
--   `ip_address_version`: Specify IPV4 or IPV6 - `IPV4`, `IPV6`
--   `addresses`: Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation
+#### Basic Settings
+
+-   `scope` : Scope to apply the IP set - `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : IP address version - `IPV4`, `IPV6`
+-   `addresses` : List of IP addresses or IP address blocks specified in CIDR notation
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [AWS WAF Function(AWS)](https://aws.amazon.com/ko/waf/features/)
--   [AWS WAF Price(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [AWS WAF Features (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS WAF Pricing (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
 -   [aws_waf_ipset(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)

@@ -1,5 +1,5 @@
 ---
-title: Auto Scaling
+title: AutoScaling
 sidebar_position: 0
 tags: [Ncloud, リソース, Compute, AutoScaling]
 ---
@@ -11,50 +11,56 @@ tags: [Ncloud, リソース, Compute, AutoScaling]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
     }
 />
 
 ## リソース概要
 
-ユーザーが決めたスケジュールやモニタリング結果に応じて仮想サーバーの数を自動的に増減し、需要の変化に弾力的に対応するサービスです。
-あらかじめ指定しておいたしきい値に基づいてサーバーをモニタリングしながらサーバー数を自動的に調節してサービスを安定的に運営することができます。
+ユーザーが定義したスケジュールやモニタリング結果に基づき、仮想サーバー数を自動的に増減させ、需要変動に柔軟に対応するサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
 
 ### 接続リソース
 
--   [**Network Access Control Group**](https://docs.cstudio.app/ja/docs/resource/ncloud/Security/AccessControlGroupp)
+-   [**AccessControlGroup**](https://docs.cstudio.app/ja/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/TargetGroup)
 
 ## リソース設定値
 
--   `server_image_product_code` : 使用するオペレーティング システム イメージ コード(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
--   `server_product_code` : サーバのハードウェア構成のためのコード(HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C コア数,M メモリ(GB))
--   `login_key_name` : 暗号化用のパブリックログインキー名
--   `init_script`
-    -   `content` : サーバーが生成されたときに自動的に実行するスクリプトの内容
--   `group`
-    -   `min_size` : Auto scaling グループの最小サイズ、0 ~ 30 の範囲
-    -   `max_size` : Auto scaling グループの最大サイズ、0 ~ 30 の範囲
-    -   `linked_acg_names` : Auto scaling に適用する ACG の名前リスト
-    -   `included_subnet_name` : サーバーを生成するためのサブネット名
--   `policy`
-    -   `adjustment_type_code` : Scaling 設定コード、増減変更(CHANG)/比率変更(PRCNT)/固定値(EXACT) - `CHANG`, `PRCNT`, `EXACT`
-    -   `scaling_adjustment` : Scaling 設定値
--   `schedule`
-    -   `min_size` : Auto scaling グループの最小サイズ
-    -   `max_size` : Auto scaling グループの最大サイズ
-    -   `desired_capacity` : Auto scaling グループの期待サイズ
-    -   `start_time` : スケジュールの開始日および時間
-    -   `end_time` : スケジュールの終了日および時間
+#### 基本設定
+
+-   `linked_acg_names` : 適用する ACG 名一覧
+-   `included_subnet_name` : サーバー生成用サブネット名
+-   `launch_configuration_name` : 使用する Launch Configuration 名
+-   `health_check_type_code` : ヘルスチェック方式 - `SVR`, `LOADB`
+-   `health_check_grace_period` : ヘルスチェック猶予時間（秒）
+-   `linked_target_group_list` : 接続するターゲットグループ名一覧
+-   `min_size` : 最小サイズ - `1` ~ `30`
+-   `max_size` : 最大サイズ - `1` ~ `30`
+
+#### Auto Scaling ポリシー (`policy`)
+
+-   `policy.adjustment_type_code` : 変更方式 - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.scaling_adjustment` : 変更値
+-   `policy.cooldown` : クールダウン時間（秒）
+-   `policy.min_adjustment_step` : 最小変更単位
+
+#### Auto Scaling スケジュール (`schedule`)
+
+-   `schedule.min_size` : 最小サイズ
+-   `schedule.max_size` : 最大サイズ
+-   `schedule.desired_capacity` : 期待サイズ
+-   `schedule.start_time` : 開始日時
+-   `schedule.end_time` : 終了日時
 
 ---
 
 ## 参考資料
 
 -   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
--   [ncloud_auto_scaling_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)
+-   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

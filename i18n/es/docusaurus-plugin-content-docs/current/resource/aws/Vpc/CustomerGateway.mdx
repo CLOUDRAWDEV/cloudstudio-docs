@@ -1,0 +1,61 @@
+---
+title: CustomerGateway
+sidebar_position: 3
+tags: [AWS, Recurso, Vpc, CustomerGateway]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS Transit Gateway conecta Amazon Virtual Private Cloud (VPC) y redes on-premises a través de un hub central.  
+Esta conexión elimina relaciones de peering complejas y simplifica la arquitectura de red.  
+Transit Gateway actúa como un router en la nube altamente escalable.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**TransitGateway**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpnGateway**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/VpnGateway)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `bgp_asn` : Valor ASN BGP del gateway - `1` ~ `2147483647`
+-   `ip_address` : Dirección IP pública fija de la interfaz externa del gateway
+-   `private_certificate_arn` : ARN del certificado de AWS Private Certificate Manager
+
+#### Configuración de conexión VPN (`vpn_connection`)
+
+-   `vpn_connection.resource_type` : Tipo de recurso a conectar con el Customer Gateway - `none`, `transit_gateway`, `vpn_gateway`
+-   `vpn_connection.linked_resource_name` : Nombre del recurso a conectar
+-   `vpn_connection.static_routes_only` : Indica si solo se utilizan rutas estáticas - `true`, `false`
+-   `vpn_connection.outside_ip_address_type` : Tipo de dirección IP externa - `PublicIpv4`, `PrivateIpv4`
+-   `vpn_connection.dx_gateway_name` : Nombre del Transit Gateway Attachment para VPN con IP privada
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [AWS Transit Gateway (AWS)](https://aws.amazon.com/ko/transit-gateway/?nc2=type_a)
+-   [Precios de AWS Transit Gateway (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
+-   [aws_customer_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/customer_gateway)

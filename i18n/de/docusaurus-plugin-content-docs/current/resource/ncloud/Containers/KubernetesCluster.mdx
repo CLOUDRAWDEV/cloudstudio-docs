@@ -1,0 +1,67 @@
+---
+title: KubernetesCluster
+sidebar_position: 0
+tags: [Ncloud, Ressource, Containers, KubernetesCluster]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Kubernetes-Service – eine Open-Source-Plattform zur Automatisierung der Containerisierung, Bereitstellung und Verwaltung von Anwendungen.  
+Er steigert die Effizienz durch Automatisierung von Deployment, Skalierung und Betrieb containerbasierter Anwendungen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `zone` : Physische Zone zur Cluster-Erstellung – `KR-1`, `KR-2`
+-   `included_vpc_name` : Name des VPC für die Cluster-Erstellung
+-   `hypervisor_code` : Hypervisor-Code der Cluster-Version – `XEN`
+-   `version` : Cluster-Version – `1.32.6-nks.1`, `1.31.7-nks.1`, `1.30.8-nks.1`
+-   `maximum_number_of_nodes` : Maximale Anzahl der Cluster-Nodes – `10`, `50`
+-   `enable_public_subnet_network` : Verbindung mit öffentlichem Subnetz – `true`, `false`
+-   `subnet_names` : Liste der Subnetze für den Cluster (max. 3)
+-   `lb_private_subnet_name` : Subnetzname des privaten Load Balancers
+-   `lb_public_subnet_name` : Subnetzname des öffentlichen Load Balancers
+-   `login_key_name` : Name des zu verwendenden Login-Schlüssels
+-   `enable_audit_log` : Aktivierung der Audit-Log-Funktion – `true`, `false`
+
+#### Node-Pool (`node_pool`)
+
+-   `node_pool.node_count` : Anzahl der Nodes – `1` ~ `10`
+-   `node_pool.software_code` : Server-Image-Code der Nodes
+-   `node_pool.product_code` : Hardwarekonfigurationscode – `ncloudServerType`
+-   `node_pool.node_pool_subnet_names` : Subnetze für den Node-Pool
+-   `node_pool.enable_autoscale` : Aktivierung von Auto Scaling – `true`, `false`
+-   `node_pool.min_value` : Minimale Node-Anzahl bei Auto Scaling
+-   `node_pool.max_value` : Maximale Node-Anzahl bei Auto Scaling
+-   `node_pool.label` : Labels des Node-Pools
+
+#### Node-Taint-Konfiguration (`node_pool.taint`)
+
+-   `node_pool.taint.taint_effect` : Taint-Effekt – `NoSchedule`, `PreferNoSchedule`, `NoExecute`
+-   `node_pool.taint.taint_key` : Taint-Schlüssel
+-   `node_pool.taint.taint_value` : Taint-Wert
+
+---
+
+## Referenzen
+
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/v2/product/containers/nks)
+-   [Kubernetes Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

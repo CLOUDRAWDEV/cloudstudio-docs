@@ -1,0 +1,58 @@
+---
+title: Service
+sidebar_position: 6
+tags: [Kubernetes, Ressource, Core, Service]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine abstrahierte Kubernetes-Ressource, die einen einheitlichen Zugriffspunkt für Pods bereitstellt und deren Kommunikation verwaltet.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**Deployment**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/de/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Pod**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/Ingress)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die Service-Ressource bereitgestellt wird
+-   `annotations` : Kubernetes-Systemmetadaten
+-   `labels` : Labels zur Service-Identifikation und -Klassifizierung
+-   `selector` : Label-Selektor zur Auswahl der Pods für den Traffic
+-   `type` : Service-Typ – `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : Bindung von Client-Anfragen an bestimmte Pods – `None`, `ClientIP`
+
+#### Port-Einstellungen (`port`)
+
+-   `port.protocol` : Protokoll für den Service-Port – `TCP`, `UDP`
+-   `port.port` : Extern verfügbarer Service-Port
+-   `port.target_port` : Zielport am Pod für den Traffic
+
+---
+
+## Referenzen
+
+-   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

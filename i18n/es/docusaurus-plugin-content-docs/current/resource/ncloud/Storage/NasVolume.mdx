@@ -1,0 +1,49 @@
+---
+title: NasVolume
+sidebar_position: 1
+tags: [Ncloud, Recurso, Storage, NasVolume]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-nas_volume.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de almacenamiento conectado en red que permite a múltiples usuarios compartir datos entre varios servidores.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
+
+### Recursos conectados
+
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `volume_name_postfix` : Sufijo del nombre del volumen NAS (alfanumérico, 3 ~ 20 caracteres)
+-   `volume_size` : Tamaño del volumen (en unidades de 100GB) - `500` ~ `10000`
+-   `volume_allotment_protocol_type` : Tipo de protocolo - `NFS`, `CIFS`
+-   `cifs_user_name` : ID de usuario para autenticación CIFS
+-   `cifs_user_password` : Contraseña para autenticación CIFS
+-   `linked_instances` : Lista de nombres de servidores a conectar
+-   `is_encrypted` : Cifrado a nivel de volumen basado en AES-256
+
+---
+
+## Referencias
+
+-   [NAS(Ncloud)](https://www.ncloud.com/product/storage/nas)
+-   [NAS Volume(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nas_volume)

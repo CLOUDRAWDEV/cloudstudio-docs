@@ -1,7 +1,7 @@
 ---
 title: Disk
-sidebar_position: 1
-tags: [Azure, リソース, Compute, Disk]
+sidebar_position: 5
+tags: [Azure, Compute, Disk]
 ---
 
 <hr />
@@ -11,34 +11,48 @@ tags: [Azure, リソース, Compute, Disk]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/compute-disk.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-disk.webp"
     }
 />
 
 ## リソース概要
 
-Azure Virtual Machines(仮想マシン)はクラウドで実行される仮想サーバーです。
-仮想マシンには 1 つ以上のディスクが含まれ、これらのディスクは仮想マシンのオペレーティング システム（OS）とデータを保存するために使用されます。
-ディスクは仮想マシンの永続的なストレージとして機能します。
+Azure Disk は、Azure Virtual Machine で使用されるマネージド型ブロックストレージリソースです。  
+オペレーティングシステムディスク（OS Disk）またはデータディスク（Data Disk）として利用でき、  
+ストレージの性能要件やコスト要件に応じて、さまざまなストレージタイプを選択できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
 
 ### 接続リソース
 
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+
 ## リソース設定値
 
--   `storage_type` : ディスクをバックアップするためのストレージタイプ
--   `size_gb` : ディスクのサイズ(GB) - `1` ~ `32767`
--   `enabled_public_network_access` : ディスクにパブリックネットワークへのアクセスを許容 - `true`, `false`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `storage_type` :  
+    ディスクを保存するためのストレージタイプ
+
+    -   `Standard_LRS`
+    -   `StandardSSD_LRS`
+    -   `Premium_LRS`
+
+-   `size_gb` :  
+    ディスクのサイズ（GB） - `1` ~ `32767`
+
+-   `enabled_public_network_access` :  
+    ディスクに対するパブリックネットワークアクセスを許可するかどうか - `true`, `false`
+
+-   `tag` :  
+    リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Compute Disk(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
--   [Azure Compute Disk(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/disk_access)
+-   [Azure Managed Disks（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
+-   [Terraform azurerm_managed_disk](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk)

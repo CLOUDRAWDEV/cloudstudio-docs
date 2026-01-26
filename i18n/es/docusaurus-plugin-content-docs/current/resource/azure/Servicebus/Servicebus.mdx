@@ -1,0 +1,58 @@
+---
+title: Servicebus
+sidebar_position: 0
+tags: [Azure, Messaging, ServiceBus]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/servicebus-servicebus.webp"
+    }
+/>
+
+## Descripción del recurso
+
+Azure Service Bus es un servicio de mensajería empresarial totalmente administrado que admite mensajería asíncrona entre aplicaciones.  
+A través de modelos de colas y temas/suscripciones, permite una entrega de mensajes fiable, reduce el acoplamiento entre sistemas distribuidos y admite escenarios de procesamiento de eventos a gran escala.
+
+## Recursos asociados
+
+### Recurso principal
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+## Valores de configuración del recurso
+
+-   `sku` : Nivel de precios de Service Bus - `Basic`, `Standard`, `Premium`
+-   `capacity` : Unidad de capacidad utilizada para controlar el rendimiento en el SKU Premium
+-   `premium_messaging_partitions` : Número de particiones utilizadas en el nivel de mensajería Premium - `1`, `2`, `4`
+-   `default_action` : Acción predeterminada al aplicar reglas de red - `Allow`, `Deny`
+-   `public_network_access_enabled` : Permitir acceso a Service Bus desde la red pública - `true`, `false`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.target_subnet_name` : Nombre de la subred de destino a la que se aplican las reglas de red
+-   `network_rules.ignore_missing_vnet_service_endpoint` : Indica si se deben ignorar los endpoints de servicio de VNet faltantes en la subred - `true`, `false`
+
+#### Topic (`topic`)
+
+-   `topic.status` : Estado de activación del Topic - `Active`, `Disabled`
+-   `topic.enable_partitioning` : Habilitar la partición de mensajes - `true`, `false`
+
+#### Subscription (`subscription`)
+
+-   `subscription.target_topic_name` : Nombre del Topic de destino al que está conectada la suscripción
+-   `subscription.max_delivery_count` : Número máximo de intentos de entrega de un mensaje
+
+---
+
+## Material de referencia
+
+-   [Descripción general de Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Patrones de mensajería de Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Seguridad de red de Azure Service Bus (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

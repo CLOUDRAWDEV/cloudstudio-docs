@@ -1,6 +1,6 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, Resource, Networking, NetworkInterface]
 ---
 
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Networking, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
     }
 />
 
 ## Resource Overview
 
-This service creates network interfaces that can be assigned to servers. Servers with applied network interfaces can use subnets to enable independent network communication.
+A service that creates network interfaces that can be assigned to servers. Servers with applied network interfaces can perform independent network communication using subnets.
 
 ## Associated Resources
 
@@ -27,18 +27,18 @@ This service creates network interfaces that can be assigned to servers. Servers
 
 ### Connected Resources
 
--   [**Access Control Group**](https://docs.cstudio.app/en/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**AccessControlGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/AccessControlGroup)
 -   [**Server**](https://docs.cstudio.app/en/docs/resource/ncloud/Compute/Server)
 
 ## Resource Setting Values
 
--   `included_subnet_name` : The name of Subnet to included with the Network interface
--   `linked_acg_names` : The names of ACG to apply the Network interface is located
+#### Basic Settings
 
+-   `included_subnet_name` : Name of the subnet where the network interface will be included
+-   `linked_acg_names` : List of Access Control Group names to apply to the network interface
 
 ---
 
-## Reference Materials
+## References
 
-
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

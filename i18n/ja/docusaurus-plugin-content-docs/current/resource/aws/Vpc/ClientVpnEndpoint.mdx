@@ -1,6 +1,6 @@
 ---
 title: ClientVpnEndpoint
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, リソース, Vpc, ClientVpnEndpoint]
 ---
 
@@ -11,39 +11,63 @@ tags: [AWS, リソース, Vpc, ClientVpnEndpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.webp"
     }
 />
 
 ## リソース概要
 
-AWS リソースとオンプレミスネットワークのリソースに安全にアクセスできるようにする管理型クライアントベースの VPN サービス
+AWS リソースおよびオンプレミスネットワークのリソースへ安全にアクセスするための、マネージド型クライアントベース VPN サービス
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+
+### 接続リソース
+
+-   [**Log**](https://docs.cstudio.app/ja/docs/resource/aws/Cloudwatch/Log)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
 ## リソース設定値
 
--   `description` : クライアント VPN エンドポイントの簡単な説明
--   `client_cidr_block` : クライアント I アドレスが割り当てられる IP アドレス範囲
--   `server_acm_certificate_name` : サーバ証明書の名前
--   `authentication` : 使用する認証方式
--   `authentication.option_types` : 使用する認証方式 - `certificate-authentication`,`directory-service-authentication`,`federated-authentication`
--   `connection_logging.enalbed` : クライアント接続に対するログの詳細を使用 - `false`,`true`
--   `transport_protocol` : TLS セッションで使用されるトランスポートプロトコル - `tcp`,`udp`
--   `enabled_split_tunnel` : スプリットトンネル活性化 - `false`,`true`
--   `vpn_port` : VPN ポート
--   `enabled_self_service_portal` : セルフサービスポータル活性化 - `false`,`true`
--   `session_timeout_hours` : セッションのタイムアウト時間 - `8`,`10`,`12`,`24`
--   `included_vpc_name` : VPC 名
--   `linked_security_group_names` : エンドポイントに適用するセキュリティグループ名
--   `linked_subnet_names` : 接続する Subnet 名
+#### 基本設定
 
----
+-   `description` : Client VPN エンドポイントの説明
+-   `client_cidr_block` : クライアント IP アドレスが割り当てられる CIDR ブロック
+-   `server_acm_certificate_name` : サーバー証明書名
+-   `transport_protocol` : TLS セッション転送プロトコル - `tcp`, `udp`
+-   `vpn_port` : VPN ポート - `443`, `1194`
+-   `enabled_split_tunnel` : スプリットトンネル有効化可否 - `true`, `false`
+-   `enabled_self_service_portal` : セルフサービスポータル有効化可否 - `true`, `false`
+-   `session_timeout_hours` : セッションタイムアウト時間 - `8`, `10`, `12`, `24`
+
+#### 認証設定 (`authentication`)
+
+-   `authentication.option_types` : 認証方式 - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : クライアント証明書名
+-   `authentication.active_directory_id` : Active Directory ID
+-   `authentication.saml_provider_arn` : SAML プロバイダー ARN
+-   `authentication.self_service_saml_provider_arn` : セルフサービス SAML プロバイダー ARN
+
+#### 接続ログ (`connection_logging`)
+
+-   `connection_logging.enabled` : クライアント接続ログ有効化可否 - `true`, `false`
+-   `connection_logging.linked_log_group_name` : CloudWatch Logs ロググループ名
+-   `connection_logging.log_stream_name` : CloudWatch Logs ログストリーム名
+
+#### ネットワーク接続
+
+-   `included_vpc_name` : 接続対象 VPC 名
+-   `linked_security_group_names` : 適用するセキュリティグループ名一覧
+-   `linked_subnet_names` : 接続する Subnet 名一覧
+
+#### タグ
+
+-   `tag` : リソースをカテゴリ別に分類するためのタグ
 
 ## 参考資料
 

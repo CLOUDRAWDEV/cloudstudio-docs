@@ -1,0 +1,23 @@
+---
+title: v1.6.1
+last_update: 2025-5-23
+date: 2025-5-23
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+
+<hr />
+
+#### Es posible realizar la implementación separando los Terraform Workspaces.
+
+<div className={styles.releaseWrap} >
+<div className={styles.tag} data-type="feature">
+    Feature
+</div>
+
+1. Se admite la implementación de la infraestructura separada por entornos mediante el uso de la función Workspace de Terraform.
+    - Es posible crear y eliminar Terraform Workspaces.
+    - Al gestionar los archivos de estado (State) de forma independiente por Workspace, los entornos de desarrollo, staging y producción pueden operarse de manera independiente.
+
+</div>
+<br/>

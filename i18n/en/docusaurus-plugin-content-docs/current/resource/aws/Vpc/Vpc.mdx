@@ -11,42 +11,62 @@ tags: [AWS, Resource, Vpc]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.webp"
     }
 />
 
 ## Resource Overview
 
-Using Amazon Virtual Private Cloud (Amazon VPC), you have full control over your virtual networking environment, including resource placement, connectivity, and security. 
-Start by setting up a VPC using the AWS Management Console. Next, add resources such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances to your VPC. 
-Finally, define how your VPC communicates within your account, availability zones, or AWS regions. In the example below, network traffic is shared between two VPCs within each region.
+Amazon Virtual Private Cloud (Amazon VPC) enables full control over a virtual networking environment, including resource placement, connectivity, and security. Get started by setting up a VPC in the AWS Management Console, then add resources such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances. Finally, define how VPCs communicate with each other across accounts, Availability Zones, or AWS Regions. In the example below, network traffic is shared between two VPCs in each Region.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
+### Internal Resources
+
+-   [**LoadBalancer**](https://docs.cstudio.app/en/docs/resource/aws/Lb/Lb)
+-   [**LoadBalancerTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Lb/LbTargetGroup)
+-   [**ClientVPNEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**NetworkFirewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
+-   [**InternetGateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/InternetGateway)
+-   [**NetworkACL**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkAcl)
+-   [**RouteTable**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/RouteTable)
+-   [**FlowLog**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/FlowLog)
+-   [**AutoScalingGroup**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/AutoscalingGroup)
+-   [**EFS**](https://docs.cstudio.app/en/docs/resource/aws/Efs/Efs)
+-   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
+
 ### Connected Resources
 
--   [**Lb**](https://docs.cstudio.app/en/docs/resource/aws/Lb/)
--   [**Vpc Security Group**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
--   [**Vpc Subnet**](https://docs.cstudio.app/docs/en/resource/aws/Vpc/Subnet)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Network Acl**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkAcl)
--   [**Vpc Route Table**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/RouteTable)
--   [**Vpc FlowLog**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/FlowLog)
--   [**Ec2 Transit Gateway**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/TransitGateway)
--   [**Route53**](https://docs.cstudio.app/en/docs/resource/aws/Route53/)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ResolverRule**](https://docs.cstudio.app/en/docs/resource/aws/Route53/ResolverRule)
+-   [**Route53**](https://docs.cstudio.app/en/docs/resource/aws/Route53/Route53)
+-   [**TransitGateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGateway)
+-   [**VPCPeering**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/VpcPeering)
+-   [**VPNGateway**](https://docs.cstudio.app/en/docs/resource/aws/NetwVpcork/VpnGateway)
+-   [**MSKCluster**](https://docs.cstudio.app/en/docs/resource/aws/Msk/MskCluster)
 
 ## Resource Setting Values
 
--   `cidr_block`: IP ranges in your VPC
+#### Basic Settings
+
+-   `cidr_block` : IP address range (CIDR) of the VPC
+-   `enabled_dns_support` : Whether DNS resolution is enabled - `true`, `false`
+-   `enabled_dns_hostnames` : Whether DNS hostnames are enabled - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [Amazon Virtual Private Cloud(Amazon VPC)(AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
--   [Amazon VPC Price(AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
--   [aws_vpc(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)
+-   [Amazon Virtual Private Cloud (Amazon VPC) (AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Amazon VPC Pricing (AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
+-   [aws_vpc (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

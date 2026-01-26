@@ -1,7 +1,7 @@
 ---
 title: PublicIp
-sidebar_position: 9
-tags: [Azure, Resource, Network, PublicIp]
+sidebar_position: 6
+tags: [Azure, Network, PublicIp]
 ---
 
 <hr />
@@ -11,42 +11,40 @@ tags: [Azure, Resource, Network, PublicIp]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-public_ip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Public IP is a unique IP address that is accessible directly from the internet. 
-It is used for Azure resources that are exposed to the internet, such as virtual machines, Load Balancers, and VPN Gateways. 
-This allows internet traffic to be directed to Azure resources and enables access to those resources from the internet.
+Public IP is a network resource that provides a public IP address allowing Azure resources to perform **direct inbound and outbound communication** with the internet.  
+It works in conjunction with services such as Load Balancer, Virtual Machine, and NAT Gateway, serving as an ingress point for external traffic or an outbound egress point.  
+Availability and behavior characteristics vary depending on the SKU and allocation method.
+
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Container Registry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/en/docs/resource/azure/KeyVault)
+-   [**Public Load Balancer**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicLoadBalancer)
 -   [**Application Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
--   [**Redis Cache**](https://docs.cstudio.app/en/docs/resource/azure/RedisCache/)
--   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**Bastion Host**](https://docs.cstudio.app/en/docs/resource/azure/Network/BastionHost)
+-   [**Nat Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/NatGateway)
+-   [**Firewall**](https://docs.cstudio.app/en/docs/resource/azure/Network/Firewall)
 
 ## Resource Setting Values
 
--   `sku`: The SKU of Public Ip - `Standard`, `Basic`
--   `allocation_method`: Public Ip address allocation method - `Static`, `Dynamic`
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `sku` : Pricing tier of the Public IP - `Standard`, `Basic`
+-   `allocation_method` : Allocation method for the Public IP address - `Static`, `Dynamic`
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure Public Ip(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
--   [Azure Public Ip(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
+-   [Azure Public IP Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
+-   [Public IP SKU Comparison(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses#sku)

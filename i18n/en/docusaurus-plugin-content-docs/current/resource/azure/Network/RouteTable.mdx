@@ -1,7 +1,7 @@
 ---
 title: RouteTable
-sidebar_position: 11
-tags: [Azure, Resource, Network, RouteTable]
+sidebar_position: 9
+tags: [Azure, Network, RouteTable]
 ---
 
 <hr />
@@ -11,49 +11,43 @@ tags: [Azure, Resource, Network, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-route_table.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Route Table is a Microsoft Azure service that helps route network traffic between subnets within a Virtual Network (VNet) and across VNets. 
-A route table contains a set of rules, known as routes, which define the network traffic paths to targets from subnets or VNets. 
-Route tables are useful for controlling traffic flow between subnets in a virtual network and for providing custom routing paths to virtual machines. 
-By defining routes in a route table, you can direct traffic to specific targets through particular network interfaces, gateways, or service endpoints.
-In Azure, you can associate a route table with a subnet, and all resources in that subnet will automatically use the routes defined in the associated route table. 
-Additionally, you can connect route tables to virtual network gateways to control traffic routing between virtual networks.
+Route Table is an Azure network resource applied to Subnets within a Virtual Network to **control network traffic routing using user-defined rules**.  
+In addition to default system routing, traffic flows to virtual appliances, the internet, or gateways can be explicitly defined.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/den/ocs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Container Registry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/en/docs/resource/azure/KeyVault)
--   [**Application Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/ApplicationGateway)
--   [**Redis Cache**](https://docs.cstudio.app/en/docs/resource/azure/RedisCache/)
--   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ## Resource Setting Values
 
--   `disable_bgp_route_propagation` : Disable route propagation to prevent on-premise route propagation to network interface of the subnet - `true`, `false`
--   `included_subnet_names` : The IP prefix representing routes
--   `route`
-    -   `route_address_prefix` : The IP prefix representing routes
-    -   `next_hop_type` : The type of next hop to handle mathing packet-`VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `enable_bgp_route_propagation` : Whether to enable gateway route propagation - `true`, `false`
+-   `linked_subnet_names` : List of Subnet names to associate with the Route Table
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+#### Route Settings (`route`)
+
+-   `route.route_address_prefix` : IP address prefix representing the route (CIDR)
+-   `route.next_hop_type` : Next hop type
+    -   `VirtualNetworkGateway`
+    -   `VnetLocal`
+    -   `Internet`
+    -   `VirtualAppliance`
+    -   `None`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure RouteTable(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/manage-route-table)
--   [Azure RouteTable(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
+-   [Azure Route Table Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-udr-overview)

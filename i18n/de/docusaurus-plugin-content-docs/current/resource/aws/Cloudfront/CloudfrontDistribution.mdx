@@ -1,0 +1,100 @@
+---
+title: CloudfrontDistribution
+sidebar_position: 0
+tags: [AWS, Ressource, Cloudfront, CloudfrontDistribution]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon CloudFront beschleunigt die Bereitstellung statischer und dynamischer Webinhalte wie .html-, .css-, .php-, Bild- und Mediendateien.  
+Bei Inhaltsanforderungen liefert CloudFront diese über ein globales Netzwerk von Edge-Standorten mit geringer Latenz und hoher Leistung aus.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base/Base)
+
+### Verknüpfte Ressourcen
+
+-   [**CloudfrontCachePolicy**](https://docs.cstudio.app/de/docs/resource/aws/Cloudfront/CloudFrontCachePolicy)
+-   [**S3Bucket**](https://docs.cstudio.app/de/docs/resource/aws/S3/S3Bucket)
+-   [**WafWebAcl**](https://docs.cstudio.app/de/docs/resource/aws/WAF/WafWebAcl)
+
+---
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `enabled` : Aktivierung der Distribution – `true`, `false`
+-   `price_class` : Preisstufe der CloudFront-Distribution – `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : Maximale unterstützte HTTP-Version – `http1.1`, `http2`
+-   `is_ipv6_enabled` : Aktivierung von IPv6 – `true`, `false`
+-   `linked_waf_web_acl_name` : Name der WAF Web ACL für den Schutz
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+#### Origin-Einstellungen (`origin`)
+
+-   `origin.origin_type` : Typ des Origins – `s3`, `custom`
+-   `origin.linked_resource_name` : Verknüpfter S3-Bucket bei S3-Origin
+-   `origin.domain` : DNS-Domainname bei Custom-Origin
+-   `origin.shield_enabled` : Aktivierung von Origin Shield – `true`, `false`
+-   `origin.shield_region` : AWS-Regionscode für Origin Shield
+
+#### Origin-Gruppen (`origin_group`)
+
+-   `origin_group.first_origin_name` : Name des ersten Origins
+-   `origin_group.second_origin_name` : Name des zweiten Origins
+-   `origin_group.failover_criteria` : Liste der HTTP-Statuscodes für Failover
+
+#### Cache-Verhalten (`cache_behavior`)
+
+-   `cache_behavior.path_pattern` : Pfadmuster, auf das das Cache-Verhalten angewendet wird
+-   `cache_behavior.compress` : Aktivierung der automatischen Komprimierung – `true`, `false`
+-   `cache_behavior.viewer_protocol_policy` : Zugriffsrichtlinie für Viewer-Protokolle – `allow-all`, `https-only`, `redirect-to-https`
+-   `cache_behavior.allowed_methods` : Liste der von CloudFront verarbeiteten HTTP-Methoden
+-   `cache_behavior.cached_methods` : Liste der zwischengespeicherten HTTP-Methoden
+-   `cache_behavior.origin_name` : Name des Origins, an den Anfragen weitergeleitet werden
+-   `cache_behavior.linked_cache_policy_name` : Name der verknüpften Cache-Richtlinie
+
+#### Einschränkungen (`restriction`)
+
+-   `restriction.type` : Art der länderspezifischen Einschränkung – `whitelist`, `blacklist`, `none`
+-   `restriction.locations` : Liste der ISO-3166-1-alpha-2-Ländercodes
+
+#### Zertifikat-Einstellungen (`viewer_certificate`)
+
+-   `viewer_certificate.default_certificate_enabled` : Verwendung des Standard-CloudFront-Zertifikats
+-   `viewer_certificate.acm_certificate_name` : Name des ACM-Zertifikats
+-   `viewer_certificate.iam_certificate_id` : ID des IAM-Zertifikats
+-   `viewer_certificate.legacy_client_support_enabled` : Unterstützung für Legacy-HTTPS
+-   `viewer_certificate.minimum_protocol_version` : Minimale SSL/TLS-Protokollversion
+
+#### Logging-Einstellungen (`logging`)
+
+-   `logging.logging_enabled` : Aktivierung der Zugriffsprotokollierung – `true`, `false`
+-   `logging.logging_s3_bucket_name` : S3-Bucket für Log-Speicherung
+-   `logging.logging_file_prefix` : Präfix für Logdateien
+-   `logging.logging_include_cookies` : Einschluss von Cookies – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+## Referenzen
+
+-   [Amazon CloudFront(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront 가격(AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)
+-   [Amazon CloudFront Distribution(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)

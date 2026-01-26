@@ -1,0 +1,63 @@
+---
+title: AccessControlGroup
+sidebar_position: 0
+tags: [Ncloud, Ressource, Security, AccessControlGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein IP- und Port-basiertes Firewall-Service zur Steuerung und Verwaltung des Netzwerkzugriffs zwischen Servern.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
+
+### Verbundene Ressourcen
+
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name des VPC, in dem das ACG erstellt wird
+-   `acg_description` : Beschreibung des ACG
+
+#### Eingehende Regeln (`inbound_rule`)
+
+-   `inbound_rule.protocol` : Protokoll des eingehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Methode zur Anwendung der Regel – `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Ziel-IP-Adressbereich des eingehenden Traffics (CIDR-Format)
+-   `inbound_rule.source_access_control_group_name` : Name des Quell-ACG für eingehenden Traffic
+-   `inbound_rule.port_range` : Portbereich für die eingehende Regel – `1` ~ `65535`
+-   `inbound_rule.description` : Beschreibung der eingehenden Regel
+
+#### Ausgehende Regeln (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protokoll des ausgehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Methode zur Anwendung der Regel – `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Ziel-IP-Adressbereich des ausgehenden Traffics (CIDR-Format)
+-   `outbound_rule.source_access_control_group_name` : Name des Quell-ACG für ausgehenden Traffic
+-   `outbound_rule.port_range` : Portbereich für die ausgehende Regel – `1` ~ `65535`
+-   `outbound_rule.description` : Beschreibung der ausgehenden Regel
+
+---
+
+## Referenzen
+
+-   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

@@ -1,0 +1,74 @@
+---
+title: VirtualNetwork
+sidebar_position: 0
+tags: [Azure, Network, VirtualNetwork, VNet]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Virtual Network ist eine **virtuelle Netzwerkressource**, die die Kommunikation zwischen Azure-Ressourcen ermöglicht und die Konnektivität mit dem Internet oder mit lokalen (On-Premises-)Netzwerken konfiguriert.  
+Auf Basis des IP-Adressraums (Address Space) können Subnetze, Sicherheitsrichtlinien und Peering-Verbindungen definiert werden, um die Netzwerkarchitektur der Azure-Umgebung festzulegen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Untergeordnete Ressourcen
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+-   [**Private DNS Resolver**](https://docs.cstudio.app/de/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+
+### Verbundene Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/de/docs/resource/azure/Network/VirtualNetwork)
+
+## Ressourceneinstellungen
+
+-   `vnet_address_space` : IP-Adressraum, den das Virtual Network verwendet
+
+    -   Eine oder mehrere Adressen im CIDR-Format können angegeben werden
+
+-   `enable_ddos_protection` : Gibt an, ob ein DDoS Protection Plan auf das Virtual Network angewendet wird
+    -   `true`, `false`
+-   `ddos_protection_plan_name` : Name des DDoS Protection Plans, der mit dem Virtual Network verknüpft wird
+
+#### VNet-Peering (`peering`)
+
+Definiert die Verbindungseinstellungen mit anderen Virtual Networks.
+
+-   `peering.linked_vnet_name` : Name des Ziel-Virtual-Networks für die Verbindung (schreibgeschützt)
+-   `peering.allow_access_to_remote_vnet` : Gibt an, ob der Zugriff auf das entfernte Virtual Network erlaubt ist
+-   `peering.allow_receive_forwarded_traffic` : Gibt an, ob weitergeleiteter Traffic empfangen werden darf
+-   `peering.allow_forward_traffic_to_remote_vnet` : Gibt an, ob Traffic an das entfernte Virtual Network weitergeleitet werden darf
+-   `peering.allow_use_remote_gateway` : Gibt an, ob das Gateway des entfernten Virtual Networks verwendet werden darf
+    -   Werte für alle Optionen: `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource
+    -   Bis zu 512 Zeichen, im Format `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure Virtual Network Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
+-   [Virtual Network-Adressraum (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-addresses)
+-   [Virtual Network-Peering (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-peering-overview)

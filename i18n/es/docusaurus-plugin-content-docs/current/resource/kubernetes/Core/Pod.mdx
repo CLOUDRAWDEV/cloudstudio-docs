@@ -1,0 +1,65 @@
+---
+title: Pod
+sidebar_position: 4
+tags: [Kubernetes, Recurso, Core, Pod]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de Kubernetes que representa la unidad de despliegue más pequeña, en la que se ejecutan uno o más contenedores juntos.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Pod
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar y clasificar el Pod
+-   `pod_security_context` : Configuración de seguridad y permisos a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización antes del contenedor principal
+-   `containers` : Definición del contenedor que se ejecutará en el Pod
+-   `containers.image` : Imagen del contenedor
+-   `containers.resources` : Solicitudes y límites de CPU / memoria
+-   `containers.probe` : Configuración de probes startup, liveness y readiness
+-   `containers.env` : Definición de variables de entorno
+-   `containers.env_from` : Inyección de variables desde ConfigMap / Secret
+-   `containers.command` : Comando de ejecución del contenedor
+-   `containers.args` : Argumentos de ejecución del contenedor
+-   `containers.port` : Puertos expuestos por el contenedor
+-   `containers.volume_mount` : Rutas de montaje de volúmenes en el contenedor
+-   `volume` : Definición de volúmenes utilizados por el Pod
+-   `dns_policy` : Configuración de política DNS
+-   `enable_service_links` : Inyección automática de variables de entorno de Service
+-   `host_network` : Uso de red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
+
+---
+
+## Referencias
+
+-   [Pod(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/)
+-   [Pod(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod)

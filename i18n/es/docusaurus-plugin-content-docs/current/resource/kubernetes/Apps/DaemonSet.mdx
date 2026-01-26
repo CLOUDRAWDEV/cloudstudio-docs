@@ -1,0 +1,57 @@
+---
+title: DaemonSet
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Apps, Daemonset]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-daemon_set.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+DaemonSet es un recurso de Kubernetes que garantiza que todos (o algunos) los nodos ejecuten una copia de un Pod.  
+Cuando se añade un nodo al clúster, se agrega automáticamente un Pod a ese nodo.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**ConfigMap**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/ConfigMap)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Service)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso DaemonSet
+-   `annotations` : Metadatos key-value utilizados por el sistema de Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar el recurso DaemonSet
+-   `template_labels` : Etiquetas aplicadas a los Pods que se crearán
+-   `pod_security_context` : Configuración de seguridad y privilegios a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización que se ejecutan antes del contenedor principal
+-   `containers` : Definición de los contenedores incluidos en el Pod
+-   `volume` : Definición de los volúmenes que utilizará el Pod
+-   `dns_policy` : Política DNS del Pod
+-   `enable_service_links` : Habilitar la inyección automática de variables de entorno de servicios
+-   `host_network` : Habilitar el uso de la red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
+
+---
+
+## Referencias
+
+-   [DaemonSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+-   [DaemonSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/daemonset)

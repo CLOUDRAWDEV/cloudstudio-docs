@@ -1,0 +1,45 @@
+---
+title: AcmCertificate
+sidebar_position: 0
+tags: [AWS, Ressource, AcmCertificate]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Mit der Ressource ACM Certificate können Zertifikate im Amazon Certificate Manager angefordert und verwaltet werden.
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `enabled_import` : Gibt an, ob ein Zertifikat importiert werden soll – `true`, `false`
+-   `domain_name` : Vollqualifizierter Domainname für das Zertifikat
+-   `validation_method` : Methode zur Überprüfung des Domainbesitzes – `DNS`, `EMAIL`
+-   `key_algorithm` : Verschlüsselungsalgorithmus – `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
+-   `certificate_body` : PEM-codierter Inhalt des zu importierenden Zertifikats – maximal `5000` Zeichen
+-   `certificate_private_key` : PEM-codierter privater Schlüssel des zu importierenden Zertifikats – maximal `5000` Zeichen
+-   `certificate_chain` : PEM-codierte Zertifikatskette des zu importierenden Zertifikats – maximal `5000` Zeichen
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+## Referenzen
+
+-   [Amazon AcmCertificate(AWS)](https://docs.aws.amazon.com/ko_kr/acm/latest/userguide/acm-overview.html)
+-   [Amazon AcmCertificate(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate)

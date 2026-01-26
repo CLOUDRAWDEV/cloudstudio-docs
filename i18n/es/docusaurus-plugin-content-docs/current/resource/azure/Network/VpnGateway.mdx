@@ -1,0 +1,60 @@
+---
+title: VpnGateway
+sidebar_position: 23
+tags: [Azure, Network, VpnGateway]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-vpn_gateway.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure VpnGateway es un **recurso de puerta de enlace que proporciona conectividad VPN entre redes locales u otras redes de Azure, centrado en un Virtual Hub**.  
+Mediante la configuración de conexiones con recursos VpnSite, se establecen túneles VPN Site-to-Site y se pueden controlar de forma detallada las políticas de seguridad y las opciones de cifrado.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**VpnSite**](https://docs.cstudio.app/es/docs/resource/azure/Network/VpnSite)
+
+## Valores de configuración del recurso
+
+-   `target_virtual_hub_name` : Nombre del Virtual Hub al que se conecta el VPN Gateway
+
+#### Connection (`connection`)
+
+-   `connection.linked_target_vpn_site` : Nombre del recurso VpnSite de destino
+
+#### Link Names (`connection.link_names`)
+
+-   `connection.link_names.target_vpn_link_name` : Nombre del enlace específico dentro del VpnSite
+-   `connection.link_names.connection_mode` : Modo de conexión VPN - `Default`, `InitiatorOnly`, `ResponderOnly`
+-   `connection.link_names.protocol` : Protocolo de tunelización VPN - `IKEv1`, `IKEv2`
+-   `connection.link_names.enable_policy_based_traffic_selector` : Habilitar selector de tráfico basado en políticas
+-   `connection.link_names.enable_ipsec_policy` : Habilitar política IPsec personalizada
+-   `connection.link_names.dh_group` : Grupo Diffie-Hellman
+-   `connection.link_names.sa_lifetime_sec` : Tiempo de vida de la Security Association (segundos)
+-   `connection.link_names.encryption_algorithm` : Algoritmo de cifrado de datos IPSec
+-   `connection.link_names.integrity_algorithm` : Algoritmo de integridad de datos IPSec
+-   `connection.link_names.ike_encryption_algorithm` : Algoritmo de cifrado del intercambio de claves IKE
+-   `connection.link_names.ike_integrity_algorithm` : Algoritmo de integridad del intercambio de claves IKE
+-   `connection.link_names.pfs_group` : Grupo Perfect Forward Secrecy (PFS)
+-   `connection.link_names.sa_data_size_kb` : Tamaño máximo de datos de la Security Association (KB)
+
+## Referencias
+
+-   [Descripción general de Azure VPN Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [Azure Virtual WAN VPN Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-gateway-about)

@@ -1,0 +1,50 @@
+---
+title: StorageClass
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Storage, StorageClass]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/storage-storage_class.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource zur Definition der dynamischen Speicherbereitstellung in Verbindung mit einem bestimmten Storage-Provisioner.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
+
+### Verbundene Ressourcen
+
+-   [**PersistentVolume**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolume)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `annotations` : Key-Value-Metadaten zur Anzeige erforderlicher Informationen im Kubernetes-System
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der StorageClass
+-   `storage_provisioner` : Typ des Storage-Provisioners, der den Speicher erstellt
+-   `reclaim_policy` : Rückgewinnungsrichtlinie beim Freigeben eines Volumes – `Retain`, `Delete`
+-   `volume_binding_mode` : Zeitpunkt der Volume-Bindung und dynamischen Bereitstellung – `Immediate`, `WaitForFirstConsumer`
+-   `allow_volume_expansion` : Erlaubnis zur Erweiterung des Volume-Speichers
+-   `parameters` : Zusätzliche Parameter für den Storage-Provisioner
+-   `mount_options` : Mount-Optionen für dynamisch erstellte PersistentVolumes
+
+---
+
+## Referenzen
+
+-   [StorageClass(Kubernetes)](https://kubernetes.io/docs/concepts/storage/storage-classes/)
+-   [StorageClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/storage_class)

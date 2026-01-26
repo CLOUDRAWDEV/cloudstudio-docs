@@ -1,0 +1,87 @@
+---
+title: Firewall
+sidebar_position: 14
+tags: [Azure, Network, Firewall]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Firewall ist ein **verwalteter Netzwerk-Firewall-Dienst**, der innerhalb einer Virtual Network bereitgestellt wird und den ein- und ausgehenden Datenverkehr zentral steuert sowie Bedrohungsschutz bietet.  
+Über Network-, Application- und NAT-Regeln kann eine Filterung auf Ebene L3 bis L7 konfiguriert werden. Der Dienst wird häufig als gemeinsame Sicherheitsgrenze in Hub-and-Spoke- oder Single-VNet-Architekturen eingesetzt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Public IP**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+
+## Konfigurationswerte der Ressource
+
+-   `sku_tier` : Preisstufe der Firewall – `Basic`, `Standard`, `Premium`
+-   `ip_config_name` : Name der IP-Konfiguration
+-   `included_subnet_name` : Name des Subnets, in dem die Firewall bereitgestellt wird
+-   `linked_firewall_subnet_public_ip_name` : Name der Public IP, die dem Firewall-Subnet zugeordnet wird
+-   `management_ip_config_name` : Name der Management-IP-Konfiguration
+-   `target_firewall_management_subnet_name` : Name des Firewall-Management-Subnets
+-   `linked_firewall_management_subnet_public_ip_name` : Name der Public IP, die dem Firewall-Management-Subnet zugeordnet wird
+-   `sku_name` : Firewall-SKU-Name – `AZFW_VNet`, `AZFW_Hub`
+-   `tag` : Tags zur Klassifizierung der Ressource
+
+#### Network Rule Collection (`network_rule_collection`)
+
+-   `network_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `network_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Allow`, `Deny`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `network_rules.destination_ports` : Liste der Zielports
+-   `network_rules.destination_addresses` : Liste der Ziel-IP-Adressen oder -Bereiche
+-   `network_rules.protocols` : Liste der Protokolle für die Regel – `TCP`, `UDP`, `ICMP`, `Any`
+
+#### Application Rule Collection (`application_rule_collection`)
+
+-   `application_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `application_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Allow`, `Deny`
+
+#### Application Rules (`application_rules`)
+
+-   `application_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `application_rules.target_fqdns` : Liste der FQDNs zur Filterung des ausgehenden Datenverkehrs
+-   `application_rules.protocol_port` : Port für die Protokollverbindung
+-   `application_rules.protocol_type` : Protokolltyp – `Http`, `Https`, `Mssql`
+
+#### NAT Rule Collection (`nat_rule_collection`)
+
+-   `nat_rule_collection.priority` : Priorität der Regelkollektion – `100` ~ `65000`
+-   `nat_rule_collection.action` : Aktion für übereinstimmenden Datenverkehr – `Dnat`, `Snat`
+
+#### NAT Rules (`nat_rules`)
+
+-   `nat_rules.source_addresses` : Liste der Quell-IP-Adressen oder -Bereiche
+-   `nat_rules.destination_ports` : Liste der Zielports
+-   `nat_rules.translated_port` : Übersetzter Port
+-   `nat_rules.translated_address` : Übersetzte Adresse
+-   `nat_rules.protocols` : Liste der Protokolle für die Regel – `TCP`, `UDP`, `ICMP`, `Any`
+
+---
+
+## Referenzen
+
+-   [Azure Firewall – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall – Logik der Regelverarbeitung (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)

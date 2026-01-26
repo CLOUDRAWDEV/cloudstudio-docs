@@ -1,0 +1,51 @@
+---
+title: OamMonitoringAccount
+sidebar_position: 2
+tags: [AWS, Recurso, Cloudwatch, OamMonitoringAccount]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS CloudWatch Oam Monitoring Account es un servicio que permite configurar una cuenta de monitoreo centralizada para supervisar aplicaciones de múltiples cuentas.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**OamSourceAccount**](https://docs.cstudio.app/es/docs/resource/aws/CloudWatch/OamSourceAccount)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `oam_source_accounts` : Lista de cuentas de origen con las que se compartirán los datos de monitoreo
+-   `resource_types` : Tipos de datos que se compartirán desde las cuentas de origen
+
+#### Configuración de etiquetas
+
+-   `tag` : Lista de etiquetas para clasificar el recurso
+
+---
+
+## Referencias
+
+-   [Amazon CloudWatch Oam Monitoring Account(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
+-   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
+-   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)

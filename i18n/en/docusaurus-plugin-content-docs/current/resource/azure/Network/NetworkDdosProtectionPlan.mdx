@@ -1,7 +1,7 @@
 ---
 title: NetworkDdosProtectionPlan
-sidebar_position: 5
-tags: [Azure, Resource, Network, NetworkDdosProtectionPlan]
+sidebar_position: 16
+tags: [Azure, Network, NetworkDdosProtectionPlan, DDoS]
 ---
 
 <hr />
@@ -11,28 +11,23 @@ tags: [Azure, Resource, Network, NetworkDdosProtectionPlan]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-network_ddos_protection_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_ddos_protection_plan.webp"
     }
 />
 
 ## Resource Overview
 
-Azure DDoS Protection is a service provided by Microsoft Azure that helps protect Azure resources from Distributed Denial of Service (DDoS) attacks. 
-Azure DDoS Protection offers three protection tiers: Basic, Standard, and Premium. 
-The Basic tier provides protection against common network layer attacks, while the Standard and Premium tiers offer additional protection against more sophisticated application layer attacks. 
-The Azure DDoS Protection plan is a pricing model where customers pay for the DDoS Protection service based on the number of protected public IP addresses in their Azure subscription. 
-This plan offers a cost-effective way for customers to protect their Azure resources from DDoS attacks without incurring additional expenses for the protection service.
+Network DDoS Protection Plan is a security service designed to protect Azure Virtual Network resources from large-scale distributed denial-of-service (DDoS) attacks.  
+It maintains application availability through traffic analysis and automatic mitigation, and provides additional protection features when attacks occur.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure NetworkDdosProtectionPlan(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ddos-protection/ddos-protection-overview)
--   [Azure NetworkDdosProtectionPlan Price](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/)
--   [Azure NetworkDdosProtectionPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_ddos_protection_plan)
+-   [Azure DDoS Protection Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ddos-protection/ddos-protection-overview)

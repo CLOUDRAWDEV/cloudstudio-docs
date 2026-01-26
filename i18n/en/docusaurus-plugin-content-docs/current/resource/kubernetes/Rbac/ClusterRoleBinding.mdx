@@ -4,22 +4,20 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, RBAC, ClusterRoleBinding]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that grants users reference to roles applicable at the cluster level and across all namespaces
+A Kubernetes resource that binds cluster-level roles to subjects across all namespaces.
 
 ## Associated Resources
 
@@ -27,33 +25,23 @@ A Kubernetes resource that grants users reference to roles applicable at the clu
 
 -   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
-
 ### Connected Resources
 
--   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRole)
-
-
+-   [**ClusterRole**](https://docs.cstudio.app/en/docs/resource/kubernetes/RBAC/ClusterRole)
 
 ## Resource Setting Values
 
--   `service_name`: Name of the ClusterRoleBinding resource
--   `annotations`: Key-value pairs used to display necessary information in the Kubernetes system
--   `labels`: User-specified values to distinguish objects
--   `role_name`: Specifies the name of the Role to be bound
--   `subject`: Defines the subject to whom the Role will be assigned
-    -   `name`: Name of the subject to be bound
-    -   `namespace`: Namespace of the subject to be bound
-    -   `api_group`: API group that makes the authorization decision - `rbac.authorization.k8s.io`, `User`, `Group`
-    -   `kind`: Type of the subject to be bound - `ServiceAccount`, `User`, `Group`
+#### Basic Settings
 
-
-
-
+-   `annotations` : Metadata key-value for the ClusterRoleBinding resource
+-   `labels` : User-defined labels used to distinguish the ClusterRoleBinding object
+-   `role_name` : Name of the target ClusterRole to bind
+-   `subject` : Subject to which the ClusterRole is granted, including kind - `ServiceAccount`, `User`, `Group`, namespace (namespace to which the subject belongs), and api_group - `rbac.authorization.k8s.io`
 
 ---
 
-## Reference Materials
+## References
 
 -   [ClusterRoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)
-`
+    `

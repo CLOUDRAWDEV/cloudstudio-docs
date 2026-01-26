@@ -1,0 +1,55 @@
+---
+title: CronJob
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Batch, CronJob]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource, die gemäß einem Zeitplan periodisch Jobs erstellt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ziele
+
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem der CronJob bereitgestellt wird
+-   `schedule` : Ausführungsintervall des Jobs, definiert durch einen Cron-Ausdruck
+-   `timezone` : Referenzzeitzone für die Interpretation des Zeitplans
+-   `concurrency_policy` : Richtlinie für die gleichzeitige Ausführung von Jobs (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : Zulässige Startzeit, wenn ein Zeitplan verpasst wurde
+-   `successful_jobs_history_limit` : Anzahl der aufzubewahrenden erfolgreichen Jobs
+-   `failed_jobs_history_limit` : Anzahl der aufzubewahrenden fehlgeschlagenen Jobs
+-   `containers` : Definition der auszuführenden Container-Spezifikationen
+-   `init_containers` : Definition vorbereitender Aufgaben vor Ausführung des Haupt-Containers
+-   `volume` : Volume-Einstellungen für Container-Mounts
+-   `pod_security_context` : Sicherheitskontext-Einstellungen auf Pod-Ebene
+-   `image_pull_secrets` : Referenz auf Secrets für den Image-Pull
+
+---
+
+## Referenzen
+
+-   [CronJob(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+-   [CronJob(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)

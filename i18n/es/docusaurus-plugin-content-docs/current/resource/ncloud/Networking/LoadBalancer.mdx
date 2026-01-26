@@ -1,0 +1,57 @@
+---
+title: LoadBalancer
+sidebar_position: 6
+tags: [Ncloud, Recurso, Network, LoadBalancer]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-load_balancer.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Dispositivo que distribuye el tráfico de red entre múltiples servidores teniendo en cuenta el rendimiento y la carga.  
+Al distribuir la carga generada en un servidor específico, optimiza la disponibilidad y el tiempo de respuesta, permitiendo servicios sin interrupciones.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
+
+### Recursos conectados
+
+-   [**LoadBalancer**](https://docs.cstudio.app/es/docs/resource/aws/Networking/LoadBalancer)
+-   [**TargetGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/TargetGroup)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `network_type` : Tipo de red - `PUBLIC`, `PRIVATE`
+-   `type` : Tipo de Load Balancer - `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
+-   `throughput_type` : Capacidad de procesamiento (conexiones por segundo) - `SMALL(30000)`, `MEDIUM(60000)`, `LARGE(90000)`
+-   `included_subnet_names` : Lista de nombres de Subnets a conectar
+
+#### Listener (`listener`)
+
+-   `listener.protocol` : Protocolo del listener - `HTTP`, `HTTPS`, `TCP`, `TLS`
+-   `listener.tls_min_version_type` : Versión mínima de TLS - `TLSV10`, `TLSV11`, `TLSV12`
+-   `listener.port` : Puerto del listener - `1` ~ `65534`
+-   `listener.use_http2` : Uso de HTTP/2 - `true`, `false`
+-   `listener.ssl_certificate_no` : Número del certificado SSL
+-   `listener.target_group_name` : Nombre del Target Group a conectar
+
+---
+
+## Referencias
+
+-   [Load Balancer(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
+-   [Load Balancer(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb)

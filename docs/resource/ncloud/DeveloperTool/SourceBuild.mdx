@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, DeveloperTool, SourceBuild]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.webp"
     }
 />
 
@@ -23,41 +23,73 @@ SourceBuild는 다양한 언어로 개발된 소스 코드를 손쉽게 빌드�
 
 ### 상위 리소스
 
-### 하위 리소스
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourcePipeline)
 
+### 연결 리소스
 
+-   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
+-   `description` : 빌드 프로젝트 설명(최대 500자)
 -   `source_type` : 빌드 타겟 타입 - `SourceCommit`
--   `source_branch` : 빌드하려는 브랜치 이름 
+-   `source_branch` : 빌드하려는 브랜치 이름
 -   `linked_repository_name` : 빌드하려는 레포지토리 이름
--   `env` : 빌드 환경 설정 내용
-    -   `env_compute_spec` : 빌드하려는 컴퓨팅 환경 스펙 - `2cpu-4memory`,`4cpu-8memory`,`8cpu-16memory`
-    -   `env_platform_type` : 빌드하려는 컴퓨팅 환경 이미지 종류 - `SourceBuild`,`ContainerRegistry`,`PublicRegistry`
-    -   `env_platform_os_spec` : 사용할 OS 스펙 - `ubuntu-archiX64-16.04`
-    -   `env_platform_runtime_name` : 빌드 런타임 이름 - `base`,`java`,`dotnet`,`android_java`,`python`
-    -   `env_platform_runtime_version` : 빌드 런타임 버젼 - `1.0-1.0.0`,`2.0-1.0.0`,`3.0-1.0.0`,`4.0-1.0.0`,`5.0-1.0.0`
-    -   `env_timeout` : 빌드 시작 후 종료까지의 최대 대기시간(분), 5~540
-    -   `env_use_docker` : 도커 엔진 사용 여부 
-    -   `env_var` : 빌드에 사용할 환경 변수 
--   `build_command` : 빌드 관련 실행 명령어 
-    -   `pre_build_command` : 빌드 전에 사용할 명령어
-    -   `in_build_command` : 빌드 중에 사용할 명령어
-    -   `post_build_command` : 빌드 후에 사용할 명령어
--   `enable_cloud_log_analytics` : 클라우드 로그 분석에 빌드 로그 저장 여부
--   `enable_file_safer` : file safer 이용 안전 확인 여부
--   `artifact` : 빌드 결과물 저장 관련 설정
-    -   `save_build_results` : 빌드 결과 저장 여부
--   `upload` : 빌드 완료 후 이미지 업로드 설정
-    -   `upload_build_results` : 구축 환경의 저장 여부
 
+#### 빌드 환경 설정 (`env`)
 
-    
+-   `env.env_compute_spec` : 빌드 컴퓨팅 환경 스펙 - `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : 빌드 환경 이미지 타입 - `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : 사용할 OS 스펙
+-   `env.env_platform_runtime_name` : 빌드 런타임 이름
+-   `env.env_platform_runtime_version` : 빌드 런타임 버전
+-   `env.target_registry_name` : 빌드 이미지가 저장될 컨테이너 레지스트리 이름
+-   `env.target_container_image_name` : 생성할 컨테이너 이미지 이름
+-   `env.target_container_image_tag` : 생성할 컨테이너 이미지 태그
+-   `env.env_timeout` : 빌드 최대 대기 시간(분) - `5` ~ `540`
+-   `env.env_use_docker` : Docker 엔진 사용 여부 - `true`, `false`
+-   `env.env_docker_engine_version` : Docker 엔진 버전
+-   `env.env_var` : 빌드에 사용할 환경 변수(key-value)
+
+#### 빌드 명령어 (`build_command`)
+
+-   `build_command.pre_build_command` : 빌드 전 실행 명령어 목록
+-   `build_command.in_build_command` : 빌드 중 실행 명령어 목록
+-   `build_command.post_build_command` : 빌드 후 실행 명령어 목록
+-   `build_command.use_docker_image_build_command` : Docker 이미지 빌드 사용 여부 - `true`, `false`
+-   `build_command.docker_image_build_registry` : 이미지 저장 컨테이너 레지스트리 이름
+-   `build_command.docker_image_dockerfile` : Dockerfile 경로
+-   `build_command.docker_image` : 업로드할 이미지 이름
+-   `build_command.docker_image_build_tag` : 업로드할 이미지 태그
+
+#### 로그 및 보안
+
+-   `enable_cloud_log_analytics` : Cloud Log Analytics에 빌드 로그 저장 여부 - `true`, `false`
+-   `enable_file_safer` : File Safer를 통한 보안 검사 여부 - `true`, `false`
+
+#### 빌드 결과물 저장 (`artifact`)
+
+-   `artifact.save_build_results` : 빌드 결과 저장 여부 - `true`, `false`
+-   `artifact.path_to_save_build_results` : 빌드 결과 저장 경로
+-   `artifact.object_storage_name_to_save` : Object Storage 버킷 이름
+-   `artifact.object_storage_path_to_save` : Object Storage 버킷 경로
+-   `artifact.file_name_to_save` : 저장할 파일 이름
+-   `artifact.enable_backup_build_results` : 빌드 결과 백업 여부 - `true`, `false`
+
+#### 이미지 업로드 (`upload`)
+
+-   `upload.upload_build_results` : 빌드 환경 이미지 저장 여부 - `true`, `false`
+-   `upload.container_registry_name_to_upload_build_results` : 이미지 업로드 컨테이너 레지스트리 이름
+-   `upload.image_name_to_upload` : 업로드할 이미지 이름
+-   `upload.image_tag_to_upload` : 업로드할 이미지 태그
 
 ---
 
 ## 참고 자료
 
 -   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
--   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)
+-   [Source Build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

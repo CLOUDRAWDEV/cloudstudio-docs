@@ -1,0 +1,66 @@
+---
+title: AutoScaling
+sidebar_position: 0
+tags: [Ncloud, Risorsa, Compute, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio che aumenta o riduce automaticamente il numero di server virtuali in base a pianificazioni o metriche di monitoraggio, consentendo di rispondere elasticamente alle variazioni della domanda e di mantenere la stabilità del servizio.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+### Risorse collegate
+
+-   [**AccessControlGroup**](https://docs.cstudio.app/it/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/TargetGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `linked_acg_names` : Elenco dei nomi degli ACG da applicare
+-   `included_subnet_name` : Nome della subnet per la creazione dei server
+-   `launch_configuration_name` : Nome della launch configuration da utilizzare
+-   `health_check_type_code` : Tipo di health check - `SVR`, `LOADB`
+-   `health_check_grace_period` : Periodo di attesa prima del controllo di stato
+-   `linked_target_group_list` : Elenco dei target group collegati
+-   `min_size` : Dimensione minima del gruppo Auto Scaling (`1` ~ `30`)
+-   `max_size` : Dimensione massima del gruppo Auto Scaling (`1` ~ `30`)
+
+#### Politiche Auto Scaling (`policy`)
+
+-   `policy.adjustment_type_code` : Tipo di regolazione (`CHANG`, `PRCNT`, `EXACT`)
+-   `policy.scaling_adjustment` : Valore di regolazione
+-   `policy.cooldown` : Tempo di cooldown in secondi
+-   `policy.min_adjustment_step` : Passo minimo di variazione
+
+#### Pianificazione Auto Scaling (`schedule`)
+
+-   `schedule.min_size` : Dimensione minima pianificata
+-   `schedule.max_size` : Dimensione massima pianificata
+-   `schedule.desired_capacity` : Capacità desiderata
+-   `schedule.start_time` : Data e ora di inizio
+-   `schedule.end_time` : Data e ora di fine
+
+---
+
+## Riferimenti
+
+-   [Auto Scaling (Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
+-   [Auto Scaling Group (Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

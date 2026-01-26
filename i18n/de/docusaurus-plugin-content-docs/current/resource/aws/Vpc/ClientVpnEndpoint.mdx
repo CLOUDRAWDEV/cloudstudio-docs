@@ -1,0 +1,77 @@
+---
+title: ClientVpnEndpoint
+sidebar_position: 2
+tags: [AWS, Ressource, Vpc, ClientVpnEndpoint]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein verwalteter, clientbasierter VPN-Dienst, der einen sicheren Zugriff auf AWS-Ressourcen sowie Ressourcen in On-Premises-Netzwerken ermöglicht
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**Log**](https://docs.cstudio.app/de/docs/resource/aws/Cloudwatch/Log)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `description` : Beschreibung des Client-VPN-Endpunkts
+-   `client_cidr_block` : CIDR-Block, aus dem Client-IP-Adressen zugewiesen werden
+-   `server_acm_certificate_name` : Name des Serverzertifikats
+-   `transport_protocol` : Transportprotokoll der TLS-Sitzung – `tcp`, `udp`
+-   `vpn_port` : VPN-Port – `443`, `1194`
+-   `enabled_split_tunnel` : Aktivierung des Split-Tunnels – `true`, `false`
+-   `enabled_self_service_portal` : Aktivierung des Self-Service-Portals – `true`, `false`
+-   `session_timeout_hours` : Sitzungszeitlimit – `8`, `10`, `12`, `24`
+
+#### Authentifizierungseinstellungen (`authentication`)
+
+-   `authentication.option_types` : Authentifizierungsmethode – `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : Name des Client-Zertifikats
+-   `authentication.active_directory_id` : Active-Directory-ID
+-   `authentication.saml_provider_arn` : ARN des SAML-Anbieters
+-   `authentication.self_service_saml_provider_arn` : ARN des Self-Service-SAML-Anbieters
+
+#### Verbindungsprotokollierung (`connection_logging`)
+
+-   `connection_logging.enabled` : Aktivierung der Client-Verbindungsprotokolle – `true`, `false`
+-   `connection_logging.linked_log_group_name` : Name der CloudWatch-Logs-Protokollgruppe
+-   `connection_logging.log_stream_name` : Name des CloudWatch-Logs-Logstreams
+
+#### Netzwerkverbindungen
+
+-   `included_vpc_name` : Name der Ziel-VPC für die Verbindung
+-   `linked_security_group_names` : Liste der anzuwendenden Sicherheitsgruppen
+-   `linked_subnet_names` : Liste der zu verbindenden Subnetze
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [AWS Client Vpn Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
+-   [AWS Client Vpn Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)

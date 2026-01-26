@@ -1,0 +1,65 @@
+---
+title: Metric
+sidebar_position: 0
+tags: [AWS, Ressource, Cloudwatch, Metric]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine AWS-CloudWatch-Metrik ist ein Name-Wert-Paar, das Messwerte darstellt, die von überwachten Ressourcen erfasst werden.  
+Beispielsweise können CPU-Auslastung, Netzwerk-Eingangs- und Ausgangsdaten von EC2-Instanzen gesammelt werden.  
+Diese Messwerte werden als CloudWatch-Metriken gespeichert und für Dashboards, Alarme und Analysen verwendet.  
+Darüber hinaus können benutzerdefinierte Metriken erstellt werden, um Daten aus Anwendungen und Services zu überwachen.  
+CloudWatch-Metriken sind in zahlreiche von AWS bereitgestellte Services integriert.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**SnsTopic**](https://docs.cstudio.app/de/docs/resource/aws/Sns/SnsTopic)
+
+---
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `comparison_operator` : Vergleichsoperator zwischen Metrikwert und Schwellenwert – `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
+-   `evaluation_periods` : Anzahl der Auswertungszeiträume für den Vergleich mit dem Schwellenwert
+-   `metric_name` : Name der CloudWatch-Metrik, die mit dem Alarm verknüpft ist
+-   `namespace` : Namespace der CloudWatch-Metrik
+-   `period` : Aggregationsintervall der Metrik (Sekunden)
+-   `statistic` : Statistische Methode für die Metrik – `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : Schwellenwert, der den Alarm auslöst
+-   `alarm_description` : Beschreibung des Alarms
+-   `linked_sns_names` : Liste der SNS-Themen, die mit der Metrik verknüpft sind
+-   `alarm_sns_names` : SNS-Themen für Benachrichtigungen bei Schwellenwertüberschreitung
+-   `ok_sns_names` : SNS-Themen für Benachrichtigungen bei Rückkehr in den Normalzustand
+-   `insufficient_data_sns_names` : SNS-Themen für Benachrichtigungen bei unzureichenden Daten
+
+#### Tags
+
+-   `tag` : Liste der Tags zur Klassifizierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon CloudWatch(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
+-   [Amazon CloudWatch 가격(AWS)](https://aws.amazon.com/ko/cloudwatch/pricing/?nc2=type_a)
+-   [Amazon CloudWatch Metric(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm)

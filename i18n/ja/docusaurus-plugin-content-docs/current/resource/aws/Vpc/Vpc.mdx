@@ -11,15 +11,16 @@ tags: [AWS, リソース, Vpc]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.webp"
     }
 />
 
 ## リソース概要
 
-Amazon Virtual Private Cloud(Amazon VPC)を使用すると、リソースの配置、接続およびセキュリティを含む仮想ネットワーキング環境を完全に制御することができます。
-AWS サービスコンソールで VPC を設定して開始してください。 次に、Amazon Elastic Compute Cloud(EC2)および Amazon Relational Database Service(RDS)インスタンスなどのリソースを VPC に追加します。
-最後に VPC がアカウント、可用領域または AWS リージョンで相互に通信する方法を定義します。以下の例で、ネットワークトラフィックは各リージョン内の 2 つの VPC 間で共有されます。
+Amazon Virtual Private Cloud(Amazon VPC) を使用することで、Resource 配置、接続、セキュリティを含む仮想ネットワーク環境を完全に制御可能。  
+AWS 管理コンソールから VPC を設定後、EC2 や RDS などの Resource を VPC に追加する。  
+さらに、アカウント・アベイラビリティゾーン・AWS リージョン間での通信方法を定義可能。  
+下記例では、各リージョン内の 2 つの VPC 間でネットワークトラフィックが共有される。
 
 ## 関連リソース
 
@@ -27,26 +28,48 @@ AWS サービスコンソールで VPC を設定して開始してください�
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### 下位リソース
+### 内部リソース
 
--   [**Lb**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/)
--   [**Vpc Security Group**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
--   [**Vpc Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
--   [**Vpc Internet Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/InternetGateway)
--   [**Vpc Network Acl**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkAcl)
--   [**Vpc Route Table**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/RouteTable)
--   [**Vpc FlowLog**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/FlowLog)
--   [**Ec2 Transit Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/TransitGateway)
--   [**Route53**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/)
+-   [**LoadBalancer**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/Lb)
+-   [**LoadBalancerTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/LbTargetGroup)
+-   [**ClientVPNEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**NetworkFirewall**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
+-   [**InternetGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/InternetGateway)
+-   [**NetworkACL**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkAcl)
+-   [**RouteTable**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/RouteTable)
+-   [**FlowLog**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/FlowLog)
+-   [**AutoScalingGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/AutoscalingGroup)
+-   [**EFS**](https://docs.cstudio.app/ja/docs/resource/aws/Efs/Efs)
+-   [**Endpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Endpoint)
+
+### 接続リソース
+
+-   [**ResolverEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ResolverRule**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/ResolverRule)
+-   [**Route53**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/Route53)
+-   [**TransitGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
+-   [**VPCPeering**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpcPeering)
+-   [**VPNGateway**](https://docs.cstudio.app/ja/docs/resource/aws/NetwVpcork/VpnGateway)
+-   [**MSKCluster**](https://docs.cstudio.app/ja/docs/resource/aws/Msk/MskCluster)
 
 ## リソース設定値
 
--   `cidr_block` : VPC の IP 帯域(CIDR)
+#### 基本設定
+
+-   `cidr_block` : VPC の IP アドレス範囲(CIDR)
+-   `enabled_dns_support` : DNS 解決有効化 여부 - `true`, `false`
+-   `enabled_dns_hostnames` : DNS ホスト名割り当て有効化 여부 - `true`, `false`
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon Virtual Private Cloud(Amazon VPC)(AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Amazon VPC(AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
 -   [Amazon VPC 料金(AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
 -   [aws_vpc(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

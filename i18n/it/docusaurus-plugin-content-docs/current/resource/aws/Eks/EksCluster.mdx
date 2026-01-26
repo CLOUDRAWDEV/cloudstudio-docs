@@ -1,0 +1,77 @@
+---
+title: EksCluster
+sidebar_position: 0
+tags: [AWS, Risorsa, Eks, EksCluster]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/eks-eks_cluster.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon Elastic Kubernetes Service(Amazon EKS) è un servizio gestito che consente di eseguire facilmente Kubernetes su AWS senza dover installare e gestire manualmente i cluster Kubernetes.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**EksCluster**](https://docs.cstudio.app/it/docs/resource/aws/EKS/EksCluster)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `version` : Versione di Kubernetes del cluster EKS
+-   `cluster_role_arn` : Ruolo IAM utilizzato dal control plane Kubernetes per gestire le risorse AWS
+-   `enabled_encryption` : Abilitazione della crittografia del cluster - `true`, `false`
+-   `kms_key_name` : Nome della chiave KMS da utilizzare nel cluster
+-   `included_subnet_names` : Elenco dei nomi delle subnet incluse nel Subnet Group in cui distribuire il cluster EKS
+-   `linked_security_group_names` : Elenco dei nomi dei gruppi di sicurezza collegati al cluster EKS
+-   `endpoint_access_type` : Tipo di accesso all’endpoint del server API EKS - `Public`, `Public and Private`, `Private`
+-   `public_access_cidrs` : Elenco dei blocchi CIDR autorizzati ad accedere all’endpoint pubblico dell’API EKS
+
+#### Logging del Control Plane
+
+-   `enabled_cluster_log_types` : Tipi di log del Control Plane da abilitare - `api`, `authenticator`, `audit`, `scheduler`, `controllerManager`
+
+#### Configurazione degli add-on (`add_ons`)
+
+-   `add_ons.kube_proxy_version` : Versione di kube-proxy eseguita su ciascun nodo
+-   `add_ons.vpc_cni_version` : Versione del plug-in Amazon VPC CNI
+-   `add_ons.core_dns_version` : Versione di CoreDNS fornita dal cluster
+
+#### Gruppo di nodi (`node_group`)
+
+-   `node_group.node_role_name` : Ruolo IAM utilizzato dai nodi worker
+-   `node_group.enabled_launch_template` : Abilitazione dell’utilizzo del launch template - `true`, `false`
+-   `node_group.launch_template_name` : Nome del launch template utilizzato dal node group
+-   `node_group.launch_template_version` : Versione del launch template
+-   `node_group.min_node_count` : Numero minimo di nodi worker
+-   `node_group.max_node_count` : Numero massimo di nodi worker
+-   `node_group.desired_node_count` : Numero desiderato di nodi worker
+-   `node_group.max_node_unavailable` : Numero massimo di nodi worker non disponibili consentiti durante un aggiornamento
+-   `node_group.max_percentage_unavailable` : Percentuale massima di nodi worker non disponibili consentita durante un aggiornamento
+-   `node_group.disk_size` : Dimensione del volume EBS collegato a ciascun nodo (GB) - `1` ~ `16384`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## Riferimenti
+
+-   [Amazon EKS(AWS)](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+-   [Prezzi di Amazon EKS(AWS)](https://aws.amazon.com/ko/eks/pricing/)
+-   [aws_eks_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster)

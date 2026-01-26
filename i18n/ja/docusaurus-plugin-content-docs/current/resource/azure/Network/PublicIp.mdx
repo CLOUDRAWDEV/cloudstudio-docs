@@ -1,7 +1,7 @@
 ---
 title: PublicIp
-sidebar_position: 9
-tags: [Azure, リソース, Network, PublicIp]
+sidebar_position: 6
+tags: [Azure, Network, PublicIp]
 ---
 
 <hr />
@@ -11,43 +11,39 @@ tags: [Azure, リソース, Network, PublicIp]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-public_ip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip.webp"
     }
 />
 
 ## リソース概要
 
-Azure Public IP（共用 IP）はインターネットから直接アクセスできる固有の IP アドレスです。
-Azure リソース、例えば仮想マシン、Load Balancer、VPN Gateway などのようにインターネットで露出されるリソースに使用されます。
-これにより、Azure リソースに対するインターネットトラフィックを送信することができ、インターネットからそのリソースにアクセスすることができます。
+Public IP は、Azure リソースがインターネットと **直接インバウンド／アウトバウンド通信** を行えるように、公用 IP アドレスを提供するネットワークリソースです。  
+Load Balancer、Virtual Machine、NAT Gateway などと連携して、外部トラフィックの受信ポイントまたはアウトバウンドの出口として機能し、SKU や割り当て方式に応じて可用性や動作特性が異なります。
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
--   [**Container Registry**](https://docs.cstudio.app/ja/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/ja/docs/resource/azure/KeyVault)
+-   [**Public Load Balancer**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicLoadBalancer)
 -   [**Application Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/ApplicationGateway)
--   [**Redis Cache**](https://docs.cstudio.app/ja/docs/resource/azure/RedisCache/)
--   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
+-   [**Bastion Host**](https://docs.cstudio.app/ja/docs/resource/azure/Network/BastionHost)
+-   [**Nat Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NatGateway)
+-   [**Firewall**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Firewall)
 
 ## リソース設定値
 
--   `sku` : Public Ip の価格設定階層 - `true`, `false`
--   `allocation_method` : Public Ip アドレス割り当て方式 - `Static`, `Dynamic`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `sku` : Public IP の価格レベル - `Standard`, `Basic`
+-   `allocation_method` : Public IP アドレスの割り当て方式 - `Static`, `Dynamic`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Public Ip(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
--   [Azure Public Ip(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
+-   [Azure Public IP の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
+-   [Public IP の SKU 比較（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses#sku)

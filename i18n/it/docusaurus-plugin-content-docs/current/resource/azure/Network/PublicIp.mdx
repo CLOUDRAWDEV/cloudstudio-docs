@@ -1,0 +1,49 @@
+---
+title: PublicIp
+sidebar_position: 6
+tags: [Azure, Network, PublicIp]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Public IP è una risorsa di rete che fornisce un indirizzo IP pubblico, consentendo alle risorse di Azure di effettuare **comunicazioni dirette in ingresso e in uscita** con Internet.  
+Si integra con servizi come Load Balancer, Virtual Machine e NAT Gateway per fungere da punto di ingresso del traffico esterno o da uscita per il traffico in uscita; la disponibilità e il comportamento variano in base allo SKU e al metodo di allocazione.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/azure/Network/Subnet)
+
+### Risorse collegate
+
+-   [**Public Load Balancer**](https://docs.cstudio.app/it/docs/resource/azure/Network/PublicLoadBalancer)
+-   [**Application Gateway**](https://docs.cstudio.app/it/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/it/docs/resource/azure/Network/BastionHost)
+-   [**Nat Gateway**](https://docs.cstudio.app/it/docs/resource/azure/Network/NatGateway)
+-   [**Firewall**](https://docs.cstudio.app/it/docs/resource/azure/Network/Firewall)
+
+## Valori di configurazione della risorsa
+
+-   `sku` : Livello di prezzo della Public IP - `Standard`, `Basic`
+-   `allocation_method` : Metodo di allocazione dell’indirizzo Public IP - `Static`, `Dynamic`
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Public IP (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses)
+-   [Confronto degli SKU delle Public IP (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-addresses#sku)

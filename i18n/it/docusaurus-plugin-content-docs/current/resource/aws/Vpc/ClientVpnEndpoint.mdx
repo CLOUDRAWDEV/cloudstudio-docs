@@ -1,0 +1,77 @@
+---
+title: ClientVpnEndpoint
+sidebar_position: 2
+tags: [AWS, Risorsa, Vpc, ClientVpnEndpoint]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio VPN gestito basato su client che consente l’accesso sicuro alle risorse AWS e alle reti on-premise
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**Log**](https://docs.cstudio.app/it/docs/resource/aws/Cloudwatch/Log)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `description` : Descrizione dell’endpoint Client VPN
+-   `client_cidr_block` : Blocco CIDR assegnato agli indirizzi IP dei client
+-   `server_acm_certificate_name` : Nome del certificato server
+-   `transport_protocol` : Protocollo di trasporto TLS - `tcp`, `udp`
+-   `vpn_port` : Porta VPN - `443`, `1194`
+-   `enabled_split_tunnel` : Abilitazione del tunneling diviso - `true`, `false`
+-   `enabled_self_service_portal` : Abilitazione del portale self-service - `true`, `false`
+-   `session_timeout_hours` : Durata massima della sessione - `8`, `10`, `12`, `24`
+
+#### Impostazioni di autenticazione (`authentication`)
+
+-   `authentication.option_types` : Metodo di autenticazione - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : Nome del certificato client
+-   `authentication.active_directory_id` : ID di Active Directory
+-   `authentication.saml_provider_arn` : ARN del provider SAML
+-   `authentication.self_service_saml_provider_arn` : ARN del provider SAML per il self-service
+
+#### Logging delle connessioni (`connection_logging`)
+
+-   `connection_logging.enabled` : Abilitazione dei log di connessione - `true`, `false`
+-   `connection_logging.linked_log_group_name` : Nome del log group CloudWatch Logs
+-   `connection_logging.log_stream_name` : Nome dello stream di log CloudWatch Logs
+
+#### Connessione di rete
+
+-   `included_vpc_name` : Nome del VPC di destinazione
+-   `linked_security_group_names` : Elenco dei gruppi di sicurezza applicati
+-   `linked_subnet_names` : Elenco delle subnet da collegare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [AWS Client VPN Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
+-   [AWS Client VPN Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)

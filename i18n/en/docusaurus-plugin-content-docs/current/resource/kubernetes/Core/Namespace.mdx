@@ -4,16 +4,14 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Core, Namespace]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.webp"
     }
 />
 
@@ -27,16 +25,16 @@ A Kubernetes resource used to group and isolate objects within a cluster.
 
 -   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
-
 ### Child Resources
 
+-   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Deployment**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/Deployment)
 -   [**StatefulSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/StatefulSet)
--   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/DaemonSet)
--   [**HPA**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/HorizontalPodAutoscaling)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/en/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
 -   [**CronJob**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/CronJob)
 -   [**Job**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/Job)
 -   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**DefaultServiceAccount**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/DefaultServiceAccount)
 -   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolumeClaim)
 -   [**Pod**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Pod)
 -   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
@@ -52,21 +50,19 @@ A Kubernetes resource used to group and isolate objects within a cluster.
 -   [**Issuer**](https://docs.cstudio.app/en/docs/resource/kubernetes/Manifest/Issuer)
 -   [**Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/Ingress)
 -   [**NetworkPolicy**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/NetworkPolicy)
--   [**Role**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
+-   [**Role**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/Role)
 -   [**RoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/RoleBinding)
-
-
 
 ## Resource Setting Values
 
--   `service_name` : Name of the ConfigMap resource
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
+#### Basic Settings
 
+-   `annotations` : Kubernetes system metadata
+-   `labels` : User-defined labels for namespace identification and classification
 
 ---
 
-## Reference Materials
+## References
 
 -   [Namespace(Kubernetes)](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 -   [Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace)

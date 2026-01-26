@@ -1,7 +1,7 @@
 ---
 title: Subnet
-sidebar_position: 12
-tags: [Azure, 리소스, Network, Subnet]
+sidebar_position: 1
+tags: [Azure, Network, Subnet]
 ---
 
 <hr />
@@ -11,35 +11,60 @@ tags: [Azure, 리소스, Network, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-subnet.webp"
     }
 />
 
 ## 리소스 개요
 
-Microsoft Azure에서 서브넷은 VNet(가상 네트워크)의 IP 주소 범위입니다. 네트워크 트래픽을 분할하고 네트워크 리소스를 관리할 수 있는 IP 네트워크의 논리적 구분입니다.
-서브넷은 더 큰 네트워크 내의 더 작은 네트워크이며 가상 네트워크의 서로 다른 부분 간에 트래픽을 격리하는 데 사용됩니다.
-Azure의 각 서브넷에는 자체 NSG(네트워크 보안 그룹)가 있을 수 있으므로 해당 서브넷의 리소스에 대한 보안 경계를 만들 수 있습니다.
+Subnet은 Azure 리소스를 Virtual Network에 배포하기 위해 Virtual Network 내에 생성하는 네트워크입니다.
 
 ## 연관 리소스
 
 ### 상위 리소스
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [**VirtualNetwork**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+
+### 하위 리소스
+
+-   [**LinuxAppService**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxAppService)
+-   [**WindowsAppService**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsAppService)
+-   [**LinuxFunctionApp**](https://docs.cstudio.app/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**WindowsFunctionApp**](https://docs.cstudio.app/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**MysqlFlexible**](https://docs.cstudio.app/docs/resource/azure/Database/MysqlFlexible)
+-   [**PostgresqlFlexible**](https://docs.cstudio.app/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/azure/Container/KubernetesCluster)
+-   [**ApplicationGateway**](https://docs.cstudio.app/docs/resource/azure/Network/ApplicationGateway)
+-   [**BastionHost**](https://docs.cstudio.app/docs/resource/azure/Network/BastionHost)
+-   [**VirtualNetworkGateway**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkInterface)
+-   [**PrivateEndPoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
+-   [**PublicIp**](https://docs.cstudio.app/docs/resource/azure/Network/PublicIp)
+-   [**Firewall**](https://docs.cstudio.app/docs/resource/azure/Network/Firewall)
+
+### 연결 리소스
+
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/azure/Network/NatGateway)
+-   [**NetworkSecurityGroup**](https://docs.cstudio.app/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**PrivateDnsResolver**](https://docs.cstudio.app/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
 
 ## 리소스 설정 값
 
 -   `included_vnet_name` : Subnet이 포함된 Virtual Network 이름
--   `address_prefixes` : Subtnet 사용을 위한 IP 주소 범위, Virtual Network의 주소 공간 내에 CIDR 형식으로 지정된 고유한 주소 범위
+-   `address_prefixes` : Subnet 사용을 위한 IP 주소 범위, Virtual Network의 주소 공간 내에 CIDR 형식으로 지정된 고유한 주소 범위
 -   `private_link_endpoint_enabled` : Subnet에 Private Endpoint를 연결할 것인지 설정 - `true`, `false`
--   `delegation`
-    -   `service_name` : 위임할 서비스의 이름
-    -   `actions` : 위임할 액션 목록
+
+#### 위임 설정 (`delegation`)
+
+-   `delegation.service_name` : 위임할 서비스의 이름
+-   `delegation.actions` : 위임할 액션 목록
 
 ---
 
 ## 참고 자료
 
--   [Azure Subnet(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal)
--   [Azure Subnet(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+-   [Azure Virtual Network 서브넷 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
+-   [서브넷 위임(Delegation) 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
+-   [Private Endpoint 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)

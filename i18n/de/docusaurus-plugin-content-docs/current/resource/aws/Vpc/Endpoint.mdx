@@ -1,0 +1,70 @@
+---
+title: Endpoint
+sidebar_position: 4
+tags: [AWS, Ressource, Vpc, Endpoint]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Dienst, der eine private Verbindung zu unterstützten AWS-Services und VPC-Endpunkt-Services ermöglicht
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**EndpointService**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+## Ressourceneinstellungen
+
+#### Grundeinstellungen
+
+-   `service_range` : Servicekategorie für den Endpoint-Dienst – `awsService`, `endpointService`
+-   `aws_service_name` : Name des AWS-Services für den Endpoint-Dienst
+-   `vpc_endpoint_type` : Typ des Endpoints – `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Name der VPC, in der der Endpoint erstellt wird
+-   `enabled_private_dns` : Aktivierung von privatem DNS – `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : Aktivierung ausschließlich privaten DNS für eingehende Anfragen – `true`, `false`
+-   `dns_record_ip_type` : IP-Typ des DNS-Eintrags – `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : IP-Adresstyp des Endpoints – `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Richtlinienzugriffsbereich für den Endpoint – `Full`, `Custom`
+-   `custom_policy` : Benutzerdefinierte Richtlinie zur Steuerung des Servicezugriffs
+
+#### Endpoint-Service-Einstellungen (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Direkte Eingabe der Endpoint-Service-ARN – `true`, `false`
+-   `endpoint_service.service_name` : Name des Endpoint-Services
+-   `endpoint_service.linked_endpoint_service_name` : Name des verknüpften Endpoint-Services
+
+#### Netzwerkeinstellungen
+
+-   `linked_security_group_names` : Liste der mit dem Endpoint zu verbindenden Security Groups
+-   `linked_subnet_names` : Liste der Subnetze zur Erstellung von Netzwerkschnittstellen
+-   `route_table_names` : Liste der mit dem Endpoint zu verbindenden Route Tables
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [AWS EndPoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
+-   [AWS EndPoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)

@@ -1,0 +1,50 @@
+---
+title: PrivateLinkService
+sidebar_position: 17
+tags: [Azure, Network, PrivateLinkService]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_link_service.webp"
+    }
+/>
+
+## 리소스 개요
+
+Private Link Service는 사용자의 내부 서비스(Load Balancer 기반)를 외부 고객에게 **Private Endpoint 방식으로 안전하게 노출**하기 위한 네트워크 서비스입니다.  
+공용 IP를 사용하지 않고 Azure 백본 네트워크를 통해 연결되며, 접근 제어와 승인 정책을 통해 서비스 노출 범위를 세밀하게 관리할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## 리소스 설정 값
+
+-   `auto_approval_subscription_ids` : 사전 승인 없이 Private Endpoint 연결을 자동 허용할 구독 ID 목록
+-   `visibility_subscription_ids` : Private Link Service를 검색하고 연결 요청을 보낼 수 있는 구독 ID 목록
+
+#### Load Balancer IP 구성 (`lb_ip_configuration`)
+
+-   `lb_ip_configuration.target_lb_name` : 연결 대상 Load Balancer 이름
+-   `lb_ip_configuration.target_ip_config_name` : Load Balancer의 Frontend IP Configuration 이름
+
+#### NAT IP 구성 (`nat_ip_configuration`)
+
+-   `nat_ip_configuration.target_subnet_name` : NAT IP 구성을 적용할 대상 Subnet 이름
+-   `nat_ip_configuration.private_ip_address` : NAT IP로 사용할 고정 Private IP 주소
+-   `nat_ip_configuration.private_ip_address_version` : Private IP 버전 - `IPv4`
+-   `nat_ip_configuration.enable_primary` : 기본 NAT IP 구성 사용 여부 - `true`, `false`
+
+---
+
+## 참고 자료
+
+-   [Azure Private Link Service 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)

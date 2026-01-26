@@ -1,0 +1,55 @@
+---
+title: TargetGroup
+sidebar_position: 7
+tags: [Ncloud, Ressource, Network, TargetGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Ressource, die eine Gruppe von Zielen definiert, welche Anfragen eines Load Balancers verarbeiten.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
+
+### Verbundene Ressourcen
+
+-   [**Server**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/de/docs/resource/ncloud/Compute/AutoScaling)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : VPC-Name der Target-Group (schreibgeschützt)
+-   `protocol` : Protokoll für Traffic-Routing – `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Port, auf dem Ziele Traffic empfangen
+-   `algorithm_type` : Load-Balancing-Algorithmus – `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Protokoll für Health-Checks – `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : HTTP-Methode – `HEAD`, `GET`
+-   `health_check_port` : Port für Health-Checks
+-   `health_check_cycle` : Health-Check-Intervall (Sek.) – `5` ~ `300`
+-   `health_check_up_threshold` : Erfolgsanzahl für Status „gesund“ – `2` ~ `10`
+-   `health_check_down_threshold` : Fehleranzahl für Status „ungesund“ – `2` ~ `10`
+-   `health_check_url_path` : URL-Pfad für Health-Checks
+-   `linked_server_names` : Liste der verbundenen Servernamen
+
+---
+
+## Referenzen
+
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

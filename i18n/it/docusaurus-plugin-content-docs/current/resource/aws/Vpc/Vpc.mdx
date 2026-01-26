@@ -1,0 +1,74 @@
+---
+title: Vpc
+sidebar_position: 0
+tags: [AWS, Risorsa, Vpc]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpc.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon Virtual Private Cloud (Amazon VPC) consente di controllare completamente l’ambiente di rete virtuale, inclusi il posizionamento delle risorse, la connettività e la sicurezza.  
+Per iniziare, configura un VPC dalla console dei servizi AWS. Successivamente, aggiungi risorse come istanze Amazon Elastic Compute Cloud (EC2) e Amazon Relational Database Service (RDS) al VPC.  
+Infine, definisci come i VPC comunicano tra loro all’interno dell’account, delle zone di disponibilità o delle regioni AWS. Nell’esempio seguente, il traffico di rete viene condiviso tra due VPC all’interno di ciascuna regione.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse interne
+
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/aws/Lb/Lb)
+-   [**LoadBalancerTargetGroup**](https://docs.cstudio.app/docs/resource/aws/Lb/LbTargetGroup)
+-   [**ClientVPNEndpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**NetworkFirewall**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+-   [**InternetGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/InternetGateway)
+-   [**NetworkACL**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkAcl)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+-   [**FlowLog**](https://docs.cstudio.app/docs/resource/aws/Vpc/FlowLog)
+-   [**AutoScalingGroup**](https://docs.cstudio.app/docs/resource/aws/Ec2/AutoscalingGroup)
+-   [**EFS**](https://docs.cstudio.app/docs/resource/aws/Efs/Efs)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
+
+### Risorse collegate
+
+-   [**ResolverEndpoint**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ResolverRule**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverRule)
+-   [**Route53**](https://docs.cstudio.app/docs/resource/aws/Route53/Route53)
+-   [**TransitGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGateway)
+-   [**VPCPeering**](https://docs.cstudio.app/docs/resource/aws/Vpc/VpcPeering)
+-   [**VPNGateway**](https://docs.cstudio.app/docs/resource/aws/NetwVpcork/VpnGateway)
+-   [**MSKCluster**](https://docs.cstudio.app/docs/resource/aws/Msk/MskCluster)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `cidr_block` : Blocco di indirizzi IP del VPC (CIDR)
+-   `enabled_dns_support` : Abilitazione del supporto alla risoluzione DNS - `true`, `false`
+-   `enabled_dns_hostnames` : Abilitazione dell’assegnazione dei nomi host DNS - `true`, `false`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Amazon Virtual Private Cloud (Amazon VPC) (AWS)](https://aws.amazon.com/ko/vpc/?nc2=type_a)
+-   [Prezzi Amazon VPC (AWS)](https://aws.amazon.com/ko/vpc/pricing/?refid=ap_card)
+-   [aws_vpc (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc)

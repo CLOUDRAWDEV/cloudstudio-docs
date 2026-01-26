@@ -1,7 +1,7 @@
 ---
 title: PolicySetDefinition
 sidebar_position: 1
-tags: [Azure, リソース, Policy, PolicySetDefinition]
+tags: [Azure, Policy, PolicySetDefinition]
 ---
 
 <hr />
@@ -11,15 +11,14 @@ tags: [Azure, リソース, Policy, PolicySetDefinition]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/policy-policy_set_definition.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/policy-policy_set_definition.webp"
     }
 />
 
 ## リソース概要
 
-Azure Policy Set Definition はより簡単な管理と割り当てのために一緒にグループ化された 1 つ以上のポリシー定義のコレクションです。複数のリソース タイプ、リソース グループ、またはサブスクリプションに適用できるポリシー セットを作成できます。
-Policy Set Definition を使用すると、各ポリシーを個別に適用することなく、単一の作業でリソースまたはリソースグループに Policy Set を適用することができます。これにより、ポリシー管理を簡素化し、すべてのリソースが組織の標準およびポリシーに準拠していることを確認できます。
-Policy Set Definition は JSON 形式で定義することができ、媒介変数、メタデータ、およびポリシー定義を含めることができます。 また、他の Policy Set 定義またはポリシー定義を参照して、複数のリソースおよびリソースグループに適用できる複雑なポリシーを作成できます。
+Azure PolicySetDefinition は、**複数の Policy Definition を 1 つの論理的な集合としてまとめて管理するためのポリシーセット定義リソース**です。  
+共通の目的を持つポリシーを単一の単位として構成することで、大規模な環境でもポリシーの適用と管理を一貫して実施できます。
 
 ## 関連リソース
 
@@ -37,16 +36,11 @@ Policy Set Definition は JSON 形式で定義することができ、媒介変�
 
 ## リソース設定値
 
--   `type` : ポリシーのタイプ - `Custom`,`BuiltIn`
-
--   `display_name` : ポリシー定義の表示名
-
--   `included_definition_name` : ポリシー セット定義に含まれるポリシー定義名
-
----
+-   `type` : ポリシーセット定義の種類 - `Custom`, `BuiltIn`
+-   `display_name` : ポリシーセット定義の表示名
+-   `definition_names` : ポリシーセットに含まれる Policy Definition 名の一覧
 
 ## 参考資料
 
--   [Azure PolicySetDefinition(Microsoft)](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
--   [Azure PolicySetDefinition 価格](https://azure.microsoft.com/en-us/pricing/details/azure-policy/)
--   [Azure PolicySetDefinition(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition)
+-   [Azure Policy Set Definition の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition-structure)
+-   [Azure Policy Initiative の概念 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/governance/policy/concepts/initiative-definition)

@@ -1,0 +1,111 @@
+---
+title: Metric
+sidebar_position: 1
+tags: [Azure, Monitor, Metric, Alert]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-metric.webp"
+    }
+/>
+
+## リソース概要
+
+Metric は、監視対象リソースのパフォーマンスや状態を **数値化した時間ベースのデータ（メトリック）** に基づいて条件を評価し、しきい値を満たした場合にアラートを発生させるための設定リソースです。  
+対象リソース、メトリック条件（criteria）、通知方法（アクショングループ）を組み合わせて構成することで、監視とアラートを自動化できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux App Service**](https://docs.cstudio.app/ja/docs/resource/azure/Web/LinuxWebApp)
+-   [**Windows App Service**](https://docs.cstudio.app/ja/docs/resource/azure/Web/WindowsWebApp)
+-   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
+-   [**MSSQL Database**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlDatabase)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/ja/docs/resource/azure/Containers/KubernetesCluster)
+
+## リソース設定値
+
+#### 対象リソース (`target_resources`)
+
+アラートルールが適用される対象リソースの一覧を指定します。
+
+-   `target_resources.resource_type` : 対象リソースの Azure リソースタイプを指定
+    -   `windows_virtual_machine`, `linux_virtual_machine`, `windows_app_service`, `linux_app_service`, `storage_account`, `mssql_database`, `kubernetes_cluster`
+-   `target_resources.resource_name` : 対象リソースの名前
+-   `target_resources.mssql_server_name` : 対象リソースが `mssql_database` の場合、そのデータベースを含む MSSQL Server の名前（読み取り専用）
+
+---
+
+#### 説明 (`description`)
+
+-   `description` : アラートルールの説明
+
+---
+
+#### 条件設定 (`criteria`)
+
+どのメトリック値がどの条件を満たしたときにアラートを発生させるかを定義します。
+
+-   `criteria.metric_namespace` : 監視するメトリックが属する名前空間
+-   `criteria.metric_name` : 監視するメトリック名
+-   `criteria.aggregation` : メトリックデータの集計方法
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Total`
+-   `criteria.operator` : メトリック値としきい値を比較するために使用する演算子
+    -   `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `Equal`
+-   `criteria.threshold` : アラートを有効化する基準となるしきい値
+
+---
+
+#### アクショングループ (`action_group`)
+
+アラートが発生した際に、メール、Webhook、Azure Function、Azure モバイルアプリのプッシュ通知などを送信するアクショングループを設定します。
+
+-   `action_group.short_name` : アクショングループを識別するための短い名前
+-   `action_group.enable_action_group` : アクショングループを有効化するかどうか - `true`, `false`
+
+##### Azure モバイルアプリ プッシュ受信者 (`action_group.azure_app_push_receiver`)
+
+-   `azure_app_push_receiver.email_address` : Azure モバイルアプリ通知を受信するユーザーのメールアドレス
+
+##### Azure Function 受信者 (`action_group.azure_function_receiver`)
+
+-   `azure_function_receiver.target_function_app_id` : 関数がデプロイされている Function App の ID
+-   `azure_function_receiver.function_name` : 呼び出す Azure Function の名前
+-   `azure_function_receiver.http_trigger_url` : Function が HTTP トリガー方式の場合に呼び出す URL
+-   `azure_function_receiver.enable_common_alert_schema` : 共通アラートスキーマを使用するかどうか - `true`, `false`
+
+##### Webhook 受信者 (`action_group.webhook_receiver`)
+
+-   `webhook_receiver.service_uri` : アラート発生時に呼び出す Webhook サービスの URL
+-   `webhook_receiver.enable_common_alert_schema` : 共通アラートスキーマを使用するかどうか - `true`, `false`
+
+##### メール受信者 (`action_group.email_receiver`)
+
+-   `email_receiver.email_address` : アラートを受信するメールアドレス
+-   `email_receiver.enable_common_alert_schema` : 共通アラートスキーマを使用するかどうか - `true`, `false`
+
+---
+
+#### アクショングループ選択 (`action_group_name`)
+
+-   `action_group_name` : アラート発生時に実行するアクショングループの名前を指定
+
+---
+
+## 参考資料
+
+-   [Azure Monitor メトリック アラートの概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/alerts-metric-overview)
+-   [メトリック アラートの作成（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/tutorial-metric-alert)

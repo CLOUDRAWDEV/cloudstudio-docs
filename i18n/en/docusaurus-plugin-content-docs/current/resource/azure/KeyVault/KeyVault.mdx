@@ -1,7 +1,7 @@
 ---
 title: KeyVault
 sidebar_position: 0
-tags: [Azure, Resource, KeyVault, KeyVault]
+tags: [Azure, KeyVault, Security, KeyManagement]
 ---
 
 <hr />
@@ -11,77 +11,91 @@ tags: [Azure, Resource, KeyVault, KeyVault]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/key_vault-key_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/key_vault-key_vault.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Key Vault is a cloud service for securely storing and accessing secrets. 
-Secrets include items such as API keys, passwords, certificates, or encryption keys, which require strict access control. 
-The Key Vault service supports two types of containers: vaults and managed HSM (Hardware Security Module) pools. 
-Vaults support storing software and HSM-backed keys, passwords, and certificates, while managed HSM pools support only HSM-backed keys.
+Azure Key Vault is a cloud security service that securely stores and provides controlled access to sensitive information such as secrets, keys, and certificates.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Connected Resources
+
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ## Resource Setting Values
 
-- `sku_name` : The SKU to select the scale and features of the Key Vault - `standard`, `premium`
+#### Basic Settings
 
-- `enabled_for_disk_encryption` : Allow Azure disk encryption to retrieve secrets from Valt and unwrap keys - `true`, `false`
+-   `sku_name` : Pricing tier for selecting the scale and features of Key Vault - `standard`, `premium`
+-   `enabled_for_disk_encryption` : Allows Azure Disk Encryption to retrieve secrets and keys from the vault - `true`, `false`
+-   `soft_delete_retention_days` : Number of days to retain deleted items - `7` ~ `90`
+-   `purge_protection_enabled` : Enables purge protection to prevent data loss - `true`, `false`
 
-- `soft_delete_retention_days` : The number of days that items should be retained for once soft-deleted - `7` ~ `90`
+#### Network Access Control (`network_acl`)
 
-- `purge_protection_enabled` : Enable purge protection to prevent data loss - `true`, `false`
+-   `network_acl_bypass` : Whether to allow firewall bypass for trusted services - `AzureServices`, `None`
+-   `network_acl_action` : Default action when IP rules do not match - `Deny`, `Allow`
+-   `network_acl_ip_rules` : List of IP addresses or CIDR ranges allowed to access Key Vault
 
-- `network_acl_bypass` : Allow trusted services to bypass the firewall - `AzureServices`, `None`
+#### Access Policies (`access_policies`)
 
-- `network_acl_action` : The Default Action to use when no rules match from established IP rules - `Deny`, `Allow`
+-   `access_policies.object_id` : Object ID used to identify the security principal accessing the vault
+-   `access_policies.key_permissions` : List of permissions for keys
+-   `access_policies.secret_permissions` : List of permissions for secrets
+-   `access_policies.certificate_permissions` : List of permissions for certificates
 
-- `network_acl_ip_rules` : IP Address or CIDR which should be able to access the Key Vault
+#### Key Vault Secret (`key_vault_secret`)
 
-- `access_policies`
-    - `object_id` : The object ID of a user for the Vault
-    - `key_permissions` : List of key permissions
-    - `secret_permissions` : List of secret permissions
-    - `certificate_permissions` : List of certificate permissions
+-   `key_vault_secret.secret_value` : Value of the Key Vault secret
+-   `key_vault_secret.content_type` : Content type of the secret
+-   `key_vault_secret.enabled_activation_date` : Whether the secret is enabled - `true`, `false`
+-   `key_vault_secret.activation_date` : UTC activation date and time of the secret
+-   `key_vault_secret.enabled_expiration_date` : Whether the secret expires - `true`, `false`
+-   `key_vault_secret.expiration_date` : UTC expiration date and time of the secret
 
-- `key_vault_secret`
-    - `name` : The name of the Key Vault Secret
-    - `expiration_date` : Expiration UTC datetime
+#### Key Vault Key (`key_vault_key`)
 
-- `key_vault_key`
-    - `type` : The key type to use for the Key Vault Key - `EC`, `EC-HSM`, `RSA`, `RSA-HSM`
-    - `size` : The size of the RSA key to create in bytes - `2048`, `3072`, `4096`
-    - `curve` : The curve to use when creating an EC key - `P-256`, `P-256K`, `P-384`, `P-521`
-    - `expiration_date` : Expiration UTC datetime
-    - `opts` : A list of JSON web key operations
+-   `key_vault_key.type` : Key type - `RSA`, `RSA-HSM`, `EC`, `EC-HSM`
+-   `key_vault_key.rsa_key_size` : RSA key size - `2048`, `3072`, `4096`
+-   `key_vault_key.elliptic_curve` : Curve type for EC keys
+-   `key_vault_key.permitted_operations` : List of permitted JSON Web Key operations
+-   `key_vault_key.enabled_activation_date` : Whether the key is enabled - `true`, `false`
+-   `key_vault_key.activation_date` : UTC activation date and time of the key
+-   `key_vault_key.enabled_expiration_date` : Whether the key expires - `true`, `false`
+-   `key_vault_key.expiration_date` : UTC expiration date and time of the key
 
-- `key_vault_certificate`
-    - `import_existing_certificate` : Whether to import the existing certificate or not - `true`, `false`
-    - `contents` : The base64-encoded certificate contents
-    - `password`  : The password associated with the certificate
-    - `issuer_name`  : The name of the certificate issuer - `Self`, `Unknown`
-    - `exportable`  : Enable certificate exportable - `true`, `false`
-    - `key_type`  : The key type to use for the Key Vault Key - `RSA`, `EC`
-    - `rsa_key_size`  : The size of the key used in the certificate, `2048/3072/4096` for RSA keys, `256/384/521` for EC keys
-    - `curve`  : The curve to specify if the key type is EC - `P-256`, `P-256K`, `P-384`, `P-521`
-    - `enabled_reuse_key`  : Whether to enable key reuse - `true`, `false`
-    - `content_type`  : The content type of the certificate - `application/x-pkcs12`, `application/x-pem-file`
-    - `key_usage`  : A list of uses associated with the Key
-    - `subject` : The Certificate's Subject
-    - `validity_in_months` : The certificates validity period in months - `7` ~ `90`
+#### Key Vault Certificate (`key_vault_certificate`)
 
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   `key_vault_certificate.import_existing_certificate` : Whether to import an existing certificate - `true`, `false`
+-   `key_vault_certificate.contents` : Base64-encoded certificate contents
+-   `key_vault_certificate.password` : Certificate password
+-   `key_vault_certificate.issuer_name` : Certificate issuer name - `Self`, `Unknown`
+-   `key_vault_certificate.subject` : X.500 distinguished name
+-   `key_vault_certificate.validity_period_in_months` : Certificate validity period (months)
+-   `key_vault_certificate.content_type` : Certificate content type
+-   `key_vault_certificate.enabled_export` : Whether certificate export is allowed - `true`, `false`
+-   `key_vault_certificate.enabled_reuse_key` : Whether key reuse is allowed - `true`, `false`
+-   `key_vault_certificate.key_usage` : List of key usage flags
+-   `key_vault_certificate.key_type` : Key type used for the certificate
+-   `key_vault_certificate.rsa_key_size` : RSA key size
+-   `key_vault_certificate.elliptic_curve` : EC key curve type
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
--   [Azure KeyVault(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
--   [Azure KeyVault Price](https://azure.microsoft.com/en-us/pricing/details/key-vault/)
--   [Azure KeyVault(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
+-   [Azure Key Vault Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
+-   [Azure Key Vault Access Policies(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/assign-access-policy)
+-   [Azure Key Vault Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/network-security)
+-   [Azure Key Vault Keys, Secrets, and Certificates(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/about-keys-secrets-certificates)

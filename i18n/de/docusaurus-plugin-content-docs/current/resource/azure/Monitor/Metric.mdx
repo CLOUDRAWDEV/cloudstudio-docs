@@ -1,0 +1,111 @@
+---
+title: Metric
+sidebar_position: 1
+tags: [Azure, Monitor, Metric, Alert]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-metric.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Metric ist eine Konfigurationsressource, mit der Bedingungen anhand **zeitbasierter numerischer Daten (Metriken)** bewertet werden, die die Leistung oder den Zustand überwachter Ressourcen darstellen, und mit der bei Erreichen definierter Schwellenwerte Warnungen ausgelöst werden.  
+Durch die gemeinsame Konfiguration von Zielressourcen, Metrikbedingungen (criteria) und Benachrichtigungswegen (Action Groups) können Überwachung und Alarmierung automatisiert werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux App Service**](https://docs.cstudio.app/de/docs/resource/azure/Web/LinuxWebApp)
+-   [**Windows App Service**](https://docs.cstudio.app/de/docs/resource/azure/Web/WindowsWebApp)
+-   [**Storage Account**](https://docs.cstudio.app/de/docs/resource/azure/Storage/StorageAccount)
+-   [**MSSQL Database**](https://docs.cstudio.app/de/docs/resource/azure/Database/MssqlDatabase)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/de/docs/resource/azure/Containers/KubernetesCluster)
+
+## Ressourceneinstellungen
+
+#### Zielressourcen (`target_resources`)
+
+Gibt die Liste der Zielressourcen an, auf die die Alarmregel angewendet wird.
+
+-   `target_resources.resource_type` : Gibt den Azure-Ressourcentyp der Zielressource an
+    -   `windows_virtual_machine`, `linux_virtual_machine`, `windows_app_service`, `linux_app_service`, `storage_account`, `mssql_database`, `kubernetes_cluster`
+-   `target_resources.resource_name` : Name der Zielressource
+-   `target_resources.mssql_server_name` : Wenn die Zielressource `mssql_database` ist, der Name des MSSQL-Servers, der die Datenbank enthält (schreibgeschützt)
+
+---
+
+#### Beschreibung (`description`)
+
+-   `description` : Beschreibung der Alarmregel
+
+---
+
+#### Kriterien (`criteria`)
+
+Definiert, welche Metrikwerte unter welchen Bedingungen einen Alarm auslösen.
+
+-   `criteria.metric_namespace` : Namespace, zu dem die überwachte Metrik gehört
+-   `criteria.metric_name` : Name der zu überwachenden Metrik
+-   `criteria.aggregation` : Methode zur Aggregation der Metrikdaten
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Total`
+-   `criteria.operator` : Operator zum Vergleich des Metrikwerts mit dem Schwellenwert
+    -   `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `Equal`
+-   `criteria.threshold` : Schwellenwert, der den Alarm aktiviert
+
+---
+
+#### Aktionsgruppe (`action_group`)
+
+Konfiguriert die Aktionsgruppe, die bei Auslösung eines Alarms Benachrichtigungen wie E-Mail, Webhook, Azure Function oder Push-Benachrichtigungen der Azure Mobile App sendet.
+
+-   `action_group.short_name` : Kurzname zur Identifizierung der Aktionsgruppe
+-   `action_group.enable_action_group` : Gibt an, ob die Aktionsgruppe aktiviert ist - `true`, `false`
+
+##### Azure Mobile App Push-Empfänger (`action_group.azure_app_push_receiver`)
+
+-   `azure_app_push_receiver.email_address` : E-Mail-Adresse des Benutzers, der Benachrichtigungen der Azure Mobile App erhält
+
+##### Azure Function-Empfänger (`action_group.azure_function_receiver`)
+
+-   `azure_function_receiver.target_function_app_id` : ID der Function App, in der die Funktion bereitgestellt ist
+-   `azure_function_receiver.function_name` : Name der aufzurufenden Azure Function
+-   `azure_function_receiver.http_trigger_url` : URL, die aufgerufen wird, wenn die Funktion einen HTTP-Trigger verwendet
+-   `azure_function_receiver.enable_common_alert_schema` : Gibt an, ob das gemeinsame Alarmschema verwendet wird - `true`, `false`
+
+##### Webhook-Empfänger (`action_group.webhook_receiver`)
+
+-   `webhook_receiver.service_uri` : URL des Webhook-Dienstes, der bei Auslösung eines Alarms aufgerufen wird
+-   `webhook_receiver.enable_common_alert_schema` : Gibt an, ob das gemeinsame Alarmschema verwendet wird - `true`, `false`
+
+##### E-Mail-Empfänger (`action_group.email_receiver`)
+
+-   `email_receiver.email_address` : E-Mail-Adresse, die den Alarm empfängt
+-   `email_receiver.enable_common_alert_schema` : Gibt an, ob das gemeinsame Alarmschema verwendet wird - `true`, `false`
+
+---
+
+#### Auswahl der Aktionsgruppe (`action_group_name`)
+
+-   `action_group_name` : Gibt den Namen der Aktionsgruppe an, die bei Auslösung eines Alarms ausgeführt wird
+
+---
+
+## Referenzen
+
+-   [Azure Monitor – Übersicht zu Metrikwarnungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/alerts-metric-overview)
+-   [Erstellen einer Metrikwarnung (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/tutorial-metric-alert)

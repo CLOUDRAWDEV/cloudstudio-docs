@@ -1,0 +1,63 @@
+---
+title: Subnet
+sidebar_position: 1
+tags: [Ncloud, Recurso, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Red secundaria dentro de un VPC que permite la segmentación según el propósito del tráfico de red.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+
+### Recursos incluidos
+
+-   [**AutoScaling**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Redis**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/Redis)
+-   [**NetworkInterface**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NatGateway**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/NatGateway)
+-   [**MSSQL**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/Mssql)
+-   [**MySQL**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/Mysql)
+-   [**MongoDB**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/Mongodb)
+-   [**PostgreSQL**](https://docs.cstudio.app/es/docs/resource/ncloud/Database/Postgresql)
+
+### Recursos conectados
+
+-   [**NetworkACL**](https://docs.cstudio.app/es/docs/resource/ncloud/Security/NetworkAcl)
+-   [**KubernetesCluster**](https://docs.cstudio.app/es/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**RouteTable**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/RouteTable)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `subnet_cidr` : Rango IP del Subnet dentro del CIDR del VPC
+-   `zone` : Zona de disponibilidad del Subnet (`KR-1`, `KR-2`)
+-   `subnet_type` : Tipo de Subnet (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Uso del Subnet (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
+-   `included_vpc_name` : Nombre del VPC al que pertenece (solo lectura)
+-   `linked_nacl_name` : Nombre del Network ACL aplicado (solo lectura)
+
+---
+
+## Referencias
+
+-   [Subnet Management(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-subnetmanage-vpc)
+-   [ncloud_subnet(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/subnet)

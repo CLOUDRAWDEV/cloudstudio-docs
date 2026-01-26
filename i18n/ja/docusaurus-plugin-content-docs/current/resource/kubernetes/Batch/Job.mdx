@@ -11,89 +11,45 @@ tags: [Kubernetes, リソース, Batch, Job]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
     }
 />
 
 ## リソース概要
 
-一回限りの操作を実行するために使用されるクバネティス リソースです。
+単発タスクの実行に使用される Kubernetes Resource。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+### 接続対象
 
 -   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Secret)
 
 ## リソース設定値
 
--   `service_name` : CronJob リソース名
--   `namespace` : CronJob リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `template_labels` : Pod に設定される Label
--   `restart_policy` : Pod 内で実行されるコンテナが失敗したり、作業が完了した後にどのように処理するかを指定
--   `backoff_limit` : タスクを失敗としてマークする前の再試行回数を指定 - デフォルトは 6
--   `wait_for_completion` : タスクの状態が完了または失敗の条件になるまで、タスクの生成または更新をブロックする - デフォルト値は True
+#### 基本設定
 
--   `timeouts` : タスクが失敗したと見なされるまでの許容時間
-
-    -   `create` : 新しいタスクを作成し、タスクが正常に完了するまで待つ時間 - デフォルト 1m
-    -   `update` : 既存のタスクを更新し、正常なタスクの完了を待つ時間 - デフォルト 1m
-
--   `containers` : ファードに属するコンテナのテンプレートを定義
-
-    -   `containers.name` : コンテナの名前を定義
-
-        -   `image` : 使用する Docker イメージ名
-        -   `args` : コンテナ内で実行されるコマンド
-        -   `command` : コンテナ内で実行されるコマンド
-        -   `port` : コンテナから露出するポートのリスト
-
-        -   `resources` : コンテナのコンピューティング リソースの量を指定
-
-            -   `name` : 最小/最大コンピューティングリソースの量を指定 - `Limits`, `requests`
-            -   `cpu` : cpu(m)の量を指定
-            -   `memory` : メモリ(Mi)の量を指定
-
-        -   `probe` : Pod の状態を診断する方法の定義
-
-            -   `name` : Probe 方法を選択 - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : HTTP サーバーにアクセスするためのパス
-            -   `http_get_port` : コンテナからアクセスするポート番号
-            -   `http_header` : リクエストに設定するカスタム ヘッダー
-            -   `initial_delay_seconds` : コンテナが始まってからプローブが始まるまでの時間(秒)
-            -   `period_seconds` : プローブを行う頻度(秒)
-
-        -   `env` : コンテナ環境に設定する key-value ペアのブロック
-
-            -   `name` : env 変数名
-            -   `value` : env 変数で設定する値
-
-        -   `volume_mount` : コンテナのファイルシステムにマウントするファッドボリューム
-            -   `name` : ボリュームマウント名の設定
-            -   `path`
-                -   `mount_path` : ボリュームをマウントする必要があるコンテナ内のパス
-                -   `sub_path` : ボリュームをマウントする必要があるコンテナ内のパス
-
--   `volume` : ファッドに属するコンテナが搭載できるボリュームのリスト
-
-    -   `name` : volume 名
-        -   `type` : マウントするボリュームのタイプ - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : 永久ボリュームクレームの名前
-        -   `default_mode` : 生成されたファイルに使用するモード - 0 ~ 0777 の間、デフォルトは 0644
-        -   `read_only` : true の場合は読み取り専用にマウントされ、そうでない場合は読み取り/書き込みが可能
-
--   `image_pull_secrets` : Container で使用するイメージを取得するために必要な権限が含まれた同じネームスペースにある Secret
+-   `namespace` : Job Resource を配置する Namespace
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : Resource 識別用ラベル
+-   `enable_manual_selector` : 手動セレクター使用可否 - `true`, `false`
+-   `template_labels` : Pod に設定されるラベル
+-   `restart_policy` : コンテナ終了時の処理方式 - `Never`, `OnFailure`
+-   `backoff_limit` : 失敗と判断するまでの再試行回数
+-   `wait_for_completion` : 完了まで作成/更新を待機するか 여부 - `true`, `false`
+-   `dns_policy` : DNS ポリシー
+-   `enable_service_links` : Service Link 有効化 여부
+-   `host_network` : ホストネットワーク使用 여부
+-   `image_pull_secrets` : Image Pull 用 Secret 一覧
 
 ---
 
-## 参考資料
+## References
 
--   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)
+-   [Job(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+-   [Job(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/job)

@@ -1,0 +1,69 @@
+---
+title: BedrockAgent
+sidebar_position: 0
+tags: [AWS, Bedrock, Agent, LLM, AI]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_agent.webp" />
+
+## Ressourcenübersicht
+
+Ein Service zur Erstellung und Verwaltung von KI-Agenten, die auf AWS Bedrock ausgeführt werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+---
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `foundation_model` : Option zur Auswahl des grundlegenden LLM (Basismodells), das in Bedrock verwendet wird – `amazon.titan-text-express-v1`, `amazon.nova-pro-v1`, `amazon.nova-lite-v1`, `amazon.nova-micro-v1`, `anthropic.claude-sonnet-4-20250514-v1:0`, `anthropic.claude-sonnet-4-5-20250929-v1:0`, `anthropic.claude-haiku-4-5-20251001-v1:0`, `anthropic.claude-3-sonnet-20240229-v1:0`, `anthropic.claude-3-opus-20240229-v1:0`, `anthropic.claude-3-haiku-20240307-v1:0`, `anthropic.claude-3-5-sonnet-20240620-v1:0`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `anthropic.claude-3-5-haiku-20241022-v1:0`, `anthropic.claude-3-7-sonnet-20250219-v1:0`, `deepseek.r1-v1`, `openai.gpt-oss-120b-1`, `openai.gpt-oss-20b-1`, `qwen.qwen3-coder-30b-a3b-v1`, `qwen.qwen3-32b-v1`
+-   `description` : Beschreibung des Agenten
+-   `idle_session_ttl_in_seconds` : Zeit (in Sekunden), bis eine Sitzung im Leerlauf automatisch beendet wird
+-   `instruction` : Grundlegende Anweisung, der der Agent folgt (System-Prompt)
+-   `customer_encryption_key_arn` : Einstellung zur Verschlüsselung von Bedrock-Ressourcendaten mit einem benutzerdefinierten KMS-Schlüssel (ARN)
+-   `target_bedrock_knowledge_base` : ARN des Bedrock-Agenten, der mit der Wissensbasis verbunden wird
+-   `knowledge_base_association_description` : Beschreibung der Beziehung zwischen Wissensbasis und Agent
+-   `knowledge_base_state` : Aktueller Status der Wissensbasis – `ENABLED`, `DISABLED`
+
+#### Guardrail-Einstellungen (`guardrail_configuration`)
+
+-   `guardrail_configuration.guardrail_use_method` : Methode zur Anwendung von Guardrails – `already_exists`, `create_new`
+-   `guardrail_configuration.guardrail_identifier` : Eindeutige Kennung (ID) des zu verwendenden Guardrails
+-   `guardrail_configuration.target_bedrock_guardrail` : Bedrock-Guardrail-Ressource, die verknüpft wird
+-   `guardrail_configuration.guardrail_version` : Version der zu verwendenden Guardrail-Ressource
+
+#### Prompt-Override-Einstellungen (`prompt_override_configuration`)
+
+#### Prompt-Einstellungen (`prompt_override_configuration.prompt_configurations`)
+
+-   `prompt_override_configuration.prompt_configurations.prompt_creation_mode` : Einstellung, ob Prompts automatisch oder manuell erstellt werden – `DEFAULT`, `OVERRIDDEN`
+-   `prompt_override_configuration.prompt_configurations.prompt_type` : Typ des Prompts – `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`
+-   `prompt_override_configuration.prompt_configurations.base_prompt_template` : Definition der grundlegenden Prompt-Struktur (Vorlage)
+-   `prompt_override_configuration.prompt_configurations.prompt_state` : Aktueller Status des Prompts – `ENABLED`, `DISABLED`
+-   `prompt_override_configuration.prompt_configurations.parser_mode` : Methode zur Interpretation des Modell-Ausgabeformats – `DEFAULT`, `OVERRIDDEN`
+-   `prompt_override_configuration.prompt_configurations.max_length` : Maximale Länge der Modellantwort
+-   `prompt_override_configuration.prompt_configurations.stop_sequences` : Zeichenfolgen, bei denen die Texterzeugung beendet wird
+-   `prompt_override_configuration.prompt_configurations.temperature` : Option zur Steuerung der Kreativität (Zufälligkeit)
+-   `prompt_override_configuration.prompt_configurations.top_p` : Begrenzung der Wortauswahl anhand kumulativer Wahrscheinlichkeiten
+-   `prompt_override_configuration.prompt_configurations.top_k` : Begrenzung auf die K wahrscheinlichsten Wörter
+
+-   `prompt_override_configuration.override_lambda` : AWS-Lambda-Funktion zur Anpassung des Standard-Prompt-Verhaltens
+
+---
+
+## Referenzen
+
+-   [Amazon Bedrock Agents (AWS 공식 문서)](https://docs.aws.amazon.com/bedrock/)
+-   [Bedrock Guardrail 설정 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [Bedrock Knowledge Base 설정 가이드](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html)

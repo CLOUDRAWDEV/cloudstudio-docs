@@ -1,0 +1,58 @@
+---
+title: NetworkFirewall
+sidebar_position: 10
+tags: [AWS, Recurso, Vpc, NetworkFirewall]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de AWS que permite configurar protección a nivel de cuentas y recursos de AWS dentro de una organización
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+
+### Recursos conectados
+
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `description` : Descripción del firewall (máx. 256 caracteres)
+-   `included_vpc_name` : Nombre del VPC donde se ubicará el firewall (solo lectura)
+-   `linked_subnet_names` : Lista de subredes públicas dedicadas a los endpoints del firewall
+-   `linked_network_firewall_policy_name` : Nombre de la política de firewall asociada (solo lectura)
+-   `enabled_delete_protection` : Habilita protección contra eliminación - `true`, `false`
+-   `enabled_subnet_change_protection` : Habilita protección contra cambios de subred - `true`, `false`
+
+#### Configuración de cifrado (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Habilita cifrado con claves administradas por AWS - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Nombre de la clave KMS a utilizar
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Network Firewall (AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
+-   [Network Firewall (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)

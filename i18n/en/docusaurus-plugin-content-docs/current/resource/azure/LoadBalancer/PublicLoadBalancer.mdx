@@ -1,7 +1,7 @@
 ---
 title: PublicLoadBalancer
 sidebar_position: 1
-tags: [Azure, Resource, LoadBalancer, PublicLoadBalancer]
+tags: [Azure, LoadBalancer, PublicLoadBalancer, Network]
 ---
 
 <hr />
@@ -11,75 +11,80 @@ tags: [Azure, Resource, LoadBalancer, PublicLoadBalancer]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.webp"
     }
 />
 
 ## Resource Overview
 
-A Load Balancer efficiently distributes incoming network traffic across a group of backend resources or servers. 
-Azure Load Balancer operates at Layer 4 of the OSI (Open Systems Interconnection) model, serving as a single point of contact for clients. 
-The Load Balancer distributes inbound traffic arriving at its front end across the backend pool instances. 
-This distribution follows the configured load balancing rules and health probes. 
-Backend pool instances can be Azure Virtual Machines or instances from a Virtual Machine Scale Set. 
-A Public Load Balancer provides outbound connectivity for virtual machines within a virtual network by translating private IP addresses to public IP addresses. 
-The Public Load Balancer is also used to distribute internet traffic to the VMs.
+A Public Load Balancer is a load balancing service that receives traffic from external sources (the internet) on the frontend and distributes it across backend pool instances to prevent traffic overload.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**PublicIP**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
 ## Resource Setting Values
 
--   `sku` : The SKU to select the scale and features of the Azure Load Balancer - `standard`, `Basic`
+#### Basic Settings
 
-- `public_lb_frontend_ip_config`
+-   `sku` : Pricing tier for selecting the scale and features of Azure Load Balancer - `Standard`, `Basic`
+-   `virtual_network_name` : Name of the Virtual Network to which the Load Balancer forwards traffic
 
--   `virtual_network_name` : The name of Virtual Machine which forward traffic
+#### Frontend IP Configuration (`public_lb_frontend_ip_config`)
 
--   `backend_pool` : Name of the Load Balancer's backend pool
+-   `public_lb_frontend_ip_config.linked_public_ip_name` : Name of the Public IP to use
 
-    -   `linked_virtual_machine_names` : Names of the virtual machines to which the Load Balancer will route traffic
+#### Backend Pool (`backend_pool`)
 
--   `health_probe`
+-   `backend_pool` : Name of the Load Balancer Backend Pool
+-   `backend_pool.linked_virtual_machine_names` : Names of Virtual Machines that receive traffic from the Load Balancer (must belong to the selected Virtual Network)
 
-    -   `protocol` : The type of Backend endpoint protocol which health probe uses - `Http`, `Https`, `Tcp`
-    -   `port` : The port which health probe uses to check backend endpoint - `0` ~ `65535`
-    -   `request_path` : The path to use for GET when using Http(s) probes
-    -   `interval_in_seconds` : Specifies the number of seconds between checking response of the backend pool instance by health probes - `5` ~ `2147483646`
+#### Health Probe (`health_probe`)
 
--   `rule`
+-   `health_probe.protocol` : Protocol type used by the backend endpoint for health probing - `Http`, `Https`, `Tcp`
+-   `health_probe.port` : Port used by the health probe to check backend endpoints - `0` ~ `65535`
+-   `health_probe.request_path` : Path used for GET requests when using HTTP(S) probes
+-   `health_probe.interval_in_seconds` : Interval (seconds) at which the health probe checks backend pool instance responses - `5` ~ `2147483646`
 
-    -   `protocol` : The transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : The port for the external endpoint, Range between 0 and 65534 - `0` ~ `65534`
-    -   `backend_port` : The port used for internal connections on the endpoint, Range between 0 and 65535 - `0` ~ `65535`
-    -   `disable_outbound_snat` : Enable SNAT for outbound connections - `true`, `false`
-    -   `frontend_ip_configuration_name` : The name of Public Load Balancer Frontend IP Configuration
-    -   `backend_pool_name` : The name of the Backend Address Pool to which the Load Balancer will forward traffic
+#### Load Balancing Rule (`rule`)
 
--   `nat_rule`
+-   `rule.protocol` : Transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
+-   `rule.frontend_port` : Port of the external endpoint - `0` ~ `65534`
+-   `rule.backend_port` : Port used for internal connections - `0` ~ `65535`
+-   `rule.disable_outbound_snat` : Enables SNAT for outbound connections for the rule - `true`, `false`
+-   `rule.frontend_ip_config_name` : Name of the Frontend IP Configuration for the Public Load Balancer
+-   `rule.backend_pool_name` : Name of the Backend Address Pool that receives traffic from the Load Balancer
 
-    -   `protocol` : The transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : The port for the external endpoint, Range between 0 and 65534 - `0` ~ `65534` - `0` ~ `65534`
-    -   `backend_port` : The port used for internal connections on the endpoint, Range between 0 and 65535 - `0` ~ `65535`
-    -   `frontend_ip_configuration_name` : The name of Public Load Balancer Frontend IP Configuration
+#### NAT Rule (`nat_rule`)
 
-- `outbound_rule`
+-   `nat_rule.protocol` : Transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
+-   `nat_rule.frontend_port` : Port of the external endpoint - `0` ~ `65534`
+-   `nat_rule.backend_port` : Port used for internal connections - `0` ~ `65535`
+-   `nat_rule.frontend_ip_config_name` : Name of the Frontend IP Configuration for the Public Load Balancer
 
-    -   `protocol` : The transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
-    -   `frontend_ip_config_name`: The name of Public Load Balancer Frontend IP Configuration
-    -    `backend_pool_name`: The name of the Backend Address Pool to which the Load Balancer will forward traffic
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+#### Outbound Rule (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Transport protocol for the external endpoint - `Tcp`, `Udp`, `All`
+-   `outbound_rule.frontend_ip_config_name` : Name of the Frontend IP Configuration for the Public Load Balancer
+-   `outbound_rule.backend_pool_name` : Name of the Backend Address Pool that receives traffic from the Load Balancer
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
 ---
 
-## Reference Materials
+## References
 
--   [Azure PublicLoadBalancer(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
--   [Azure PublicLoadBalancer Price](https://azure.microsoft.com/en-us/pricing/details/load-balancer/)
--   [Azure PublicLoadBalancer(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb)
+-   [Azure Load Balancer Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
+-   [Load Balancer Health Probes(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-custom-probe-overview)
+-   [Load Balancer Rules and NAT Rules(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview#load-balancing-rules)
+-   [Load Balancer Outbound Rules(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-rules-overview)

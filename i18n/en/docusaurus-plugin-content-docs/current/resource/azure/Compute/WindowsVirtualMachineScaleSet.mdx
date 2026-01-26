@@ -1,0 +1,92 @@
+---
+title: WindowsVirtualMachineScaleSet
+sidebar_position: 3
+tags: [Azure, WindowsVirtualMachineScaleSet, VirtualMachineScaleSet, Compute]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-windows_virtual_machine_scale_set.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure Windows Virtual Machine Scale Set is a resource that creates multiple Windows virtual machine instances and automatically scales the number of instances up or down based on demand or defined schedules.  
+By configuring VM size (SKU), operating system images, administrator account information, OS disk configuration, and network interface settings, identical Windows VMs can be operated at scale.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+
+### Connected Resources
+
+-   [**MonitorAutoscaleSetting**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+
+## Resource Setting Values
+
+-   `included_vnet_name` : Name of the Virtual Network to which the Virtual Machine Scale Set belongs
+
+-   `orchestration_mode` : Orchestration mode that determines how VMs are managed by the Scale Set - `Uniform`, `Flexible`
+
+-   `platform_fault_domain_count` : Number of VM groups that share common power sources and network switches
+
+-   `vmss_sku` : Pricing tier of the Virtual Machine Scale Set
+
+-   `instances` : Number of virtual machines in the Scale Set - `1` ~ `1000`
+
+-   `computer_name_prefix` : Prefix used for naming Virtual Machines
+
+-   `admin_username` : Administrator username for the VM - 1 ~ 64 characters
+
+-   `admin_password` : Administrator password for the VM - 12 ~ 72 characters
+
+-   `os_disk_caching` : Caching type for the internal OS disk - `ReadWrite`, `ReadOnly`, `None`
+
+-   `storage_account_type` : Storage type for backing up the internal OS disk - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+
+-   `disk_size_gb` : Size of the internal OS disk (GB) - `32` ~ `11400`
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+### Image Settings (`source_image`)
+
+-   `source_image.type` : Whether to use a custom image ID - `recommended`, `custom_id`, `custom_input`
+
+-   `source_image.image_id` : ID of the image used to create the VM
+
+-   `source_image.image` : Image used to create the VM
+
+-   `source_image.publisher` : Publisher of the image used to create the VM
+
+-   `source_image.offer` : Offer of the image used to create the VM
+
+-   `source_image.sku` : SKU of the image used to create the VM
+
+### Network Settings (`network_interface`)
+
+-   `network_interface.is_primary` : Whether to set as the primary IP configuration - `true`, `false`
+
+-   `network_interface.subnet_name` : Name of the subnet where the Network Interface is located
+
+### IP Configuration (`network_interface.ip_configuration`)
+
+-   `network_interface.ip_configuration.is_primary` : Whether to set as the primary IP configuration of the network interface - `true`, `false`
+
+-   `network_interface.ip_configuration.enabled_public_ip` : Whether to enable Public IP - `true`, `false`
+
+-   `network_interface.ip_configuration.public_ip_name` : Name of the Public IP to use
+
+---
+
+## References
+
+-   [Azure Virtual Machine Scale Sets(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/)
+-   [Terraform azurerm Windows Virtual Machine Scale Set](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine_scale_set)

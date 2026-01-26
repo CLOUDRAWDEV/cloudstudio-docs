@@ -1,0 +1,83 @@
+---
+title: CosmosdbMongo
+sidebar_position: 2
+tags: [Azure, CosmosdbMongo, CosmosDB, Mongo, Database]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_mongo.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Cosmos DB Mongo API è un servizio di database NoSQL completamente gestito che consente di archiviare e interrogare dati in formato JSON supportati dall’API MongoDB.  
+Offre scalabilità e alta disponibilità grazie alla distribuzione globale, al failover automatico, ai backup e alle policy di coerenza.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private EndPoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `capabilities_list` : Elenco delle API di Cosmos DB da utilizzare
+-   `enable_multiple_write_locations` : Abilitazione della scrittura multi-area – `true`, `false`
+-   `public_network_access_enabled` : Abilitazione dell’accesso pubblico all’account tramite IP pubblico o service endpoint – `true`, `false`
+-   `enable_automatic_failover` : Abilitazione del failover automatico – `true`, `false`
+-   `virtual_network_filter_enabled` : Abilitazione del filtro per consentire l’accesso all’account solo da specifiche subnet della rete virtuale – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Abilitazione del bypass ACL per i servizi Azure – `true`, `false`
+
+#### Impostazioni di area geografica (`geo_location`)
+
+-   `geo_location.failover_priority` : Priorità di failover della regione
+-   `geo_location.zone_redundant` : Abilitazione della replica tra zone per la tolleranza agli errori – `true`, `false`
+
+#### Criteri di coerenza (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Livello di coerenza per la disponibilità e le prestazioni del database
+-   `consistency_policy.max_interval_in_seconds` : Tempo massimo di staleness consentito (secondi) quando il livello di coerenza è Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Numero massimo di richieste stale consentite quando il livello di coerenza è Bounded Staleness
+
+#### Impostazioni di backup (`backup`)
+
+-   `backup.type` : Tipo di policy di backup – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Frequenza di esecuzione del backup (minuti) – `60` ~ `1440`
+-   `backup.retention_in_hours` : Periodo di conservazione dei backup (ore) – `8` ~ `720`
+
+#### Impostazioni del database Mongo (`mongo_database`)
+
+-   `mongo_database.throughput` : Throughput del database Mongo – `400` ~ `1000000`
+-   `mongo_database.enable_autoscale` : Abilitazione dell’auto scaling del throughput – `true`, `false`
+
+#### Impostazioni della collection Mongo (`mongo_collection`)
+
+-   `mongo_collection.ttl_seconds` : Time To Live predefinito della collection MongoDB (secondi)
+-   `mongo_collection.shard_key` : Nome della chiave per lo sharding della collection MongoDB
+-   `mongo_collection.throughput` : Throughput della collection MongoDB – `400` ~ `1000000`
+-   `mongo_collection.enable_autoscale` : Abilitazione dell’auto scaling del throughput – `true`, `false`
+-   `mongo_collection.included_mongo_database_name` : Nome del database Mongo in cui verrà creata la collection
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria – massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Cosmos DB API for MongoDB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/mongodb/introduction)

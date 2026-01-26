@@ -1,0 +1,75 @@
+---
+title: PostgresqlFlexible
+sidebar_position: 3
+tags: [Azure, PostgresqlFlexible, PostgreSQL, FlexibleServer, Database]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-postgresql_flexible.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure PostgreSQL Flexible Server es un servicio de base de datos relacional basado en el motor de base de datos de código abierto PostgreSQL.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `version` : Versión de PostgreSQL a utilizar - `11`, `12`, `13`, `14`
+-   `sku_name` : Nombre del nivel de precios de PostgreSQL, combinación de Tier + generación de cómputo + número de núcleos
+-   `storage_mb` : Capacidad máxima del servidor PostgreSQL Flexible (MB)
+-   `admin_username` : Nombre de usuario administrador del servidor cuando el modo de creación es default; se permiten caracteres alfanuméricos, sin palabras reservadas, `1` ~ `16` caracteres
+-   `admin_password` : Contraseña de inicio de sesión del administrador del servidor cuando el modo de creación es default; debe incluir al menos 3 de los siguientes: minúsculas, mayúsculas, números y caracteres especiales; no puede contener más de 3 caracteres alfanuméricos consecutivos del nombre de inicio de sesión, `8` ~ `128` caracteres
+-   `availability_zone` : Especifica la zona de disponibilidad. Los valores posibles son `1`, `2`, `3` - `1` ~ `3`
+-   `enable_high_availability` : Habilitar alta disponibilidad del servidor PostgreSQL Flexible - `true`, `false`
+-   `high_availability_mode` : Modo de alta disponibilidad del servidor PostgreSQL Flexible - `SameZone`, `ZoneRedundant`
+-   `standby_availability_zone` : Especifica la zona de disponibilidad del servidor en espera. Los valores posibles son `1`, `2`, `3` y no pueden coincidir con la zona principal - `1` ~ `3`
+-   `backup_retention_days` : Días de retención de copias de seguridad del servidor PostgreSQL Flexible. Valores posibles de `1` a `35` días - `7` ~ `35`
+-   `geo_redundant_backup_enabled` : Habilitar copias de seguridad con redundancia geográfica - `true`, `false`
+-   `public_network_access_enabled` : Permitir acceso a la red pública al servidor - `true`, `false`
+-   `delegated_subnet_name` : Nombre de la Subnet para la delegación de red virtual
+-   `private_dns_zone_name` : Zona DNS privada para crear el servidor PostgreSQL Flexible
+
+#### Configuración del servidor (`configuration`)
+
+-   `configuration.name` : Nombre del parámetro de configuración del servidor PostgreSQL
+-   `configuration.param_value` : Valor del parámetro de configuración del servidor PostgreSQL Flexible
+
+#### Base de datos (`database`)
+
+-   `database.charset` : Conjunto de caracteres de la base de datos PostgreSQL
+-   `database.collation` : Método de intercalación de la base de datos PostgreSQL
+
+#### Reglas de firewall (`firewall_rule`)
+
+-   `firewall_rule.start_ip_address` : Dirección IP inicial asociada a la regla de firewall
+-   `firewall_rule.end_ip_address` : Dirección IP final asociada a la regla de firewall
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categorías - máximo 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Azure Database for PostgreSQL - Flexible Server (Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/overview)
+-   [Azure Database for PostgreSQL - Flexible Server Networking (Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-networking)
+-   [Azure Database for PostgreSQL - Flexible Server High Availability (Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-high-availability)
+-   [Azure Database for PostgreSQL - Flexible Server Backup and Restore (Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/concepts-backup-restore)
+-   [Azure Database for PostgreSQL - Flexible Server Firewall Rules (Microsoft)](https://learn.microsoft.com/ko-kr/azure/postgresql/flexible-server/how-to-manage-firewall-portal)

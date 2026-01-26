@@ -1,0 +1,40 @@
+---
+title: InitScript
+sidebar_position: 3
+tags: [Ncloud, Ressource, Compute, Initscript]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-init_script.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Init Script ist eine Funktion, mit der vordefinierte Skripte beim Erstellen von Servern automatisch ausgeführt werden können. Sie eignet sich für die Massenbereitstellung identischer Server, die regelmäßige Erstellung gleichartiger Umgebungen oder die initiale Konfigurationsverwaltung je nach Einsatzzweck.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `os_type` : Typ der zu verwendenden Serverinstanz – `LNX`, `WND`
+-   `content` : Skriptinhalt, der beim Erstellen des Servers automatisch ausgeführt wird
+-   `description` : Beschreibung des Init-Skripts
+
+---
+
+## Referenzen
+
+-   [Init Script(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/init_script)

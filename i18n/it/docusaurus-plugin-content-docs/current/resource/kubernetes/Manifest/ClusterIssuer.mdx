@@ -1,0 +1,83 @@
+---
+title: ClusterIssuer
+sidebar_position: 1
+tags: [Kubernetes, CertManager, Certificate, ClusterIssuer]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-cluster_issuer.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+ClusterIssuer è una risorsa a livello di cluster (Kubernetes cluster-scoped) utilizzata da cert-manager, che rappresenta un’unità di configurazione per ricevere richieste di firma di certificati (CSR) e ottenere certificati firmati da un’Autorità di Certificazione (CA).  
+A differenza di Issuer, non è vincolata a uno specifico namespace e può essere referenziata in comune da tutte le risorse Certificate del cluster.  
+Utilizza autorità di certificazione basate su ACME (ad esempio Let’s Encrypt) e verifica la proprietà del dominio tramite challenge HTTP-01 o DNS-01.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Cluster**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Cluster)
+
+## Valori di configurazione della risorsa
+
+#### Configurazione ACME (`acme`)
+
+-   `acme.server` : Indirizzo dell’endpoint del server ACME
+-   `acme.email` : Indirizzo email da contattare in caso di problemi o scadenza del certificato da parte di Let's Encrypt
+-   `acme.private_key_secret_ref` : Nome del Kubernetes Secret che memorizza la chiave client utilizzata per comunicare con il server ACME
+
+#### Configurazione DNS Solver (`dns_solvers`)
+
+-   `dns_solvers.provider` : Tipo di challenge DNS-01 - `AzureDNS`, `Route53`, `ACMEDNS`
+
+#### Configurazione ACME DNS (`dns_solvers.acme_dns`)
+
+-   `dns_solvers.acme_dns.host` : Indirizzo dell’endpoint del server acme-dns
+-   `dns_solvers.acme_dns.account_secret_ref_name` : Nome del Kubernetes Secret che memorizza le informazioni dell’account acme-dns
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Nome della chiave da utilizzare nel Kubernetes Secret contenente le informazioni dell’account acme-dns
+
+#### Configurazione Azure DNS (`dns_solvers.azure_dns`)
+
+-   `dns_solvers.azure_dns.client_id` : Client ID dell’applicazione Azure Service Principal
+-   `dns_solvers.azure_dns.client_secret_name` : Nome del Kubernetes Secret che contiene il client secret dell’applicazione Azure Service Principal
+-   `dns_solvers.azure_dns.client_secret_key` : Nome della chiave da utilizzare nel Secret
+-   `dns_solvers.azure_dns.subscription_id` : ID della sottoscrizione Azure
+-   `dns_solvers.azure_dns.tenant_id` : Tenant ID della sottoscrizione Azure
+-   `dns_solvers.azure_dns.resource_group_name` : Nome del Resource Group a cui appartiene la risorsa Azure DNS Zone
+-   `dns_solvers.azure_dns.hosted_zone_name` : Nome della Hosted Zone di Azure DNS
+
+#### Configurazione Route53 (`dns_solvers.route53`)
+
+-   `dns_solvers.route53.region` : Regione AWS in cui viene utilizzato il servizio Route 53
+-   `dns_solvers.route53.access_key_id` : AWS Access Key ID
+-   `dns_solvers.route53.access_key_secret_name` : Nome del Kubernetes Secret che contiene la AWS Secret Access Key
+-   `dns_solvers.route53.access_key_secret_key` : Nome della chiave da utilizzare nel Secret
+-   `dns_solvers.route53.secret_access_key_secret_name` : Nome del Secret che contiene la AWS Secret Access Key
+-   `dns_solvers.route53.secret_access_key_secret_key` : Nome della chiave del Secret contenente la AWS Secret Access Key
+-   `dns_solvers.route53.role` : AWS IAM Role utilizzato per la gestione DNS di Route53
+
+#### Configurazione HTTP Solver (`http_solvers`)
+
+-   `http_solvers.provider` : Metodo di risoluzione della challenge HTTP-01 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Nome della classe Ingress da utilizzare
+
+#### Configurazione Gateway (`http_solvers.gateway_parent_refs`)
+
+-   `http_solvers.gateway_parent_refs.name` : Nome della risorsa Gateway a cui collegarsi
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace a cui appartiene la risorsa Gateway
+
+---
+
+## Riferimenti
+
+-   [ClusterIssuer(cert-manager)](https://cert-manager.io/docs/configuration/acme/)
+-   [Riferimento API ClusterIssuer](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.ClusterIssuer)

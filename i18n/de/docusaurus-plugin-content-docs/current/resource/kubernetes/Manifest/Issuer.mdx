@@ -1,0 +1,88 @@
+---
+title: Issuer
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Manifest, Issuer]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource, die Zertifikatsignierungsanforderungen akzeptiert und signierte Zertifikate von einer Zertifizierungsstelle (CA) erstellt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/Ingress)
+
+## Ressourcen-Einstellungswerte
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die Issuer-Ressource bereitgestellt wird
+
+#### ACME-Konfiguration (`acme`)
+
+-   `acme.server` : Endpunktadresse des ACME-Servers
+-   `acme.email` : E-Mail-Adresse, über die Let’s Encrypt bei Zertifikatsproblemen oder Ablauf Kontakt aufnimmt
+-   `acme.private_key_secret_ref` : Name des Kubernetes-Secrets mit dem Client-Schlüssel für die ACME-Kommunikation
+
+#### DNS-Solver-Konfiguration (`dns_solvers`)
+
+-   `dns_solvers.provider` : Typ der DNS-01-Challenge – `AzureDNS`, `Route53`, `ACMEDNS`
+
+##### ACMEDNS-Konfiguration (`dns_solvers.acme_dns`)
+
+-   `dns_solvers.acme_dns.host` : Endpunktadresse des acme-dns-Servers
+-   `dns_solvers.acme_dns.account_secret_ref_name` : Name des Secrets mit den acme-dns-Kontodaten
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Name des Schlüssels mit den Kontodaten
+
+##### AzureDNS-Konfiguration (`dns_solvers.azure_dns`)
+
+-   `dns_solvers.azure_dns.client_id` : Client-ID des Azure-Service-Principals
+-   `dns_solvers.azure_dns.client_secret_name` : Name des Secrets mit dem Client-Secret
+-   `dns_solvers.azure_dns.client_secret_key` : Name des Client-Secret-Schlüssels
+-   `dns_solvers.azure_dns.subscription_id` : Azure-Abonnement-ID
+-   `dns_solvers.azure_dns.tenant_id` : Azure-Tenant-ID
+-   `dns_solvers.azure_dns.resource_group_name` : Ressourcengruppe der Azure-DNS-Zone
+-   `dns_solvers.azure_dns.hosted_zone_name` : Name der Azure-DNS-Zone
+
+##### Route53-Konfiguration (`dns_solvers.route53`)
+
+-   `dns_solvers.route53.region` : AWS-Region für Route53
+-   `dns_solvers.route53.access_key_id` : AWS-Access-Key-ID
+-   `dns_solvers.route53.access_key_secret_name` : Name des Secrets mit dem Secret-Access-Key
+-   `dns_solvers.route53.access_key_secret_key` : Name des Schlüssels im Secret
+-   `dns_solvers.route53.secret_access_key_secret_name` : Name des Secrets mit dem Secret-Access-Key
+-   `dns_solvers.route53.secret_access_key_secret_key` : Name des Schlüssels im Secret
+-   `dns_solvers.route53.role` : AWS-IAM-Rolle zur Route53-DNS-Verwaltung
+
+#### HTTP-Solver-Konfiguration (`http_solvers`)
+
+-   `http_solvers.provider` : Typ der HTTP-01-Challenge – `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Name der zu verwendenden Ingress-Klasse
+
+##### Gateway-Konfiguration (`http_solvers.gateway_parent_refs`)
+
+-   `http_solvers.gateway_parent_refs.name` : Name der Gateway-Ressource
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace der Gateway-Ressource
+
+---
+
+## Referenzen
+
+-   [Issuer(CertManager)](https://cert-manager.io/docs/concepts/issuer/)

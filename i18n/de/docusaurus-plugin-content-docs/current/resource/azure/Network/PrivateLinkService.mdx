@@ -1,0 +1,50 @@
+---
+title: PrivateLinkService
+sidebar_position: 17
+tags: [Azure, Network, PrivateLinkService]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_link_service.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Private Link Service ist ein Netzwerkdienst, mit dem Benutzer ihre **internen Dienste (Load-Balancer-basiert)** externen Kunden **sicher über Private Endpoints bereitstellen** können.  
+Die Verbindung erfolgt über das Azure-Backbone-Netzwerk ohne Verwendung einer öffentlichen IP-Adresse. Über Zugriffssteuerung und Genehmigungsrichtlinien lässt sich der Umfang der Dienstbereitstellung fein granular verwalten.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+## Konfigurationswerte der Ressource
+
+-   `auto_approval_subscription_ids` : Liste der Abonnement-IDs, für die Private-Endpoint-Verbindungen ohne vorherige Genehmigung automatisch zugelassen werden
+-   `visibility_subscription_ids` : Liste der Abonnement-IDs, die den Private Link Service finden und Verbindungsanforderungen senden können
+
+#### Load Balancer IP-Konfiguration (`lb_ip_configuration`)
+
+-   `lb_ip_configuration.target_lb_name` : Name des Ziel-Load-Balancers für die Verbindung
+-   `lb_ip_configuration.target_ip_config_name` : Name der Frontend-IP-Konfiguration des Load Balancers
+
+#### NAT-IP-Konfiguration (`nat_ip_configuration`)
+
+-   `nat_ip_configuration.target_subnet_name` : Name des Ziel-Subnets, auf das die NAT-IP-Konfiguration angewendet wird
+-   `nat_ip_configuration.private_ip_address` : Statische private IP-Adresse, die als NAT-IP verwendet wird
+-   `nat_ip_configuration.private_ip_address_version` : Version der privaten IP-Adresse - `IPv4`
+-   `nat_ip_configuration.enable_primary` : Gibt an, ob diese NAT-IP-Konfiguration als primäre Konfiguration verwendet wird - `true`, `false`
+
+---
+
+## Referenzen
+
+-   [Azure Private Link Service – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-link-service-overview)

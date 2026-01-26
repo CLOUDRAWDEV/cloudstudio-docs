@@ -1,0 +1,52 @@
+---
+title: Cluster
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Base, Cluster]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Selecciona un clúster vinculado a las credenciales del usuario.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Base**](https://docs.cstudio.app/es/docs/resource/kubernetes/Base/Base)
+
+### Recursos secundarios
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/es/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/es/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/es/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/es/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/es/docs/resource/kubernetes/Storage/StorageClass)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `target_cluster` : Selección del clúster de Kubernetes de Ncloud al que se conectará
+-   `token` : Token de autenticación utilizado para conectarse al servicio Ncloud Kubernetes
+
+---
+
+## Referencias
+
+-   [Descripción general del clúster de Kubernetes(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Autenticación en Kubernetes(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [Configuración de clúster con kubectl(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [Configuración de credenciales de usuario con kubectl(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

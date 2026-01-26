@@ -1,0 +1,52 @@
+---
+title: ConfigMap
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Core, ConfigMap]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes utilizado para almacenar configuraciones de la aplicación de forma separada y entregarlas a los contenedores dentro de los Pods.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**Pod**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Pod)
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**DaemonSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**Job**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/Job)
+-   [**CronJob**](https://docs.cstudio.app/docs/resource/kubernetes/Batch/CronJob)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso ConfigMap
+-   `annotations` : Metadatos del sistema Kubernetes
+-   `data` : Datos de configuración en formato texto almacenados como key-value
+-   `labels` : Etiquetas definidas por el usuario para identificación y clasificación del recurso
+-   `binary_data` : Datos en formato binario almacenados como key-value
+
+---
+
+## Referencias
+
+-   [ConfigMap(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
+-   [ConfigMap(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)

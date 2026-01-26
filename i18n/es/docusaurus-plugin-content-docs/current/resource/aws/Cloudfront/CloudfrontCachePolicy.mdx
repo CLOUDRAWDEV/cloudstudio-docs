@@ -1,0 +1,60 @@
+---
+title: CloudfrontCachePolicy
+sidebar_position: 1
+tags: [AWS, Recurso, Cloudfront, CloudfrontCachePolicy]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Cloudfront Cache Policy es una política de caché que se asocia con el comportamiento de caché de una distribución CloudFront para configurar la personalización de CloudFront.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Base**](https://docs.cstudio.app/es/docs/resource/aws/Base/Base)
+
+### Recursos conectados
+
+-   [**CloudfrontDistribution**](https://docs.cstudio.app/es/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `min_ttl` : Tiempo mínimo(en segundos) que un objeto permanece en caché
+-   `default_ttl` : Tiempo predeterminado(en segundos) que un objeto permanece en caché
+-   `max_ttl` : Tiempo máximo(en segundos) que un objeto permanece en caché
+
+#### Configuración de cookies (`cookie_config`)
+
+-   `cookie_behavior` : Modo de envío de cookies - `whitelist`, `all`, `none`, `allExcept`
+-   `cookies_items` : Lista de cookies que se enviarán al origen
+
+#### Configuración de encabezados (`header_config`)
+
+-   `header_behavior` : Método de caché basado en encabezados - `whitelist`, `none`
+-   `headers_items` : Lista de encabezados que se utilizarán para el caché
+
+#### Configuración de query string (`query_string_config`)
+
+-   `query_string_behavior` : Modo de procesamiento de query string - `whitelist`, `all`, `none`, `allExcept`
+-   `query_strings_items` : Lista de parámetros de query string que se utilizarán para el caché
+
+## Referencias
+
+-   [Amazon CloudFront Cache Policy(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront Cache Policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)

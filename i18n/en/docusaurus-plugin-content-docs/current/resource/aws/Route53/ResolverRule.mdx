@@ -1,6 +1,6 @@
 ---
 title: ResolverRule
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, Resource, Route53, ResolverRule]
 ---
 
@@ -11,37 +11,43 @@ tags: [AWS, Resource, Route53, ResolverRule]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
     }
 />
 
 ## Resource Overview
 
-Rules used by the Resolver to forward queries for specified domain names over the network
+A rule used by Resolver to forward queries for specified domain names to a network.
 
-### Parent Resources
+## Associated Resources
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+### Parent Resource
+
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
 -   [**ResolverEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ## Resource Setting Values
 
--   `rule_type` : Rule type - `Forward`, `system`
+#### Basic Settings
+
+-   `rule_type` : Rule type - `FORWARD`, `SYSTEM`
 -   `domain_name` : Domain name to which DNS queries are forwarded
--   `linked_vpc_names` : VPC name using rules
--   `linked_resolver_endpoint_name` : Outbound endpoint name used by Resolver
--   `target_ip` : Target IP address
--   `target_ip.name` : Name of the target IP address
--   `target_ip.ip` : IP of Target IP address
--   `target_ip.port` : Port of Target IP address - `1`~`65535`
+-   `linked_vpc_names` : List of VPC names using the rule
+-   `linked_resolver_endpoint_name` : Name of the outbound endpoint used by Resolver
+-   `target_ip.ip` : Target IP address
+-   `target_ip.port` : Port of the target IP address
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [Amazon Resolver rule(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
--   [Amazon Resolver rule(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)
+-   [Amazon Resolver Rule (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Rule (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)

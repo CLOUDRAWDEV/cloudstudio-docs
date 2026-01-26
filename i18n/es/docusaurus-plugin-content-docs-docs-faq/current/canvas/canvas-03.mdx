@@ -1,0 +1,30 @@
+---
+sidebar_position: 3
+tags: [Canvas, Infraestructura, Cargar infraestructura, Cargar]
+---
+
+# ¿Es posible cargar una infraestructura existente en el canvas?
+
+<hr />
+<br />
+
+Es posible cargar la infraestructura en la nube mediante credenciales y archivos.
+
+1. Selecciona en el menú principal del canvas `Archivo > Cargar`.
+2. Elige `Cargar desde infraestructura` o `Cargar desde archivo`.
+
+<Tabs>
+    <TabItem value="infraImport" label="Cargar desde Infraestructura" default>
+        Selecciona las credenciales registradas y consulta los grupos de recursos (para Azure) 
+        para cargar a nivel de grupo de recursos.
+    </TabItem>
+    <TabItem value="fileImport" label="Cargar desde Archivo">
+        Carga un archivo Terraform y será convertido para su uso en CloudStudio.
+    </TabItem>
+</Tabs>
+
+:::tip
+
+Para cargar la infraestructura en el cloud desplegado, es necesario que las credenciales estén registradas.
+
+:::

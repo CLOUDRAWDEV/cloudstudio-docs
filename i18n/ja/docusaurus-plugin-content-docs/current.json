@@ -39,6 +39,14 @@
         "message": "生成 AI",
         "description": "The label for category 생성형 AI in sidebar mySidebar"
     },
+    "sidebar.mySidebar.category.자산": {
+        "message": "資産",
+        "description": "The label for category 자산 in sidebar mySidebar"
+    },
+    "sidebar.mySidebar.category.점검": {
+        "message": "診断",
+        "description": "The label for category 점검 in sidebar mySidebar"
+    },
     "sidebar.mySidebar.category.Azure": {
         "message": "Azure",
         "description": "The label for category Azure in sidebar mySidebar"

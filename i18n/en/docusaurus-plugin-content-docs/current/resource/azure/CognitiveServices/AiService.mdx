@@ -1,0 +1,80 @@
+---
+title: AiService
+sidebar_position: 1
+tags: [Azure, AiService, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-ai_service.webp"
+    }
+/>
+
+## Resource Overview
+
+AI Service is a service that provides artificial intelligence models and analytics capabilities in the form of APIs, enabling easy integration of AI features into applications.  
+It provides a secure and scalable AI service operating environment through model deployment, authentication methods, network access control, and managed identity integration.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Setting Values
+
+-   `sku_name` : Pricing tier for using AI Service
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `local_authentication_enabled` : Whether to enable local authentication using API keys - `true`, `false`
+
+-   `custom_subdomain_name` : Custom subdomain name used for token-based authentication and endpoint URLs
+
+-   `fqdns` : List of fully qualified domain names (FQDNs) allowed for use with the AI Service account
+
+### Managed Identity Settings (`identity`)
+
+-   `identity.identity_type` : Type of managed identity to use
+
+    -   `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+
+-   `identity.identity_ids` : List of user-assigned managed identity IDs
+
+### Network Access Control (`network_acls`)
+
+-   `network_acls.default_action` : Default policy for network access control - `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : List of IP addresses or CIDR ranges allowed to access the resource
+
+-   `outbound_network_access_restricted` : Whether to restrict outbound communication to external networks - `true`, `false`
+
+-   `public_network_access` : Whether to allow access via the public internet - `Enabled`, `Disabled`
+
+### Model Deployment Settings (`deployment`)
+
+-   `deployment.model_name` : Name of the model to deploy
+
+-   `deployment.model_version` : Version number of the model to use
+
+-   `deployment.sku_name` : Processing capacity (SKU) type allocated for deployment
+
+    -   `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`,  
+        `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, `ProvisionedManaged`
+
+-   `deployment.version_upgrade_option` : Model version upgrade strategy
+    -   `OnceCurrentVersionExpired`, `OnceNewDefaultVersionAvailable`, `NoAutoUpgrade`
+
+---
+
+## References
+
+-   [Azure AI Services(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/)
+-   [Azure Cognitive Services Pricing](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+-   [Azure Cognitive Services Deployment(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_deployment)

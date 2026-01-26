@@ -1,0 +1,52 @@
+---
+title: Role
+sidebar_position: 0
+tags: [Kubernetes, Recurso, RBAC, Role]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que crea roles aplicables únicamente dentro de un namespace específico.
+
+## Recursos relacionados
+
+### Recurso principal
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**RoleBinding**](https://docs.cstudio.app/es/docs/resource/kubernetes/RBAC/RoleBinding)
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Role
+-   `annotations` : Metadatos key-value utilizados por el sistema Kubernetes
+-   `labels` : Etiquetas definidas por el usuario para identificar el objeto
+
+#### Reglas de política (`rule`)
+
+-   `rule.api_groups` : API Groups que contienen los recursos permitidos
+-   `rule.resources` : Lista de recursos a los que se aplica esta regla
+-   `rule.resource_names` : Especificación de instancias individuales de recursos
+-   `rule.verbs` : Lista de verbos aplicables a los recursos - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
+
+---
+
+## Referencias
+
+-   [Role(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [Role(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role)

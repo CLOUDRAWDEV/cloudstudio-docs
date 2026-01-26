@@ -1,0 +1,55 @@
+---
+title: Route53
+sidebar_position: 0
+tags: [AWS, Ressource, Route53]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-route53.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Route 53 ist ein hochverfügbarer und skalierbarer Domain Name System (DNS)-Webservice.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+
+### Verknüpfte Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+## Ressourceneinstellungswerte
+
+#### Grundeinstellungen
+
+-   `routing_type` : Routing-Typ der Route53-Zone – `PRIVATE`, `PUBLIC`
+-   `linked_vpc_names` : Liste der mit der Route53-Zone zu verbindenden VPC-Namen
+
+#### Record (`record`)
+
+-   `record.type` : Typ des Records – `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`
+-   `record.ttl` : TTL des Records
+-   `record.records` : Liste der Record-Zeichenfolgen
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon Route 53(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/Welcome.html)
+-   [Amazon Route 53 Preise(AWS)](https://aws.amazon.com/ko/route53/pricing/?nc2=type_a)
+-   [aws-route53(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/route53/aws/latest)

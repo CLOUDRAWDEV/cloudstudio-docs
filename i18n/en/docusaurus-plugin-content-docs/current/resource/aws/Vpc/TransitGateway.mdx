@@ -1,6 +1,6 @@
 ---
-title: Transit Gateway
-sidebar_position: 0
+title: TransitGateway
+sidebar_position: 15
 tags: [AWS, Resource, Ec2, TransitGateway]
 ---
 
@@ -11,40 +11,51 @@ tags: [AWS, Resource, Ec2, TransitGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-transit_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-The Transit Gateway is a network transit hub that can be used to interconnect Virtual Private Clouds (VPCs) and on-premises networks. 
-As cloud infrastructure expands globally, inter-region peering uses AWS global infrastructure to link Transit Gateways together. 
-Data is automatically encrypted and does not traverse the public internet.
+A Transit Gateway is a network transit hub that can be used to interconnect Virtual Private Clouds (VPCs) and on-premises networks. As cloud infrastructure scales globally, inter-region peering connects Transit Gateways using the AWS global infrastructure. Data is automatically encrypted and never transmitted over the public internet.
 
 ## Associated Resources
 
-### Parent Resources
+### Parent Resource
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
 ### Connected Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
+-   [**DxGateway**](https://docs.cstudio.app/en/docs/resource/aws/DirectConnect/DxGateway)
+-   [**RouteTable**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/RouteTable)
+-   [**CustomerGateway**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/CustomerGateway)
+-   [**TransitGatewayAttachment**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/TransitGatewayAttachment)
 
 ## Resource Setting Values
 
--   `dns_support` : Enable DNS verification for connected VPCs - `enable`, `disable`
--   `vpn_ecmp_support` : ECMP routing support for connected VPNs - `enable`, `disable`
--   `default_route_table_association` : Automatically associate attachments with the main route table - `enable`, `disable`
--   `default_route_table_propagation` : Enable auto propagation of attachments with the main route table - `enable`, `disable`
--   `multicast_support` : Enable create multicast domain - `enable`, `disable`
--   `transit_gateway_cidr_blocks` : Cidr blocks of Transit Gateway
--   `vpc_attachment`
+#### Basic Settings
+
+-   `dns_support` : Whether to enable DNS resolution for attached VPCs - `enable`, `disable`
+-   `vpn_ecmp_support` : Whether to enable ECMP routing for attached VPNs - `enable`, `disable`
+-   `default_route_table_association` : Automatically associate attachments with the default route table - `enable`, `disable`
+-   `default_route_table_propagation` : Automatically propagate attachments to the default route table - `enable`, `disable`
+-   `multicast_support` : Whether to enable multicast domain creation - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : List of CIDR blocks to assign to the transit gateway
+
+#### Direct Connect Gateway Settings (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : Name of the Direct Connect Gateway to connect
+-   `dx_gateway.allowed_prefixes` : List of VPC prefix CIDRs to advertise to the on-premises network
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [AWS Transit Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
--   [AWS Transit Gateway Price(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
--   [aws_ec2_transit_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)
+-   [AWS Transit Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [AWS Transit Gateway Pricing (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

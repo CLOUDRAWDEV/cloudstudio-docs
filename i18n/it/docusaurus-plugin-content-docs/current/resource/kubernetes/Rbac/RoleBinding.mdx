@@ -1,0 +1,42 @@
+---
+title: RoleBinding
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, RBAC, RoleBinding]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes che associa ruoli applicabili a uno specifico namespace agli utenti.
+
+## Risorse correlate
+
+### Risorsa principale
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**ServiceAccount**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**Role**](https://docs.cstudio.app/it/docs/resource/kubernetes/RBAC/Role)
+-   [**ClusterRole**](https://docs.cstudio.app/it/docs/resource/kubernetes/RBAC/ClusterRole)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace a cui si applica la risorsa RoleBinding
+-   `annotations` : Metadati key-value della risorsa RoleBinding
+-   `labels` : Etichette personalizzate per distinguere l’oggetto RoleBinding
+-   `role_type` : Tipo di ruolo da associare - `Role`, `ClusterRole`
+-   `role_name` : Nome d\_

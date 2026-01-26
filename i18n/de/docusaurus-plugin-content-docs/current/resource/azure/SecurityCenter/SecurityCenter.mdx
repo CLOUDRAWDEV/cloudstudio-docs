@@ -1,0 +1,57 @@
+---
+title: SecurityCenter
+sidebar_position: 0
+tags: [Azure, Security, Defender, SecurityCenter]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Security Center ist ein integrierter Sicherheitsverwaltungsdienst, der den Sicherheitsstatus von Cloud-Ressourcen kontinuierlich bewertet und Bedrohungen erkennt und verhindert.  
+Durch die Integration mit Microsoft Defender-Plänen ermöglicht er die zentrale Verwaltung von Schwachstellenbewertungen, Sicherheitsempfehlungen und Bedrohungsschutz.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Subscription**](https://docs.cstudio.app/de/docs/resource/azure/Base/Subscription)
+
+### Verbundene Ressourcen
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+
+## Ressourceneinstellungen
+
+-   `linked_log_analytics_workspace` : Name des Log Analytics Workspace zur Speicherung von Sicherheitsdaten
+
+#### Assessment Policy (`assessment_policy`)
+
+-   `assessment_policy.display_name` : Anzeigename der Security Center-Bewertung
+-   `assessment_policy.severity` : Schweregrad der Security Center-Bewertung - `Low`, `Medium`, `High`
+-   `assessment_policy.description` : Beschreibung der Security Center-Bewertung
+
+#### Assessment (`assessment`)
+
+-   `assessment.policy_name` : Name der auf die Ressource angewendeten Sicherheitsbewertungsrichtlinie
+-   `assessment.status_code` : Statuscode der Bewertung - `Healthy`, `Unhealthy`, `NotApplicable`
+
+#### Subscription Pricing (`subscription_pricing`)
+
+-   `subscription_pricing.pricing_tier` : Aktivierung erweiterter Sicherheitsfunktionen - `Free`, `Standard`
+-   `subscription_pricing.pricing_resource_type` : Ressourcentyp, auf den erweiterte Sicherheitsfunktionen angewendet werden
+
+## Referenzmaterialien
+
+-   [Microsoft Defender for Cloud Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
+-   [Security Center Sicherheitsbewertungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
+-   [Defender for Cloud Preise (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)

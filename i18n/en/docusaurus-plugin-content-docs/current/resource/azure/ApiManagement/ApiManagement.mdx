@@ -1,0 +1,58 @@
+---
+title: ApiManagement
+sidebar_position: 0
+tags: [Azure, ApiManagement]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/api_management-api_management.webp"
+    }
+/>
+
+## Resource Overview
+
+API Management is a service that provides integrated support for creating, deploying, securing, monitoring, and managing APIs.  
+It exposes APIs called by internal and external clients through a single endpoint, and supports stable API operations through authentication and authorization policies, request and response transformation, throttling, logging, and monitoring.  
+It also allows APIs to be published in a portal format, enabling documentation and subscriber management.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+## Resource Setting Values
+
+-   `publisher_name` : Name of the API Management service publisher
+
+-   `publisher_email` : Email address of the publisher
+
+-   `sku_name` : SKU (pricing tier) name of the API Management service - `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium`, `PremiumV2`
+
+-   `sku_capacity` : Capacity (number of instances) for the selected SKU
+
+-   `virtual_network_type` : Method by which API Management connects to a virtual network - `None`, `External`, `Internal`
+
+-   `target_subnet_name` : Name of the subnet where API Management will be deployed
+
+-   `apis` : Option to specify the list of APIs to register or manage in the API Management service
+    -   `revision` : API revision number
+    -   `api_type` : Type of API - `http`, `soap`, `graphql`
+    -   `display_name` : Name of the API displayed in the portal
+    -   `path` : Path used to access the API endpoint
+    -   `protocols` : Communication protocols supported by the API - `http`, `https`, `ws`, `wss`
+
+---
+
+## References
+
+-   [Azure API Management(Microsoft)](https://learn.microsoft.com/ko-kr/azure/api-management/api-management-key-concepts)
+-   [Azure API Management Pricing](https://azure.microsoft.com/ko-kr/pricing/details/api-management/)
+-   [Azure API Management(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+-   [Azure API Management API(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management_api)

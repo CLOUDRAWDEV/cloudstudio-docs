@@ -1,0 +1,74 @@
+---
+title: Config
+sidebar_position: 0
+tags: [AWS, Risorsa, Config]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/config-config.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa che registra le informazioni di configurazione delle risorse dell’account AWS e consente di verificare le relazioni tra le risorse.
+
+## Risorse correlate
+
+### Risorsa padre
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**S3Bucket**](https://docs.cstudio.app/it/docs/resource/aws/S3/S3Bucket)
+-   [**SnsTopic**](https://docs.cstudio.app/it/docs/resource/aws/Sns/SnsTopic)
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `enable_config_recorder` : Abilita o disabilita il recorder di configurazione - `true`, `false`
+-   `role_name` : Nome del ruolo IAM utilizzato da AWS Config
+-   `linked_s3_bucket_name` : Nome del bucket S3 utilizzato per archiviare i record di configurazione
+-   `s3_key_prefix` : Prefisso del bucket S3 da utilizzare
+-   `enable_sns_topic` : Abilitazione del topic SNS per l’invio delle notifiche di AWS Config - `true`, `false`
+-   `linked_sns_topic_name` : Nome del topic SNS utilizzato da AWS Config per le notifiche
+-   `delivery_frequency` : Frequenza di invio degli snapshot di configurazione - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+
+#### Metodo di registrazione (`recording_method`)
+
+-   `recording_method.enable_all_supported` : Indica se AWS Config registra le modifiche di configurazione per tutte le risorse supportate - `true`, `false`
+-   `recording_method.exclude_resource_types` : Elenco dei tipi di risorse AWS da escludere dalla registrazione
+-   `recording_method.include_global_resource_types` : Indica se includere risorse globali supportate nella registrazione - `true`, `false`
+-   `recording_method.specific_resource_types` : Elenco dei tipi di risorse specifiche da registrare
+
+#### Regole di configurazione (`config_rule`)
+
+-   `config_rule.rule_owner` : Proprietario e gestore della regola di configurazione - `AWS`, `customLambda`, `customPolicy`
+-   `config_rule.source_identifier` : Identificatore predefinito della regola AWS Config
+-   `config_rule.target_lambda_name` : Nome della funzione Lambda utilizzata nelle regole personalizzate
+-   `config_rule.custom_policy_message_type` : Tipo di notifica che attiva la valutazione della regola
+-   `config_rule.maximum_execution_frequency` : Frequenza di esecuzione della valutazione - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
+-   `config_rule.custom_policy_text` : Definizione della policy personalizzata
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Amazon Config(AWS)](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_delivery_channel)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_config_rule)
+-   [Amazon Config(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder_status)
