@@ -17,21 +17,30 @@ import lb04 from "./img/lb04.png"
 <img
     src={
         "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
     }
 />
 
 ## Resource Overview
 
 Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances. It also monitors the health of registered targets and routes traffic only to healthy targets. Elastic Load Balancing supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer.
+Elastic Load Balancing automatically distributes incoming application traffic across multiple targets, such as EC2 instances. It also monitors the health of registered targets and routes traffic only to healthy targets. Elastic Load Balancing supports three types of load balancers: Application Load Balancer, Network Load Balancer, and Classic Load Balancer.
 
 ## Associated Resources
 
 ### Parent Resource
 
+### Parent Resource
+
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ### Connected Resources
 
+-   [**LbTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
 -   [**LbTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Networking/TargetGroup)
 -   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
 -   [**EndpointService**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
@@ -180,5 +189,6 @@ Elastic Load Balancing automatically distributes incoming application traffic ac
 ## References
 
 -   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing Pricing(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
 -   [Elastic Load Balancing Pricing(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
 -   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

@@ -1,6 +1,7 @@
 ---
 title: Subnet
 sidebar_position: 1
+sidebar_position: 1
 tags: [AWS, Resource, Vpc, Subnet]
 ---
 
@@ -17,17 +18,22 @@ import subnet04 from "./img/subnet04.png"
 <img
     src={
         "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
     }
 />
 
 ## Resource Overview
 
 A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 instances can be launched within a specific subnet.
+A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 instances can be launched within a specific subnet.
 
 ## Associated Resources
 
 ### Parent Resource
 
+### Parent Resource
+
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ### Child Resources
@@ -38,7 +44,29 @@ A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 inst
 -   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/NetworkInterface)
 -   [**EksCluster**](https://docs.cstudio.app/en/docs/resource/aws/Eks/EksCluster)
 -   [**ElasticacheCluster**](https://docs.cstudio.app/en/docs/resource/aws/Elasticache/Elasticache)
+-   [**DirectoryService**](https://docs.cstudio.app/en/docs/resource/DirectoryService/Security/DirectoryService)
+-   [**Eip**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
+-   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/en/docs/resource/aws/Eks/EksCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/en/docs/resource/aws/Elasticache/Elasticache)
 -   [**Elasticsearch**](https://docs.cstudio.app/en/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/Lambda)
+-   [**Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Postgresql)
+-   [**NatGateway**](https://docs.cstudio.app/en/docs/resource/aws/Rds/NatGateway)
+
+### Connected Resources
+
+-   [**Lb**](https://docs.cstudio.app/en/docs/resource/aws/Networking/LoadBalancer)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**NetworkFirewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
+-   [**NetworkAcl**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkAcl)
 -   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/Lambda)
 -   [**Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
 -   [**Mariadb**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mariadb)
@@ -111,7 +139,7 @@ A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 inst
 
 -   Verify that the **Private Subnet** has been converted to a **Public Subnet**.
 
-## Reference Materials
+## References
 
 =======
 
