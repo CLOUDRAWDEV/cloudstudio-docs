@@ -7,7 +7,7 @@ tags: [AWS, Resource, Ec2, Instance]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,15 +15,15 @@ tags: [AWS, Resource, Ec2, Instance]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-Amazon EC2は、AWSクラウド上で拡張可能なコンピューティング容量を提供します。  
+Amazon EC2 は、AWS クラウド上で拡張可能なコンピューティング容量を提供します。  
 事前にハードウェア投資を行う必要がなく、迅速にアプリケーションの開発・デプロイが可能です。  
 仮想サーバーの構築、セキュリティ・ネットワーク設定、ストレージ管理を柔軟に行え、需要変動にも容易に対応できます。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
@@ -33,33 +33,33 @@ Amazon EC2は、AWSクラウド上で拡張可能なコンピューティング�
 -   [**RouteTable**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/RouteTable)
 -   [**LbTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/LbTargetGroup)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `ami` : インスタンス起動に使用するAMI
--   `instance_type` : EC2インスタンスタイプ
--   `key_pair_name` : 使用するKey Pair名
--   `linked_network_interface_names` : 使用するNetwork Interface名一覧
+-   `ami` : インスタンス起動に使用する AMI
+-   `instance_type` : EC2 インスタンスタイプ
+-   `key_pair_name` : 使用する Key Pair 名
+-   `linked_network_interface_names` : 使用する Network Interface 名一覧
 -   `http_endpoint` : メタデータサービス有効化可否 - `enabled`, `disabled`
 -   `http_tokens` : メタデータサービスのトークン要否 - `required`, `optional`
 -   `cloudinit_config` : 起動時に自動実行されるスクリプト内容
 
 #### Root Volume (`root_volume`)
 
--   `root_volume.volume_type` : Root Volumeタイプ - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
--   `root_volume.volume_size` : Root Volumeサイズ（GiB）
+-   `root_volume.volume_type` : Root Volume タイプ - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Root Volume サイズ（GiB）
 -   `root_volume.enabled_volume_encryption` : 暗号化有効化可否 - `true`, `false`
 
 #### EBS Block Device (`ebs_block_device`)
 
--   `ebs_block_device.volume_type` : EBS Volumeタイプ
--   `ebs_block_device.volume_size` : EBS Volumeサイズ（GiB）
+-   `ebs_block_device.volume_type` : EBS Volume タイプ
+-   `ebs_block_device.volume_size` : EBS Volume サイズ（GiB）
 -   `ebs_block_device.enabled_volume_encryption` : 暗号化有効化可否 - `true`, `false`
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ---
 

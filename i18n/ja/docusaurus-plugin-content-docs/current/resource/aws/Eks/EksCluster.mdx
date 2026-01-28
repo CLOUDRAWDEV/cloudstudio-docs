@@ -7,7 +7,7 @@ tags: [AWS, Resource, Eks, EksCluster]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,13 +15,13 @@ tags: [AWS, Resource, Eks, EksCluster]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-Amazon EKSは、Kubernetesクラスターをインストール・運用することなく、AWS上でKubernetesを簡単に実行できるマネージドサービスです。
+Amazon EKS は、Kubernetes クラスターをインストール・運用することなく、AWS 上で Kubernetes を簡単に実行できるマネージドサービスです。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
@@ -30,18 +30,18 @@ Amazon EKSは、Kubernetesクラスターをインストール・運用するこ
 -   [**EksCluster**](https://docs.cstudio.app/ja/docs/resource/aws/EKS/EksCluster)
 -   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `version` : Kubernetesバージョン
--   `cluster_role_arn` : コントロールプレーン用IAMロール
+-   `version` : Kubernetes バージョン
+-   `cluster_role_arn` : コントロールプレーン用 IAM ロール
 -   `enabled_encryption` : クラスター暗号化有効化可否 - `true`, `false`
--   `kms_key_name` : 使用するKMSキー名
--   `included_subnet_names` : 使用するSubnet一覧
--   `linked_security_group_names` : 使用するSecurity Group一覧
--   `endpoint_access_type` : APIエンドポイント公開方式
--   `public_access_cidrs` : APIアクセスを許可するCIDR一覧
+-   `kms_key_name` : 使用する KMS キー名
+-   `included_subnet_names` : 使用する Subnet 一覧
+-   `linked_security_group_names` : 使用する Security Group 一覧
+-   `endpoint_access_type` : API エンドポイント公開方式
+-   `public_access_cidrs` : API アクセスを許可する CIDR 一覧
 
 #### Control Plane ログ
 
@@ -49,26 +49,26 @@ Amazon EKSは、Kubernetesクラスターをインストール・運用するこ
 
 #### アドオン (`add_ons`)
 
--   `add_ons.kube_proxy_version` : kube-proxyバージョン
--   `add_ons.vpc_cni_version` : VPC CNIバージョン
--   `add_ons.core_dns_version` : CoreDNSバージョン
+-   `add_ons.kube_proxy_version` : kube-proxy バージョン
+-   `add_ons.vpc_cni_version` : VPC CNI バージョン
+-   `add_ons.core_dns_version` : CoreDNS バージョン
 
 #### ノードグループ (`node_group`)
 
--   `node_group.node_role_name` : ノードIAMロール
--   `node_group.enabled_launch_template` : Launch Template使用可否
--   `node_group.launch_template_name` : Launch Template名
--   `node_group.launch_template_version` : Launch Templateバージョン
+-   `node_group.node_role_name` : ノード IAM ロール
+-   `node_group.enabled_launch_template` : Launch Template 使用可否
+-   `node_group.launch_template_name` : Launch Template 名
+-   `node_group.launch_template_version` : Launch Template バージョン
 -   `node_group.min_node_count` : 最小ノード数
 -   `node_group.max_node_count` : 最大ノード数
 -   `node_group.desired_node_count` : 希望ノード数
 -   `node_group.max_node_unavailable` : 更新時の最大非稼働ノード数
 -   `node_group.max_percentage_unavailable` : 更新時の最大非稼働率
--   `node_group.disk_size` : ノードEBSサイズ（GB）
+-   `node_group.disk_size` : ノード EBS サイズ（GB）
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ---
 

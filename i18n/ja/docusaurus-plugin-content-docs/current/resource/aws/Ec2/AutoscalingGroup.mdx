@@ -7,17 +7,17 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
 
-## Resource Overview
+## リソース概要
 
-アプリケーション需要に応じてEC2インスタンスを自動的に起動・終了し、Resourceを調整するAuto Scaling Group（ASG）です。
+アプリケーション需要に応じて EC2 インスタンスを自動的に起動・終了し、Resource を調整する Auto Scaling Group（ASG）です。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
@@ -25,13 +25,13 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 
 -   [**LbTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/LbTargetGroup)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `launch_template_name` : Auto Scaling Groupで使用するLaunch Template名
--   `subnet_ids` : Auto Scaling GroupがResourceを作成するサブネットID一覧
--   `linked_targetgroup_name` : 接続するTarget Group名
+-   `launch_template_name` : Auto Scaling Group で使用する Launch Template 名
+-   `subnet_ids` : Auto Scaling Group が Resource を作成するサブネット ID 一覧
+-   `linked_targetgroup_name` : 接続する Target Group 名
 -   `desired_capacity` : 維持するインスタンスの目標数
 -   `min_size` : 維持するインスタンスの最小数
 -   `max_size` : 維持するインスタンスの最大数
@@ -39,7 +39,7 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 
 #### タグ
 
--   `tags` : Resourceを分類するためのタグ
+-   `tags` : Resource を分類するためのタグ
 
 ---
 

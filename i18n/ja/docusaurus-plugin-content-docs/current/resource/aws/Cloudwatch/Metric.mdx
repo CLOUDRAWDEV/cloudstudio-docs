@@ -7,7 +7,7 @@ tags: [AWS, Resource, Cloudwatch, Metric]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,15 +15,15 @@ tags: [AWS, Resource, Cloudwatch, Metric]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWS CloudWatch Metricは、監視対象Resourceから収集された測定値を表す名前と値のペアです。  
-CPU使用率やネットワーク入出力などの指標を収集し、ダッシュボード、アラーム、分析に使用できます。  
-また、カスタムMetricを作成し、アプリケーションやサービスのデータ監視も可能です。
+AWS CloudWatch Metric は、監視対象 Resource から収集された測定値を表す名前と値のペアです。  
+CPU 使用率やネットワーク入出力などの指標を収集し、ダッシュボード、アラーム、分析に使用できます。  
+また、カスタム Metric を作成し、アプリケーションやサービスのデータ監視も可能です。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
@@ -33,26 +33,26 @@ CPU使用率やネットワーク入出力などの指標を収集し、ダッ�
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `comparison_operator` : 指標と閾値の比較演算子 - `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
 -   `evaluation_periods` : 評価期間数
--   `metric_name` : CloudWatch Metric名
--   `namespace` : CloudWatch Metricネームスペース
+-   `metric_name` : CloudWatch Metric 名
+-   `namespace` : CloudWatch Metric ネームスペース
 -   `period` : 集計周期（秒）
 -   `statistic` : 統計方式 - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
 -   `threshold` : アラーム発火閾値
 -   `alarm_description` : アラーム説明
--   `linked_sns_names` : Metricで使用するSNS Topic一覧
--   `alarm_sns_names` : 閾値超過時に通知するSNS Topic一覧
--   `ok_sns_names` : 正常復帰時に通知するSNS Topic一覧
--   `insufficient_data_sns_names` : データ不足時に通知するSNS Topic一覧
+-   `linked_sns_names` : Metric で使用する SNS Topic 一覧
+-   `alarm_sns_names` : 閾値超過時に通知する SNS Topic 一覧
+-   `ok_sns_names` : 正常復帰時に通知する SNS Topic 一覧
+-   `insufficient_data_sns_names` : データ不足時に通知する SNS Topic 一覧
 
 #### タグ
 
--   `tag` : Resource分類用タグ一覧
+-   `tag` : Resource 分類用タグ一覧
 
 ---
 

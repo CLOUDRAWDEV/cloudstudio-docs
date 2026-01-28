@@ -7,7 +7,7 @@ tags: [AWS, Resource, Cloudwatch, OamSourceAccount]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,13 +15,13 @@ tags: [AWS, Resource, Cloudwatch, OamSourceAccount]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWS CloudWatch OAM Source Accountsは、中央モニタリングアカウントと共有されるソースアカウントを構成します。
+AWS CloudWatch OAM Source Accounts は、中央モニタリングアカウントと共有されるソースアカウントを構成します。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
@@ -29,19 +29,19 @@ AWS CloudWatch OAM Source Accountsは、中央モニタリングアカウント�
 
 -   [**OamMonitoringAccount**](https://docs.cstudio.app/ja/docs/resource/aws/CloudWatch/OamMonitoringAccount)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `is_manual` : 接続するOAM Source Account ARNを手動入力するかどうか - `true`, `false`
--   `linked_oam_monitoring_account_name` : 接続するOAM Monitoring Account名
--   `oam_monitoring_account_arn` : データを共有するモニタリングアカウントのARN
+-   `is_manual` : 接続する OAM Source Account ARN を手動入力するかどうか - `true`, `false`
+-   `linked_oam_monitoring_account_name` : 接続する OAM Monitoring Account 名
+-   `oam_monitoring_account_arn` : データを共有するモニタリングアカウントの ARN
 -   `resource_types` : モニタリングアカウントと共有するデータ種別 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
 -   `label_template` : ソースアカウント識別用ラベル - `$AccountName`, `$AccountEmail`, `$AccountEmailNoDomain`
 
 #### タグ
 
--   `tag` : Resourceをカテゴリ別に分類するためのタグ
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 

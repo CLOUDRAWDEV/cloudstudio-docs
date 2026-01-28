@@ -7,32 +7,32 @@ tags: [AWS, Bedrock, Agent, LLM, AI]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_agent.webp" />
 
-## Resource Overview
+## リソース概要
 
-AWS Bedrock上で実行されるAIエージェントを作成および管理するサービスです。
+AWS Bedrock 上で実行される AI エージェントを作成および管理するサービスです。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `foundation_model` : Bedrockで使用する基本LLM（基盤モデル）を指定するオプション - `amazon.titan-text-express-v1`, `amazon.nova-pro-v1`, `amazon.nova-lite-v1`, `amazon.nova-micro-v1`, `anthropic.claude-sonnet-4-20250514-v1:0`, `anthropic.claude-sonnet-4-5-20250929-v1:0`, `anthropic.claude-haiku-4-5-20251001-v1:0`, `anthropic.claude-3-sonnet-20240229-v1:0`, `anthropic.claude-3-opus-20240229-v1:0`, `anthropic.claude-3-haiku-20240307-v1:0`, `anthropic.claude-3-5-sonnet-20240620-v1:0`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `anthropic.claude-3-5-haiku-20241022-v1:0`, `anthropic.claude-3-7-sonnet-20250219-v1:0`, `deepseek.r1-v1`, `openai.gpt-oss-120b-1`, `openai.gpt-oss-20b-1`, `qwen.qwen3-coder-30b-a3b-v1`, `qwen.qwen3-32b-v1`
+-   `foundation_model` : Bedrock で使用する基本 LLM（基盤モデル）を指定するオプション - `amazon.titan-text-express-v1`, `amazon.nova-pro-v1`, `amazon.nova-lite-v1`, `amazon.nova-micro-v1`, `anthropic.claude-sonnet-4-20250514-v1:0`, `anthropic.claude-sonnet-4-5-20250929-v1:0`, `anthropic.claude-haiku-4-5-20251001-v1:0`, `anthropic.claude-3-sonnet-20240229-v1:0`, `anthropic.claude-3-opus-20240229-v1:0`, `anthropic.claude-3-haiku-20240307-v1:0`, `anthropic.claude-3-5-sonnet-20240620-v1:0`, `anthropic.claude-3-5-sonnet-20241022-v2:0`, `anthropic.claude-3-5-haiku-20241022-v1:0`, `anthropic.claude-3-7-sonnet-20250219-v1:0`, `deepseek.r1-v1`, `openai.gpt-oss-120b-1`, `openai.gpt-oss-20b-1`, `qwen.qwen3-coder-30b-a3b-v1`, `qwen.qwen3-32b-v1`
 -   `description` : 該当エージェントに関する説明
 -   `idle_session_ttl_in_seconds` : セッションがアイドル状態の際に自動終了されるまでの時間（秒）
 -   `instruction` : エージェントが従う基本指示文（システムプロンプト）
--   `customer_encryption_key_arn` : 指定したKMSキー（ARN）でBedrock Resourceデータを暗号化する設定
--   `target_bedrock_knowledge_base` : 知識ベースと接続するBedrockエージェントのARN
+-   `customer_encryption_key_arn` : 指定した KMS キー（ARN）で Bedrock Resource データを暗号化する設定
+-   `target_bedrock_knowledge_base` : 知識ベースと接続する Bedrock エージェントの ARN
 -   `knowledge_base_association_description` : 知識ベースとエージェント間の関連付けに関する説明
 -   `knowledge_base_state` : 知識ベースの現在の状態 - `ENABLED`, `DISABLED`
 
@@ -40,8 +40,8 @@ AWS Bedrock上で実行されるAIエージェントを作成および管理す�
 
 -   `guardrail_configuration.guardrail_use_method` : ガードレール適用方式の指定 - `already_exists`, `create_new`
 -   `guardrail_configuration.guardrail_identifier` : 使用するガードレールの一意識別子（ID）
--   `guardrail_configuration.target_bedrock_guardrail` : 接続するBedrockガードレールResource
--   `guardrail_configuration.guardrail_version` : 使用するガードレールResourceのバージョン
+-   `guardrail_configuration.target_bedrock_guardrail` : 接続する Bedrock ガードレール Resource
+-   `guardrail_configuration.guardrail_version` : 使用するガードレール Resource のバージョン
 
 #### プロンプトオーバーライド設定 (`prompt_override_configuration`)
 
@@ -56,9 +56,9 @@ AWS Bedrock上で実行されるAIエージェントを作成および管理す�
 -   `prompt_override_configuration.prompt_configurations.stop_sequences` : テキスト生成を停止する文字列シーケンス
 -   `prompt_override_configuration.prompt_configurations.temperature` : 生成結果の創造性（ランダム性）
 -   `prompt_override_configuration.prompt_configurations.top_p` : 確率累積値による語彙選択制限
--   `prompt_override_configuration.prompt_configurations.top_k` : 上位K個の高確率単語のみを候補にする設定
+-   `prompt_override_configuration.prompt_configurations.top_k` : 上位 K 個の高確率単語のみを候補にする設定
 
--   `prompt_override_configuration.override_lambda` : 基本プロンプト動作をカスタマイズするために呼び出すAWS Lambda関数
+-   `prompt_override_configuration.override_lambda` : 基本プロンプト動作をカスタマイズするために呼び出す AWS Lambda 関数
 
 ---
 

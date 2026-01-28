@@ -7,7 +7,7 @@ tags: [AWS, Resource, Cloudfront, CloudfrontDistribution]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,14 +15,14 @@ tags: [AWS, Resource, Cloudfront, CloudfrontDistribution]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-Amazon CloudFrontは、HTML、CSS、PHP、画像、メディアファイルなどの静的および動的なWebコンテンツの配信速度を向上させます。  
-ユーザーがコンテンツをリクエストすると、CloudFrontは低レイテンシーかつ高パフォーマンスを提供する世界中のエッジロケーションネットワークを通じてコンテンツを配信します。
+Amazon CloudFront は、HTML、CSS、PHP、画像、メディアファイルなどの静的および動的な Web コンテンツの配信速度を向上させます。  
+ユーザーがコンテンツをリクエストすると、CloudFront は低レイテンシーかつ高パフォーマンスを提供する世界中のエッジロケーションネットワークを通じてコンテンツを配信します。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Base)
 
@@ -34,40 +34,40 @@ Amazon CloudFrontは、HTML、CSS、PHP、画像、メディアファイルな�
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `enabled` : ディストリビューション有効化可否 - `true`, `false`
--   `price_class` : CloudFrontディストリビューションの価格クラス - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
--   `http_version` : サポートする最大HTTPバージョン - `http1.1`, `http2`
--   `is_ipv6_enabled` : IPv6使用可否 - `true`, `false`
--   `linked_waf_web_acl_name` : セキュリティ保護に使用するWAF Web ACL名
--   `tag` : Resourceを分類するためのタグ
+-   `price_class` : CloudFront ディストリビューションの価格クラス - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : サポートする最大 HTTP バージョン - `http1.1`, `http2`
+-   `is_ipv6_enabled` : IPv6 使用可否 - `true`, `false`
+-   `linked_waf_web_acl_name` : セキュリティ保護に使用する WAF Web ACL 名
+-   `tag` : Resource を分類するためのタグ
 
 #### Origin 設定 (`origin`)
 
 -   `origin.origin_type` : オリジン種別 - `s3`, `custom`
--   `origin.linked_resource_name` : S3オリジンの場合に接続するS3 Bucket
--   `origin.domain` : カスタムオリジンの場合のDNSドメイン名
--   `origin.shield_enabled` : Origin Shield有効化可否 - `true`, `false`
--   `origin.shield_region` : Origin Shieldを使用するAWSリージョンコード
+-   `origin.linked_resource_name` : S3 オリジンの場合に接続する S3 Bucket
+-   `origin.domain` : カスタムオリジンの場合の DNS ドメイン名
+-   `origin.shield_enabled` : Origin Shield 有効化可否 - `true`, `false`
+-   `origin.shield_region` : Origin Shield を使用する AWS リージョンコード
 
 #### Origin Group (`origin_group`)
 
--   `origin_group.first_origin_name` : 第1オリジン名
--   `origin_group.second_origin_name` : 第2オリジン名
--   `origin_group.failover_criteria` : フェイルオーバー判定HTTPステータスコード一覧
+-   `origin_group.first_origin_name` : 第 1 オリジン名
+-   `origin_group.second_origin_name` : 第 2 オリジン名
+-   `origin_group.failover_criteria` : フェイルオーバー判定 HTTP ステータスコード一覧
 
 #### Cache Behavior (`cache_behavior`)
 
 -   `cache_behavior.path_pattern` : キャッシュ動作を適用するリクエストパスパターン
 -   `cache_behavior.compress` : 自動圧縮可否 - `true`, `false`
 -   `cache_behavior.viewer_protocol_policy` : ビュープロトコルポリシー - `allow-all`, `https-only`, `redirect-to-https`
--   `cache_behavior.allowed_methods` : CloudFrontが処理するHTTPメソッド一覧
--   `cache_behavior.cached_methods` : キャッシュ対象HTTPメソッド一覧
+-   `cache_behavior.allowed_methods` : CloudFront が処理する HTTP メソッド一覧
+-   `cache_behavior.cached_methods` : キャッシュ対象 HTTP メソッド一覧
 -   `cache_behavior.origin_name` : リクエスト転送先オリジン名
--   `cache_behavior.linked_cache_policy_name` : 接続するCache Policy名
+-   `cache_behavior.linked_cache_policy_name` : 接続する Cache Policy 名
 
 #### Restriction 設定 (`restriction`)
 
@@ -76,22 +76,22 @@ Amazon CloudFrontは、HTML、CSS、PHP、画像、メディアファイルな�
 
 #### Certificate 設定 (`viewer_certificate`)
 
--   `viewer_certificate.default_certificate_enabled` : デフォルトCloudFront証明書使用可否
--   `viewer_certificate.acm_certificate_name` : 使用するACM証明書名
--   `viewer_certificate.iam_certificate_id` : 使用するIAM証明書ID
--   `viewer_certificate.legacy_client_support_enabled` : レガシーHTTPS方式使用可否
--   `viewer_certificate.minimum_protocol_version` : 最小SSL/TLSプロトコルバージョン
+-   `viewer_certificate.default_certificate_enabled` : デフォルト CloudFront 証明書使用可否
+-   `viewer_certificate.acm_certificate_name` : 使用する ACM 証明書名
+-   `viewer_certificate.iam_certificate_id` : 使用する IAM 証明書 ID
+-   `viewer_certificate.legacy_client_support_enabled` : レガシー HTTPS 方式使用可否
+-   `viewer_certificate.minimum_protocol_version` : 最小 SSL/TLS プロトコルバージョン
 
 #### Logging 設定 (`logging`)
 
 -   `logging.logging_enabled` : アクセスログ有効化可否 - `true`, `false`
--   `logging.logging_s3_bucket_name` : ログ保存用S3 Bucket
+-   `logging.logging_s3_bucket_name` : ログ保存用 S3 Bucket
 -   `logging.logging_file_prefix` : ログファイル接頭辞
--   `logging.logging_include_cookies` : Cookie含有可否 - `true`, `false`
+-   `logging.logging_include_cookies` : Cookie 含有可否 - `true`, `false`
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ## References
 

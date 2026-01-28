@@ -7,23 +7,23 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_knowledge_base.webp" />
 
-## Resource Overview
+## リソース概要
 
-ベクトルまたはテキストベースの知識ベースを作成・管理するAWS Bedrock Resourceです。
+ベクトルまたはテキストベースの知識ベースを作成・管理する AWS Bedrock Resource です。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
 #### 知識ベース構成 (`knowledge_base_configuration`)
 
@@ -31,7 +31,7 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 
 #### ベクトル知識ベース設定 (`knowledge_base_configuration.vector_knowledge_base_configuration`)
 
--   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` : 埋め込み生成に使用するモデルのARN
+-   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` : 埋め込み生成に使用するモデルの ARN
 
 #### ストレージ設定 (`storage_configuration`)
 
@@ -39,7 +39,7 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 
 #### OpenSearch Serverless 設定 (`storage_configuration.opensearch_serverless_configuration`)
 
--   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : 接続するOpenSearch ServerlessコレクションのARN
+-   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : 接続する OpenSearch Serverless コレクションの ARN
 -   `storage_configuration.opensearch_serverless_configuration.vector_index_name` : ベクトルデータを保存するインデックス名
 -   `storage_configuration.opensearch_serverless_configuration.vector_field` : ベクトル（埋め込み）データを保存するフィールド名
 -   `storage_configuration.opensearch_serverless_configuration.text_field` : 元テキストデータを保存するフィールド名
@@ -47,17 +47,17 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 
 #### Pinecone 設定 (`storage_configuration.pinecone_configuration`)
 
--   `storage_configuration.pinecone_configuration.connection_string` : 接続するPineconeインデックスのURLまたはエンドポイント
--   `storage_configuration.pinecone_configuration.credentials_secret_arn` : Pinecone APIキーが保存されたAWS Secrets ManagerのARN
--   `storage_configuration.pinecone_configuration.namespace` : ベクトルデータを分離するPineconeネームスペース名
+-   `storage_configuration.pinecone_configuration.connection_string` : 接続する Pinecone インデックスの URL またはエンドポイント
+-   `storage_configuration.pinecone_configuration.credentials_secret_arn` : Pinecone API キーが保存された AWS Secrets Manager の ARN
+-   `storage_configuration.pinecone_configuration.namespace` : ベクトルデータを分離する Pinecone ネームスペース名
 -   `storage_configuration.pinecone_configuration.text_field` : 元テキストを保存するフィールド名
 -   `storage_configuration.pinecone_configuration.metadata_field` : メタデータフィールド名
 
 #### RDS 設定 (`storage_configuration.rds_configuration`)
 
--   `storage_configuration.rds_configuration.credentials_secret_arn` : DB接続情報が保存されたAWS Secrets ManagerのARN
--   `storage_configuration.rds_configuration.database_name` : 接続するRDSデータベース名
--   `storage_configuration.rds_configuration.resource_arn` : 接続対象RDSインスタンスまたはクラスターのARN
+-   `storage_configuration.rds_configuration.credentials_secret_arn` : DB 接続情報が保存された AWS Secrets Manager の ARN
+-   `storage_configuration.rds_configuration.database_name` : 接続する RDS データベース名
+-   `storage_configuration.rds_configuration.resource_arn` : 接続対象 RDS インスタンスまたはクラスターの ARN
 -   `storage_configuration.rds_configuration.table_name` : ベクトルおよびテキストデータを保存するテーブル名
 -   `storage_configuration.rds_configuration.metadata_field` : メタデータフィールド名
 -   `storage_configuration.rds_configuration.primary_key_field` : レコードを一意に識別する主キー
@@ -66,8 +66,8 @@ tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
 
 #### Redis Enterprise Cloud 設定 (`storage_configuration.redis_enterprise_cloud_configuration`)
 
--   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : Redis Enterprise Cloud接続情報が保存されたAWS Secrets ManagerのARN
--   `storage_configuration.redis_enterprise_cloud_configuration.endpoint` : Redis Enterprise Cloud DB接続エンドポイント
+-   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : Redis Enterprise Cloud 接続情報が保存された AWS Secrets Manager の ARN
+-   `storage_configuration.redis_enterprise_cloud_configuration.endpoint` : Redis Enterprise Cloud DB 接続エンドポイント
 -   `storage_configuration.redis_enterprise_cloud_configuration.vector_index_name` : ベクトル検索用インデックス名
 -   `storage_configuration.redis_enterprise_cloud_configuration.text_field` : 元テキスト保存フィールド
 -   `storage_configuration.redis_enterprise_cloud_configuration.metadata_field` : メタデータ保存フィールド

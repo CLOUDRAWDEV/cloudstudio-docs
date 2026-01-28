@@ -7,7 +7,7 @@ tags: [AWS, Resource, Ecs, EcsTaskDefinition]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,30 +15,30 @@ tags: [AWS, Resource, Ecs, EcsTaskDefinition]
     }
 />
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `app_environment` : タスクの起動方式 - `EC2`, `FARGATE`
--   `os_architecture` : 使用するOSアーキテクチャ - `LINUX X86_64`
--   `task_cpu` : タスクに割り当てるCPUユニット数
+-   `os_architecture` : 使用する OS アーキテクチャ - `LINUX X86_64`
+-   `task_cpu` : タスクに割り当てる CPU ユニット数
 -   `task_memory` : タスクに割り当てるメモリ量（MiB）
 -   `network_mode` : ネットワークモード - `awsvpc`, `none`, `bridge`, `host`
 
 #### コンテナ (`container`)
 
--   `container.image_url` : ECSクラスターで実行するコンテナイメージ
+-   `container.image_url` : ECS クラスターで実行するコンテナイメージ
 -   `container.essential_enabled` : コンテナ停止時に他コンテナも停止するかどうか - `true`, `false`
 -   `container.port_mapping.container_port` : 使用するコンテナポート番号
 -   `container.port_mapping.protocol` : ポートマッピングのプロトコル - `tcp`, `udp`
 -   `container.port_mapping.app_protocol` : サービス接続用アプリケーションプロトコル - `http`, `http2`, `grpc`, `none`
--   `container.cpu` : コンテナに割り当てるCPU
+-   `container.cpu` : コンテナに割り当てる CPU
 -   `container.memory` : コンテナに割り当てるメモリ
 
 #### ボリューム (`volume`)
@@ -48,13 +48,13 @@ tags: [AWS, Resource, Ecs, EcsTaskDefinition]
 #### ボリュームマウント (`volume_mount`)
 
 -   `volume_mount.container_name` : マウント対象コンテナ名
--   `volume_mount.volume_name` : マウントするVolume名
+-   `volume_mount.volume_name` : マウントする Volume 名
 -   `volume_mount.container_path` : コンテナ内マウントパス
 -   `volume_mount.read_only` : 読み取り専用可否 - `true`, `false`
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ## References
 

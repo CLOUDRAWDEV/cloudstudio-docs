@@ -7,7 +7,7 @@ tags: [AWS, リソース, AcmCertificate]
 <hr />
 <br />
 
-## リソース アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,29 +15,29 @@ tags: [AWS, リソース, AcmCertificate]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-ACM Certificate Resourceを使用すると、Amazon Certificate Managerで証明書をリクエストおよび管理できます。
+ACM Certificate Resource を使用すると、Amazon Certificate Manager で証明書をリクエストおよび管理できます。
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/jp/docs/resource/aws/Base/Region)
 
 ## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `enabled_import` : 証明書をインポートするかどうか - `true`, `false`
 -   `domain_name` : 証明書の正規化されたドメイン名
 -   `validation_method` : ドメイン所有権を検証する方法 - `DNS`, `EMAIL`
 -   `key_algorithm` : 暗号化アルゴリズム - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
--   `certificate_body` : インポートする証明書のPEMエンコードされた本文 - 最大 `5000`文字
--   `certificate_private_key` : インポートする証明書のPEMエンコードされたプライベートキー - 最大 `5000`文字
--   `certificate_chain` : インポートする証明書のPEMエンコードされた証明書チェーン - 最大 `5000`文字
+-   `certificate_body` : インポートする証明書の PEM エンコードされた本文 - 最大 `5000`文字
+-   `certificate_private_key` : インポートする証明書の PEM エンコードされたプライベートキー - 最大 `5000`文字
+-   `certificate_chain` : インポートする証明書の PEM エンコードされた証明書チェーン - 最大 `5000`文字
 
 #### タグ
 
--   `tag` : Resourceをカテゴリ別に分類するためのタグ - 最大 512文字, `key`:`value`
+-   `tag` : Resource をカテゴリ別に分類するためのタグ - 最大 512 文字, `key`:`value`
 
 ## References
 

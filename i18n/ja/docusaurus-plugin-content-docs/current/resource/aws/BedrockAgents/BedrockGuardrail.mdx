@@ -7,30 +7,30 @@ tags: [AWS, Bedrock, BedrockGuardrail, Guardrail, Security, AI]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_guardrail.webp" />
 
-## Resource Overview
+## リソース概要
 
-AWS Bedrockモデルの応答を制御するため、禁止語のブロックや機密情報保護などのポリシーを設定するResourceです。
+AWS Bedrock モデルの応答を制御するため、禁止語のブロックや機密情報保護などのポリシーを設定する Resource です。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
 #### 基本メッセージ設定
 
 -   `blocked_input_messaging` : 入力がブロックされた際にユーザーへ表示するメッセージ
 -   `blocked_outputs_messaging` : 出力がブロックされた際にユーザーへ表示するメッセージ
--   `guardrail_description` : Guardrailの目的および説明
--   `kms_key_arn` : Guardrailデータを暗号化するためのユーザー指定KMSキーARN
+-   `guardrail_description` : Guardrail の目的および説明
+-   `kms_key_arn` : Guardrail データを暗号化するためのユーザー指定 KMS キー ARN
 
 #### コンテンツポリシー (`content_policy_config`)
 
@@ -51,8 +51,8 @@ AWS Bedrockモデルの応答を制御するため、禁止語のブロックや
 
 #### 機密情報保護 (`sensitive_information_policy_config`)
 
--   `sensitive_information_policy_config.pii_entities_config.action` : PII検出時の基本対応 - `BLOCK`, `ANONYMIZE`, `NONE`
--   `sensitive_information_policy_config.pii_entities_config.type` : 検出対象PII種別
+-   `sensitive_information_policy_config.pii_entities_config.action` : PII 検出時の基本対応 - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.pii_entities_config.type` : 検出対象 PII 種別
 -   `sensitive_information_policy_config.regexes_config.action` : 正規表現検出時の対応 - `BLOCK`, `ANONYMIZE`, `NONE`
 -   `sensitive_information_policy_config.regexes_config.description` : 正規表現の説明
 -   `sensitive_information_policy_config.regexes_config.pattern` : 正規表現パターン
@@ -64,7 +64,7 @@ AWS Bedrockモデルの応答を制御するため、禁止語のブロックや
 
 #### バージョン管理 (`versions`)
 
--   `versions.description` : Guardrailバージョンごとの変更点または説明
+-   `versions.description` : Guardrail バージョンごとの変更点または説明
 
 ---
 

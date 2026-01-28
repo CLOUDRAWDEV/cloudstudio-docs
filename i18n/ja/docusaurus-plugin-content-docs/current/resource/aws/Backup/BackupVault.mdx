@@ -7,7 +7,7 @@ tags: [AWS, Resource, Backup, BackupVault]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,34 +15,34 @@ tags: [AWS, Resource, Backup, BackupVault]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWS Backupにおいて、Backup Vaultはバックアップを保存および構成するコンテナです。  
-Backup Vaultを作成する際、このVault内の一部バックアップを暗号化するためのAWS KMS暗号化キーを指定する必要があります。
+AWS Backup において、Backup Vault はバックアップを保存および構成するコンテナです。  
+Backup Vault を作成する際、この Vault 内の一部バックアップを暗号化するための AWS KMS 暗号化キーを指定する必要があります。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `kms_key_name` : バックアップを保護するために使用されるサーバー側暗号化キー
 
 #### Vault Lock 設定 (`lock_configuration`)
 
--   `lock_configuration.enabled_lock` : Vault Lock使用可否 - `true`, `false`
--   `lock_configuration.lock_mode` : Vault Lockの種類 - `Governance`, `Compliance`
--   `lock_configuration.min_retention_days` : Vaultが復旧ポイントを保持する最小保持期間 - `1` ~ `36500`
--   `lock_configuration.max_retention_days` : Vaultが復旧ポイントを保持する最大保持期間 - `1` ~ `36500`
--   `lock_configuration.changeable_for_days` : Lock期限までの日数 - `3` ~ `36500`
+-   `lock_configuration.enabled_lock` : Vault Lock 使用可否 - `true`, `false`
+-   `lock_configuration.lock_mode` : Vault Lock の種類 - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : Vault が復旧ポイントを保持する最小保持期間 - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : Vault が復旧ポイントを保持する最大保持期間 - `1` ~ `36500`
+-   `lock_configuration.changeable_for_days` : Lock 期限までの日数 - `3` ~ `36500`
 
 #### タグ
 
--   `tag` : Resourceをカテゴリ別に分類するためのタグ - 最大 512文字, `key`:`value`
+-   `tag` : Resource をカテゴリ別に分類するためのタグ - 最大 512 文字, `key`:`value`
 
 ---
 

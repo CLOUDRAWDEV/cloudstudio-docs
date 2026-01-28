@@ -7,7 +7,7 @@ tags: [AWS, Resource, Efs]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,23 +15,23 @@ tags: [AWS, Resource, Efs]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-ファイルシステムを作成し、EC2インスタンスにマウントしてデータの読み書きやファイル共有を行うことができます。
+ファイルシステムを作成し、EC2 インスタンスにマウントしてデータの読み書きやファイル共有を行うことができます。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 -   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `creation_token` : ファイルシステム作成を保証するための一意な識別子
--   `availability_zone_name` : ファイルシステムを作成するAWS可用性ゾーン
+-   `availability_zone_name` : ファイルシステムを作成する AWS 可用性ゾーン
 -   `enable_encrypted` : 暗号化有効化可否 - `true`, `false`
 -   `throughput_mode` : スループットモード - `provisioned`, `elastic`, `bursting`
 -   `provisioned_throughput_in_mibps` : プロビジョニングスループット（MiB/s）
@@ -39,16 +39,16 @@ tags: [AWS, Resource, Efs]
 
 #### ライフサイクルポリシー (`lifecycle_policy`)
 
--   `lifecycle_policy.transition_to_ia` : IAストレージ移行までの期間
+-   `lifecycle_policy.transition_to_ia` : IA ストレージ移行までの期間
 -   `lifecycle_policy.transition_to_primary_storage_class` : プライマリストレージ移行ポリシー
 
 #### マウントターゲット (`mount_target_subnets`)
 
--   `mount_target_subnets` : マウント対象Subnet一覧
+-   `mount_target_subnets` : マウント対象 Subnet 一覧
 
 #### ファイルシステムポリシー
 
--   `file_system_policy` : JSON形式のファイルシステムポリシー
+-   `file_system_policy` : JSON 形式のファイルシステムポリシー
 
 #### バックアップおよびレプリケーション
 
@@ -59,21 +59,21 @@ tags: [AWS, Resource, Efs]
 
 -   `replication_configuration.replication_region` : レプリケーション先リージョン
 -   `replication_configuration.replication_region_availability_zone_name` : レプリケーション先可用性ゾーン
--   `replication_configuration.kms_key_name` : 使用するKMSキー名
+-   `replication_configuration.kms_key_name` : 使用する KMS キー名
 
 #### アクセスポイント (`access_point`)
 
 -   `access_point.root_directory_path` : ルートディレクトリとして公開するパス
--   `access_point.posix_user_uid` : POSIXユーザーID
--   `access_point.posix_user_gid` : POSIXグループID
--   `access_point.posix_user_secondary_gids` : 補助POSIXグループID一覧
--   `access_point.root_owner_uid` : ルート所有者UID
--   `access_point.root_owner_gid` : ルート所有者GID
--   `access_point.root_permissions` : POSIX権限（8進数）
+-   `access_point.posix_user_uid` : POSIX ユーザー ID
+-   `access_point.posix_user_gid` : POSIX グループ ID
+-   `access_point.posix_user_secondary_gids` : 補助 POSIX グループ ID 一覧
+-   `access_point.root_owner_uid` : ルート所有者 UID
+-   `access_point.root_owner_gid` : ルート所有者 GID
+-   `access_point.root_permissions` : POSIX 権限（8 進数）
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ## References
 
