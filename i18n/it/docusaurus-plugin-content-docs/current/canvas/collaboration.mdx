@@ -5,14 +5,14 @@ tags: [Collaboration, Collaborazione, Autorizzazioni, Controllo, Canvas]
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
-import collaboration01 from "/docs/canvas/img/collaboration01.png"
-import collaboration02 from "/docs/canvas/img/collaboration02.gif"
-import collaboration03 from "/docs/canvas/img/delete-member.gif"
+import collaboration01 from "./img/collaboration01.png"
+import collaboration02 from "./img/gif/collaboration02.gif"
+import collaboration03 from "./img/gif/collaboration03.gif"
 
 <hr />
 <br />
 
-Cloud Studio offre la funzione di aggiungere membri al progetto per consentire la `collaborazione`. 
+Cloud Studio offre la funzione di aggiungere membri al progetto per consentire la `collaborazione`.
 Per collaborare, prima devi creare un progetto. Puoi trovare le istruzioni per creare un progetto [qui](/docs/start/create-project.mdx).
 Il membro che crea il progetto avrà il permesso `master` e potrà condividere lo schermo del progetto con i membri invitati, nonché modificarlo.
 
@@ -52,12 +52,12 @@ Il membro che crea il progetto avrà il permesso `master` e potrà condividere l
 
 ### Autorizzazioni del progetto
 
-| Autorizzazione del progetto | Descrizione                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| master        | Il creatore del progetto ha il permesso di leggere, modificare, eliminare, importare, distribuire il progetto e invitare membri per condividerlo. |
-| admin         | Può leggere, modificare, importare e distribuire il progetto, ma non può eliminarlo.                                                   |
-| editor        | Può leggere e modificare il progetto, ma non può fare altre azioni.                                                                          |
-| viewer        | Può solo leggere il progetto.                                                                                                            |
+| Autorizzazione del progetto | Descrizione                                                                                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| master                      | Il creatore del progetto ha il permesso di leggere, modificare, eliminare, importare, distribuire il progetto e invitare membri per condividerlo. |
+| admin                       | Può leggere, modificare, importare e distribuire il progetto, ma non può eliminarlo.                                                              |
+| editor                      | Può leggere e modificare il progetto, ma non può fare altre azioni.                                                                               |
+| viewer                      | Può solo leggere il progetto.                                                                                                                     |
 
 <br />
 
@@ -72,7 +72,7 @@ Il membro che crea il progetto avrà il permesso `master` e potrà condividere l
 ### Controllo del Canvas
 
 Per modificare il canvas, oltre alle autorizzazioni del progetto, è necessario avere il `controllo del canvas`.
-Di base, solo una persona può modificare il canvas, e inizialmente il controllo del canvas è assegnato al `master`. 
+Di base, solo una persona può modificare il canvas, e inizialmente il controllo del canvas è assegnato al `master`.
 Il master può delegare il controllo del canvas a un altro membro.
 
 <p />
@@ -81,14 +81,15 @@ Un membro che non ha il controllo del canvas può inviare una <highlight color="
 
 <admonition>
     <p>
-        Tuttavia, il master può acquisire immediatamente il controllo del canvas senza la necessità di una richiesta, 
-        indipendentemente dalla volontà dell'altro.
+        Tuttavia, il master può acquisire immediatamente il controllo del canvas
+        senza la necessità di una richiesta, indipendentemente dalla volontà
+        dell'altro.
     </p>
 </admonition>
 
 <p />
 
-Il controllo del canvas viene trasferito automaticamente al prossimo utente in caso di 
+Il controllo del canvas viene trasferito automaticamente al prossimo utente in caso di
 abbandono del master dal progetto, seguendo questo ordine: `master → admin → editor`. (I viewer non hanno diritti di modifica, quindi sono esclusi.)
 
 <br />

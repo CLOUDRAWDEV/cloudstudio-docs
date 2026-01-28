@@ -1,20 +1,26 @@
 ---
-title: 完成したプロジェクト管理
+title: プロジェクト管理
 sidebar_position: 8
 tags: [修正, コピー, 削除, 始めに]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-完成したプロジェクトは`修正·コピー·削除`できます。
+プロジェクトに対して `編集、コピー、削除` の操作を行うことができます。
 
 <br />
 
@@ -62,8 +68,11 @@ import modifyCanvas from "./img/gif/modify-canvas.gif"
 3. ポップアップが表示されたらプロジェクトをコピーするフォルダーを選択します。
 4. プロジェクト名を作成します。
 
-> -   英語、ハングル、数字のみ許可
-> -   2 ~ 20 桁
+> -   英字で始まる必要があります
+> -   使用可能な文字は英字、数字、ハイフン(-)、アンダースコア(\_)のみです
+> -   英字または数字で終わる必要があります
+> -   全体の長さは 2 ～ 20 文字です
+> -   空白は使用できません
 
 5. プロジェクトの説明を作成します。
 
@@ -72,7 +81,7 @@ import modifyCanvas from "./img/gif/modify-canvas.gif"
 6. `コピーする`ボタンをクリックします。
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="이미지" />
+    <img src={copyProject} width="800px" alt="이미지" />
 </div>
 
 <p>&nbsp;</p>

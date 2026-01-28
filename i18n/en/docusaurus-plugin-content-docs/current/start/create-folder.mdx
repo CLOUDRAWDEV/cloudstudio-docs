@@ -2,6 +2,8 @@
 title: Create Folder
 sidebar_position: 6
 tags: [Folder, Create Folder, Start]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
@@ -9,29 +11,35 @@ import createFolder from "./img/gif/create-folder.gif"
 
 <hr />
 <br />
-📁 A folder helps manage multiple projects. Organize your projects by placing
-them into the folders you create!
+📁 A folder is a structure used to systematically manage multiple
+projects. <br />
+In CloudStudio, you can create a folder and then organize and manage projects within
+that folder.
 
 <br />
 <br />
 
 <div className={styles.imgWrap}>
-    <img src={createFolder} alt="이미지" />
+    <img src={createFolder} alt="createFolder" />
 </div>
 
-1.  To create a new folder, click the `Add Folder icon` on the template page in CloudStudio.
-2.  When the pop-up appears, enter the `Enter Folder Name` and `Enter Folder Description`.
-    The folder description is optional. Both the folder name and description needs to satisfy the following conditions.
+<br />
 
-        > Folder Name
+1. To create a new folder, click the `Add Folder icon` on the template page in CloudStudio.
+2. When the folder creation popup appears, enter the `Folder Name` and `Folder Description`.<br/>The folder description is optional.<br/>
+   The folder name and folder description must meet the `conditions below`.
 
-        - English, Korean. Numbers allowed
-        - 2 to 12 digits
-        - Without Space
+> Folder Name
 
-        > Folder Description
+-   Must start with a letter
+-   Only letters, numbers, hyphens (-), and underscores (\_) are allowed
+-   Must end with a letter or number
+-   Total length must be between 2 and 12 characters
+-   Spaces are not allowed
 
-        - Up to 100 characters allowed
+> Folder Description
+
+-   Can be up to 100 characters
 
 3.  Click the `Create` button when you have finished entering the content in the pop-up window.
 4.  You can find the list of created folders under `Templates > My Folder`.
