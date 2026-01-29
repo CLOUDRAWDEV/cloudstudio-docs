@@ -1,121 +1,48 @@
 ---
 title: ContainerAppsEnvironment
 sidebar_position: 1
-tags: [Azure, KubernetesCluster, AKS, Container]
+tags: [Azure, ContainerAppsEnvironment, ContainerApps, Serverless]
 ---
 
 <hr />
 <br />
 
-## 리소스 아이콘
+## Ícono del recurso
 
 <img
     src={
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.webp"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container_apps-container_apps_environment.webp"
     }
 />
 
-## 리소스 개요
+## Descripción general del recurso
 
-Azure Kubernetes Service(AKS)는 Kubernetes 클러스터를 손쉽게 배포하고 운영할 수 있도록 지원하는 관리형 서비스입니다.  
-클러스터의 기본 설정, 인증/권한(RBAC), 네트워크 정책, 노드 풀 구성, API 서버 접근 제어 등을 설정하여 컨테이너 기반 워크로드를 운영할 수 있습니다.
+Azure Container Apps Environment es un recurso que define el entorno de redes y monitoreo donde se ejecutan las Azure Container Apps.
+Al conectar entornos operativos como los espacios de trabajo de Log Analytics utilizados cuando se crean y ejecutan las Container Apps, se pueden aplicar configuraciones de recopilación de registros y monitoreo de manera consistente.
 
-## 연관 리소스
+## Recursos relacionados
 
-### 상위 리소스
+### Recursos principales
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
--   [**Subnet**](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**ResourceGroup**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
 
-### 연결 리소스
+### Recursos subordinados
 
--   [**Metric**](https://docs.cstudio.app/docs/resource/azure/Monitor/Metric)
+-   [**ContainerApps**](https://docs.cstudio.app/es/docs/resource/azure/ContainerApps/ContainerApps)
 
-## 리소스 설정 값
+### Recursos conectados
 
--   `dns_prefix` : 호스트된 Kubernetes API 서버 FQDN과 함께 사용할 DNS 접두사
-
--   `sku_tier` : 쿠버네티스 클러스터 사용을 위한 가격 책정 계층 - `Free`, `Standard`
-
--   `enable_public_network_access` : Public Network의 접근 허용 여부 - `true`, `false`
-
--   `api_server_authorized_ip_ranges` : API 서버에 대한 접근을 보호하기 위한 권한 있는 IP 주소 범위 목록
-
--   `authentication_authorization` : 클러스터 리소스에 대한 액세스를 제한하기 위한 권한 방식 - `local_accounts`, `azure_rbac`, `kubernetes_rbac`
-
--   `admin_group_object_ids` : Cluster의 관리자 역할이 있어야 하는 Azure Active Directory 그룹의 개체 ID 목록
-
--   `network_policy` : 특정 Pod에 대한 접근 제한을 위한 네트워크 정책 - `calico`, `azure`, `none`
-
--   `load_balancer_sku` : Load Balancer의 가격 책정 계층 - `standard`, `basic`
-
--   `network_plugin` : 기본 가상 네트워크 구성 방식 - `kubenet`, `azure`
-
--   `included_subnet_name` : Kubernetes Cluster가 배포될 Subnet 이름
-
--   `pod_cidr` : Pod IP 주소를 사용하기 위한 CIDR
-
--   `service_cidr` : 서비스 클러스터 IP를 할당하는 CIDR 범위
-
--   `dns_service_ip` : Kubernetes DNS 서비스에 할당된 IP 주소
-
--   `outbound_type` : 아웃바운드 라우팅 타입 - `loadBalancer`, `userDefinedRouting`
-
-### 기본 노드 풀 설정 (`default_node_pool`)
-
--   `default_node_pool.node_pool_name` : Node Pool 이름 - Linux `1` ~ `12`자, Windows `1` ~ `6`자
-
--   `default_node_pool.enable_auto_scaling` : 클러스터 자동 크기 조정 활성화 여부 - `true`, `false`
-
--   `default_node_pool.node_count` : Node Pool의 노드 수 - `0` ~ `1000`
-
--   `default_node_pool.min_node_count` : Node Pool의 최소 노드 수 - `1` ~ `1000`
-
--   `default_node_pool.max_node_count` : Node Pool의 최대 노드 수 - `1` ~ `1000`
-
--   `default_node_pool.vm_size` : Node Pool에서 노드를 형성할 가상머신의 크기
-
--   `default_node_pool.os_disk_size_gb` : 가상머신의 OS 디스크 크기(GB) - `30` ~ `2048`
-
--   `default_node_pool.max_pods` : 노드에서 실행할 수 있는 Pod의 최대 수 - `10` ~ `250`
-
--   `default_node_pool.enable_node_public_ip` : 노드당 공용 IP 주소 사용 활성화 - `true`, `false`
-
--   `default_node_pool.public_ip_prefix_name` : 이 노드 풀의 노드에 대한 공용 IP 주소 접두사의 리소스 ID
-
--   `default_node_pool.temporary_name_for_rotation` : 특정 값 변경 시 필수로 지정해야 하는 임시 Node Pool 이름
-
-### 추가 노드 풀 설정 (`cluster_node_pool`)
-
--   `cluster_node_pool.node_mode` : Node Pool 모드 - `User`, `System`
-
--   `cluster_node_pool.node_os_type` : Node Pool에서 VM의 OS 유형 - `Linux`, `Windows`
-
--   `cluster_node_pool.enable_auto_scaling` : 자동 크기 조정 활성화 여부 - `true`, `false`
-
--   `cluster_node_pool.node_count` : Node Pool의 노드 수
-
--   `cluster_node_pool.max_node_count` : Node Pool의 최대 노드 수
-
--   `cluster_node_pool.min_node_count` : Node Pool의 최소 노드 수
-
--   `cluster_node_pool.vm_size` : Node Pool에서 노드를 형성할 가상머신의 크기
-
--   `cluster_node_pool.os_disk_size_gb` : 가상머신의 OS 디스크 크기(GB) - `30` ~ `2048`
-
--   `cluster_node_pool.max_pods` : 노드에서 실행할 수 있는 Pod의 최대 수 - `10` ~ `250`
-
--   `cluster_node_pool.enable_node_public_ip` : 노드당 공용 IP 주소 사용 활성화 - `true`, `false`
-
--   `cluster_node_pool.public_ip_prefix_name` : 해당 Node Pool의 Node에 대한 공용 IP 주소 접두사의 리소스 ID
-
-### 태그
-
--   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
+-   [**LogAnalyticsWorkspace**](https://docs.cstudio.app/es/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
 ---
 
-## 참고 자료
+## Valores de configuración del recurso
 
--   [Azure Kubernetes Service(AKS)(Microsoft)](https://learn.microsoft.com/ko-kr/azure/aks/)
--   [Terraform azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)
+-   `linked_log_analytics_workspace` : ID del recurso del espacio de trabajo de Log Analytics conectado
+
+---
+
+## Referencias
+
+-   [Azure Container Apps Environment(Microsoft)](https://learn.microsoft.com/es-es/azure/container-apps/environment)
+-   [Terraform azurerm_container_app_environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment)
