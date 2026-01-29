@@ -9,15 +9,17 @@ tags:
         エラー,
         キャンバス編集,
         描く,
-        始めに,
+        始めに
     ]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import dragDrop from "../start/img/gif/drag&drop.gif"
 import lineConnection from "../start/img/gif/line-connection.gif"
 import error from "../start/img/gif/error.gif"
-import edit from "../start/img/gif/option-edit.gif"
+import optionEdit from "../start/img/gif/option-edit.png"
 import undo from "../start/img/undo.png"
 import redo from "../start/img/redo.png"
 import list from "../start/img/list.png"
@@ -109,9 +111,9 @@ import erroroption from "../start/img/error.png"
 
 ## リソース Drag & Drop {#drag-drop}
 
-`Drag & Drop`はキャンバスを構成できる最も単純な機能です。
-左側の`リソースリスト`から必要なリソースをドラッグしてキャンバスに Drag&Drop してみましょう！
-互いに接続できないリソースは、赤い線とともに跳ね返ります。
+`Drag & Drop` は、キャンバスを構成するための最も基本的な方法です。
+左側の `リソースリスト` から目的のリソースを選択し、キャンバス領域に配置できます。
+相互に接続できないリソースの場合、赤い表示とともに接続が制限されます。
 
 <div className={styles.imgWrap}>
     <img src={dragDrop} alt="드래그앤드롭 이미지" />
@@ -130,7 +132,8 @@ import erroroption from "../start/img/error.png"
 
 ## リソース連結 {#resource-connect}
 
-キャンバスに Drag & Drop したリソースを連結できるリソース同士で線でつなげます。
+キャンバスに配置されたリソースのうち、相互に接続可能なリソースは線で接続できます。<br/>
+これらの接続は、リソース間の特定のオプション設定や関係を定義するために使用されます。
 
 <div className={styles.imgWrap}>
     <img src={lineConnection} alt="리소스 연결 이미지" />
@@ -155,12 +158,13 @@ import erroroption from "../start/img/error.png"
 
 ## リソースオプションの編集 {#option-edit}
 
-リソースを`ダブルクリック`してリソース設定値を変更できる`編集ウィンドウ`を開きます。
-`詳細を見る`アイコンをクリックしてそのリソースの説明を確認できます。
-❓ `クェスチョンマーク`アイコンにマウスを合わせると各オプションに関する説明を確認できます。説明を参考にして、必要な値を設定してください。
+リソースを `ダブルクリック` すると、リソースの設定値を変更できる `編集ウィンドウ` を開くことができます。
+`詳細を見る` アイコンをクリックすると、該当リソースの説明を確認できます。<br/>
+各オプションにある `クエスチョンマークアイコン` にマウスを合わせると、そのオプションの説明が表示されます。
+提供される説明を参考にして、必要な値を設定できます。
 
 <div className={styles.imgWrap}>
-    <img src={edit} alt="옵션 편집 이미지" />
+    <img src={optionEdit} alt="옵션 편집 이미지" />
 </div>
 
 <p>&nbsp;</p>
@@ -168,9 +172,9 @@ import erroroption from "../start/img/error.png"
 
 ## エラーを修正する {#error-correction}
 
-🔴  赤い点はそのリソースにエラーがあることを示しています。 <highlight color="#FF7272">エラーがある場合、キャンバスを保存及びデプロイすることはできません。</highlight>
-エラーを解決するために、キャンバスでエラーが発生したリソースを`ダブルクリック`してキャンバスエラーウィンドウを開きます。
-キャンバス エラー ウィンドウで修正しようとしている特定のエラーをダブルクリックすると、エラーが発生した場所に移動します。エラーの原因を参考にしてエラーを修正します。
+🔴  赤い点は、該当するリソースにエラーが存在することを示しています。<highlight color="#FF7272">エラーがある場合、キャンバスを保存またはデプロイすることはできません。</highlight>
+エラーを解決するには、キャンバス上でエラーが発生しているリソースをダブルクリックして、キャンバスエラーウィンドウを開きます。
+キャンバスエラーウィンドウで修正したいエラーをダブルクリックすると、エラーが発生した位置へ移動し、表示されるエラー内容を参照して問題を修正できます。
 
 <div className={styles.imgWrap}>
     <img src={error} alt="오류 수정 이미지" />

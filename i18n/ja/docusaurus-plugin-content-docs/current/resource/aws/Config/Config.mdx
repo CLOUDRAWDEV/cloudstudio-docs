@@ -7,7 +7,7 @@ tags: [AWS, Resource, Config]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,56 +15,56 @@ tags: [AWS, Resource, Config]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWSアカウント内のResource構成情報を記録し、Resource間の関係を確認するためのResourceです。
+AWS アカウント内の Resource 構成情報を記録し、Resource 間の関係を確認するための Resource です。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### Connected Resources
+### 接続リソース
 
 -   [**S3Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
 -   [**SnsTopic**](https://docs.cstudio.app/ja/docs/resource/aws/Sns/SnsTopic)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 -   `enable_config_recorder` : 構成レコーダーの有効／無効 - `true`, `false`
--   `role_name` : AWS Configで使用するIAM Role名
--   `linked_s3_bucket_name` : 構成履歴保存用S3 Bucket名
--   `s3_key_prefix` : 使用するS3 Bucketのプレフィックス
--   `enable_sns_topic` : 通知用SNS Topic有効化可否 - `true`, `false`
--   `linked_sns_topic_name` : 通知送信用SNS Topic名
+-   `role_name` : AWS Config で使用する IAM Role 名
+-   `linked_s3_bucket_name` : 構成履歴保存用 S3 Bucket 名
+-   `s3_key_prefix` : 使用する S3 Bucket のプレフィックス
+-   `enable_sns_topic` : 通知用 SNS Topic 有効化可否 - `true`, `false`
+-   `linked_sns_topic_name` : 通知送信用 SNS Topic 名
 -   `delivery_frequency` : 構成スナップショット送信頻度 - `1hour`, `3hours`, `6hours`, `12hours`, `24hours`
 
 #### 記録方式 (`recording_method`)
 
--   `recording_method.enable_all_supported` : すべてのサポートResourceを記録するか - `true`, `false`
--   `recording_method.exclude_resource_types` : 記録対象外のAWS Resource種別一覧
--   `recording_method.include_global_resource_types` : グローバルResourceを含めるか - `true`, `false`
--   `recording_method.specific_resource_types` : 記録対象の特定Resource種別
+-   `recording_method.enable_all_supported` : すべてのサポート Resource を記録するか - `true`, `false`
+-   `recording_method.exclude_resource_types` : 記録対象外の AWS Resource 種別一覧
+-   `recording_method.include_global_resource_types` : グローバル Resource を含めるか - `true`, `false`
+-   `recording_method.specific_resource_types` : 記録対象の特定 Resource 種別
 
 #### 構成ルール (`config_rule`)
 
 -   `config_rule.rule_owner` : ルール所有者 - `AWS`, `customLambda`, `customPolicy`
--   `config_rule.source_identifier` : AWS管理ルールの事前定義識別子
--   `config_rule.target_lambda_name` : カスタムLambdaルールで使用する関数名
+-   `config_rule.source_identifier` : AWS 管理ルールの事前定義識別子
+-   `config_rule.target_lambda_name` : カスタム Lambda ルールで使用する関数名
 -   `config_rule.custom_policy_message_type` : 評価トリガー通知タイプ
 -   `config_rule.maximum_execution_frequency` : 評価実行頻度
 -   `config_rule.custom_policy_text` : カスタムポリシー定義
 
 #### タグ
 
--   `tag` : Resource分類用タグ
+-   `tag` : Resource 分類用タグ
 
 ---
 
-## References
+## 参考資料
 
 -   [Amazon Config（AWS）](https://docs.aws.amazon.com/ko_kr/config/latest/developerguide/WhatIsConfig.html)
 -   [Amazon Config（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/config_configuration_recorder)

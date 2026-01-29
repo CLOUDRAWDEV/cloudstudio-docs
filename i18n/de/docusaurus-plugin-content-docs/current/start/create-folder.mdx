@@ -2,6 +2,8 @@
 title: Neuen Ordner erstellen
 sidebar_position: 6
 tags: [folder, Ordner, Ordnererstellung, Starten]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
@@ -9,27 +11,35 @@ import createFolder from "./img/gif/create-folder.gif"
 
 <hr />
 <br />
-📁 Ein Ordner ist eine Funktion, mit der Sie mehrere Projekte verwalten können. Organisieren Sie die Projekte in dem erstellten Ordner!
+📁 Ein Ordner ist eine Struktur zur systematischen Verwaltung mehrerer
+Projekte. <br />
+In CloudStudio können Sie einen Ordner erstellen und anschließend Projekte innerhalb
+dieses Ordners organisieren und verwalten.
 
 <br />
 <br />
 
 <div className={styles.imgWrap}>
-    <img src={createFolder} alt="이미지" />
+    <img src={createFolder} alt="createFolder" />
 </div>
 
-1. Klicken Sie auf das `Ordner hinzufügen-Symbol` auf der Vorlagen-Seite im Cloud Studio, um einen neuen Ordner zu erstellen.
-2. Wenn das Popup erscheint, in dem Sie einen Ordner hinzufügen können, geben Sie den `Ordnernamen` und eine `Ordnerbeschreibung` ein. Die Ordnerbeschreibung ist optional. Der Ordnername und die Ordnerbeschreibung müssen die folgenden `Bedingungen` erfüllen.
+<br />
 
-    > Ordnername
+1. Um einen neuen Ordner zu erstellen, klicken Sie auf der Vorlagenseite in CloudStudio auf das `Ordner-hinzufügen-Symbol`.
+2. Wenn das Popup zum Hinzufügen eines Ordners angezeigt wird, geben Sie den `Ordnernamen` und die `Ordnerbeschreibung` ein.<br/>Die Ordnerbeschreibung ist optional.<br/>
+   Der Ordnername und die Ordnerbeschreibung müssen die `unten aufgeführten Bedingungen` erfüllen.
 
-    - Englisch, Koreanisch, Zahlen erlaubt
-    - 2 bis 12 Zeichen
-    - Ohne Leerzeichen
+> Ordnername
 
-    > Ordnerbeschreibung
+-   Muss mit einem Buchstaben beginnen
+-   Es sind nur Buchstaben, Zahlen, Bindestriche (-) und Unterstriche (\_) erlaubt
+-   Muss mit einem Buchstaben oder einer Zahl enden
+-   Gesamtlänge zwischen 2 und 12 Zeichen
+-   Leerzeichen sind nicht erlaubt
 
-    - Bis zu 100 Zeichen
+> Ordnerbeschreibung
+
+-   Kann bis zu 100 Zeichen lang sein
 
 3. Nachdem Sie die Popup-Inhalte ausgefüllt haben, klicken Sie auf den `Erstellen`-Button.
 4. Die erstellte Ordnerliste kann unter `Vorlagen > Meine Ordner` eingesehen werden.

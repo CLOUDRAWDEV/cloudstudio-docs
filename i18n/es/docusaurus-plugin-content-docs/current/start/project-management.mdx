@@ -1,20 +1,26 @@
 ---
-title: Gestión de proyectos completados
+title: Gestión de proyectos
 sidebar_position: 8
 tags: [modificar, copiar, eliminar, empezar]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-Los proyectos completados pueden ser `modificados, copiados o eliminados`.
+Se pueden realizar acciones de `editar, copiar, eliminar` en un proyecto.
 
 <br />
 
@@ -62,17 +68,20 @@ Para agregar o eliminar miembros del proyecto, consulte [aquí](/docs/canvas/col
 3. Al aparecer el popup, seleccione la carpeta en la que desea copiar el proyecto.
 4. Escriba el nombre del proyecto.
 
-> - Se permiten letras en inglés, coreano y números.
-> - 2 a 20 caracteres.
+> -   Debe comenzar con una letra
+> -   Solo se permiten letras, números, guiones (-) y guiones bajos (\_)
+> -   Debe terminar con una letra o un número
+> -   Longitud total: de 2 a 20 caracteres
+> -   No se permiten espacios
 
 5. Escriba una descripción del proyecto.
 
-> - Máximo 100 caracteres.
+> -   Máximo 100 caracteres.
 
 6. Haga clic en `Copiar`.
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="imagen" />
+    <img src={copyProject} width="800px" alt="imagen" />
 </div>
 
 <p>&nbsp;</p>

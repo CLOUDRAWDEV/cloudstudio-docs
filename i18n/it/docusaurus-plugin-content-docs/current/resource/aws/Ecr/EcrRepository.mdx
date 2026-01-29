@@ -7,7 +7,7 @@ tags: [AWS, 리소스, Ecr, EcrRepository]
 <hr />
 <br />
 
-## 리소스 아이콘
+## Icona della risorsa
 
 <img
     src={
@@ -15,19 +15,21 @@ tags: [AWS, 리소스, Ecr, EcrRepository]
     }
 />
 
-## 리소스 개요
+## Panoramica della risorsa
 
 Amazon Elastic Container Registry (Amazon ECR) è un servizio di registro di immagini container gestito da AWS, sicuro, scalabile e affidabile. Amazon ECR supporta repository privati con autorizzazioni basate sulle risorse utilizzando AWS IAM, consentendo a utenti specifici o a istanze Amazon EC2 di accedere ai repository e alle immagini dei container. È possibile utilizzare il CLI preferito per eseguire il push, il pull e la gestione di immagini Docker, immagini Open Container Initiative (OCI) e artefatti compatibili con OCI.
 
-## 연관 리소스
+## Risorse correlate
 
-### 상위 리소스
+### Risorse principali
 
 -   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
-## 리소스 설정 값
+---
 
-#### 기본 설정
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
 
 -   `image_tag_mutability` : Impostazione della modificabilità dei tag del repository - `IMMUTABLE`, `MUTABLE`
 -   `scan_on_push` : Imposta se eseguire la scansione dell’immagine dopo il push nel repository - `true`, `false`
@@ -41,13 +43,13 @@ Amazon Elastic Container Registry (Amazon ECR) è un servizio di registro di imm
 -   `policy.enabled_not_actions` : Imposta se escludere l’elenco delle azioni specificate - `true`, `false`
 -   `policy.actions` : Elenco delle azioni da specificare - `ecr:BatchCheckLayerAvailability`, `ecr:BatchDeleteImage`, `ecr:BatchGetImage`, `ecr:CompleteLayerUpload`, `ecr:DeleteLifecyclePolicy`, `ecr:DeleteRepository`, `ecr:DeleteRepositoryPolicy`, `ecr:DescribeImages`, `ecr:DescribeRepositories`, `ecr:GetDownloadUrlForLayer`, `ecr:GetLifecyclePolicy`, `ecr:GetLifecyclePolicyPreview`, `ecr:GetRepositoryPolicy`, `ecr:InitiateLayerUpload`, `ecr:ListImages`, `ecr:PutImage`, `ecr:PutLifecyclePolicy`, `ecr:SetRepositoryPolicy`, `ecr:StartLifecyclePolicyPreview`, `ecr:UploadLayerPart`
 
-#### 태그
+#### Tag
 
 -   `tag` : Tag per classificare la risorsa per categoria
 
 ---
 
-## 참고 자료
+## Riferimenti
 
 -   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
 -   [Amazon Elastic Container Registry 가격(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)

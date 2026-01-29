@@ -1,20 +1,26 @@
 ---
-title: 완성된 프로젝트 관리
+title: 프로젝트 관리
 sidebar_position: 8
 tags: [수정, 복사, 삭제, 시작하기]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-완성된 프로젝트는 `수정 및 복사, 삭제`할 수 있습니다.
+프로젝트에 대해 `수정, 복사, 삭제` 작업을 수행할 수 있습니다.
 
 <br />
 
@@ -62,8 +68,11 @@ import modifyCanvas from "./img/gif/modify-canvas.gif"
 3. 팝업창이 뜨면 프로젝트를 복사할 폴더를 선택합니다.
 4. 프로젝트명을 작성합니다.
 
-> -   영문, 한글, 숫자 허용
-> -   2 ~ 20 자리
+> -   영문자로 시작
+> -   영문자, 숫자, 하이픈(-), 언더스코어(\_)만 사용 가능
+> -   영문자 또는 숫자로 끝나야 함
+> -   전체 길이 2~20자
+> -   공백 사용 불가
 
 5. 프로젝트 설명을 작성합니다.
 
@@ -72,7 +81,7 @@ import modifyCanvas from "./img/gif/modify-canvas.gif"
 6. 복사하기를 클릭합니다.
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="이미지" />
+    <img src={copyProject} width="800px" alt="이미지" />
 </div>
 
 <p>&nbsp;</p>

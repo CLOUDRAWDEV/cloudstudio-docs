@@ -1,21 +1,26 @@
 ---
-title: Gestione del Progetto Completato
+title: Gestione del Progetto
 sidebar_position: 8
 tags: [modifica, copia, elimina, iniziare]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-I progetti completati possono essere modificati, copiati e eliminati.
-완성된 프로젝트는 `수정 및 복사, 삭제`할 수 있습니다.
+È possibile eseguire le operazioni di `modifica, copia, eliminazione` su un progetto.
 
 <br />
 
@@ -27,10 +32,6 @@ I progetti completati possono essere modificati, copiati e eliminati.
 2. Quando appare il popup, clicca sull'icona di modifica accanto al nome del progetto.
 3. Modifica il nome del progetto.
 4. Clicca di nuovo sull'icona di modifica per completare la modifica.
-1. 프로젝트 상세정보를 수정하기 위해 내 템플릿에서 `수정을 원하는 프로젝트를 클릭`합니다.
-2. 팝업이 뜨면 프로젝트명에 `편집 아이콘`을 클릭합니다.
-3. `프로젝트명`을 수정합니다.
-4. 다시 `편집 아이콘`을 클릭하여 수정을 마무리 합니다.
 
 <div className={styles.imgWrap}>
     <img src={titleModification} width="800px" alt="Immagine" />
@@ -44,10 +45,6 @@ I progetti completati possono essere modificati, copiati e eliminati.
 2. Quando appare il popup, clicca sull'icona di modifica accanto alla descrizione del progetto.
 3. Modifica la descrizione del progetto.
 4. Clicca di nuovo sull'icona di modifica per completare la modifica.
-1. 프로젝트 상세정보를 수정하기 위해 내 템플릿에서 수정을 원하는 프로젝트를 클릭합니다.
-2. 팝업이 뜨면 프로젝트 설명에 `편집 아이콘`을 클릭합니다.
-3. 프로젝트 설명을 수정합니다.
-4. 다시 편집 아이콘을 클릭하여 수정을 마무리 합니다.
 
 <div className={styles.imgWrap}>
     <img src={contentModification} width="800px" alt="Immagine" />
@@ -66,13 +63,16 @@ Per aggiungere e rimuovere membri del progetto, fai riferimento [qui](/docs/canv
 
 ### Copia del progetto
 
-1.Per copiare un progetto, clicca sull'`icona di opzioni` del progetto che desideri copiare dalla tua lista di template.
-2.Clicca su `Copia progetto`.
-3.Quando appare la finestra popup, seleziona la cartella in cui desideri copiare il progetto.
-4.Inserisci il nome del progetto.
+1. Per copiare un progetto, clicca sull'`icona di opzioni` del progetto che desideri copiare dalla tua lista di template.
+2. Clicca su `Copia progetto`.
+3. Quando appare la finestra popup, seleziona la cartella in cui desideri copiare il progetto.
+4. Inserisci il nome del progetto.
 
-> -   Sono consentiti caratteri in inglese, coreano e numeri
-> -   Lunghezza da 2 a 20 caratteri
+> -   Deve iniziare con una lettera
+> -   Sono consentiti solo lettere, numeri, trattini (-) e underscore (\_)
+> -   Deve terminare con una lettera o un numero
+> -   Lunghezza totale: 2–20 caratteri
+> -   Gli spazi non sono consentiti
 
 5. nserisci una descrizione del progetto.
 
@@ -81,7 +81,7 @@ Per aggiungere e rimuovere membri del progetto, fai riferimento [qui](/docs/canv
 6. Clicca su Copia.
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="Immagine" />
+    <img src={copyProject} width="800px" alt="Immagine" />
 </div>
 
 <p>&nbsp;</p>

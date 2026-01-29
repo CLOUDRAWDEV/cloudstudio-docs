@@ -2,13 +2,15 @@
 title: Edit Canvas
 sidebar_position: 1
 tags: [Canvas, Toolbox, Resource List, Error, Edit Canvas, Drawing, Starting]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import dragDrop from "../start/img/gif/drag&drop.gif"
 import lineConnection from "../start/img/gif/line-connection.gif"
 import error from "../start/img/gif/error.gif"
-import edit from "../start/img/gif/option-edit.gif"
+import optionEdit from "../start/img/gif/option-edit.png"
 import undo from "../start/img/undo.png"
 import redo from "../start/img/redo.png"
 import list from "../start/img/list.png"
@@ -100,9 +102,9 @@ The Canvas Options Toolbox, located in the side menu, provides access to various
 
 ## Resource Drag & Drop {#drag-drop}
 
-`Drag & Drop` is the simplest feature for configuring your canvas.
-Drag the desired resource from the left Resource List and drop it onto the canvas!
-Resources that cannot be connected will bounce back with a red line.
+`Drag & Drop` is the most basic way to configure the canvas.
+You can select a desired resource from the left `Resource List` and place it in the canvas area.
+If resources cannot be connected to each other, the connection will be restricted with a red indicator.
 
 <div className={styles.imgWrap}>
     <img src={dragDrop} alt="드래그앤드롭 이미지" />
@@ -121,7 +123,8 @@ The Resource List is a panel on the left side of the canvas that gathers all ava
 
 ## Connecting Resources {#resource-connect}
 
-Connect the resources you have Dragged & Dropped onto the canvas by linking them with lines between compatible resources.
+Among the resources placed on the canvas, those that can be connected to each other can be linked with lines.<br/>
+These connections are used to configure specific options between resources or to define their relationships.
 
 <div className={styles.imgWrap}>
     <img src={lineConnection} alt="Resource Connection Image" />
@@ -146,13 +149,13 @@ Resources are broadly categorized into the following four types. Refer to the re
 
 ## Editing Resource Options {#option-edit}
 
-Double-click a resource to open an edit panel where you can change the resource settings.
-Click the Details Icon to view the description of the resource.
-❓Hover over the Question Mark Icon to see descriptions for each option.
-Use these descriptions to configure the settings to your preferences.
+Double-clicking a resource allows you to open the `Edit window` where you can modify the resource settings.
+By clicking the `Show Details` icon, you can check the description of the selected resource.<br/>
+Hovering over the `Question mark icon` next to each option displays a description of that option.
+You can configure the required values by referring to the provided descriptions.
 
 <div className={styles.imgWrap}>
-    <img src={edit} alt="Option Edit Image" />
+    <img src={optionEdit} alt="Option Edit Image" />
 </div>
 
 <p>&nbsp;</p>
@@ -160,11 +163,9 @@ Use these descriptions to configure the settings to your preferences.
 
 ## Fixing Errors {#error-correction}
 
-🔴 A red dot indicates that there is an error with the resource. <highlight color="#FF7272">
-If there are errors, you cannot save or deploy the canvas.</highlight>
-To resolve errors, double-click the resource with the error on the canvas to open the canvas error window.
-In the canvas error window, double-clicking a specific error will navigate you to the location of the error.
-Refer to the error cause and fix the issues accordingly.
+🔴 Red dots indicate that an error exists in the corresponding resource. <highlight color="#FF7272">If an error is present, the canvas cannot be saved or deployed.</highlight>
+To resolve the error, double-click the resource with an error on the canvas to open the canvas error window.
+In the canvas error window, double-click a specific error to move to the location where the error occurred, and refer to the displayed error details to fix the issue.
 
 <div className={styles.imgWrap}>
     <img src={error} alt="Error Correction Image" />

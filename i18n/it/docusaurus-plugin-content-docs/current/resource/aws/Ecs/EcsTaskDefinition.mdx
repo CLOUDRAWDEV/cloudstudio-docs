@@ -7,7 +7,7 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
 <hr />
 <br />
 
-## 리소스 아이콘
+## Icona della risorsa
 
 <img
     src={
@@ -15,19 +15,21 @@ tags: [AWS, 리소스, Ecs, EcsTaskDefinition]
     }
 />
 
-## 리소스 개요
+## Panoramica della risorsa
 
 Amazon ECS Task Definition definisce come devono essere eseguiti i container all’interno di un task ECS, inclusi immagini, risorse, rete e volumi.
 
-## 연관 리소스
+## Risorse correlate
 
-### 상위 리소스
+### Risorse principali
 
 -   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
 
-## 리소스 설정 값
+---
 
-#### 기본 설정
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
 
 -   `app_environment` : Tipo di avvio richiesto per il task - `EC2`, `FARGATE`
 -   `os_architecture` : Famiglia del sistema operativo utilizzata per registrare la task definition - `LINUX X86_64`
@@ -35,7 +37,7 @@ Amazon ECS Task Definition definisce come devono essere eseguiti i container all
 -   `task_memory` : Quantità di memoria utilizzata dal task (MiB)
 -   `network_mode` : Modalità di rete utilizzata dai container del task - `awsvpc`, `none`, `bridge`, `host`
 
-#### 컨테이너 (`container`)
+#### Container (`container_definitions`)
 
 -   `container.image_url` : Immagine del container da eseguire nel cluster ECS
 -   `container.essential_enabled` : Imposta se arrestare anche le altre risorse correlate quando il container si ferma - `true`, `false`
@@ -56,11 +58,11 @@ Amazon ECS Task Definition definisce come devono essere eseguiti i container all
 -   `volume_mount.container_path` : Percorso del container su cui montare il volume
 -   `volume_mount.read_only` : Imposta se il container può accedere al volume solo in modalità read-only - `true`, `false`
 
-#### 태그
+#### Tag
 
 -   `tag` : Tag per classificare la risorsa per categoria
 
-## 참고 자료
+## Riferimenti
 
 -   [Amazon ECS Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
 -   [Amazon ECS Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

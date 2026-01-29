@@ -7,7 +7,7 @@ tags: [AWS, Resource, Ecs, EcsCluster]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,9 +15,9 @@ tags: [AWS, Resource, Ecs, EcsCluster]
     }
 />
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
@@ -25,33 +25,35 @@ tags: [AWS, Resource, Ecs, EcsCluster]
 
 -   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
 
-## Resource 設定値
+---
 
-#### Basic Settings
+## リソース設定値
 
--   `set_container_insights` : Container Insightsをクラスターに有効化するかどうか - `enabled`, `disabled`
--   `kms_key_name` : ローカルクライアントとコンテナ間のデータ暗号化に使用するKMSキー名
+#### 基本設定
+
+-   `set_container_insights` : Container Insights をクラスターに有効化するかどうか - `enabled`, `disabled`
+-   `kms_key_name` : ローカルクライアントとコンテナ間のデータ暗号化に使用する KMS キー名
 -   `logging` : 実行コマンド結果のログリダイレクト設定 - `OVERRIDE`, `NONE`, `DEFAULT`
--   `cloud_watch_encryption_enabled` : CloudWatchログ暗号化有効化可否 - `true`, `false`
--   `cloud_watch_log_group_name` : ログ送信先のCloudWatchロググループ名
--   `capacity_providers` : クラスターに関連付けるCapacity Provider一覧
+-   `cloud_watch_encryption_enabled` : CloudWatch ログ暗号化有効化可否 - `true`, `false`
+-   `cloud_watch_log_group_name` : ログ送信先の CloudWatch ロググループ名
+-   `capacity_providers` : クラスターに関連付ける Capacity Provider 一覧
 
 #### サービス (`service`)
 
 -   `service.computing_option` : サービスのタスク分散方式 - `capacity_provider_strategy`, `launch_type`
--   `service.capacity_provider_strategy.capacity_provider` : 使用するCapacity Provider - `FARGATE`, `FARGATE_SPOT`
+-   `service.capacity_provider_strategy.capacity_provider` : 使用する Capacity Provider - `FARGATE`, `FARGATE_SPOT`
 -   `service.capacity_provider_strategy.base` : 最小実行タスク数
 -   `service.capacity_provider_strategy.weight` : 実行タスク数の相対比率
 -   `service.launch_type` : サービス起動方式 - `EC2`, `FARGATE`, `EXTERNAL`
--   `service.task_definition_name` : 使用するECS Task Definition名
+-   `service.task_definition_name` : 使用する ECS Task Definition 名
 -   `service.desired_count` : 実行するタスク数
--   `service.linked_security_group_names` : 使用するSecurity Group名一覧
--   `service.subnet_names` : サービスを実行するSubnet名一覧
--   `service.enabled_public_ip` : Public IP使用可否 - `true`, `false`
+-   `service.linked_security_group_names` : 使用する Security Group 名一覧
+-   `service.subnet_names` : サービスを実行する Subnet 名一覧
+-   `service.enabled_public_ip` : Public IP 使用可否 - `true`, `false`
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ## References
 

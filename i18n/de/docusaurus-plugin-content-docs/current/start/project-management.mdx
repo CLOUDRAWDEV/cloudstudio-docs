@@ -1,20 +1,26 @@
 ---
-title: Verwaltung des abgeschlossenen Projekts
+title: Projektverwaltung
 sidebar_position: 8
 tags: [bearbeitet, kopiert, gelöscht, startem]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-Abgeschlossene Projekte können `bearbeitet, kopiert oder gelöscht` werden.
+Für Projekte können `Bearbeiten, Kopieren, Löschen` ausgeführt werden.
 
 <br />
 
@@ -62,8 +68,11 @@ Zum Hinzufügen und Löschen von Projektmitgliedern, bitte hier nachlesen. [Hier
 3. Wählen Sie im Popup-Fenster den Ordner aus, in den das Projekt kopiert werden soll.
 4. Geben Sie den Projektnamen ein.
 
-> -   Erlaubt sind Englisch, Koreanisch, Zahlen
-> -   2 bis 20 Zeichen
+> -   Muss mit einem Buchstaben beginnen
+> -   Es sind nur Buchstaben, Zahlen, Bindestriche (-) und Unterstriche (\_) erlaubt
+> -   Muss mit einem Buchstaben oder einer Zahl enden
+> -   Gesamtlänge: 2–20 Zeichen
+> -   Leerzeichen sind nicht erlaubt
 
 5. Geben Sie eine Projektbeschreibung ein.
 
@@ -72,7 +81,7 @@ Zum Hinzufügen und Löschen von Projektmitgliedern, bitte hier nachlesen. [Hier
 6. Klicken Sie auf `Kopieren`.
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="Bild" />
+    <img src={copyProject} width="800px" alt="Bild" />
 </div>
 
 <p>&nbsp;</p>

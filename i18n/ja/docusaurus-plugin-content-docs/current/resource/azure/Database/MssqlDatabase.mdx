@@ -7,7 +7,7 @@ tags: [Azure, MssqlDatabase, MSSQL, SQLServer, Database]
 <hr />
 <br />
 
-## Ressourcen-Icon
+## リソースアイコン
 
 <img
     src={
@@ -15,55 +15,57 @@ tags: [Azure, MssqlDatabase, MSSQL, SQLServer, Database]
     }
 />
 
-## Ressourcenübersicht
+## リソース概要
 
-Azure SQL Database (Microsoft SQL Database) ist eine vollständig verwaltete PaaS-Datenbank-Engine, die den Großteil der Datenbankverwaltungsaufgaben wie Upgrades, Patches, Backups und Überwachung ohne Benutzereingriffe übernimmt.
+Azure SQL Database（Microsoft SQL Database）は、アップグレード、パッチ適用、バックアップ、監視などのデータベース管理作業の大部分をユーザーの介入なしで実行できる、完全に管理された PaaS 型データベースエンジンです。
 
-## Zugehörige Ressourcen
+## 関連リソース
 
-### Übergeordnete Ressourcen
+### 上位リソース
 
 -   [**MssqlServer**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlServer)
 
-### Verbundene Ressourcen
+### 接続されたリソース
 
 -   [**Log Analytics Workspace**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 -   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
 -   [**Metric**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/Metric)
 
-## Ressourcenkonfigurationswerte
+---
 
-#### Grundeinstellungen
+## リソース設定値
 
--   `included_mssql_server_name` : Name des Microsoft SQL Servers, auf dem die Datenbank erstellt wird
--   `sku_name` : Preis- und Leistungsstufe der Microsoft SQL-Datenbank
--   `max_size_gb` : Maximale Größe der Datenbank (GB) – `1` ~ `1024`
--   `collation` : Datensortierungs- und Vergleichsregeln der Microsoft SQL-Datenbank
--   `license_type` : Lizenztyp, der auf die Datenbank angewendet wird – `LicenseIncluded`, `BasePrice`
--   `min_capacity` : Minimale Anzahl an vCores für automatisches Skalieren – mindestens `0.5`
--   `auto_pause_delay_in_minutes` : Wartezeit (in Minuten), bis die Datenbank bei Inaktivität automatisch pausiert wird – `60` ~ `10080`
--   `read_scale` : Aktiviert das Auslagern von schreibgeschützten Workloads auf eine der schreibgeschützten Replikate – `true`, `false`
--   `zone_redundant` : Aktiviert Zonenredundanz für Wartungsvorgänge der Datenbank – `true`, `false`
+#### 基本設定
 
-#### Auditing-Richtlinie (`auditing_policy`)
+-   `included_mssql_server_name` : データベースが作成される Microsoft SQL Server の名前
+-   `sku_name` : Microsoft SQL Database の価格およびパフォーマンスレベル
+-   `max_size_gb` : データベースの最大サイズ（GB）– `1` ～ `1024`
+-   `collation` : Microsoft SQL Database の照合順序および比較ルール
+-   `license_type` : データベースに適用されるライセンス種別 – `LicenseIncluded`、`BasePrice`
+-   `min_capacity` : 自動スケーリングにおける最小 vCore 数 – 最小 `0.5`
+-   `auto_pause_delay_in_minutes` : 非アクティブ時にデータベースを自動的に一時停止するまでの待機時間（分）– `60` ～ `10080`
+-   `read_scale` : 読み取り専用ワークロードを読み取り専用レプリカにオフロードするかどうか – `true`、`false`
+-   `zone_redundant` : データベースのメンテナンス操作に対するゾーン冗長性を有効化 – `true`、`false`
 
--   `auditing_policy.enable_storage_destination` : Aktivierung eines Storage Accounts für Auditing – `true`, `false`
--   `auditing_policy.linked_storage_account_name` : Name des Storage Accounts
--   `auditing_policy.storage_access_key_is_second` : Verwendung des sekundären Zugriffsschlüssels für den Auditing-Storage-Account – `true`, `false`
--   `auditing_policy.storage_retention_days` : Anzahl der Tage, für die Protokolle im Storage Account aufbewahrt werden
--   `auditing_policy.enable_log_analytics_destination` : Aktivierung des Auditing über einen Log Analytics Workspace – `true`, `false`
--   `auditing_policy.linked_log_analytics_workspace_name` : Name der Auditing-Richtlinie im Log Analytics Workspace
--   `auditing_policy.log_analytics_diagnostic_setting_name` : Name des Log Analytics Workspace
+#### 監査ポリシー（`auditing_policy`）
 
-#### Tags
+-   `auditing_policy.enable_storage_destination` : 監査用 Storage Account の有効化 – `true`、`false`
+-   `auditing_policy.linked_storage_account_name` : Storage Account の名前
+-   `auditing_policy.storage_access_key_is_second` : 監査用 Storage Account にセカンダリアクセスキーを使用 – `true`、`false`
+-   `auditing_policy.storage_retention_days` : Storage Account にログを保持する日数
+-   `auditing_policy.enable_log_analytics_destination` : Log Analytics Workspace を使用した監査の有効化 – `true`、`false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Log Analytics Workspace における監査ポリシー名
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Log Analytics Workspace の診断設定名
 
--   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ – 最大 512 文字、`key`:`value`
 
 ---
 
-## Referenzen
+## 参考資料
 
--   [Azure SQL Database (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
--   [Azure SQL Auditing (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)
--   [Azure SQL Database – Preise (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/purchasing-models)
--   [Azure SQL Database Serverless (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/serverless-tier-overview)
+-   [Azure SQL Database（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Auditing（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)
+-   [Azure SQL Database – 料金（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/purchasing-models)
+-   [Azure SQL Database Serverless（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/serverless-tier-overview)

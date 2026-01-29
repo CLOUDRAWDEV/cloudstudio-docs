@@ -1,7 +1,6 @@
 ---
 title: Subnet
 sidebar_position: 1
-sidebar_position: 1
 tags: [AWS, Resource, Vpc, Subnet]
 ---
 
@@ -18,32 +17,21 @@ import subnet04 from "./img/subnet04.png"
 <img
     src={
         "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
     }
 />
 
 ## Resource Overview
 
 A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 instances can be launched within a specific subnet.
-A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 instances can be launched within a specific subnet.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
-### Parent Resource
-
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
 ### Child Resources
 
--   [**DirectoryService**](https://docs.cstudio.app/en/docs/resource/DirectoryService/Security/DirectoryService)
--   [**Eip**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Eip)
--   [**Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
--   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/NetworkInterface)
--   [**EksCluster**](https://docs.cstudio.app/en/docs/resource/aws/Eks/EksCluster)
--   [**ElasticacheCluster**](https://docs.cstudio.app/en/docs/resource/aws/Elasticache/Elasticache)
 -   [**DirectoryService**](https://docs.cstudio.app/en/docs/resource/DirectoryService/Security/DirectoryService)
 -   [**Eip**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Eip)
 -   [**Instance**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/Instance)
@@ -67,28 +55,21 @@ A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 inst
 -   [**NetworkFirewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
 -   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
 -   [**NetworkAcl**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkAcl)
--   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/Lambda)
--   [**Aurora**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Aurora)
--   [**Mariadb**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mariadb)
--   [**Mssql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mssql)
--   [**Mysql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Mysql)
--   [**Oracle**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Oracle)
--   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/aws/Rds/Postgresql)
--   [**NatGateway**](https://docs.cstudio.app/en/docs/resource/aws/Rds/NatGateway)
 
-### Connected Resources
+---
 
--   [**Lb**](https://docs.cstudio.app/en/docs/resource/aws/Networking/LoadBalancer)
--   [**ClientVpnEndpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/ClientVpnEndpoint)
--   [**NetworkFirewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
--   [**Endpoint**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Endpoint)
--   [**NetworkAcl**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkAcl)
-
-## Resource Setting Values
+## Resource Configuration
 
 #### Basic Settings
 
-## <<<<<<< HEAD
+-   `included_vpc_name` : Name of the VPC where the Subnet will be deployed
+-   `cidr_block` : IP address range (CIDR) of the Subnet
+-   `availability_zone` : Availability Zone where the Subnet will be deployed
+-   `pip_enable` : Whether to automatically assign a public IP - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ## How to Convert a Private Subnet to a Public Subnet
 
@@ -139,24 +120,9 @@ A subnet is a range of IP addresses within a VPC. AWS resources such as EC2 inst
 
 -   Verify that the **Private Subnet** has been converted to a **Public Subnet**.
 
-## References
-
-=======
-
--   `included_vpc_name` : Name of the VPC where the Subnet will be deployed
--   `cidr_block` : IP address range (CIDR) of the Subnet
--   `availability_zone` : Availability Zone where the Subnet will be deployed
--   `pip_enable` : Whether to automatically assign a public IP - `true`, `false`
-
-#### Tags
-
--   `tag` : Tags used to categorize the resource
-
 ---
 
 ## References
-
-> > > > > > > 9c54a56e ([Feat]: aws 영문 번역)
 
 -   [VPC Subnets (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
 -   [aws_subnet (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

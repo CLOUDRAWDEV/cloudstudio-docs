@@ -7,7 +7,7 @@ tags: [AWS, Resource, CloudTrail]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,40 +15,40 @@ tags: [AWS, Resource, CloudTrail]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWS CloudTrailを使用すると、AWS Management Console、AWS SDK、CLI、および上位AWSサービスを通じて実行されたAPIコールを含め、アカウントに対するAWS API呼び出し履歴を取得し、クラウド上のAWSデプロイ状況を監視できます。  
-また、どのユーザーやアカウントが、どのソースIPから、いつCloudTrail対応サービスに対してAPIを呼び出したかを確認できます。  
-CloudTrailをアプリケーションに統合し、組織全体のトレイル作成を自動化し、トレイル状態を確認し、管理者がCloudTrailロギングを制御できます。
+AWS CloudTrail を使用すると、AWS Management Console、AWS SDK、CLI、および上位 AWS サービスを通じて実行された API コールを含め、アカウントに対する AWS API 呼び出し履歴を取得し、クラウド上の AWS デプロイ状況を監視できます。  
+また、どのユーザーやアカウントが、どのソース IP から、いつ CloudTrail 対応サービスに対して API を呼び出したかを確認できます。  
+CloudTrail をアプリケーションに統合し、組織全体のトレイル作成を自動化し、トレイル状態を確認し、管理者が CloudTrail ロギングを制御できます。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-### Connected Resources
+### 接続リソース
 
 -   [**S3Bucket**](https://docs.cstudio.app/ja/docs/resource/aws/S3/S3Bucket)
 
 ---
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
--   `linked_s3_bucket_name` : CloudTrailログファイルを保存するS3 Bucket名
--   `s3_key_prefix` : ログ保存時に使用するS3オブジェクトキー接頭辞
+-   `linked_s3_bucket_name` : CloudTrail ログファイルを保存する S3 Bucket 名
+-   `s3_key_prefix` : ログ保存時に使用する S3 オブジェクトキー接頭辞
 -   `multi_region_enabled` : マルチリージョントレイル有効化可否 - `true`, `false`
--   `global_service_events` : IAMなどグローバルサービスイベントをログに含めるか - `true`, `false`
+-   `global_service_events` : IAM などグローバルサービスイベントをログに含めるか - `true`, `false`
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
-## References
+## 参考資料
 
 -   [Amazon CloudTrail（AWS）](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
 -   [Amazon CloudTrail 料金（AWS）](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)

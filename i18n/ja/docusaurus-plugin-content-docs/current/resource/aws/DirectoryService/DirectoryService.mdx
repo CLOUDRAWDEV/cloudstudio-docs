@@ -7,7 +7,7 @@ tags: [AWS, Resource, DirectoryService, DirectoryService]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,39 +15,41 @@ tags: [AWS, Resource, DirectoryService, DirectoryService]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-AWS Directory Serviceは、他のAWSサービスでMicrosoft Active Directory（AD）を利用するための複数の方法を提供します。  
-ディレクトリはユーザー、グループ、デバイスに関する情報を保存し、管理者はそれを使用して情報およびResourceへのアクセスを管理します。  
-AWS Directory Serviceは、クラウド上で既存のMicrosoft ADまたはLDAP（Lightweight Directory Access Protocol）対応アプリケーションを利用したい顧客に対し、さまざまなディレクトリ選択肢を提供します。  
+AWS Directory Service は、他の AWS サービスで Microsoft Active Directory（AD）を利用するための複数の方法を提供します。  
+ディレクトリはユーザー、グループ、デバイスに関する情報を保存し、管理者はそれを使用して情報および Resource へのアクセスを管理します。  
+AWS Directory Service は、クラウド上で既存の Microsoft AD または LDAP（Lightweight Directory Access Protocol）対応アプリケーションを利用したい顧客に対し、さまざまなディレクトリ選択肢を提供します。  
 また、ユーザー、グループ、デバイス、およびアクセス権限を管理するためにディレクトリを必要とする開発者にも同様の選択肢を提供します。
 
-### Parent Resource
+### 上位リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
-### Connected Resources
+### 接続リソース
 
 -   [**DirectoryService**](https://docs.cstudio.app/ja/docs/resource/aws/DirectoryService/DirectoryService)
 
-## Resource 設定値
+---
 
-#### Basic Settings
+## リソース設定値
+
+#### 基本設定
 
 -   `password` : ディレクトリ管理者またはコネクタユーザーのパスワード
 -   `type` : ディレクトリのタイプ - `SimpleAD`, `MicrosoftAD`
 -   `size` : ディレクトリのサイズ - `Small`, `Large`
--   `edition` : MicrosoftADのエディション - `Standard`, `Enterprise`
--   `included_vpc_name` : ディレクトリが存在するVPC名
+-   `edition` : MicrosoftAD のエディション - `Standard`, `Enterprise`
+-   `included_vpc_name` : ディレクトリが存在する VPC 名
 -   `included_subnet_names` : ディレクトリサーバーのサブネット名
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
-## References
+## 参考資料
 
 -   [AWS Directory Service（AWS）](https://docs.aws.amazon.com/ko_kr/directoryservice/latest/admin-guide/what_is.html)
 -   [AWS Directory Service 料金（AWS）](https://aws.amazon.com/ko/directoryservice/pricing/?nc=sn&loc=3)

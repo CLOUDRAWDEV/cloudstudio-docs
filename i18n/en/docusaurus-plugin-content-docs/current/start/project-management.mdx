@@ -2,19 +2,25 @@
 title: Project Management
 sidebar_position: 8
 tags: [Edit, Copy, Delete, Start]
+last_update:
+    date: 01/27/2026
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
 import titleModification from "./img/gif/title-modification.gif"
 import contentModification from "./img/gif/content-modification.gif"
 import deleteProject from "./img/gif/delete-project.gif"
-import modifyProject from "./img/gif/modify-project.gif"
+import copyProject from "./img/gif/copy-project.gif"
 import modifyCanvas from "./img/gif/modify-canvas.gif"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2026.01.27
+</span>
 
 <hr />
 <br />
 
-Completed projects can be `Edit Project and Copy, Delete`.
+You can perform `edit, copy, delete` actions on a project.
 
 <br />
 
@@ -62,8 +68,11 @@ You can find instructions for add and remove project members [here](/docs/canvas
 3. When the pop-up window appears, select the folder where you want to copy the project.
 4. Enter the new project name.
 
-> -   English, Korean, Numbers allowed.
-> -   2 to 20 digits.
+> -   Must start with a letter
+> -   Only letters, numbers, hyphens (-), and underscores (\_) are allowed
+> -   Must end with a letter or a number
+> -   Total length: 2–20 characters
+> -   Spaces are not allowed
 
 5. Enter Project Description.
 
@@ -72,7 +81,7 @@ You can find instructions for add and remove project members [here](/docs/canvas
 6. Click Copy.
 
 <div className={styles.imgWrap}>
-    <img src={modifyProject} width="800px" alt="이미지" />
+    <img src={copyProject} width="800px" alt="이미지" />
 </div>
 
 <p>&nbsp;</p>

@@ -7,7 +7,7 @@ tags: [AWS, Resource, Ec2, NetworkInterface]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,38 +15,40 @@ tags: [AWS, Resource, Ec2, NetworkInterface]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-VPC内で仮想ネットワークカードを表す論理的ネットワークコンポーネントです。
+VPC 内で仮想ネットワークカードを表す論理的ネットワークコンポーネントです。
 
-## Associated Resources
+## 関連リソース
 
-### Parent Resource
+### 上位リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
-### Connected Resources
+### 接続リソース
 
 -   [**Eip**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Eip)
 -   [**Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
 -   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
 
-## Resource 設定値
+---
 
-#### Basic Settings
+## リソース設定値
 
--   `included_subnet_name` : Network Interfaceが配置されるSubnet名
--   `private_ips` : Private IP一覧
--   `linked_security_group_names` : 使用するSecurity Group名
--   `linked_eip_names` : 使用するElastic IP名
+#### 基本設定
+
+-   `included_subnet_name` : Network Interface が配置される Subnet 名
+-   `private_ips` : Private IP 一覧
+-   `linked_security_group_names` : 使用する Security Group 名
+-   `linked_eip_names` : 使用する Elastic IP 名
 
 #### タグ
 
--   `tag` : Resourceを分類するためのタグ
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
-## References
+## 参考資料
 
 -   [Amazon Network Interface（AWS）](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
 -   [Amazon Network Interface（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

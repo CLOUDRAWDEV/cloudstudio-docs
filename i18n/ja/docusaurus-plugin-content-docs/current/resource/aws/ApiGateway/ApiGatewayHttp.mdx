@@ -7,7 +7,7 @@ tags: [AWS, Resource, ApiGatewayHttp]
 <hr />
 <br />
 
-## Resource アイコン
+## リソースアイコン
 
 <img
     src={
@@ -15,109 +15,43 @@ tags: [AWS, Resource, ApiGatewayHttp]
     }
 />
 
-## Resource Overview
+## リソース概要
 
-API GatewayにおけるHTTP APIは、API Gatewayの一種であり、HTTPプロトコルを基盤としたシンプルで軽量なAPIを構築するためのものです。  
-HTTP APIは、従来のREST APIよりもシンプルでコスト効率が高く、主にサーバーレスWebアプリケーションや単純なマイクロサービスに適しています。
+API Gateway における HTTP API は、API Gateway の一種であり、HTTP プロトコルを基盤としたシンプルで軽量な API を構築するためのものです。  
+HTTP API は、従来の REST API よりもシンプルでコスト効率が高く、主にサーバーレス Web アプリケーションや単純なマイクロサービスに適しています。
 
-### Parent Resource
+### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## Associated Resources
+## 関連リソース
 
 -   [**LambdaFunction**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
 
-## Resource 設定値
+## リソース設定値
 
-#### Basic Settings
+#### 基本設定
 
 #### Integration 設定 (`integration`)
 
--   `integration.integration_type` : API Gateway Integrationの種類 - `Http`, `Lambda`
--   `integration.integration_method` : API Gateway IntegrationのHTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
--   `integration.integration_uri` : HTTP統合のための正規化されたURL指定
--   `integration.linked_lambda_name` : Lambdaプロキシ統合のためのLambda関数名
+-   `integration.integration_type` : API Gateway Integration の種類 - `Http`, `Lambda`
+-   `integration.integration_method` : API Gateway Integration の HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : HTTP 統合のための正規化された URL 指定
+-   `integration.linked_lambda_name` : Lambda プロキシ統合のための Lambda 関数名
 
 #### Route 設定 (`route`)
 
--   `route.route_method` : HTTP APIに対するHTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
--   `route.route_path` : HTTP APIに対するResourceパス
--   `route.target_integration` : Routeを接続するAPI Gateway Integration名
+-   `route.route_method` : HTTP API に対する HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : HTTP API に対する Resource パス
+-   `route.target_integration` : Route を接続する API Gateway Integration 名
 
 #### Deployment 設定 (`deployment`)
 
--   `deployment.description` : API Gateway Deploymentの説明
+-   `deployment.description` : API Gateway Deployment の説明
 
 #### Stage 設定 (`stage`)
 
 -   `stage.auto_deployment` : 自動デプロイ有効化 - `true`, `false`
--   `stage.deployment_name` : 接続するAPI Gateway Deployment名
+-   `stage.deployment_name` : 接続する API Gateway Deployment 名
 
----
 
-title: BackupPlan
-sidebar_position: 0
-tags: [AWS, Resource, Backup, BackupPlan]
-
----
-
-<hr />
-<br />
-
-## Resource アイコン
-
-<img
-    src={
-        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
-    }
-/>
-
-## Resource Overview
-
-AWS Resourceをバックアップする時期と方法を定義するポリシー表現です。  
-Backup PlanにResourceを割り当てることができ、AWS BackupはBackup Planに基づいて該当Resourceのバックアップを自動的に実行し、保持します。
-
-## Associated Resources
-
-### Parent Resource
-
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
-
-## Resource 設定値
-
-#### Basic Settings
-
-#### ルール (`rule`)
-
--   `rule.rule_name` : バックアップルール名、1〜50文字以内の英数字または `-`, `_`, `.` を含む文字
--   `rule.backup_vault_name` : バックアップ保存に使用される論理コンテナ名
--   `rule.frequency_type` : バックアップの周期タイミング - `Hourly`, `Weekly`, `Monthly`, `Custom`
--   `rule.frequency_hour` : バックアップ計画を初期化する時間 - 最小 `1`
--   `rule.frequency_days` : バックアップ計画を初期化する曜日 - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
--   `rule.frequency_date` : バックアップ計画を初期化する日付 - `1` ~ `31`
--   `rule.start_time` : バックアップ計画の開始時間
--   `rule.custom_cron_expression` : バックアップ計画を開始する時期に対するユーザー定義表現
--   `rule.start_after_minutes` : バックアップ開始までにかかる総時間 - 最小 `60`
--   `rule.complete_after_minutes` : 作業をキャンセルしてエラーを返す前までにAWS Backupがバックアップを試行する時間（分）
--   `rule.enabled_use_cold_storage` : コールドストレージ使用可否 - `true`, `false`
--   `rule.warm_storage_retention_days` : 作成後、復旧ポイントをコールドストレージへ移行する指定日数 - `1` ~ `36410`
--   `rule.total_retention_days` : 復旧ポイント作成後、削除するまでの指定日数 - `1` ~ `36500`
-
-#### Resource 割り当て (`resource_assignment`)
-
--   `resource_assignment.iam_role_arn` : 対象Resourceを復元およびバックアップする際にAWS Backupが認証に使用するIAMロールのARN
--   `resource_assignment.enabled_contain_all` : すべてのResourceを含めるかどうか - `true`, `false`
--   `resource_assignment.contain_arn_or_pattern` : Amazon Resource Nameを含む、またはバックアップ計画に割り当てるResourceパターンと一致する文字列配列
--   `resource_assignment.exclude_arn_or_pattern` : バックアップ計画から除外するResourceパターンと一致する、またはAmazon Resource Name（ARN）を含む文字列配列
-
-#### タグ
-
--   `tag` : Resourceをカテゴリ別に分類するためのタグ - 最大 512文字, `key`:`value`
-
----
-
-## References
-
--   [Amazon BackupPlan(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
--   [Amazon BackupPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)
