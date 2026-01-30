@@ -4,6 +4,10 @@ sidebar_position: 0
 tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 ---
 
+import asg01 from "./img/asg01.png"
+import asg02 from "./img/asg02.png"
+import asg03 from "./img/asg03.png"
+
 <hr />
 <br />
 
@@ -42,6 +46,53 @@ tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 -   `tags` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
+
+## Autoscaling + LB 설정 방법
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg01} alt="asg01" />
+</div>
+
+<br />
+
+-   먼저 인프라 구성을 위한 기본 네트워크 환경을 생성합니다.
+-   하나의 VPC를 생성하고, 고가용성을 위해 서로 다른 가용 영역에 Public Subnet과 Private Subnet을 각각 2개씩 구성합니다.
+    또한, 외부 인터넷 통신을 위해 Internet Gateway와 Route Table을 함께 설정합니다.
+-   [Public Subnet 설정법](/docs/resource/aws/Vpc/Subnet)을 참고하여 Subnet을 설정합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg02} alt="asg02" />
+</div>
+
+<br />
+
+-   외부에서 유입되는 트래픽을 안정적으로 처리하기 위해 **Load Balancer**를 추가합니다.
+-   Load Balancer는 Public Subnet에 배치하여 인터넷에서 접근 가능하도록 구성하며,
+    보안 제어를 위해 전용 **Security Group**을 배치하고, Load Balancer 방향으로 선을 이어줍니다.
+-   Load Balancer가 실제로 트래픽을 전달할 대상 리소스 집합을 정의하기 위해 **Load Balancer Target Group**을 배치하고
+    [Load Balancer -> Load Balancer Target Group] 방향으로 선을 연결합니다.
+-   Load Balancer의 **Listener - Linked Target Group Name** 옵션에서 선으로 이어진 Target Group을 선택합니다.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg03} alt="asg03" />
+</div>
+
+<br />
+
+-   애플리케이션 서버를 자동으로 생성하고 관리하기 위해 **Launch Template**과 **Auto Scaling Group**을 배치합니다.
+-   Autoscaling Group 리소스 옵션에서 사용할 Launch Template Name을 설정하고, EC2 인스턴스를 생성할 서브넷을 설정합니다.
+-   Linked Targetgroup Name 옵션을 통해 생성한 EC2를 어떤 Target Group에 자동으로 등록할지 설정합니다.
+
+<br />
+<br />
 
 ## 참고 자료
 

@@ -1,0 +1,45 @@
+---
+title: NetworkPolicy
+sidebar_position: 0
+tags: [Kubernetes, Networking, NetworkPolicy]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-network_policy.webp"
+    }
+/>
+
+## 리소스 개요
+
+NetworkPolicy는 라벨을 기준으로 Pod를 선택하고, 해당 Pod에 대해 허용되는 인바운드(Ingress) 및 아웃바운드(Egress) 네트워크 트래픽 규칙을 정의하는 쿠버네티스 리소스입니다. 네임스페이스 단위로 적용되며, 기본적으로 모든 트래픽을 허용하는 클러스터에서 세밀한 네트워크 접근 제어를 구현하는 데 사용됩니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `annotations` : NetworkPolicy 리소스에 대한 메타데이터 key-value
+-   `labels` : NetworkPolicy 객체를 식별하기 위한 사용자 정의 레이블
+-   `match_expressions` : 라벨 셀렉터 조건식을 사용한 Pod 선택 규칙
+-   `match_labels` : key-value 형태로 Pod를 선택하기 위한 라벨 조건
+-   `ingress` : 선택된 Pod로 들어오는 트래픽에 대한 허용 규칙 - `from IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `egress` : 선택된 Pod에서 나가는 트래픽에 대한 허용 규칙- `to IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `policy_types` : 적용할 정책 유형(Ingress, Egress)
+
+---
+
+## 참고 자료
+
+-   [NetworkPolicy(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+-   [NetworkPolicy API Reference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#networkpolicy-v1-networking-k8s-io)
