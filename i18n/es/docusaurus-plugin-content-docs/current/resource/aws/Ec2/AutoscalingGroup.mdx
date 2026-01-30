@@ -3,6 +3,10 @@ title: AutoscalingGroup
 sidebar_position: 0
 tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
 ---
+import asg01 from "./img/asg01.png"
+import asg02 from "./img/asg02.png"
+import asg03 from "./img/asg03.png"
+
 
 <hr />
 <br />
@@ -44,6 +48,53 @@ Auto Scaling Group(ASG) ajusta los recursos creando o terminando automáticament
 -   `tags` : Etiquetas para clasificar el recurso por categoría
 
 ---
+
+## Configuración de Autoscaling + LB
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg01} alt="asg01" />
+</div>
+
+<br />
+
+-   Primero, cree un entorno de red básico para la configuración de la infraestructura.
+-   Cree una VPC y configure 2 Subnets Públicas y 2 Subnets Privadas en diferentes zonas de disponibilidad para alta disponibilidad.
+    Además, configure un Internet Gateway y una Route Table para la comunicación externa por Internet.
+-   Configure la Subnet consultando [Configuración de Subnet Pública](/docs/resource/aws/Vpc/Subnet).
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg02} alt="asg02" />
+</div>
+
+<br />
+
+-   Agregue un **Load Balancer** para manejar de manera estable el tráfico entrante desde el exterior.
+-   Coloque el Load Balancer en la Subnet Pública para que sea accesible desde Internet,
+    coloque un **Security Group** dedicado para el control de seguridad y conecte una línea hacia el Load Balancer.
+-   Para definir el conjunto de recursos de destino a los que el Load Balancer entregará realmente el tráfico, coloque un **Load Balancer Target Group** y
+    conecte una línea en la dirección [Load Balancer -> Load Balancer Target Group].
+-   Seleccione el Target Group conectado en la opción **Listener - Linked Target Group Name** del Load Balancer.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg03} alt="asg03" />
+</div>
+
+<br />
+
+-   Coloque **Launch Template** y **Auto Scaling Group** para crear y administrar automáticamente servidores de aplicaciones.
+-   Configure el Nombre del Launch Template para usar en las opciones de recursos del Autoscaling Group, y configure las subnets donde se crearán las instancias EC2.
+-   Determine a qué Target Group se registrarán automáticamente las instancias EC2 creadas utilizando la opción Linked Targetgroup Name.
+
+<br />
+<br />
 
 ## Referencias
 
