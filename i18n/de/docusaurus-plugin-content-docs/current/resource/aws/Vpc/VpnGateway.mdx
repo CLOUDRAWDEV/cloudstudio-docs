@@ -1,0 +1,54 @@
+---
+title: VpnGateway
+sidebar_position: 18
+tags: [AWS, Ressource, Vpc, VpnGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Virtual Private Gateway ist der VPN-Endpunkt auf der Amazon-Seite einer Site-to-Site-VPN-Verbindung. Durch die Erstellung eines Virtual Private Gateways und dessen Anbindung an eine VPC kann eine Site-to-Site-VPN-Verbindung eingerichtet werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+-   [**DxGateway**](https://docs.cstudio.app/de/docs/resource/aws/DirectConnect/DxGateway)
+-   [**CustomerGateway**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/CustomerGateway)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `linked_vpc_name` : Name der VPC, mit der das VPN-Gateway verbunden wird
+-   `dx_gateway` : Konfiguration der Direct-Connect-Gateway-Integration
+-   `dx_gateway.linked_dx_gateway` : Name des zu verbindenden Dx-Gateways
+-   `dx_gateway.allowed_prefixes` : Liste der CIDR-Prefixe, die an das On-Premises-Netzwerk angekündigt werden
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Funktionsweise von AWS Site-to-Site VPN (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)

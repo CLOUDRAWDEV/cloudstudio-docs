@@ -1,0 +1,49 @@
+---
+title: BlockStorage
+sidebar_position: 0
+tags: [Ncloud, Resource, Storage, BlockStorage]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/storage-block_storage.webp"
+    }
+/>
+
+## Resource Overview
+
+An additional HDD or SSD storage service provided separately from a server’s base storage.  
+It can be created and attached to a server immediately, and can be returned when no longer needed.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
+
+### Connected Resources
+
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `zone` : Physical zone where the Block Storage is located - `KR-1`, `KR-2`
+-   `linked_server_name` : Name of the server to which the block storage will be attached
+-   `storage_size` : Block storage size (GB) - `10` ~ `16380`
+-   `storage_disk_type` : Block storage disk type - `SSD`, `HDD`
+
+---
+
+## References
+
+-   [Block Storage(Ncloud)](https://www.ncloud.com/product/storage/blockStorage)
+-   [Block Storage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/block_storage)

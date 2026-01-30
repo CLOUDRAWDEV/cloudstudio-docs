@@ -1,0 +1,60 @@
+---
+title: NetworkFirewall
+sidebar_position: 10
+tags: [AWS, Ressource, Vpc, NetworkFirewall]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein AWS-Dienst, mit dem Schutzmaßnahmen für AWS-Konten und Ressourcen innerhalb einer Organisation konfiguriert werden können
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `description` : Beschreibung der Firewall (maximal 256 Zeichen)
+-   `included_vpc_name` : Name der VPC, in der sich die Firewall befindet (schreibgeschützt)
+-   `linked_subnet_names` : Liste der öffentlichen Subnetze ausschließlich für Firewall-Endpunkte
+-   `linked_network_firewall_policy_name` : Name der zu verknüpfenden Firewall-Richtlinie (schreibgeschützt)
+-   `enabled_delete_protection` : Aktivierung des Löschschutzes der Firewall – `true`, `false`
+-   `enabled_subnet_change_protection` : Aktivierung des Schutzes vor Subnetzänderungen – `true`, `false`
+
+#### Verschlüsselungseinstellungen (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Verwendung einer AWS-verwalteten Schlüsselverschlüsselung – `true`, `false`
+-   `encryption_configuration.kms_key_name` : Name des für die Verschlüsselung verwendeten KMS-Schlüssels
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [NetworkFirewall(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html)
+-   [NetworkFirewall(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall)

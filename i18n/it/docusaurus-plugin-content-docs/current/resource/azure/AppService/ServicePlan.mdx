@@ -1,0 +1,44 @@
+---
+title: ServicePlan
+sidebar_position: 0
+tags: [Azure, ServicePlan]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-service_plan.webp"
+    }
+/>
+
+---
+
+## Valori di configurazione della risorsa
+
+Un Service Plan è un piano tariffario e di hosting che definisce le risorse di calcolo su cui viene eseguito App Service, come istanze di server, CPU/memoria, scalabilità e sistema operativo.  
+Quando si distribuiscono applicazioni web, API o applicazioni backend tramite App Service, il Service Plan determina con quali specifiche e in quale livello di prezzo verrà eseguita ciascuna applicazione.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+## Impostazioni della risorsa
+
+-   `kind` : Sistema operativo utilizzato da App Service – `Linux`, `Windows`
+-   `sku_tier` : Livello di prezzo del piano App Service
+
+---
+
+## Riferimenti
+
+-   [Azure App Service Plan (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/overview-hosting-plans)
+-   [Prezzi di Azure App Service](https://azure.microsoft.com/ko-kr/pricing/details/app-service/windows/)
+-   [Azure App Service Plan (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan)

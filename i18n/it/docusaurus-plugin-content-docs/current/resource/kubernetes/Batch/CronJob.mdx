@@ -1,0 +1,57 @@
+---
+title: CronJob
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Batch, CronJob]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+CronJob è una risorsa Kubernetes che crea Job in modo periodico in base a una pianificazione definita.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**ConfigMap**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace in cui verrà distribuito il CronJob
+-   `schedule` : Pianificazione dell’esecuzione del job definita tramite espressione cron
+-   `timezone` : Fuso orario di riferimento per l’interpretazione della pianificazione
+-   `concurrency_policy` : Politica di gestione dell’esecuzione concorrente dei job (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : Tempo massimo consentito per avviare il job se la pianificazione viene persa
+-   `successful_jobs_history_limit` : Numero di Job completati con successo da conservare
+-   `failed_jobs_history_limit` : Numero di Job falliti da conservare
+-   `containers` : Definizione dello spec dei container da eseguire
+-   `init_containers` : Definizione dei job preliminari eseguiti prima del container principale
+-   `volume` : Configurazione dei volumi da montare nei container
+-   `pod_security_context` : Configurazione del contesto di sicurezza a livello di Pod
+-   `image_pull_secrets` : Riferimento ai Secret per il pull delle immagini
+
+---
+
+## Riferimenti
+
+-   [CronJob (Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+-   [CronJob (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)

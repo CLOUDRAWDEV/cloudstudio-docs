@@ -1,5 +1,5 @@
 ---
-title: Auto Scaling
+title: AutoScaling
 sidebar_position: 0
 tags: [Ncloud, Resource, Compute, AutoScaling]
 ---
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Compute, AutoScaling]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
     }
 />
 
 ## Resource Overview
 
-This service automatically adjusts the number of virtual servers based on a user-defined schedule or monitoring results, allowing for flexible responses to changing demand. By monitoring the servers based on predefined thresholds, it automatically scales the number of servers to ensure stable service operation.
+A service that automatically increases or decreases the number of virtual servers according to user-defined schedules or monitoring results, allowing flexible responses to changes in demand. By monitoring servers based on predefined thresholds and automatically adjusting the number of servers, services can be operated in a stable manner.
 
 ## Associated Resources
 
@@ -27,33 +27,42 @@ This service automatically adjusts the number of virtual servers based on a user
 
 ### Connected Resources
 
--   [**Network Access Control Group**](https://docs.cstudio.app/en/en/docs/resource/ncloud/Security/AccessControlGroupp)
-
-## Resource Setting Values
-
--   `server_image_product_code` : The code of OS image to use(CNTOS:CentOS, UBNTU:Ubuntu, WND:Windows / MYSQL,MARIA:Database / SVR:Server, EN:English Edition)
--   `server_product_code` : The code for hardware configuration on the server(HICPU:High CPU, STAND:Standard, HIMEM:High Memory / C:Cores,M:Memory(GB))
--   `login_key_name` : The name of Login key to encrypt with the public key
--   `init_script`
-    -   `content` : The script to run automatically when the server is created
--   `group`
-    -   `min_size` : The minimum size of the Auto scaling group, from 0 to 30
-    -   `max_size` : The maximum size of the Auto scaling group, from 0 to 30
-    -   `linked_acg_names` : The list of ACG names to apply the Auto sacling to
-    -   `included_subnet_name` : The name of Subnet to create servers
--   `policy`
-    -   `adjustment_type_code` : The code of adjustment type, CHANG/PRCNT/EXACT - `CHANG`, `PRCNT`, `EXACT`
-    -   `scaling_adjustment` : The value of adjustment
--   `schedule`
-    -   `min_size` : The minimum size of the Auto scaling group
-    -   `max_size` : The maximum size of the Auto scaling group
-    -   `desired_capacity` : The desired capacity value of the Auto scaling group
-    -   `start_time` : The date and time when the schedule first starts
-    -   `end_time` : The date and time when the schedule ends
+-   [**AccessControlGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/TargetGroup)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `linked_acg_names` : List of ACG names to apply to Auto Scaling
+-   `included_subnet_name` : Subnet name for server creation
+-   `launch_configuration_name` : Name of the Launch Configuration to use
+-   `health_check_type_code` : Health check type, server or load balancer - `SVR`, `LOADB`
+-   `health_check_grace_period` : Grace period for suspending health checks after a server instance is added to service - `1` ~ `2147486347`
+-   `linked_target_group_list` : List of target group names to connect
+-   `min_size` : Minimum size of the Auto Scaling group, range 0 ~ 30 - `1` ~ `30`
+-   `max_size` : Maximum size of the Auto Scaling group, range 0 ~ 30 - `1` ~ `30`
+
+#### Auto Scaling Policy (`policy`)
+
+-   `policy.adjustment_type_code` : Scaling adjustment type code, change in capacity (CHANG) / percent change (PRCNT) / exact capacity (EXACT) - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.scaling_adjustment` : Scaling adjustment value
+-   `policy.cooldown` : Time in seconds during which additional alarms are ignored even if they occur - `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Minimum adjustment unit when changing the number of instances - `0` ~ `214748364`
+
+#### Auto Scaling Schedule (`schedule`)
+
+-   `schedule.min_size` : Minimum size of the Auto Scaling group - `1` ~ `30`
+-   `schedule.max_size` : Maximum size of the Auto Scaling group - `1` ~ `30`
+-   `schedule.desired_capacity` : Desired capacity of the Auto Scaling group - `1` ~ `30`
+-   `schedule.start_time` : Start date and time of the schedule
+-   `schedule.end_time` : End date and time of the schedule
+
+---
+
+## References
 
 -   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
--   [ncloud_auto_scaling_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)
+-   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

@@ -1,0 +1,69 @@
+---
+title: MskCluster
+sidebar_position: 0
+tags: [AWS, MSK, Kafka, MskCluster, Streaming]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/msk-msk_cluster.webp" />
+
+## リソース概要
+
+リアルタイムデータストリーミングを処理する分散型メッセージブローカープラットフォームサービスです。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+### 接続リソース
+
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `cluster_type` : クラスタータイプ - `provisioned`, `serverless`
+-   `kafka_version` : MSK クラスターで使用する Apache Kafka バージョン
+-   `kms_key_name` : データ暗号化に使用する KMS キー名
+-   `unauthenticated_access` : 未認証ユーザーのアクセス許可可否 - `true`, `false`
+-   `iam_role_based_authentication` : IAM ロールベース認証許可可否 - `true`, `false`
+-   `scram_authentication` : SCRAM ベース認証許可可否 - `true`, `false`
+-   `cloudwatch_metrics` : CloudWatch メトリクス収集範囲 - `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`
+
+#### ブローカー設定 (`broker`)
+
+-   `broker.instance_type` : ブローカーインスタンスタイプ
+-   `broker.broker_count_per_zone` : 可用性ゾーン（AZ）あたりのブローカー数
+
+#### ストレージ設定 (`storage`)
+
+-   `storage.ebs_volume_size` : ブローカーノードに割り当てる EBS ボリュームサイズ（GB）
+-   `storage.enable_provisioned_throughput` : プロビジョンドスループット有効化可否 - `true`, `false`
+-   `storage.provisioned_throughput_per_broker` : ブローカーあたりのプロビジョンドスループット（MiB/s）
+
+#### ネットワーク設定 (`network`)
+
+-   `network.linked_vpc_name` : クラスターが接続される VPC 名
+-   `network.subnet_names` : MSK クラスターに接続する Subnet 名一覧
+-   `network.security_group_names` : MSK クラスターに適用する Security Group 名一覧
+
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ
+
+---
+
+## 参考資料
+
+-   [Amazon MSK (AWS)](https://docs.aws.amazon.com/msk/)
+-   [MSK Authentication and Access Control (AWS)](https://docs.aws.amazon.com/msk/latest/developerguide/client-access.html)
+-   [Monitoring MSK with CloudWatch (AWS)](https://docs.aws.amazon.com/msk/latest/developerguide/metrics-details.html)

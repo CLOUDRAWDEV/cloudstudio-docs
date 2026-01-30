@@ -1,0 +1,54 @@
+---
+title: SearchService
+sidebar_position: 0
+tags: [Azure, Search, CognitiveSearch, SearchService]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/search-search_service.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Search Service è un servizio di ricerca completamente gestito che offre funzionalità come ricerca, filtro e ranking su grandi volumi di testo, documenti e dati.  
+Basato su indici di ricerca, fornisce un'elaborazione delle query rapida e prestazioni di ricerca scalabili, e consente di controllare l'ambito di accesso al servizio tramite criteri di sicurezza e di accesso alla rete.
+
+## Risorse associate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Private Endpoint**](https://docs.cstudio.app/it/docs/resource/azure/Network/PrivateEndpoint)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `sku_name` : Livello di prezzo per l'utilizzo di Search Service - `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1`, `storage_optimized_l2`
+-   `public_network_access_enabled` : Se consentire l'accesso alla risorsa tramite Internet pubblico - `true`, `false`
+-   `allowed_ips` : Elenco di IP consentiti che permette l'accesso a Search Service da IP specifici o intervalli CIDR
+-   `local_authentication_enabled` : Se utilizzare l'autenticazione locale tramite chiavi API - `true`, `false`
+-   `authentication_failure_mode` : Modalità di comportamento che determina se bloccare le richieste o consentirle in modo limitato quando l'autenticazione del client fallisce - `http401WithBearerChallenge`, `http403`
+-   `partition_count` : Numero di partizioni per distribuire e archiviare i dati dell'indice - `1`, `2`, `3`, `4`, `6`, `12`
+-   `replica_count` : Numero di repliche per gestire le query di ricerca
+
+#### Collegamento privato (`private_link`)
+
+-   `private_link.target_ai_service_name` : Nome della risorsa AI Service di destinazione per cui creare una connessione Private Link
+-   `private_link.request_message` : Descrizione o messaggio da inviare all'approvatore quando si richiede una connessione Private Link
+
+## Materiale di riferimento
+
+-   [Panoramica di Azure Cognitive Search (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-what-is-azure-search)
+-   [Prezzi e SKU di Azure Cognitive Search (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-sku-tier)
+-   [Sicurezza di rete di Azure Cognitive Search (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-security-overview)

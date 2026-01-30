@@ -11,46 +11,57 @@ tags: [Kubernetes, リソース, Networking, Ingress]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.webp"
     }
 />
 
 ## リソース概要
 
-インバウンド接続がバックエンドで定義されたエンドポイントに到達できるようにするルールに関するクバネティスリソース
+インバウンド接続をバックエンドで定義されたエンドポイントへルーティングするルールを定義する Kubernetes リソースです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
+-   [**Issuer**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Service**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Service)
 -   [**IngressClass**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/IngressClass)
--   [**NginxIngress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Helm/NginxIngress)
+-   [**Nginx Ingress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Helm/NginxIngress)
+
+---
 
 ## リソース設定値
 
--   `service_name` : Ingress リソース名
--   `namespace` : Ingress リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `tls` : TLS を適用
-    -   `hosts` : TLS 認証書に含まれるホストのリスト
-    -   `secret_name` : TLS 認証書に関連付けられたクバネティスシークレットの名前を指定
--   `ingress_class_name` : 接続するイングレスクラスの名前を指定
--   `host` : ルーティング ルールを適用するホストネーム アドレスを指定
--   `backend` : ルーティングするバックエンド情報を入力
-    -   `name` : Routing rule の名前
-        -   `path` : バックエンドに接続するパス
-        -   `path_type` : 経路一致の解析を決定 - `Prefix`, `ImplementationSpecific`, `Exact`
-        -   `port` : サービスのポート番号 - `1~65535`
+#### 基本設定
+
+-   `namespace` : Ingress をデプロイする Namespace
+-   `annotations` : Kubernetes メタデータ
+-   `labels` : ユーザー定義ラベル
+-   `ingress_class_name` : 使用する Ingress クラス名
+
+#### TLS 設定
+
+-   `tls.hosts` : TLS 証明書に含まれるホスト名
+-   `tls.secret_name` : TLS 証明書 Secret 名
+
+#### ルーティングルール
+
+-   `rule.host` : ホスト名
+
+#### バックエンド設定
+
+-   `rule.backend.target_service` : 対象 Service
+-   `rule.backend.path` : パス
+-   `rule.backend.port` : Service ポート
+-   `rule.backend.path_type` : パスマッチ方式 - `ImplementationSpecific`, `Prefix`, `Exact`
 
 ---
 
 ## 参考資料
 
--   [Ingress(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+-   [Ingress(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
 -   [Ingress(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress)

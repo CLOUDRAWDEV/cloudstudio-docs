@@ -1,6 +1,6 @@
 ---
 title: SesCluster
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, リソース, Bigdata&Analytics, SesCluster]
 ---
 
@@ -11,42 +11,56 @@ tags: [Ncloud, リソース, Bigdata&Analytics, SesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.webp"
     }
 />
 
 ## リソース概要
 
-elasticsearch 及び OpenSearch クラスタを便利に管理できる環境を提供し、
-様々なサーバタイプ及びストレージ容量を選択してクラスタを構成し、簡単に配布、運営、及び拡張できるリソースです。
+Elasticsearch および OpenSearch クラスターを容易に管理できる環境を提供し、各種サーバータイプやストレージ容量を選択して、クラスターの構築・デプロイ・運用・スケールを行えるリソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**VPC**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
 
-### 接続リソース
+---
 
 ## リソース設定値
 
--   `os_image_code` : 使用する OS タイプ
--   `search_engine` : Search EngineNode の主要項目
-    -   `version_code` : 使用する Search Engine バージョンコード
-    -   `user_name` : Search Engine ユーザー名
-    -   `user_password` : Search Engine ユーザーパスワード
-    -   `dashboard_port` : Search Engine ダッシュボードのポート (1024 ~ 65535)
--   `manager_node` : manager node 主要項目
-    -   `enable_dual_manager` : manager node 二重化可否
-    -   `manager_node_product_code` : 使用する manager node 製品コード
-    -   `manager_node_subnet_name` : manager node を位置させる subnet の名前
--   `data_node` : データ Node の主要項目
-    -   `data_node_product_code` : 使用するデータ Node 製品コード
-    -   `data_node_subnet_name` : data node を位置させる subnet の名前
-    -   `data_node_count` : データ Node の数 (3 ~10)
-    -   `data_node_storage_size` : データノードストレージ容量(100~2000)
--   `enable_master_node` : master node を使用しているかどうかの可否
--   `login_key_name` : 暗号化用のパブリック ログイン キー名
+#### 基本設定
+
+-   `included_vpc_name` : SES を作成する VPC 名
+-   `os_image_code` : 使用する OS タイプ - `osImageName`
+-   `enable_master_node` : マスターノード使用可否 - `true`, `false`
+-   `login_key_name` : 公開ログインキー名
+
+#### Search Engine 設定 (`search_engine`)
+
+-   `search_engine.version_code` : 使用する Search Engine バージョン - `versionCode`
+-   `search_engine.user_name` : Search Engine ユーザー名
+-   `search_engine.user_password` : Search Engine パスワード
+-   `search_engine.dashboard_port` : ダッシュボードポート - `1024` ~ `65535`
+
+#### Manager Node 設定 (`manager_node`)
+
+-   `manager_node.enable_dual_manager` : マネージャーノード冗長化可否 - `true`, `false`
+-   `manager_node.manager_node_subnet_name` : 配置するサブネット名
+-   `manager_node.manager_node_product_code` : マネージャーノード製品コード - `managerNodeProductCode`
+
+#### Data Node 設定 (`data_node`)
+
+-   `data_node.data_node_subnet_name` : 配置するサブネット名
+-   `data_node.data_node_product_code` : データノード製品コード - `managerNodeProductCode`
+-   `data_node.data_node_count` : データノード数 - `3` ~ `10`
+-   `data_node.data_node_storage_size` : ストレージ容量 - `100` ~ `2000`
+
+#### Master Node 設定 (`master_node`)
+
+-   `master_node.master_node_subnet_name` : 配置するサブネット名
+-   `master_node.master_node_product_code` : マスターノード製品コード - `managerNodeProductCode`
+-   `master_node.master_node_count` : マスターノード数 - `3` ~ `5`
 
 ---
 

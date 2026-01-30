@@ -1,0 +1,99 @@
+---
+title: CloudfrontDistribution
+sidebar_position: 0
+tags: [AWS, Risorsa, Cloudfront, CloudfrontDistribution]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_distribution.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon CloudFront accelera la distribuzione di contenuti web statici e dinamici come file .html, .css, .php, immagini e file multimediali. Quando un utente richiede un contenuto, CloudFront lo distribuisce tramite una rete globale di edge location che offre bassa latenza e prestazioni elevate.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Base**](https://docs.cstudio.app/it/docs/resource/aws/Base/Base)
+
+### Risorse collegate
+
+-   [**CloudfrontCachePolicy**](https://docs.cstudio.app/it/docs/resource/aws/Cloudfront/CloudFrontCachePolicy)
+-   [**S3Bucket**](https://docs.cstudio.app/it/docs/resource/aws/S3/S3Bucket)
+-   [**WafWebAcl**](https://docs.cstudio.app/it/docs/resource/aws/WAF/WafWebAcl)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `enabled` : Indica se la distribuzione è abilitata - `true`, `false`
+-   `price_class` : Classe di prezzo della distribuzione CloudFront - `PriceClass_100`, `PriceClass_200`, `PriceClass_All`
+-   `http_version` : Versione massima HTTP supportata - `http1.1`, `http2`
+-   `is_ipv6_enabled` : Abilitazione IPv6 - `true`, `false`
+-   `linked_waf_web_acl_name` : Nome della WAF Web ACL utilizzata per la protezione di sicurezza
+-   `tag` : Tag per classificare la risorsa per categoria
+
+#### Impostazioni dell’origine (`origin`)
+
+-   `origin.origin_type` : Tipo di origine - `s3`, `custom`
+-   `origin.linked_resource_name` : Bucket S3 da collegare nel caso di origine S3
+-   `origin.domain` : Nome di dominio DNS nel caso di origine personalizzata
+-   `origin.shield_enabled` : Abilitazione di Origin Shield - `true`, `false`
+-   `origin.shield_region` : Codice della regione AWS utilizzata per Origin Shield
+
+#### Gruppo di origini (`origin_group`)
+
+-   `origin_group.first_origin_name` : Nome della prima origine
+-   `origin_group.second_origin_name` : Nome della seconda origine
+-   `origin_group.failover_criteria` : Elenco dei codici di stato HTTP per il failover
+
+#### Comportamento di cache (`cache_behavior`)
+
+-   `cache_behavior.path_pattern` : Pattern del percorso delle richieste a cui applicare il comportamento di cache
+-   `cache_behavior.compress` : Abilitazione della compressione automatica - `true`, `false`
+-   `cache_behavior.viewer_protocol_policy` : Policy del protocollo di accesso del viewer - `allow-all`, `https-only`, `redirect-to-https`
+-   `cache_behavior.allowed_methods` : Elenco dei metodi HTTP gestiti da CloudFront
+-   `cache_behavior.cached_methods` : Elenco dei metodi HTTP da memorizzare in cache
+-   `cache_behavior.origin_name` : Nome dell’origine a cui inoltrare le richieste
+-   `cache_behavior.linked_cache_policy_name` : Nome della Cache Policy collegata
+
+#### Restrizioni di distribuzione (`restriction`)
+
+-   `restriction.type` : Metodo di restrizione della distribuzione per paese - `whitelist`, `blacklist`, `none`
+-   `restriction.locations` : Elenco dei codici paese ISO 3166-1 alpha-2
+
+#### Impostazioni del certificato (`viewer_certificate`)
+
+-   `viewer_certificate.default_certificate_enabled` : Utilizzo del certificato CloudFront predefinito
+-   `viewer_certificate.acm_certificate_name` : Nome del certificato ACM da utilizzare
+-   `viewer_certificate.iam_certificate_id` : ID del certificato IAM da utilizzare
+-   `viewer_certificate.legacy_client_support_enabled` : Abilitazione del supporto HTTPS legacy
+-   `viewer_certificate.minimum_protocol_version` : Versione minima del protocollo SSL/TLS
+
+#### Impostazioni di logging (`logging`)
+
+-   `logging.logging_enabled` : Abilitazione dei log di accesso - `true`, `false`
+-   `logging.logging_s3_bucket_name` : Bucket S3 per l’archiviazione dei log
+-   `logging.logging_file_prefix` : Prefisso dei file di log
+-   `logging.logging_include_cookies` : Inclusione dei cookie nei log - `true`, `false`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+## Riferimenti
+
+-   [Amazon CloudFront(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Prezzi di Amazon CloudFront(AWS)](https://aws.amazon.com/ko/cloudfront/pricing/?nc2=type_a)
+-   [Amazon CloudFront Distribution(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution)

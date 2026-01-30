@@ -1,0 +1,59 @@
+---
+title: LaunchTemplate
+sidebar_position: 4
+tags: [AWS, EC2, LaunchTemplate, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-launch_template.webp" />
+
+## Ressourcenübersicht
+
+Eine Vorlage zur Definition der Spezifikationen virtueller Server, die bei einer Auto-Scaling-Erweiterung automatisch erstellt werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `image_name` : Code des zu verwendenden Betriebssystem-Images
+-   `instance_type` : Typ der EC2-Instance
+-   `key_name` : Name des öffentlichen Login-Schlüssels
+-   `linked_security_group_name` : Name der zugeordneten Security Group
+-   `user_data` : Skript oder Befehl, der beim Start der EC2-Instance ausgeführt wird
+
+#### Block-Device-Zuordnung (`block_device_mapping`)
+
+-   `block_device_mapping.volume_type` : Typ des EBS-Volumes – `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`
+-   `block_device_mapping.volume_size` : Größe des EBS-Volumes (GiB)
+-   `block_device_mapping.iops` : Anzahl der I/O-Operationen pro Sekunde
+-   `block_device_mapping.delete_on_termination` : Automatisches Löschen des EBS-Volumes bei Beendigung der Instance – `true`, `false`
+-   `block_device_mapping.snapshot_name` : Name für den Snapshot des EBS-Volumes
+-   `block_device_mapping.encrypted` : Aktivierung der Verschlüsselung des EBS-Volumes – `true`, `false`
+-   `block_device_mapping.kms_key_name` : Name des KMS-Schlüssels zur Verschlüsselung des EBS-Volumes
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Launch templates (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+-   [Block device mappings (Amazon EC2) (AWS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)

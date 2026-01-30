@@ -1,0 +1,73 @@
+---
+title: Instance
+sidebar_position: 2
+tags: [AWS, Ressource, Ec2, Instance]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Elastic Compute Cloud (Amazon EC2) stellt skalierbare Rechenkapazität in der Amazon-Web-Services-(AWS)-Cloud bereit.  
+Durch die Nutzung von Amazon EC2 entfällt die Notwendigkeit von Vorabinvestitionen in Hardware, wodurch Anwendungen schneller entwickelt und bereitgestellt werden können.  
+Mit Amazon EC2 lassen sich beliebig viele virtuelle Server bereitstellen sowie Sicherheit, Netzwerke und Speicher verwalten.  
+Durch horizontales und vertikales Skalieren können Lastspitzen und sich ändernde Anforderungen verarbeitet werden, ohne den Datenverkehr im Voraus vorhersagen zu müssen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+### Verknüpfte Ressourcen
+
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/NetworkInterface)
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+-   [**LbTargetGroup**](https://docs.cstudio.app/de/docs/resource/aws/Lb/LbTargetGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `ami` : Image mit allen Informationen, die zum Starten einer Instance erforderlich sind
+-   `instance_type` : Typ der EC2-Instance
+-   `key_pair_name` : Name des Key Pairs für den Zugriff auf die EC2-Instance
+-   `linked_network_interface_names` : Liste der Netzwerkschnittstellen, die von der EC2-Instance verwendet werden
+-   `http_endpoint` : Aktivierung des Metadatendienstes – `enabled`, `disabled`
+-   `http_tokens` : Gibt an, ob Sitzungstoken für den Metadatendienst erforderlich sind – `required`, `optional`
+-   `cloudinit_config` : Skript, das beim Erstellen des Servers automatisch ausgeführt wird
+
+#### Root-Volume (`root_volume`)
+
+-   `root_volume.volume_type` : Typ des Root-Volumes – `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Größe des Root-Volumes (GiB)
+-   `root_volume.enabled_volume_encryption` : Aktivierung der Verschlüsselung des Root-Volumes – `true`, `false`
+
+#### EBS-Block-Device (`ebs_block_device`)
+
+-   `ebs_block_device.volume_type` : Typ des EBS-Volumes – `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `ebs_block_device.volume_size` : Größe des EBS-Volumes (GiB)
+-   `ebs_block_device.enabled_volume_encryption` : Aktivierung der Verschlüsselung des EBS-Volumes – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon Ec2(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)
+-   [Amazon Ec2 가격(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
+-   [Amazon Ec2(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key)

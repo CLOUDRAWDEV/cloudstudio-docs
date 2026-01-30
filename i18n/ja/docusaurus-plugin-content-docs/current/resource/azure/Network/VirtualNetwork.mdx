@@ -1,7 +1,7 @@
 ---
 title: VirtualNetwork
-sidebar_position: 14
-tags: [Azure, リソース, Network, VirtualNetwork]
+sidebar_position: 0
+tags: [Azure, Network, VirtualNetwork, VNet]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, リソース, Network, VirtualNetwork]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network.webp"
     }
 />
 
 ## リソース概要
 
-Azure 仮想ネットワーク(VNet)は Microsoft Azure ラウドコンピューティングプラットフォームが提供するネットワーキング機能です。
-これにより、仮想コンピュータのような Azure リソースをお互い、インターネットおよびオンプレミスネットワークに安全に接続するために使用できる論理的に隔離されたネットワーク環境をクラウドに作ることができます。
-Azure Virtual Network を使用すると、複数のサブネットを作成し、NSG(ネットワークセキュリティグループ)を定義して、リソースへのインバウンドおよびアウトバウンドトラフィックを制御できます。
-Azure VPN Gateway または Azure Express Route を使用して、仮想ネットワークをオン·プレミスネットワークに安全に接続することもできます。
+Virtual Network は、Azure リソース間の通信を可能にし、インターネットまたはオンプレミスネットワークとの接続を構成するための **仮想ネットワークリソース** です。  
+IP アドレス空間（Address Space）を基に、サブネット、セキュリティポリシー、ピアリングなどを構成することで、Azure 環境のネットワーク構造を定義できます。
 
 ## 関連リソース
 
@@ -30,18 +28,49 @@ Azure VPN Gateway または Azure Express Route を使用して、仮想ネッ�
 
 ### 下位リソース
 
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+-   [**Private Dns Resolver**](https://docs.cstudio.app/ja/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+
+### 接続リソース
+
+-   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
+
+---
 
 ## リソース設定値
 
--   `vnet_address_space` : Virtual Network が使用される IP アドレス空間、1 つ以上のアドレスにサプライ可能
--   `enable_ddos_protection` : Virtual Network に DDos protection plan 許容 -`true`, `false`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `vnet_address_space` : Virtual Network が使用する IP アドレス空間
+
+    -   CIDR 形式のアドレスを 1 つ以上指定可能
+
+-   `enable_ddos_protection` : Virtual Network に DDoS Protection Plan を適用するかどうか
+    -   `true`, `false`
+-   `ddos_protection_plan_name` : Virtual Network に関連付ける DDoS Protection Plan の名前
+
+#### VNet ピアリング (`peering`)
+
+他の Virtual Network との接続設定を定義します。
+
+-   `peering.linked_vnet_name` : 接続対象の Virtual Network 名（読み取り専用）
+-   `peering.allow_access_to_remote_vnet` : リモート Virtual Network へのアクセスを許可するかどうか
+-   `peering.allow_receive_forwarded_traffic` : 転送されたトラフィックの受信を許可するかどうか
+-   `peering.allow_forward_traffic_to_remote_vnet` : リモート Virtual Network へのトラフィック転送を許可するかどうか
+-   `peering.allow_use_remote_gateway` : リモート Virtual Network のゲートウェイを使用するかどうか
+    -   各項目の値：`true`, `false`
+
+#### タグ
+
+-   `tag` : リソースをカテゴリ分けするためのタグ
+    -   最大 512 文字、`key`:`value` 形式
 
 ---
 
 ## 参考資料
 
--   [Azure VirtualNetwork(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
--   [Azure VirtualNetwork 価格](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
--   [Azure VirtualNetwork(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+-   [Azure Virtual Network 概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-overview)
+-   [Virtual Network アドレス空間（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-addresses)
+-   [Virtual Network ピアリング（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-peering-overview)

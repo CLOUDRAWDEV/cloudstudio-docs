@@ -1,0 +1,92 @@
+---
+title: PublicLoadBalancer
+sidebar_position: 1
+tags: [Azure, LoadBalancer, PublicLoadBalancer, Network]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Un Public Load Balancer es un dispositivo de balanceo de carga que recibe el tráfico entrante desde fuentes externas (Internet) en el frontend y lo distribuye a las instancias del backend pool para evitar la sobrecarga de tráfico.
+
+## Recursos relacionados
+
+### Recursos principaleserior
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Public IP**](https://docs.cstudio.app/es/docs/resource/azure/Network/PublicIp)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `sku` : Nivel de precios para seleccionar la escala y las funcionalidades de Azure Load Balancer - `Standard`, `Basic`
+-   `virtual_network_name` : Nombre de la Virtual Network a la que el Load Balancer entrega el tráfico
+
+#### Configuración de IP de frontend (`public_lb_frontend_ip_config`)
+
+-   `public_lb_frontend_ip_config.linked_public_ip_name` : Nombre de la IP pública a utilizar
+
+#### Backend pool (`backend_pool`)
+
+-   `backend_pool` : Nombre del backend pool del Load Balancer
+-   `backend_pool.linked_virtual_machine_names` : Nombres de las Virtual Machines a las que el Load Balancer entrega el tráfico (deben pertenecer a la Virtual Network seleccionada)
+
+#### Sonda de estado (`health_probe`)
+
+-   `health_probe.protocol` : Tipo de protocolo del endpoint de backend utilizado por la sonda de estado - `Http`, `Https`, `Tcp`
+-   `health_probe.port` : Puerto en el que la sonda de estado verifica el endpoint de backend - `0` ~ `65535`
+-   `health_probe.request_path` : Ruta utilizada para solicitudes GET al usar sondas Http(s)
+-   `health_probe.interval_in_seconds` : Intervalo (en segundos) en el que la sonda de estado verifica la respuesta de las instancias del backend pool - `5` ~ `2147483646`
+
+#### Regla de balanceo de carga (`rule`)
+
+-   `rule.protocol` : Protocolo de transporte para el endpoint externo - `Tcp`, `Udp`, `All`
+-   `rule.frontend_port` : Puerto del endpoint externo - `0` ~ `65534`
+-   `rule.backend_port` : Puerto utilizado para las conexiones internas - `0` ~ `65535`
+-   `rule.disable_outbound_snat` : Habilita SNAT para la regla para conexiones salientes - `true`, `false`
+-   `rule.frontend_ip_config_name` : Nombre de la configuración de IP de frontend del Public Load Balancer
+-   `rule.backend_pool_name` : Nombre del backend address pool al que el Load Balancer entrega el tráfico
+
+#### Regla NAT (`nat_rule`)
+
+-   `nat_rule.protocol` : Protocolo de transporte para el endpoint externo - `Tcp`, `Udp`, `All`
+-   `nat_rule.frontend_port` : Puerto del endpoint externo - `0` ~ `65534`
+-   `nat_rule.backend_port` : Puerto utilizado para las conexiones internas - `0` ~ `65535`
+-   `nat_rule.frontend_ip_config_name` : Nombre de la configuración de IP de frontend del Public Load Balancer
+
+#### Regla de salida (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protocolo de transporte para el endpoint externo - `Tcp`, `Udp`, `All`
+-   `outbound_rule.frontend_ip_config_name` : Nombre de la configuración de IP de frontend del Public Load Balancer
+-   `outbound_rule.backend_pool_name` : Nombre del backend address pool al que el Load Balancer entrega el tráfico
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso - hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Introducción a Azure Load Balancer (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
+-   [Sondas de estado de Load Balancer (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-custom-probe-overview)
+-   [Reglas de Load Balancer y reglas NAT (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview#load-balancing-rules)
+-   [Reglas de salida de Load Balancer (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-rules-overview)

@@ -1,0 +1,99 @@
+---
+title: LinuxVirtualMachineScaleSet
+sidebar_position: 1
+tags: [Azure, LinuxVirtualMachineScaleSet, VirtualMachineScaleSet, Compute]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-linux_virtual_machine_scale_set.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Linux Virtual Machine Scale Set ist eine Compute-Ressource, mit der mehrere Linux-VM-Instanzen mit identischer Konfiguration erstellt und die Anzahl der Instanzen je nach Bedarf oder Richtlinien automatisch skaliert werden kann.
+Durch Konfiguration von virtuellen Netzwerkverbindungen, VM-SKU, Instanzanzahl, Image-Einstellungen, Authentifizierungsmethoden, Datenträgereinstellungen und Netzwerkschnittstellen lassen sich umfangreiche Workloads effizient betreiben.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/de/docs/resource/azure/Network/VirtualNetwork)
+
+### Verbundene Ressourcen
+
+-   [**Monitor Autoscale Setting**](https://docs.cstudio.app/de/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `included_vnet_name` : Name des Virtual Networks, dem das Virtual Machine Scale Set angehört
+
+-   `orchestration_mode` : Orchestrierungsmodus, der festlegt, wie die VMs durch das Scale Set verwaltet werden – `Uniform`, `Flexible`
+
+-   `platform_fault_domain_count` : Anzahl der VM-Gruppen, die eine gemeinsame Stromversorgung und Netzwerkswitches nutzen
+
+-   `vmss_sku` : Preis- und Leistungsstufe des Virtual Machine Scale Sets
+
+-   `instances` : Anzahl der virtuellen Maschinen im Scale Set – `1` ~ `1000`
+
+### Image-Einstellungen (`source_image`)
+
+-   `source_image.type` : Verwendung einer benutzerdefinierten Image-ID – `recommended`, `custom_id`, `custom_input`
+
+-   `source_image.image_id` : ID des Images, das zur VM-Erstellung verwendet wird
+
+-   `source_image.image` : Image, das zur VM-Erstellung verwendet wird
+
+-   `source_image.publisher` : Herausgeber des Images, das zur VM-Erstellung verwendet wird
+
+-   `source_image.offer` : Offer des Images, das zur VM-Erstellung verwendet wird
+
+-   `source_image.sku` : SKU des Images, das zur VM-Erstellung verwendet wird
+
+-   `enable_ssh_key_authentication` : Verwendung eines SSH-Schlüssels zur Authentifizierung des Administratorkontos – `true`, `false`
+
+-   `ssh_public_key` : Öffentlicher SSH-Schlüssel für die VM – maximal 600 Zeichen
+
+-   `admin_username` : Administrativer Benutzername für die VM – 1 ~ 64 Zeichen
+
+-   `admin_password` : Administratives Kennwort für die VM – 12 ~ 72 Zeichen
+
+-   `os_disk_caching` : Caching-Typ für die Nutzung der internen OS-Festplatte – `ReadWrite`, `ReadOnly`, `None`
+
+-   `storage_account_type` : Speichertyp zur Sicherung der internen OS-Festplatte – `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+
+-   `disk_size_gb` : Größe der internen OS-Festplatte (GB) – `32` ~ `11400`
+
+### Netzwerkschnittstellen-Einstellungen (`network_interface`)
+
+-   `network_interface.is_primary` : Festlegung als primäre Netzwerkschnittstelle – `true`, `false`
+
+-   `network_interface.subnet_name` : Name des Subnetzes, in dem sich die Netzwerkschnittstelle befindet
+
+### IP-Konfigurationseinstellungen (`network_interface.ip_configuration`)
+
+-   `network_interface.ip_configuration.is_primary` : Festlegung als primäre IP-Konfiguration der Netzwerkschnittstelle – `true`, `false`
+
+-   `network_interface.ip_configuration.enabled_public_ip` : Aktivierung einer Public IP – `true`, `false`
+
+-   `network_interface.ip_configuration.public_ip_name` : Name der zu verwendenden Public IP
+
+-   `cloudinit_config` : Skriptinhalt, der beim Erstellen des Servers automatisch ausgeführt wird
+
+-   `tag` : Tags zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Azure Virtual Machine Scale Sets (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/overview)
+-   [Azure Linux Virtual Machine Scale Set (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine_scale_set)
+-   [Terraform cloudinit_config](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/cloudinit_config)

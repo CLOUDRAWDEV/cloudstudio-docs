@@ -1,48 +1,44 @@
 ---
 title: Subscription
 sidebar_position: 1
-tags: [Azure, Resource, Base, Subscription]
+tags: [Azure, Base, Subscription]
 ---
-
 
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/base-subscription.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/base-subscription.webp"
     }
 />
 
 ## Resource Overview
 
-An Azure subscription is a payment plan that allows customers to access and use the Azure cloud computing platform and its services. 
-Provides users with access to a variety of services, such as virtual machines, storage, databases, and other cloud-based services.
-Azure subscriptions are available across different tiers with different features and pricing plans, allowing users to choose the level of resources they need based on their business needs.
+An Azure subscription is a billing agreement that enables customers to access and use the Azure cloud computing platform and its services.  
+It provides users with access to various services such as virtual machines, storage, databases, and other cloud-based services.  
+Azure subscriptions are available in different tiers with varying features and pricing plans, allowing users to choose the appropriate level of resources based on business requirements.
 
 ## Associated Resources
 
-### Parent Resource
+### Child Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
--   [**Security Center**](https://docs.cstudio.app/en/docs/resource/azure/azure/SecurityCenter)
-
--   [**Monitor Log Profile**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorLogProfile)
-
--   [**Policy Set Definition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicySetDefinition)
--   [**Policy Definition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicyDefinition)
--   [**Virtual Network Peering**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetworkPeering)
-
-## Resource Setting Values
-
--   `credential_id` : User Credential
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**SecurityCenter**](https://docs.cstudio.app/en/docs/resource/azure/azure/SecurityCenter)
+-   [**PolicySetDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicySetDefinition)
+-   [**PolicyDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicyDefinition)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+-   `credential_id` : User credential
+
+---
+
+## References
 
 -   [Azure Subscription(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cost-management-billing/manage/create-subscription)
 -   [Azure Subscription(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription)

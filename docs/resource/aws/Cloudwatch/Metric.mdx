@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Cloudwatch, Metric]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-metric.png"
     }
 />
 
@@ -25,17 +25,32 @@ AWS CloudWatch Metric은 모니터링 대상 리소스에서 수집된 측정값
 
 -   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
+### 연결 리소스
+
+-   [**SnsTopic**](https://docs.cstudio.app/docs/resource/aws/Sns/SnsTopic)
+
+---
+
 ## 리소스 설정 값
 
--   `comparison_operator` : 지정된 통계 및 임계값을 비교할 때 사용할 산술 연산
--   `evaluation_periods` : 데이터가 지정된 임계값과 비교되는 기간의 수
--   `metric_name` : 경보와 연결된 측정 항목의 이름
--   `namespace` : 경보와 연결된 지표의 네임스페이스
--   `period` : 지정된 통계가 적용되는 기간(초)
--   `statistic` : 경보의 관련 측정항목에 적용할 통계
--   `threshold` : 지정된 통계가 비교되는 값
+#### 기본 설정
+
+-   `comparison_operator` : 지표 값과 임계값을 비교할 때 사용할 비교 연산자 - `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`, `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`
+-   `evaluation_periods` : 지표가 임계값과 비교되는 평가 기간 수
+-   `metric_name` : 알람과 연결된 CloudWatch 지표 이름
+-   `namespace` : 알람과 연결된 CloudWatch 지표 네임스페이스
+-   `period` : 지표가 집계되는 주기(초)
+-   `statistic` : 지표에 적용할 통계 방식 - `Average`, `SampleCount`, `Sum`, `Minimum`, `Maximum`
+-   `threshold` : 알람 트리거 기준이 되는 임계값
 -   `alarm_description` : 알람에 대한 설명
--   `insufficient_data_actions` : 알람이 다른 상태에서 insufficient_data 상태로 전환될 때 실행할 작업 목록
+-   `linked_sns_names` : Metric에서 사용하기 위해 연결한 SNS Topic 목록
+-   `alarm_sns_names` : 지표가 임계값을 벗어났을 때 알림을 전송할 SNS Topic 목록
+-   `ok_sns_names` : 지표가 정상 상태로 복구되었을 때 알림을 전송할 SNS Topic 목록
+-   `insufficient_data_sns_names` : 데이터 부족 상태일 때 알림을 전송할 SNS Topic 목록
+
+#### 태그
+
+-   `tag` : 리소스를 분류하기 위한 태그 목록
 
 ---
 

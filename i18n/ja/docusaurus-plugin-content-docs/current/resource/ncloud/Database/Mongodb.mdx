@@ -1,6 +1,6 @@
 ---
 title: Mongodb
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, リソース, Database, Mongodb]
 ---
 
@@ -11,40 +11,42 @@ tags: [Ncloud, リソース, Database, Mongodb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.webp"
     }
 />
 
 ## リソース概要
 
-Cloud DB for MongoDB は MongoDB データベースを簡単に構築し、自動的に管理することができます。
-NAVER Cloud の最適化設定を通じて安定的に運営し、障害発生時に自動復旧する完全管理型クラウドデータベースサービスです。
+Cloud DB for MongoDB は、MongoDB データベースを簡単に構築し、自動管理できるフルマネージド型クラウドデータベースサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
 
-### 下位リソース
+---
 
 ## リソース設定値
 
+#### 基本設定
+
 -   `server_name_prefix` : MongoDB サーバー名
--   `user_name` : MongoDB ユーザーアクセス ID
--   `user_password` : MongoDB のユーザーパスワード
--   `cluster_type_code` : MongoDB のクラスタタイプを決定する MongoDB クラスタタイプコード - `Stand Alone`, `Stand Replica Set`, `Shared Cluster`
--   `image_product_code` : MongoDB バージョンのイメージ製品番号
--   `member_port` : MongoDB Member サーバーにアクセスできる TCP ポート番号 - `10000-65535`
--   `member_server_count` : MongoDB Member サーバーの数、1 つのレプリカセットあたりのメンバーサーバーの数が決まります - `3-7`
--   `mongos_server_count` : MongoDB Mongos サーバーの数 - `2-5`
--   `backup_file_retention_period` : バックアップファイルの保管期間、バックアップは日単位で行われ、バックアップファイルは別のストレージに保存 - `1~30`
--   `data_storage_type` : データストレージの種類 - `SSD`, `HDD`
--   `compress_code` : MongoDB が提供するデータ圧縮アルゴリズムを選択できる MongoDB データ圧縮アルゴリズムコード - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+-   `user_name` : MongoDB ユーザー ID
+-   `user_password` : MongoDB ユーザーパスワード
+-   `included_vpc_name` : MongoDB が属する VPC 名
+-   `included_subnet_name` : MongoDB が属する Subnet 名
+-   `cluster_type_code` : MongoDB クラスタータイプコード
+-   `shard_count` : シャード数 - `2`, `3`
+-   `image_product_code` : MongoDB イメージ製品コード
+-   `backup_file_retention_period` : バックアップ保持期間 - `1` ~ `30`
+-   `backup_time` : バックアップ実行時間
+-   `data_storage_type` : ストレージタイプ - `SSD`, `HDD`
+-   `compress_code` : データ圧縮方式 - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
 
 ---
 
 ## 参考資料
 
--   [MongoDB(Ncloud)](https://www.ncloud.com/product/database/cloudDbMongoDB)
--   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)
+-   [MongoDB Database(Ncloud)](https://www.gov-ncloud.com/v2/product/database/cloudDbCache)
+-   [MongoDB Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

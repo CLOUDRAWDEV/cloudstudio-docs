@@ -1,0 +1,74 @@
+---
+title: BedrockGuardrail
+sidebar_position: 3
+tags: [AWS, Bedrock, BedrockGuardrail, Guardrail, Security, AI]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_guardrail.webp" />
+
+## Descripción general del recurso
+
+Es un recurso que configura políticas como el bloqueo de palabras prohibidas y la protección de información sensible para controlar las respuestas de los modelos de AWS Bedrock.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración de mensajes básicos
+
+-   `blocked_input_messaging` : Mensaje que se muestra al usuario cuando la entrada es bloqueada
+-   `blocked_outputs_messaging` : Mensaje que se muestra al usuario cuando la salida es bloqueada
+-   `guardrail_description` : Propósito y descripción del Guardrail
+-   `kms_key_arn` : ARN de la clave KMS personalizada para cifrar los datos del Guardrail
+
+#### Política de contenido (`content_policy_config`)
+
+-   `content_policy_config.type` : Tipo de política de contenido - `HATE`, `INSULTS`, `SEXUAL`, `VIOLENCE`, `MISCONDUCT`
+-   `content_policy_config.input_strength` : Nivel de política aplicado a la entrada - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+-   `content_policy_config.output_strength` : Nivel de política aplicado a la salida - `LOW`, `MEDIUM`, `HIGH`, `NONE`
+
+#### Política de temas (`topic_policy_config`)
+
+-   `topic_policy_config.definition` : Definición de temas que se restringen o permiten
+-   `topic_policy_config.type` : Tipo de política - `DENY`, `ALLOW`
+-   `topic_policy_config.examples` : Lista de ejemplos de temas a los que se aplica la política
+
+#### Validación contextual (`contextual_grounding_policy_config`)
+
+-   `contextual_grounding_policy_config.threshold` : Umbral para determinar la coincidencia contextual (0~1)
+-   `contextual_grounding_policy_config.type` : Método de validación - `RELEVANCE`, `GROUNDING`
+
+#### Protección de información sensible (`sensitive_information_policy_config`)
+
+-   `sensitive_information_policy_config.pii_entities_config.action` : Acción predeterminada cuando se detecta PII - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.pii_entities_config.type` : Tipo de PII que se detectará
+-   `sensitive_information_policy_config.regexes_config.action` : Acción cuando se detectan expresiones regulares - `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.regexes_config.description` : Descripción de la expresión regular
+-   `sensitive_information_policy_config.regexes_config.pattern` : Patrón de la expresión regular
+
+#### Política de palabras (`word_policy_config`)
+
+-   `word_policy_config.managed_word_lists_config.type` : Tipo de lista administrada de palabras prohibidas - `PROFANITY`
+-   `word_policy_config.words_config.text` : Palabras prohibidas o restringidas definidas por el usuario
+
+#### Control de versiones (`versions`)
+
+-   `versions.description` : Cambios o descripción por versión del Guardrail
+
+---
+
+## Referencias
+
+-   [Amazon Bedrock Guardrails(AWS)](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
+-   [AWS KMS(AWS)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)

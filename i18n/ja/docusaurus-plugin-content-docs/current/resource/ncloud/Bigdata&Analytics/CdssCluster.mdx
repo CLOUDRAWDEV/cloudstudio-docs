@@ -11,42 +11,55 @@ tags: [Ncloud, リソース, Bigdata&Analytics, CdssCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-cdss_cluster.webp"
     }
 />
 
 ## リソース概要
 
-リアルタイムストリーミングデータパイプライン及びアプリケーションビルドのためのオープンソースプラットフォームである Apache Kafka クラスターを簡単にデプロイ、保護、運営、拡張できるサービスです。
+リアルタイム・ストリーミングデータパイプラインおよびアプリケーション構築のためのオープンソースプラットフォームである Apache Kafka クラスターを、容易にデプロイ・保護・運用・スケールできるサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**VPC**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
 
 ### 接続リソース
 
+-   [**CdssConfigGroup**](https://docs.cstudio.app/ja/docs/resource/ncloud/Bigdata&Analytics/CdssConfigGroup)
+
+---
+
 ## リソース設定値
 
--   `kafka_version_code` : CDSS で使用する Kafka バージョン
--   `linked_config_group_name` : 使用する CDSS config group の名前
--   `os_image` : 使用する OS イメージタイプ
--   `cmak` : CMAK(Cluster Manager for Apache Kafka)の構成情報
-    -   `user_name` : CMAK アクセス ID
-    -   `user_password` : CMAK アクセスパスワード
--   `manager_node` : CMAK を通じて Apache Kafka クラスターを管理する Node 構成情報
-    -   `manager_node_subnet_name` : マネージャノードが位置する subnet 名
-    -   `manager_node_product_name` : マネージャ ノード ハードウェア製品コード
--   `broker_node` : 実際のデータが保存されるサーバー ノードの構成情報
-    -   `broker_node_subnet_name` : ブローカーノードが位置する subnet 名
-    -   `broker_node_product_code` : ブローカー ノード ハードウェア製品コード
-    -   `broker_node_count` : ブローカー Node 数
-    -   `broker_node_storage_size` : ブローカー Node の保存容量 - `100~2000`
+#### 基本設定
+
+-   `included_vpc_name` : CDSS を作成する VPC 名
+-   `kafka_version_code` : CDSS で使用する Kafka バージョン - `kafkaVersionCode`
+-   `linked_config_group_name` : 使用する CDSS Config Group 名
+-   `os_image` : 使用する OS イメージタイプ - `osImage`
+
+#### CMAK 設定 (`cmak`)
+
+-   `cmak.user_name` : CMAK アクセス ID
+-   `cmak.user_password` : CMAK アクセスパスワード
+
+#### マネージャーノード設定 (`manager_node`)
+
+-   `manager_node.manager_node_subnet_name` : マネージャーノードを配置するサブネット名
+-   `manager_node.manager_node_product_code` : マネージャーノードのハードウェア製品コード - `managerNodeProductCode`
+
+#### ブローカーノード設定 (`broker_node`)
+
+-   `broker_node.broker_node_subnet_name` : ブローカーノードを配置するサブネット名
+-   `broker_node.broker_node_product_code` : ブローカーノードのハードウェア製品コード - `managerNodeProductCode`
+-   `broker_node.broker_node_count` : ブローカーノード数 - `3` ~ `10`
+-   `broker_node.broker_node_storage_size` : ブローカーノードのストレージ容量 - `100` ~ `2000`
 
 ---
 
 ## 参考資料
 
--   [CdssCluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
--   [ncloud_cdss_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)
+-   [Cloud Data Streaming Service Cluster(Ncloud)](https://www.ncloud.com/product/analytics/cloudDataStreamingService)
+-   [CDSS Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/cdss_cluster)

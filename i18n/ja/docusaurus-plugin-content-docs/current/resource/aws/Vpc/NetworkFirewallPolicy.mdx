@@ -1,6 +1,6 @@
 ---
 title: NetworkFirewallPolicy
-sidebar_position: 0
+sidebar_position: 11
 tags: [AWS, リソース, Vpc, NetworkFirewallPolicy]
 ---
 
@@ -11,13 +11,13 @@ tags: [AWS, リソース, Vpc, NetworkFirewallPolicy]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.webp"
     }
 />
 
 ## リソース概要
 
-AWS Network Firewall Policy は Network Firewall に対するモニタリング及び保護動作を定義します。
+AWS Network Firewall に適用する監視および保護動作を定義するポリシー。
 
 ## 関連リソース
 
@@ -27,28 +27,21 @@ AWS Network Firewall Policy は Network Firewall に対するモニタリング�
 
 ### 接続リソース
 
--   [**Network Firewall**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewall)
--   [**Network Firewall Rule Group**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewallRuleGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewall**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/NetworkFirewall)
 
 ## リソース設定値
 
--   `description` : Firewall ポリシーの説明
--   `stream_exception_policy` : ミッドストリームが切断されたトラフィックを処理する方法 - `drop`,`continue`,`reject`
--   `stateless_default_action` : stateless_default_action の設定
-    -   `enabled_fragment_packet_action` : フラグメントパケットアクションの活性化可否 - `false`,`true`
-    -   `default_action` : パケットがポリシーのステータス非保存ルールと一致しない場合に実行するワークリスト - `aws:drop`,`aws:pass`,`aws:forward_to_sfe`
--   `stateless_rule_group_names` : ポリシーに使用されるステータス stateless ルールグループ
--   `stateful_default_action` : stateful 基本アクションの構成
-    -   `rule_evaluation_order` : ポリシーのステータスルールの評価手順を管理する方法
-    -   `default_actions` : パケットがポリシーのステータス保存ルールと一致しない場合に実行するタスクのリスト - `aws:drop_strict`,`aws:drop_established`,`aws:alert_strict`,`aws:alert_established`
--   `strict_stateful_rule_group_names` : パケットがポリシーのステータスルールと一致しない場合に実行するワークリスト
--   `rule_variables` : Firewall ポリシーでデフォルトの修理データ設定を再定義するために使用できる変数
--   `encryption_configuration.
-    -   `enabled_custom_configuration` : AWS 管理型キーを使用してデータを暗号化 - `false`,`true`
+#### 基本設定
 
----
+-   `description` : ポリシー説明（最大 256 文字）
+-   `stream_exception_policy` : ストリーム中断時の処理 - `DROP`, `CONTINUE`, `REJECT`
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 
--   [NetworkFirewallPolicy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
--   [NetworkFirewallPolicy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)
+-   [Network Firewall Policy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
+-   [networkfirewall_firewall_policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)

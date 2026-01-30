@@ -1,0 +1,57 @@
+---
+title: Redis
+sidebar_position: 3
+tags: [Ncloud, Ressource, Database, Redis]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-redis.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Cloud DB for Redis ist ein vollständig verwalteter Cloud-Cache-Service, mit dem Redis-Caches mit wenigen Einstellungen schnell bereitgestellt werden können.  
+Er wird mit optimierten Konfigurationen von Ncloud stabil betrieben und bietet automatische Wiederherstellung bei Ausfällen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `server_name_prefix` : Name des Redis-Servers (Kleinbuchstaben/Zahlen/Bindestrich erlaubt, Beginn mit Kleinbuchstabe, Ende mit Kleinbuchstabe oder Zahl, 3–15 Zeichen)
+-   `included_vpc_name` : Name des VPC, in dem Redis enthalten ist
+-   `included_subnet_name` : Name des Subnetzes, in dem Redis enthalten ist
+-   `redis_mode` : Redis-Betriebsmodus – `CLUSTER`, `SIMPLE`
+-   `engine_version_code` : Version der Redis-Engine
+-   `image_product_code` : Image-Produktcode des Redis-Servers
+-   `product_code` : Produktcode der Redis-Instanz
+-   `target_config_group_name` : Name der zu verknüpfenden Redis-Config-Group
+-   `shard_count` : Anzahl der zu erstellenden Shards (basierend auf Master-Nodes) – `3` ~ `10`
+-   `shard_copy_count` : Anzahl der Replikate pro Shard (Slave-Nodes) – `0` ~ `4`
+-   `enable_high_availability` : Aktivierung der Hochverfügbarkeit – `true`, `false`
+-   `enable_backup` : Aktivierung der Backup-Funktion (bei aktivierter HA automatisch aktiv) – `true`, `false`
+-   `backup_file_retention_period` : Aufbewahrungsdauer der Backup-Dateien (Tage) – `1` ~ `7`
+-   `enable_automatic_backup` : Aktivierung automatischer Backups – `true`, `false`
+-   `backup_time` : Benutzerdefinierte Backup-Zeit
+-   `port` : Redis-Zugriffsport – `6379` ~ `20000`
+
+---
+
+## Referenzen
+
+-   [Redis Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbRedis)
+-   [Redis Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/redis)

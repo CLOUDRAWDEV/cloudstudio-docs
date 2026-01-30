@@ -1,5 +1,5 @@
 ---
-title: Servicecatalog Portfolio
+title: ServicecatalogPortfolio
 sidebar_position: 0
 tags: [AWS, Resource, Servicecatalog, ServicecatalogPortfolio]
 ---
@@ -11,15 +11,13 @@ tags: [AWS, Resource, Servicecatalog, ServicecatalogPortfolio]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/servicecatalog-servicecatalog_portfolio.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/servicecatalog-servicecatalog_portfolio.webp"
     }
 />
 
 ## Resource Overview
 
-AWS Service Catalog allows IT administrators to create and manage portfolios consisting of approved products and deploy them to end users. 
-End users can access the products they need through a personalized portal. 
-Typical products include servers, databases, websites, or applications deployed using AWS resources (e.g., Amazon EC2 instances or Amazon RDS databases). By controlling which users can access specific products, organizations can enforce business standards and compliance, manage the product lifecycle, and enable users to confidently discover and launch products.
+AWS Service Catalog allows IT administrators to create and manage portfolios of approved products and distribute them to end users, who can access the products they need through a personalized portal. Typical products include servers, databases, websites, or applications deployed using AWS resources (for example, Amazon EC2 instances or Amazon RDS databases). Administrators can control which users can access specific products to enforce business standards compliance, manage product lifecycles, and enable users to confidently discover and launch products.
 
 ## Associated Resources
 
@@ -27,15 +25,23 @@ Typical products include servers, databases, websites, or applications deployed 
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
-## Resource Setting Values
+---
 
--   `description` : Description of the portfolio
--   `provider_name` : Name of the person or organization who owns the portfolio
+## Resource Configuration
+
+#### Basic Settings
+
+-   `description` : Portfolio description
+-   `provider_name` : Name of the individual or organization that owns the portfolio
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
--   [What Is AWS Service Catalog?(AWS)](https://docs.aws.amazon.com/servicecatalog/latest/dg/what-is-service-catalog.html)
--   [AWS Service Catalog Price(AWS)](https://aws.amazon.com/ko/servicecatalog/pricing/?nc2=type_a)
--   [aws-aws_servicecatalog(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/servicecatalog_tag_option)
+-   [What Is AWS Service Catalog? (AWS)](https://docs.aws.amazon.com/servicecatalog/latest/dg/what-is-service-catalog.html)
+-   [AWS Service Catalog Pricing (AWS)](https://aws.amazon.com/ko/servicecatalog/pricing/?nc2=type_a)
+-   [aws_servicecatalog (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/servicecatalog_tag_option)

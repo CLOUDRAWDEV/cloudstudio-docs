@@ -1,0 +1,25 @@
+---
+title: v1.7.0
+last_update: 2025-6-16
+date: 2025-6-16
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+
+<hr />
+
+#### È stata aggiunta la funzionalità di importazione di Kubernetes.
+
+<div className={styles.releaseWrap} >
+<div className={styles.tag} data-type="feature">
+    Feature
+</div>
+
+1. È stata aggiunta la funzionalità di importazione di Kubernetes.
+    - È stata introdotta una funzione di importazione nel provider Kubernetes che consente di trasformare in diagrammi le risorse Kubernetes già distribuite.
+        - Piattaforme supportate: AKS (Microsoft Azure), EKS (AWS), NKS (Naver Cloud)
+    - Le risorse Kubernetes importate vengono convertite in codice Terraform.
+    - Tramite la funzione di generazione di tfstate è possibile creare un file di stato Terraform.
+
+</div>
+<br/>

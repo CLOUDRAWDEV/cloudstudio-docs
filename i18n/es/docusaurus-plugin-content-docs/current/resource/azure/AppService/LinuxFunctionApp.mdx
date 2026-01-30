@@ -1,0 +1,62 @@
+---
+title: LinuxFunctionApp
+sidebar_position: 3
+tags: [Azure, FunctionApp, LinuxFunctionApp]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-linux_function_app.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Linux Function App es un servicio de Function App totalmente administrado que permite ejecutar código sin servidor basado en eventos en un entorno Linux.  
+Permite ejecutar código en función de diversos desencadenadores como solicitudes HTTP, temporizadores, colas de mensajes y flujos de eventos, lo que facilita centrarse únicamente en la lógica de la aplicación sin necesidad de gestionar la infraestructura.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+### Recursos conectados
+
+-   [**Service Plan**](https://docs.cstudio.app/es/docs/resource/azure/AppService/ServicePlan)
+
+---
+
+## Valores de configuración del recurso
+
+-   `linked_service_plan_name` : Nombre del Service Plan en el que se ejecutará la Function App
+
+-   `delegated_subnet_name` : Nombre de la Subnet para la delegación de red virtual
+
+-   `target_storage_account_name` : Nombre de la cuenta de almacenamiento utilizada para guardar archivos, registros y metadatos necesarios para la ejecución de la Function App
+
+-   `https_only` : Indica si se permite únicamente el acceso HTTPS para conexiones seguras cifradas y autenticadas – `true`, `false`
+
+-   `auth_settings_enabled` : Indica si se habilitan las funciones de autenticación y autorización para la Function App – `true`, `false`
+
+-   `http2_enabled` : Indica si se utiliza el protocolo HTTP/2 – `true`, `false`
+
+-   `target_content_safety_name` : Nombre del recurso Azure Content Safety que se va a integrar
+
+-   `target_ai_service_name` : Nombre del recurso Azure AI Service que se va a integrar
+
+-   `target_search_service_name` : Nombre del recurso Azure Search Service que se va a integrar
+
+<hr />
+
+## Referencias
+
+-   [Azure Functions (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Linux Function App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Linux Function App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app)

@@ -11,26 +11,33 @@ tags: [AWS, リソース, AcmCertificate]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/acm-acm_certificate.webp"
     }
 />
 
 ## リソース概要
 
-ACM Certificate リソースを使用すると、Amazon Certificate Manager で認証書を要請及び管理することができます。
+ACM Certificate Resource を使用すると、Amazon Certificate Manager で証明書をリクエストおよび管理できます。
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
-
-## 関連リソース
+-   [**Region**](https://docs.cstudio.app/jp/docs/resource/aws/Base/Region)
 
 ## リソース設定値
 
--   `enabled_import` : 証明書インポート
--   `certificate_body` : インポートする証明書の PEM-encoded
--   `certificate_private_key` : インポートする証明書の PEM-encoded プライベートキー
--   `certificate_chain` : インポートする証明書の PEM-encoded 証明書 chain
+#### 基本設定
+
+-   `enabled_import` : 証明書をインポートするかどうか - `true`, `false`
+-   `domain_name` : 証明書の正規化されたドメイン名
+-   `validation_method` : ドメイン所有権を検証する方法 - `DNS`, `EMAIL`
+-   `key_algorithm` : 暗号化アルゴリズム - `RSA_2048`, `ECDSA_P256`, `ECDSA_P384`
+-   `certificate_body` : インポートする証明書の PEM エンコードされた本文 - 最大 `5000`文字
+-   `certificate_private_key` : インポートする証明書の PEM エンコードされたプライベートキー - 最大 `5000`文字
+-   `certificate_chain` : インポートする証明書の PEM エンコードされた証明書チェーン - 最大 `5000`文字
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ - 最大 512 文字, `key`:`value`
 
 ## 参考資料
 

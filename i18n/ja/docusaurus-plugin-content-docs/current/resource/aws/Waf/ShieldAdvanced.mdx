@@ -1,0 +1,49 @@
+---
+title: ShieldAdvanced
+sidebar_position: 0
+tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-shield_advanced.webp" />
+
+## リソース概要
+
+AWS Shield Advanced を使用して DDoS 攻撃から AWS リソースを保護し、Protection Group に含まれるリソースの集計方式およびヘルスチェック設定を構成可能。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `aggregation` : グループ内リソースデータの結合方式（イベント検知・緩和・報告）- `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : Protection Group に含める保護対象リソースの選択基準 - `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Protection Group に含めるリソース種別
+
+#### ヘルスチェック設定
+
+-   `health_check_ip_address` : 監視対象エンドポイントの IP アドレス
+-   `health_check_fqdn` : 監視対象エンドポイントの完全修飾ドメイン名
+-   `health_check_type` : 使用プロトコル - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : ヘルスチェック間隔（秒）- `10`, `30`
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
+
+## 参考資料
+
+-   [AWS Shield Advanced (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)
+-   [Shield Advanced protections and protection groups (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview-shield-advanced.html)
+-   [Amazon Route 53 health checks (AWS)](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)

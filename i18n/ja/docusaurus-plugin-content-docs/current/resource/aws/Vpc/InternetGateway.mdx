@@ -1,6 +1,6 @@
 ---
-title: Internet Gateway
-sidebar_position: 0
+title: InternetGateway
+sidebar_position: 7
 tags: [AWS, リソース, Vpc, InternetGateway]
 ---
 
@@ -11,20 +11,22 @@ tags: [AWS, リソース, Vpc, InternetGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.webp"
     }
 />
 
 ## リソース概要
 
-インターネットゲートウェイは、水平に拡張され、可用性の高い重複 VPC コンポーネントで、VPC とインターネット間の通信を可能にします。 IPv4 トラフィックおよび IPv6 トラフィックをサポートします。
-ネットワーク トラフィックに可用性リスクや帯域幅の制約が発生しません。
-リソースにパブリック IPv4 アドレスまたは IPv6 アドレスがある場合、インターネットゲートウェイを使用すると、パブリック サブネット（例:EC2 インスタンス）のリソースがインターネットに接続できます。
-同様に、インターネットのリソースは、パブリック IPv4 アドレスまたは IPv6 アドレスを使用してサブネットのリソースへの接続を開始できます。
-たとえば、インターネットゲートウェイを使用すると、ローカルコンピュータで AWS の EC2 インスタンスに接続できます。
-インターネット ゲートウェイは、VPC ルーティング テーブルでインターネット ルーティング可能なトラフィックのターゲットを提供します。
-IPv4 通信の場合、インターネットゲートウェイは Network Address Translation（NAT）も行います。
-IPv6 を使用する通信の場合、IPv6 アドレスがパブリックであるため、NAT が必要ではありません。
+インターネットゲートウェイは、水平方向にスケール可能で高可用性を備えた冗長な VPC コンポーネント。  
+VPC とインターネット間の通信を可能にし、IPv4 および IPv6 トラフィックをサポート。  
+可用性リスクや帯域幅制約を発生させない設計。
+
+パブリック IPv4 または IPv6 アドレスを持つリソースは、インターネットゲートウェイ経由でインターネット接続が可能。  
+インターネット側リソースからも、パブリック IP アドレスを使用してサブネット内リソースへの接続開始が可能。  
+VPC ルートテーブルにおいて、インターネット向けトラフィックの宛先として機能。
+
+IPv4 通信では NAT を実行。  
+IPv6 通信ではアドレスがパブリックであるため NAT は不要。
 
 ## 関連リソース
 
@@ -32,13 +34,21 @@ IPv6 を使用する通信の場合、IPv6 アドレスがパブリックであ�
 
 -   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
+### 接続リソース
+
+-   [**RouteTable**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/RouteTable)
+
 ## リソース設定値
 
--   `included_vpc_name` : Internet Gateway をデプロイする VPC 名
+#### 基本設定
 
----
+-   `included_vpc_name` : Internet Gateway を配置する VPC 名
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 
--   [インターネットゲートウェイを使用してインターネットに接続(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [インターネットゲートウェイを使用した接続(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
 -   [aws_internet_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)

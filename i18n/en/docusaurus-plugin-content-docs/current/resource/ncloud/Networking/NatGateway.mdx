@@ -1,6 +1,6 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
+title: NatGateway
+sidebar_position: 5
 tags: [Ncloud, Resource, Network, NatGateway]
 ---
 
@@ -11,28 +11,32 @@ tags: [Ncloud, Resource, Network, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-This service allows multiple servers to connect through a single public IP while blocking direct external access. It enables servers with private IPs to communicate with external servers while maintaining security by preventing direct external access.
+A service that connects multiple servers using a single public IP and blocks direct access from external sources. It allows multiple servers with private IPs to communicate with external servers while maintaining security by preventing direct external access.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
-
-## Resource Setting Values
-
--   `included_vpc_name` : The name of VPC to create the Nat gateway
--   `zone` : Available zone where the Nat gateway will be placed physically - `KR-1`, `KR-2`
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC where the NAT Gateway will be created
+-   `included_subnet_name` : Name of the subnet where the NAT Gateway will be created
+
+---
+
+## References
 
 -   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
--   [ncloud_nat_gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
+-   [NAT Gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)

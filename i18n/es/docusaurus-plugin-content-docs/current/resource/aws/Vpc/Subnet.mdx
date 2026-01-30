@@ -1,0 +1,75 @@
+---
+title: Subnet
+sidebar_position: 1
+tags: [AWS, Recurso, Vpc, Subnet]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-subnet.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Subnet es un rango de direcciones IP dentro de un VPC.  
+En una Subnet se pueden crear recursos de AWS como instancias EC2.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+
+### Recursos secundarios
+
+-   [**DirectoryService**](https://docs.cstudio.app/es/docs/resource/DirectoryService/Security/DirectoryService)
+-   [**Eip**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/Instance)
+-   [**NetworkInterface**](https://docs.cstudio.app/es/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/es/docs/resource/aws/Eks/EksCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/es/docs/resource/aws/Elasticache/Elasticache)
+-   [**Elasticsearch**](https://docs.cstudio.app/es/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**LambdaFunction**](https://docs.cstudio.app/es/docs/resource/aws/Lambda/Lambda)
+-   [**Aurora**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Postgresql)
+-   [**NatGateway**](https://docs.cstudio.app/es/docs/resource/aws/Rds/NatGateway)
+
+### Recursos conectados
+
+-   [**Lb**](https://docs.cstudio.app/es/docs/resource/aws/Networking/LoadBalancer)
+-   [**Client Vpn Endpoint**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Network Firewall**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/NetworkFirewall)
+-   [**Endpoint**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Endpoint)
+-   [**Network Acl**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/NetworkAcl)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se desplegará la Subnet
+-   `cidr_block` : Rango IP de la Subnet (CIDR)
+-   `availability_zone` : Zona de disponibilidad donde se desplegará la Subnet
+-   `pip_enable` : Asignación automática de IP pública - `true`, `false`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Subredes en VPC (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/configure-subnets.html)
+-   [aws_subnet (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)

@@ -11,13 +11,13 @@ tags: [Kubernetes, リソース, RBAC, ClusterRole]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.webp"
     }
 />
 
 ## リソース概要
 
-クラスター レベルとすべてのネームスペースで適用される役割を生成するクバネティス リソース
+クラスター全体およびすべての Namespace に適用される RBAC ロールを定義する Kubernetes リソースです。
 
 ## 関連リソース
 
@@ -27,24 +27,29 @@ tags: [Kubernetes, リソース, RBAC, ClusterRole]
 
 ### 接続リソース
 
--   [**ClusterRolebinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/ClusterRolebinding)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+
+---
 
 ## リソース設定値
 
--   `service_name` : ClusterRole リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `rule` : 当該 Cluster Role に対するポリシーの役割
-    -   `name` : rule 名
-    -   `api_groups` : 作業を許可するリソースを含む API Group
-    -   `resources` : このルールが適用されるリソースのリスト
-    -   `resource_names` : 対応するリソースの個別のインスタンスとして選択する場合は指定 - 空き値の場合は、対応するリソース全体を含めます
-    -   `non_resource_urls` : リソースではなく、url 形式でルールを指定するときに使用 - ヘルスチェック用の url を指定できます
-    -   `verbs` : Rule に含まれるすべてのリソースに適用される動詞リスト
+#### 基本設定
+
+-   `annotations` : メタデータ
+-   `labels` : ユーザー定義ラベル
+
+#### ポリシールール (`rule`)
+
+-   `rule.rule_type` : ルール種別 - `ApiGroup`, `ResourceUrl`
+-   `rule.api_groups` : API Group
+-   `rule.resources` : 対象リソース
+-   `rule.resource_names` : 個別リソース指定
+-   `rule.non_resource_urls` : URL ベース指定
+-   `rule.verbs` : 許可動作 - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
 
 ## 参考資料
 
--   [ClusterRole(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [ClusterRole(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
 -   [ClusterRole(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

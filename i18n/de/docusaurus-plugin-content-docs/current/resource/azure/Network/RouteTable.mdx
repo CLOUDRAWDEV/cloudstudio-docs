@@ -1,0 +1,55 @@
+---
+title: RouteTable
+sidebar_position: 9
+tags: [Azure, Network, RouteTable]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-route_table.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Route Table ist eine Azure-Netzwerkressource, die auf Subnets innerhalb eines Virtual Networks angewendet wird, um **Netzwerkverkehrswege benutzerdefiniert zu steuern**.  
+Zusätzlich zu den standardmäßigen Systemrouten können Verkehrsflüsse explizit zu Zielen wie virtuellen Appliances, dem Internet oder Gateways definiert werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `enable_bgp_route_propagation` : Gibt an, ob die Gateway-Routenweitergabe aktiviert ist - `true`, `false`
+-   `linked_subnet_names` : Liste der Subnet-Namen, die mit der Route Table verknüpft werden
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
+
+#### Routen­konfiguration (`route`)
+
+-   `route.route_address_prefix` : IP-Adresspräfix (CIDR), das die Route definiert
+-   `route.next_hop_type` : Typ des nächsten Hops
+    -   `VirtualNetworkGateway`
+    -   `VnetLocal`
+    -   `Internet`
+    -   `VirtualAppliance`
+    -   `None`
+
+---
+
+## Referenzen
+
+-   [Azure Route Table – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-udr-overview)

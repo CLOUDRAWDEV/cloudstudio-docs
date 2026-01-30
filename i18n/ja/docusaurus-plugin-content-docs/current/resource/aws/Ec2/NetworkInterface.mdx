@@ -1,7 +1,7 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
-tags: [AWS, リソース, Ec2, NetworkInterface]
+sidebar_position: 5
+tags: [AWS, Resource, Ec2, NetworkInterface]
 ---
 
 <hr />
@@ -11,13 +11,13 @@ tags: [AWS, リソース, Ec2, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
 ## リソース概要
 
-VPC で仮想ネットワークカードを表す論理的ネットワーキングコンポーネント
+VPC 内で仮想ネットワークカードを表す論理的ネットワークコンポーネントです。
 
 ## 関連リソース
 
@@ -28,16 +28,27 @@ VPC で仮想ネットワークカードを表す論理的ネットワーキン�
 ### 接続リソース
 
 -   [**Eip**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+
+---
 
 ## リソース設定値
 
--   `private_ips` : Private IP のリスト
--   `linked_security_group_names` : ネットワークインターフェイスに使用する Security Group の名前
--   `linked_eip_names` : 使用する Elastic Ip の名前
+#### 基本設定
+
+-   `included_subnet_name` : Network Interface が配置される Subnet 名
+-   `private_ips` : Private IP 一覧
+-   `linked_security_group_names` : 使用する Security Group 名
+-   `linked_eip_names` : 使用する Elastic IP 名
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [Amazon NetworkInterface(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
--   [Amazon NetworkInterface(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)
+-   [Amazon Network Interface（AWS）](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/using-eni.html)
+-   [Amazon Network Interface（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_interface)

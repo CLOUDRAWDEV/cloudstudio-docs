@@ -1,79 +1,123 @@
 ---
 title: KubernetesCluster
 sidebar_position: 1
-tags: [Azure, Resource, Container, KubernetesCluster]
+tags: [Azure, KubernetesCluster, AKS, Container]
 ---
 
 <hr />
 <br />
 
-
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.webp"
     }
 />
 
 ## Resource Overview
 
-AKS (Azure Kubernetes Service) is a managed Kubernetes service that allows you to quickly deploy and manage clusters.
-In the following quickstart, you can perform the following actions.
+Azure Kubernetes Service (AKS) is a managed service that enables easy deployment and operation of Kubernetes clusters.  
+Container-based workloads can be operated by configuring cluster base settings, authentication and authorization (RBAC), network policies, node pool configuration, and API server access control.
 
-## Resource Setting Values
+## Associated Resources
 
--   `dns_prefix` : DNS prefix for use with Kubernetes API.
+### Parent Resources
 
--   `sku_tier` : The SKU that should be used for the Kubernetes cluster. - `Free`, `Paid`
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
--   `enable_public_network_access` : - `true`, `false`
+### Connected Resources
 
--   `api_server_authorized_ip_ranges` : Authorized IP address ranges to secure access to the API server.
--   `default_node_pool`
-
-    -   `node_pool_name` : The name of the Node Pool to be created in the Kubernetes cluster
-    -   `enable_auto_scaling` : Enable automatically scaling a cluster to meet application demands
-    -   `node_count` : The initial number of nodes which should exist within the Node pool - `1`~ `1000`
-    -   `vm_size` : The size of the Virtual Machine used in Node pool
-    -   `os_disk_size_gb` : The agent operating system disk size in GB - `0`~ `114000`
-    -   `max_pods` : The maximum number of Pods that can run on each agent - `10`~ `250`
-    -   `enable_node_public_ip` : Enable having a public IP address - `true`, `false`
-
--   `authentication_authorization` : Enable Role Based Access Control to limit access to cluster resources - `local_accounts`,`azure_rbac`,`kubernetes_rbac`
-
--   `network_policy` : Network Policy to secure traffic between pods - `calico`,`azure`
-
--   `network_plugin` : Configuring a basic Virtual Network with a kubenet or Azure CNI - `kubenet`, `azure`
-
--   `included_subnet_name` : The name of Subnet to which to create the Kubernetes Cluster
-
--   `load_balancer_sku` : The SKU of the Load balancer - `standard`, `basic`
-
--   `pod_cidr` : The CIDR to use for pod IP addresses
-
--   `outbound_type` : The outbound routing method which should be used for the Kubernetes cluster - `loadBalancer`, `userDefinedRouting`
-
--   `cluster_node_pool`
-
-    -   `node_mode` : System or user mode for Node pool - `User`, `System`
-    -   `node_os_type` : The operating system which should be used for the Node pool - `Linux`, `Windows`
-    -   `enable_auto_scaling` : Enable automatically scaling a cluster to meet application demands - `true`, `false`
-    -   `node_count` : The initial number of nodes which should exist within the Node pool, User mode - `1`~ `1000`
-    -   `max_node_count` : The Max number of nodes which should exist within the Node pool - `0`~ `1000`
-    -   `min_node_count` : The Min number of nodes which should exist within the Node pool - `0`~ `1000`
-    -   `vm_size` : The size of the Virtual Machine used in Node pool
-    -   `os_disk_size_gb` : The agent operating system disk size in GB - `4`~ `11400`
-    -   `max_pods` : The maximum number of Pods that can run on each agent
-    -   `enable_node_public_ip` : Enable having a public IP address - `true`, `false`
-    -   `public_ip_prefix_name` : Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/Metric)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure KubernetesCluster(Microsoft)](https://learn.microsoft.com/ko-kr/azure/aks/intro-kubernetes)
--   [Azure KubernetesCluster Price](https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/)
--   [Azure KubernetesCluster(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)
+-   `dns_prefix` : DNS prefix used together with the hosted Kubernetes API server FQDN
+
+-   `sku_tier` : Pricing tier for Kubernetes cluster usage - `Free`, `Standard`
+
+-   `enable_public_network_access` : Whether to allow public network access - `true`, `false`
+
+-   `api_server_authorized_ip_ranges` : List of authorized IP address ranges to secure access to the API server
+
+-   `authentication_authorization` : Authorization method for restricting access to cluster resources - `local_accounts`, `azure_rbac`, `kubernetes_rbac`
+
+-   `admin_group_object_ids` : List of Azure Active Directory group object IDs that must have administrator roles for the cluster
+
+-   `network_policy` : Network policy for restricting access to specific Pods - `calico`, `azure`, `none`
+
+-   `load_balancer_sku` : Pricing tier of the Load Balancer - `standard`, `basic`
+
+-   `network_plugin` : Base virtual network configuration method - `kubenet`, `azure`
+
+-   `included_subnet_name` : Name of the Subnet where the Kubernetes Cluster will be deployed
+
+-   `pod_cidr` : CIDR used for Pod IP addresses
+
+-   `service_cidr` : CIDR range used to assign service cluster IPs
+
+-   `dns_service_ip` : IP address assigned to the Kubernetes DNS service
+
+-   `outbound_type` : Outbound routing type - `loadBalancer`, `userDefinedRouting`
+
+### Default Node Pool Settings (`default_node_pool`)
+
+-   `default_node_pool.node_pool_name` : Node Pool name - Linux `1` ~ `12` characters, Windows `1` ~ `6` characters
+
+-   `default_node_pool.enable_auto_scaling` : Whether to enable cluster autoscaling - `true`, `false`
+
+-   `default_node_pool.node_count` : Number of nodes in the Node Pool - `0` ~ `1000`
+
+-   `default_node_pool.min_node_count` : Minimum number of nodes in the Node Pool - `1` ~ `1000`
+
+-   `default_node_pool.max_node_count` : Maximum number of nodes in the Node Pool - `1` ~ `1000`
+
+-   `default_node_pool.vm_size` : Size of the virtual machines used in the Node Pool
+
+-   `default_node_pool.os_disk_size_gb` : OS disk size of the virtual machines (GB) - `30` ~ `2048`
+
+-   `default_node_pool.max_pods` : Maximum number of Pods that can run on a node - `10` ~ `250`
+
+-   `default_node_pool.enable_node_public_ip` : Whether to enable public IP addresses per node - `true`, `false`
+
+-   `default_node_pool.public_ip_prefix_name` : Resource ID of the public IP prefix for nodes in this node pool
+
+-   `default_node_pool.temporary_name_for_rotation` : Temporary Node Pool name required when changing specific values
+
+### Additional Node Pool Settings (`cluster_node_pool`)
+
+-   `cluster_node_pool.node_mode` : Node Pool mode - `User`, `System`
+
+-   `cluster_node_pool.node_os_type` : OS type of the VM in the Node Pool - `Linux`, `Windows`
+
+-   `cluster_node_pool.enable_auto_scaling` : Whether to enable autoscaling - `true`, `false`
+
+-   `cluster_node_pool.node_count` : Number of nodes in the Node Pool
+
+-   `cluster_node_pool.max_node_count` : Maximum number of nodes in the Node Pool
+
+-   `cluster_node_pool.min_node_count` : Minimum number of nodes in the Node Pool
+
+-   `cluster_node_pool.vm_size` : Size of the virtual machines used in the Node Pool
+
+-   `cluster_node_pool.os_disk_size_gb` : OS disk size of the virtual machines (GB) - `30` ~ `2048`
+
+-   `cluster_node_pool.max_pods` : Maximum number of Pods that can run on a node - `10` ~ `250`
+
+-   `cluster_node_pool.enable_node_public_ip` : Whether to enable public IP addresses per node - `true`, `false`
+
+-   `cluster_node_pool.public_ip_prefix_name` : Resource ID of the public IP prefix for nodes in this Node Pool
+
+### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Azure Kubernetes Service(AKS)(Microsoft)](https://learn.microsoft.com/ko-kr/azure/aks/)
+-   [Terraform azurerm_kubernetes_cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)

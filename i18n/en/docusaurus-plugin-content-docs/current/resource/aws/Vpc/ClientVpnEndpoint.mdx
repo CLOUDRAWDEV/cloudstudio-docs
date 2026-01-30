@@ -1,6 +1,6 @@
 ---
 title: ClientVpnEndpoint
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, Resource, Vpc, ClientVpnEndpoint]
 ---
 
@@ -11,41 +11,69 @@ tags: [AWS, Resource, Vpc, ClientVpnEndpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-client_vpn_endpoint.webp"
     }
 />
 
 ## Resource Overview
 
-A managed client-based VPN service that provides secure access to AWS resources and on-premises network resources.
+A managed client-based VPN service that enables secure access to AWS resources and on-premises network resources.
 
 ## Associated Resources
 
 ### Parent Resources
 
 -   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
-## Resource Setting Values
+### Connected Resources
 
--   `description`: A brief description of the client VPN endpoint
--   `client_cidr_block`: The IP address range from which client IP addresses are allocated
--   `server_acm_certificate_name`: The server certificate name
--   `authentication`: Authentication methods to use
--   `authentication.option_types`: Authentication methods to use - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
--   `connection_logging.enabled`: Enable log details on client connections - `false`, `true`
--   `transport_protocol`: Transport protocol used by the TLS sessions - `tcp`, `udp`
--   `enabled_split_tunnel`: Enable split-tunnel - `false`, `true`
--   `vpn_port`: VPN port
--   `enabled_self_service_portal`: Enable self-service portal - `false`, `true`
--   `session_timeout_hours`: Session timeout hours - `8`, `10`, `12`, `24`
--   `included_vpc_name`: VPC name
--   `linked_security_group_names`: Security group names to be applied to the endpoint
--   `linked_subnet_names`: Subnet names to be connected to the endpoint
+-   [**Log**](https://docs.cstudio.app/en/docs/resource/aws/Cloudwatch/Log)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `description` : Description of the Client VPN endpoint
+-   `client_cidr_block` : CIDR block from which client IP addresses are assigned
+-   `server_acm_certificate_name` : Server certificate name
+-   `transport_protocol` : TLS session transport protocol - `tcp`, `udp`
+-   `vpn_port` : VPN port - `443`, `1194`
+-   `enabled_split_tunnel` : Whether split tunneling is enabled - `true`, `false`
+-   `enabled_self_service_portal` : Whether the self-service portal is enabled - `true`, `false`
+-   `session_timeout_hours` : Session timeout duration - `8`, `10`, `12`, `24`
+
+#### Authentication Settings (`authentication`)
+
+-   `authentication.option_types` : Authentication method - `certificate-authentication`, `directory-service-authentication`, `federated-authentication`
+-   `authentication.client_acm_certificate_name` : Client certificate name
+-   `authentication.active_directory_id` : Active Directory ID
+-   `authentication.saml_provider_arn` : SAML provider ARN
+-   `authentication.self_service_saml_provider_arn` : Self-service SAML provider ARN
+
+#### Connection Logging (`connection_logging`)
+
+-   `connection_logging.enabled` : Whether client connection logging is enabled - `true`, `false`
+-   `connection_logging.linked_log_group_name` : CloudWatch Logs log group name
+-   `connection_logging.log_stream_name` : CloudWatch Logs log stream name
+
+#### Network Association
+
+-   `included_vpc_name` : Name of the VPC to associate
+-   `linked_security_group_names` : List of security group names to apply
+-   `linked_subnet_names` : List of subnet names to associate
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+---
+
+## References
 
 -   [AWS Client Vpn Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/clientvpn-admin/cvpn-working-endpoints.html)
 -   [AWS Client Vpn Endpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_client_vpn_endpoint)

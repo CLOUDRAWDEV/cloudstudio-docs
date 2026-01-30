@@ -11,40 +11,38 @@ tags: [Kubernetes, リソース, RBAC, ClusterRoleBinding]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.webp"
     }
 />
 
 ## リソース概要
 
-クラスター レベルとすべてのネームスペースで適用される役割をユーザーに参照するクバネティス リソース
+クラスターレベルおよびすべてのネームスペースに適用される Role を、ユーザーやサービスアカウントなどの主体に関連付ける Kubernetes リソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 
 ### 接続リソース
 
--   [**ClusterRole**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/ClusterRole)
+-   [**ClusterRole**](https://docs.cstudio.app/ja/docs/resource/kubernetes/RBAC/ClusterRole)
+
+---
 
 ## リソース設定値
 
--   `service_name` : ClusterRoleBinding リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `role_name` : 主体をバインディングする Cluster Role の名前を指
--   `subject` : Cluster Role を付与する主体を指定
-    -   `name` : バインディングする主体の名前を入力
-    -   `namespace` : バインディングする主体のネームスペースを入力
-    -   `api_group` : 承認決定を下す API Group - `rbac.authorization.k8s.io`,`User`,`Group`
-    -   `kind` : バインディングする主体のタイプを選択 - `ServiceAccount`,`User`,`Group`
+#### 基本設定
+
+-   `annotations` : ClusterRoleBinding リソースのメタデータ key-value
+-   `labels` : ClusterRoleBinding オブジェクト識別用のユーザー定義ラベル
+-   `role_name` : バインド対象となる ClusterRole 名
+-   `subject` : ClusterRole を付与する主体。kind（`ServiceAccount`, `User`, `Group`）、namespace（主体が属するネームスペース）、api_group（`rbac.authorization.k8s.io`）を含む
 
 ---
 
 ## 参考資料
 
--   [ClusterRoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [ClusterRoleBinding(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)
-    `

@@ -1,6 +1,6 @@
 ---
-title: Waf Rule Group
-sidebar_position: 0
+title: WafRuleGroup
+sidebar_position: 3
 tags: [AWS, 리소스, Waf, WafRuleGroup]
 ---
 
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Waf, WafRuleGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.webp"
     }
 />
 
@@ -23,17 +23,22 @@ AWS WAF Rule Group은 Web Application Firewall에서 사용하는 규칙 모음�
 
 ### 상위 리소스
 
--   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base/)
-
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
 
 ## 리소스 설정 값
 
--   `scope` : AWS CloudFront 배포용인지 아니면 리전 애플리케이션용인지 지정 - `REGIONAL`, `CLOUDFRONT`
--   `capacity` : 규칙 그룹에 필요한 웹 ACL 용량 단위(WCU)
--   `cloudwatch_metrics_enabled` : 연결된 리소스가 CloudWatch에 지표를 보낼지 여부 설정 - `true`, `false`
--   `metric_name` : CloudWatch metric의 이름, 영대소문자, 하이픈(-), 밑줄(\_)만 포함할 수 있으며 길이는 1-128자
--   `sampled_requests_enabled` : AWS WAF가 규칙과 일치하는 웹 요청의 샘플링을 저장해야 하는지 여부를 설정 - `true`, `false`
+#### 기본 설정
+
+-   `scope` : Rule Group 적용 범위 지정 - `REGIONAL`, `CLOUDFRONT`
+-   `capacity` : 규칙 그룹에 필요한 Web ACL 용량 단위(WCU)
+-   `cloudwatch_metrics_enabled` : CloudWatch 지표 전송 여부 - `true`, `false`
+-   `metric_name` : CloudWatch metric 이름, 영대소문자, 하이픈, 밑줄만 허용, `1` ~ `128`자
+-   `sampled_requests_enabled` : 규칙과 일치하는 웹 요청 샘플링 저장 여부 - `true`, `false`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

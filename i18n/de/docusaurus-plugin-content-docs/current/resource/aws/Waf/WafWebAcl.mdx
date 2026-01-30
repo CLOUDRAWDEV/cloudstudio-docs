@@ -1,0 +1,54 @@
+---
+title: WafWebAcl
+sidebar_position: 2
+tags: [AWS, Ressource, Waf, WafWebAcl]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_web_acl.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine AWS WAF Web ACL ist die oberste Ebene einer Regelsammlung, die auf Webanwendungen angewendet wird. Mit einer Web ACL können mehrere Rule Groups und einzelne Regeln kombiniert sowie die Reihenfolge der Anforderungsverarbeitung definiert werden. Dadurch lässt sich die Sicherheit von Webanwendungen erhöhen und das Zulassen, Blockieren oder Zählen von Anfragen steuern.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**CloudFrontDistribution**](https://docs.cstudio.app/de/docs/resource/aws/CloudFront/CloudFrontDistribution)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `scope` : Anwendungsbereich der Web ACL – `REGIONAL`, `CLOUDFRONT`
+-   `cloudwatch_metrics_enabled` : Aktivierung der Übermittlung von CloudWatch-Metriken – `true`, `false`
+-   `metric_name` : Name der CloudWatch-Metrik, erlaubt sind Groß-/Kleinbuchstaben, Bindestriche und Unterstriche, `1` ~ `128` Zeichen
+-   `sampled_requests_enabled` : Speicherung von Stichproben der mit Regeln übereinstimmenden Webanfragen – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [AWS-WAF-Funktionen (AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS-WAF-Preise (AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_web_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_web_acl)

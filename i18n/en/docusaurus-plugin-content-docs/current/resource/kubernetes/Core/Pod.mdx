@@ -1,89 +1,67 @@
 ---
 title: Pod
-sidebar_position: 0
+sidebar_position: 4
 tags: [Kubernetes, Resource, Core, Pod]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes service that is the smallest deployable unit, running one or more containers together.
+The smallest deployable unit in Kubernetes that runs one or more containers together.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
-
+-   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
 -   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
 -   [**Service**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/PersistentVolumeClaim)
-
-
-
-## Resource Setting Values
-
--   `service_name` : Name of the Pod resource
--   `namespace` : Namespace where Pod resources will be deployed
--   `annotations` : Key-value pairs used to display necessary information in the Kubernetes system
--   `labels` : User-specified values used to distinguish objects
--   `containers` : Defines templates for containers belonging to a Pod - Default values can be set and applied, after which detailed settings can be configured
-    -   `containers.name` : Defines the name of the container
-        -   `image` : Docker image name to use
-        -   `args` : Commands to be executed in the container
-        -   `command` : Commands to be executed in the container
-        -   `port` : List of ports to expose in the container
-
-        -   `resources` : Specifies the amount of computing resources in the container - Detailed settings
-            -   `name` : Specify minimum/maximum amount of computing resources - `Limits`, `requests`
-            -   `cpu` : Specifies the amount of cpu(m)
-            -   `memory` : Specifies the amount of memory(Mi)
-
-        -   `probe` : Defines how to diagnose the health of a Pod - Detailed settings
-            -   `name` : Probe method selection - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-
-        -   `env` : Block of key-value pairs to set in container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-
-        -   `volume_mount` : The pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path` 
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
-            
--   `volume` : List of volumes that containers in a pod can mount
-    -   `name` : Volume name
-        -   `type` : Type of volume to mount - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Name of persistent volume claim
-        -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-        -   `read_only` : If true, mounted read-only, otherwise read/write
-
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the container
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/en/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `namespace` : Namespace where the Pod resource will be deployed
+-   `annotations` : Kubernetes system metadata
+-   `labels` : User-defined labels for Pod identification and classification
+-   `pod_security_context` : Pod-level security and permission settings
+-   `init_containers` : Definition of initialization containers executed before the main containers
+-   `containers` : Definition of container specifications to be executed in the Pod
+-   `containers.image` : Container image
+-   `containers.resources` : CPU / Memory requests and limits
+-   `containers.probe` : startup, liveness, and readiness probe configuration
+-   `containers.env` : Environment variable definitions
+-   `containers.env_from` : Environment variable injection based on ConfigMap / Secret
+-   `containers.command` : Container execution command
+-   `containers.args` : Container execution arguments
+-   `containers.port` : Ports exposed by the container
+-   `containers.volume_mount` : Volume mount paths in the container
+-   `volume` : Definition of volumes used by the Pod
+-   `dns_policy` : DNS policy configuration
+-   `enable_service_links` : Whether to automatically inject service environment variables
+-   `host_network` : Whether to use the host network
+-   `image_pull_secrets` : List of Secrets used for pulling container images
+
+---
+
+## References
 
 -   [Pod(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/pods/)
 -   [Pod(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/pod)

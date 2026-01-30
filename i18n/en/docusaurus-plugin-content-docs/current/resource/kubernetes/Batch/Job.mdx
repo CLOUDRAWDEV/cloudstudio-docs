@@ -4,92 +4,102 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Batch, Job]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource used to execute one-time jobs.
+A Kubernetes resource used to execute one-time tasks.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
-### Connected Resources
+### Connected Targets
 
 -   [**ConfigMap**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/ConfigMap)
-
-
-## Resource Setting Values
-
--   `service_name` : Name of the Job resource
--   `namespace` : Namespace where job resources will be distributed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `template_labels` : Label to be set in Pod created per node
--   `restart_policy` : Specifies what to do after a container running within a Pod fails or a task completes
--   `backoff_limit` : Block creating or updating a task when the task state ends or rejects - it is True
--   `wait_for_completion` : Blocks job creation or update until the job reaches completion or failure status - Default is True
-
--   `timeouts` : Time allowed before a task is considered failed
-    -   `create` : Time to create a new task and wait for the task to complete successfully - default 1m   
-    -   `update` : Time to update an existing task and wait for successful task completion - default 1m
-
--   `containers` : Defines templates for containers belonging to a pod - Default values can be set and applied, after which detailed settings can be configured
-    -   `containers.name` : Define container name
-        -   `image` : Specify the image to use for the container
-        -   `args` : Commands to be executed in the container
-        -   `command` : Commands to be executed in the container
-        -   `port` : List of ports to expose in container
-
-        -   `resources` : SSpecifies the amount of resources in the container - Detailed settings
-            -   `name` : Specify minimum/maximum amount of computing resources - `limits`, `requests`
-            -   `cpu` : Specifies the amount of cpu(m)
-            -   `memory` : Specifies the amount of memory(Mi)
-
-        -   `probe` : Define how to diagnose the health of a Pod - Detailed settings
-            -   `name` : Probe method selection - `startup`, `liveness`, `readiness`
-            -   `http_get_path` : Path to access the HTTP server
-            -   `http_get_port` : Port number to be accessed by the container
-            -   `http_header` : Custom headers to set in the request
-            -   `initial_delay_seconds` : Number of seconds after the container starts before the probe starts
-            -   `period_seconds` : How often to perform probes (in seconds)
-
-        -   `env` : Block of key-value pairs to set in container environment - Detailed settings
-            -   `name` : Name of the environment variable
-            -   `value` : Value for the environment variable
-
-        -   `volume_mount` : The pod volume to mount on the container's file system - Detailed settings
-            -   `name` : Name of the volume mount
-            -   `path`
-                -   `mount_path` : Path within the container where the volume should be mounted
-                -   `sub_path` : Path within the container where the volume should be mounted
-
--   `volume` : List of volumes that containers in a pod can mount
-    -   `name` : Volume name
-        -   `type` : Type of volume to mount - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`
-        -   `target_name` : Name of persistent volume claim
-        -   `default_mode` : Mode to use for generated files - between 0 and 0777, default is 0644
-        -   `read_only` : If true, mounted read-only, otherwise read/write
-
--   `image_pull_secrets` : Secret in the same namespace containing the permissions needed to pull the image used by the Container
+-   [**Secret**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Secret)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `namespace` : Namespace where the Job resource will be deployed
+-   `annotations` : Key-value metadata used to display required information in the Kubernetes system
+-   `labels` : Key-value labels specified by the user to distinguish objects
+-   `enable_manual_selector` : Whether to use a manual selector - `true`, `false`
+-   `template_labels` : Labels applied to the Pod
+-   `restart_policy` : Handling policy when a container exits - `Never`, `OnFailure`
+-   `backoff_limit` : Number of retries before considering the Job failed
+-   `wait_for_completion` : Whether to block creation/updates until the Job completes or fails - `true`, `false`
+-   `dns_policy` : DNS policy - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Whether to enable service links - `true`, `false`
+-   `host_network` : Whether to use the host network - `true`, `false`
+-   `image_pull_secrets` : List of Secrets used for pulling images
+
+#### Timeouts (`timeouts`)
+
+-   `timeouts.create` : Wait time from Job creation until completion
+-   `timeouts.update` : Wait time from Job update until completion
+
+#### Pod Security Context (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : UID to run the container as
+-   `pod_security_context.run_as_group` : GID to run the container as
+-   `pod_security_context.run_as_non_root` : Whether to run as a non-root user - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : SELinux user
+-   `pod_security_context.se_linux_options_role` : SELinux role
+-   `pod_security_context.se_linux_options_type` : SELinux type
+-   `pod_security_context.se_linux_options_level` : SELinux level
+
+#### Init Containers (`init_containers`)
+
+-   `init_containers.image` : Container image
+-   `init_containers.args` : List of execution arguments
+-   `init_containers.command` : Execution command
+-   `init_containers.env` : Environment variable configuration
+-   `init_containers.env_from` : Environment variables from ConfigMap or Secret
+-   `init_containers.resources` : CPU and memory resource requests/limits
+-   `init_containers.probe` : Health check probes
+-   `init_containers.port` : Container port configuration
+-   `init_containers.volume_mount` : Volume mount configuration
+
+#### Containers (`containers`)
+
+-   `containers.image` : Container image
+-   `containers.args` : List of execution arguments
+-   `containers.command` : Execution command
+-   `containers.env` : Environment variable configuration
+-   `containers.env_from` : Environment variables from ConfigMap or Secret
+-   `containers.resources` : CPU and memory resource requests/limits
+-   `containers.probe` : Health check probes
+-   `containers.port` : Container port configuration
+-   `containers.volume_mount` : Volume mount configuration
+
+#### Volumes (`volume`)
+
+-   `volume.volume_type` : Volume type - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Target resource name
+-   `volume.path` : Mount path
+-   `volume.default_mode` : File permission mode
+-   `volume.items` : ConfigMap item mappings
+-   `volume.read_only` : Read-only flag - `true`, `false`
+
+---
+
+## References
 
 -   [Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
--   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/en/docs/resources/app_service)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)

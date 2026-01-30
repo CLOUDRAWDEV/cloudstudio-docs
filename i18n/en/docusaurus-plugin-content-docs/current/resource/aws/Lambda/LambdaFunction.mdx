@@ -1,5 +1,5 @@
 ---
-title: Lambda Function
+title: LambdaFunction
 sidebar_position: 0
 tags: [AWS, Resource, Lambda, LambdaFunction]
 ---
@@ -11,16 +11,13 @@ tags: [AWS, Resource, Lambda, LambdaFunction]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lambda-lambda_function.webp"
     }
 />
 
 ## Resource Overview
 
-AWS Lambda is a computing service that allows you to run code without provisioning or managing servers. 
-Lambda executes code on a high-availability computing infrastructure and handles all aspects of resource management, including server and operating system maintenance, capacity provisioning and automatic scaling, code and security patch deployment, and logging. 
-With Lambda, you can run code for nearly any type of application or backend service. 
-You only need to supply your code in one of the languages supported by Lambda.
+AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs code on a highly available compute infrastructure and performs all compute resource management, including server and operating system maintenance, capacity provisioning and automatic scaling, code and security patch deployment, and logging. With Lambda, you can run code for almost any type of application or backend service by simply supplying code in one of the languages that Lambda supports.
 
 ## Associated Resources
 
@@ -31,29 +28,37 @@ You only need to supply your code in one of the languages supported by Lambda.
 
 ### Connected Resources
 
--   [**Lambda Function**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
-
+-   [**LambdaFunction**](https://docs.cstudio.app/en/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LbTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
 
 ## Resource Setting Values
 
--   `architectures` : Instruction set architecture for your Lambda function - `x86_64`, `arm64`
--   `runtime` : Identifier of the lambda function's runtime - `nodejs`, `nodejs4.3`, `nodejs6.10`, `nodejs8.10`, `nodejs10.x`, `nodejs12.x`, `nodejs14.x`, `java8`, `java8.al2`, `java11`, `python2.7`, `python3.6`, `python3.7`, `python3.8`, `python3.9`, `dotnetcore1.0`, `dotnetcore2.0`, `dotnetcore2.1`, `dotnetcore3.1`, `nodejs4.3-edge`, `go1.x`, `ruby2.5`, `ruby2.7`, `provided`, `provided.al2`
--   `memory_size` : Amount of memory in MB your Lambda Function can use at runtime, 128 to 10240 (MB) - `128`, `512`, `1024`, `1536`, `2048`, `3072`, `4096`, `5120`, `6144`, `7168`, `8192`, `9216`, `10240`
--   `handler` : Function entrypoint in your code
--   `s3_bucket_name` : Name of S3 bucket which has function's deployment package, and has to be currently deployed
--   `file_directory` : Path to the function's deployment package within S3 (zip file format)
--   `included_subnet_names` : List of subnet IDs associated with the Lambda function, at least 2
--   `security_group_names` : List of security group IDs associated with the Lambda function
+#### Basic Settings
 
--   `tracing_enabled` : Whether AWS X-Ray tracing is enabled - `true`, `false`
--   `tracing_mode` : The tracing mode for AWS X-Ray - `PassThrough`, `Active`
+-   `architectures` : Instruction set architecture for the Lambda function - `x86_64`, `arm64`
+-   `runtime` : Runtime identifier for the Lambda function
+-   `memory_size` : Amount of memory available to the Lambda function at runtime (MB) - `128` ~ `10240`
+-   `handler` : Function entry point in the code
+-   `s3_bucket_name` : Name of the S3 bucket that contains the function deployment package
+-   `file_directory` : Path to the function deployment package in S3 (zip file)
+-   `role_name` : Name of the IAM role applied to Lambda
+-   `included_subnet_names` : List of subnet names connected to the Lambda function (minimum of 2)
+-   `linked_security_group_names` : List of security group names connected to the Lambda function
+-   `tracing_mode` : AWS X-Ray tracing mode - `PassThrough`, `Active`
 
--   `environment_variable` : Environment variables available to the function during execution
+#### Environment Variables (`environment_variable`)
+
+-   `environment_variable` : Environment variable settings available to the function during Lambda execution (`key:value` format)
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
 -   [AWS Lambda(AWS)](https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/welcome.html)
--   [AWS Lambda Price(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
+-   [AWS Lambda Pricing(AWS)](https://aws.amazon.com/ko/lambda/pricing/?nc2=type_a)
 -   [aws_lambda_function(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function)

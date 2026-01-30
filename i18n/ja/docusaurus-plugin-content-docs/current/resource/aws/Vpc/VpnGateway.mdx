@@ -1,6 +1,6 @@
 ---
-title: Vpn Gateway
-sidebar_position: 0
+title: VpnGateway
+sidebar_position: 18
 tags: [AWS, リソース, Vpc, VpnGateway]
 ---
 
@@ -11,36 +11,43 @@ tags: [AWS, リソース, Vpc, VpnGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-vpn_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Vpn Gateway は、Site-to-Site VPN 接続の Amazon 側にある VPN 集線器です。 仮想プライベートゲートウェイを生成して、Site-to-Site VPN 接続を生成する VPC に接続します。
+Virtual Private Gateway は Site-to-Site VPN 接続における Amazon 側の VPN 集約装置。  
+Virtual Private Gateway を作成し、Site-to-Site VPN 接続を作成する VPC に接続する。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/ja/ja/docs/resource/aws/Base/Region)
 
 ### 接続リソース
 
 -   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
-
--   [**Vpc Customer Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/CustomerGateway)
+-   [**DxGateway**](https://docs.cstudio.app/ja/docs/resource/aws/DirectConnect/DxGateway)
+-   [**CustomerGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
 
 ## リソース設定値
 
--   `linked_vpc_name` : VPN Gateway が含まれる VPC 名
--   `vpn_connection` : VPN Connection 名
-    -   `linked_customer_gateway` : VPN Gateway と接続する Customer Gateway 名
-    -   `static_routes_only` : ゲートウェイ間ルーティング時、static ルーティングのみを使用するかどうかを指定 - `true`, `false`
+#### 基本設定
+
+-   `linked_vpc_name` : VPN Gateway を接続する VPC 名
+-   `dx_gateway` : Direct Connect Gateway 連携設定
+-   `dx_gateway.linked_dx_gateway` : 接続する Dx Gateway 名
+-   `dx_gateway.allowed_prefixes` : オンプレミスネットワークへ広告する CIDR Prefix 一覧
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [AWS Site-to-Site VPN 作動方式(AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
--   [aws_api_gateway_resource(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_resource)
+-   [AWS Site-to-Site VPN 動作概要(AWS)](https://docs.aws.amazon.com/ko_kr/vpn/latest/s2svpn/how_it_works.html)
+-   [aws_api_gateway_resource(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_r)\_]()

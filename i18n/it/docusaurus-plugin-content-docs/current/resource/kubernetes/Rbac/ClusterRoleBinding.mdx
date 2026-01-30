@@ -1,0 +1,48 @@
+---
+title: ClusterRoleBinding
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, RBAC, ClusterRoleBinding]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role_binding.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes che associa ruoli applicabili a livello di cluster e a tutti i namespace agli utenti.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Cluster**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Cluster)
+
+### Risorse collegate
+
+-   [**ClusterRole**](https://docs.cstudio.app/it/docs/resource/kubernetes/RBAC/ClusterRole)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `annotations` : Metadati key-value della risorsa ClusterRoleBinding
+-   `labels` : Etichette personalizzate per distinguere l’oggetto ClusterRoleBinding
+-   `role_name` : Nome del ClusterRole da associare
+-   `subject` : Soggetto a cui assegnare il ClusterRole; include kind - `ServiceAccount`, `User`, `Group`, namespace (namespace di appartenenza del soggetto) e api_group - `rbac.authorization.k8s.io`
+
+---
+
+## Riferimenti
+
+-   [ClusterRoleBinding(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [ClusterRoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding)

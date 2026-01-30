@@ -1,0 +1,88 @@
+---
+title: NetworkFirewallPolicy
+sidebar_position: 11
+tags: [AWS, Risorsa, Vpc, NetworkFirewallPolicy]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una AWS Network Firewall Policy definisce i comportamenti di monitoraggio e protezione applicati da Network Firewall.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**NetworkFirewallRuleGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewall**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewall)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `description` : Descrizione della policy del firewall (massimo 256 caratteri)
+-   `stream_exception_policy` : Gestione del traffico con stream interrotto - `DROP`, `CONTINUE`, `REJECT`
+
+#### Azioni predefinite stateless (`stateless_default_action`)
+
+-   `stateless_default_action.enabled_fragment_packet_action` : Abilitazione della gestione dei pacchetti frammentati - `true`, `false`
+-   `stateless_default_action.default_action` : Azione predefinita per pacchetti non corrispondenti alle regole stateless - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
+-   `stateless_default_action.fragment_default_action` : Azione per pacchetti frammentati non corrispondenti - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
+
+#### Gruppi di regole stateless (`stateless_rule_group_names`)
+
+-   `stateless_rule_group_names` : Elenco dei gruppi di regole stateless collegati alla policy
+    -   key : priorità (priority)
+    -   value : nome del gruppo di regole
+
+#### Azioni predefinite stateful (`stateful_default_action`)
+
+-   `stateful_default_action.rule_evaluation_order` : Ordine di valutazione delle regole stateful - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `stateful_default_action.default_actions` : Azioni predefinite per pacchetti non corrispondenti alle regole stateful
+    -   `aws:drop_strict`
+    -   `aws:drop_established`
+    -   `aws:alert_strict`
+    -   `aws:alert_established`
+
+#### Gruppi di regole stateful
+
+-   `strict_stateful_rule_group_names` : Gruppi di regole stateful valutati in modalità STRICT_ORDER
+    -   key : priorità (priority)
+    -   value : nome del gruppo di regole
+-   `default_stateful_rule_group_names` : Elenco dei gruppi di regole stateful predefiniti
+
+#### Variabili di regola (`rule_variables`)
+
+-   `rule_variables` : Elenco delle variabili per sovrascrivere le impostazioni predefinite di Suricata
+
+#### Impostazioni di crittografia (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Abilitazione della crittografia con chiavi gestite da AWS - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Nome della chiave KMS da utilizzare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Network Firewall Policy (AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
+-   [Network Firewall Policy (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)

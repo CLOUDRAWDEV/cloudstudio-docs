@@ -1,6 +1,6 @@
 ---
 title: Istiod
-sidebar_position: 0
+sidebar_position: 3
 tags: [Kubernetes, リソース, Helm, Istiod]
 ---
 
@@ -11,29 +11,29 @@ tags: [Kubernetes, リソース, Helm, Istiod]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istiod.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istiod.webp"
     }
 />
 
 ## リソース概要
 
-Istio Helm Chart です。
+Istio コントロールプレーン (Istiod) の Helm チャートです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+---
 
 ## リソース設定値
 
--   `service_name` : Istio Helm Chart リリース名
--   `namespace` : Istiod Helm Chart リソースがデプロイされるネームスペース - `istio-system`に指定
--   `version` : Istiod Helm Chart のバージョンを指定
--   `set` : Istiod デフォルトのチャートの値を動的に変更
+#### 基本設定
+
+-   `namespace` : Istiod Helm Chart をデプロイする Namespace
+-   `version` : 使用する Istiod Helm Chart のバージョン
+-   `set` : Istiod の既定値を動的に変更する key-value 設定
 
 ---
 

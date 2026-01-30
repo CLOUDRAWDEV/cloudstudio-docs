@@ -1,0 +1,50 @@
+---
+title: WafIpset
+sidebar_position: 1
+tags: [AWS, Recurso, Waf, WafIpset]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.webp"
+    }
+/>
+
+
+## Descripción general del recurso
+
+AWS WAF IP Set es un recurso que agrupa una o más direcciones IP o bloques CIDR para que puedan ser referenciados en reglas de Web ACL, y se utiliza para configurar políticas de permiso o bloqueo para rangos de IP específicos.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `scope` : Alcance donde se aplicará el IP Set - `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : Versión de dirección IP - `IPV4`, `IPV6`
+-   `addresses` : Lista de direcciones IP o bloques IP especificados en notación CIDR
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [AWS WAF 기능(AWS)](https://aws.amazon.com/ko/waf/features/)
+-   [AWS WAF 요금(AWS)](https://aws.amazon.com/ko/waf/pricing/?nc2=type_a)
+-   [aws_waf_ipset(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/waf_ipset)

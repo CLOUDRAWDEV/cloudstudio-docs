@@ -1,0 +1,76 @@
+---
+title: Sicherheitsdiagnose Übersicht
+sidebar_position: 1
+tags: [security, Sicherheitsdiagnose, Canvas]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import security01 from "../img/gif/security-check.gif"
+import security02 from "../img/security-result01.png"
+import security03 from "../img/security-result02.png"
+
+<hr />
+<br />
+Sicherheitsdiagnose ist eine Funktion, die potenzielle sicherheitsrelevante
+Probleme überprüft, bevor der Benutzer die Cloud-Infrastruktur, die er auf dem
+Canvas erstellt hat, endgültig exportiert. Der Benutzer kann durch die
+Sicherheitsdiagnose menschliche Fehler und Schwachstellen leicht finden.
+
+Um eine Sicherheitsdiagnose durchzuführen, folgen Sie bitte der `untenstehenden Vorgehensweise`.
+
+<div className={styles.imgWrap}>
+    <img src={security01} width="800px" alt="이미지" />
+</div>
+
+<br />
+
+1. Speichern Sie das Canvas.
+2. Klicken Sie auf Werkzeuge > Schwachstellenprüfung.
+3. Überprüfen Sie die Diagnoseergebnisse im Detail.
+4. Klicken Sie auf Ergebnisse im Detail anzeigen, um die entsprechenden Ressourcen für jede Phase zu überprüfen.
+5. Um die Infrastruktur zu ändern, suchen Sie auf der rechten Seite nach den Diensten, die mit Risiko oder Hoch gekennzeichnet sind.
+6. Wenn Sie einen Dienst finden, klicken Sie auf das Pfeilsymbol, um die Lösung zu überprüfen. Aktueller Code zeigt den aktuellen Canvas-Code, und Empfohlener Code zeigt den empfohlenen Code unter Berücksichtigung der Sicherheitsaspekte.
+7. Schließen Sie das Sicherheitsprüfungsfenster und ändern Sie den entsprechenden Abschnitt im Canvas.
+
+<br />
+
+### Sicherheitsbedrohungsstufen
+
+<div className={styles.imgWrap}>
+    <img src={security02} width="500px" alt="이미지" />
+</div>
+<p>&nbsp;</p>
+<br />
+
+Die Sicherheitsbedrohungsstufen sind in fünf Kategorien unterteilt `Risiko, Warnung, Normal, Niedrig, Gut`. Die Zahl neben der Stufe gibt die Anzahl der Ressourcen in jeder Stufe an. Zum Beispiel, wenn die Zahl bei der Risikostufe 1 liegt, bedeutet dies, dass es 1 Ressource im Canvas gibt, die ein Sicherheitsrisiko darstellt.
+Es ist ratsam, die Infrastruktur in den Kategorien Risiko und Hoch zu ändern, aber es ist nicht zwingend erforderlich.
+Um die Ressourcen in jeder Stufe anzuzeigen, klicken Sie auf `Ergebnisse im Detail anzeigen`.
+
+| Sicherheitsbedrohungsstufe | Inhalt                                                                                                                      |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Risiko                     | Der Sicherheitsstatus ist sehr anfällig. Wenn es sich um wichtige Infrastruktur handelt, ist es ratsam, den Code zu ändern. |
+| Warnung                    | Der Sicherheitsstatus ist anfällig. Wenn es sich um wichtige Infrastruktur handelt, ist es ratsam, den Code zu ändern.      |
+| Normal                     | Der Sicherheitsstatus ist durchschnittlich.                                                                                 |
+| Niedrig                    | Der Sicherheitsstatus ist gut.                                                                                              |
+| Gut                        | Der Sicherheitsstatus ist sicher. Es ist in Ordnung, die Bereitstellung fortzusetzen.                                       |
+
+<br />
+
+### Sicherheitsprüfungsbereiche
+
+Die Cloud Studio bietet 6 Sicherheitsprüfungsbereiche, die den Sicherheitsstandards entsprechen.
+
+<div className={styles.imgWrap}>
+    <img src={security03} width="400px" alt="이미지" />
+</div>
+
+<p>&nbsp;</p>
+
+| Sicherheitsprüfungsbereich                   | Inhalt                                                            |
+| -------------------------------------------- | ----------------------------------------------------------------- |
+| Benutzeridentifikation und Authentifizierung | Zeigt Punkte zur Benutzeridentifikation und Authentifizierung an. |
+| Zugriffskontrolle                            | Zeigt Punkte zur Zugriffskontrolle im System an.                  |
+| Netzwerksicherheit                           | Zeigt Punkte zur Netzwerksicherheit an.                           |
+| Netzwerksicherheit                           | Zeigt Punkte zu Backup und Datenschutz an.                        |
+| Protokollierung und Überwachung              | Zeigt Punkte zur Protokollierung und Überwachung an.              |
+| Verschlüsselung                              | Zeigt Punkte zur Datenverschlüsselung an.                         |

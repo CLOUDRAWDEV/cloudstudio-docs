@@ -1,0 +1,108 @@
+---
+title: MonitorAutoscaleSetting
+sidebar_position: 0
+tags: [Azure, Monitor, Autoscale, MonitorAutoscaleSetting]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-monitor_autoscale_setting.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Monitor Autoscale Setting es una función de escalado automático basada en Azure Monitor que **ajusta automáticamente el número de instancias de recursos** para manejar la carga de la aplicación.  
+Los recursos pueden escalarse de forma flexible hacia arriba o hacia abajo en función de métricas como CPU, memoria, disco y red, así como de condiciones basadas en horarios.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Linux Virtual Machine Scale Set**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachineScaleSet)
+-   [**Windows Virtual Machine Scale Set**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachineScaleSet)
+
+---
+
+## Valores de configuración del recurso
+
+#### Recurso de destino
+
+-   `linked_target_resource_name` : Nombre del recurso al que se aplica la configuración de escalado automático (solo lectura)
+
+---
+
+#### Condición de escalado (`scale_condition`)
+
+Define el perfil de escalado que se aplica cuando se ejecuta el motor de escalado automático.
+
+##### Configuración del número de instancias
+
+-   `scale_condition.min_instance_count` : Número mínimo de instancias - `0` ~ `1000`
+-   `scale_condition.max_instance_count` : Número máximo de instancias - `1` ~ `1000`
+-   `scale_condition.default_instance_count` : Número predeterminado de instancias que se mantiene cuando no se pueden leer las métricas y la capacidad actual es inferior a la capacidad predeterminada
+
+---
+
+##### Reglas de escalado (`scale_condition.rule`)
+
+Define las condiciones bajo las cuales se producen acciones de escalado basadas en métricas.
+
+-   `rule.metric_name` : Nombre de la métrica que supervisa la regla
+-   `rule.operator` : Operador utilizado para comparar el valor de la métrica con el umbral
+    -   `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`
+-   `rule.metric_threshold` : Valor de la métrica utilizado para evaluar si se debe iniciar una acción de escalado
+
+##### Configuración de evaluación de métricas
+
+-   `rule.time_window` : Intervalo de tiempo (minutos) durante el cual se recopilan los datos de métricas - `5` ~ `720`
+-   `rule.time_grain` : Intervalo de muestreo de las métricas (minutos) - `1` ~ `720`
+-   `rule.time_grain_statistic` : Método de agregación de métricas entre varias instancias - `Average`, `Min`, `Max`
+-   `rule.time_aggregation` : Método utilizado para agregar las métricas muestreadas
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Last`, `Total`
+
+##### Acciones de escalado
+
+-   `rule.scale_direction` : Dirección del escalado - `Increase`, `Decrease`
+-   `rule.scale_operation` : Tipo de operación de escalado
+    -   `ChangeCount`, `ExactCount`, `PercentChangeCount`, `ServiceAllowedNextValue`
+-   `rule.scale_instance_count` : Número de instancias asociadas a la operación de escalado - `1` ~ `1000`
+-   `rule.scale_cooldown` : Período de espera antes de la siguiente acción de escalado (minutos) - `1` ~ `10080`
+
+---
+
+#### Configuración de programación
+
+Permite aplicar acciones de escalado basadas en un horario.
+
+-   `schedule_type` : Tipo de programación aplicada a las acciones de escalado
+    -   `start_end_dates`, `repeat_days`
+-   `timezone` : Zona horaria en la que se aplica la programación
+-   `start_date` : Fecha de inicio de la programación
+-   `end_date` : Fecha de finalización de la programación
+-   `repeat_days` : Días de la semana en los que se aplica la programación
+-   `start_time` : Hora de inicio de la programación
+-   `end_time` : Hora de finalización de la programación
+
+---
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso - hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Introducción a Azure Autoscale (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-overview)
+-   [Configuración de Autoscale (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/autoscale/autoscale-get-started)
+-   [Métricas de Azure Monitor (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/essentials/data-platform-metrics)

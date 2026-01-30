@@ -1,0 +1,73 @@
+---
+title: ManagedApplicationDefinition
+sidebar_position: 0
+tags: [Azure, ManagedApplication, ManagedApplicationDefinition]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/managed_application_definition-managed_application_definition.webp"
+    }
+/>
+
+## 리소스 개요
+
+Managed Application Definition은 사용자가 Azure Marketplace 또는 조직 내부 카탈로그를 통해 배포할 수 있는 **관리형 애플리케이션(Managed Application)** 의 정의를 저장하는 리소스입니다.  
+ARM 템플릿과 UI 정의를 패키징하여, 배포 시 사용자에게 제공되는 입력 화면과 권한 범위를 표준화할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## 리소스 설정 값
+
+#### 기본 정보
+
+-   `description` : Managed Application Definition에 대한 설명
+-   `display_name` : 사용자 인터페이스에 표시되는 이름
+
+#### 잠금 수준 (`lock_level`)
+
+배포된 리소스에 대해 사용자가 수행할 수 있는 작업 수준을 정의합니다.
+
+-   `None` : 제한 없음
+-   `CanNotDelete` : 삭제 불가
+-   `ReadOnly` : 읽기 전용
+
+#### 패키지 파일 URI (`package_file_uri`)
+
+-   배포용 ARM 템플릿과 메타데이터가 포함된 `.zip` 파일의 URI
+-   반드시 다음 파일을 포함해야 함
+    -   `mainTemplate.json`
+    -   `createUiDefinition.json`
+-   `mainTemplate.json`에는 최소한의 `parameters` 섹션이 필요
+
+#### 권한 설정 (`authorization`)
+
+애플리케이션 배포 시 자동으로 할당될 역할을 정의합니다.
+
+-   `authorization.service_principal_id` : 역할이 할당될 Service Principal의 ID
+-   `authorization.role_definition_id` : Role Definition의 리소스 ID
+
+---
+
+## 활용 시나리오
+
+-   Azure Marketplace용 SaaS/솔루션 패키지 배포
+-   조직 내부 표준 아키텍처를 Managed Application 형태로 제공
+-   운영 권한을 제한한 상태로 고객 또는 내부 사용자에게 인프라 제공
+
+---
+
+## 참고 자료
+
+-   [Azure Managed Applications 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/overview)
+-   [createUiDefinition.json 설명(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/create-uidefinition-overview)
+-   [Managed Application Definition ARM 리소스(Microsoft)](https://learn.microsoft.com/ko-kr/azure/templates/microsoft.solutions/applicationdefinitions)

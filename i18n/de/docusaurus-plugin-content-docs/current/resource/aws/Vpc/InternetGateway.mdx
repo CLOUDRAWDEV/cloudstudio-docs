@@ -1,0 +1,51 @@
+---
+title: InternetGateway
+sidebar_position: 7
+tags: [AWS, Ressource, Vpc, InternetGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-internet_gateway.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Internet-Gateway ist eine horizontal skalierbare, hochverfügbare und redundante VPC-Komponente, die die Kommunikation zwischen einer VPC und dem Internet ermöglicht. Es unterstützt IPv4- und IPv6-Datenverkehr und verursacht keine Verfügbarkeitsrisiken oder Bandbreitenbeschränkungen im Netzwerkverkehr.
+Wenn eine Ressource über eine öffentliche IPv4- oder IPv6-Adresse verfügt, ermöglicht ein Internet-Gateway Ressourcen in öffentlichen Subnetzen (z. B. EC2-Instances) den Zugriff auf das Internet. Ebenso können Ressourcen aus dem Internet Verbindungen zu Ressourcen in Subnetzen über öffentliche IPv4- oder IPv6-Adressen initiieren. Beispielsweise kann über ein Internet-Gateway eine Verbindung von einem lokalen Computer zu einer EC2-Instance in AWS hergestellt werden.
+Ein Internet-Gateway stellt in VPC-Routing-Tabellen ein Ziel für internetfähigen Datenverkehr bereit. Für IPv4-Kommunikation führt das Internet-Gateway auch Network Address Translation (NAT) durch. Bei IPv6-Kommunikation ist kein NAT erforderlich, da IPv6-Adressen öffentlich sind.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name der VPC, in der das Internet-Gateway bereitgestellt wird
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Verbindung mit dem Internet über ein Internet-Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/VPC_Internet_Gateway.html)
+-   [aws_internet_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)

@@ -1,0 +1,46 @@
+---
+title: VpcPeering
+sidebar_position: 8
+tags: [Ncloud, Recurso, Network, VpcPeering]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-vpc_peering.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso para configurar VPC Peering con el fin de permitir la comunicación entre VPCs.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/ncloud/Base/Region)
+
+### Recursos conectados
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `linked_vpc_name_01` : Nombre del VPC que envía la solicitud de peering (solo lectura)
+-   `linked_vpc_name_02` : Nombre del VPC que recibe la solicitud de peering (solo lectura)
+
+---
+
+## Referencias
+
+-   [Vpc Peering(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedpeering)
+-   [Vpc Peering(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/vpc_peering)

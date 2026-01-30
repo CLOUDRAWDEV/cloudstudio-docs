@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Cluster
+title: KubernetesCluster
 sidebar_position: 0
 tags: [Ncloud, Resource, Containers, KubernetesCluster]
 ---
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Containers, KubernetesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.webp"
     }
 />
 
 ## Resource Overview
 
-Kubernetes is an open-source platform that automates the containerization, deployment, and management of applications. It enhances operational efficiency by automating tasks such as container deployment, management, and scaling.
+A Kubernetes service, an open-source platform that automates application containerization, deployment, and management. It improves operational efficiency by automating tasks required to use containers, such as container deployment, management, and scaling.
 
 ## Associated Resources
 
@@ -25,34 +25,44 @@ Kubernetes is an open-source platform that automates the containerization, deplo
 
 -   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
 
-### Child Resource
+---
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
--   [**LoadBalancer**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/LoadBalancer)
+## Resource Configuration
 
-## Resource Setting Values
+#### Basic Settings
 
--   `zone` : Available zone where the cluster will be placed physically - `KR-1`, `KR-2`
--   `included_vpc_name` : The name of VPC to create cluster
--   `hypervisor_code` : The Hypervisor code version of cluster - `XEN`
--   `version` : The version of cluster - `1.26.10-nks.1`, `1.27.9-nks.1`
--   `maximum_number_of_nodes` : The maximum number of nodes, 10 or 50
--   `enable_public_subnet_network` : Whether to connect Public Subnet Network
--   `subnet_names` : The list of Subnet names to configure the Cluster, Up to 3
--   `lb_private_subnet_name` : The name of Subnet where the Loadbalancer is located 
--   `lb_public_subnet_name` : The name of Subnet where the Loadbalancer is located 
--   `login_key_name` : The name of Login key to apply
--   `enable_audit_log` : Whether to use audit log
--   `node_pool` : The name of Node pool
-    -   `node_count` : The number of codes
-    -   `software_code` : The code for Server image
-    -   `product_code` : The code for hardware configuration of nodes
-    -   `node_pool_subnet_name` : The name of Subnet to create Node pool
--   `enable_autoscale` : Whether to use autoscale
+-   `zone` : Physical region where the cluster will be created - `KR-1`, `KR-2`
+-   `included_vpc_name` : Name of the VPC where the cluster will be created
+-   `hypervisor_code` : Hypervisor code cluster version - `XEN`
+-   `version` : Cluster version - `1.32.6-nks.1`, `1.31.7-nks.1`, `1.30.8-nks.1`
+-   `maximum_number_of_nodes` : Maximum number of nodes in the cluster, 10 or 50 - `10`, `50`
+-   `enable_public_subnet_network` : Whether to connect to a public subnet - `true`, `false`
+-   `subnet_names` : List of subnet names that make up the cluster, up to 3
+-   `lb_private_subnet_name` : Subnet name where the load balancer connected to the cluster is located
+-   `lb_public_subnet_name` : Subnet name where the load balancer connected to the cluster is located
+-   `login_key_name` : Login key name to use
+-   `enable_audit_log` : Whether to enable the audit log feature - `true`, `false`
+
+#### Node Pool (`node_pool`)
+
+-   `node_pool.node_count` : Number of nodes in the cluster - `1` ~ `10`
+-   `node_pool.software_code` : Server image code for nodes - `SW.VSVR.OS.LNX64.UBNTU.SVR2004.WRKND.B050`
+-   `node_pool.product_code` : Code for node hardware configuration - `ncloudServerType`
+-   `node_pool.node_pool_subnet_names` : Subnet names where the node pool will be created
+-   `node_pool.enable_autoscale` : Whether to enable the autoscale feature - `true`, `false`
+-   `node_pool.min_value` : Minimum number of nodes available during autoscaling
+-   `node_pool.max_value` : Maximum number of nodes available during autoscaling
+-   `node_pool.label` : Label of the node pool
+
+#### Node Taint Settings (`node_pool.taint`)
+
+-   `node_pool.taint.taint_effect` : Node taint effect - `NoSchedule`, `PreferNoSchedule`, `NoExecute`
+-   `node_pool.taint.taint_key` : Key to set for the node taint
+-   `node_pool.taint.taint_value` : Value to set for the node taint
 
 ---
 
-## Reference Materials
+## References
 
--   [Kubernetes Service(Ncloud)](https://www.ncloud.com/product/containers/kubernetes)
--   [ncloud_nks_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/v2/product/containers/nks)
+-   [Kubernetes Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

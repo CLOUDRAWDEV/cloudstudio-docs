@@ -1,6 +1,6 @@
 ---
-title: Waf Ipset
-sidebar_position: 0
+title: WafIpset
+sidebar_position: 1
 tags: [AWS, リソース, Waf, WafIpset]
 ---
 
@@ -11,30 +11,35 @@ tags: [AWS, リソース, Waf, WafIpset]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_ipset.webp"
     }
 />
 
 ## リソース概要
 
-AWS WAF IPSet は Amazon Web Services の Web Application Firewall で使用する IP アドレスのリストです。
-これにより、ユーザは定義した IP アドレスへのアクセス規則を生成し、管理することができます。
-IPSet を活用すると、特定の IP アドレスからの要請を許可または遮断することで、ウェブアプリケーションのセキュリティを強化することができます。
+AWS WAF IP Set は、Web ACL ルールから参照可能な IP アドレスまたは CIDR ブロックをグループ化したリソース。  
+特定 IP 帯域に対する許可または拒否ポリシー構成に使用。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/jp/docs/resource/aws/Base/)
--   [**Base**](https://docs.cstudio.app/jp/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+---
 
 ## リソース設定値
 
--   `scope` : AWS CloudFront 配布用か、それともリージョンアプリケーション用かを指定 - `REGIONAL`, `CLOUDFRONT`
--   `ip_address_version` : IPV4 または IPV6 指定 - `IPV4`, `IPV6`
--   `addresses` : CIDR 表記法で 1 つ以上の IP アドレスまたは IP アドレスブロックを指定する文字列配列を入力
+#### 基本設定
 
----
+-   `scope` : IP Set 適用範囲 - `REGIONAL`, `CLOUDFRONT`
+-   `ip_address_version` : IP アドレスバージョン - `IPV4`, `IPV6`
+-   `addresses` : CIDR 表記による IP アドレスまたは IP ブロック一覧
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 

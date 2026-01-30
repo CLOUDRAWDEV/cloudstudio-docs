@@ -1,0 +1,69 @@
+---
+title: BedrockKnowledgeBase
+sidebar_position: 1
+tags: [AWS, Bedrock, BedrockKnowledgeBase, KnowledgeBase, RAG, VectorDB]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_knowledge_base.webp" />
+
+## Resource Overview
+
+An AWS Bedrock resource that creates and manages vector- or text-based knowledge bases.
+
+## Associated Resources
+
+### Parent Resources
+
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+
+---
+
+## Resource Configuration
+
+#### Knowledge Base Configuration (`knowledge_base_configuration`)
+
+-   `knowledge_base_configuration.type` : Type of knowledge base - `VECTOR`
+
+#### Vector Knowledge Base Settings (`knowledge_base_configuration.vector_knowledge_base_configuration`)
+
+-   `knowledge_base_configuration.vector_knowledge_base_configuration.embedding_model_arn` : ARN of the model to use for embedding generation
+
+#### Storage Configuration (`storage_configuration`)
+
+-   `storage_configuration.type` : Storage type to use - `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`
+
+#### OpenSearch Serverless Settings (`storage_configuration.opensearch_serverless_configuration`)
+
+-   `storage_configuration.opensearch_serverless_configuration.target_opensearch_collection` : ARN of the OpenSearch Serverless collection to connect
+-   `storage_configuration.opensearch_serverless_configuration.vector_index_name` : Index name to store vector data
+-   `storage_configuration.opensearch_serverless_configuration.vector_field` : Field name where vector (embedding) data is stored
+-   `storage_configuration.opensearch_serverless_configuration.text_field` : Field name to store original text data
+-   `storage_configuration.opensearch_serverless_configuration.metadata_field` : Metadata field name to store additional document information
+
+#### Pinecone Settings (`storage_configuration.pinecone_configuration`)
+
+-   `storage_configuration.pinecone_configuration.connection_string` : Connection URL or endpoint address of the Pinecone index
+-   `storage_configuration.pinecone_configuration.credentials_secret_arn` : ARN of AWS Secrets Manager storing the Pinecone API key
+-   `storage_configuration.pinecone_configuration.namespace` : Pinecone namespace name for separating vector data
+-   `storage_configuration.pinecone_configuration.text_field` : Field name to store original text data
+-   `storage_configuration.pinecone_configuration.metadata_field` : Metadata field name to store additional document information
+
+#### RDS Settings (`storage_configuration.rds_configuration`)
+
+-   `storage_configuration.rds_configuration.credentials_secret_arn` : ARN of AWS Secrets Manager storing database connection information
+-   `storage_configuration.rds_configuration.database_name` : Name of the RDS database to connect
+-   `storage_configuration.rds_configuration.resource_arn` : ARN of the target RDS instance or cluster
+-   `storage_configuration.rds_configuration.table_name` : Table name to store vector and text data
+-   `storage_configuration.rds_configuration.metadata_field` : Metadata field name to store additional document information
+-   `storage_configuration.rds_configuration.primary_key_field` : Primary key field name that uniquely identifies each record
+-   `storage_configuration.rds_configuration.text_field` : Field name to store original text data
+-   `storage_configuration.rds_configuration.vector_field` : Field name to store embedding vector data
+
+#### Redis Enterprise Cloud Settings (`storage_configuration.redis_enterprise_cloud_configuration`)
+
+-   `storage_configuration.redis_enterprise_cloud_configuration.credentials_secret_arn` : ARN

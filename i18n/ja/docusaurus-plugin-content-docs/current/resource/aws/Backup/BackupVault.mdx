@@ -1,7 +1,7 @@
 ---
 title: BackupVault
-sidebar_position: 0
-tags: [AWS, リソース, Backup, BackupVault]
+sidebar_position: 1
+tags: [AWS, Resource, Backup, BackupVault]
 ---
 
 <hr />
@@ -11,29 +11,38 @@ tags: [AWS, リソース, Backup, BackupVault]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_vault.webp"
     }
 />
 
 ## リソース概要
 
-AWS Backup で Backup Vault はバックアップを保存して構成するコンテナです。
-Backup Vault を生成するとき、このボルトにある一部のバックアップを暗号化する AWS KMS 暗号化キーを指定する必要があります。
-
-### 上位リソース
-
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/)
+AWS Backup において、Backup Vault はバックアップを保存および構成するコンテナです。  
+Backup Vault を作成する際、この Vault 内の一部バックアップを暗号化するための AWS KMS 暗号化キーを指定する必要があります。
 
 ## 関連リソース
 
+### 上位リソース
+
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
 ## リソース設定値
 
--   `kms_key_name` : バックアップを保護するために使用される server-side 暗号キー
--   `lock_configuration` : AWS Backup vault lock 構成リソース
-    -   `lock_configuration.enabled_lock` : vault lock 使用の可否 - `false`,`true`
-        -   `lock_configuration.enabled_lock.lock_mode` : vault lock タイプ - `Governance`,`Compliance`
-        -   `lock_configuration.enabled_lock.min_retention_days` : vault リカバリ地点を維持する最小保存期間 - `1~36500`
-        -   `lock_configuration.enabled_lock.max_retention_days` : vault リカバリ地点を維持する最大保存期間 - `1~36500`
+#### 基本設定
+
+-   `kms_key_name` : バックアップを保護するために使用されるサーバー側暗号化キー
+
+#### Vault Lock 設定 (`lock_configuration`)
+
+-   `lock_configuration.enabled_lock` : Vault Lock 使用可否 - `true`, `false`
+-   `lock_configuration.lock_mode` : Vault Lock の種類 - `Governance`, `Compliance`
+-   `lock_configuration.min_retention_days` : Vault が復旧ポイントを保持する最小保持期間 - `1` ~ `36500`
+-   `lock_configuration.max_retention_days` : Vault が復旧ポイントを保持する最大保持期間 - `1` ~ `36500`
+-   `lock_configuration.changeable_for_days` : Lock 期限までの日数 - `3` ~ `36500`
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ - 最大 512 文字, `key`:`value`
 
 ---
 

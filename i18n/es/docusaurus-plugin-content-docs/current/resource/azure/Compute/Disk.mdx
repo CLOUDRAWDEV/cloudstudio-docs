@@ -1,0 +1,60 @@
+---
+title: Disk
+sidebar_position: 5
+tags: [Azure, Compute, Disk]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-disk.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure Disk es un recurso de almacenamiento en bloques administrado que se utiliza en Azure Virtual Machines.  
+Puede utilizarse como disco del sistema operativo (OS Disk) o como disco de datos (Data Disk),  
+y permite seleccionar distintos tipos de almacenamiento según los requisitos de rendimiento y costo.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos conectados
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachine)
+
+---
+
+## Valores de configuración del recurso
+
+-   `storage_type` :  
+    Tipo de almacenamiento utilizado para el disco
+
+    -   `Standard_LRS`
+    -   `StandardSSD_LRS`
+    -   `Premium_LRS`
+
+-   `size_gb` :  
+    Tamaño del disco (GB) – `1` ~ `32767`
+
+-   `enabled_public_network_access` :  
+    Indica si se permite el acceso a la red pública para el disco – `true`, `false`
+
+-   `tag` :  
+    Etiquetas para clasificar el recurso por categorías – máximo 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Azure Managed Disks (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/managed-disks-overview)
+-   [Terraform azurerm_managed_disk](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/managed_disk)

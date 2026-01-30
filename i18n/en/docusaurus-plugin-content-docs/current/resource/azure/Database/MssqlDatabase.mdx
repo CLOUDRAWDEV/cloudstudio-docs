@@ -1,7 +1,7 @@
 ---
 title: MssqlDatabase
 sidebar_position: 1
-tags: [Azure, Resource, Database, Mssql]
+tags: [Azure, MssqlDatabase, MSSQL, SQLServer, Database]
 ---
 
 <hr />
@@ -11,46 +11,61 @@ tags: [Azure, Resource, Database, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mssql_database.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_database.webp"
     }
 />
 
 ## Resource Overview
 
-Azure SQL Database is a fully managed relational database service provided by Microsoft Azure, based on the widely used Microsoft SQL Server engine. 
-It allows you to create and manage SQL Server databases in the cloud without the need to manage hardware or software infrastructure.
-With Azure SQL Database, you can benefit from features such as automatic patching, backups, high availability, and disaster recovery. 
-It also offers advanced functionalities like intelligent performance monitoring, automatic tuning, and advanced security features to optimize database performance and protect critical data.
+Azure SQL Database (Microsoft SQL Database) is a fully managed PaaS database engine that handles most database management functions such as upgrades, patching, backups, and monitoring without user intervention.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Mssql Server**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlServer)
+-   [**MssqlServer**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlServer)
 
-## Resource Setting Values
+### Connected Resources
 
+-   [**LogAnalyticsWorkspace**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**StorageAccount**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/Metric)
 
--   `included_mssql_server_name` : Microsoft SQL server name where the database will be created
-
--   `sku_name` : The SKU of Microsoft SQL Database
--   `max_size_gb` : The max size of the Database in gigabytes (GB) - `1` ~ `1024`.
--   `collation` : The collation for the Microsoft SQL Database - `azureMssqlCol`.
--   `license_type` : The license type applied to the Database - `LicenseIncluded`, `BasePrice`.
--   `read_scale` : Enable the feature to offload read-only workloads using the compute capacity of one of the read-only replicas - `true`, `false`.
--   `zone_redundant` : Enable zone redundancy for database maintenance operations - `true`, `false`.
-
--   `auditing_policy` : The list of email addresses to receive security alerts.
-
-    -   `database_name` : The name of the database to which the auditing policy will be applied.
-    -   `enable_storage_destination`: Enable Storage account as destination - `true`, `false`
-    -   `enable_log_analytics_destination`: Enalbed Auditing policy by Log analytics workspace - `true`, `false`
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure Mssql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
--   [Azure Mssql Price](https://azure.microsoft.com/ko-kr/pricing/details/azure-sql-database/single/)
--   [Azure Mssql Database(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database)
+#### Basic Settings
+
+-   `included_mssql_server_name` : Name of the Microsoft SQL Server where the database will be created
+-   `sku_name` : Pricing tier of the Microsoft SQL database
+-   `max_size_gb` : Maximum database size (GB) - `1` ~ `1024`
+-   `collation` : Data collation method of the Microsoft SQL database
+-   `license_type` : License type applied to the database - `LicenseIncluded`, `BasePrice`
+-   `min_capacity` : Minimum number of vCores for autoscaling - minimum `0.5`
+-   `auto_pause_delay_in_minutes` : Idle time (minutes) before the database is automatically paused when there is no user activity - `60` ~ `10080`
+-   `read_scale` : Enables offloading read-only workloads by using the compute capacity of one of the read-only replicas - `true`, `false`
+-   `zone_redundant` : Enables zone redundancy for database maintenance operations - `true`, `false`
+
+#### Auditing Policy (`auditing_policy`)
+
+-   `auditing_policy.enable_storage_destination` : Whether to enable the storage account destination - `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : Storage account name
+-   `auditing_policy.storage_access_key_is_second` : Whether to use the secondary access key for the auditing storage account - `true`, `false`
+-   `auditing_policy.storage_retention_days` : Number of days to retain logs in the storage account
+-   `auditing_policy.enable_log_analytics_destination` : Whether to enable auditing policy to Log Analytics workspace - `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : Log Analytics workspace auditing policy name
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Log Analytics workspace name
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Azure SQL Database(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL Auditing(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)
+-   [Azure SQL Database Pricing(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/purchasing-models)
+-   [Azure SQL Database Serverless(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/serverless-tier-overview)

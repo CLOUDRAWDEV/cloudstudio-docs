@@ -1,0 +1,60 @@
+---
+title: ApiManagement
+sidebar_position: 0
+tags: [Azure, ApiManagement]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/api_management-api_management.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+API Management es un servicio que proporciona soporte integral para la creación, implementación, seguridad, monitoreo y gestión de APIs.  
+Ofrece las APIs invocadas por clientes internos y externos a través de un único endpoint y permite una operación estable de las APIs mediante la aplicación de políticas de autenticación y autorización, transformación de solicitudes y respuestas, limitación de llamadas (throttling), registro y monitoreo.  
+Además, las APIs pueden publicarse en forma de portal, lo que permite gestionar conjuntamente la documentación y los suscriptores.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valores de configuración del recurso
+
+-   `publisher_name` : Nombre del publicador del servicio de API Management
+
+-   `publisher_email` : Dirección de correo electrónico del publicador
+
+-   `sku_name` : Nombre del SKU (plan de precios) del servicio de API Management – `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium`, `PremiumV2`
+
+-   `sku_capacity` : Configuración de la capacidad (número de instancias) para el SKU seleccionado
+
+-   `virtual_network_type` : Forma en que API Management se conecta a una red virtual – `None`, `External`, `Internal`
+
+-   `target_subnet_name` : Nombre de la subred donde se desplegará API Management
+
+-   `apis` : Opción para especificar la lista de APIs que se registrarán o gestionarán en el servicio de API Management
+    -   `revision` : Número de revisión de la API
+    -   `api_type` : Tipo de API – `http`, `soap`, `graphql`
+    -   `display_name` : Nombre de la API que se muestra en el portal
+    -   `path` : Ruta utilizada para acceder al endpoint de la API
+    -   `protocols` : Protocolos de comunicación compatibles con la API – `http`, `https`, `ws`, `wss`
+
+---
+
+## Referencias
+
+-   [Azure API Management (Microsoft)](https://learn.microsoft.com/ko-kr/azure/api-management/api-management-key-concepts)
+-   [Precios de Azure API Management](https://azure.microsoft.com/ko-kr/pricing/details/api-management/)
+-   [Azure API Management (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+-   [Azure API Management API (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management_api)

@@ -1,0 +1,59 @@
+---
+title: SharedImage
+sidebar_position: 6
+tags: [Azure, SharedImage, Compute, Image]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-shared_image.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Shared Image は、カスタム仮想マシンイメージを中央で管理し、  
+複数のサブスクリプション（Subscription）やテナント（Tenant）、リージョンにまたがって共有できるようにするリソースです。  
+これにより、標準化された VM イメージを容易に配布でき、大規模環境において一貫したインフラ運用が可能になります。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## リソース設定値
+
+-   `image_gallery_description` :  
+    イメージギャラリーの説明 – 最大 5000 文字
+
+### イメージ定義（`images`）
+
+-   `images.os_type` :  
+    イメージに含まれるオペレーティングシステムの種類
+
+    -   `Linux`
+    -   `Windows`
+
+-   `images.publisher_name` :  
+    イメージを公開する発行者（Publisher）の名前
+
+-   `images.offer_name` :  
+    イメージが属するオファー（製品ファミリー）の名前
+
+-   `images.sku` :  
+    イメージオファーの詳細構成（SKU, Stock Keeping Unit）
+
+---
+
+## 参考資料
+
+-   [Azure Compute Gallery（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-machines/shared-image-galleries)
+-   [Terraform azurerm_shared_image](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/shared_image)

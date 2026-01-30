@@ -1,0 +1,54 @@
+---
+title: RouteTable
+sidebar_position: 4
+tags: [Ncloud, Resource, Network, RouteTable]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.webp"
+    }
+/>
+
+## Resource Overview
+
+A service that defines network routing paths for resources within a VPC.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
+
+### Connected Resources
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC to which the Route Table will be attached
+-   `supported_subnet_type` : Supported Subnet type (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Description of the Route Table
+-   `linked_subnet_names` : List of Subnet names to associate with the Route Table
+
+#### Routing Settings (`route`)
+
+-   `target_type` : Destination type (`NATGW`, `VPCPEERING`)
+-   `target_name` : Name of the destination resource
+-   `destination_cidr_block` : Destination IP range in CIDR format
+
+---
+
+## References
+
+-   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
+-   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

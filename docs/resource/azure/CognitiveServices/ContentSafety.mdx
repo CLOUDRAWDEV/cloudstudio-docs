@@ -1,0 +1,57 @@
+---
+title: ContentSafety
+sidebar_position: 0
+tags: [Azure, ContentSafety, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-content_safety.webp"
+    }
+/>
+
+## 리소스 개요
+
+Content Safety는 텍스트, 이미지 등 다양한 형태의 콘텐츠를 자동으로 분석하여 유해하거나 부적절한 요소를 탐지하고 필터링하는 AI 기반 검증 서비스입니다.  
+애플리케이션에서 생성되거나 입력되는 콘텐츠를 사전에 검사하여 정책 위반을 방지하고, 안전한 사용자 경험을 제공하는 데 활용됩니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## 리소스 설정 값
+
+-   `sku_name` : Content Safety 사용을 위한 가격 책정 계층
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `custom_subdomain_name` : 엔드포인트 URL에 사용할 사용자 지정 서브도메인 이름
+
+### 네트워크 접근 제어 (`network_acls`)
+
+-   `network_acls.default_action` : 네트워크 액세스 제어의 기본 정책 - `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : 특정 IP 또는 CIDR 대역에서의 리소스 접근을 허용하기 위한 IP 허용 목록
+
+-   `local_auth_enabled` : API 키를 이용한 로컬 인증 사용 여부 - `true`, `false`
+
+-   `public_network_access_enabled` : 공용 인터넷을 통한 리소스 접근 허용 여부 - `true`, `false`
+
+-   `outbound_network_access_restricted` : 외부 네트워크로의 아웃바운드 통신 제한 여부 - `true`, `false`
+
+-   `dynamic_throttling_enabled` : 요청량에 따라 자동으로 요청 제한을 조절하는 기능 활성화 여부 - `true`, `false`
+
+---
+
+## 참고 자료
+
+-   [Azure AI Content Safety(Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/content-safety/overview)
+-   [Azure Cognitive Services 가격](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)

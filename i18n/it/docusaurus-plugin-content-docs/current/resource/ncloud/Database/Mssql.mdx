@@ -1,0 +1,55 @@
+---
+title: Mssql
+sidebar_position: 0
+tags: [Ncloud, Resource, Database, Mssql]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.webp"
+    }
+/>
+
+## Resource Overview
+
+Cloud DB for MSSQL is a fully managed cloud database service that enables easy deployment and automatic management of MSSQL databases.  
+It operates stably with Naver’s optimized settings and provides automatic recovery in case of failures.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `included_subnet_name` : Name of the Subnet where MSSQL is located
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `user_name` : MSSQL user access ID
+-   `user_password` : MSSQL user password
+-   `image_product_code` : MSSQL instance server image product code
+-   `product_code` : MSSQL instance server product code
+-   `data_storage_type` : Data storage type - `SSD`, `HDD`
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `30`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : TCP port for MSSQL access (default: `1433`)
+-   `character_set_name` : Database character set - `characterSetName`
+
+---
+
+## References
+
+-   [MSSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
+-   [MSSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

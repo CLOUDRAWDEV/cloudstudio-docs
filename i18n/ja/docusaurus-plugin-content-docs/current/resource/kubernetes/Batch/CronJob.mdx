@@ -11,87 +11,47 @@ tags: [Kubernetes, リソース, Batch, CronJob]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-cron_job.webp"
     }
 />
 
 ## リソース概要
 
-スケジュールに基づいて定期的にタスクを生成するクバネティス リソースです。
+スケジュールに基づき定期的にジョブを生成する Kubernetes Resource。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+### 接続対象
 
 -   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
-
-## リソース設定値
-
--   `service_name` : CronJob リソース名
--   `namespace` : CronJob リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `template_labels` : Pod に設定される Label
--   `concurrency_policy` : タスクの同時実行を処理する方法を指定 - `Allow`,`Forbid`,`Replace`
--   `failed_jobs_history_limit` : 維持する失敗したジョブの数を指定
--   `schedule` : ワークサイクルを設定
--   `timezone` : 該当日程の時間帯
--   `starting_deadline_seconds` : 何らかの理由で予約された時間を逃した場合は、作業開始期限(秒)
--   `successful_jobs_history_limit` : 何らかの理由で予約された時間を逃した場合は、作業開始期限(秒)を定義
-
--   `containers` : ファードに属するコンテナのテンプレートを定義
-
-    -   `containers.name` : コンテナの名前を定義
-
-        -   `image` : 使用する Docker イメージ名
-        -   `args` : コンテナ内で実行されるコマンド
-        -   `command` : コンテナ内で実行されるコマンド
-        -   `port` : コンテナから露出するポートのリスト
-
-        -   `resources` : コンテナのコンピューティング リソースの量を指定
-
-            -   `name` : 最小/最大コンピューティングリソースの量を指定 - `Limits`, `requests`
-            -   `cpu` : cpu(m)の量を指定
-            -   `memory` : メモリ(Mi)の量を指定
-
-        -   `probe` : Pod の状態を診断する方法の定義
-
-            -   `name` : Probe 方法を選択 - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : HTTP サーバーにアクセスするためのパス
-            -   `http_get_port` : コンテナからアクセスするポート番号
-            -   `http_header` : リクエストに設定するカスタム ヘッダー
-            -   `initial_delay_seconds` : コンテナが始まってからプローブが始まるまでの時間(秒)
-            -   `period_seconds` : プローブを行う頻度(秒)
-
-        -   `env` : コンテナ環境に設定する key-value ペアのブロック
-
-            -   `name` : env 変数名
-            -   `value` : env 変数で設定する値
-
-        -   `volume_mount` : コンテナのファイルシステムにマウントするファッドボリューム
-            -   `name` : ボリュームマウント名の設定
-            -   `path`
-                -   `mount_path` : ボリュームをマウントする必要があるコンテナ内のパス
-                -   `sub_path` : ボリュームをマウントする必要があるコンテナ内のパス
-
--   `volume` : ファッドに属するコンテナが搭載できるボリュームのリスト
-
-    -   `name` : volume 名
-        -   `volume_type` : マウントするボリュームのタイプ - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : 永久ボリュームクレームの名前
-        -   `default_mode` : 生成されたファイルに使用するモード - 0 ~ 0777 の間、デフォルトは 0644
-        -   `read_only` : true の場合は読み取り専用にマウントされ、そうでない場合は読み取り/書き込みが可能
-
--   `image_pull_secrets` : Container で使用するイメージを取得するために必要な権限が含まれた同じネームスペースにある Secret
+-   [**Secret**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Secret)
 
 ---
 
-## 参考資料
+## リソース設定値
+
+#### 基本設定
+
+-   `namespace` : CronJob を配置する Namespace
+-   `schedule` : Cron 式で定義する実行スケジュール
+-   `timezone` : スケジュール解釈基準タイムゾーン
+-   `concurrency_policy` : ジョブ同時実行制御方式 (Allow / Forbid / Replace)
+-   `starting_deadline_seconds` : スケジュール遅延時の実行許容時間
+-   `successful_jobs_history_limit` : 成功 Job の保持数
+-   `failed_jobs_history_limit` : 失敗 Job の保持数
+-   `containers` : 実行コンテナ仕様
+-   `init_containers` : メイン実行前の初期処理
+-   `volume` : マウントするボリューム設定
+-   `pod_security_context` : Pod 単位セキュリティ設定
+-   `image_pull_secrets` : Image Pull 用 Secret 参照
+
+---
+
+## References
 
 -   [CronJob(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
 -   [CronJob(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cron_job_v1)

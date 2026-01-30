@@ -1,6 +1,6 @@
 ---
 title: Mongodb
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, 리소스, Database, Mongodb]
 ---
 
@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, Database, Mongodb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.webp"
     }
 />
 
@@ -25,31 +25,49 @@ Cloud DB for MongoDB는 MongoDB 데이터베이스를 손쉽게 구축하고 자
 
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
-
-### 하위 리소스
-
-
-
-
 ## 리소스 설정 값
 
--   `server_name_prefix` : MongoDB 서버 이름
+#### 기본 설정
+
+-   `server_name_prefix` : MongoDB 서버 이름, 영소문자/숫자/하이픈(-) 허용, 시작은 영소문자만 허용, 마지막은 영소문자, 숫자 허용, 3 ~ 15자
 -   `user_name` : MongoDB 사용자 접근 ID
 -   `user_password` : MongoDB의 사용자 패스워드
--   `cluster_type_code` : MongoDB의 클러스터 유형을 결정하는 MongoDB 클러스터 유형 코드 - `Stand Alone`, `Stand Replica Set`, `Shared Cluster`
--   `image_product_code` : MongoDB 버전 이미지 제품 번호
--   `member_port` : MongoDB Member 서버에 접근할 수 있는 TCP 포트 번호 - `10000-65535`
--   `member_server_count` : MongoDB Member 서버의 수, 하나의 레플리카 세트 당 멤버 서버의 수가 정해짐 - `3-7`
--   `mongos_server_count` : MongoDB Mongos 서버의 수 - `2-5`
--   `backup_file_retention_period` : 백업 파일 보관 기간, 백업은 매일 단위로 진행되며, 백업 파일은 별도의 스토리지에 저장 - `1~30`
--   `data_storage_type` : 데이터 스토리지 종류  - `SSD`, `HDD`
--   `compress_code` : MongoDB에서 제공하는 데이터 압축 알고리즘을 선택할 수 있는 MongoDB 데이터 압축 알고리즘 코드  - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+-   `included_vpc_name` : MongoDB가 포함된 VPC 이름
+-   `included_subnet_name` : MongoDB가 포함된 Subnet 이름
+-   `cluster_type_code` : MongoDB의 클러스터 유형을 결정하는 MongoDB 클러스터 유형 코드 - `clusterTypeCode`
+-   `shard_count` : MongoDB Shard의 수 - `2`, `3`
+-   `image_product_code` : MongoDB 버전 이미지 제품 번호 - `imageProductCode`
+-   `backup_file_retention_period` : 백업 파일 보관 기간, 백업은 일 단위로 진행되며, 백업 파일은 별도의 스토리지에 저장 - `1` ~ `30`
+-   `backup_time` : 사용자가 원하는 특정 백업 시간
+-   `data_storage_type` : 데이터 스토리지 종류 - `SSD`, `HDD`
+-   `compress_code` : MongoDB 데이터 압축 알고리즘 코드 - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
 
-    
+#### MongoDB Member 설정 (`member`)
+
+-   `member.member_port` : MongoDB Member 서버에 접근할 수 있는 TCP 포트 번호 - `10000` ~ `65535`
+-   `member.member_product_code` : MongoDB Member 서버 제품 번호 - `memberProductCode`
+-   `member.member_server_count` : MongoDB Member 서버의 수 - `3` ~ `7`
+
+#### MongoDB Arbiter 설정 (`arbiter`)
+
+-   `arbiter.arbiter_server_count` : MongoDB Arbiter 서버의 수 - `0`, `1`
+-   `arbiter.arbiter_product_code` : MongoDB Arbiter 서버 제품 번호 - `arbiterProducCode`
+
+#### MongoDB Mongos 설정 (`mongos`)
+
+-   `mongos.mongos_port` : MongoDB Mongos 서버에 접근할 수 있는 TCP 포트 번호 - `10000` ~ `65535`
+-   `mongos.mongos_product_code` : MongoDB Mongos 제품 번호 - `mongosProductCode`
+-   `mongos.mongos_server_count` : MongoDB Mongos 서버의 수 - `2` ~ `5`
+
+#### MongoDB Config 설정 (`config`)
+
+-   `config.config_port` : MongoDB Config 서버에 접근할 수 있는 TCP 포트 번호 - `10000` ~ `65535`
+-   `config.config_product_code` : MongoDB Config 서버 제품 번호 - `configProductCode`
+-   `config.config_server_count` : MongoDB Config 서버의 수 - `3` ~ `7`
 
 ---
 
 ## 참고 자료
 
--   [MongoDB(Ncloud)](https://www.ncloud.com/product/database/cloudDbMongoDB)
--   [ncloud_source_build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)
+-   [MongoDB Database(Ncloud)](https://www.gov-ncloud.com/v2/product/database/cloudDbCache)
+-   [MongoDB Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

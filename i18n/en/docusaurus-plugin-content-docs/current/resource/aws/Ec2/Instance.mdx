@@ -1,6 +1,6 @@
 ---
 title: Instance
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, Resource, Ec2, Instance]
 ---
 
@@ -11,16 +11,13 @@ tags: [AWS, Resource, Ec2, Instance]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-instance.webp"
     }
 />
 
 ## Resource Overview
 
-Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. 
-With Amazon EC2, you can develop and deploy applications faster without the need for upfront hardware investments. 
-Amazon EC2 allows you to create as many virtual servers as you need, configure security and networking, and manage storage. 
-It also enables you to handle changes in requirements or usage spikes by scaling up or down, reducing the need for traffic forecasting.
+Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the AWS cloud. It eliminates the need to invest in hardware upfront, allowing faster application development and deployment. You can launch virtual servers, configure security and networking, and manage storage. Amazon EC2 scales up or down to handle changes in requirements or usage spikes, reducing the need to forecast traffic.
 
 ## Associated Resources
 
@@ -28,26 +25,46 @@ It also enables you to handle changes in requirements or usage spikes by scaling
 
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
 
-## Resource Setting Values
+### Connected Resources
 
--   `ami` : A supported and maintained image provided by AWS which provides required information to launch an instance
--   `instance_type` : EC2 instance type
--   `included_subnet_name` : The name of the subnet where the EC2 instance will be deployed
--   `security_group_name` : The name of the security group to assign to the EC2 instance's NIC
--   `eip_enable` : Whether to enable or disable the use of an Elastic IP (EIP) for the EC2 instance - `true`, `false`
--   `eip_name` : The name of the Elastic IP (EIP)
--   `http_endpoint` : Set whether the metadata service is available - `enabled`, `disabled`
--   `http_tokens` : Set whether or not the metadata service requires session tokens - `required`, `optional`
--   `root_volume_type` : Type of Root Volume - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
--   `root_volume_size` : The size of the root volume (GiB)
--   `ebs_block_device`
-    -   `volume_size` : Type of EBS Volume
-    -   `volume_type` : Size of the EBS Volume in gibibytes (GiB)
+-   [**NetworkInterface**](https://docs.cstudio.app/en/docs/resource/aws/Ec2/NetworkInterface)
+-   [**RouteTable**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/RouteTable)
+-   [**LbTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Lb/LbTargetGroup)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `ami` : Image containing the information required to launch an instance
+-   `instance_type` : EC2 instance type
+-   `key_pair_name` : Name of the key pair used for the EC2 instance
+-   `linked_network_interface_names` : List of network interface names used by the instance
+-   `http_endpoint` : Whether the metadata service is enabled - `enabled`, `disabled`
+-   `http_tokens` : Whether session tokens are required for the metadata service - `required`, `optional`
+-   `cloudinit_config` : Script content automatically executed when the server is created
+
+#### Root Volume (`root_volume`)
+
+-   `root_volume.volume_type` : Root volume type - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `root_volume.volume_size` : Root volume size (GiB)
+-   `root_volume.enabled_volume_encryption` : Whether root volume encryption is enabled - `true`, `false`
+
+#### EBS Block Device (`ebs_block_device`)
+
+-   `ebs_block_device.volume_type` : EBS volume type - `gp2`, `gp3`, `io1`, `io2`, `sc1`, `st1`, `standard`
+-   `ebs_block_device.volume_size` : EBS volume size (GiB)
+-   `ebs_block_device.enabled_volume_encryption` : Whether EBS volume encryption is enabled - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+---
+
+## References
 
 -   [Amazon Ec2(AWS)](https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/concepts.html)
--   [Amazon Ec2 Price(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
+-   [Amazon Ec2 Pricing(AWS)](https://aws.amazon.com/ko/ec2/pricing/)
 -   [Amazon Ec2(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_default_kms_key)

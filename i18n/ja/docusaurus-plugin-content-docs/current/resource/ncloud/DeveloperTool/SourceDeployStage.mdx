@@ -1,6 +1,6 @@
 ---
 title: SourceDeployStage
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, リソース, DeveloperTool, SourceDeployStage]
 ---
 
@@ -11,42 +11,98 @@ tags: [Ncloud, リソース, DeveloperTool, SourceDeployStage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.webp"
     }
 />
 
 ## リソース概要
 
-生成した SourceDeploy プロジェクトに DeployStage を追加/修正/削除したり、デプロイターゲットがないデプロイ Stage にデプロイターゲットを生成することができます。
+作成した SourceDeploy プロジェクトに Deploy Stage を追加・修正・削除したり、  
+デプロイ対象のない Deploy Stage に新しいデプロイターゲットを作成できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
-### 下位リソース
+-   [**SourceDeploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
-## リソース設定値
+### Connected Resources
 
--   `included_source_deploy_name` : SourceDeploy プロジェクト名
--   `target_type` : デプロイ対象のタイプ - `Server`,`AutoScalingGroup`,`KubernetesService`,`ObjectStorage`
--   `linked_server_list` : 接続するサーバー名のリスト
--   `included_subnet_names` : クラスターを構成するサブネット名のリスト、最大 3 つ
--   `scenario` : デプロイ環境を実行できる配布シナリオ
-    -   `deploy_scenario_description` : Source deploy プロジェクトの説明
-    -   `deploy_scenario_strategy` : デプロイ戦略 - `normal`,`blueGreen`,`rolling`,`canary`
-    -   `deploy_scenario_file_type` : デプロイシナリオのファイルタイプ - `SourceBuild`,`ObjectStorage`,`later`
-    -   `linked_source_build_project` : Source build プロジェクトの名前
-    -   `rollback` : デプロイに失敗した場合、ロールバックするかどうかの可否
-    -   `pre_deploy_user` : デプロイ前の実行アカウント
-    -   `pre_deploy_command` : デプロイ前の実行コマンド
-    -   `source_path_command` : デプロイする元のファイルパス
-    -   `deploy_path_command` : デプロイするパス
-    -   `post_deploy_user` : デプロイ後の実行アカウント
-    -   `post_deploy_command` : デプロイ後の実行コマンド
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
 
 ---
 
-## 参考資料
+## リソース設定値
 
--   [Source Deploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
--   [ncloud_source_deploy_stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)
+#### 基本設定
+
+-   `included_source_deploy_name` : SourceDeploy プロジェクト名
+-   `target_type` : デプロイ対象タイプ - `Server`, `AutoScalingGroup`, `DeployedAutoScalingGroup`, `KubernetesService`, `DeployedKubernetesService`, `ObjectStorage`, `DeployedObjectStorage`
+-   `linked_server_list` : 接続するサーバー名リスト
+-   `target_server_id_list` : 接続するサーバー ID リスト
+-   `target_resource` : デプロイ対象 Resource
+
+#### デプロイシナリオ (`scenario`)
+
+-   `scenario.deploy_scenario_description` : SourceDeploy プロジェクトの説明
+-   `scenario.deploy_scenario_strategy` : デプロイ戦略 - `normal`, `blueGreen`, `rolling`, `canary`
+-   `scenario.deploy_scenario_file_type` : シナリオファイルタイプ - `SourceBuild`, `ObjectStorage`, `later`
+-   `scenario.target_object_storage_bucket_name` : Object Storage 名
+-   `scenario.object_storage_object_name` : Object 名
+-   `scenario.linked_source_build_project` : SourceBuild プロジェクト名
+-   `scenario.rollback` : デプロイ失敗時のロールバック有無 - `true`, `false`
+-   `scenario.linked_target_group` : 使用する LoadBalancer Target Group 名
+-   `scenario.delete_server` : AutoScaling Group のサーバー削除有無 - `true`, `false`
+-   `scenario.manifest_type` : Kubernetes サービス用マニフェストリポジトリタイプ - `SourceCommit`
+-   `scenario.manifest_repository` : マニフェストリポジトリ名
+-   `scenario.manifest_branch` : マニフェストブランチ名
+-   `scenario.manifest_path` : マニフェストパスリスト
+-   `scenario.analysis_type` : Canary 分析方式 - `manual`, `auto`
+-   `scenario.canary_count` : Baseline / Canary Pod 数
+-   `scenario.timeout` : 最大デプロイ／キャンセル許容時間
+-   `scenario.prometheus_url` : 接続する Prometheus URL
+-   `scenario.baseline` : Baseline 変数
+-   `scenario.canary` : Canary 変数
+-   `scenario.duration` : 分析時間
+-   `scenario.delay` : 分析遅延時間
+-   `scenario.interval` : 分析周期
+-   `scenario.step` : Metric 収集周期
+-   `scenario.pass_score` : 成功判定スコア
+-   `scenario.object_storage_source_path` : Object Storage ソースパス
+-   `scenario.object_storage_deploy_path` : Object Storage デプロイパス
+
+#### 事前デプロイ (`scenario.pre_deploy`)
+
+-   `scenario.pre_deploy.command` : 事前デプロイ実行コマンド一覧
+
+#### デプロイパス (`scenario.path`)
+
+-   `scenario.path.deploy_path` : デプロイパス一覧
+
+#### 事後デプロイ (`scenario.post_deploy`)
+
+-   `scenario.post_deploy.command` : 事後デプロイ実行コマンド一覧
+
+#### Metric 設定 (`scenario.metric`)
+
+-   `scenario.metric.success_criteria` : 成功基準 - `base`, `canary`
+-   `scenario.metric.weight` : Metric 重み
+-   `scenario.metric.query_type` : クエリタイプ - `default`, `promQL`
+-   `scenario.metric.metric` : 使用する Metric
+-   `scenario.metric.filter` : Metric フィルター
+-   `scenario.metric.query` : PromQL クエリ
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ分類するためのタグ
+
+---
+
+## References
+
+-   [SourceDeploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
+-   [SourceDeploy Project Stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)

@@ -1,7 +1,7 @@
 ---
 title: RedisCache
 sidebar_position: 0
-tags: [Azure, Resource, RedisCache, RedisCache]
+tags: [Azure, Cache, Redis, RedisCache]
 ---
 
 <hr />
@@ -11,49 +11,44 @@ tags: [Azure, Resource, RedisCache, RedisCache]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/redis_cache-redis_cache.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/redis_cache-redis_cache.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Redis Cache is a fully managed, in-memory data store based on the open-source Redis Cache engine. 
-It is offered as a service on the Microsoft Azure cloud platform and is used to build highly scalable and responsive applications. 
-Azure Redis Cache can be utilized to store and retrieve data such as session data, that needs frequent and fast access, user preferences, and application status.
-It supports various data structures, including strings, hashes, lists, sets, and sorted sets. With features like data persistence, high availability, and automatic scaling, Azure Redis Cache is widely used for building applications that require fast and reliable data access. 
-It can be integrated with other Azure services such as Azure App Service, Azure Functions, and Azure Logic Apps.
+Azure Redis Cache is a **managed in-memory data store service that provides high throughput and low latency by caching frequently accessed application data in memory**.  
+It is used to reduce backend load and improve response times in scenarios such as session management, cache layers, and real-time data processing.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
-## Resource Setting Values
+### Connected Resources
 
--   `sku_name` : The SKU name of Redis cache - `Basic`,`Standard`,`Premium`,`Enterprise`
-
--   `cache_type` : The SKU pricing group of Redis cache and the size of Redis cache to deploy - `azureRedisCacheSku`
-
--   `version` : The version of Redis - `6`
-
--   `enable_non_ssl_port` : Enable the non-SSL port in Redis - `true`,`false`
-
--   `minimum_tls_version` : The minimum TLS version of Redis - `1.0`,`1.1`,`1.2`
-
--   `public_network_access_enabled` : Enable public network access for the Redis cache - `true`,`false`
-
--   `redis_firewall_rule`
-    - `start_ip` : Start IP address range
-    - `end_ip` : End IP address range
-    - `included_redis_cache_name` : The name of the Redis cache to which the firewall rule applies
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure RedisCache(Microsoft)](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview)
--   [Azure RedisCache Price](https://azure.microsoft.com/ko-kr/pricing/details/cache/)
--   [Azure RedisCache(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/redis_cache)
+-   `sku_name` : Pricing tier for the Redis Cache - `Basic`, `Standard`, `Premium`, `Enterprise`
+-   `cache_type` : Size and performance tier (SKU detail type) of the Redis Cache
+-   `version` : Redis version - `6`
+-   `enable_non_ssl_port` : Whether to enable the non-SSL port - `true`, `false`
+-   `minimum_tls_version` : Minimum TLS version applied to Redis - `1.0`, `1.1`, `1.2`
+-   `public_network_access_enabled` : Whether to allow Redis access via the public network - `true`, `false`
+-   `tag` : Tags used to categorize resources
+
+#### Redis Firewall Rule (`redis_firewall_rule`)
+
+-   `redis_firewall_rule.start_ip` : Starting IP address allowed for access
+-   `redis_firewall_rule.end_ip` : Ending IP address allowed for access
+
+## References
+
+-   [Azure Redis Cache Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-overview)
+-   [Azure Redis Cache SKU Comparison(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-overview#service-tiers)
+-   [Azure Redis Cache Networking(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-cache-for-redis/cache-networking)

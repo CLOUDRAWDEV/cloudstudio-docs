@@ -1,0 +1,56 @@
+---
+title: EcrRepository
+sidebar_position: 0
+tags: [AWS, 리소스, Ecr, EcrRepository]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon Elastic Container Registry (Amazon ECR) è un servizio di registro di immagini container gestito da AWS, sicuro, scalabile e affidabile. Amazon ECR supporta repository privati con autorizzazioni basate sulle risorse utilizzando AWS IAM, consentendo a utenti specifici o a istanze Amazon EC2 di accedere ai repository e alle immagini dei container. È possibile utilizzare il CLI preferito per eseguire il push, il pull e la gestione di immagini Docker, immagini Open Container Initiative (OCI) e artefatti compatibili con OCI.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `image_tag_mutability` : Impostazione della modificabilità dei tag del repository - `IMMUTABLE`, `MUTABLE`
+-   `scan_on_push` : Imposta se eseguire la scansione dell’immagine dopo il push nel repository - `true`, `false`
+-   `encryption_type` : Tipo di crittografia utilizzato dal repository - `KMS`, `AES256`
+-   `kms_key_name` : Nome ARN della chiave KMS da utilizzare
+
+#### 정책 (`policy`)
+
+-   `policy.effect` : Consente o nega l’istruzione della policy - `Allow`, `Deny`
+-   `policy.principal_arn` : ARN del soggetto a cui applicare la policy
+-   `policy.enabled_not_actions` : Imposta se escludere l’elenco delle azioni specificate - `true`, `false`
+-   `policy.actions` : Elenco delle azioni da specificare - `ecr:BatchCheckLayerAvailability`, `ecr:BatchDeleteImage`, `ecr:BatchGetImage`, `ecr:CompleteLayerUpload`, `ecr:DeleteLifecyclePolicy`, `ecr:DeleteRepository`, `ecr:DeleteRepositoryPolicy`, `ecr:DescribeImages`, `ecr:DescribeRepositories`, `ecr:GetDownloadUrlForLayer`, `ecr:GetLifecyclePolicy`, `ecr:GetLifecyclePolicyPreview`, `ecr:GetRepositoryPolicy`, `ecr:InitiateLayerUpload`, `ecr:ListImages`, `ecr:PutImage`, `ecr:PutLifecyclePolicy`, `ecr:SetRepositoryPolicy`, `ecr:StartLifecyclePolicyPreview`, `ecr:UploadLayerPart`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
+-   [Amazon Elastic Container Registry 가격(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
+-   [aws_ecr_repository(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)

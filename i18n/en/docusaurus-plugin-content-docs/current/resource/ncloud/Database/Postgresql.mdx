@@ -1,0 +1,59 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, Resource, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## Resource Overview
+
+PostgreSQL is an **open-source relational database management system (RDBMS)**.  
+In Ncloud, it is provided as a fully managed database service that includes high availability (HA), automated backups, and encrypted storage features.  
+You can easily build a PostgreSQL environment without complex infrastructure configuration.
+
+## Associated Resources
+
+### Parent Resource
+
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## Resource Configuration
+
+#### Basic Settings
+
+-   `server_name_prefix` : PostgreSQL server name (lowercase letters/numbers/hyphens allowed, must start with a lowercase letter, must end with a lowercase letter or number, 3~30 characters)
+-   `included_vpc_name` : Name of the VPC that includes PostgreSQL
+-   `included_subnet_name` : Name of the subnet that includes PostgreSQL
+-   `enable_high_availability` : Whether to enable the high availability feature - `true`, `false`
+-   `user_name` : PostgreSQL user access ID
+-   `user_password` : PostgreSQL user access password
+-   `image_product_code` : PostgreSQL server image product code
+-   `product_code` : PostgreSQL instance server specification product code
+-   `data_storage_type` : Data storage type - `SSD`, `HDD`
+-   `is_backup` : Whether to enable backup - `true`, `false`
+-   `backup_file_retention_period` : Backup file retention period (daily) - `1` ~ `30`
+-   `enable_automatic_backup` : Whether to enable automatic backups - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : PostgreSQL connection port number
+-   `client_cidr` : IP address range assigned to client IP addresses
+-   `database_name` : Default database name
+-   `enable_storage_encryption` : Whether to enable storage encryption - `true`, `false`
+
+---
+
+## References
+
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

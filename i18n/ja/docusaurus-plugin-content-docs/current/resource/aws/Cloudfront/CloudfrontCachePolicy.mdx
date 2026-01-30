@@ -1,7 +1,7 @@
 ---
 title: CloudfrontCachePolicy
-sidebar_position: 0
-tags: [AWS, リソース, Cloudfront, CloudfrontCachePolicy]
+sidebar_position: 1
+tags: [AWS, Resource, Cloudfront, CloudfrontCachePolicy]
 ---
 
 <hr />
@@ -11,34 +11,50 @@ tags: [AWS, リソース, Cloudfront, CloudfrontCachePolicy]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.webp"
     }
 />
 
 ## リソース概要
 
-Cloudfront Cache Policy は Cloudfront デプロイのキャッシュ動作に接続して CloudFront のユーザ指定を設定するキャッシュポリシーです。
+CloudFront Cache Policy は、CloudFront ディストリビューションのキャッシュ動作に関連付けて、CloudFront のカスタマイズを設定するキャッシュポリシーです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Base)
 
 ### 接続リソース
 
--   [**CloudfrontDistribution**](https://docs.cstudio.app/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+-   [**CloudfrontDistribution**](https://docs.cstudio.app/ja/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+
+---
 
 ## リソース設定値
 
--   `min_ttl` : オブジェクトが CloudFront キャッシュに残っている必要がある最小時間(秒)
--   `max_ttl` : オブジェクトが CloudFront キャッシュに維持される最大時間(秒)
--   `default_ttl` : オブジェクトが CloudFront キャッシュに残っている必要がある基本時間(秒)
--   `cookie_behavior` : クッキーをオリジンサーバーに渡すかどうかの可否 - `whitelist`,`all`,`none`,`allExcept`
--   `header_behavior` : 指定されたヘッダーの値に基づいてオブジェクトをキャッシングするかどうかの可否 - `whitelist`,`none`
--   `query_string_behavior` : クエリ文字列パラメータ値に基づいてコンテンツの別のバージョンをキャッシングするかどうかの可否 - `whitelist`,`all`,`none`,`allExcept`
+#### 基本設定
+
+-   `min_ttl` : オブジェクトがキャッシュに保持される最小時間（秒）
+-   `default_ttl` : オブジェクトがキャッシュに保持されるデフォルト時間（秒）
+-   `max_ttl` : オブジェクトがキャッシュに保持される最大時間（秒）
+
+#### Cookie 設定 (`cookie_config`)
+
+-   `cookie_behavior` : Cookie 転送方式 - `whitelist`, `all`, `none`, `allExcept`
+-   `cookies_items` : オリジンへ転送する Cookie 一覧
+
+#### Header 設定 (`header_config`)
+
+-   `header_behavior` : ヘッダーベースのキャッシュ方式 - `whitelist`, `none`
+-   `headers_items` : キャッシュに使用するヘッダー一覧
+
+#### Query String 設定 (`query_string_config`)
+
+-   `query_string_behavior` : クエリ文字列の処理方式 - `whitelist`, `all`, `none`, `allExcept`
+-   `query_strings_items` : キャッシュに使用するクエリパラメータ一覧
 
 ## 参考資料
 
--   [Amazon CloudFront Cache Policy(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
--   [Amazon CloudFront Cache Policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)
+-   [Amazon CloudFront Cache Policy（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront Cache Policy（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)

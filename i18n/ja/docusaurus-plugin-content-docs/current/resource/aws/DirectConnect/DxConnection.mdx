@@ -1,7 +1,7 @@
 ---
-title: Dx Connection
+title: DxConnection
 sidebar_position: 0
-tags: [AWS, リソース, DirectConnection, DxConnection]
+tags: [AWS, Resource, DirectConnection, DxConnection]
 ---
 
 <hr />
@@ -11,17 +11,14 @@ tags: [AWS, リソース, DirectConnection, DxConnection]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_connection.webp"
     }
 />
 
 ## リソース概要
 
-AWS Direct Connect を使用すると標準イーサネット光ファイバケーブルを介して内部ネットワークを AWS Direct Connect の位置に接続することができます。
-ケーブルの一端をユーザのルータに接続し、もう一端を AWS Direct Connect ルータに接続します。 この接続により、次のものを作成できます。
-仮想インタフェースパブリック AWS ネットワーク経路でインターネットサービスプロバイダを迂回してサービス(例:Amazon S3)または Amazon VPC に転送します。
-元の要求 ping に対する AWS Direct Connect の位置は、次へのアクセスを提供します。
-AWS 該当項目が接続された地域でパブリックリージョンの単一接続を使用するか、AWS GovCloud(US)パブリックに対するアクセス AWS その他すべてのパブリックリージョンのサービスです。
+AWS Direct Connect は、標準的なイーサネット光ファイバーケーブルを使用して、オンプレミスネットワークを AWS Direct Connect ロケーションに接続します。  
+この接続により、インターネットサービスプロバイダーを経由せず、Amazon S3 や Amazon VPC などの AWS サービスへ直接通信できます。
 
 ## 関連リソース
 
@@ -29,15 +26,24 @@ AWS 該当項目が接続された地域でパブリックリージョンの単�
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
+---
+
 ## リソース設定値
 
--   `bandwidth` : Direct Connection の Bandwidth - `50Mbps`,`100Mbps`,`200Mbps`,`300Mbps`,`400Mbps`,`500Mbps`,`1Gbps`,`2Gbps`,`5Gbps`,`10Gbps`,`100Gbps`
--   `location` : 接続がある AWS Direct Connect 位置
+#### 基本設定
+
+-   `bandwidth` : Direct Connection の帯域幅 - `1Gbps`, `2Gbps`, `5Gbps`, `10Gbps`, `100Gbps`
+-   `location` : 接続される AWS Direct Connect ロケーション
+-   `service_provider` : 接続を提供するサービスプロバイダー
+
+#### タグ
+
+-   `tag` : Resource 分類用タグ
 
 ---
 
 ## 参考資料
 
--   [Amazon Direct Connect(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
--   [Amazon Direct Connect 価格(AWS)](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
--   [Amazon Direct Connect(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)
+-   [Amazon Direct Connect（AWS）](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/Welcome.html)
+-   [Amazon Direct Connect 料金（AWS）](https://aws.amazon.com/ko/directconnect/pricing/?nc2=type_a)
+-   [Amazon Direct Connect（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_connection)

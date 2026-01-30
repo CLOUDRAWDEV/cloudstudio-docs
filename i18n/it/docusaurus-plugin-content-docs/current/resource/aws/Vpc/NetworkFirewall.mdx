@@ -1,0 +1,59 @@
+---
+title: NetworkFirewall
+sidebar_position: 10
+tags: [AWS, Risorsa, Vpc, NetworkFirewall]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio AWS che consente di configurare protezioni e controlli di sicurezza su più account e risorse AWS all’interno di un’organizzazione.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**NetworkFirewallPolicy**](https://docs.cstudio.app/docs/resource/aws/Vpc/NetworkFirewallPolicy)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `description` : Descrizione del firewall (massimo 256 caratteri)
+-   `included_vpc_name` : Nome del VPC in cui è distribuito il firewall (sola lettura)
+-   `linked_subnet_names` : Elenco delle subnet pubbliche dedicate agli endpoint del firewall
+-   `linked_network_firewall_policy_name` : Nome della policy del firewall collegata (sola lettura)
+-   `enabled_delete_protection` : Abilitazione della protezione contro l’eliminazione - `true`, `false`
+-   `enabled_subnet_change_protection` : Abilitazione della protezione contro la modifica delle subnet - `true`, `false`
+
+#### Impostazioni di crittografia (`encryption_configuration`)
+
+-   `encryption_configuration.enabled_custom_configuration` : Abilitazione della crittografia con chiavi gestite da AWS - `true`, `false`
+-   `encryption_configuration.kms_key_name` : Nome della chiave KMS da utilizzare
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Network Firewall (AWS)](https://docs.aws.ama)

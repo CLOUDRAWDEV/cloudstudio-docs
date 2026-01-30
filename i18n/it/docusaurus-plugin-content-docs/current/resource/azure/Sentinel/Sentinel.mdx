@@ -1,0 +1,66 @@
+---
+title: Sentinel
+sidebar_position: 0
+tags: [Azure, Security, Sentinel]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Sentinel è una soluzione cloud-native di SIEM (Security Information and Event Management) e SOAR (Security Orchestration, Automation and Response) che raccoglie e analizza dati di sicurezza da diverse fonti per rilevare le minacce e automatizzare la risposta agli incidenti.  
+Si basa su Log Analytics Workspace e consente di configurare regole di avviso e integrare i prodotti di sicurezza Microsoft e connettori di dati esterni per supportare operazioni di sicurezza unificate.
+
+## Risorse associate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+### Risorse collegate
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/it/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `linked_workspace_name` : Nome del Log Analytics Workspace da collegare a Sentinel
+-   `connect_security_center` : Connessione del Data Connector di Microsoft Defender for Cloud - `true`, `false`
+-   `connect_threat_intelligence` : Connessione del Data Connector di Threat Intelligence Platform (anteprima) - `true`, `false`
+-   `connect_advanced_threat_protection` : Connessione del Data Connector di Microsoft Defender for Identity - `true`, `false`
+-   `connect_microsoft_defender` : Connessione del Data Connector di Microsoft Defender for Endpoint - `true`, `false`
+-   `connect_office_365` : Connessione del Data Connector di Office 365 - `true`, `false`
+-   `connect_cloud_app_security` : Connessione del Data Connector di Microsoft Defender for Cloud Apps - `true`, `false`
+-   `fusion_rule_rule_guid` : Elenco dei GUID delle regole Fusion
+-   `behavior_analytics_rule_guid` : Elenco dei GUID delle regole di analisi comportamentale ML
+-   `tag` : Tag per classificare la risorsa
+
+#### MS Security Incident Alert Rule (`alert_rule_incident`)
+
+-   `alert_rule_incident.display_name` : Nome visualizzato della MS Security Incident Alert Rule
+-   `alert_rule_incident.product` : Servizio di sicurezza Microsoft che genera l'avviso - `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection`, `Office 365 Advanced Threat Protection`
+-   `alert_rule_incident.severity` : Livelli di gravità che generano incidenti - `High`, `Medium`, `Low`, `Informational`
+
+#### Scheduled Alert Rule (`alert_rule_scheduled`)
+
+-   `alert_rule_scheduled.display_name` : Nome visualizzato della Scheduled Alert Rule
+-   `alert_rule_scheduled.severity` : Gravità della Scheduled Alert Rule - `High`, `Medium`, `Low`, `Informational`
+-   `alert_rule_scheduled.query` : Query della Scheduled Alert Rule
+
+---
+
+## Materiale di riferimento
+
+-   [Panoramica di Microsoft Sentinel (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
+-   [Connettori dati di Microsoft Sentinel (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/connect-data-sources)
+-   [Regole di analisi di Microsoft Sentinel (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/detect-threats-built-in)

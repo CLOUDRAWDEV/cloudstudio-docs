@@ -1,6 +1,6 @@
 ---
 title: SourcePipeline
-sidebar_position: 0
+sidebar_position: 4
 tags: [Ncloud, リソース, DeveloperTool, SourcePipeline]
 ---
 
@@ -11,72 +11,75 @@ tags: [Ncloud, リソース, DeveloperTool, SourcePipeline]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
 ## リソース概要
 
-SourceCommit, SourceBuild, SourceDeploy サービスを統合し、迅速かつ安定したソフトウェアをリリースするためのプロセス自動化サービス
+SourceCommit・SourceBuild・SourceDeploy サービスを統合し、  
+迅速かつ安定したソフトウェアリリースのためのプロセス自動化を提供するサービスです。
 
 ## 関連リソース
 
 ### 上位リソース
 
-### 下位リソース
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
-## リソース設定値
+### Child Resources
 
--   `default_task` : パイプラインが行う最初の作
-
-    -   `name` : パイプラインが行う最初の作業名前
-    -   `type` : task の種類 - `SourceBuild`,`SourceDeploy`
-
-    -   type が SourceBuild の場合
-
-        -   `target_source_build_project` : SourceBuild または SourceDeploy の task のプロジェクト名
-        -   `repository_branch` : SourceBuild task のターゲット repository ブランチ名
-
-    -   type が SourceDeploy の場合
-        -   `target_source_deploy_project` : SourceBuild の task のプロジェクト名
-        -   `target_source_deploy_project_stage` : SourceBuild の task のプロジェクトステージ名
-        -   `target_source_deploy_project_scenario` : SourceBuild の task のプロジェクト scenario 名
-
--   `additional_task` : パイプラインが行う作業
-
-    -   `name` : パイプラインが行う作業の名前
-    -   `type` : task の種類 - `SourceBuild`,`SourceDeploy`
-
-    -   type が SourceBuild の場合
-
-        -   `target_source_build_project` : SourceDeploy の task のプロジェクト名
-        -   `repository_branch` : SourceBuild task のターゲット repository ブランチ名
-        -   `pre_tasks` : 事前に実行するタスクリスト
-
-    -   type が SourceDeploy の場合
-        -   `target_source_deploy_project` : SourceDeploy の task のプロジェクト名
-        -   `target_source_deploy_project_stage` : SourceDeploy の task のプロジェクトステージ名
-        -   `target_source_deploy_project_scenario` : SourceDeploy の task のプロジェクト scenario 名
-        -   `pre_tasks` : 事前に実行するタスクリスト
-
--   `trigger_push_repository` : パイプラインが動作するトリガーを定義
-
-    -   `type_of_repository` : Trigger に使用する repository タイプ - `sourcecommit`
-    -   `name_of_repository` : Trigger に使用する repository の名前
-    -   `branch_of_repository` : Trigger に使用する repository branch
-
--   `trigger_schedule` : パイパラインが自動実行されるように予約設定
-
-    -   `day` : デプロイ予約をする曜日
-    -   `time` : デプロイ予約をする時間
-    -   `timezone` : 予定日にデプロイ予約する時間の time zone
-    -   `execute_only_with_change` : Sourcepipeline プロジェクト構成または Sourcecommit リポジトリが変更された場合、スケジュールトリガーが常に時間内に実行されるか、または実行されるかどうかの可否
-
--   `trigger_target_sourcecpipeline_id` : Trigger 設定されたパイプラインが実行完了時に自動的に実行されるパイプライン ID リスト
+-   [**SourceBuild**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ---
 
-## 参考資料
+## リソース設定値
+
+#### 基本設定
+
+-   `description` : 作成する Pipeline プロジェクトの説明（最大 500 文字）
+
+#### 基本タスク (`default_task`)
+
+-   `default_task.name` : 最初に実行されるタスク名（英字／数字／`-`／`_`、1~50 文字）
+-   `default_task.type` : タスクタイプ - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : SourceBuild プロジェクト名
+-   `default_task.target_source_deploy_project` : SourceDeploy プロジェクト名
+-   `default_task.target_source_deploy_project_stage` : SourceDeploy Stage 名
+-   `default_task.target_source_deploy_project_scenario` : SourceDeploy Scenario 名
+-   `default_task.repository_branch` : SourceBuild 対象ブランチ名
+
+#### 追加タスク (`additional_task`)
+
+-   `additional_task.type` : タスクタイプ - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : SourceBuild プロジェクト名
+-   `additional_task.target_source_deploy_project` : SourceDeploy プロジェクト名
+-   `additional_task.target_source_deploy_project_stage` : Stage 名
+-   `additional_task.target_source_deploy_project_scenario` : Scenario 名
+-   `additional_task.repository_branch` : 対象ブランチ名
+-   `additional_task.pre_tasks` : 先行実行タスクリスト
+
+#### Push トリガー (`trigger_push_repository`)
+
+-   `trigger_push_repository.type_of_repository` : Repository タイプ - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository 名
+-   `trigger_push_repository.branch_of_repository` : Repository ブランチ名
+
+#### スケジュールトリガー (`trigger_schedule`)
+
+-   `trigger_schedule.day` : 実行曜日 - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : 実行時間
+-   `trigger_schedule.timezone` : タイムゾーン
+-   `trigger_schedule.execute_only_with_change` : 変更時のみ実行するかどうか - `true`, `false`
+
+#### パイプラインチェイニング (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : 完了後に自動実行する Pipeline ID リスト
+
+---
+
+## References
 
 -   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
--   [ncloud_sourcepipeline(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

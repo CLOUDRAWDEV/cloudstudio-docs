@@ -1,0 +1,60 @@
+---
+title: Servicebus
+sidebar_position: 0
+tags: [Azure, Messaging, ServiceBus]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/servicebus-servicebus.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Service Bus ist ein vollständig verwalteter Enterprise-Messaging-Dienst, der asynchrones Messaging zwischen Anwendungen unterstützt.  
+Mithilfe von Queue- sowie Topic-/Subscription-Modellen ermöglicht er eine zuverlässige Nachrichtenübermittlung, eine geringere Kopplung zwischen verteilten Systemen und unterstützt groß angelegte Ereignisverarbeitungsszenarien.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `sku` : Preisstufe von Service Bus - `Basic`, `Standard`, `Premium`
+-   `capacity` : Kapazitätseinheit zur Steuerung der Durchsatzleistung im Premium-SKU
+-   `premium_messaging_partitions` : Anzahl der im Premium-Messaging-Tier verwendeten Partitionen - `1`, `2`, `4`
+-   `default_action` : Standardaktion bei Anwendung von Netzwerkregeln - `Allow`, `Deny`
+-   `public_network_access_enabled` : Zulassen des Zugriffs auf Service Bus über das öffentliche Netzwerk - `true`, `false`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.target_subnet_name` : Name des Ziel-Subnetzes, auf das die Netzwerkregeln angewendet werden
+-   `network_rules.ignore_missing_vnet_service_endpoint` : Ob fehlende VNet-Serviceendpunkte im Subnetz ignoriert werden sollen - `true`, `false`
+
+#### Topic (`topic`)
+
+-   `topic.status` : Aktivierungsstatus des Topics - `Active`, `Disabled`
+-   `topic.enable_partitioning` : Aktivierung der Nachrichtenpartitionierung - `true`, `false`
+
+#### Subscription (`subscription`)
+
+-   `subscription.target_topic_name` : Name des Ziel-Topics, mit dem das Abonnement verbunden ist
+-   `subscription.max_delivery_count` : Maximale Anzahl von Zustellversuchen für eine Nachricht
+
+---
+
+## Referenzmaterialien
+
+-   [Azure Service Bus Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Azure Service Bus Messaging-Muster (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Azure Service Bus Netzwerksicherheit (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

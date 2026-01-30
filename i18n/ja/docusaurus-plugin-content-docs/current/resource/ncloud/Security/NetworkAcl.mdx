@@ -1,6 +1,6 @@
 ---
-title: Network Acl
-sidebar_position: 0
+title: NetworkAcl
+sidebar_position: 1
 tags: [Ncloud, リソース, Security, NetworkAcl]
 ---
 
@@ -11,40 +11,52 @@ tags: [Ncloud, リソース, Security, NetworkAcl]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.webp"
     }
 />
 
 ## リソース概要
 
-サブネットに対するネットワーク セキュリティ管理ができるサービスです。
+サブネットに対するネットワークセキュリティ管理を行うサービスです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-## リソース設定値
+### Connected Resources
 
--   `included_vpc_name` : ACL を作成する VPC の名前
--   `nacl_description` : ACL の説明
--   `inbound_rule`
-    -   `priority` : インバウンドルールの優先度、0 ~ 199
-    -   `protocol` : インバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
-    -   `rule_action` : インバウンドトラフィックの許可または拒否 - `ALLOW`, `DROP`
-    -   `ip_block` : インバウンドトラフィックのソース、CIDR ブロック
-    -   `port_range` : インバウンドルールに適用するポート範囲、1 から 65535
--   `outbound_rule` :
-    -   `priority` : アウトバウンドルールの優先度、0 ~ 199
-    -   `protocol` : アウトバウンドトラフィックのプロトコル - `TCP`, `UDP`, `ICMP`
-    -   `rule_action` : アウトバウンドトラフィックの許可または拒否 - `ALLOW`, `DROP`
-    -   `ip_block` : アウトバウンドトラフィックの宛先、CIDR ブロック
-    -   `port_range` : アウトバウンドルールに適用するポート範囲、1 から 65535
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ---
 
-## 参考資料
+## リソース設定値
+
+#### 基本設定
+
+-   `included_vpc_name` : ACL を作成する VPC 名
+-   `nacl_description` : ACL に関する説明
+
+#### インバウンドルール (`inbound_rule`)
+
+-   `inbound_rule.priority` : インバウンドルール優先順位 - `0` ~ `199`
+-   `inbound_rule.protocol` : インバウンドトラフィックプロトコル - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : インバウンドトラフィック許可可否 - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : インバウンドトラフィック送信元 IP 範囲（CIDR 形式）
+-   `inbound_rule.port_range` : 適用するポート範囲 - `1` ~ `65535`
+
+#### アウトバウンドルール (`outbound_rule`)
+
+-   `outbound_rule.priority` : アウトバウンドルール優先順位 - `0` ~ `199`
+-   `outbound_rule.protocol` : アウトバウンドトラフィックプロトコル - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : アウトバウンドトラフィック許可可否 - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : アウトバウンドトラフィック宛先 IP 範囲（CIDR 形式）
+-   `outbound_rule.port_range` : 適用するポート範囲 - `1` ~ `65535`
+
+---
+
+## References
 
 -   [Network ACL(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-nacl-vpc)
--   [ncloud_network_acl(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)
+-   [Network ACL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)

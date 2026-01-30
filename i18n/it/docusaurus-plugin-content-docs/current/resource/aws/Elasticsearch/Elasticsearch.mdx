@@ -1,0 +1,95 @@
+---
+title: Elasticsearch
+sidebar_position: 0
+tags: [AWS, Risorsa, Elasticsearch]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+AWS Elasticsearch è un motore di ricerca e analisi distribuito, progettato per fornire ricerche rapide e analisi dei dati ad alte prestazioni. Elasticsearch è costruito sopra il motore di ricerca Apache Lucene ed è una soluzione open source veloce e altamente scalabile. Viene utilizzato per diversi casi d’uso, tra cui l’ingestione dei dati, l’analisi dei log e il monitoraggio. Elasticsearch può essere eseguito all’interno di Amazon VPC e integrato con servizi AWS come AWS Lambda e Kinesis. Inoltre, offre funzionalità di sicurezza e controllo degli accessi fornite da AWS ed è integrato con Amazon CloudWatch per il monitoraggio e il logging.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Elasticsearch**](https://docs.cstudio.app/it/docs/resource/aws/Elasticsearch/)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `elasticsearch_version` : Versione del dominio Elasticsearch
+-   `availability_zone_count` : Numero di zone di disponibilità - `2`, `3`
+-   `tls_security_policy` : Policy di sicurezza TLS da applicare all’endpoint HTTPS
+-   `engine` : Configurazione del motore Elasticsearch
+
+#### Nodo dati (`data_node`)
+
+-   `data_node.instance_type` : Tipo di istanza del nodo dati
+-   `data_node.instance_count` : Numero di nodi dati
+-   `data_node.ebs_enabled` : Abilitazione dell’uso di EBS per i nodi dati - `true`, `false`
+-   `data_node.ebs_volume_type` : Tipo di volume EBS - `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : Dimensione del volume EBS (GiB)
+-   `data_node.ebs_volume_iops` : IOPS del volume EBS
+-   `data_node.ebs_volume_throughput` : Throughput del volume EBS (MiB/s)
+
+#### Nodo master (`master_node`)
+
+-   `master_node.master_node_enabled` : Abilitazione del nodo master dedicato - `true`, `false`
+-   `master_node.master_instance_type` : Tipo di istanza del nodo master
+-   `master_node.master_node_count` : Numero di nodi master
+
+#### Endpoint personalizzato (`custom_endpoint`)
+
+-   `custom_endpoint.custom_endpoint_enabled` : Abilitazione dell’endpoint personalizzato - `true`, `false`
+-   `custom_endpoint.custom_host_name` : Nome host personalizzato
+-   `custom_endpoint.acm_certificate_name` : Nome del certificato ACM
+
+#### Configurazione di rete (`network`)
+
+-   `network.network_type` : Modalità di accesso alla rete - `vpc_access`, `public_access`
+-   `network.included_subnet_names` : Elenco dei nomi delle subnet in cui creare il dominio Elasticsearch
+-   `network.linked_security_group_names` : Elenco dei nomi dei Security Group da collegare
+
+#### Controllo degli accessi granulare (`fine_grained_access`)
+
+-   `fine_grained_access.fine_grained_access_enabled` : Abilitazione del controllo degli accessi granulare - `true`, `false`
+-   `fine_grained_access.master_user_type` : Tipo di utente master - `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : ARN IAM dell’utente master
+-   `fine_grained_access.master_user_name` : Nome dell’utente master
+-   `fine_grained_access.master_user_password` : Password dell’utente master
+
+#### Configurazione della crittografia (`encryption`)
+
+-   `encryption.enforce_https` : Forzare l’uso di HTTPS - `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : Abilitazione della crittografia tra nodi - `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : Abilitazione della crittografia dei dati a riposo - `true`, `false`
+-   `encryption.kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

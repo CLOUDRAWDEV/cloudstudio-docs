@@ -1,0 +1,88 @@
+---
+title: SecurityGroup
+sidebar_position: 14
+tags: [AWS, Risorsa, Vpc, SecurityGroup]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-security_group.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+I Security Group controllano il traffico in entrata e in uscita verso le risorse associate.  
+Ad esempio, associando un Security Group a un’istanza EC2, è possibile controllare il traffico inbound e outbound verso tale istanza.
+
+I Security Group possono essere associati solo alle risorse presenti nello stesso VPC in cui sono stati creati.  
+Quando viene creato un VPC, viene fornito un Security Group predefinito ed è possibile crearne altri aggiuntivi per ogni VPC.
+
+L’utilizzo dei Security Group non comporta costi aggiuntivi.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**Lb**](https://docs.cstudio.app/docs/resource/aws/Networking/LoadBalancer)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/aws/Ec2/NetworkInterface)
+-   [**EksCluster**](https://docs.cstudio.app/docs/resource/aws/Eks/EksCluster)
+-   [**Elasticsearch**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/)
+-   [**LambdaFunction**](https://docs.cstudio.app/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Aurora**](https://docs.cstudio.app/docs/resource/aws/Rds/Aurora)
+-   [**Mariadb**](https://docs.cstudio.app/docs/resource/aws/Rds/Mariadb)
+-   [**Mssql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mssql)
+-   [**Mysql**](https://docs.cstudio.app/docs/resource/aws/Rds/Mysql)
+-   [**Oracle**](https://docs.cstudio.app/docs/resource/aws/Rds/Oracle)
+-   [**Postgresql**](https://docs.cstudio.app/docs/resource/aws/Rds/Postgresql)
+-   [**LaunchTemplate**](https://docs.cstudio.app/docs/resource/aws/Ec2/LaunchTemplate)
+-   [**ResolverEndpoint**](https://docs.cstudio.app/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**ClientVpnEndpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/ClientVpnEndpoint)
+-   [**Endpoint**](https://docs.cstudio.app/docs/resource/aws/Vpc/Endpoint)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `description` : Descrizione del Security Group
+-   `included_vpc_name` : Nome del VPC in cui è incluso il Security Group
+
+#### Regole inbound (`ingress`)
+
+-   `ingress.rule_name` : Nome della regola ingress
+-   `ingress.description` : Descrizione della regola ingress
+-   `ingress.from_port` : Numero di porta iniziale consentito
+-   `ingress.to_port` : Numero di porta finale consentito
+-   `ingress.protocol` : Protocollo - `tcp`, `udp`, `icmp`, `all`
+-   `ingress.cidr_block` : Blocco CIDR sorgente consentito
+
+#### Regole outbound (`egress`)
+
+-   `egress.rule_name` : Nome della regola egress
+-   `egress.description` : Descrizione della regola egress
+-   `egress.from_port` : Numero di porta iniziale consentito
+-   `egress.to_port` : Numero di porta finale consentito
+-   `egress.protocol` : Protocollo - `tcp`, `udp`, `icmp`, `icmpv6`, `all`
+-   `egress.cidr_block` : Blocco CIDR di destinazione consentito
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Controllo del traffico delle risorse con i Security Group (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-security-groups.html)
+-   [aws_security_group (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)

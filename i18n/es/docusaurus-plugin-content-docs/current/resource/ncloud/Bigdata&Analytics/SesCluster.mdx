@@ -1,0 +1,70 @@
+---
+title: SesCluster
+sidebar_position: 2
+tags: [Ncloud, 리소스, Bigdata&Analytics, SesCluster]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso que proporciona un entorno para gestionar cómodamente clústeres de Elasticsearch y OpenSearch, permitiendo configurar el clúster con distintos tipos de servidores y capacidades de almacenamiento, así como desplegarlo, operarlo y escalarlo fácilmente.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se creará el SES
+-   `os_image_code` : Tipo de sistema operativo a utilizar - `osImageName`
+-   `enable_master_node` : Uso del nodo master - `true`, `false`
+-   `login_key_name` : Nombre de la clave de inicio de sesión pública para cifrado
+
+#### Configuración del Search Engine (`search_engine`)
+
+-   `search_engine.version_code` : Código de la versión del Search Engine - `versionCode`
+-   `search_engine.user_name` : Nombre de usuario del Search Engine
+-   `search_engine.user_password` : Contraseña del usuario del Search Engine
+-   `search_engine.dashboard_port` : Puerto del dashboard del Search Engine - `1024` ~ `65535`
+
+#### Configuración del nodo manager (`manager_node`)
+
+-   `manager_node.enable_dual_manager` : Habilitación de redundancia del nodo manager - `true`, `false`
+-   `manager_node.manager_node_subnet_name` : Nombre del subnet donde se ubicará el nodo manager
+-   `manager_node.manager_node_product_code` : Código de producto del nodo manager - `managerNodeProductCode`
+
+#### Configuración del nodo data (`data_node`)
+
+-   `data_node.data_node_subnet_name` : Nombre del subnet donde se ubicará el nodo data
+-   `data_node.data_node_product_code` : Código de producto del nodo data - `managerNodeProductCode`
+-   `data_node.data_node_count` : Número de nodos data - `3` ~ `10`
+-   `data_node.data_node_storage_size` : Capacidad de almacenamiento del nodo data - `100` ~ `2000`
+
+#### Configuración del nodo master (`master_node`)
+
+-   `master_node.master_node_subnet_name` : Nombre del subnet donde se ubicará el nodo master
+-   `master_node.master_node_product_code` : Código de producto del nodo master - `managerNodeProductCode`
+-   `master_node.master_node_count` : Número de nodos master - `3` ~ `5`
+
+---
+
+## Referencias
+
+-   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
+-   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

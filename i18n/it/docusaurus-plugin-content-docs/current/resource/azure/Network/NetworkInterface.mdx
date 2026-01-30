@@ -1,0 +1,57 @@
+---
+title: NetworkInterface
+sidebar_position: 4
+tags: [Azure, Network, NetworkInterface]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Network Interface è una risorsa di connettività di rete che consente a una Virtual Machine di comunicare con le risorse all’interno di una Virtual Network, con Internet e con le reti on-premises.  
+Appartiene a un Subnet e riceve un indirizzo IP; se necessario, è possibile associare una Public IP per configurare la comunicazione esterna.  
+Una singola Network Interface può definire più configurazioni IP, consentendo di supportare diversi scenari di rete.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/azure/Network/Subnet)
+
+### Risorse collegate
+
+-   [**Public IP**](https://docs.cstudio.app/it/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/it/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Network Security Group**](https://docs.cstudio.app/it/docs/resource/azure/Network/NetworkSecurityGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `included_subnet_name` : Nome del Subnet che include la Network Interface
+
+#### Configurazione IP (`ip_configuration`)
+
+-   `ip_configuration.is_primary` : Indica se la configurazione IP primaria è abilitata - `true`, `false`
+-   `ip_configuration.private_ip_address_allocation` : Metodo di assegnazione dell’indirizzo IP privato - `Dynamic`, `Static`
+-   `ip_configuration.private_ip_address` : Indirizzo IP privato
+-   `ip_configuration.enabled_public_ip` : Indica se utilizzare una Public IP - `true`, `false`
+-   `ip_configuration.linked_public_ip_name` : Nome della Public IP da utilizzare
+
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Network Interface (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface)
+-   [Configurazione degli indirizzi IP (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/virtual-network-network-interface-addresses)

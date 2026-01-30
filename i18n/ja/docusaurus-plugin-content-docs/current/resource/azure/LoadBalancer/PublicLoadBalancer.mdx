@@ -1,7 +1,7 @@
 ---
 title: PublicLoadBalancer
 sidebar_position: 1
-tags: [Azure, リソース, LoadBalancer, PublicLoadBalancer]
+tags: [Azure, LoadBalancer, PublicLoadBalancer, Network]
 ---
 
 <hr />
@@ -11,19 +11,13 @@ tags: [Azure, リソース, LoadBalancer, PublicLoadBalancer]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.webp"
     }
 />
 
 ## リソース概要
 
-LoadBalancer はバックエンドリソースまたはサーバーのグループからロード（入ってくるネットワークトラフィック）を効率的に分散することを意味します。
-Azure Load Balancer は OSI(Open Systems Interconnect) モデルの階層 4 で動作します。 クライアントの単一の連絡ポイントです。
-Load Balancer は Load Balancer のフロントエンドに到着するインバウンドの流れをバックエンドフルインスタンスに分散します。
-これらの流れは、構成された負荷分散ルールと状態プローブに従って行われます。
-バックエンドフルインスタンスは、Azure Virtual Machines または Virtual Machine Scale Set のインスタンスである場合があります。
-Public Load Balancer を使用して、仮想ネットワーク内の VM（仮想マシン）に対してアウトバウンド接続を提供します。
-このような接続は、個人 IP アドレスを共用 IP アドレスに変換して実行されます。 Public Load Balancer は、インターネットトラフィックの負荷を VM に分散するために使用されます。
+Public Load Balancer は、トラフィックの過負荷を防ぐために、外部（インターネット）から流入するトラフィックをフロントエンドで受信し、バックエンドプールのインスタンスへ分散する負荷分散装置です。
 
 ## 関連リソース
 
@@ -33,55 +27,66 @@ Public Load Balancer を使用して、仮想ネットワーク内の VM（仮�
 
 ### 接続リソース
 
--   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/ja/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Public IP**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+
+---
 
 ## リソース設定値
 
--   `sku` : Azure Load Balancer の規模及び機能選択のための価格設定階層(SKU) - `standard`, `Basic`
+#### 基本設定
 
--   `public_lb_frontend_ip_config`
+-   `sku` : Azure Load Balancer の規模および機能を選択するための価格レベル - `Standard`, `Basic`
+-   `virtual_network_name` : Load Balancer がトラフィックを転送する Virtual Network の名前
 
--   `virtual_network_name` : Load Balancer がトラフィックを配信する Virtual Network 名
+#### フロントエンド IP 構成 (`public_lb_frontend_ip_config`)
+
+-   `public_lb_frontend_ip_config.linked_public_ip_name` : 使用するパブリック IP の名前
+
+#### バックエンドプール (`backend_pool`)
 
 -   `backend_pool` : Load Balancer の Backend Pool 名
+-   `backend_pool.linked_virtual_machine_names` : Load Balancer がトラフィックを転送する Virtual Machine の名前（選択した Virtual Network に属する）
 
-    -   `linked_virtual_machine_names` : Load Balancer がトラフィックを配信する Virtual Machine の名前
+#### ヘルスプローブ (`health_probe`)
 
--   `health_probe`
+-   `health_probe.protocol` : ヘルスプローブが使用するバックエンドエンドポイントのプロトコルタイプ - `Http`, `Https`, `Tcp`
+-   `health_probe.port` : ヘルスプローブがバックエンドエンドポイントを確認するポート - `0` ~ `65535`
+-   `health_probe.request_path` : Http(s) プローブ使用時に GET に使用するパス
+-   `health_probe.interval_in_seconds` : ヘルスプローブがバックエンドプールインスタンスの応答を確認する間隔（秒） - `5` ~ `2147483646`
 
-    -   `protocol` : ヘルスプローブが使用するバックエンドエンドポイントプロトコルのタイプ - `Http`, `Https`, `Tcp`
-    -   `port` : ヘルスプローブがバックエンドエンドポイントをチェックするポート - `0` ~ `65535`
-    -   `request_path` : Http(s)プローブを使用する時に GET に使用するパス
-    -   `interval_in_seconds` : 状態プローブがバックエンドフルインスタンスの応答を確認する間隔(秒) - `5` ~ `2147483646`
+#### 負荷分散ルール (`rule`)
 
--   `rule`
+-   `rule.protocol` : 外部エンドポイント向けの転送プロトコル - `Tcp`, `Udp`, `All`
+-   `rule.frontend_port` : 外部エンドポイントのポート - `0` ~ `65534`
+-   `rule.backend_port` : 内部接続に使用するポート - `0` ~ `65535`
+-   `rule.disable_outbound_snat` : アウトバウンド接続のためにルールの SNAT を有効化 - `true`, `false`
+-   `rule.frontend_ip_config_name` : Public Load Balancer の Frontend IP 構成名
+-   `rule.backend_pool_name` : Load Balancer がトラフィックを転送する Backend Address Pool の名前
 
-    -   `protocol` : 外部 Endpoint のための転送 Protocol - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : 外部 Endpoint のポート、0~65534 の範囲 - `0` ~ `65534`
-    -   `backend_port` : 内部コネクションに使用するポート、0~65535 の範囲위 - `0` ~ `65535`
-    -   `disable_outbound_snat` : アウトバウンド接続のためルールに対する SNAT 活性化 - `true`, `false`
-    -   `frontend_ip_configuration_name` : Public Load Balancer の Frontend IP Configuration Name
-    -   `backend_pool_name` : Load Balancer がトラフィックを伝達する Backend Address Pool の名前
+#### NAT ルール (`nat_rule`)
 
--   `nat_rule`
+-   `nat_rule.protocol` : 外部エンドポイント向けの転送プロトコル - `Tcp`, `Udp`, `All`
+-   `nat_rule.frontend_port` : 外部エンドポイントのポート - `0` ~ `65534`
+-   `nat_rule.backend_port` : 内部接続に使用するポート - `0` ~ `65535`
+-   `nat_rule.frontend_ip_config_name` : Public Load Balancer の Frontend IP 構成名
 
-    -   `protocol` : 外部 Endpoint のための転送 Protocol - `Tcp`, `Udp`, `All`
-    -   `frontend_port` : 外部 Endpoint のポート、0 ~ 65534 の範囲 - `0` ~ `65534`
-    -   `backend_port` : 内部コネクションに使用するポート、0~65535 の範囲 - `0` ~ `65535`
-    -   `frontend_ip_configuration_name` : Public Load Balancer の Frontend IP Configuration Name
+#### アウトバウンド ルール (`outbound_rule`)
 
--   `outbound_rule`
+-   `outbound_rule.protocol` : 外部エンドポイント向けの転送プロトコル - `Tcp`, `Udp`, `All`
+-   `outbound_rule.frontend_ip_config_name` : Public Load Balancer の Frontend IP 構成名
+-   `outbound_rule.backend_pool_name` : Load Balancer がトラフィックを転送する Backend Address Pool の名前
 
-    -   `protocol` : 外部 Endpoint のための転送 Protocol - `Tcp`, `Udp`, `All`
-    -   `frontend_ip_config_name` : Public Load Balancer の Frontend IP Configuration Name
-    -   `backend_pool_name` :Load Balancer がトラフィックを伝達する Backend Address Pool の名前
+#### タグ
 
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure PublicLoadBalancer(Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
--   [Azure PublicLoadBalancer 価格](https://azure.microsoft.com/en-us/pricing/details/load-balancer/)
--   [Azure PublicLoadBalancer(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb)
+-   [Azure Load Balancer 概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
+-   [Load Balancer のヘルスプローブ（Microsoft）](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-custom-probe-overview)
+-   [Load Balancer ルールおよび NAT ルール（Microsoft）](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview#load-balancing-rules)
+-   [Load Balancer のアウトバウンド ルール（Microsoft）](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-rules-overview)

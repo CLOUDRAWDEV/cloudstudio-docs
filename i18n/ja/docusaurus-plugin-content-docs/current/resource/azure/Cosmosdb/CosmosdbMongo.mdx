@@ -1,7 +1,7 @@
 ---
 title: CosmosdbMongo
 sidebar_position: 2
-tags: [Azure, リソース, Cosmosdb, CosmosdbMongo]
+tags: [Azure, CosmosdbMongo, CosmosDB, Mongo, Database]
 ---
 
 <hr />
@@ -11,69 +11,75 @@ tags: [Azure, リソース, Cosmosdb, CosmosdbMongo]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_mongo.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_mongo.webp"
     }
 />
 
 ## リソース概要
 
-Cosmos DB は NoSQL 文書、キー値、グラフ及び列系列データモデルをサポートする Microsoft Azure が提供する多重モデル分散データベースです。
-複数の地域にわたってデータを複製し、短い待ち時間と高可用性を提供する世界的に分散されたデータベースです。
+Azure Cosmos DB Mongo API は、Mongo API がサポートする JSON 形式のデータを保存およびクエリできる、完全マネージド型の NoSQL データベースサービスです。  
+グローバル分散、自動フェールオーバー、バックアップ、一貫性ポリシーなどを提供し、高い拡張性と可用性を実現します。
+
+## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+
+---
 
 ## リソース設定値
 
--   `capabilities_list` : 使用する Cosmos DB の API リスト - `EnableServerless`, `EnableAggregationPipeline`
+#### 基本設定
 
--   `enable_multiple_write_locations` : 世界中のデータベースとコンテナに対してプロビジョニングされたスループットを活用するためのマルチゾーン書き込みを活性化 - `true`, `false`
+-   `capabilities_list` : 使用する Cosmos DB の API 一覧
+-   `enable_multiple_write_locations` : 複数リージョン書き込みを有効にするかどうか - `true`, `false`
+-   `public_network_access_enabled` : パブリック IP アドレスまたはサービス エンドポイント経由でのアカウントへの公開アクセスを有効にするかどうか - `true`, `false`
+-   `enable_automatic_failover` : 自動フェールオーバーを有効にするかどうか - `true`, `false`
+-   `virtual_network_filter_enabled` : 特定の仮想ネットワーク Subnet のみがアカウントにアクセスできるようフィルターを有効にするかどうか - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Azure サービスに対する ACL バイパスを有効にするかどうか - `true`, `false`
 
--   `public_network_access_enabled` : パブリック IP アドレスまたはサービス エンドポイントを介して公開的にアカウントへの接続を活性化 - `true`, `false`
+#### リージョン設定（`geo_location`）
 
--   `enable_automatic_failover` : 自動フェイルオーバーを活性化 - `true`, `false`
+-   `geo_location.failover_priority` : リージョンのフェールオーバー優先順位
+-   `geo_location.zone_redundant` : 障害対策としてゾーン冗長を有効にするかどうか - `true`, `false`
 
--   `virtual_network_filter_enabled` : 仮想ネットワーク上の特定 Subnet のみがアカウントにアクセスできるようにフィルタを活性化 - `true`, `false`
+#### 一貫性ポリシー（`consistency_policy`）
 
--   `network_acl_bypass_for_azure_services` : Azure サービスの ACL bypass を活性化 - `true`, `false`
+-   `consistency_policy.consistency_level` : データベースの可用性とパフォーマンスを制御する一貫性レベル
+-   `consistency_policy.max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合に許容される最大遅延時間（秒）
+-   `consistency_policy.max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合に許容される最大 Stale リクエスト数
 
--   `geo_location`
+#### バックアップ設定（`backup`）
 
-    -   `failover_priority` : リージョンのフェイルオーバー処理優先順位 - `0`~ `0`
-    -   `zone_redundant` : エラーに備えて自動的に zone 複製を許容 - `true`~ `false`
+-   `backup.type` : バックアップポリシーの種類 - `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : バックアップ実行間隔（分） - `60` ~ `1440`
+-   `backup.retention_in_hours` : バックアップ保持期間（時間） - `8` ~ `720`
 
--   `consistency_policy`
+#### Mongo データベース設定（`mongo_database`）
 
-    -   `consistency_level` : データベースの可用性と性能設定のための Cassandra DB の一貫性レベル - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合、許容される Staleness 時間(秒) - `5`~ `86400`
-    -   `max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合、許容される最大 Stale Request 数 - `10`~`2147483647`
+-   `mongo_database.throughput` : Mongo データベースのスループット - `400` ~ `1000000`
+-   `mongo_database.enable_autoscale` : スループットの自動スケーリングを有効にするかどうか - `true`, `false`
 
--   `backup`
+#### Mongo コレクション設定（`mongo_collection`）
 
-    -   `type` : バックアップ ポリシー タイプ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : バックアップを実行する毎分の頻度、60 ~ 1440 の範囲 - `60`~ `1440`
-    -   `retention_in_hours` : バックアップを保存する期間(時間)、8~720 の範囲 - '8'~'720'
+-   `mongo_collection.ttl_seconds` : MongoDB コレクションの既定の Time To Live（秒）
+-   `mongo_collection.shard_key` : MongoDB コレクションのシャーディングに使用するキー名
+-   `mongo_collection.throughput` : MongoDB コレクションのスループット - `400` ~ `1000000`
+-   `mongo_collection.enable_autoscale` : 自動スケーリングを有効にするかどうか - `true`, `false`
+-   `mongo_collection.included_mongo_database_name` : MongoDB コレクションが作成される Mongo データベース名
 
--   `mongo_database`
+#### タグ
 
-    -   `throughput` : Mongo データベースの処理量 - `400`~ `1000000`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-
--   `mongo_collection`
-
-    -   `ttl_seconds` : MongoDB Collection のデフォルト Time To Live(秒)
-    -   `shard_key` : MongoDB Collection sharding のためのキー名
-    -   `throughput` : MongoDB Collection のスループット - `400`~ `100000`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-    -   `included_mongo_database_name` : MongoDB Collection が生成される Mongo データベース名
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb 가격](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Cosmos DB API for MongoDB（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/mongodb/introduction)

@@ -1,6 +1,6 @@
 ---
 title: PersistentVolumeClaim
-sidebar_position: 0
+sidebar_position: 3
 tags: [Kubernetes, リソース, Core, PersistentVolumeClaim]
 ---
 
@@ -11,19 +11,18 @@ tags: [Kubernetes, リソース, Core, PersistentVolumeClaim]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume_claim.webp"
     }
 />
 
 ## リソース概要
 
-PV をリクエストするクバネティスリソースです。
+PersistentVolume を要求する Kubernetes リソース。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
@@ -31,22 +30,26 @@ PV をリクエストするクバネティスリソースです。
 -   [**PersistentVolume**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolume)
 -   [**Pod**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Pod)
 -   [**Deployment**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/DaemonSet)
+-   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**StatefulSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/StatefulSet)
 -   [**Job**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/Job)
 -   [**CronJob**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/CronJob)
 
+---
+
 ## リソース設定値
 
--   `service_name` : PersistentVolumeClaim リソース名
--   `namespace` : PersistentVolume リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `spec` : PVC の具体的なスペックを定義
-    -   `spec.storage_class_name` : 使用する storageclass の名前指定
-    -   `spec.volume_name` : PVC に接続する PV 名
-    -   `spec.request_storage` : PV に要求するストレージ容量
-    -   `spec.access_modes` : PV にあるべきアクセスモード - (PV のアクセスモードを含むか、一致する必要があります。) - `ReadOnlyMany`,`ReadWriteMany`,`ReadWriteOnce`
+#### 基本設定
+
+-   `namespace` : PVC を作成する Namespace
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : PVC 識別・分類用ラベル
+-   `spec.storage_class_name` : 使用する StorageClass 名
+-   `spec.volume_name` : バインドする PersistentVolume 名
+-   `spec.volume_mode` : 提供方式 - `Filesystem / Block`
+-   `spec.request_storage` : 要求ストレージ容量
+-   `spec.access_modes` : アクセスモード
+-   `wait_until_bound` : PV バインド完了まで待機 여부
 
 ---
 

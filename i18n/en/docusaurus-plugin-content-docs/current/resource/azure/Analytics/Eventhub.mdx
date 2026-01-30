@@ -1,0 +1,87 @@
+---
+title: Eventhub
+sidebar_position: 1
+tags: [Azure, Eventhub]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-eventhub.webp"
+    }
+/>
+
+## Resource Overview
+
+Event Hubs is a distributed streaming platform that enables the collection of large-scale real-time events (such as logs, IoT telemetry, and application events) and delivers them to streaming processing pipelines.  
+Throughput and network access policies are configured at the namespace level, and Event Hubs (units similar to topics) are created under the namespace to perform scalable event ingestion and retention based on partitions.
+
+## Associated Resources
+
+### Parent Resources
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Resource Configuration
+
+### Namespace Settings
+
+-   `sku` : Tier to use - `Basic`, `Standard`, `Premium`
+
+-   `capacity` : Standard SKU namespace capacity / throughput units - `1` ~ `16`
+
+-   `enable_auto_inflate` : Whether to enable automatic scaling for the Event Hub namespace - `true`, `false`
+
+-   `maximum_throughput_units` : Maximum number of throughput units when Auto Inflate is enabled - `1` ~ `40`
+
+-   `minimum_tls_version` : Minimum supported TLS version for the Event Hub namespace - `1.0`, `1.1`, `1.2`
+
+-   `enable_local_authentication` : Whether to use SAS authentication for the Event Hub namespace - `true`, `false`
+
+-   `enable_public_network_access` : Whether to allow public network access for the Event Hub namespace - `true`, `false`
+
+### Network Access Control (`network_rulesets`)
+
+-   `network_rulesets.default_action` : Default network access action - `Allow`, `Deny`
+
+-   `network_rulesets.virtual_network_rule.target_subnet_name` : Name of the subnet to connect
+
+-   `network_rulesets.virtual_network_rule.ignore_missing_virtual_network_service_endpoint` : Whether to ignore missing virtual network service endpoints - `true`, `false`
+
+### Event Hub Settings (`eventhub`)
+
+-   `eventhub.default.partition_count` : Current number of shards (partitions) for the Event Hub - `1` ~ `100`
+
+-   `eventhub.default.message_retention` : Number of days to retain events for the Event Hub - `1` ~ `90`
+
+-   `eventhub.default.enabled_capture` : Whether to enable Capture - `true`, `false`
+
+-   `eventhub.default.encoding` : Encoding used for Capture descriptions - `Avro`, `AvroDeflate`
+
+-   `eventhub.default.time_window` : Time interval (minutes) during which capture is performed - `1` ~ `15`
+
+-   `eventhub.default.size_window` : Amount of data accumulated in Event Hub before a capture operation occurs - `11` ~ `524`
+
+-   `eventhub.default.skip_empty_archives` : Whether to skip exporting empty files when there are no events in the capture time window - `true`, `false`
+
+-   `eventhub.default.capture_file_name_format` : Blob naming convention for retention
+
+-   `eventhub.default.linked_storage_account` : Name of the container within the Blob storage account where messages should be retained
+
+-   `eventhub.default.target_storage_container_name` : Blob storage account where messages should be retained
+
+---
+
+## References
+
+-   [Azure Event Hubs(Microsoft)](https://learn.microsoft.com/ko-kr/azure/event-hubs/event-hubs-about)
+-   [Azure Event Hubs Pricing](https://azure.microsoft.com/ko-kr/pricing/details/event-hubs/)
+-   [Azure Event Hub Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace)
+-   [Azure Event Hub(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub)
+-   [Azure Event Hub Namespace Network Rule Set(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/eventhub_namespace_network_rule_set)

@@ -1,7 +1,7 @@
 ---
 title: RouteTable
-sidebar_position: 11
-tags: [Azure, リソース, Network, RouteTable]
+sidebar_position: 9
+tags: [Azure, Network, RouteTable]
 ---
 
 <hr />
@@ -11,49 +11,45 @@ tags: [Azure, リソース, Network, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-route_table.webp"
     }
 />
 
 ## リソース概要
 
-Azure Route Table は VNet(仮想ネットワーク)内のサブネット間および VNet 間のネットワークトラフィックをルーティングするのに役立つ Microsoft Azure が提供するサービスです。
-パス テーブルには、サブネットまたは VNet でターゲットへのネットワークトラフィックパスを定義するパスというルールセットが含まれています。
-Route Table は、仮想ネットワーク上のサブネット間のトラフィックの流れを制御し、仮想マシンへのカスタムルーティングパスを提供するのに役立ちます。
-Route Table でパスを定義すると、特定のネットワークインターフェイス、ゲートウェイ、またはサービス エンドポイントを介して特定のターゲットにトラフィックを送信できます。
-Azure で Route Table をサブネットと接続することができ、そのサブネットのすべてのリソースは、接続された Route Table に定義されたパスを自動的に使用します。
-Route Table を仮想ネットワーク ゲートウェイに接続して、仮想ネットワーク間のトラフィック ルーティングを制御することもできます。
+Route Table は、Virtual Network 内の Subnet に適用され、**ネットワーク トラフィックの経路をユーザー定義で制御**できる Azure のネットワークリソースです。  
+既定のシステム ルーティングに加えて、仮想アプライアンス、インターネット、ゲートウェイなどへのトラフィック フローを明示的に指定できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
--   [**Container Registry**](https://docs.cstudio.app/ja/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/ja/docs/resource/azure/KeyVault)
--   [**Application Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/ApplicationGateway)
--   [**Redis Cache**](https://docs.cstudio.app/ja/docs/resource/azure/RedisCache/)
--   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+---
 
 ## リソース設定値
 
--   `disable_bgp_route_propagation` : Subnet のネットワークインターフェイスによるオン·プレミス経路の伝播を防止するため、ゲートウェイ経路の伝播を無効にする - `true`, `false`
--   `included_subnet_name` : Route Table と接続する Subnet 名
--   `route`
-    -   `route_address_prefix` : 経路を表す IP プレフィックス
-    -   `next_hop_type` : パスの一致するパケットを処理するために次のホップ形式を指定 - `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `enable_bgp_route_propagation` : ゲートウェイ ルートの伝播を有効にするかどうか - `true`, `false`
+-   `linked_subnet_names` : Route Table を関連付ける Subnet 名のリスト
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
+
+#### ルート設定 (`route`)
+
+-   `route.route_address_prefix` : ルートを表す IP アドレス プレフィックス（CIDR）
+-   `route.next_hop_type` : 次のホップの種類
+    -   `VirtualNetworkGateway`
+    -   `VnetLocal`
+    -   `Internet`
+    -   `VirtualAppliance`
+    -   `None`
 
 ---
 
 ## 参考資料
 
--   [Azure RouteTable(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/manage-route-table)
--   [Azure RouteTable(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
+-   [Azure Route Table の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-networks-udr-overview)

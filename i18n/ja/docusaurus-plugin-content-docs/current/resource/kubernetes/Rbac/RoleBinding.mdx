@@ -11,42 +11,47 @@ tags: [Kubernetes, リソース, RBAC, RoleBinding]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.webp"
     }
 />
 
 ## リソース概要
 
-指定された名前空間にのみ適用される役割を生成するクバネティスリソース
+特定のネームスペース内で Role または ClusterRole を主体に関連付ける Kubernetes リソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
--   [**Role**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/Role)
+-   [**ServiceAccount**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**Role**](https://docs.cstudio.app/ja/docs/resource/kubernetes/RBAC/Role)
+-   [**ClusterRole**](https://docs.cstudio.app/ja/docs/resource/kubernetes/RBAC/ClusterRole)
+
+---
 
 ## リソース設定値
 
--   `service_name` : RoleBinding リソース名
--   `namespace` : RoleBinding リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `role_name` : 主体をバインディングする Role 名を指定
--   `subject` : Role を付与する主体を指定
-    -   `name` : バインディングする主体の名前を入力
-    -   `namespace` : バインディングする主体のネームスペースを入力
-    -   `api_group` : 承認決定を下す API Group - `rbac.authorization.k8s.io`,`User`,`Group`
-    -   `kind` : バインディングする主体のタイプを選択 - `ServiceAccount`,`User`,`Group`
+#### 基本設定
+
+-   `namespace` : RoleBinding が適用されるネームスペース
+-   `annotations` : RoleBinding リソースのメタデータ key-value
+-   `labels` : RoleBinding オブジェクト識別用ラベル
+-   `role_type` : バインド対象の Role 種別 - `Role`, `ClusterRole`
+-   `role_name` : バインドする Role / ClusterRole 名
+
+#### 主体設定 (`subject`)
+
+-   `subject.kind` : 主体の種類 - `ServiceAccount`, `User`, `Group`
+-   `subject.namespace` : 主体が属するネームスペース
+-   `subject.api_group` : 認可判定を行う API Group - `rbac.authorization.k8s.io`
 
 ---
 
 ## 参考資料
 
--   [RoleBinding(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [RoleBinding(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
 -   [RoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role_binding)
-    `

@@ -1,0 +1,60 @@
+---
+title: LinuxAppService
+sidebar_position: 1
+tags: [Azure, AppService, LinuxAppService]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-linux_app_service.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Linux App Service è un servizio basato su HTTP che consente di ospitare applicazioni web, API REST e backend mobili in un ambiente basato su Linux.  
+Funziona in integrazione con un App Service Plan e fornisce un ambiente operativo per le applicazioni stabile e scalabile tramite la configurazione dell’autenticazione, la gestione dei log, l’integrazione di rete e l’impostazione dei protocolli di sicurezza.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/azure/Network/Subnet)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `linked_service_plan_name` : Nome del Service Plan da applicare all’App Service
+
+-   `delegated_subnet_name` : Nome della Subnet per la delega della rete virtuale
+
+-   `auth_settings_enabled` : Indica se abilitare l’autenticazione in modo che tutte le comunicazioni dell’app siano autenticate – `true`, `false`
+
+-   `detailed_error_messages_enabled` : Indica se includere messaggi di errore dettagliati nella pagina di errore quando si verificano errori HTTP – `true`, `false`
+
+-   `failed_request_tracing_enabled` : Indica se abilitare la registrazione di informazioni di tracciamento dettagliate per le richieste non riuscite – `true`, `false`
+
+-   `retention_in_days` : Numero di giorni di conservazione dei log relativi alle richieste HTTP – `0` ~ `99999`
+
+-   `retention_in_mb` : Capacità di archiviazione (MB) per la conservazione dei log relativi alle richieste HTTP – `25` ~ `100`
+
+-   `ftps_state` : Indica se applicare TLS/SSL quando si utilizza FTP – `Disabled`, `FtpsOnly`, `AllAllowed`
+
+-   `http2_enabled` : Indica se utilizzare il protocollo HTTP più recente (HTTP/2) – `true`, `false`
+
+-   `tag` : Tag utilizzati per classificare la risorsa – fino a 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Azure App Service (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/)
+-   [Azure Linux Web App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/quickstart-nodejs)
+-   [Azure Linux Web App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app)

@@ -1,0 +1,50 @@
+---
+title: NginxIngress
+sidebar_position: 6
+tags: [Kubernetes, Recurso, Helm, NginxIngress]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-nginx_ingress.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Helm Chart para instalar el controlador Nginx Ingress.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**Ingress**](https://docs.cstudio.app/docs/resource/kubernetes/Networking/Ingress)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el Helm Chart de Nginx Ingress
+-   `version` : Versión del Helm Chart de Nginx Ingress a utilizar
+-   `replica_count` : Número de réplicas del Deployment del Ingress Controller
+-   `external_traffic_policy` : Política de manejo del tráfico externo - `Cluster`, `Local`
+-   `ingress_class_name` : Nombre de la Ingress Class gestionada por este Ingress Controller
+-   `set` : Configuración key-value para modificar dinámicamente los valores del Helm Chart base del Nginx Ingress Controller
+
+---
+
+## Referencias
+
+-   [Helm install(NginxIngress)](https://docs.nginx.com/nginx-ingress-controller/installation/installing-nic/installation-with-helm/)
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

@@ -1,0 +1,72 @@
+---
+title: Subnet
+sidebar_position: 1
+tags: [Azure, Network, Subnet]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-subnet.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Subnet es una red que se crea dentro de una Virtual Network para implementar recursos de Azure en la Virtual Network.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Virtual Network**](https://docs.cstudio.app/es/docs/resource/azure/Network/VirtualNetwork)
+
+### Recursos secundarios
+
+-   [**Linux App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/WindowsAppService)
+-   [**Linux Function App**](https://docs.cstudio.app/es/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**Windows Function App**](https://docs.cstudio.app/es/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/es/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Mysql Flexible**](https://docs.cstudio.app/es/docs/resource/azure/Database/MysqlFlexible)
+-   [**Postgresql Flexible**](https://docs.cstudio.app/es/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/es/docs/resource/azure/Container/KubernetesCluster)
+-   [**Application Gateway**](https://docs.cstudio.app/es/docs/resource/azure/Network/ApplicationGateway)
+-   [**Bastion Host**](https://docs.cstudio.app/es/docs/resource/azure/Network/BastionHost)
+-   [**Virtual Network Gateway**](https://docs.cstudio.app/es/docs/resource/azure/Network/VirtualNetworkGateway)
+-   [**Network Interface**](https://docs.cstudio.app/es/docs/resource/azure/Network/NetworkInterface)
+-   [**Private EndPoint**](https://docs.cstudio.app/es/docs/resource/azure/Network/PrivateEndpoint)
+-   [**Public Ip**](https://docs.cstudio.app/es/docs/resource/azure/Network/PublicIp)
+-   [**Firewall**](https://docs.cstudio.app/es/docs/resource/azure/Network/Firewall)
+
+### Recursos conectados
+
+-   [**Nat Gateway**](https://docs.cstudio.app/es/docs/resource/azure/Network/NatGateway)
+-   [**Network Security Group**](https://docs.cstudio.app/es/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**Private Dns Resolver**](https://docs.cstudio.app/es/docs/resource/azure/PrivateDnsResolver/PrivateDnsResolver)
+
+---
+
+## Valores de configuración del recurso
+
+-   `included_vnet_name` : Nombre de la Virtual Network que contiene el Subnet
+-   `address_prefixes` : Rango de direcciones IP utilizado por el Subnet, un rango de direcciones único especificado en formato CIDR dentro del espacio de direcciones de la Virtual Network
+-   `private_link_endpoint_enabled` : Indica si se conectará un Private Endpoint al Subnet - `true`, `false`
+
+#### Configuración de delegación (`delegation`)
+
+-   `delegation.service_name` : Nombre del servicio que se va a delegar
+-   `delegation.actions` : Lista de acciones que se van a delegar
+
+---
+
+## Referencias
+
+-   [Introducción a las subredes de Azure Virtual Network (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-manage-subnet)
+-   [Introducción a la delegación de subredes (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/subnet-delegation-overview)
+-   [Introducción a Private Endpoint (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)

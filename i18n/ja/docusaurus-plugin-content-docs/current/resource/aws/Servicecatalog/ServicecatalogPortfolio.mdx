@@ -1,5 +1,5 @@
 ---
-title: Servicecatalog Portfolio
+title: ServicecatalogPortfolio
 sidebar_position: 0
 tags: [AWS, リソース, Servicecatalog, ServicecatalogPortfolio]
 ---
@@ -11,16 +11,16 @@ tags: [AWS, リソース, Servicecatalog, ServicecatalogPortfolio]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/servicecatalog-servicecatalog_portfolio.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/servicecatalog-servicecatalog_portfolio.webp"
     }
 />
 
 ## リソース概要
 
-AWS Service Catalog を使用すると、IT 管理者が承認された製品で構成されたポートフォリオを作成·管理してエンドユーザーに配布することができ、
-エンド ユーザーは、パーソナライズされたポータルから必要な製品にアクセスできます。
-一般的な製品には、AWS リソースを使用してデプロイされるサーバー、データベース、ウェブサイト、またはアプリケーションが含まれます。(例:Amazon EC2 インスタンスまたは Amazon RDS データベース)
-どのユーザーが特定の製品にアクセスできるかを制御し、組織のビジネス標準のコンプライアンスを適用し、製品のライフサイクルを管理し、ユーザーが自信を持って製品を検索して開始できるようにすることができます。
+AWS Service Catalog を使用すると、IT 管理者は承認済み製品で構成されたポートフォリオを作成・管理し、エンドユーザーに配布できます。  
+エンドユーザーはパーソナライズされたポータルから必要な製品にアクセスできます。  
+一般的な製品には、Amazon EC2 インスタンスや Amazon RDS データベースなど、AWS リソースを使用してデプロイされるサーバー、データベース、Web サイト、アプリケーションが含まれます。  
+特定の製品にアクセスできるユーザーを制御することで、組織のビジネス標準およびコンプライアンスを適用し、製品ライフサイクルを管理できます。
 
 ## 関連リソース
 
@@ -28,15 +28,23 @@ AWS Service Catalog を使用すると、IT 管理者が承認された製品で
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
+---
+
 ## リソース設定値
 
--   `description` : ポートフォリオについての説明
+#### 基本設定
+
+-   `description` : ポートフォリオの説明
 -   `provider_name` : ポートフォリオを所有する個人または組織の名前
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
 -   [What Is AWS Service Catalog?(AWS)](https://docs.aws.amazon.com/servicecatalog/latest/dg/what-is-service-catalog.html)
--   [AWS Service Catalog 料金(AWS)](https://aws.amazon.com/ko/servicecatalog/pricing/?nc2=type_a)
+-   [AWS Service Catalog 요금(AWS)](https://aws.amazon.com/ko/servicecatalog/pricing/?nc2=type_a)
 -   [aws-aws_servicecatalog(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/servicecatalog_tag_option)

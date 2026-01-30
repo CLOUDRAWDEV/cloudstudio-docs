@@ -1,7 +1,7 @@
 ---
 title: ApplicationGateway
-sidebar_position: 0
-tags: [Azure, Resource, Network, ApplicationGateway]
+sidebar_position: 13
+tags: [Azure, Network, ApplicationGateway, LoadBalancer, WAF]
 ---
 
 <hr />
@@ -11,84 +11,97 @@ tags: [Azure, Resource, Network, ApplicationGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-application_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-application_gateway.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Application Gateway is a web traffic load balancer that manages traffic for web applications. 
-Unlike traditional load balancers, which operate at the transport layer (OSI Layer 4 - TCP and UDP) and route traffic based on source IP address and port to destination IP address and port, Application Gateway can make routing decisions based on additional attributes of HTTP requests, such as URI paths or host headers. 
-For example, it can route traffic based on the incoming URL. 
-If the incoming URL contains /images, it can route the traffic to a specific set of servers (also known as a pool) configured for images. 
-Conversely, if the URL contains /video, the traffic is routed to a different pool optimized for video.
+Application Gateway is an Azure-managed load balancer that performs **Layer 7 (application layer) load balancing and routing** in front of web applications based on HTTP/HTTPS traffic.  
+It provides enhanced security and scalability for web services through path-based routing, SSL termination, and integration with WAF.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/en/docs/resource/azure/Network/Subnet)
 
 ### Connected Resources
 
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**LinuxAppService**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
+-   [**WindowsAppService**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**WindowsVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**WebApplicationFirewallPolicy**](https://docs.cstudio.app/en/docs/resource/azure/Network/WebApplicationFirewallPolicy)
+-   [**PublicIp**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
 
-## Resource Setting Values
-
--   `included_subnet_name` : The name of the Vnet in which to deploy Application Gateway
-
--   `linked_waf_policy_name` : The name of the Web Application Firewall Policy to connected
-
--   `sku_tier` : The tier of the SKU to use for the applicaion gateway
-
--   `sku_name` : The name of SKU to use for the application gateway
-
--   `sku_capacity` : The name of SKU to use for the application gateway - `1` ~ `32`
-
--   `gateway_ip_config_name` : The Gateway IP configuration name to use
-
--   `frontend_ip_address_type` : The frontend method to use between Private and Public - `Both`, `Private`, `Public`
-
--   `public_frontend_ip_configuration`
-
-    -   `ip_config_name` : The name of Frontend IP configuration
-    -   `linked_public_ip_name` : The Public Ip name to connect
-
--   `private_frontend_ip_configuration`
-
-    -   `ip_config_name` : The name of Private Ip Config
-    -   `private_ip_address_allocation` : The allocation method for the private IP address - `Static`, `Dynamic`
-    -   `private_ip_address` : The private IP address
-
--   `backend_pool_name` : A list of names for the Backend Address Pools to be connected to the Application Gateway
-
--   `http_listener`
-    -   `frontend_ip_config` : The type of Frontend IP configuration which should be used - `Public`, `Private`
-    -   `frontend_port_name` : The name of Frontend port which should be used
-    -   `frontend_port` : The number of the Frontend port - `1` ~ `65502`
-    -   `protocol` : The protocol used between client and Application gateway - `Http`, `Https`
-
--   `backend_http_settings`
-    -   `protocol` : The protocol which should be used - `Http`, `Https`
-    -   `port` : The port where the Backend servers listen to traffic from the Application gateway - `1` ~ `65535`
-    -   `cookie_based_affinity` : Enable cookie-based affinity to direct subsequent traffic - `Enabled`, `Disabled`
-    -   `request_timeout` : The request timeout in seconds - `1` ~ `86400`
-
--   `request_routing_rule`
-
-    -   `rule_type` : The name of Request routing rule - `Basic`, `PathBasedRouting`
-    -   `http_listener_name` : The name of HTTP listener to which to attach Rule
-    -   `backend_pool_name` : The name of the Backend Address Pool associated with the rule.
-    -   `backend_http_settings_name` : The name of Backend HTTP settings to which to attach Path
-    -   `priority` : The priority of Routing Rule
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure ApplicationGateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/overview)
--   [Azure ApplicationGateway Price](https://azure.microsoft.com/en-us/pricing/details/application-gateway/)
--   [Azure ApplicationGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/application_gateway)
+-   `included_subnet_name` : Name of the Subnet where the Application Gateway is deployed
+-   `linked_waf_policy_name` : Name of the Web Application Firewall Policy to associate
+-   `sku_tier` : Pricing tier of the Application Gateway
+-   `sku_name` : SKU name of the Application Gateway
+-   `enabled_autoscaling` : Whether traffic-based autoscaling is enabled
+-   `instance_count` : Number of instances (V1 SKU only)
+-   `min_instance_count` : Minimum number of instances for autoscaling
+-   `max_instance_count` : Maximum number of instances for autoscaling
+-   `gateway_ip_config_name` : Name of the Gateway IP Configuration
+-   `frontend_ip_address_type` : Frontend IP type - `Public`, `Private`, `Both`
+-   `tag` : Tags used to categorize resources
+
+#### Public Frontend IP Configuration (`public_frontend_ip_configuration`)
+
+-   `public_frontend_ip_configuration.ip_config_name` : Name of the Public Frontend IP configuration
+-   `public_frontend_ip_configuration.linked_public_ip_name` : Name of the Public IP to associate
+
+#### Private Frontend IP Configuration (`private_frontend_ip_configuration`)
+
+-   `private_frontend_ip_configuration.ip_config_name` : Name of the Private Frontend IP configuration
+-   `private_frontend_ip_configuration.private_ip_address_allocation` : Private IP allocation method - `Static`, `Dynamic`
+-   `private_frontend_ip_configuration.private_ip_address` : Private IP address
+
+#### Backend Pool (`backend_pool`)
+
+-   `backend_pool.target.target_type` : Backend target type - `ip`, `fqdn`, `vm`, `app_service`
+-   `backend_pool.target.target` : Backend target IP or FQDN
+-   `backend_pool.target.linked_target_name` : Name of the backend resource to associate
+
+#### HTTP Listener (`http_listener`)
+
+-   `http_listener.frontend_ip_config` : Frontend IP configuration type to use
+-   `http_listener.frontend_port_name` : Name of the Frontend Port
+-   `http_listener.frontend_port` : Frontend Port number
+-   `http_listener.protocol` : Protocol between client and gateway - `Http`, `Https`
+-   `http_listener.cert_name` : SSL certificate name when using HTTPS
+-   `http_listener.pfx_cert_data` : PFX certificate data
+-   `http_listener.password` : PFX certificate password
+
+#### Backend HTTP Settings (`backend_http_settings`)
+
+-   `backend_http_settings.protocol` : Protocol used when forwarding traffic to the backend
+-   `backend_http_settings.port` : Backend listening port
+-   `backend_http_settings.cookie_based_affinity` : Whether cookie-based session affinity is enabled
+-   `backend_http_settings.request_timeout` : Request timeout (seconds)
+
+#### Request Routing Rule (`request_routing_rule`)
+
+-   `request_routing_rule.http_listener_name` : Name of the HTTP Listener to associate
+-   `request_routing_rule.backend_pool_name` : Name of the Backend Pool to associate
+-   `request_routing_rule.backend_http_settings_name` : Name of the Backend HTTP Settings to associate
+-   `request_routing_rule.priority` : Routing rule priority
+
+#### Path-Based Routing (`request_routing_rule.path_based_routing`)
+
+-   `path_based_routing.paths` : List of paths
+-   `path_based_routing.backend_pool_name` : Backend Pool name associated with the path
+-   `path_based_routing.backend_http_settings_name` : Backend HTTP Settings name associated with the path
+
+---
+
+## References
+
+-   [Azure Application Gateway Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/overview)
+-   [Application Gateway Components(Microsoft)](https://learn.microsoft.com/ko-kr/azure/application-gateway/application-gateway-components)
+-   [WAF Integration with Application Gateway(Microsoft)](https://learn.microsoft.com/ko-kr/azure/web-application-firewall/ag/ag-overview)

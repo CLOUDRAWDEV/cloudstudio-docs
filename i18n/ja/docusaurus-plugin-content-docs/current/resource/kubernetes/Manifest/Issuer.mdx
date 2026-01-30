@@ -11,90 +11,80 @@ tags: [Kubernetes, リソース, Manifest, Issuer]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-issuer.webp"
     }
 />
 
 ## リソース概要
 
-認証書の署名要請を受け入れ、認証機関(CA)から署名された認証書を生成できるクバネティスリソースです。
+証明書署名要求を受け取り、認証局（CA）から署名済み証明書を生成する Kubernetes リソースです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
+-   [**Ingress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/Ingress)
+
+---
+
 ## リソース設定値
 
--   `service_name` : Issuer リソース名
--   `acme` : ACME(自動認証書管理環境)認証機関サーバーに登録されたアカウントを定義
-    -   `acme.server` : ACME サーバーのエンドポイントアドレス
-    -   `acme.email` : Let's Encrypt が認証書に関連する問題や満了について連絡するメールアドレス
-    -   `acme.private_key_secret_ref` : ACME サーバーと通信に使用されるクライアントキーを保存する Kubernetes Secret の名前を指定
--   `solver_type` : 認証書発行のための Challenge の解決方法を定義 - `DNS`,`HTTP`
+#### 基本設定
 
-**Solver-Type : DNS**
+-   `namespace` : Issuer リソースをデプロイする Namespace
 
--   `dns_solvers` : solver を DNS に設定した場合に該当する設定を定義
--   `name` : dns_solver 設定の名前を指定
+#### ACME 設定 (`acme`)
 
-    -   `provider` : DNS-01 チャレンジタイプ選択 - `AzureDNS`,`Route53`,`ACMEDNS`
+-   `acme.server` : ACME サーバーのエンドポイント
+-   `acme.email` : 証明書の問題や期限切れ時の連絡先メールアドレス
+-   `acme.private_key_secret_ref` : クライアントキーを保存する Secret 名
 
-    **_AzureDNS_**
+#### DNS Solver 設定 (`dns_solvers`)
 
-    -   `azure_dns` : DNS-01 チャレンジタイプの中から AzureDNS を選択したときの設定値を指定
-        -   `name` : AzureDNS 設定の名前を指定
-            -   `client_id` : Azure Service Principal アプリケーションのクライアント ID
-            -   `client_secret_name` : Azure Service Principal アプリケーションの client secret が保存されたクバネティスシークレット名を指定
-            -   `client_secret_key` : Secret で使用する Key の名前を指定
-            -   `subscription_id` : Azure subscription の ID
-            -   `tenant_id` : Azure subscription の Tenant ID
-            -   `resource_group_name` : Azure DNS Zone リソースが属するリソースグループを指定
-            -   `hosted_zone_name` : Azure DNS Zone のホスティングされた Zone 名を指定
+-   `dns_solvers.provider` : DNS-01 チャレンジ方式 - `AzureDNS`, `Route53`, `ACMEDNS`
 
-    **_Route53_**
+##### ACMEDNS 設定
 
-    -   `route_53` : DNS-01 チャレンジタイプの中から Route53 を選択したときの設定値を指定
-        -   `name` : Route53 設定の名前を指定
-            -   `region` : Route 53 サービスが使用される AWS リージョンを指定
-            -   `access_key_id` : AWS access key ID
-            -   `access_key_secret_name` : AWS シークレットアクセスキーの値が含まれた Kubernetes Secret の名前指定(access_key_id を指定すれば省略可能)
-            -   `access_key_secret_key` : Secret で使用する鍵の名前を指定(access_key_id を指定していれば省略可能)
-            -   `secret_access_key_secret_name` : AWS シークレットアクセスキー値が含まれたシークレット名指定
-            -   `secret_access_key_secret_key` : AWS シークレットアクセスキーの値が含まれたシークレットのキー名を指定
-            -   `role` : Route53 DNS を管理できる AWS IAM role を指定
+-   `dns_solvers.acme_dns.host` : acme-dns サーバー URL
+-   `dns_solvers.acme_dns.account_secret_ref_name` : アカウント情報 Secret 名
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Secret 内のキー名
 
-    **_ACMEDNS_**
+##### AzureDNS 設定
 
-    -   `acme_dns` : DNS-01 チャレンジタイプの中から ACMEDNS を選択したときの設定値を指定
-        -   `name` : ACMEDNS 設定の名前を指定
-            -   `host` : acme-dns サーバーのエンドポイントアドレス
-            -   `account_secret_ref_name` : acme-dns サーバーに対するアカウント情報を保存する Kubernetes Secret の名前を指定
-            -   `account_secret_ref_key` : acme-dns サーバーに対するアカウント情報を保存する Kubernetes Secret で使用するキーの名前を指定
+-   `dns_solvers.azure_dns.client_id` : Azure クライアント ID
+-   `dns_solvers.azure_dns.client_secret_name` : client secret Secret 名
+-   `dns_solvers.azure_dns.client_secret_key` : Secret 内キー
+-   `dns_solvers.azure_dns.subscription_id` : サブスクリプション ID
+-   `dns_solvers.azure_dns.tenant_id` : テナント ID
+-   `dns_solvers.azure_dns.resource_group_name` : DNS Zone のリソースグループ
+-   `dns_solvers.azure_dns.hosted_zone_name` : DNS Zone 名
 
-**Solver-Type : HTTP-01**
+##### Route53 設定
 
--   `http_solvers` : HTTP チャレンジタイプを選択したときの設定値を指定
--   `name` : http_solver 設定の名前を指定
+-   `dns_solvers.route53.region` : AWS リージョン
+-   `dns_solvers.route53.access_key_id` : AWS アクセスキー ID
+-   `dns_solvers.route53.access_key_secret_name` : Secret 名
+-   `dns_solvers.route53.access_key_secret_key` : キー名
+-   `dns_solvers.route53.secret_access_key_secret_name` : Secret 名
+-   `dns_solvers.route53.secret_access_key_secret_key` : キー名
+-   `dns_solvers.route53.role` : IAM Role
 
-    -   `provider` : HTTP-01 チャレンジを解決するタイプを指定 - `Ingress`,`Gateway`
+#### HTTP Solver 設定 (`http_solvers`)
 
-    **_Ingress_**
+-   `http_solvers.provider` : チャレンジ方式 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : Ingress クラス名
 
-    -   `ingress` : HTTP-01 チャレンジ解決タイプで Ingress を選択した場合の設定
-    -   `name` : HTTP-01 チャレンジの Ingress 設定名を指定
-    -   `ingress_class_name` : どのクラスの Ingress を使用するかを指定
-        **_Gateway_**
-    -   `Gateway` : ゲートウェイを使用して HTTP-01 チャレンジを解決する際の設定
-        -   `name` : HTTP-01 チャレンジの Gateway 設定名を指定
-            -   `namespace` : 接続するゲートウェイリソースが属するネームを指定
+##### Gateway 設定
+
+-   `http_solvers.gateway_parent_refs.name` : Gateway 名
+-   `http_solvers.gateway_parent_refs.namespace` : Namespace
 
 ---
 
 ## 参考資料
 
--   [Issuer(CertManager)](https://cert-manager.io/docs/concepts/issuer/)
+-   [Issuer(cert-manager)](https://cert-manager.io/docs/concepts/issuer/)

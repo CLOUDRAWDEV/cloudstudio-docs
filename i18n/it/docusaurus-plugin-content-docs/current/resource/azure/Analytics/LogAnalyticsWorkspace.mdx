@@ -1,0 +1,48 @@
+---
+title: LogAnalyticsWorkspace
+sidebar_position: 0
+tags: [Azure, LogAnalytics, LogAnalyticsWorkspace]
+---
+
+<hr />
+<br />
+
+## Icona Risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-log_analytics_workspace.webp"
+    }
+/>
+
+---
+
+## Valori di configurazione della risorsa
+
+Log Analytics è uno strumento utilizzato nel Azure Portal per modificare ed eseguire query sui dati nel repository di log di Azure Monitor.
+Puoi scrivere una query semplice che restituisce un set di record e poi utilizzare le funzionalità di Log Analytics per ordinare, filtrare e analizzare i dati. Oppure, puoi scrivere query avanzate per eseguire analisi statistiche e visualizzare i risultati in grafici per identificare tendenze specifiche.
+Indipendentemente che tu stia trattando i risultati delle query in modo interattivo o utilizzando altre funzionalità di Azure Monitor come avvisi su query o log di fogli di calcolo, Log Analytics viene utilizzato per scrivere e testare le query.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+## Impostazioni della risorsa
+
+-   `retention_in_days` : Numero di giorni di conservazione dei dati nel Workspace - `30`~ `730`
+
+-   `internet_query_enabled` : Attivazione delle query tramite internet pubblico - `true`, `false`
+
+-   `internet_ingestion_enabled` : Attivazione della raccolta dei dati tramite internet pubblico - `true`, `false`
+
+-   `tag` : g per classificare le risorse in categorie - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Materiale di riferimento
+
+-   [Azure LogAnalyticsWorkspace(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/logs/log-analytics-overview)
+-   [Azure LogAnalyticsWorkspace 가격](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
+-   [Azure LogAnalyticsWorkspace(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace)

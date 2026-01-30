@@ -1,6 +1,6 @@
 ---
 title: IstioCrds
-sidebar_position: 0
+sidebar_position: 4
 tags: [Kubernetes, リソース, Helm, IstioCrds]
 ---
 
@@ -11,29 +11,29 @@ tags: [Kubernetes, リソース, Helm, IstioCrds]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_crds.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_crds.webp"
     }
 />
 
 ## リソース概要
 
-istio 用 Custom Resource Definitions Helm Chart です。
+Istio 用 Custom Resource Definitions (CRDs) の Helm チャートです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+---
 
 ## リソース設定値
 
--   `service_name` : Istio CRDs Helm Chart リリース名
--   `namespace` : Istio CRDs Helm Chart リソースがデプロイされるネームスペース - `istio-system`に指定
--   `version` : Istio CRDs Helm Chart のバージョンを指定
--   `set` : Istio CRDs デフォルトのチャートの値を動的に変更
+#### 基本設定
+
+-   `namespace` : Istio CRDs Helm Chart をデプロイする Namespace
+-   `version` : 使用する Istio CRDs Helm Chart のバージョン
+-   `set` : CRDs の既定値を動的に変更する key-value 設定
 
 ---
 

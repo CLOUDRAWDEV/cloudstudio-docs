@@ -1,0 +1,56 @@
+---
+title: CloudinitConfig
+sidebar_position: 0
+tags: [Cloud, CloudInit, CloudinitConfig]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cloudinit-cloudinit_config.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Cloud-init es una herramienta de inicialización estándar que se utiliza para realizar automáticamente configuraciones iniciales cuando una instancia de máquina virtual se inicia por primera vez.  
+Permite definir de forma declarativa diversas tareas de configuración inicial, como la configuración del sistema operativo, la instalación de paquetes, la creación de usuarios y la ejecución de scripts, y se utiliza ampliamente en entornos multicloud y en diversas distribuciones de Linux.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valores de configuración del recurso
+
+-   `gzip` : Indica si se debe utilizar un algoritmo de compresión de datos – `true`, `false`
+
+-   `part` : Configuración de particionamiento de disco y scripts de inicialización
+
+    -   `content_type` : Tipo de datos que se van a insertar
+        -   `text/cloud-config`
+        -   `text/x-shellscript`
+        -   `text/cloud-boothook`
+        -   `multipart/mixed`
+        -   `text/cloud-config-archive`
+        -   `text/jinja`
+        -   `text/x-include-url`
+        -   `text/part-handler`
+    -   `content` : Datos reales que se van a insertar
+
+-   `tag` : Etiquetas para clasificar el recurso – hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Documentación oficial de Cloud-init](https://cloudinit.readthedocs.io/en/latest/)
+-   [Guía de ejemplos de Cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)
+-   [Terraform cloudinit_config](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/cloudinit_config)

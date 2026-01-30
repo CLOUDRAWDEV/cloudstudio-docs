@@ -1,0 +1,60 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, Resource, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## Resource Overview
+
+PostgreSQL is an **open-source relational database (RDBMS)**.  
+On Ncloud, it is provided as a fully managed database service with high availability, automated backups, and encrypted storage, enabling easy setup without complex infrastructure configuration.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `server_name_prefix` : PostgreSQL server name (lowercase letters, numbers, hyphens allowed; must start with a lowercase letter and end with a lowercase letter or number; 3–30 characters)
+-   `included_vpc_name` : Name of the VPC where PostgreSQL is located
+-   `included_subnet_name` : Name of the Subnet where PostgreSQL is located
+-   `enable_high_availability` : Whether to enable high availability - `true`, `false`
+-   `user_name` : PostgreSQL user access ID
+-   `user_password` : PostgreSQL user password
+-   `image_product_code` : PostgreSQL server image product code
+-   `product_code` : PostgreSQL instance server product code
+-   `data_storage_type` : Data storage type - `SSD`, `HDD`
+-   `is_backup` : Whether to enable backup - `true`, `false`
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `30`
+-   `enable_automatic_backup` : Whether to enable automatic backup - `true`, `false`
+-   `backup_time` : User-defined backup time
+-   `port` : PostgreSQL access port
+-   `client_cidr` : IP address range assigned to clients
+-   `database_name` : Default database name
+-   `enable_storage_encryption` : Whether to enable storage encryption - `true`, `false`
+
+---
+
+## References
+
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

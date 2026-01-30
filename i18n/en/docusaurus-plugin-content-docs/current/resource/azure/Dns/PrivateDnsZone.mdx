@@ -1,7 +1,7 @@
 ---
 title: PrivateDnsZone
 sidebar_position: 1
-tags: [Azure, Resource, Dns, PrivateDnsZone]
+tags: [Azure, DNS, PrivateDnsZone, Network]
 ---
 
 <hr />
@@ -11,62 +11,66 @@ tags: [Azure, Resource, Dns, PrivateDnsZone]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/dns-private_dns_zone.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-private_dns_zone.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Private DNS provides a reliable and trustworthy DNS service that allows you to manage and resolve domain names within a virtual network without the need to add a custom DNS solution. 
-By using private DNS zones, you can use your own custom domain names instead of the default names provided by Azure. Records in a private DNS zone cannot be resolved from the internet. 
-DNS resolution for private DNS zones only works within the connected virtual networks.
+A Private DNS Zone is a container used to manage DNS records for private domain names that are only accessible within Azure virtual networks.  
+By linking virtual networks (VNet Links), secure name resolution between internal resources can be performed.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
 
-## Resource Setting Values
-
--   `private_dns_a_record`
-
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
-
--   `private_dns_aaaa_record`
-
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
-
--   `private_dns_cname_record`
-
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` :The list of values that make up the NS record
-
--   `private_dns_ptr_record`
-
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
-
--   `private_dns_txt_record`
-
-    -   `ttl` : The Time To Live of the DNS record in seconds - `0` ~ `2147483647`
-    -   `records` : The list of values that make up the NS record
-
--   `vnet_link`
-
-    -   `linked_vnet_name` : Name of the linked virtual network
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure PrivateDnsZone(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
--   [Azure PrivateDnsZone Price](https://azure.microsoft.com/en-us/pricing/details/dns/)
--   [Azure PrivateDnsZone(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
+#### A Record (`private_dns_a_record`)
+
+-   `private_dns_a_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `private_dns_a_record.records` : List of IPv4 addresses
+
+#### AAAA Record (`private_dns_aaaa_record`)
+
+-   `private_dns_aaaa_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `private_dns_aaaa_record.records` : List of IPv6 addresses
+
+#### CNAME Record (`private_dns_cname_record`)
+
+-   `private_dns_cname_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `private_dns_cname_record.record` : Alias used to map a subdomain to another record
+
+#### PTR Record (`private_dns_ptr_record`)
+
+-   `private_dns_ptr_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `private_dns_ptr_record.records` : List of domain names for pointer record types
+
+#### TXT Record (`private_dns_txt_record`)
+
+-   `private_dns_txt_record.ttl` : Time To Live (seconds) for the DNS record - `0` ~ `2147483647`
+-   `private_dns_txt_record.records` : List of text-type records
+
+#### Virtual Network Link (`vnet_link`)
+
+-   `vnet_link.linked_vnet_name` : Name of the virtual network linked to the Private DNS Zone
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Azure Private DNS Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)
+-   [Azure Private DNS Zone and Virtual Network Links(Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-virtual-network-links)
+-   [Azure Private Endpoint and Private DNS(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

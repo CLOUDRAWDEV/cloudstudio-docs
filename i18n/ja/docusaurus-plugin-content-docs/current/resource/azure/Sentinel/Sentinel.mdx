@@ -1,7 +1,7 @@
 ---
 title: Sentinel
 sidebar_position: 0
-tags: [Azure, リソース, Sentinel]
+tags: [Azure, Security, Sentinel]
 ---
 
 <hr />
@@ -11,64 +11,56 @@ tags: [Azure, リソース, Sentinel]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/sentinel-sentinel.webp"
     }
 />
 
 ## リソース概要
 
-Azure Sentinel は Microsoft Azure が提供するクラウドネイティブ SIEM(セキュリティ情報およびイベント管理)サービスです。
-全社的に知能型セキュリティ分析および脅威インテリジェンスを提供し、サイバー脅威から組織の IT インフラと資産を保護する包括的なセキュリティソリューションを提供します。
-Azure Sentinel はサーバ、ネットワーク、アプリケーション、デバイスなどの様々なソースからデータを収集し、組織全体のセキュリティ脅威に対する統合ビューを提供します。
-高度な分析と機械学習アルゴリズムを使用して、リアルタイムで脅威を検出し、対応します。
+Azure Sentinel は、クラウドネイティブな SIEM（セキュリティ情報およびイベント管理）および SOAR（セキュリティ オーケストレーション、自動化、対応）ソリューションであり、複数のセキュリティ データ ソースを収集・分析して脅威を検出し、インシデント対応を自動化します。  
+Log Analytics Workspace を基盤として、アラート ルールを構成し、Microsoft のセキュリティ製品や外部データ コネクタと連携することで、統合的なセキュリティ運用を支援します。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
 
 ### 接続リソース
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+
+---
 
 ## リソース設定値
 
 -   `linked_workspace_name` : Sentinel を接続する Log Analytics Workspace の名前
+-   `connect_security_center` : Microsoft Defender for Cloud データ コネクタを接続するかどうか - `true`, `false`
+-   `connect_threat_intelligence` : Threat Intelligence Platform（プレビュー）データ コネクタを接続するかどうか - `true`, `false`
+-   `connect_advanced_threat_protection` : Microsoft Defender for Identity データ コネクタを接続するかどうか - `true`, `false`
+-   `connect_microsoft_defender` : Microsoft Defender for Endpoint データ コネクタを接続するかどうか - `true`, `false`
+-   `connect_office_365` : Office 365 データ コネクタを接続するかどうか - `true`, `false`
+-   `connect_cloud_app_security` : Microsoft Defender for Cloud Apps データ コネクタを接続するかどうか - `true`, `false`
+-   `fusion_rule_rule_guid` : Fusion Rule の Rule GUID 一覧
+-   `behavior_analytics_rule_guid` : ML Behavior Analytics Rule GUID 一覧
+-   `tag` : リソースを分類するためのタグ
 
--   `connect_security_center` : Sentinel に Microsoft Defender for Cloud Data Connector 接続の可否 - `true`,`false`
--   `connect_threat_intelligence` : Sentinel に脅威インテリジェンスプラットフォーム(プレビュー)Data Connector 接続の可否 - `true`,`false`
+#### MS Security Incident Alert Rule (`alert_rule_incident`)
 
--   `connect_advanced_threat_protection` : Sentinel に Microsoft Defender for Identity Data Connector 接続の可否 - `true`,`false`
+-   `alert_rule_incident.display_name` : MS Security Incident Alert Rule の表示名
+-   `alert_rule_incident.product` : アラートが生成される Microsoft セキュリティ サービス - `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection`, `Office 365 Advanced Threat Protection`
+-   `alert_rule_incident.severity` : インシデントを生成する重大度 - `High`, `Medium`, `Low`, `Informational`
 
--   `connect_microsoft_defender` : Sentinel にエンドポイント用 Microsoft Defender Data Connector 接続の可否 - `true`,`false`
+#### Scheduled Alert Rule (`alert_rule_scheduled`)
 
--   `connect_office_365` : Sentinel に Office 365 Data Connector 接続の可否 - `true`,`false`
-
--   `connect_cloud_app_security` - `true`,`false`
-
--   `fusion_rule_rule_guid` : Sentinel に Microsoft Defender for Cloud Apps Data Connector 接続の可否
-
--   `behavior_analytics_rule_guid` : Sentinel ML Behavior Analytics Rule の GUID list
-
--   `alert_rule_incident`
-
-    -   `display_name` : Sentinel MS Security Incident Alert Rule の display name
-    -   `product` : 警告が生成される Microsoft セキュリティサービス
-    -   `severity` : MS Security Incident Alert が発生する重大度レベル - `High`,`Medium`,`Low`,`Informational`
-
--   `alert_rule_scheduled`
-
-    -   `display_name` : Sentinel Scheduled Query Rule の display name
-    -   `severity` : Sentinel Scheduled Alert Rule の重大度レベル - `High`,`Medium`,`Low`,`Informational`
-    -   `query` : Sentinel Scheduled Alert Rule のクエリ
-
--- `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `alert_rule_scheduled.display_name` : Scheduled Alert Rule の表示名
+-   `alert_rule_scheduled.severity` : Scheduled Alert Rule の重大度 - `High`, `Medium`, `Low`, `Informational`
+-   `alert_rule_scheduled.query` : Scheduled Alert Rule のクエリ文
 
 ---
 
 ## 参考資料
 
--   [Azure Sentinel(Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
--   [Azure Sentinel 価格](https://azure.microsoft.com/en-us/pricing/details/microsoft-sentinel/)
--   [Azure Sentinel(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution)
+-   [Microsoft Sentinel 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/overview)
+-   [Microsoft Sentinel データ コネクタ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/connect-data-sources)
+-   [Microsoft Sentinel 分析ルール (Microsoft)](https://learn.microsoft.com/ko-kr/azure/sentinel/detect-threats-built-in)

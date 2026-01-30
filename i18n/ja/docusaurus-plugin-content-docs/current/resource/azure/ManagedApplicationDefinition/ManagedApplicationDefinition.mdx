@@ -1,0 +1,75 @@
+---
+title: ManagedApplicationDefinition
+sidebar_position: 0
+tags: [Azure, ManagedApplication, ManagedApplicationDefinition]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/managed_application_definition-managed_application_definition.webp"
+    }
+/>
+
+## リソース概要
+
+Managed Application Definition は、ユーザーが Azure Marketplace または組織内カタログを通じてデプロイできる **管理対象アプリケーション（Managed Application）** の定義を保存するリソースです。  
+ARM テンプレートと UI 定義をパッケージ化することで、デプロイ時にユーザーへ提供される入力画面および権限範囲を標準化できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## リソース設定値
+
+#### 基本情報
+
+-   `description` : Managed Application Definition の説明
+-   `display_name` : ユーザーインターフェースに表示される名前
+
+#### ロックレベル (`lock_level`)
+
+デプロイされたリソースに対して、ユーザーが実行できる操作レベルを定義します。
+
+-   `None` : 制限なし
+-   `CanNotDelete` : 削除不可
+-   `ReadOnly` : 読み取り専用
+
+#### パッケージファイル URI (`package_file_uri`)
+
+-   デプロイ用 ARM テンプレートおよびメタデータを含む `.zip` ファイルの URI
+-   以下のファイルを必ず含める必要があります
+    -   `mainTemplate.json`
+    -   `createUiDefinition.json`
+-   `mainTemplate.json` には、最低限の `parameters` セクションが必要です
+
+#### 権限設定 (`authorization`)
+
+アプリケーションのデプロイ時に自動的に割り当てられるロールを定義します。
+
+-   `authorization.service_principal_id` : ロールが割り当てられる Service Principal の ID
+-   `authorization.role_definition_id` : Role Definition のリソース ID
+
+---
+
+## 利用シナリオ
+
+-   Azure Marketplace 向け SaaS / ソリューションパッケージのデプロイ
+-   組織内の標準アーキテクチャを Managed Application として提供
+-   運用権限を制限した状態で、顧客または内部ユーザーにインフラを提供
+
+---
+
+## 参考資料
+
+-   [Azure Managed Applications 概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/overview)
+-   [createUiDefinition.json の説明（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/create-uidefinition-overview)
+-   [Managed Application Definition ARM リソース（Microsoft）](https://learn.microsoft.com/ko-kr/azure/templates/microsoft.solutions/applicationdefinitions)

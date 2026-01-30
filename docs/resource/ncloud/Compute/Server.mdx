@@ -1,6 +1,6 @@
 ---
 title: Server
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, 리소스, Compute, Server]
 ---
 
@@ -11,7 +11,7 @@ tags: [Ncloud, 리소스, Compute, Server]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
     }
 />
 
@@ -22,27 +22,30 @@ tags: [Ncloud, 리소스, Compute, Server]
 ## 연관 리소스
 
 ### 상위 리소스
+
 -   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
 
 ### 연결 리소스
 
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
 -   [**BlockStorage**](https://docs.cstudio.app/docs/resource/ncloud/Storage/BlockStorage)
--   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIP)
+-   [**PublicIp**](https://docs.cstudio.app/docs/resource/ncloud/Networking/PublicIp)
 -   [**TargetGroup**](https://docs.cstudio.app/docs/resource/ncloud/Networking/TargetGroup)
 
 ## 리소스 설정 값
 
--   `include_subnet_name` : 서버가 위치하는 Subnet 이름
--   `server_image_product_code` : 사용할 운영체제 이미지 코드
--   `server_product_code` : 서버의 하드웨어 구성을 위한 코드
--   `login_key_name` : 사용할 login_key 이름
--   `init_script` : 사용할 init_script 이름
--   `is_encrypted_base_block_storage_volume` : 스토리지 암호화 여부
--   `linked_network_interface_name` : 서버에 할당하는 네트워크 인터페이스
+#### 기본 설정
 
+-   `included_subnet_name` : 서버가 위치하는 Subnet 이름
+-   `server_image_product_code` : 사용할 운영체제 이미지 코드 - `ncloudServerImage`
+-   `server_product_code` : 서버의 하드웨어 구성을 위한 코드 - `ncloudServerType`
+-   `login_key_name` : 사용할 Login key 이름
+-   `init_script` : 사용할 Init script 이름
+-   `is_encrypted_base_block_storage_volume` : Block storage 암호화 여부 - `true`, `false`
+-   `linked_network_interface_names` : 서버에 할당하는 네트워크 인터페이스
 
 ---
 
 ## 참고 자료
 
--   [ncloud_server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)
+-   [Server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

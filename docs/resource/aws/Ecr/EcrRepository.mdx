@@ -1,5 +1,5 @@
 ---
-title: Ecr Repository
+title: EcrRepository
 sidebar_position: 0
 tags: [AWS, 리소스, Ecr, EcrRepository]
 ---
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Ecr, EcrRepository]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.webp"
     }
 />
 
@@ -27,11 +27,23 @@ Amazon Elastic Container Registry(Amazon ECR)는 안전하고 확장 가능하�
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `image_tag_mutability` : 저장소의 태그 변경 가능 설정 - `IMMUTABLE`, `MUTABLE`
 -   `scan_on_push` : 이미지가 저장소로 푸시된 후 스캔되는지 여부를 설정 - `true`, `false`
 -   `encryption_type` : 저장소에 사용할 암호화 유형 - `KMS`, `AES256`
 -   `kms_key_name` : 사용할 KMS Key의 ARN 이름
--   `target_principal_arn` : Policy를 적용할 대상의 ARN
+
+#### 정책 (`policy`)
+
+-   `policy.effect` : 정책문의 허용 여부 - `Allow`, `Deny`
+-   `policy.principal_arn` : Policy를 적용할 대상의 ARN
+-   `policy.enabled_not_actions` : 지정된 작업의 목록을 제외할지 여부 - `true`, `false`
+-   `policy.actions` : 지정할 작업의 목록 - `ecr:BatchCheckLayerAvailability`, `ecr:BatchDeleteImage`, `ecr:BatchGetImage`, `ecr:CompleteLayerUpload`, `ecr:DeleteLifecyclePolicy`, `ecr:DeleteRepository`, `ecr:DeleteRepositoryPolicy`, `ecr:DescribeImages`, `ecr:DescribeRepositories`, `ecr:GetDownloadUrlForLayer`, `ecr:GetLifecyclePolicy`, `ecr:GetLifecyclePolicyPreview`, `ecr:GetRepositoryPolicy`, `ecr:InitiateLayerUpload`, `ecr:ListImages`, `ecr:PutImage`, `ecr:PutLifecyclePolicy`, `ecr:SetRepositoryPolicy`, `ecr:StartLifecyclePolicyPreview`, `ecr:UploadLayerPart`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

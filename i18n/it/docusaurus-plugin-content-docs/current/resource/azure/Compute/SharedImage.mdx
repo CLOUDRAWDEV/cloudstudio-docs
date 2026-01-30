@@ -1,0 +1,59 @@
+---
+title: SharedImage
+sidebar_position: 6
+tags: [Azure, SharedImage, Compute, Image]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-shared_image.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Shared Image è una risorsa che consente di gestire centralmente immagini personalizzate di macchine virtuali  
+e di condividerle tra più sottoscrizioni (Subscription), tenant e regioni.  
+Questo permette di distribuire facilmente immagini VM standardizzate e di gestire l’infrastruttura in modo coerente in ambienti su larga scala.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `image_gallery_description` :  
+    Descrizione della galleria di immagini – massimo 5000 caratteri
+
+### Definizione dell’immagine (`images`)
+
+-   `images.os_type` :  
+    Tipo di sistema operativo incluso nell’immagine
+
+    -   `Linux`
+    -   `Windows`
+
+-   `images.publisher_name` :  
+    Nome del publisher che pubblica l’immagine
+
+-   `images.offer_name` :  
+    Nome dell’offerta (famiglia di prodotti) a cui appartiene l’immagine
+
+-   `images.sku` :  
+    Configurazione dettagliata dell’offerta dell’immagine (SKU, Stock Keeping Unit)
+
+---
+
+## Riferimenti
+
+-   [Azure Compute Gallery (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/shared-image-galleries)
+-   [Terraform azurerm_shared_image](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/shared_image)

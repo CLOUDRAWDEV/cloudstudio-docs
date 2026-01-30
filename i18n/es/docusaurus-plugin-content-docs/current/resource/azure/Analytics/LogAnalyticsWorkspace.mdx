@@ -1,0 +1,48 @@
+---
+title: LogAnalyticsWorkspace
+sidebar_position: 0
+tags: [Azure, LogAnalytics, LogAnalyticsWorkspace]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/analytics-log_analytics_workspace.webp"
+    }
+/>
+
+## Descripción del recurso
+
+Log Analytics es una herramienta utilizada en el Portal de Azure para editar y ejecutar consultas sobre los datos del almacenamiento de registros de Azure Monitor.
+Puede escribir consultas simples que devuelvan conjuntos de registros, luego utilizar las funciones de Log Analytics para ordenar, filtrar y analizar los datos. O bien, puede escribir consultas avanzadas para realizar análisis estadísticos y visualizar los resultados en gráficos para identificar tendencias específicas.
+Ya sea que esté procesando los resultados de la consulta de manera interactiva o utilizando características adicionales de Azure Monitor, como alertas de consulta o registros de hojas de cálculo integradas, Log Analytics se utiliza para escribir y probar consultas.
+
+## Recursos Relacionados
+
+### Recursos principales
+
+-   [**Grupo de Recursos**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valores de configuración del recurso
+
+-   `retention_in_days` : Número de días para la retención de datos en el Workspace - `30`~ `730`
+
+-   `internet_query_enabled` : Activación de consultas a través de Internet público - `true`, `false`
+
+-   `internet_ingestion_enabled` : Activación de recolección de datos a través de Internet público - `true`, `false`
+
+-   `tag` : Etiquetas para clasificar el recurso en categorías - máximo 512 caracteres, `clave`:`valor`
+
+---
+
+## Referencias
+
+-   [Azure LogAnalyticsWorkspace(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/logs/log-analytics-overview)
+-   [Azure LogAnalyticsWorkspace 가격](https://azure.microsoft.com/ko-kr/pricing/details/monitor/)
+-   [Azure LogAnalyticsWorkspace(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace)

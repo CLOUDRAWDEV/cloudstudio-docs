@@ -1,0 +1,60 @@
+---
+title: CloudfrontCachePolicy
+sidebar_position: 1
+tags: [AWS, Ressource, Cloudfront, CloudfrontCachePolicy]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Cache-Richtlinie zur Konfiguration des benutzerdefinierten Cache-Verhaltens von CloudFront durch Verknüpfung mit einer CloudFront-Distribution.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base/Base)
+
+### Verknüpfte Ressourcen
+
+-   [**CloudfrontDistribution**](https://docs.cstudio.app/de/docs/resource/aws/Cloudfront/CloudfrontDistribution)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `min_ttl` : Minimale Zeit (Sekunden), die ein Objekt im Cache verbleibt
+-   `default_ttl` : Standardzeit (Sekunden), die ein Objekt im Cache verbleibt
+-   `max_ttl` : Maximale Zeit (Sekunden), die ein Objekt im Cache verbleibt
+
+#### Cookie-Einstellungen (`cookie_config`)
+
+-   `cookie_behavior` : Methode zur Cookie-Weitergabe – `whitelist`, `all`, `none`, `allExcept`
+-   `cookies_items` : Liste der Cookies, die an den Origin weitergeleitet werden
+
+#### Header-Einstellungen (`header_config`)
+
+-   `header_behavior` : Header-basiertes Caching-Verhalten – `whitelist`, `none`
+-   `headers_items` : Liste der Header, die für das Caching verwendet werden
+
+#### Query-String-Einstellungen (`query_string_config`)
+
+-   `query_string_behavior` : Verarbeitung von Query-Strings – `whitelist`, `all`, `none`, `allExcept`
+-   `query_strings_items` : Liste der Query-String-Parameter für das Caching
+
+## Referenzen
+
+-   [Amazon CloudFront Cache Policy(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
+-   [Amazon CloudFront Cache Policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)

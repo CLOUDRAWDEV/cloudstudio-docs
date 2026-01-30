@@ -1,0 +1,48 @@
+---
+title: ContainerAppsEnvironment
+sidebar_position: 1
+tags: [Azure, ContainerAppsEnvironment, ContainerApps, Serverless]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container_apps-container_apps_environment.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Azure Container Apps Environment es un recurso que define el entorno de red y supervisión en el que se ejecutan Azure Container Apps.  
+Al vincular entornos operativos como un espacio de trabajo de Log Analytics que se utiliza cuando se crean y ejecutan las Container Apps, es posible aplicar de forma coherente configuraciones de recopilación de registros y monitoreo.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+
+### Recursos secundarios
+
+-   [**Container Apps**](https://docs.cstudio.app/es/docs/resource/azure/ContainerApps/ContainerApps)
+
+### Recursos conectados
+
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/es/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+
+---
+
+## Valores de configuración del recurso
+
+-   `linked_log_analytics_workspace` : ID del recurso del espacio de trabajo de Log Analytics vinculado
+
+---
+
+## Referencias
+
+-   [Azure Container Apps Environment (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-apps/environment)
+-   [Terraform azurerm_container_app_environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment)

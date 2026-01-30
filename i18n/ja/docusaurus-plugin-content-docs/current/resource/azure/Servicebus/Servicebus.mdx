@@ -1,0 +1,60 @@
+---
+title: Servicebus
+sidebar_position: 0
+tags: [Azure, Messaging, ServiceBus]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/servicebus-servicebus.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Service Bus は、アプリケーション間の非同期メッセージングをサポートする完全マネージドのエンタープライズ メッセージング サービスです。  
+キュー（Queue）およびトピック／サブスクリプション（Topic／Subscription）モデルを通じて、信頼性の高いメッセージ配信、分散システム間の疎結合化、大規模なイベント処理シナリオを実現します。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## リソース設定値
+
+-   `sku` : Service Bus の価格レベル - `Basic`, `Standard`, `Premium`
+-   `capacity` : Premium SKU において処理性能を制御する容量単位
+-   `premium_messaging_partitions` : Premium メッセージング階層で使用するパーティション数 - `1`, `2`, `4`
+-   `default_action` : ネットワーク規則適用時の既定の動作 - `Allow`, `Deny`
+-   `public_network_access_enabled` : パブリック ネットワークからの Service Bus へのアクセスを許可するかどうか - `true`, `false`
+
+#### Network Rules (`network_rules`)
+
+-   `network_rules.target_subnet_name` : ネットワーク規則が適用される対象サブネット名
+-   `network_rules.ignore_missing_vnet_service_endpoint` : サブネットに VNet サービス エンドポイントが存在しない場合に無視するかどうか - `true`, `false`
+
+#### Topic (`topic`)
+
+-   `topic.status` : Topic の有効化状態 - `Active`, `Disabled`
+-   `topic.enable_partitioning` : メッセージ パーティショニングを有効にするかどうか - `true`, `false`
+
+#### Subscription (`subscription`)
+
+-   `subscription.target_topic_name` : サブスクリプションが接続される対象 Topic 名
+-   `subscription.max_delivery_count` : メッセージ再配信の最大試行回数
+
+---
+
+## 参考資料
+
+-   [Azure Service Bus 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview)
+-   [Azure Service Bus メッセージング パターン (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-messaging-overview#messaging-patterns)
+-   [Azure Service Bus ネットワーク セキュリティ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/service-bus-messaging/service-bus-ip-filtering)

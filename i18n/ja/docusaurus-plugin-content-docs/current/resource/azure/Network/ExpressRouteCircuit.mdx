@@ -1,7 +1,7 @@
 ---
 title: ExpressRouteCircuit
-sidebar_position: 2
-tags: [Azure, リソース, Network, ExpressRouteCircuit]
+sidebar_position: 10
+tags: [Azure, Network, ExpressRoute, ExpressRouteCircuit]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, リソース, Network, ExpressRouteCircuit]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.webp"
     }
 />
 
 ## リソース概要
 
-Express Route Circuit はユーザーがオン·プレミスインフラと Azure データセンター間の非公開接続を作ることができるように、Microsoft Azure が提供するサービスです。
-トラフィックはパブリック インターネットの代わりに個人接続を介してルーティングされるため、通常のインターネット ベースの接続よりも安全で安定した接続を提供します。
-ExpressRoute Circuit は 基本的にユーザが独自のオンプレミスインフラの一部であるように、仮想マシン、リポジトリ、およびデータベースなどの Azure サービスにアクセスできる専用プライベートネットワーク接続です。
-これにより、組織はネットワークを公共のインターネットに露出することなく、オンプレミスインフラをクラウドに拡張し、Azure サービスにアクセスすることができます。
+ExpressRoute Circuit は、オンプレミス ネットワークを Microsoft クラウドに **プライベート専用回線** で接続するための Azure ネットワークリソースです。  
+パブリック インターネットを経由しない安定した接続を提供し、帯域幅・遅延・セキュリティ要件が高いエンタープライズ環境で主に利用されます。
 
 ## 関連リソース
 
@@ -28,40 +26,31 @@ ExpressRoute Circuit は 基本的にユーザが独自のオンプレミスイ�
 
 -   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
 
+---
+
 ## リソース設定値
 
--   `service_provider` : Express Route の供給を提供する ISP プロバイダー -`KINX`, `KT`, `SKTTelecom`, `LGCNS`, ` LGUplus````,   `SejongTelecom```
+-   `service_provider` : ExpressRoute 回線を提供する ISP プロバイダー
+-   `peering_location` : ISP が回線をプロビジョニングするピアリング ロケーション
+-   `bandwidth_in_mbps` : ExpressRoute 回線の帯域幅（Mbps）
+-   `sku_tier` : ExpressRoute 回線の価格レベル - `Basic`, `Local`, `Standard`, `Premium`
+-   `sku_family` : アウトバウンド データ転送の課金モデル - `MeteredData`, `UnlimitedData`
+-   `authorization_names` : 回線の使用を許可する認可名の一覧
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
--   `peering_location` : ISP が接続をプロビジョンする Peering 位置、Azure resource location と異なる意味 - `Seoul`, `Busan`
+#### 回線ピアリング設定 (`circuit_peering`)
 
--   `bandwidth_in_mbps` : データ転送帯域幅(Mbps) -`50`, `100`, `200`, `500`, ` 1000````,   `2000`,  `5000``,  `10000```
-
--   `sku_tier` : Express Route 回路の価格設定階層 - `Basic`, `Local`, `Standard`, `Premium`
-
--   `sku_family` : アウトバウンドデータ転送のための請求モデル - `MeteredData`, `UnlimitedData`
-
--   `authorization_name` : 回路が使用できる認証名
-
--   `circuit_peering`
-
-    -   `AzurePrivatePeering`
-        -   `enabled_peering` : 該当タイプの Circuit Peering 活性化の可否
-        -   `peer_asn` : 16 ビットの ASN、public または private - `0`~`65535`
-        -   `primary_peer_address` : メインリンクへの/30IPv4 サブネット
-        -   `secondary_peer_address` : セカンダリリンクへの/30IPv4 サブネット
-        -   `vlan_id` : ピアリング設定のための有効な VLAN ID
-        -   `advertised_public_prefixes` : BGP セッションを通じて普及されたすべての共用 IPv4 アドレスプレフィックスのリスト
-    -   `AzurePublicPeering`
-        -   `enabled_peering` : 該当タイプの circuit peering 活性化の可否
-    -   `MicrosoftPeering`
-        -   `enabled_peering` : 該当タイプの circuit peering 活性化の可否
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `circuit_peering.enabled_peering` : 該当するピアリング タイプを有効にするかどうか - `true`, `false`
+-   `circuit_peering.peer_asn` : BGP ピアリングに使用する ASN 値
+-   `circuit_peering.primary_peer_address` : プライマリ リンク用の `/30` IPv4 サブネット
+-   `circuit_peering.secondary_peer_address` : セカンダリ リンク用の `/30` IPv4 サブネット
+-   `circuit_peering.vlan_id` : ピアリング設定用の VLAN ID
+-   `circuit_peering.advertised_public_prefixes` : BGP セッションを通じて広告するパブリック IPv4 アドレス プレフィックスの一覧
 
 ---
 
 ## 参考資料
 
--   [Azure ExpressRouteCircuit(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings#circuits)
--   [Azure ExpressRouteCircuit 価格](https://azure.microsoft.com/en-us/pricing/details/expressroute/)
--   [Azure ExpressRouteCircuit(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/express_route_circuit)
+-   [Azure ExpressRoute の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-introduction)
+-   [ExpressRoute 回線と SKU（Microsoft）](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings)
+-   [ExpressRoute ピアリングの構成（Microsoft）](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-howto-routing-portal)

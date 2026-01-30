@@ -1,0 +1,76 @@
+---
+title: Resumen de evaluación de seguridad
+sidebar_position: 1
+tags: [security, evaluación de seguridad, lienzo]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import security01 from "../img/gif/security-check.gif"
+import security02 from "../img/security-result01.png"
+import security03 from "../img/security-result02.png"
+
+<hr />
+<br />
+
+La evaluación de seguridad es una función que inspecciona posibles problemas de seguridad antes de exportar la infraestructura en la nube dibujada por el usuario en el lienzo.  
+A través de esta evaluación, los usuarios pueden identificar fácilmente `errores humanos y vulnerabilidades`.
+
+Para realizar la evaluación de seguridad, sigue `los pasos a continuación`.
+
+<div className={styles.imgWrap}>
+    <img src={security01} width="800px" alt="imagen" />
+</div>
+
+<br />
+
+1. Guarda el lienzo (`Guardar`).
+2. Haz clic en `Herramientas > Diagnóstico de vulnerabilidades`.
+3. En los detalles del resultado, revisa el `Resultado del puntaje de diagnóstico`.
+4. Para ver los recursos correspondientes a cada nivel, haz clic en `Ver detalles`.
+5. Para modificar la infraestructura, busca los servicios marcados como `Crítico o Alto` en el lado derecho.
+6. Si encuentras un servicio, haz clic en el `icono de flecha` para ver las soluciones. `Current code` muestra el código actual del lienzo, y `Recommend code` muestra el código recomendado considerando las buenas prácticas de seguridad.
+7. Cierra la ventana de evaluación de seguridad y corrige el lienzo correspondiente.
+
+<br />
+
+### Niveles de amenaza de seguridad
+
+<div className={styles.imgWrap}>
+    <img src={security02} width="500px" alt="imagen" />
+</div>
+<p>&nbsp;</p>
+<br />
+
+Los niveles de amenaza de seguridad se dividen en cinco: `Crítico, Advertencia, Medio, Bajo, Bueno`.  
+El número junto al nivel indica cuántos recursos están clasificados en ese nivel. Por ejemplo, si hay un "1" junto a "Crítico", significa que hay un recurso en el lienzo con una amenaza crítica.  
+Se recomienda modificar las infraestructuras con categorías marcadas como Crítico o Alto, aunque no es obligatorio.  
+Para ver los recursos por nivel, haz clic en `Ver detalles`.
+
+| Nivel de amenaza | Descripción                                                                 |
+| ---------------- | --------------------------------------------------------------------------- |
+| Crítico          | El estado de seguridad es muy vulnerable; se recomienda corregir el código. |
+| Advertencia      | El estado de seguridad es débil; se recomienda corregir si es importante.   |
+| Medio            | El estado de seguridad es moderado.                                         |
+| Bajo             | El estado de seguridad es bueno.                                            |
+| Bueno            | El estado de seguridad es excelente. Se puede proceder con el despliegue.   |
+
+<br />
+
+### Categorías de evaluación de seguridad
+
+CloudStudio proporciona 6 categorías de evaluación de seguridad que cumplen con los estándares de cumplimiento.
+
+<div className={styles.imgWrap}>
+    <img src={security03} width="400px" alt="imagen" />
+</div>
+
+<p>&nbsp;</p>
+
+| Categoría de evaluación                   | Descripción                                             |
+| ----------------------------------------- | ------------------------------------------------------- |
+| Verificación e identificación de usuarios | Muestra elementos sobre identificación y autenticación. |
+| Control de acceso                         | Muestra elementos sobre control de acceso al sistema.   |
+| Seguridad de red                          | Muestra elementos sobre la seguridad de la red.         |
+| Protección de datos                       | Muestra elementos sobre respaldo y protección de datos. |
+| Registro y monitoreo                      | Muestra elementos sobre logging y monitoreo.            |
+| Cifrado                                   | Muestra elementos sobre cifrado de datos.               |

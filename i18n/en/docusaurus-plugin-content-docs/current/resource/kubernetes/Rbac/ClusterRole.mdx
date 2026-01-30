@@ -4,22 +4,20 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, RBAC, ClusterRole]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-cluster_role.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource that creates roles applicable at the cluster level and across all namespaces
+A Kubernetes resource that creates roles applied at the cluster level and across all namespaces.
 
 ## Associated Resources
 
@@ -27,32 +25,31 @@ A Kubernetes resource that creates roles applicable at the cluster level and acr
 
 -   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
-
 ### Connected Resources
 
--   [**ClusterRolebinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRolebinding)
-
-
-## Resource Setting Values
-
--   `service_name`: Name of the ClusterRole resource
--   `annotations`: Key-value pairs used to display necessary information in the Kubernetes system
--   `labels`: User-specified values to distinguish objects
--   `rule`: Policy role for the ClusterRole
-    -   `name`: Name of the policy role
-    -   `api_groups`: API groups that include the resources allowed by this policy
-    -   `resources`: List of resources to which this rule applies
-    -   `resource_names`: Specifies individual instances of the resource if selected - if empty, includes all instances of the resource
-    -   `non_resource_urls`: Used for specifying rules in URL format rather than as resources - can specify URLs for health checks
-    -   `verbs`: List of verbs applied to all resources included in the rule
-
-
-
-
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/en/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `annotations` : Key-value metadata used to display required information in the Kubernetes system
+-   `labels` : User-defined labels used to distinguish objects
+
+#### Policy Rules (`rule`)
+
+-   `rule.rule_type` : Rule type of the ClusterRole - `ApiGroup`, `ResourceUrl`
+-   `rule.api_groups` : API Groups that include resources for which actions are allowed
+-   `rule.resources` : List of resources to which this rule applies
+-   `rule.resource_names` : Specifies individual instances of the resource if selected
+-   `rule.non_resource_urls` : Used when defining rules for non-resource URLs
+-   `rule.verbs` : List of verbs applied to all resources in the rule - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
+
+---
+
+## References
 
 -   [ClusterRole(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
 -   [ClusterRole(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

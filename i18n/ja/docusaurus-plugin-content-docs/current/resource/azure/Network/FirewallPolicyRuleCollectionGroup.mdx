@@ -1,0 +1,79 @@
+---
+title: FirewallPolicyRuleCollectionGroup
+sidebar_position: 19
+tags: [Azure, Network, FirewallPolicyRuleCollectionGroup]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall_policy_rule_collection_group.webp"
+    }
+/>
+
+## リソース概要
+
+FirewallPolicyRuleCollectionGroup は、**Azure Firewall Policy 内の複数のルールコレクションをグループ単位でまとめて管理するためのリソース**です。  
+Application / NAT / Network Rule Collection を 1 つのグループとして構成でき、グループの優先度（priority）に基づいてポリシー内の処理順序を制御できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**FirewallPolicy**](https://docs.cstudio.app/ja/docs/resource/azure/Network/FirewallPolicy)
+
+---
+
+## リソース設定値
+
+-   `included_firewall_policy_name` : 対象となる Azure Firewall Policy の名前
+-   `priority` : Rule Collection Group の処理優先度
+-   `tag` : リソースを分類するためのタグ
+
+#### Application Rule Collection (`application_rule_collection`)
+
+-   `application_rule_collection.priority` : Application Rule Collection 内の優先度
+-   `application_rule_collection.action` : Application Rule Collection が実行するアクション - `Allow`, `Deny`
+
+#### Application Rule Collection > Rule (`application_rule_collection.rule`)
+
+-   `application_rule_collection.rule.protocols` : トラフィックに適用されるプロトコル
+-   `application_rule_collection.rule.source_addresses` : トラフィックの送信元 IP アドレスまたはアドレス範囲の一覧
+-   `application_rule_collection.rule.destination_fqdns` : トラフィックの宛先となる FQDN（完全修飾ドメイン名）の一覧
+
+#### NAT Rule Collection (`nat_rule_collection`)
+
+-   `nat_rule_collection.priority` : NAT Rule Collection 内の優先度
+-   `nat_rule_collection.action` : NAT ルールが実行するアクション - `Dnat`
+
+#### NAT Rule Collection > Rule (`nat_rule_collection.rule`)
+
+-   `nat_rule_collection.rule.protocols` : 適用するプロトコルの一覧 - `TCP`, `UDP`
+-   `nat_rule_collection.rule.source_addresses` : トラフィックの送信元 IP アドレスまたはアドレス範囲の一覧
+-   `nat_rule_collection.rule.destination_address` : トラフィックの宛先 IP アドレス
+-   `nat_rule_collection.rule.destination_port` : トラフィックの宛先ポート番号
+-   `nat_rule_collection.rule.translated_address` : 変換後の宛先 IP アドレス
+-   `nat_rule_collection.rule.translated_port` : 変換後の宛先ポート番号
+
+#### Network Rule Collection (`network_rule_collection`)
+
+-   `network_rule_collection.priority` : Network Rule Collection 内の優先度
+-   `network_rule_collection.action` : Network ルールが実行するアクション - `Allow`
+
+#### Network Rule Collection > Rule (`network_rule_collection.rule`)
+
+-   `network_rule_collection.rule.protocols` : 適用するプロトコルの一覧 - `Any`, `TCP`, `UDP`, `ICMP`
+-   `network_rule_collection.rule.source_addresses` : トラフィックの送信元 IP アドレスまたはアドレス範囲の一覧
+-   `network_rule_collection.rule.destination_addresses` : トラフィックの宛先 IP アドレスまたはアドレス範囲の一覧
+-   `network_rule_collection.rule.destination_ports` : トラフィックの宛先ポート番号の一覧
+
+---
+
+## 参考資料
+
+-   [Azure Firewall Policy の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/policy-overview)
+-   [Azure Firewall ポリシーのルール処理 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/rule-processing)

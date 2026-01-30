@@ -1,7 +1,7 @@
 ---
 title: ApiGatewayHttp
 sidebar_position: 0
-tags: [AWS, リソース, ApiGatewayHttp]
+tags: [AWS, Resource, ApiGatewayHttp]
 ---
 
 <hr />
@@ -11,14 +11,14 @@ tags: [AWS, リソース, ApiGatewayHttp]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.webp"
     }
 />
 
 ## リソース概要
 
-API Gateway で HTTP API は、API Gateway の一つのタイプであり、簡単で軽く HTTP プロトコルに基づく API を構築するためのものです。
-HTTP API は従来の RESTAPI よりもシンプルでコスト効率が高く、主にサーバレスウェブアプリケーションとシンプルなマイクロサービスに適しています。
+API Gateway における HTTP API は、API Gateway の一種であり、HTTP プロトコルを基盤としたシンプルで軽量な API を構築するためのものです。  
+HTTP API は、従来の REST API よりもシンプルでコスト効率が高く、主にサーバーレス Web アプリケーションや単純なマイクロサービスに適しています。
 
 ### 上位リソース
 
@@ -26,36 +26,32 @@ HTTP API は従来の RESTAPI よりもシンプルでコスト効率が高く�
 
 ## 関連リソース
 
--   [**Lambda Function**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
+-   [**LambdaFunction**](https://docs.cstudio.app/ja/docs/resource/aws/Lambda/LambdaFunction)
 
 ## リソース設定値
 
--   `integration` : API Gateway Integration の名前
-    -   `http_integration`
-        -   `integration_type` : API Gateway Integration のタイプ - `Http`, `Lambda`
-        -   `integration_method` : API Gateway Integration の HTTP Method
-        -   `integration_url` : The specify a fully-qualified URL for HTTP integration
-    -   `lambda_integration`
-        -   `integration_type` : API Gateway Integration のタイプ - `Http`, `Lambda`
-        -   `integration_method` : API Gateway Integration の HTTP Method
-        -   `linked_lambda_name` : Lambda プロキシ統合のための Lambda ファンクション名
--   `route`
+#### 基本設定
 
-    -   `route_method` : HTTP API に対する HTTP Method
-    -   `route_path` : HTTP API に対するリソースパス
-    -   `target_integration` : Route を接続する API Gateway Integration 名 - `http_integration`, `lambda_integration`
+#### Integration 設定 (`integration`)
 
--   `deployment`
+-   `integration.integration_type` : API Gateway Integration の種類 - `Http`, `Lambda`
+-   `integration.integration_method` : API Gateway Integration の HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : HTTP 統合のための正規化された URL 指定
+-   `integration.linked_lambda_name` : Lambda プロキシ統合のための Lambda 関数名
 
-    -   `description` : API Gateway Deployment 説明
+#### Route 設定 (`route`)
 
--   `stage`
-    -   `dev`
-        -   `enable_deployment` : API Gateway Stage デプロイ
-        -   `auto_deployment` : オートデプロイ活性化
-    -   `test`
-        -   `enable_deployment` : API Gateway Stage デプロイ
-        -   `auto_deployment` : オートデプロイ活性化
-        -   `deployment_name` : 接続する API Gateway Deployment 名
-    -   `prod`
-        -   `enable_deployment` : API Gateway Stage デプロイ
+-   `route.route_method` : HTTP API に対する HTTP Method - `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : HTTP API に対する Resource パス
+-   `route.target_integration` : Route を接続する API Gateway Integration 名
+
+#### Deployment 設定 (`deployment`)
+
+-   `deployment.description` : API Gateway Deployment の説明
+
+#### Stage 設定 (`stage`)
+
+-   `stage.auto_deployment` : 自動デプロイ有効化 - `true`, `false`
+-   `stage.deployment_name` : 接続する API Gateway Deployment 名
+
+

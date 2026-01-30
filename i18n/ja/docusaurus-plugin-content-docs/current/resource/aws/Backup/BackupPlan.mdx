@@ -1,7 +1,7 @@
 ---
 title: BackupPlan
 sidebar_position: 0
-tags: [AWS, リソース, Backup, BackupPlan]
+tags: [AWS, Resource, Backup, BackupPlan]
 ---
 
 <hr />
@@ -11,40 +11,51 @@ tags: [AWS, リソース, Backup, BackupPlan]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
     }
 />
 
 ## リソース概要
 
-AWS リソースをバックアップする時期と方法を定義するポリシー表現式です。
-Backup Plan にリソースを割り当てることができ、AWS バックアップは BackupPlan に従って、そのリソースのバックアップを自動的にバックアップし、維持します。
+AWS Resource をバックアップする時期と方法を定義するポリシー表現です。  
+Backup Plan に Resource を割り当てることができ、AWS Backup は Backup Plan に基づいて該当 Resource のバックアップを自動的に実行し、保持します。
+
+## 関連リソース
 
 ### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
-## 関連リソース
-
 ## リソース設定値
 
-- `rule`
-  - `rule_name` : バックアップルール名
-  - `backup_vault_name` : バックアップの保存に使用される論理的コンテナ名
-  - `frequency_type` : バックアップに関するサイクルのタイミング
-  - `frequency_hour` : バックアップ計画を初期化する時間 - `1 以上`
-  - `start_time` : バックアップ計画の開始時
-  - `start_after_minutes` : バックアップを開始するまでの合計時間 - `60 以上`
-  - `complete_after_minutes` : 作業をキャンセルし、エラーを返すまで AWS Backup でバックアップを試行する時間(分) - `121以上`
-  - `enabled_use_cold_storage` : cold storage 使用可否
-  - `warm_storage_retention_days` : 生成後、リカバリポイントをコールドストレージに移動する指定日数 - `1 ~ 36410`
-  - `cold_retention_days` : リカバリ地点が作成された後、リカバリ地点を削除する指定日数 - `91 ~ 36500`
+#### 基本設定
 
+#### ルール (`rule`)
 
-- `resource_assignment`
-  - `name`
-  - `iam_role_arn` : 対象リソースをリカバリおよびバックアップする時に AWS バックアップで認証するために使用する IAM ロールの ARN
-  - `enabled_contain_all` : すべてのリソースを含めるかどうかを指定 - `false`,`true`
+-   `rule.rule_name` : バックアップルール名、1〜50 文字以内の英数字または `-`, `_`, `.` を含む文字
+-   `rule.backup_vault_name` : バックアップ保存に使用される論理コンテナ名
+-   `rule.frequency_type` : バックアップの周期タイミング - `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : バックアップ計画を初期化する時間 - 最小 `1`
+-   `rule.frequency_days` : バックアップ計画を初期化する曜日 - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `rule.frequency_date` : バックアップ計画を初期化する日付 - `1` ~ `31`
+-   `rule.start_time` : バックアップ計画の開始時間
+-   `rule.custom_cron_expression` : バックアップ計画を開始する時期に対するユーザー定義表現
+-   `rule.start_after_minutes` : バックアップ開始までにかかる総時間 - 最小 `60`
+-   `rule.complete_after_minutes` : 作業をキャンセルしてエラーを返す前までに AWS Backup がバックアップを試行する時間（分）
+-   `rule.enabled_use_cold_storage` : コールドストレージ使用可否 - `true`, `false`
+-   `rule.warm_storage_retention_days` : 作成後、復旧ポイントをコールドストレージへ移行する指定日数 - `1` ~ `36410`
+-   `rule.total_retention_days` : 復旧ポイント作成後、削除するまでの指定日数 - `1` ~ `36500`
+
+#### Resource 割り当て (`resource_assignment`)
+
+-   `resource_assignment.iam_role_arn` : 対象 Resource を復元およびバックアップする際に AWS Backup が認証に使用する IAM ロールの ARN
+-   `resource_assignment.enabled_contain_all` : すべての Resource を含めるかどうか - `true`, `false`
+-   `resource_assignment.contain_arn_or_pattern` : Amazon Resource Name を含む、またはバックアップ計画に割り当てる Resource パターンと一致する文字列配列
+-   `resource_assignment.exclude_arn_or_pattern` : バックアップ計画から除外する Resource パターンと一致する、または Amazon Resource Name（ARN）を含む文字列配列
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ - 最大 512 文字, `key`:`value`
 
 ---
 

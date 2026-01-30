@@ -1,0 +1,124 @@
+---
+title: ContainerApps
+sidebar_position: 0
+tags: [Azure, ContainerApps, Container, Serverless]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container_apps-container_apps.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Container Apps è un ambiente di esecuzione gestito che consente di eseguire applicazioni basate su container in modalità serverless.  
+Basandosi su un Container Apps Environment collegato, è possibile distribuire e gestire le applicazioni configurando la gestione delle revisioni, i container di inizializzazione, il collegamento dei volumi di storage e le impostazioni di ingress (accesso esterno).
+
+## Risorse correlate
+
+### Risorse principalii
+
+-   [**Container Apps Environment**](https://docs.cstudio.app/it/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `included_container_apps_environment` : ID della risorsa del Container Apps Environment collegato
+
+-   `revision_mode` : Modalità di gestione delle versioni dell’app container – `Single`, `Multiple`
+
+-   `max_replicas` : Numero massimo di istanze container che possono essere create durante l’auto-scaling – `1` ~ `300`
+
+-   `min_replicas` : Numero minimo di istanze container da mantenere sempre – `1` ~ `300`
+
+### Impostazioni del container di inizializzazione (`init_container`)
+
+-   `init_container.args` : Elenco degli argomenti passati all’avvio del container
+
+-   `init_container.command` : Comando da eseguire nel container
+
+-   `init_container.cpu_memory` : Configurazione delle risorse CPU e memoria assegnate al container – formato `CPU/Memory`
+
+-   `init_container.image` : Immagine del container utilizzata dal container di inizializzazione
+
+### Impostazioni del volume (`volume`)
+
+-   `volume.storage_type` : Tipo di storage da collegare – `AzureFile`, `EmptyDir`, `Secret`
+
+### Impostazioni del container (`container`)
+
+-   `container.args` : Elenco degli argomenti passati all’avvio del container
+
+-   `container.command` : Comando da eseguire nel container
+
+-   `container.cpu_memory` : Configurazione delle risorse CPU e memoria assegnate al container – formato `CPU/Memory`
+
+-   `container.image` : Immagine del container utilizzata dal container
+
+#### Impostazioni della Liveness Probe (`container.liveness_probe`)
+
+-   `container.liveness_probe.failure_count_threshold` : Numero massimo di fallimenti consecutivi consentiti prima di considerare il probe come non riuscito – `1` ~ `30`
+
+-   `container.liveness_probe.enable_header` : Abilitazione delle intestazioni personalizzate – `true`, `false`
+
+-   `container.liveness_probe.header` : Configurazione delle intestazioni personalizzate da inviare – `header_name`:`header_value`
+
+-   `container.liveness_probe.host` : Nome host a cui inviare la richiesta di probe
+
+-   `container.liveness_probe.initial_delay` : Tempo di attesa (in secondi) prima del primo probe dopo l’avvio del container – `0` ~ `60`
+
+-   `container.liveness_probe.interval_seconds` : Intervallo di esecuzione del probe (in secondi) – `1` ~ `240`
+
+-   `container.liveness_probe.path` : Percorso da chiamare per le richieste HTTP del probe
+
+-   `container.liveness_probe.port` : Numero di porta del container che riceve la richiesta di probe – `1` ~ `65535`
+
+-   `container.liveness_probe.timeout` : Tempo massimo di attesa della risposta (in secondi) – `1` ~ `240`
+
+-   `container.liveness_probe.transport` : Protocollo di trasporto del probe – `TCP`, `HTTP`, `HTTPS`
+
+#### Impostazioni di montaggio del volume (`container.volume_mounts`)
+
+-   `container.volume_mounts.target_volume_name` : Nome del volume da montare
+
+-   `container.volume_mounts.path` : Percorso all’interno del container in cui verrà montato il volume
+
+### Impostazioni di ingress (`ingress`)
+
+-   `ingress.enable_insecure_connections` : Consente connessioni non sicure tramite HTTP – `true`, `false`
+
+-   `ingress.enable_external_connections` : Consente l’accesso all’app container dall’esterno – `true`, `false`
+
+-   `ingress.transport` : Protocollo utilizzato per comunicare con l’app container – `auto`, `http`, `http2`, `tcp`
+
+#### Impostazioni di limitazione IP (`ingress.ip_security_restriction`)
+
+-   `ingress.ip_security_restriction.action` : Consente o nega l’accesso per l’intervallo IP specificato – `true`, `false`
+
+-   `ingress.ip_security_restriction.ip_address_range` : Intervallo di indirizzi IP da applicare
+
+-   `ingress.target_port` : Numero di porta su cui il container è in ascolto internamente
+
+-   `ingress.exposed_port` : Numero di porta esposta all’esterno
+
+#### Impostazioni di distribuzione del traffico (`ingress.traffic_weight`)
+
+-   `ingress.traffic_weight.enable_using_latest_revision` : Indica se instradare sempre il traffico verso la revisione più recente – `true`, `false`
+
+-   `ingress.traffic_weight.revision_suffix` : Suffisso per distinguere le revisioni
+
+-   `ingress.traffic_weight.percentage` : Percentuale di traffico assegnata alla revisione
+
+---
+
+## Riferimenti
+
+-   [Azure Container Apps (Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-apps/)
+-   [Terraform azurerm_container_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app)

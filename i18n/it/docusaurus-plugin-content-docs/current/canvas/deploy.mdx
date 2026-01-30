@@ -1,0 +1,62 @@
+---
+title: Gestione delle distribuzioni
+sidebar_position: 5
+tags: [Deploy, Verifica della distribuzione, Distribuzione, Risultati della verifica]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import deploy01 from "/docs/start/img/deploy01.png"
+import deploy02 from "/docs/start/img/deploy02.png"
+import deploy03 from "/docs/start/img/deploy03.png"
+
+<hr />
+<br />
+
+Cloud Studio non si limita a fornire un'architettura infrastrutturale visiva, ma offre anche la possibilità di distribuire l'infrastruttura progettata nel canvas su un CSP (Cloud Service Provider). <br /> Questo consente agli utenti di creare facilmente infrastrutture cloud.
+
+<p>&nbsp;</p>
+
+## Verifica della distribuzione {#deploy-test}
+
+Questo è un passo per validare virtualmente eventuali errori sintattici di IaC o per verificare se la configurazione è corretta. Non viene distribuito effettivamente su un CSP.
+
+1. Per avviare il test di distribuzione, fai clic su `Gestione distribuzione > Verifica validità`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy03} width="200px" alt="Immagine della distribuzione" />
+</div>
+
+<br />
+
+2. Nel menu a sinistra, fai clic sul pulsante `Verifica validità`.
+3. Seleziona le `Credenziali`.
+4. Fai clic sul pulsante `Verifica validità`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy02} alt="Immagine della distribuzione" />
+</div>
+
+<p>&nbsp;</p>
+
+:::info
+
+Prima di eseguire il test di distribuzione, è necessario `registrare obbligatoriamente` le `credenziali`. Puoi trovare le istruzioni su come registrarle [qui] (/docs/credential/createCredential.mdx).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Cronologia delle distribuzioni {#tedeployst-history}
+
+La cronologia delle distribuzioni mostra lo `storico delle infrastrutture effettivamente distribuite`. Puoi vedere lo `stato attuale della distribuzione` e la `cronologia delle distribuzioni recenti`.
+
+1. Per visualizzare la cronologia delle distribuzioni, fai clic su `Gestione distribuzione` > `Cronologia delle distribuzioni`.```
+
+<div className={styles.imgWrap}>
+    <img src={deploy01} width="200px" alt="Immagine della distribuzione" />
+</div>
+
+<br />
+
+2. Controlla la cronologia delle distribuzioni recenti. Se desideri eliminare una voce, seleziona la voce desiderata e fai clic sul pulsante `Elimina`.

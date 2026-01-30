@@ -1,0 +1,63 @@
+---
+title: Azure
+sidebar_position: 1
+tags: [security, evaluación de seguridad, lienzo]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import { azureRules } from "/src/resource/azureRules"
+import { iso, csap, isms, evaluation } from "/src/resource/rules"
+
+<hr />
+<br />
+
+## Elementos de diagnóstico de Azure
+
+<div className={styles.securityTable}>
+    <table>
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Recurso</th>
+                <th>Opción</th>
+                <th>Elemento</th>
+                <th>Descripción</th>
+                <th>Gravedad</th>
+                <th>ISO27001</th>
+                <th>CSAP</th>
+                <th>ISMS-P</th>
+                <th>Evaluación de estabilidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {azureRules.map((item) => {
+                return (
+                    <tr>
+                        <td>{item.category}</td>
+                        <td>{item.resource}</td>
+                        <td>{item.option}</td>
+                        <td>{item.type}</td>
+                        <td>{item.description}</td>
+                        <td>
+                            <div className={styles.tag} data-type={item.risk}>
+                                {item.risk.toUpperCase()}
+                            </div>
+                        </td>
+                        <td>
+                            {item.iso} {iso[item.iso]}
+                        </td>
+                        <td>
+                            {item.csap} {csap[item.csap]}
+                        </td>
+                        <td>
+                            {item.isms} {isms[item.isms]}
+                        </td>
+                        <td>
+                            {item.evaluation} {evaluation[item.evaluation]}
+                        </td>
+                    </tr>
+                )
+            })}
+        </tbody>
+    </table>
+</div>

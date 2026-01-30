@@ -1,0 +1,69 @@
+---
+title: NetworkAcl
+sidebar_position: 9
+tags: [AWS, Risorsa, Vpc, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una Network Access Control List (ACL) consente o nega traffico inbound e outbound specifico a livello di subnet.  
+È possibile utilizzare la network ACL predefinita del VPC oppure creare ACL personalizzate con regole simili a quelle dei security group per aggiungere un ulteriore livello di sicurezza al VPC.
+
+L’utilizzo delle Network ACL non comporta costi aggiuntivi.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `included_vpc_name` : Nome del VPC in cui creare la ACL
+-   `nacl_description` : Descrizione della ACL
+
+#### Regole inbound (`inbound_rule`)
+
+-   `inbound_rule.priority` : Priorità della regola inbound - `0` ~ `199`
+-   `inbound_rule.protocol` : Protocollo del traffico inbound - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Azione sul traffico inbound - `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Intervallo CIDR sorgente del traffico inbound
+-   `inbound_rule.port_range` : Intervallo di porte applicabile - `1` ~ `65535`
+
+#### Regole outbound (`outbound_rule`)
+
+-   `outbound_rule.priority` : Priorità della regola outbound - `0` ~ `199`
+-   `outbound_rule.protocol` : Protocollo del traffico outbound - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Azione sul traffico outbound - `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Intervallo CIDR di destinazione del traffico outbound
+-   `outbound_rule.port_range` : Intervallo di porte applicabile - `1` ~ `65535`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Controllo del traffico delle subnet con Network ACL (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [aws_network_acl (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

@@ -1,0 +1,55 @@
+---
+title: ResolverEndpoint
+sidebar_position: 1
+tags: [AWS, Recurso, Route53, ResolverEndpoint]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_endpoint.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de endpoint para consultas DNS entrantes y salientes entre Amazon VPC y otros entornos.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
+-   [**ResolverRule**](https://docs.cstudio.app/es/docs/resource/aws/Route53/ResolverRule)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `direction` : Dirección de las consultas DNS - `INBOUND`, `OUTBOUND`
+-   `linked_vpc_name` : Nombre del VPC a conectar con el endpoint
+-   `linked_security_group_names` : Lista de nombres de Security Group aplicados al endpoint
+-   `ip_address.subnet_name` : Nombre del Subnet a utilizar
+-   `ip_address.ip` : Dirección IP disponible dentro del Subnet
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [Amazon Resolver Endpoint (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Endpoint (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_endpoint)

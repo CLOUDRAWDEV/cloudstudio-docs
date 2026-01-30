@@ -11,13 +11,13 @@ tags: [Kubernetes, リソース, Core, Namespace]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-namespace.webp"
     }
 />
 
 ## リソース概要
 
-クラスター内でオブジェクトをグループ化して隔離するために使用されるクバネティスリソースです。
+Cluster 内の Object をグループ化・分離するために使用される Kubernetes Resource。
 
 ## 関連リソース
 
@@ -27,13 +27,14 @@ tags: [Kubernetes, リソース, Core, Namespace]
 
 ### 下位リソース
 
+-   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Deployment**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/Deployment)
 -   [**StatefulSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/StatefulSet)
--   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/DaemonSet)
--   [**HPA**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/HorizontalPodAutoscaling)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/ja/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
 -   [**CronJob**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/CronJob)
 -   [**Job**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/Job)
 -   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
+-   [**DefaultServiceAccount**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/DefaultServiceAccount)
 -   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolumeClaim)
 -   [**Pod**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Pod)
 -   [**Secret**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Secret)
@@ -48,18 +49,22 @@ tags: [Kubernetes, リソース, Core, Namespace]
 -   [**NginxIngress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Helm/NginxIngress)
 -   [**Issuer**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Manifest/Issuer)
 -   [**Ingress**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/Ingress)
+-   [**NetworkPolicy**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/NetworkPolicy)
 -   [**Role**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/Role)
 -   [**RoleBinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/RoleBinding)
 
+---
+
 ## リソース設定値
 
--   `service_name` : ConfigMap リソース名
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
+#### 基本設定
+
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : Namespace 識別・分類用ラベル
 
 ---
 
-## 参考資料
+## References
 
 -   [Namespace(Kubernetes)](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 -   [Namespace(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace)

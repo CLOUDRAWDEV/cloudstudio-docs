@@ -1,5 +1,5 @@
 ---
-title: Elasticache Cluster
+title: ElasticacheCluster
 sidebar_position: 0
 tags: [AWS, Resource, Elasticache, ElasticacheCluster]
 ---
@@ -11,16 +11,13 @@ tags: [AWS, Resource, Elasticache, ElasticacheCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.webp"
     }
 />
 
 ## Resource Overview
 
-The AWS ElastiCache Cluster is a cloud-based in-memory data store that provides a fast and scalable caching solution. 
-ElastiCache Clusters can run using either the Redis or Memcached engine in cluster mode or single-node mode. 
-They are used to enhance application performance by enabling faster data retrieval and processing. 
-ElastiCache Clusters offer features such as automated backups, recovery, scaling, and monitoring, ensuring that users can securely store and manage their data with confidence.
+AWS ElastiCache Cluster is a cloud-based in-memory data store that provides a fast and scalable caching solution. It can run in cluster mode or single-node mode using Redis or Memcached engines. ElastiCache Cluster is used to improve application performance by enabling faster data retrieval and processing. It also provides automatic backup, recovery, scaling, and monitoring features.
 
 ## Associated Resources
 
@@ -30,24 +27,31 @@ ElastiCache Clusters offer features such as automated backups, recovery, scaling
 
 ### Connected Resources
 
--   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/ElastiCache/ElasticacheCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/en/docs/resource/aws/Elasticache/ElasticacheCluster)
 
 ## Resource Setting Values
 
--   `engine`: Name of the cache engine to be used for this cache cluster - `redis`, `memcached`
--   `engine_version`: Version number of the cache engine to be used
--   `port`: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211 and for Redis the default port is 6379
--   `parameter_group_name`: The name of the parameter group to associate with this cache cluster
--   `node_type`: The instance class used for the cache cluster
--   `num_cache_nodes`: The initial number of cache nodes that the cache cluster will have - `1` to `40`
--   `az_mode`: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region - `single-az`, `cross-az`
--   `included_subnet_names`: The name of the subnet to be included in the subnet group where the ElastiCache Cluster will be deployed
--   `snapshot_retention_limit`: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them
+#### Basic Settings
+
+-   `engine` : Cache engine type - `redis`, `memcached`
+-   `engine_version` : Cache engine version
+-   `port` : Cache node connection port (Redis: 6379, Memcached: 11211)
+-   `parameter_group_name` : Name of the parameter group to associate
+-   `node_type` : Cache node instance type
+-   `num_cache_nodes` : Number of cache nodes
+-   `az_mode` : Availability Zone deployment mode - `single-az`, `cross-az`
+-   `included_subnet_names` : List of subnet names included in the subnet group
+-   `subnet_group_name` : Name of the subnet group to use
+-   `snapshot_retention_limit` : Automatic snapshot retention period (days)
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis Price(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [Amazon ElastiCache for Redis Pricing(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
 -   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

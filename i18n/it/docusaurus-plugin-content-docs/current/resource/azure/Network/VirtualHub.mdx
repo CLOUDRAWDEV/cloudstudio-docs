@@ -1,0 +1,47 @@
+---
+title: VirtualHub
+sidebar_position: 21
+tags: [Azure, Network, VirtualHub]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_hub.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Azure Virtual Hub è una **risorsa hub regionale responsabile del routing centralizzato e della connettività di rete all’interno di un ambiente Virtual WAN**.  
+Aggrega connessioni VPN, ExpressRoute e VNet per controllare il flusso del traffico ed è utilizzata come componente centrale di una topologia di rete globale.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Virtual WAN**](https://docs.cstudio.app/it/docs/resource/azure/Network/VirtualWan)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `included_virtual_wan_name` : Nome del Virtual WAN principale a cui è connesso il Virtual Hub
+-   `address_prefix` : Spazio di indirizzamento (blocco CIDR) utilizzato all’interno del Virtual Hub
+-   `hub_routing_preference` : Priorità nella selezione del percorso Internet durante il routing del traffico
+    -   `ExpressRoute`
+    -   `ASPath`
+    -   `VpnGateway`
+
+#### Connection (`connection`)
+
+-   `connection.target_virtual_network_name` : Nome della Virtual Network (VNet) di destinazione da collegare al Virtual Hub
+
+## Riferimenti
+
+-   [Panoramica di Azure Virtual Hub (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-hub-about)
+-   [Architettura di Azure Virtual WAN (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

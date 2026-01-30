@@ -1,7 +1,7 @@
 ---
-title: LoginKey
-sidebar_position: 0
-tags: [Ncloud, リソース, Compute, LoginKey]
+title: Server
+sidebar_position: 2
+tags: [Ncloud, リソース, Compute, Server]
 ---
 
 <hr />
@@ -11,22 +11,44 @@ tags: [Ncloud, リソース, Compute, LoginKey]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/compute-login_key.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
     }
 />
 
 ## リソース概要
 
-サーバー インスタンス(VM)に接続する際、ログインキーを使用してパスワードを暗号化および復号化することができます。
+実際のハードウェアを管理することなく、仮想化の柔軟性を提供するコンピューティングリソースです。  
+クラウド環境でサーバーを作成することで、時間およびコスト面で効率的に運用でき、一時的に多くのサーバーリソースが必要な場合にも適しています。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
+
+### 接続リソース
+
+-   [**NetworkInterface**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**BlockStorage**](https://docs.cstudio.app/ja/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/PublicIp)
+-   [**TargetGroup**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/TargetGroup)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `included_subnet_name` : サーバーが配置される Subnet 名
+-   `server_image_product_code` : 使用する OS イメージコード - `ncloudServerImage`
+-   `server_product_code` : サーバーのハードウェア構成コード - `ncloudServerType`
+-   `login_key_name` : 使用する Login Key 名
+-   `init_script` : 使用する Init Script 名
+-   `is_encrypted_base_block_storage_volume` : Block Storage 暗号化有無 - `true`, `false`
+-   `linked_network_interface_names` : サーバーに割り当てるネットワークインターフェース
 
 ---
 
 ## 参考資料
 
--   [ncloud_login_key(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/login_key)
+-   [Server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

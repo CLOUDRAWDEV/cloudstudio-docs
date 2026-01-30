@@ -1,7 +1,7 @@
 ---
 title: MssqlServer
 sidebar_position: 0
-tags: [Azure, リソース, Server, Mssql]
+tags: [Azure, MssqlServer, MSSQL, SQLServer, Database]
 ---
 
 <hr />
@@ -11,64 +11,74 @@ tags: [Azure, リソース, Server, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/database-mssql_server.webp"
     }
 />
 
 ## リソース概要
 
-Azure SQL Database は広く使用されている Microsoft SQL Server エンジンを基盤とする Microsoft Azure が提供する完全に管理された関係型データベースサービスです。
-ハードウェアまたはソフトウェアインフラを管理する必要なく、クラウドで SQL Server データベースを作成して管理することができます。
-Azure SQL データベースを使用すると、自動パッチ、バックアップ、高可用性、および災害復旧などの機能を活用できます。
-また、インテリジェントなパフォーマンス監視、自動調整、高度なセキュリティ機能などの機能を提供することで、データベースのパフォーマンスを最適化し、重要なデータを保護できます。
+Azure SQL Server（Microsoft SQL Server）は、アップグレード、パッチ適用、バックアップ、監視など、  
+ほとんどのデータベース管理機能をユーザーの介入なしで処理する、完全に管理された PaaS データベースエンジンです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 下位リソース
+
+-   [**MssqlDatabase**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlDatabase)
 
 ### 接続リソース
 
--   [**Log Analytics Workspace**](https://docs.cstudio.app/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
--   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
+-   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+
+---
 
 ## リソース設定値
 
--   `version` : 使用する Microsoft SQL サーバーのバージョン - `2.0`, `12.0`
+#### 基本設定
 
--   `admin_username` : サーバーの管理者ユーザー名
+-   `version` : 使用する Microsoft SQL Server のバージョン - `2.0`, `12.0`
+-   `admin_username` : サーバーの管理者ユーザー名。英数字のみ使用可能、英字で開始する必要があり、予約語は使用不可
+-   `admin_password` : サーバー管理者のログインパスワード。小文字／大文字／数字／特殊文字のうち 3 種類以上を含める必要があり、ログイン名に含まれる 3 文字以上の連続した英数字は使用不可、`8` ～ `128` 文字
+-   `minimum_tls_version` : サーバーでサポートされる最小 TLS バージョン - `1.2`, `Disabled`
+-   `public_network_access_enabled` : サーバーへのパブリックネットワークアクセスを許可するかどうか - `true`, `false`
 
--   `admin_password` : サーバーの管理者ログインパスワード
+#### ファイアウォールルール（`firewall_rule`）
 
--   `minimum_tls_version` : サーバーにサポートされる最小 TLS バージョン - `1.0`, `1.1`, `1.2`
+-   `firewall_rule.start_ip_address` : ファイアウォールルールに関連付けられた開始 IP アドレス
+-   `firewall_rule.end_ip_address` : ファイアウォールルールに関連付けられた終了 IP アドレス
 
--   `public_network_access_enabled` : サーバーへのパブリック ネットワークへのアクセスを許許容 - `true`, `false`
+#### セキュリティ警告ポリシー（`security_alert_policy`）
 
--   `firewall_rule`
+-   `security_alert_policy.alert_policy_state` : 適用するポリシーの有効化状態 - `Enabled`, `Disabled`
+-   `security_alert_policy.disabled_alerts` : 無効化するセキュリティ警告の一覧
+-   `security_alert_policy.alert_retention_days` : 脅威検出監査ログの保持日数 - `0` ～ `3265`
+-   `security_alert_policy.alert_email_account_admins` : 管理者アカウントへセキュリティ警告メールを送信するかどうか - `true`, `false`
+-   `security_alert_policy.alert_email_addresses` : セキュリティ警告を受信するメールアドレスの一覧
 
-    -   `start_ip_address` : Firewall Rule に接続された開始 IP アドレス
-    -   `end_ip_address` : Firewall Rule に接続された終了 IP アドレス
+#### 監査ポリシー（`auditing_policy`）
 
--   `security_alert_policy`
+-   `auditing_policy.enable_storage_destination` : Storage アカウントへの監査ログ保存を有効にするかどうか - `true`, `false`
+-   `auditing_policy.linked_storage_account_name` : 使用する Storage アカウント名
+-   `auditing_policy.storage_access_key_is_second` : 監査に使用するアクセスキーとしてセカンダリキーを有効化するかどうか - `true`, `false`
+-   `auditing_policy.storage_retention_days` : Storage アカウントにおけるログ保持日数
+-   `auditing_policy.enable_log_analytics_destination` : Log Analytics Workspace への監査ログ送信を有効化するかどうか - `true`, `false`
+-   `auditing_policy.linked_log_analytics_workspace_name` : 監査に使用する Log Analytics Workspace 名
+-   `auditing_policy.log_analytics_diagnostic_setting_name` : Log Analytics の診断設定名
 
-    -   `alert_policy_state` : 適用されるポリシーのアクティベーション状態
-    -   `disabled_alerts` : 無効にするセキュリティ警告のリスト - `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`
-    -   `alert_retention_days` : 脅威検出監査ログの保管日数 - `0` ~ `3265`
-    -   `alert_email_account_admins` : 電子メールへの警告の送信を有効にする - `true` , `false`
-    -   `alert_email_addresses` : セキュリティ警告を受ける電子メールアドレスのリスト
+#### タグ
 
--   `auditing_policy`
-
-    -   `enable_storage_destination` : Storage アカウント活性化の可否 - `true` , `false`
-    -   `enable_log_analytics_destination` : Log analytics 活性化の可否 - `true` , `false`
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Mssql(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/sql-database-paas-overview?view=azuresql)
--   [Azure Mssql 価格](https://azure.microsoft.com/ko-kr/pricing/details/azure-sql-database/single/)
--   [Azure Mssql(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server)
+-   [Azure SQL Database（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/)
+-   [Azure SQL セキュリティ警告ポリシー（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/security-overview)
+-   [Azure SQL 監査（Auditing）（Microsoft）](https://learn.microsoft.com/ko-kr/azure/azure-sql/database/auditing-overview)

@@ -1,0 +1,105 @@
+---
+title: Job
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Batch, Job]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource, die zur Ausführung einmaliger Aufgaben verwendet wird.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ziele
+
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die Job-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Metadaten für das Kubernetes-System
+-   `labels` : Benutzerdefinierte Key-Value-Paare zur Objektidentifikation
+-   `enable_manual_selector` : Verwendung eines manuellen Selektors – `true`, `false`
+-   `template_labels` : Labels, die auf Pods angewendet werden
+-   `restart_policy` : Verhalten beim Container-Ende – `Never`, `OnFailure`
+-   `backoff_limit` : Anzahl der Wiederholungsversuche vor Fehlschlag
+-   `wait_for_completion` : Blockiert Erstellung/Aktualisierung bis Abschluss – `true`, `false`
+-   `dns_policy` : DNS-Richtlinie – `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Aktivierung von Service-Links – `true`, `false`
+-   `host_network` : Verwendung des Host-Netzwerks – `true`, `false`
+-   `image_pull_secrets` : Liste der Secrets für den Image-Pull
+
+#### Zeitüberschreitungen (`timeouts`)
+
+-   `timeouts.create` : Wartezeit von Erstellung bis Abschluss des Jobs
+-   `timeouts.update` : Wartezeit von Aktualisierung bis Abschluss des Jobs
+
+#### Pod-Sicherheitskontext (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : Benutzer-UID für Container-Ausführung
+-   `pod_security_context.run_as_group` : Gruppen-GID für Container-Ausführung
+-   `pod_security_context.run_as_non_root` : Ausführung als Non-Root – `true`, `false`
+-   `pod_security_context.se_linux_options_user` : SELinux-Benutzer
+-   `pod_security_context.se_linux_options_role` : SELinux-Rolle
+-   `pod_security_context.se_linux_options_type` : SELinux-Typ
+-   `pod_security_context.se_linux_options_level` : SELinux-Level
+
+#### Initialisierungs-Container (`init_containers`)
+
+-   `init_containers.image` : Container-Image
+-   `init_containers.args` : Argumentliste
+-   `init_containers.command` : Auszuführender Befehl
+-   `init_containers.env` : Umgebungsvariablen
+-   `init_containers.env_from` : Umgebungsvariablen aus ConfigMap oder Secret
+-   `init_containers.resources` : CPU- und Speicherlimits/-anforderungen
+-   `init_containers.probe` : Statusprüfungs-Probe
+-   `init_containers.port` : Container-Port
+-   `init_containers.volume_mount` : Volume-Mount-Konfiguration
+
+#### Container (`containers`)
+
+-   `containers.image` : Container-Image
+-   `containers.args` : Argumentliste
+-   `containers.command` : Auszuführender Befehl
+-   `containers.env` : Umgebungsvariablen
+-   `containers.env_from` : Umgebungsvariablen aus ConfigMap oder Secret
+-   `containers.resources` : CPU- und Speicherlimits/-anforderungen
+-   `containers.probe` : Statusprüfungs-Probe
+-   `containers.port` : Container-Port
+-   `containers.volume_mount` : Volume-Mount-Konfiguration
+
+#### Volumes (`volume`)
+
+-   `volume.volume_type` : Volume-Typ – `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Name der Zielressource
+-   `volume.path` : Mount-Pfad
+-   `volume.default_mode` : Dateiberechtigungsmodus
+-   `volume.items` : Zuordnung von ConfigMap-Einträgen
+-   `volume.read_only` : Schreibgeschützt – `true`, `false`
+
+---
+
+## Referenzen
+
+-   [Übersicht zu Horizontal Pod Autoscaling(Kubernetes)](https://learn.microsoft.com/ko-kr/azure/app-service/overview)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service)

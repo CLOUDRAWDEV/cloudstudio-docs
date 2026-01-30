@@ -1,6 +1,6 @@
 ---
 title: OamSourceAccount
-sidebar_position: 0
+sidebar_position: 3
 tags: [AWS, 리소스, Cloudwatch, OamSourceAccount]
 ---
 
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Cloudwatch, OamSourceAccount]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.webp"
     }
 />
 
@@ -27,22 +27,21 @@ AWS CloudWatch Oam Source Accounts는 중앙 모니터링 계정과 공유될 �
 
 ### 연결 리소스
 
--   [**Oam Monitoring Account**](https://docs.cstudio.app/docs/resource/aws/Cloudwatch/OamMonitoringAccount)
+-   [**OamMonitoringAccount**](https://docs.cstudio.app/docs/resource/aws/CloudWatch/OamMonitoringAccount)
 
 ## 리소스 설정 값
 
--   `is_manual` : 연결할 Oam Source Account Arn를 직접 입력할지 여부 - `false`,`true`
--   `linked_oam_monitoring_account_name` : 연결할 Oam Monitoring Account 이름 
--   `resource_types` : 모니터링 계정과 공유하려는 데이터 유형
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
--   `label_template` : 소스 계정을 식별하는 데 도움이 되는 레이블
+#### 기본 설정
 
+-   `is_manual` : 연결할 Oam Source Account Arn를 직접 입력할지 여부 - `true`, `false`
+-   `linked_oam_monitoring_account_name` : 연결할 Oam Monitoring Account 이름
+-   `oam_monitoring_account_arn` : 데이터를 공유할 모니터링 계정의 Arn
+-   `resource_types` : 모니터링 계정과 공유하려는 데이터 유형 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+-   `label_template` : 소스 계정을 식별하는 데 도움이 되는 레이블 - `$AccountName`, `$AccountEmail`, `$AccountEmailNoDomain`
 
+#### 태그
 
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 
@@ -50,4 +49,3 @@ AWS CloudWatch Oam Source Accounts는 중앙 모니터링 계정과 공유될 �
 
 -   [Amazon CloudWatch OamMonitoringAccount(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureSourceAccount)
 -   [Amazon CloudWatch OamMonitoringAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
-

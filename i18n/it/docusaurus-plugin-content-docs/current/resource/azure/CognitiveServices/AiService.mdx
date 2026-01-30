@@ -1,0 +1,80 @@
+---
+title: AiService
+sidebar_position: 1
+tags: [Azure, AiService, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## Icona della Risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-ai_service.webp"
+    }
+/>
+
+## Panoramica della Risorsa
+
+AI Service è un servizio che fornisce modelli di intelligenza artificiale e funzionalità di analisi tramite API, consentendo una facile integrazione delle funzionalità AI nelle applicazioni.  
+Offre un ambiente operativo sicuro e scalabile grazie al deployment dei modelli, ai metodi di autenticazione, al controllo dell’accesso alla rete e all’integrazione delle identità gestite.
+
+## Risorse Correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+## Valori di configurazione della risorsa
+
+-   `sku_name` : Livello di prezzo per l’utilizzo del servizio
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `local_authentication_enabled` : Abilitare l’autenticazione locale tramite API key – `true`, `false`
+
+-   `custom_subdomain_name` : Sottodominio personalizzato per autenticazione token ed endpoint
+
+-   `fqdns` : Elenco dei domini completamente qualificati (FQDN) consentiti
+
+### Identità Gestita (`identity`)
+
+-   `identity.identity_type` : Tipo di identità gestita
+
+    -   `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
+
+-   `identity.identity_ids` : Elenco degli ID delle identità assegnate dall’utente
+
+### Controllo Accesso di Rete (`network_acls`)
+
+-   `network_acls.default_action` : Politica predefinita – `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : IP o CIDR consentiti
+
+-   `outbound_network_access_restricted` : Limitare comunicazioni in uscita – `true`, `false`
+
+-   `public_network_access` : Accesso via Internet pubblico – `Enabled`, `Disabled`
+
+### Deployment del Modello (`deployment`)
+
+-   `deployment.model_name` : Nome del modello
+
+-   `deployment.model_version` : Versione del modello
+
+-   `deployment.sku_name` : Tipo di capacità assegnata
+
+    -   `Standard`, `DataZoneBatch`, `DataZoneStandard`, `DataZoneProvisionedManaged`,  
+        `GlobalBatch`, `GlobalProvisionedManaged`, `GlobalStandard`, `ProvisionedManaged`
+
+-   `deployment.version_upgrade_option` : Strategia di aggiornamento
+    -   `OnceCurrentVersionExpired`, `OnceNewDefaultVersionAvailable`, `NoAutoUpgrade`
+
+---
+
+## Riferimenti
+
+-   [Azure AI Services (Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/)
+-   [Prezzi Azure Cognitive Services](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+-   [Azure Cognitive Services Deployment (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_deployment)

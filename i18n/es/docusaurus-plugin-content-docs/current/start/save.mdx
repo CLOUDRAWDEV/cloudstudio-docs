@@ -1,0 +1,111 @@
+---
+title: Guardar
+sidebar_position: 7
+tags: [guardar, guardar, historial de versiones, gestión de versiones, guardar versión, empezar]
+last_update:
+    date: 02/01/2023
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import save01 from "../start/img/save01.png"
+import save02 from "../start/img/save02.png"
+import save03 from "../start/img/save03.png"
+import save04 from "../start/img/save04.png"
+import save05 from "../start/img/save05.png"
+import save06 from "../start/img/save06.png"
+
+<span className="theme-doc-version-badge badge badge--secondary">
+    last update: 2023.02.01
+</span>
+
+<hr />
+<br />
+
+## Guardar {#save}
+
+Existen `dos tipos` de guardar en el lienzo:
+
+-   [Guardar](#save)
+-   [Guardar versión](#version)
+
+Guardar consiste en `guardar el estado actual del lienzo`. Guardar en el lienzo es similar a guardar el proyecto.
+La imagen que aparece en la miniatura del proyecto es la imagen del lienzo después de guardarlo.
+
+<div className={styles.imgWrap}>
+    <img src={save05} width="300px" alt="Imagen de guardar" />
+</div>
+
+<br />
+
+El proceso para guardar es simple. Haga clic en `Archivo > Guardar`.
+
+<div className={styles.imgWrap}>
+    <img src={save01} width="200px" alt="Imagen de guardar" />
+</div>
+
+<p>&nbsp;</p>
+
+:::caution
+
+Si quedan 🔴 errores en el lienzo, solo se guardará la imagen. Asegúrese de resolver todos los errores antes de proceder a guardar. Puede consultar cómo solucionar errores [aquí](/docs/start/edit-canvas).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Guardar versión e historial de versiones {#version}
+
+Guardar versión es una `acción para regresar a un punto específico en el tiempo` en el lienzo. Al guardar una versión, se podrá regresar al estado del lienzo en el punto deseado a través del historial de versiones.
+
+### Guardar versión {#version-save}
+
+1. Para guardar una versión, haga clic en `Gestión de versiones > Guardar versión`.
+
+<div className={styles.imgWrap}>
+    <img src={save02} width="200px" alt="Imagen de guardar versión" />
+</div>
+
+<br />
+
+2. Ingrese un `mensaje de etiqueta`. El mensaje de etiqueta ingresado aparecerá como el `título de la versión` en el historial de versiones.
+
+<div className={styles.imgWrap}>
+    <img src={save03} alt="Imagen de guardar versión" />
+</div>
+
+<br />
+
+3. Haga clic en `Guardar`.
+
+<p>&nbsp;</p>
+
+### Historial de versiones {#version-history}
+
+1. Para ver el historial de versiones, haga clic en `Gestión de versiones > Historial de versiones`.
+
+<div className={styles.imgWrap}>
+    <img src={save06} width="200px" alt="Imagen de historial de versiones" />
+</div>
+
+<br />
+
+2. Verá los diferentes puntos guardados en el historial de versiones.
+
+:::note
+
+-   <highlight color="#206FD6">Último</highlight>: El registro más 
+    reciente guardado.
+-   <highlight color="#AD28DC">Manual</highlight>: El historial de las versiones guardadas manualmente.
+-   <highlight color="#02CDE8">Planificado</highlight>: Historial de pruebas previas al despliegue.
+-   <highlight color="#5C4AF6">Aplicado</highlight>: Historial de versiones desplegadas con éxito.
+
+:::
+
+<br />
+
+3. Haga clic en el lienzo que desea restaurar para regresar a esa versión.
+
+<div className={styles.imgWrap}>
+    <img src={save04} alt="Imagen de historial de versiones" />
+</div>

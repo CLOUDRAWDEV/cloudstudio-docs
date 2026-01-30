@@ -1,6 +1,6 @@
 ---
 title: Pod
-sidebar_position: 0
+sidebar_position: 4
 tags: [Kubernetes, リソース, Core, Pod]
 ---
 
@@ -11,76 +11,44 @@ tags: [Kubernetes, リソース, Core, Pod]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-pod.webp"
     }
 />
 
 ## リソース概要
 
-1 つ以上のコンテナを一緒に実行する最小のデプロイ単位のクバネティス サービスです。
+1 つ以上のコンテナをまとめて実行する、最小単位の Kubernetes デプロイメント。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
 -   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Secret)
 -   [**Service**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Autoscaling/HorizontalPodAutoscaler)
+
+---
 
 ## リソース設定値
 
--   `service_name` : Pod リソース名
--   `namespace` : Pod リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `containers` : ファードに属するコンテナのテンプレートを定義
+#### 基本設定
 
-    -   `containers.name` : コンテナの名前を定義
-
-        -   `image` : 使用する Docker イメージ名
-        -   `args` : コンテナ内で実行されるコマンド
-        -   `command` : コンテナ内で実行されるコマンド
-        -   `port` : コンテナから露出するポートのリスト
-
-        -   `resources` : コンテナのコンピューティング リソースの量を指定
-
-            -   `resources.name` : 最小/最大コンピューティングリソースの量を指定 - `Limits`, `requests`
-            -   `resources.cpu` : cpu(m)の量を指定
-            -   `resources.memory` : メモリ(Mi)の量を指定
-
-        -   `probe` : Pod の状態を診断する方法の定義
-
-            -   `probe.name` : Probe 方法を選択 - `startup`,`liveness`,`readiness`
-            -   `probe.http_get_path` : HTTP サーバーにアクセスするためのパス
-            -   `probe.http_get_port` : コンテナからアクセスするポート番号
-            -   `probe.http_header` : リクエストに設定するカスタム ヘッダー
-            -   `probe.initial_delay_seconds` : コンテナが始まってからプローブが始まるまでの時間(秒)
-            -   `probe.period_seconds` : プローブを行う頻度(秒)
-
-        -   `env` : コンテナ環境に設定する key-value ペアのブロック
-
-            -   `env.name` : env 変数名
-            -   `env.value` : env 変数で設定する値
-
-        -   `volume_mount` : コンテナのファイルシステムにマウントするファッドボリューム
-            -   `volume_mount.name` : ボリュームマウント名の設定
-            -   `volume_mount.path`
-                -   `volume_mount.path.mount_path` : ボリュームをマウントする必要があるコンテナ内のパス
-                -   `volume_mount.path.sub_path` : ボリュームをマウントする必要があるコンテナ内のパス
-
--   `volume` : ファッドに属するコンテナが搭載できるボリュームのリスト
-
-    -   `volume.name` : volume 名
-        -   `volume.type` : マウントするボリュームのタイプ - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `volume.target_name` : 永久ボリュームクレームの名前
-        -   `volume.default_mode` : 生成されたファイルに使用するモード - 0 ~ 0777 の間、デフォルトは 0644
-        -   `volume.read_only` : true の場合は読み取り専用にマウントされ、そうでない場合は読み取り/書き込みが可能
-
--   `image_pull_secrets` : Container で使用するイメージを取得するために必要な権限が含まれた同じネームスペースにある Secret
+-   `namespace` : Pod を配置する Namespace
+-   `annotations` : Kubernetes システムメタデータ
+-   `labels` : Pod 識別・分類用ラベル
+-   `pod_security_context` : Pod 単位セキュリティ設定
+-   `init_containers` : 初期化コンテナ定義
+-   `containers` : 実行コンテナ仕様
+-   `volume` : 使用するボリューム
+-   `dns_policy` : DNS ポリシー
+-   `enable_service_links` : Service 環境変数自動注入 여부
+-   `host_network` : ホストネットワーク使用 여부
+-   `image_pull_secrets` : Image Pull 用 Secret
 
 ---
 

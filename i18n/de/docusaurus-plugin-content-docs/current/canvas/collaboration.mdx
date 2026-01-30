@@ -1,0 +1,103 @@
+---
+title: Kooperation
+sidebar_position: 7
+tags: [collaboration, Kooperation, Berechtigungen, Kontrollrechte, Canvas]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import collaboration01 from "./img/collaboration01.png"
+import collaboration02 from "./img/gif/collaboration02.gif"
+import collaboration03 from "./img/gif/collaboration03.gif"
+
+<hr />
+<br />
+
+CloudStudio bietet die Möglichkeit, Mitglieder zu einem Projekt hinzuzufügen und gemeinsam an diesem zu arbeiten.
+Um zusammenzuarbeiten, müssen Sie zunächst ein Projekt erstellen. Informationen zur Projekterstellung finden Sie hier.
+Das Mitglied, das das Projekt erstellt, erhält die `Master`-Berechtigung für das Projekt und kann das Arbeitsumfeld mit eingeladenen Mitgliedern teilen sowie Änderungen am Projekt vornehmen.
+
+## Mitglieder hinzufügen und löschen
+
+### Mitglied hinzufügen
+
+<div className={styles.imgWrap}>
+    <img src={collaboration02} width="800px" alt="Bild" />
+</div>
+
+<br />
+
+1. `Klicken Sie auf das Projekt`, an dem Sie zusammenarbeiten möchten.
+2. Klicken Sie auf das `Benutzersymbol`.
+3. Ein Modal für die Projektmitglieder wird angezeigt. `Suchen Sie nach der ID` des Mitglieds, das Sie hinzufügen möchten.
+4. Weisen Sie dem gefundenen Benutzer `Berechtigungen` zu und klicken Sie auf die Schaltfläche Zur `Liste hinzufügen`. (Mehrere Mitglieder können gleichzeitig hinzugefügt werden.)
+5. Nachdem Sie alle gewünschten Mitglieder hinzugefügt haben, klicken Sie auf die Schaltfläche `Mitglieder hinzufügen`.
+6. Klicken Sie auf `Schließen`. (Nachdem Sie ein Mitglied hinzugefügt haben, wird es automatisch zum Projekt eingeladen. Eine Einladung wird per E-Mail an das eingeladene Mitglied gesendet.)
+
+<br />
+
+### Mitglied löschen
+
+<div className={styles.imgWrap}>
+    <img src={collaboration03} alt="Bild" />
+</div>
+
+<br />
+
+1. Klicken Sie auf das `Projekt`, an dem Sie zusammenarbeiten möchten.
+2. Klicken Sie auf den `Pfeil` zur Detailansicht des Mitglieds.
+3. Klicken Sie auf das `Mehr Icon` in den Einstellungen.
+4. Klicken Sie auf `Löschen`.
+
+<br />
+
+### Projektberechtigungen
+
+| Projektberechtigungen | Inhalt                                                                                                                                                                                 |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| master                | Die Person, die das Projekt erstellt hat, kann alle Aufgaben wie das Lesen, Bearbeiten, Löschen, Importieren, Bereitstellen des Projekts und das Einladen von Mitgliedern durchführen. |
+| admin                 | Es ist möglich, das Projekt zu lesen, zu bearbeiten, zu importieren und bereitzustellen, aber das Löschen des Projekts ist nicht erlaubt.                                              |
+| editor                | Das Projekt kann gelesen und bearbeitet werden, aber alle anderen Aufgaben sind nicht möglich.                                                                                         |
+| viewer                | Nur das Lesen des Projekts ist erlaubt.                                                                                                                                                |
+
+<br />
+
+## Zusammenarbeit
+
+1. Wenn der Master Mitglieder zum Projekt hinzufügt, wird eine Einladung per E-Mail an die Mitglieder gesendet und das Projekt erscheint im `Geteilte Ordner`-Bereich von CloudStudio.
+2. Klicken Sie auf das geteilte Projekt und dann auf die Schaltfläche `Projekt bearbeiten`, um mit der Zusammenarbeit zu beginnen.
+3. Nun können Sie mit Ihrem Team die Canvas frei bearbeiten.
+
+<br />
+
+### Canvas Steuerung
+
+Um die Canvas zu bearbeiten, wird zusätzlich zur Projektberechtigung die `Canvas Steuerung` benötigt.
+Grundsätzlich kann nur `ein Benutzer` die Canvas bearbeiten, und zu Beginn wird die `Canvas Steuerung dem Master`, der das Projekt erstellt hat, zugewiesen.
+Der Master kann die Canvas Steuerung an ein gewünschtes Mitglied übertragen.
+
+<p />
+
+Mitglieder, die keine Kontrolle über die Leinwand haben, können eine <highlight color="#206FD6">Kontrollanfrage</highlight>-Nachricht an das Mitglied senden, das aktuell die Kontrolle hat. Wenn der andere Benutzer die Anfrage akzeptiert, erhält der Benutzer die Canvas Steuerung.
+
+<admonition>
+    <p>
+        Der Master kann die Steuerung bei einer Anfrage sofort übernehmen,
+        unabhängig vom Wunsch des anderen Benutzers.
+    </p>
+</admonition>
+
+<p />
+
+Die Canvas-Steuerung wird automatisch an den verbleibenden Benutzer übertragen, wenn der Master das Projekt verlässt
+Dabei wird die Steuerung in der Reihenfolge `Master → Admin → Editor` übertragen. (Viewer haben keine Bearbeitungsrechte, daher sind sie ausgeschlossen.)
+
+<br />
+
+`Folgen Sie bitte den nachstehenden Schritten`, um die Canvas Steuerung zu übertragen.
+
+1. Klicken Sie mit der rechten Maustaste auf das Profil des Mitglieds, dem Sie die Steuerung übertragen möchten.
+2. Klicken Sie auf `Steuerung übertragen`.
+
+<div className={styles.imgWrap}>
+    <img src={collaboration01} alt="Bild der Steuerungsübertragung" />
+</div>

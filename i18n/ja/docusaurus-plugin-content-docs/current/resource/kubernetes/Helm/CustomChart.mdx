@@ -11,30 +11,31 @@ tags: [Kubernetes, リソース, Helm, CustomChart]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-custom_chart.webp"
     }
 />
 
 ## リソース概要
 
-デフォルトのヘルムチャートをユーザーが希望する値に設定して配布できるリソースです。
+既存の Helm チャートをユーザー指定の値で設定し、デプロイできるリソースです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
+-   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+---
 
 ## リソース設定値
 
--   `service_name` : Helm Custom Chart リリース名
--   `namespace` : カスタム Helm Chart リソースがデプロイされるネームスペース
--   `repository` : ヘルムチャートを保存および共有するためのリポジトリ(カスタムするチャートが保存されているリポジトリを指定)
--   `chart` : カスタムするヘルムチャート名を指定
--   `version` : カスタムするヘルム チャートのバージョンを指定
--   `set` : デフォルトのチャートの値を動的に変更
+#### 基本設定
+
+-   `namespace` : Custom Helm Chart リソースをデプロイする Namespace
+-   `repository` : Helm Chart が保存されているリポジトリ URL
+-   `chart` : Helm Chart 名
+-   `version` : Helm Chart バージョン
+-   `set` : Chart の値を動的に変更する key-value 設定
 
 ---
 

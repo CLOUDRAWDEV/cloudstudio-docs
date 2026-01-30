@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Cluster
+title: KubernetesCluster
 sidebar_position: 0
 tags: [Ncloud, リソース, Containers, KubernetesCluster]
 ---
@@ -11,49 +11,59 @@ tags: [Ncloud, リソース, Containers, KubernetesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/containers-kubernetes_cluster.webp"
     }
 />
 
 ## リソース概要
 
-アプリケーションのコンテナ化、デプロイ、管理を自動化するオープンソースプラットフォームであるクバネティスサービスです。
-コンテナのデプロイ、管理、拡張など、コンテナを使用するために必要な作業を自動化し、業務効率を高めます。
+アプリケーションのコンテナ化・デプロイ・管理を自動化するオープンソースプラットフォームである Kubernetes サービスです。  
+コンテナのデプロイ、管理、スケーリングなどを自動化し、業務効率を向上させます。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
 
-### 下位リソース
-
--   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
--   [**LoadBalancer**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/LoadBalancer)
+---
 
 ## リソース設定値
 
--   `zone` : クラスターを生成する物理的地域 - `KR-1`, `KR-2`
--   `included_vpc_name` : クラスターを生成する VPC 名
--   `hypervisor_code` : ハイパーバイザーコードクラスターバージョン - `XEN`
--   `version` : クラスターバージョン - `1.26.10-nks.1`, `1.27.9-nks.1`
--   `maximum_number_of_nodes` : クラスターの最大 Node 数の設定、10 または 50
--   `enable_public_subnet_network` : パブリックサブネットと接続するかどうかの可否
--   `subnet_names` : クラスターを構成するサブネット名のリスト、最大 3 つ
--   `lb_private_subnet_name` : クラスターと連動するプライベート ロード バランサーが位置するプライベート サブネット名
--   `lb_public_subnet_name` : クラスターと連動するパブリック ロード バランサーが位置するパブリック サブネット名
--   `login_key_name` : 使用する Login key の名前
--   `enable_audit_log` : audit log 機能を使用しているかどうかの可否
--   `node_pool` : Node pool 名
-    -   `node_count` : クラスターの Node 数
-    -   `software_code` : Node のサーバーイメージコード
-    -   `product_code` : Node のハードウェア構成用のコード
-    -   `node_pool_subnet_name` : Node pool が作成されるサブネット名
--   `enable_autoscale` : オートスケール機能が使用されているかどうかの可否
+#### 基本設定
+
+-   `zone` : クラスターを作成する物理リージョン - `KR-1`, `KR-2`
+-   `included_vpc_name` : クラスターを作成する VPC 名
+-   `hypervisor_code` : ハイパーバイザーコード - `XEN`
+-   `version` : クラスターバージョン
+-   `maximum_number_of_nodes` : クラスターの最大ノード数 - `10`, `50`
+-   `enable_public_subnet_network` : パブリックサブネット接続可否 - `true`, `false`
+-   `subnet_names` : クラスターを構成するサブネット名一覧（最大 3）
+-   `lb_private_subnet_name` : ロードバランサー用プライベートサブネット名
+-   `lb_public_subnet_name` : ロードバランサー用パブリックサブネット名
+-   `login_key_name` : 使用する Login Key 名
+-   `enable_audit_log` : Audit Log 機能使用可否 - `true`, `false`
+
+#### ノードプール (`node_pool`)
+
+-   `node_pool.node_count` : ノード数 - `1` ~ `10`
+-   `node_pool.software_code` : ノード OS イメージコード
+-   `node_pool.product_code` : ノードハードウェア構成コード
+-   `node_pool.node_pool_subnet_names` : ノードプール用サブネット名
+-   `node_pool.enable_autoscale` : オートスケール使用可否 - `true`, `false`
+-   `node_pool.min_value` : 最小ノード数
+-   `node_pool.max_value` : 最大ノード数
+-   `node_pool.label` : ノードプールラベル
+
+#### ノード Taint 設定 (`node_pool.taint`)
+
+-   `node_pool.taint.taint_effect` : Taint 効果 - `NoSchedule`, `PreferNoSchedule`, `NoExecute`
+-   `node_pool.taint.taint_key` : Taint Key
+-   `node_pool.taint.taint_value` : Taint Value
 
 ---
 
 ## 参考資料
 
--   [Kubernetes Service(Ncloud)](https://www.ncloud.com/product/containers/kubernetes)
--   [ncloud_nks_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)
+-   [Kubernetes Service(Ncloud)](https://www.ncloud.com/v2/product/containers/nks)
+-   [Kubernetes Cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

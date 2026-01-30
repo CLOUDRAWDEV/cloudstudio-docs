@@ -1,0 +1,60 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, リソース, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## リソース概要
+
+PostgreSQL は **オープンソースのリレーショナルデータベース（RDBMS）** であり、  
+Ncloud では高可用性（HA）、自動バックアップ、暗号化ストレージ機能を備えた  
+フルマネージド型 Database サービスとして提供されます。  
+複雑なインフラ構成なしで、簡単に PostgreSQL 環境を構築できます。
+
+## 関連リソース
+
+### 親リソース
+
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `server_name_prefix` : PostgreSQL サーバー名（英小文字／数字／ハイフン使用可、英小文字で開始、英小文字または数字で終了、3〜30文字）
+-   `included_vpc_name` : PostgreSQL が属する VPC 名
+-   `included_subnet_name` : PostgreSQL が属する Subnet 名
+-   `enable_high_availability` : 高可用性機能使用可否 - `true`, `false`
+-   `user_name` : PostgreSQL ユーザー ID
+-   `user_password` : PostgreSQL ユーザーパスワード
+-   `image_product_code` : PostgreSQL サーバーイメージ製品コード
+-   `product_code` : PostgreSQL インスタンスサーバー仕様製品コード
+-   `data_storage_type` : データストレージタイプ - `SSD`, `HDD`
+-   `is_backup` : バックアップ使用可否 - `true`, `false`
+-   `backup_file_retention_period` : バックアップ保持期間（日単位） - `1` ~ `30`
+-   `enable_automatic_backup` : 自動バックアップ使用可否 - `true`, `false`
+-   `backup_time` : ユーザー指定バックアップ時間
+-   `port` : PostgreSQL 接続ポート番号
+-   `client_cidr` : クライアント IP アドレス範囲
+-   `database_name` : 初期データベース名
+-   `enable_storage_encryption` : ストレージ暗号化使用可否 - `true`, `false`
+
+---
+
+## 参考資料
+
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

@@ -1,7 +1,7 @@
 ---
 title: KeyVault
 sidebar_position: 0
-tags: [Azure, 리소스, KeyVault, KeyVault]
+tags: [Azure, KeyVault, Security, KeyManagement]
 ---
 
 <hr />
@@ -11,73 +11,83 @@ tags: [Azure, 리소스, KeyVault, KeyVault]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/key_vault-key_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/key_vault-key_vault.webp"
     }
 />
 
 ## 리소스 개요
 
-Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 클라우드 서비스입니다.
-비밀은 API 키, 암호, 인증서 또는 암호화 키 등에 대한 액세스를 엄격하게 제어하려는 항목입니다. Key Vault 서비스는 자격 증명 모음 및 관리되는 HSM(하드웨어 보안 모듈) 풀이라는 두 가지 유형의 컨테이너를 지원합니다.
-자격 증명 모음은 소프트웨어 및 HSM 지원 키, 암호 및 인증서를 저장하도록 지원합니다. 관리형 HSM 풀은 HSM 지원 키만 지원합니다.
+Azure Key Vault는 암호, 키, 인증서 같은 중요한 정보를 안전하게 저장하고 제어된 방식으로 액세스할 수 있도록 제공하는 클라우드 보안 서비스입니다.
 
 ## 연관 리소스
 
 ### 상위 리소스
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**PrivateEndpoint**](https://docs.cstudio.app/docs/resource/azure/Network/PrivateEndpoint)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `sku_name` : Key Vault의 규모 및 기능 선택을 위한 가격 책정 계층 - `standard`, `premium`
-
--   `enabled_for_disk_encryption` : Azure Disk Encryption이 Vault 및 래핑 해제 키에서 비밀을 검색할 수 있도록 허용 - `true`, `false`
-
--   `soft_delete_retention_days` : 삭제된 항목 보존 일 수, 7 ~ 90의 범위 - `7` ~ `90`
-
+-   `enabled_for_disk_encryption` : Azure Disk Encryption이 Vault에서 secrets 및 키를 검색할 수 있도록 허용 - `true`, `false`
+-   `soft_delete_retention_days` : 삭제된 항목 보존 일 수 - `7` ~ `90`
 -   `purge_protection_enabled` : 데이터 손실을 방지하기 위한 제거 보호 활성화 - `true`, `false`
 
--   `network_acl_bypass` : 신뢰할 수 있는 서비스가 방화벽을 바이패스하도록 허용 - `AzureServices`, `None`
+#### 네트워크 접근 제어 (`network_acl`)
 
--   `network_acl_action` : 설정한 IP Rules과 일치하는 규칙이 없는 경우의 동작 - `Deny`, `Allow`
+-   `network_acl_bypass` : 신뢰할 수 있는 서비스의 방화벽 바이패스 허용 여부 - `AzureServices`, `None`
+-   `network_acl_action` : IP 규칙과 일치하지 않을 경우 기본 동작 - `Deny`, `Allow`
+-   `network_acl_ip_rules` : Key Vault에 접근 가능한 IP 주소 또는 CIDR 목록
 
--   `network_acl_ip_rules` : Key Vault에 접근하기 위한 IP 주소 및 CIDR
+#### 접근 정책 (`access_policies`)
 
--   `access_policies`
+-   `access_policies.object_id` : Vault 접근 주체를 식별하기 위한 객체 ID
+-   `access_policies.key_permissions` : Key에 대한 권한 목록
+-   `access_policies.secret_permissions` : Secret에 대한 권한 목록
+-   `access_policies.certificate_permissions` : Certificate에 대한 권한 목록
 
-    -   `object_id` : 사용자의 개체 ID를 통해 Vault 사용을 위한 주체 선택
-    -   `key_permissions` : Key 권한 리스트
-    -   `secret_permissions` : Secret 권한 리스트
-    -   `certificate_permissions` : Key certificate 리스트
+#### Key Vault Secret (`key_vault_secret`)
 
--   `key_vault_secret`
+-   `key_vault_secret.secret_value` : Key Vault 암호의 값
+-   `key_vault_secret.content_type` : Secret의 내용 유형
+-   `key_vault_secret.enabled_activation_date` : Secret 활성화 여부 - `true`, `false`
+-   `key_vault_secret.activation_date` : Secret 활성화 UTC 날짜 시간
+-   `key_vault_secret.enabled_expiration_date` : Secret 만료 여부 - `true`, `false`
+-   `key_vault_secret.expiration_date` : Secret 만료 UTC 날짜 시간
 
-    -   `name` : Key Vault Secret 이름
-    -   `expiration_date` : Secret 만료 UTC 날짜 시간
+#### Key Vault Key (`key_vault_key`)
 
--   `key_vault_key`
+-   `key_vault_key.type` : Key 타입 - `RSA`, `RSA-HSM`, `EC`, `EC-HSM`
+-   `key_vault_key.rsa_key_size` : RSA Key 사이즈 - `2048`, `3072`, `4096`
+-   `key_vault_key.elliptic_curve` : EC Key 타입의 Curve 값
+-   `key_vault_key.permitted_operations` : 허용되는 JSON Web Key 작업 목록
+-   `key_vault_key.enabled_activation_date` : Key 활성화 여부 - `true`, `false`
+-   `key_vault_key.activation_date` : Key 활성화 UTC 날짜 시간
+-   `key_vault_key.enabled_expiration_date` : Key 만료 여부 - `true`, `false`
+-   `key_vault_key.expiration_date` : Key 만료 UTC 날짜 시간
 
-    -   `type` : Key Vault Key를 사용하기 위한 Key 타입 - `EC`, `EC-HSM`, `RSA`, `RSA-HSM`
-    -   `size` : Key 타입이 RSA인 경우 바이트 단위의 Key 사이즈 지정 - `2048`, `3072`, `4096`
-    -   `curve` : Key 타입이 EC인 경우 Curve 지정 - `P-256`, `P-256K`, `P-384`, `P-521`
-    -   `expiration_date` : Key 만료 UTC 날짜 시간
-    -   `opts` : 허용하는 JSON web key operation 목록
+#### Key Vault Certificate (`key_vault_certificate`)
 
--   `key_vault_certificate`
+-   `key_vault_certificate.import_existing_certificate` : 기존 인증서 가져오기 여부 - `true`, `false`
+-   `key_vault_certificate.contents` : Base64 기반 인증서 내용
+-   `key_vault_certificate.password` : 인증서 암호
+-   `key_vault_certificate.issuer_name` : 인증서 발행자 이름 - `Self`, `Unknown`
+-   `key_vault_certificate.subject` : X.500 고유 이름
+-   `key_vault_certificate.validity_period_in_months` : 인증서 유효 기간(월 단위)
+-   `key_vault_certificate.content_type` : 인증서 컨텐츠 타입
+-   `key_vault_certificate.enabled_export` : 인증서 내보내기 허용 여부 - `true`, `false`
+-   `key_vault_certificate.enabled_reuse_key` : Key 재사용 여부 - `true`, `false`
+-   `key_vault_certificate.key_usage` : Key 사용 플래그 목록
+-   `key_vault_certificate.key_type` : 인증서에 사용할 Key 타입
+-   `key_vault_certificate.rsa_key_size` : RSA Key 사이즈
+-   `key_vault_certificate.elliptic_curve` : EC Key Curve 타입
 
-    -   `import_existing_certificate` : 현재 있는 인증서 추가 여부 - `true`, `false`
-    -   `contents` : Base64 기반 인증서 내용
-    -   `password` : 인증서의 암호
-    -   `issuer_name` : Certificate 발행자 이름 - `Self`, `Unknown`
-    -   `enabled_export` : Key의 외부 저장 활성화 - `true`, `false`
-    -   `key_type` : Key 타입 - `RSA`, `EC`
-    -   `rsa_key_size` : Key 사이즈 지정, Key 타입이 RSA인 경우 - `2048/3072/4096`, Key 타입이 EC인 경우 - `256/384/521`
-    -   `curve` : Key 타입이 EC인 경우 Curve 지정 - `P-256`,`P-256K`,`P-384`,`P-521`
-    -   `enabled_reuse_key` : Key의 외부 저장 활성화 - `true`, `false`
-    -   `content_type` : Certificate의 컨텐츠 타입 - `application/x-pkcs12`, `application/x-pem-file`
-    -   `key_usage` : Key 사용 플래그 목록
-    -   `subject` : X.500의 고유 이름
-    -   `validity_in_months` : 인증서 월 단위 유효 기간 - `7` ~ `90`
+#### 태그
 
 -   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
 
@@ -85,6 +95,7 @@ Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 �
 
 ## 참고 자료
 
--   [Azure KeyVault(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
--   [Azure KeyVault 가격](https://azure.microsoft.com/en-us/pricing/details/key-vault/)
--   [Azure KeyVault(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
+-   [Azure Key Vault 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/overview)
+-   [Azure Key Vault 접근 정책(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/assign-access-policy)
+-   [Azure Key Vault 네트워크 보안(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/network-security)
+-   [Azure Key Vault 키, 시크릿, 인증서(Microsoft)](https://learn.microsoft.com/ko-kr/azure/key-vault/general/about-keys-secrets-certificates)

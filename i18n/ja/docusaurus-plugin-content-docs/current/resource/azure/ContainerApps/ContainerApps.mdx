@@ -1,0 +1,124 @@
+---
+title: ContainerApps
+sidebar_position: 0
+tags: [Azure, ContainerApps, Container, Serverless]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container_apps-container_apps.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Container Apps は、コンテナベースのアプリケーションをサーバーレス方式で実行できるマネージド実行環境です。  
+接続された Container Apps Environment を基盤として、リビジョン管理、初期化コンテナ、ストレージボリュームの接続、イングレス（外部アクセス）設定などを構成し、アプリケーションをデプロイおよび運用できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Container Apps Environment**](https://docs.cstudio.app/ja/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
+
+---
+
+## リソース設定値
+
+-   `included_container_apps_environment` : 接続された Container Apps Environment のリソース ID
+
+-   `revision_mode` : コンテナアプリのバージョン管理方式 - `Single`, `Multiple`
+
+-   `max_replicas` : オートスケーリング時に作成可能な最大コンテナインスタンス数 - `1` ~ `300`
+
+-   `min_replicas` : 常に維持する最小コンテナインスタンス数 - `1` ~ `300`
+
+### 初期化コンテナ設定（`init_container`）
+
+-   `init_container.args` : コンテナ起動時に渡される引数の一覧
+
+-   `init_container.command` : コンテナで実行するコマンド
+
+-   `init_container.cpu_memory` : コンテナに割り当てる CPU およびメモリリソース設定 - `CPU/Memory` 形式
+
+-   `init_container.image` : 初期化コンテナで使用するコンテナイメージ
+
+### ボリューム設定（`volume`）
+
+-   `volume.storage_type` : 接続するストレージの種類 - `AzureFile`, `EmptyDir`, `Secret`
+
+### コンテナ設定（`container`）
+
+-   `container.args` : コンテナ起動時に渡される引数の一覧
+
+-   `container.command` : コンテナで実行するコマンド
+
+-   `container.cpu_memory` : コンテナに割り当てる CPU およびメモリリソース設定 - `CPU/Memory` 形式
+
+-   `container.image` : コンテナで使用するコンテナイメージ
+
+#### Liveness Probe 設定（`container.liveness_probe`）
+
+-   `container.liveness_probe.failure_count_threshold` : プローブ失敗とみなす前に許容される連続失敗回数 - `1` ~ `30`
+
+-   `container.liveness_probe.enable_header` : カスタムヘッダーの有効化 여부 - `true`, `false`
+
+-   `container.liveness_probe.header` : 送信するカスタムヘッダー設定 - `header_name`:`header_value`
+
+-   `container.liveness_probe.host` : プローブリクエストを送信するホスト名
+
+-   `container.liveness_probe.initial_delay` : コンテナ起動後、最初のプローブまでの待機時間（秒） - `0` ~ `60`
+
+-   `container.liveness_probe.interval_seconds` : プローブ実行間隔（秒） - `1` ~ `240`
+
+-   `container.liveness_probe.path` : HTTP プローブリクエスト時に呼び出すパス
+
+-   `container.liveness_probe.port` : プローブリクエストを受信するコンテナのポート番号 - `1` ~ `65535`
+
+-   `container.liveness_probe.timeout` : 応答待機の最大時間（秒） - `1` ~ `240`
+
+-   `container.liveness_probe.transport` : プローブの通信プロトコル - `TCP`, `HTTP`, `HTTPS`
+
+#### ボリュームマウント設定（`container.volume_mounts`）
+
+-   `container.volume_mounts.target_volume_name` : マウントするボリューム名
+
+-   `container.volume_mounts.path` : コンテナ内でボリュームがマウントされるパス
+
+### イングレス設定（`ingress`）
+
+-   `ingress.enable_insecure_connections` : HTTP による安全でない接続を許可するかどうか - `true`, `false`
+
+-   `ingress.enable_external_connections` : コンテナアプリ外部からのアクセス可否 - `true`, `false`
+
+-   `ingress.transport` : コンテナアプリとの通信に使用するプロトコル - `auto`, `http`, `http2`, `tcp`
+
+#### IP 制限設定（`ingress.ip_security_restriction`）
+
+-   `ingress.ip_security_restriction.action` : 該当 IP 範囲に対する許可／拒否の設定 - `true`, `false`
+
+-   `ingress.ip_security_restriction.ip_address_range` : 適用する IP アドレス範囲
+
+-   `ingress.target_port` : コンテナ内部で受信するポート番号
+
+-   `ingress.exposed_port` : 外部に公開されるポート番号
+
+#### トラフィック分散設定（`ingress.traffic_weight`）
+
+-   `ingress.traffic_weight.enable_using_latest_revision` : 常に最新リビジョンへトラフィックをルーティングするかどうか - `true`, `false`
+
+-   `ingress.traffic_weight.revision_suffix` : リビジョンを識別するためのサフィックス
+
+-   `ingress.traffic_weight.percentage` : 該当リビジョンに割り当てられるトラフィックの割合
+
+---
+
+## 参考資料
+
+-   [Azure Container Apps（Microsoft）](https://learn.microsoft.com/ko-kr/azure/container-apps/)
+-   [Terraform azurerm_container_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app)

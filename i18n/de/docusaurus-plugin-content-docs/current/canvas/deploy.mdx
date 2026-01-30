@@ -1,0 +1,62 @@
+---
+title: Deployment-Management
+sidebar_position: 5
+tags: [deploy, Deployment-Prüfung, Deployment, Prüfbericht, Anmeldeinformationen, Loslegen]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import deploy01 from "/docs/start/img/deploy01.png"
+import deploy02 from "/docs/start/img/deploy02.png"
+import deploy03 from "/docs/start/img/deploy03.png"
+
+<hr />
+<br />
+
+Cloud Studio bietet nicht nur eine visuelle Infrastrukturarchitektur, sondern ermöglicht es auch, die auf der Leinwand gezeichnete Infrastruktur auf einem CSP zu deployen. <br /> Auf diese Weise können Benutzer die Cloud-Infrastruktur problemlos erstellen.
+
+<p>&nbsp;</p>
+
+## Deploymentprüfung {#deploy-test}
+
+Dies ist der Schritt zur virtuellen Überprüfung von Syntaxfehlern oder ob die Konfiguration korrekt ist. Es wird nicht tatsächlich auf dem CSP bereitgestellt.
+
+1. Um einen Deployment-Test durchzuführen, klicken Sie auf `Deployment-Management > Validierung`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy03} width="200px" alt="Deploymentbild" />
+</div>
+
+<br />
+
+2. Klicken Sie im linken Menü auf die Schaltfläche `Validierung durchführen`.
+3. Wählen Sie `Anmeldeinformationen` aus.
+4. Klicken Sie auf die Schaltfläche `Validierung durchführen`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy02} alt="Deploymentbild" />
+</div>
+
+<p>&nbsp;</p>
+
+:::info
+
+Vor dem Durchführen des Deployment-Tests müssen die `Anmeldeinformationen` zwingend registriert werden. Anweisungen zum Registrieren einer Anmeldeinformation finden Sie [hier](/docs/credential/createCredential.mdx).
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Deployment-Historie {#tedeployst-history}
+
+Die Deployment-Historie zeigt die `Historie der tatsächlich bereitgestellten Infrastruktur` an. Sie können den `aktuellen Bereitstellungsstatus` und die `kürzlichen Bereitstellungshistorien einsehen`.
+
+1. Um die Deployment-Historie einzusehen, klicken Sie auf `Deployment-Management` > `Deployment-Historie`.
+
+<div className={styles.imgWrap}>
+    <img src={deploy01} width="200px" alt="Deploymentbild" />
+</div>
+
+<br />
+
+2. Sehen Sie sich die letzten Deployment-Historien an. Um eine Historie zu löschen, wählen Sie die gewünschte Historie aus und klicken Sie auf die Schaltfläche `Löschen`.

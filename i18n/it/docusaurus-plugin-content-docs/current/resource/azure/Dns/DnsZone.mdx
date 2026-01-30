@@ -1,0 +1,72 @@
+---
+title: DnsZone
+sidebar_position: 0
+tags: [Azure, DNS, DnsZone, Network]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una DNS Zone è un’area che ospita i record DNS per un dominio specifico, consentendo di creare e gestire ciascun record DNS.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Record A (`dns_a_record`)
+
+-   `dns_a_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_a_record.records` : Elenco degli indirizzi IPv4
+
+#### Record AAAA (`dns_aaaa_record`)
+
+-   `dns_aaaa_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_aaaa_record.records` : Elenco degli indirizzi IPv6
+
+#### Record CNAME (`dns_cname_record`)
+
+-   `dns_cname_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_cname_record.record` : Alias per collegare un sottodominio a un altro record
+
+#### Record NS (`dns_ns_record`)
+
+-   `dns_ns_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_ns_record.records` : Elenco dei record dei name server
+
+#### Record PTR (`dns_ptr_record`)
+
+-   `dns_ptr_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_ptr_record.records` : Elenco dei nomi di dominio per i record di tipo puntatore
+
+#### Record TXT (`dns_txt_record`)
+
+-   `dns_txt_record.ttl` : Time To Live del record DNS (secondi) - `0` ~ `2147483647`
+-   `dns_txt_record.records` : Elenco dei record di tipo testo
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure DNS (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Gestione dei record Azure DNS (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
+-   [Azure Private DNS Zone (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)

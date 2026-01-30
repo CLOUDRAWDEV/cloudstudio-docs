@@ -1,0 +1,83 @@
+---
+title: Efs
+sidebar_position: 0
+tags: [AWS, Ressource, Efs]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/efs-efs.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ermöglicht das Erstellen eines Dateisystems, das Einbinden des Dateisystems in EC2-Instances sowie das Lesen, Schreiben und gemeinsame Nutzen von Dateien.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `creation_token` : Eindeutiger Name zur Sicherstellung der idempotenten Erstellung des Elastic File Systems
+-   `availability_zone_name` : AWS Availability Zone, in der das Dateisystem erstellt wird
+-   `enable_encrypted` : Aktivierung der Verschlüsselung des Dateisystems – `true`, `false`
+-   `throughput_mode` : Durchsatzmodus des Dateisystems – `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : Bereitgestellter Durchsatz des Dateisystems (MiB/s) – `1` ~ `3414`
+-   `performance_mode` : Leistungsmodus des Dateisystems – `generalPurpose`, `maxIO`
+
+#### Lebenszyklusrichtlinie (`lifecycle_policy`)
+
+-   `lifecycle_policy.transition_to_ia` : Zeit bis zur Überführung von Dateien in die IA-Speicherklasse – `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : Richtlinie zur Rückführung in den Primärspeicher – `None`, `firstAccess`
+
+#### Mount-Ziele (`mount_target_subnets`)
+
+-   `mount_target_subnets` : Liste der Subnetze, in denen Mount-Ziele erstellt werden
+
+#### Dateisystemrichtlinie
+
+-   `file_system_policy` : JSON-formatierte Dateisystemrichtlinie für das EFS
+
+#### Backup- und Replikationseinstellungen
+
+-   `enable_backup_policy` : Aktivierung der Backup-Richtlinie – `true`, `false`
+-   `enable_replica` : Aktivierung der Replikation – `true`, `false`
+
+#### Replikation (`replication_configuration`)
+
+-   `replication_configuration.replication_region` : AWS-Region für die Replikation
+-   `replication_configuration.replication_region_availability_zone_name` : Availability Zone für die Replikation
+-   `replication_configuration.kms_key_name` : Name des KMS-Schlüssels für die Replikation
+
+#### Zugriffspunkt (`access_point`)
+
+-   `access_point.root_directory_path` : Pfad des Dateisystems, der als Root-Verzeichnis für NFS-Clients bereitgestellt wird
+-   `access_point.posix_user_uid` : POSIX-User-ID für den Zugriffspunkt – `0` ~ `4294967295`
+-   `access_point.posix_user_gid` : POSIX-Gruppen-ID für den Zugriffspunkt – `0` ~ `4294967295`
+-   `access_point.posix_user_secondary_gids` : Liste sekundärer POSIX-Gruppen-IDs
+-   `access_point.root_owner_uid` : POSIX-User-ID für das Root-Verzeichnis – `0` ~ `4294967295`
+-   `access_point.root_owner_gid` : POSIX-Gruppen-ID für das Root-Verzeichnis – `0` ~ `4294967295`
+-   `access_point.root_permissions` : POSIX-Berechtigungen für das Root-Verzeichnis (oktale Darstellung)
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+## Referenzen
+
+-   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
+-   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

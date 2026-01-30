@@ -1,5 +1,5 @@
 ---
-title: Directory Service
+title: DirectoryService
 sidebar_position: 0
 tags: [AWS, 리소스, DirectoryService, DirectoryService]
 ---
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, DirectoryService, DirectoryService]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/directory_service-directory_service.webp"
     }
 />
 
@@ -27,15 +27,22 @@ AWS Directory Service는 다른 AWS 서비스에서 Microsoft Active Directory(A
 
 ### 연결 리소스
 
--   [**Directory Service**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/)
+-   [**DirectoryService**](https://docs.cstudio.app/docs/resource/aws/DirectoryService/DirectoryService)
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `password` : 디렉토리 관리자 또는 커넥터 사용자의 비밀번호
--   `type` : `SimpleAD`,`MicrosoftAD`
--   `size` : 디렉토리의 크기 - `Small`,`Large`
+-   `type` : 디렉토리의 타입 - `SimpleAD`, `MicrosoftAD`
+-   `size` : 디렉토리의 크기 - `Small`, `Large`
+-   `edition` : MicrosoftAD 에디션 - `Standard`, `Enterprise`
 -   `included_vpc_name` : 디렉터리가 있는 VPC의 이름
--   `included_subnet_names` : 디렉터리 서버의 서브넷 이름 (서브넷은 서로 다른 2개의 AZ에 있는 배포되어야 함)
+-   `included_subnet_names` : 디렉터리 서버의 서브넷 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

@@ -1,0 +1,64 @@
+---
+title: PrivateEndpoint
+sidebar_position: 5
+tags: [Azure, Network, PrivateEndpoint]
+---
+
+<hr />
+<br />ㅇ
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_endpoint.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Private Endpoint es un recurso de red que proporciona **conectividad privada (Private Link)** a los servicios de Azure dentro de una Virtual Network sin utilizar una dirección IP pública.  
+El endpoint del servicio se expone a través de una Private IP asignada a un Subnet, lo que permite establecer una ruta de comunicación segura sin pasar por Internet.  
+Al integrarse con una Private DNS Zone, el FQDN del servicio puede resolverse de forma natural dentro de la red interna.
+
+## Recursos relacionados
+
+### Recurso superior
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+### Recursos conectados
+
+-   [**Linux App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/es/docs/resource/azure/AppService/WindowsAppService)
+-   [**Container Registry**](https://docs.cstudio.app/es/docs/resource/azure/Container/ContainerRegistry)
+-   [**Cosmosdb Cassandra**](https://docs.cstudio.app/es/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
+-   [**Cosmosdb Gremlin**](https://docs.cstudio.app/es/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
+-   [**Cosmosdb Mongo**](https://docs.cstudio.app/es/docs/resource/azure/Cosmosdb/CosmosdbMongo)
+-   [**Cosmosdb Sql**](https://docs.cstudio.app/es/docs/resource/azure/Cosmosdb/CosmosdbSql)
+-   [**Cosmosdb Table**](https://docs.cstudio.app/es/docs/resource/azure/Cosmosdb/CosmosdbTable)
+-   [**Mssql Server**](https://docs.cstudio.app/es/docs/resource/azure/Database/MssqlServer)
+-   [**Mysql Flexible**](https://docs.cstudio.app/es/docs/resource/azure/Database/MysqlFlexible)
+-   [**Key Vault**](https://docs.cstudio.app/es/docs/resource/azure/KeyVault/)
+-   [**Redis Cache**](https://docs.cstudio.app/es/docs/resource/azure/RedisCache/)
+-   [**Storage Account**](https://docs.cstudio.app/es/docs/resource/azure/Storage/StorageAccount)
+
+---
+
+## Valores de configuración del recurso
+
+-   `included_subnet_name` : Nombre del Subnet que contiene la Private IP asignada al Private Endpoint
+-   `connection_name` : Nombre de la conexión entre el Private Endpoint y el recurso
+-   `linked_connection_resource_name` : Nombre del recurso al que se conectará el Private Endpoint
+-   `subresource_name` : Nombre del subrecurso al que se conectará el Private Endpoint
+-   `dns_zone_group_name` : Nombre del grupo de Private DNS Zone que se asociará al Private Endpoint
+-   `private_dns_zone_names` : Lista de nombres de Private DNS Zone que se asociarán al Private Endpoint
+-   `manual_connection` : Indica si se requiere aprobación manual por parte del propietario del recurso externo - `true`, `false`
+-   `tag` : Etiquetas para clasificar el recurso - hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Introducción a Azure Private Endpoint (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
+-   [Configuración de DNS de Private Endpoint (Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

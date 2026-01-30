@@ -1,6 +1,6 @@
 ---
 title: Endpoint
-sidebar_position: 0
+sidebar_position: 4
 tags: [AWS, Resource, Vpc, Endpoint]
 ---
 
@@ -11,7 +11,7 @@ tags: [AWS, Resource, Vpc, Endpoint]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-endpoint.webp"
     }
 />
 
@@ -23,26 +23,50 @@ A service that allows customers to privately connect to supported AWS services a
 
 ### Parent Resources
 
--   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
 
-### Child Resources
+### Connected Resources
 
--   [**Endpoint Service**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
--   [**Security Group**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/EndpointService)
+-   [**SecurityGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/SecurityGroup)
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/Subnet)
-
-## Resource Setting Values
-
--   `service_range` : The range of AWS service to use endpoint - `awsService`, `endpointService`
--   `aws_service_name` : The name of AWS service to use endpoint
--   `vpc_endpoint_type` : The name of other endpoint service to use endpoint - `gateway`, `interface`, `gatewayloadbalancer`
--   `included_vpc_name` : The name of VPC to use endpoint
--   `route_table_names` : One or more route table IDs to associate with endpoint
--   `policy_access` : Policy access range to attach to the endpoint that controls access to the service - `Full`, `Custom`
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `service_range` : Service category for endpoint usage - `awsService`, `endpointService`
+-   `aws_service_name` : AWS service name to use for the endpoint
+-   `vpc_endpoint_type` : Endpoint type - `Gateway`, `Interface`, `GatewayLoadBalancer`
+-   `included_vpc_name` : Name of the VPC where the endpoint is created
+-   `enabled_private_dns` : Whether private DNS is enabled - `true`, `false`
+-   `enable_private_dns_only_for_inbound_resolver_endpoint` : Whether to enable private DNS only for inbound requests - `true`, `false`
+-   `dns_record_ip_type` : DNS record IP type - `ipv4`, `dualstack`, `servicedefined`, `ipv6`
+-   `ip_address_type` : Endpoint IP address type - `ipv4`, `ipv6`, `dualstack`
+-   `policy_access` : Policy access scope for the endpoint - `Full`, `Custom`
+-   `custom_policy` : Custom policy controlling service access
+
+#### Endpoint Service Settings (`endpoint_service`)
+
+-   `endpoint_service.is_manual` : Whether to manually input the Endpoint Service ARN - `true`, `false`
+-   `endpoint_service.service_name` : Endpoint Service name
+-   `endpoint_service.linked_endpoint_service_name` : Linked Endpoint Service name
+
+#### Network Settings
+
+-   `linked_security_group_names` : List of security groups connected to the endpoint
+-   `linked_subnet_names` : List of subnets where network interfaces are created
+-   `route_table_names` : List of route tables associated with the endpoint
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource
+
+---
+
+## References
 
 -   [AWS EndPoint (AWS)](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/what-are-vpc-endpoints.html)
 -   [AWS EndPoint(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_endpoint)

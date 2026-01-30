@@ -1,0 +1,65 @@
+---
+title: AccessControlGroup
+sidebar_position: 0
+tags: [Ncloud, Recurso, Security, AccessControlGroup]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de firewall basado en filtrado por IP/Port que permite controlar y administrar el acceso de red entre servidores.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+
+### Recursos conectados
+
+-   [**NetworkInterface**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/AutoScaling)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se creará el ACG
+-   `acg_description` : Descripción del ACG
+
+#### Reglas de entrada (`inbound_rule`)
+
+-   `inbound_rule.protocol` : Protocolo del tráfico entrante - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Método de aplicación de reglas - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Rango IP de destino del tráfico entrante (formato CIDR)
+-   `inbound_rule.source_access_control_group_name` : Nombre del ACG origen
+-   `inbound_rule.port_range` : Rango de puertos - `1` ~ `65535`
+-   `inbound_rule.description` : Descripción de la regla de entrada
+
+#### Reglas de salida (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protocolo del tráfico saliente - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Método de aplicación de reglas - `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Rango IP de destino del tráfico saliente (formato CIDR)
+-   `outbound_rule.source_access_control_group_name` : Nombre del ACG origen
+-   `outbound_rule.port_range` : Rango de puertos - `1` ~ `65535`
+-   `outbound_rule.description` : Descripción de la regla de salida
+
+---
+
+## Referencias
+
+-   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

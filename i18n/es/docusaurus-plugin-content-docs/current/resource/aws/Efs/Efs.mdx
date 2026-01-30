@@ -1,0 +1,83 @@
+---
+title: Efs
+sidebar_position: 0
+tags: [AWS, Recurso, Efs]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/efs-efs.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Permite crear sistemas de archivos, montarlos en instancias EC2, leer datos desde instancias EC2, escribir datos en el sistema de archivos y compartir archivos.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `creation_token` : Nombre único utilizado como referencia para garantizar la creación del sistema de archivos
+-   `availability_zone_name` : Zona de disponibilidad de AWS donde se creará el sistema de archivos
+-   `enable_encrypted` : Indica si el sistema de archivos está cifrado - `true`, `false`
+-   `throughput_mode` : Modo de rendimiento del sistema de archivos - `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : Rendimiento provisionado del sistema de archivos(MiB/s) - `1` ~ `3414`
+-   `performance_mode` : Modo de rendimiento del sistema de archivos - `generalPurpose`, `maxIO`
+
+#### Política de ciclo de vida (`lifecycle_policy`)
+
+-   `lifecycle_policy.transition_to_ia` : Tiempo para mover archivos a la clase IA - `1Day`, `7Days`, `14Days`, `30Days`, `60Days`, `90Days`, `None`
+-   `lifecycle_policy.transition_to_primary_storage_class` : Política para mover archivos al almacenamiento primario - `None`, `firstAccess`
+
+#### Destinos de montaje (`mount_target_subnets`)
+
+-   `mount_target_subnets` : Lista de Subnet donde se agregarán destinos de montaje
+
+#### Política del sistema de archivos
+
+-   `file_system_policy` : Política del sistema de archivos EFS en formato JSON
+
+#### Configuración de respaldo y replicación
+
+-   `enable_backup_policy` : Indica si se habilita la política de respaldo - `true`, `false`
+-   `enable_replica` : Indica si se crea una réplica - `true`, `false`
+
+#### Configuración de replicación (`replication_configuration`)
+
+-   `replication_configuration.replication_region` : Región AWS donde se creará la réplica
+-   `replication_configuration.replication_region_availability_zone_name` : Zona de disponibilidad donde se creará la réplica
+-   `replication_configuration.kms_key_name` : Nombre de la clave KMS utilizada para la réplica
+
+#### Punto de acceso (`access_point`)
+
+-   `access_point.root_directory_path` : Ruta del sistema de archivos expuesta como directorio raíz para clientes NFS
+-   `access_point.posix_user_uid` : ID de usuario POSIX aplicado al usar el punto de acceso - `0` ~ `4294967295`
+-   `access_point.posix_user_gid` : ID de grupo POSIX aplicado al usar el punto de acceso - `0` ~ `4294967295`
+-   `access_point.posix_user_secondary_gids` : Lista de IDs de grupos POSIX secundarios
+-   `access_point.root_owner_uid` : ID de usuario POSIX aplicado al directorio raíz - `0` ~ `4294967295`
+-   `access_point.root_owner_gid` : ID de grupo POSIX aplicado al directorio raíz - `0` ~ `4294967295`
+-   `access_point.root_permissions` : Permisos POSIX aplicados al directorio raíz(octal)
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+## Referencias
+
+-   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
+-   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

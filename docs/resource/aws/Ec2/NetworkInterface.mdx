@@ -1,6 +1,6 @@
 ---
 title: NetworkInterface
-sidebar_position: 0
+sidebar_position: 5
 tags: [AWS, 리소스, Ec2, NetworkInterface]
 ---
 
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Ec2, NetworkInterface]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-network_interface.webp"
     }
 />
 
@@ -28,12 +28,21 @@ VPC에서 가상 네트워크 카드를 나타내는 논리적 네트워킹 구�
 ### 연결 리소스
 
 -   [**Eip**](https://docs.cstudio.app/docs/resource/aws/Ec2/Eip)
+-   [**Instance**](https://docs.cstudio.app/docs/resource/aws/Ec2/Instance)
+-   [**SecurityGroup**](https://docs.cstudio.app/docs/resource/aws/Vpc/SecurityGroup)
 
 ## 리소스 설정 값
 
--   `private_ips` : private ips 목록
+#### 기본 설정
+
+-   `included_subnet_name` : 네트워크 인터페이스가 위치하는 Subnet 이름
+-   `private_ips` : Private IP 목록
 -   `linked_security_group_names` : 네트워크 인터페이스에 사용할 Security Group 이름
 -   `linked_eip_names` : 사용할 Elastic Ip 이름
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

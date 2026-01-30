@@ -1,5 +1,5 @@
 ---
-title: Kms Key
+title: KmsKey
 sidebar_position: 0
 tags: [AWS, 리소스, Kms, KmsKey]
 ---
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Kms, KmsKey]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/kms-kms_key.webp"
     }
 />
 
@@ -27,13 +27,21 @@ AWS Key Management Service(AWS KMS)는 클라우드에 맞게 조정된 암호�
 
 ## 리소스 설정 값
 
+#### 기본 설정
+
 -   `description` : AWS Console에 나타나는 Key의 설명
--   `key_usage` : Key의 사용 방법을 명시 - `ENCRYPT_DECRYPT`
--   `multi_region` : KMS key를 Multi Region에서 사용할 지 말지 설정 - `true`, `false`
--   `deletion_window_in_days` : KMS Keys의 유효 기간
--   `enable_key_rotation` : 키 회전 활성화 여부를 지정 - `true`, `false`
--   `grant_list` : KMS Grant의 이름
-    -   `operations` : KMS Key에 허용된 동작 - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+-   `key_usage` : Key의 사용 방법 - `ENCRYPT_DECRYPT`
+-   `multi_region` : KMS Key를 Multi Region에서 사용할지 여부 - `true`, `false`
+-   `deletion_window_in_days` : KMS Key 삭제 대기 기간(일)
+-   `enable_key_rotation` : 키 자동 회전 활성화 여부 - `true`, `false`
+
+#### KMS Grant (`grant_list`)
+
+-   `grant_list.operations` : KMS Key에 허용된 동작 목록 - `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `CreateGrant`, `RetireGrant`, `DescribeKey`
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 

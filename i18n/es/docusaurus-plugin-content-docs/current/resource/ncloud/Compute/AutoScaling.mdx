@@ -1,0 +1,68 @@
+---
+title: AutoScaling
+sidebar_position: 0
+tags: [Ncloud, 리소스, Compute, AutoScaling]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-auto_scaling.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio que ajusta automáticamente el número de servidores virtuales según los horarios definidos por el usuario o los resultados de monitoreo, permitiendo responder de forma elástica a los cambios de demanda. Supervisa los servidores en función de umbrales predefinidos y ajusta automáticamente su cantidad para operar el servicio de manera estable.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
+
+### Recursos conectados
+
+-   [**AccessControlGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Security/AccessControlGroup)
+-   [**TargetGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/TargetGroup)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `linked_acg_names` : Lista de nombres de ACG que se aplicarán al Auto scaling
+-   `included_subnet_name` : Nombre del subnet para la creación de servidores
+-   `launch_configuration_name` : Nombre del Launch configuration a utilizar
+-   `health_check_type_code` : Tipo de health check, servidor o load balancer - `SVR`, `LOADB`
+-   `health_check_grace_period` : Periodo de espera antes de verificar el estado tras incluir la instancia en el servicio - `1` ~ `2147486347`
+-   `linked_target_group_list` : Lista de nombres de los target groups a conectar
+-   `min_size` : Tamaño mínimo del Auto scaling group, rango de 0 a 30 - `1` ~ `30`
+-   `max_size` : Tamaño máximo del Auto scaling group, rango de 0 a 30 - `1` ~ `30`
+
+#### Política de Auto Scaling (`policy`)
+
+-   `policy.adjustment_type_code` : Código de ajuste de scaling, cambio incremental(CHANG)/porcentaje(PRCNT)/valor fijo(EXACT) - `CHANG`, `PRCNT`, `EXACT`
+-   `policy.scaling_adjustment` : Valor de ajuste de scaling
+-   `policy.cooldown` : Tiempo durante el cual se ignoran alarmas adicionales tras un scaling (segundos) - `0` ~ `214748364`
+-   `policy.min_adjustment_step` : Unidad mínima de cambio al ajustar el número de instancias - `0` ~ `214748364`
+
+#### Programación de Auto Scaling (`schedule`)
+
+-   `schedule.min_size` : Tamaño mínimo del Auto scaling group - `1` ~ `30`
+-   `schedule.max_size` : Tamaño máximo del Auto scaling group - `1` ~ `30`
+-   `schedule.desired_capacity` : Tamaño deseado del Auto scaling group - `1` ~ `30`
+-   `schedule.start_time` : Fecha y hora de inicio del horario
+-   `schedule.end_time` : Fecha y hora de finalización del horario
+
+---
+
+## Referencias
+
+-   [Auto Scaling(Ncloud)](https://www.ncloud.com/product/compute/autoScaling)
+-   [Auto Scaling Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/auto_scaling_group)

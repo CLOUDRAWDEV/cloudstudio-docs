@@ -1,0 +1,188 @@
+---
+title: Editar canvas
+sidebar_position: 2
+tags:
+    [
+        canvas,
+        toolbox,
+        lista de recursos,
+        error,
+        edición de canvas,
+        dibujo,
+        empezar
+    ]
+last_update:
+    date: 01/27/2026
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import dragDrop from "../start/img/gif/drag&drop.gif"
+import lineConnection from "../start/img/gif/line-connection.gif"
+import error from "../start/img/gif/error.gif"
+import optionEdit from "../start/img/gif/option-edit.png"
+import undo from "../start/img/undo.png"
+import redo from "../start/img/redo.png"
+import list from "../start/img/list.png"
+import listName from "../start/img/list-name.png"
+import ratio from "../start/img/ratio.png"
+import grid from "../start/img/grid.png"
+import connect from "../start/img/connect.png"
+import basic from "../start/img/basic.png"
+import group from "../start/img/group.png"
+import back from "../start/img/back.png"
+import front from "../start/img/front.png"
+import tools from "../start/img/tools.png"
+import fullscreen from "../start/img/fullscreen.png"
+import text from "../start/img/text.png"
+import background from "../start/img/background.png"
+import theme from "../start/img/theme.png"
+import icon from "../start/img/icon.png"
+import save from "../start/img/save.png"
+import exporter from "../start/img/export.png"
+import importer from "../start/img/import.png"
+import versionSave from "../start/img/version-save.png"
+import versionCommit from "../start/img/version-commit.png"
+import billing from "../start/img/billing.png"
+import diagnose from "../start/img/diagnose.png"
+import plan from "../start/img/plan.png"
+import deploy from "../start/img/deploy.png"
+import migrate from "../start/img/migrate.png"
+import resourceOption from "../start/img/resource-option.png"
+import code from "../start/img/code.png"
+import configuration from "../start/img/configuration.png"
+import erroroption from "../start/img/error.png"
+
+<hr />
+<br />
+
+El canvas es el <highlight color="#206FD6">servicio central de Cloud Studio</highlight>, que permite diseñar infraestructura cloud arrastrando y soltando recursos (`Drag & Drop`), gestionar versiones y desplegar la infraestructura.  
+La infraestructura diseñada en el canvas puede usarse como arquitectura visual o incluso desplegarse directamente en el CSP deseado.
+
+✂️ ¡Edita el canvas libremente!
+
+<p>&nbsp;</p>
+
+## Cómo usar el toolbox de opciones del diagrama {#toolbox}
+
+El toolbox de opciones del diagrama, ubicado en la parte superior, ofrece varias funciones para personalizar el canvas.
+
+| Imagen                                                                 | Acción                   | Función                                                           |
+| ---------------------------------------------------------------------- | ------------------------ | ----------------------------------------------------------------- |
+| <img width="40px" src={ undo } alt="Imagen deshacer" />                | Deshacer                 | Revierte una acción anterior.                                     |
+| <img width="40px" src={ redo } alt="Imagen rehacer" />                 | Rehacer                  | Rehace una acción deshecha.                                       |
+| <img width="40px" src={ list } alt="Imagen lista de recursos" />       | Lista de recursos        | Muestra/oculta la lista de iconos de recursos.                    |
+| <img width="40px" src={ listName } alt="Imagen nombres de recursos" /> | Mostrar nombres          | Muestra la lista de iconos de recursos con sus nombres.           |
+| <img width="40px" src={ front } alt="Imagen enviar atrás" />           | Enviar atrás             | Envía el recurso seleccionado detrás de otro recurso superpuesto. |
+| <img width="40px" src={ back } alt="Imagen traer al frente" />         | Traer al frente          | Trae el recurso seleccionado al frente cuando hay superposición.  |
+| <img width="40px" src={ text } alt="Imagen color de texto" />          | Cambiar color de texto   | Permite modificar las opciones del texto.                         |
+| <img width="40px" src={ background } alt="Imagen color de fondo" />    | Cambiar color del canvas | Cambia el color de fondo del canvas.                              |
+| <img width="40px" src={ theme } alt="Imagen tema del canvas" />        | Cambiar tema del canvas  | Cambia el tema del canvas según el CSP correspondiente.           |
+| <img width="100px" src={ grid } alt="Imagen de la cuadrícula" />       | Cuadrícula               | Muestra/oculta la cuadrícula del canvas.                          |
+| <img width="100px" src={ ratio } alt="Imagen proporción" />            | Proporción               | Ajusta la proporción de la vista del canvas.                      |
+| <img width="40px" src={ fullscreen } alt="Imagen pantalla completa" /> | Pantalla completa        | Cambia a modo de pantalla completa.                               |
+| <img width="40px" src={ icon } alt="Imagen icono" />                   | Cambiar modo del canvas  | Cambia entre Studio (con funciones) y Diagram (sin funciones).    |
+
+<p>&nbsp;</p>
+
+## Cómo usar el toolbox de opciones del canvas {#toolbox}
+
+Con el toolbox ubicado en el menú lateral, puedes acceder a varias funciones de Cloud Studio.
+
+| Imagen                                                                    | Acción                       | Función                                                               |
+| ------------------------------------------------------------------------- | ---------------------------- | --------------------------------------------------------------------- |
+| <img width="40px" src={ save } alt="Imagen guardar" />                    | Guardar                      | Guarda el estado actual del canvas.                                   |
+| <img width="40px" src={ exporter } alt="Imagen exportar" />               | Exportar                     | Descarga la imagen y el código Terraform del canvas como archivo ZIP. |
+| <img width="40px" src={ importer } alt="Imagen importar" />               | Importar                     | Importa recursos desplegados en un entorno cloud real al canvas.      |
+| <img width="40px" src={ versionSave } alt="Imagen guardar versión" />     | Guardar versión              | Guarda el canvas actual como una versión.                             |
+| <img width="40px" src={ versionCommit } alt="Imagen commit versión" />    | Commit de versión            | Consulta y recupera versiones previamente registradas.                |
+| <img width="40px" src={ billing } alt="Imagen cálculo de costos" />       | Cálculo de costos            | Calcula el costo estimado de los recursos en el canvas.               |
+| <img width="40px" src={ diagnose } alt="Imagen análisis de seguridad" />  | Análisis de seguridad        | Diagnostica vulnerabilidades en el código Terraform generado.         |
+| <img width="40px" src={ plan } alt="Imagen validación" />                 | Validación                   | Realiza una validación del código Terraform generado.                 |
+| <img width="40px" src={ deploy } alt="Imagen despliegue" />               | Desplegar                    | Despliega los recursos configurados en el canvas en un entorno cloud. |
+| <img width="40px" src={ migrate } alt="Imagen migración" />               | Migración                    | Convierte la infraestructura del canvas a otra nube.                  |
+| <img width="40px" src={ resourceOption } alt="Imagen opciones recurso" /> | Ver opciones del recurso     | Consulta las opciones de los recursos configurados en el canvas.      |
+| <img width="40px" src={ code } alt="Imagen código Terraform" />           | Ver código Terraform         | Consulta el código Terraform generado por la estructura del canvas.   |
+| <img width="40px" src={ configuration } alt="Imagen configuración" />     | Ver configuración del canvas | Muestra la estructura del canvas en forma de árbol.                   |
+| <img width="40px" src={ erroroption } alt="Imagen error de opciones" />   | Ver errores de opciones      | Consulta errores relacionados con las opciones de los recursos.       |
+
+<p>&nbsp;</p>
+
+## Drag & Drop de recursos {#drag-drop}
+
+`Drag & Drop` es la forma más básica de configurar el lienzo.
+Puede seleccionar el recurso deseado desde la `Lista de recursos` situada a la izquierda y colocarlo en el área del lienzo.
+Si los recursos no pueden conectarse entre sí, la conexión se restringe y se muestra un indicador rojo.
+
+<div className={styles.imgWrap}>
+    <img src={dragDrop} alt="Imagen de drag & drop" />
+</div>
+
+<br />
+
+:::info
+
+La `lista de recursos` es un panel en el lado izquierdo del canvas que contiene todos los recursos disponibles.
+
+:::
+
+<p>&nbsp;</p>
+
+## Conectar recursos {#resource-connect}
+
+Entre los recursos colocados en el lienzo, aquellos que pueden conectarse entre sí pueden unirse mediante líneas.<br/>
+Estas conexiones se utilizan para configurar opciones específicas entre los recursos o para definir sus relaciones.
+
+<div className={styles.imgWrap}>
+    <img src={lineConnection} alt="Imagen conexión de recursos" />
+</div>
+
+<br />
+<br />
+
+### Tipos de recursos
+
+Los recursos se dividen en `cuatro tipos` principales. Consulta la siguiente lista para conectar correctamente los recursos en el canvas.
+
+| Imagen                                            | Nombre   | Descripción                                             |
+| ------------------------------------------------- | -------- | ------------------------------------------------------- |
+| <img width="40px" src={ basic } alt="imagen" />   | Básico   | Muestra recursos que pueden pertenecer a un grupo.      |
+| <img width="40px" src={ connect } alt="imagen" /> | Conector | Muestra recursos que se pueden conectar a este recurso. |
+| <img width="40px" src={ group } alt="imagen" />   | Grupo    | Muestra recursos que pueden pertenecer a este grupo.    |
+| <img width="40px" src={ tools } alt="imagen" />   | Tools    | Muestra herramientas disponibles para el canvas.        |
+
+<p>&nbsp;</p>
+
+## Editar opciones de recurso {#option-edit}
+
+Al hacer `doble clic` en un recurso, puede abrir la `ventana de edición` para modificar los valores de configuración del recurso.
+Al hacer clic en el icono `Mostrar detalles`, puede consultar la descripción del recurso correspondiente.<br/>
+Al pasar el cursor sobre el `icono de signo de interrogación` junto a cada opción, se muestra la descripción de dicha opción.
+Puede configurar los valores necesarios consultando las descripciones proporcionadas.
+
+<div className={styles.imgWrap}>
+    <img src={optionEdit} alt="Imagen edición de opciones" />
+</div>
+
+<p>&nbsp;</p>
+
+## Corregir errores {#error-correction}
+
+🔴 Los puntos rojos indican que existe un error en el recurso correspondiente. <highlight color="#FF7272">Si hay un error, no es posible guardar ni desplegar el lienzo.</highlight>
+Para solucionar el error, haga doble clic en el recurso con errores en el lienzo para abrir la ventana de errores del lienzo.
+En la ventana de errores del lienzo, al hacer doble clic en un error específico, se le llevará a la ubicación donde ocurrió el error, donde podrá corregir el problema consultando la información mostrada.
+
+<div className={styles.imgWrap}>
+    <img src={error} alt="Imagen de corrección de errores" />
+</div>
+
+<p>&nbsp;</p>
+
+### Tipos de errores
+
+| Tipo  | Descripción                                             |
+| ----- | ------------------------------------------------------- |
+| value | Error por valor ingresado incorrecto.                   |
+| group | Error por no pertenecer a ningún grupo.                 |
+| line  | Error por falta de conexión con otro recurso requerido. |
+
+<p>&nbsp;</p>

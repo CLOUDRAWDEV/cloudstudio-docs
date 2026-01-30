@@ -1,0 +1,50 @@
+---
+title: BedrockActionGroup
+sidebar_position: 2
+tags: [AWS, Bedrock, BedrockActionGroup, Lambda, AI, Agent]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_action_group.webp" />
+
+## リソース概要
+
+AWS Bedrock エージェントが実行できる特定のアクションを定義および管理する Resource です。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `target_bedrock_agent` : アクショングループが接続される対象の Bedrock エージェント
+-   `enable_action_group_state` : Action Group の状態保持機能を有効化するかどうか - `ENABLED`, `DISABLED`
+-   `custom_control_method` : エージェントの動作制御方式 - `custom_control`, `lambda_function`
+-   `target_lambda_function` : アクション実行時に呼び出される AWS Lambda 関数
+
+#### 関数定義 (`functions`)
+
+-   `functions.description` : 関数が実行する処理の目的または機能の説明（最大 5000 文字）
+
+##### 関数パラメータ (`functions.parameters`)
+
+-   `functions.parameters.type` : パラメータのデータ型 - `string`, `number`, `integer`, `boolean`, `array`
+-   `functions.parameters.description` : パラメータの意味または用途
+-   `functions.parameters.required` : 必須入力かどうか - `true`, `false`
+
+---
+
+## 参考資料
+
+-   [Amazon Bedrock Agents (AWS 公式ドキュメント)](https://docs.aws.amazon.com/bedrock/)
+-   [AWS Lambda Functions](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)

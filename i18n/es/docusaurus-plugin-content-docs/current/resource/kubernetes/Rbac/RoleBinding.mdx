@@ -1,0 +1,57 @@
+---
+title: RoleBinding
+sidebar_position: 0
+tags: [Kubernetes, Recurso, RBAC, RoleBinding]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role_binding.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes que vincula roles aplicables dentro de un namespace específico con usuarios o cuentas de servicio.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**ServiceAccount**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/ServiceAccount)
+-   [**Role**](https://docs.cstudio.app/es/docs/resource/kubernetes/RBAC/Role)
+-   [**ClusterRole**](https://docs.cstudio.app/es/docs/resource/kubernetes/RBAC/ClusterRole)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se aplicará el recurso RoleBinding
+-   `annotations` : Metadatos key-value del recurso RoleBinding
+-   `labels` : Etiquetas definidas por el usuario para identificar el objeto
+-   `role_type` : Tipo de rol a vincular - `Role`, `ClusterRole`
+-   `role_name` : Nombre del Role o ClusterRole a vincular
+
+#### Configuración del sujeto (`subject`)
+
+-   `subject.kind` : Tipo de sujeto a vincular - `ServiceAccount`, `User`, `Group`
+-   `subject.namespace` : Namespace al que pertenece el sujeto
+-   `subject.api_group` : API Group responsable de las decisiones de autorización - `rbac.authorization.k8s.io`
+
+---
+
+## Referencias
+
+-   [RoleBinding(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+-   [RoleBinding(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role_binding)

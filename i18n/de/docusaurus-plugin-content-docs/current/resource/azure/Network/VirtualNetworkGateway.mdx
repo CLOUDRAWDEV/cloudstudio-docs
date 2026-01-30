@@ -1,0 +1,55 @@
+---
+title: VirtualNetworkGateway
+sidebar_position: 12
+tags: [Azure, Network, VirtualNetworkGateway, VPN]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_network_gateway.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Virtual Network Gateway ist ein Netzwerk-Gateway, das **verschlüsselte Kommunikationspfade für Datenverkehr** zwischen einem Azure Virtual Network und einem On-Premises-Netzwerk oder einem anderen Virtual Network bereitstellt.  
+Es kann über VPN oder ExpressRoute verbunden werden und ist eine zentrale Komponente für hybride Netzwerkkonfigurationen sowie sichere dedizierte Verbindungen.
+
+## Zugehörige## Ressourcenicon
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Public Ip**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `included_subnet_name` : Name des Subnets, über das der Virtual Network Gateway Datenverkehr sendet und empfängt
+-   `gateway_type` : Typ des Virtual Network Gateways - `Vpn`, `ExpressRoute`
+-   `vpn_type` : Typ der VPN-Verbindung - `RouteBased`, `PolicyBased`
+-   `sku` : Preisstufe des Virtual Network Gateways
+-   `generation` : Generation des Virtual Network Gateways - `Generation1`, `Generation2`
+-   `enabled_active_active_mode` : Gibt an, ob der Active-Active-Modus aktiviert ist
+-   `enabled_configure_bgp` : Gibt an, ob BGP aktiviert ist
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
+
+#### IP-Konfiguration (`ip_configuration`)
+
+-   `ip_configuration.linked_public_ip_name` : Name der Public IP, die dem Virtual Network Gateway zugeordnet wird
+
+---
+
+## Referenzen
+
+-   [Azure Virtual Network Gateway – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+-   [Konfigurationsoptionen für VPN Gateway (Microsoft)](https://learn.microsoft.com/ko-kr/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)

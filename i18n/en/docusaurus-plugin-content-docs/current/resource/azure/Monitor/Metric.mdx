@@ -1,0 +1,113 @@
+---
+title: Metric
+sidebar_position: 1
+tags: [Azure, Monitor, Metric, Alert]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-metric.webp"
+    }
+/>
+
+## Resource Overview
+
+Metric is a configuration resource used to evaluate conditions based on **time-series numerical data (metrics)** that represent the performance or state of monitored resources, and to trigger alerts when thresholds are met.  
+By configuring target resources, metric criteria, and action groups, monitoring and alerting can be automated.
+
+## Associated Resources
+
+### Parent Resources
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Connected Resources
+
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/en/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux App Service**](https://docs.cstudio.app/en/docs/resource/azure/Web/LinuxWebApp)
+-   [**Windows App Service**](https://docs.cstudio.app/en/docs/resource/azure/Web/WindowsWebApp)
+-   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**MSSQL Database**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlDatabase)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/en/docs/resource/azure/Containers/KubernetesCluster)
+
+---
+
+## Resource Configuration
+
+#### Target Resources (`target_resources`)
+
+Specifies the list of resources to which the alert rule applies.
+
+-   `target_resources.resource_type` : Azure resource type of the target resource
+    -   `windows_virtual_machine`, `linux_virtual_machine`, `windows_app_service`, `linux_app_service`, `storage_account`, `mssql_database`, `kubernetes_cluster`
+-   `target_resources.resource_name` : Name of the target resource
+-   `target_resources.mssql_server_name` : Name of the MSSQL Server that contains the database when the target resource is `mssql_database` (read-only)
+
+---
+
+#### Description (`description`)
+
+-   `description` : Description of the alert rule
+
+---
+
+#### Criteria (`criteria`)
+
+Defines the conditions under which an alert is triggered based on metric values.
+
+-   `criteria.metric_namespace` : Namespace to which the monitored metric belongs
+-   `criteria.metric_name` : Name of the monitored metric
+-   `criteria.aggregation` : Method used to aggregate metric data
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Total`
+-   `criteria.operator` : Operator used to compare the metric value with the threshold
+    -   `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `Equal`
+-   `criteria.threshold` : Threshold value that activates the alert
+
+---
+
+#### Action Group (`action_group`)
+
+Configures action groups that send notifications such as email, webhook, Azure Function, or Azure mobile app push notifications when an alert is triggered.
+
+-   `action_group.short_name` : Short name used to identify the action group
+-   `action_group.enable_action_group` : Whether to enable the action group - `true`, `false`
+
+##### Azure Mobile App Push Receiver (`action_group.azure_app_push_receiver`)
+
+-   `azure_app_push_receiver.email_address` : Email address of the user receiving Azure mobile app notifications
+
+##### Azure Function Receiver (`action_group.azure_function_receiver`)
+
+-   `azure_function_receiver.target_function_app_id` : ID of the Function App where the function is deployed
+-   `azure_function_receiver.function_name` : Name of the Azure Function to invoke
+-   `azure_function_receiver.http_trigger_url` : URL to call when the function uses an HTTP trigger
+-   `azure_function_receiver.enable_common_alert_schema` : Whether to use the common alert schema - `true`, `false`
+
+##### Webhook Receiver (`action_group.webhook_receiver`)
+
+-   `webhook_receiver.service_uri` : URL of the Webhook service to call when an alert is triggered
+-   `webhook_receiver.enable_common_alert_schema` : Whether to use the common alert schema - `true`, `false`
+
+##### Email Receiver (`action_group.email_receiver`)
+
+-   `email_receiver.email_address` : Email address that receives alert notifications
+-   `email_receiver.enable_common_alert_schema` : Whether to use the common alert schema - `true`, `false`
+
+---
+
+#### Action Group Selection (`action_group_name`)
+
+-   `action_group_name` : Name of the action group to execute when an alert is triggered
+
+---
+
+## References
+
+-   [Azure Monitor Metric Alerts Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/alerts-metric-overview)
+-   [Create Metric Alerts(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/tutorial-metric-alert)

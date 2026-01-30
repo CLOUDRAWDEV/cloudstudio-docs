@@ -1,0 +1,72 @@
+---
+title: DnsZone
+sidebar_position: 0
+tags: [Azure, DNS, DnsZone, Network]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/dns-dns_zone.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine DNS Zone ist ein Bereich, der DNS-Einträge für eine bestimmte Domain hostet und es ermöglicht, einzelne DNS-Einträge zu erstellen und zu verwalten.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+#### A-Eintrag (`dns_a_record`)
+
+-   `dns_a_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_a_record.records` : Liste der IPv4-Adressen
+
+#### AAAA-Eintrag (`dns_aaaa_record`)
+
+-   `dns_aaaa_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_aaaa_record.records` : Liste der IPv6-Adressen
+
+#### CNAME-Eintrag (`dns_cname_record`)
+
+-   `dns_cname_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_cname_record.record` : Alias zur Verknüpfung einer Subdomain mit einem anderen Eintrag
+
+#### NS-Eintrag (`dns_ns_record`)
+
+-   `dns_ns_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_ns_record.records` : Liste der Nameserver-Einträge
+
+#### PTR-Eintrag (`dns_ptr_record`)
+
+-   `dns_ptr_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_ptr_record.records` : Liste der Domainnamen für Pointer-Eintragstypen
+
+#### TXT-Eintrag (`dns_txt_record`)
+
+-   `dns_txt_record.ttl` : Time To Live des DNS-Eintrags (Sekunden) - `0` ~ `2147483647`
+-   `dns_txt_record.records` : Liste der Text-Einträge
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure DNS Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-overview)
+-   [Verwaltung von Azure DNS-Einträgen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/dns-getstarted-portal)
+-   [Azure Private DNS Zone (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-dns-overview)

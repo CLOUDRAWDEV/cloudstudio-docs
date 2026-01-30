@@ -1,7 +1,7 @@
 ---
-title: Elasticache Cluster
+title: ElasticacheCluster
 sidebar_position: 0
-tags: [AWS, リソース, Elasticache, ElasticacheCluster]
+tags: [AWS, Resource, Elasticache, ElasticacheCluster]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [AWS, リソース, Elasticache, ElasticacheCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.webp"
     }
 />
 
 ## リソース概要
 
-AWS Elasticache Cluster はクラウド基盤のインメモリデータストアであり、迅速かつ拡張可能なキャッシングソリューションを提供します。
-Elasticache Cluster は Redis または Memcached エンジンを使用してクラスターモードまたは単一ノードモードで実行できます。
-Elasticache Cluster は アプリケーションの性能を向上させるために使用され、データをより速く検索して処理することができます。
-Elasticache Cluster は 自動バックアップ、復旧、拡張およびモニタリング機能を提供し、ユーザーが安心してデータを保存できるようにサポートします。
+AWS ElastiCache Cluster は、クラウドベースのインメモリデータストアであり、高速かつスケーラブルなキャッシュソリューションを提供します。  
+Redis または Memcached エンジンを使用して動作し、アプリケーション性能の向上に利用されます。
 
 ## 関連リソース
 
@@ -28,26 +26,35 @@ Elasticache Cluster は 自動バックアップ、復旧、拡張およびモ�
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
-### 接続リソース
+### Connected Resources
 
--   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/ElastiCache/ElasticacheCluster)
-
-## リソース設定値
-
--   `engine` : Cache Cluster で使用する Cache Engine の名前 - `redis`, `memcached`
--   `engine_version` : Cache Engine のバージョン
--   `port` : 各 Cache Node と接続するときに使用するポート番号。Memcached は 1121、Redis は 6379 番ポートをデフォルト値として使用
--   `parameter_group_name` : CacheCluster と接続するパラメータグループの名前
--   `node_type` : CacheCluster に使用されたインスタンスクラス
--   `num_cache_nodes` : Cache Cluster の最初の Cache Node の数 - `1`~`40`
--   `az_mode` : Memcached Node Group の Node が単一の可用領域で生成されるのか、それともクラスター地域の様々な可用領域にわたって生成されるのかの可否 - `single-az`, `cross-az`
--   `included_subnet_names` : ElastiCache Cluster をデプロイする Subnet Group に含まれる Subnet の名前
--   `snapshot_retention_limit` : ElastiCache が自動キャッシュクラスタースナップショットを削除する前に保管する期間
+-   [**ElasticacheCluster**](https://docs.cstudio.app/ja/docs/resource/aws/Elasticache/ElasticacheCluster)
 
 ---
 
-## 参考資料
+## リソース設定値
 
--   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 料金(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
--   [aws_elasticache_cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)
+#### 基本設定
+
+-   `engine` : キャッシュエンジン - `redis`, `memcached`
+-   `engine_version` : エンジンバージョン
+-   `port` : 接続ポート
+-   `parameter_group_name` : パラメータグループ名
+-   `node_type` : ノードインスタンスタイプ
+-   `num_cache_nodes` : ノード数
+-   `az_mode` : AZ 構成方式
+-   `included_subnet_names` : Subnet 一覧
+-   `subnet_group_name` : Subnet Group 名
+-   `snapshot_retention_limit` : スナップショット保持期間（日）
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
+
+---
+
+## References
+
+-   [Amazon ElastiCache for Redis（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
+-   [Amazon ElastiCache for Redis 料金（AWS）](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [aws_elasticache_cluster（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_cluster)

@@ -1,0 +1,103 @@
+---
+title: AutoscalingGroup
+sidebar_position: 0
+tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
+---
+import asg01 from "./img/asg01.png"
+import asg02 from "./img/asg02.png"
+import asg03 from "./img/asg03.png"
+
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
+
+## リソース概要
+
+アプリケーション需要に応じて EC2 インスタンスを自動的に起動・終了し、Resource を調整する Auto Scaling Group（ASG）です。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+
+### 接続リソース
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Lb/LbTargetGroup)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `launch_template_name` : Auto Scaling Group で使用する Launch Template 名
+-   `subnet_ids` : Auto Scaling Group が Resource を作成するサブネット ID 一覧
+-   `linked_targetgroup_name` : 接続する Target Group 名
+-   `desired_capacity` : 維持するインスタンスの目標数
+-   `min_size` : 維持するインスタンスの最小数
+-   `max_size` : 維持するインスタンスの最大数
+-   `default_cooldown` : スケーリング後、次のスケーリングまで待機する時間（秒）
+
+#### タグ
+
+-   `tags` : Resource を分類するためのタグ
+
+---
+
+## Autoscaling + LB 構成設定
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg01} alt="asg01" />
+</div>
+
+<br />
+
+-   まず、インフラ構成のための基本ネットワーク環境を作成します。
+-   1つのVPCを作成し、高可用性のために異なるアベイラビリティーゾーンにPublic SubnetとPrivate Subnetをそれぞれ2つずつ構成します。
+    また、外部インターネット通信のためにInternet GatewayとRoute Tableを一緒に設定します。
+-   [Public Subnet設定](/docs/resource/aws/Vpc/Subnet)を参考にしてSubnetを設定します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg02} alt="asg02" />
+</div>
+
+<br />
+
+-   外部から流入するトラフィックを安定して処理するために**Load Balancer**を追加します。
+-   Load BalancerはPublic Subnetに配置してインターネットからアクセス可能にし、
+    セキュリティ制御のために専用の**Security Group**を配置し、Load Balancer方向に線を繋ぎます。
+-   Load Balancerが実際にトラフィックを転送する対象リソースの集合を定義するために**Load Balancer Target Group**を配置し、
+    [Load Balancer -> Load Balancer Target Group]方向に線を繋ぎます。
+-   Load Balancerの**Listener - Linked Target Group Name**オプションで、線で繋がれたTarget Groupを選択します。
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg03} alt="asg03" />
+</div>
+
+<br />
+
+-   アプリケーションサーバーを自動的に生成・管理するために**Launch Template**と**Auto Scaling Group**を配置します。
+-   Autoscaling Groupリソースオプションで使用するLaunch Template Nameを設定し、EC2インスタンスを生成するサブネットを設定します。
+-   Linked Targetgroup Nameオプションを通じて、生成したEC2をどのTarget Groupに自動登録するかを設定します。
+
+<br />
+<br />
+
+## 参考資料
+
+-   [Auto Scaling Groups（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+-   [Launch Template の設定（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html)
+-   [Scaling Cooldowns（AWS Auto Scaling）](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html)

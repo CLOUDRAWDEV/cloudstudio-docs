@@ -1,6 +1,6 @@
 ---
-title: Waf Rule Group
-sidebar_position: 0
+title: WafRuleGroup
+sidebar_position: 3
 tags: [AWS, リソース, Waf, WafRuleGroup]
 ---
 
@@ -11,32 +11,37 @@ tags: [AWS, リソース, Waf, WafRuleGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-waf_rule_group.webp"
     }
 />
 
 ## リソース概要
 
-AWS WAF Rule Group は Web Application Firewall で使用する Rule Group です。
-Rule Group を使用して複数のルールをまとめてウェブアプリケーションに適用し、再使用性と管理効率性を高めることができます。
-Rule Group はウェブ アプリケーションのセキュリティの重要な側面を制御し、リクエストを許可、ブロック、またはカウントする機能を実行します。
+AWS WAF Rule Group は Web Application Firewall で使用するルール集合。  
+複数ルールをグループ化して再利用性および管理効率を向上させ、リクエストの許可・拒否・カウントを制御。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region/)
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+---
 
 ## リソース設定値
 
--   `scope` : AWS CloudFront デプロイ用か、それともリージョンアプリケーション用かを指定 - `REGIONAL`, `CLOUDFRONT`
--   `capacity` : ルールグループに必要な Web ACL 容量単位(WCU)
--   `cloudwatch_metrics_enabled` : 接続されたリソースが CloudWatch に指標を送信するかどうかを設定 - `true`, `false`
--   `metric_name` : CloudWatch metric の名前、英大小文字、ハイフン(-)、下線(\_)のみ含めることができ、長さは 1-128 文字
--   `sampled_requests_enabled` : AWS WAF がルールと一致するウェブリクエストのサンプリングを保存すべきかどうかを設定 - `true`, `false`
+#### 基本設定
 
----
+-   `scope` : Rule Group 適用範囲 - `REGIONAL`, `CLOUDFRONT`
+-   `capacity` : Rule Group に必要な Web ACL 容量単位（WCU）
+-   `cloudwatch_metrics_enabled` : CloudWatch メトリクス送信可否 - `true`, `false`
+-   `metric_name` : CloudWatch メトリクス名（英字大小・ハイフン・アンダースコアのみ、`1` ~ `128` 文字）
+-   `sampled_requests_enabled` : 一致リクエストのサンプリング保存可否 - `true`, `false`
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 

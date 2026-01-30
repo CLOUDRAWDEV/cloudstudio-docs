@@ -1,6 +1,6 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
+title: NatGateway
+sidebar_position: 8
 tags: [AWS, リソース, Vpc, NatGateway]
 ---
 
@@ -11,14 +11,14 @@ tags: [AWS, リソース, Vpc, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-nat_gateway.webp"
     }
 />
 
 ## リソース概要
 
-NAT Gateway は NAT(ネットワークアドレス変換)サービスです。
-プライベートサブネットのインスタンスが VPC 外部のサービスに接続できますが、外部サービスでこのようなインスタンスとの接続を開始できないように NAT Gateway を使用することができます。
+NAT ゲートウェイは Network Address Translation（NAT）サービス。  
+プライベートサブネット内インスタンスが VPC 外部サービスへ通信可能とし、外部からの接続開始は不可とする構成を提供。
 
 ## 関連リソース
 
@@ -26,16 +26,25 @@ NAT Gateway は NAT(ネットワークアドレス変換)サービスです。
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
+### 接続リソース
+
+-   [**Eip**](https://docs.cstudio.app/ja/docs/resource/aws/Ec2/Eip)
+-   [**RouteTable**](https://docs.cstudio.app/ja/docs/resource/aws/Network/RouteTable)
+
 ## リソース設定値
 
--   `included_subnet_name` : NAT Gateway を接続する Subnet 名
--   `connectivity_type` : NAT ゲートウェイの接続タイプ - `public`, `private`
--   `eip_name` : EIP 名
+#### 基本設定
 
----
+-   `included_subnet_name` : NAT Gateway を接続する Subnet 名
+-   `connectivity_type` : 接続タイプ - `public`, `private`
+-   `linked_eip_name` : 接続する Elastic IP 名
+
+#### タグ
+
+-   `tag` : リソース分類用タグ
 
 ## 参考資料
 
--   [NAT Gateway(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
+-   [NAT ゲートウェイ(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway.html)
 -   [Amazon VPC 料金(AWS)](https://aws.amazon.com/ko/vpc/pricing/)
 -   [aws_nat_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway)

@@ -1,0 +1,67 @@
+---
+title: BedrockGuardrail
+sidebar_position: 3
+tags: [AWS, Bedrock, BedrockGuardrail, Guardrail, Security, AI]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/bedrock_agents-bedrock_guardrail.webp" />
+
+## Ressourcenübersicht
+
+Eine Ressource zur Konfiguration von Richtlinien wie der Blockierung verbotener Wörter und dem Schutz sensibler Informationen zur Steuerung von Antworten von AWS-Bedrock-Modellen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen für Nachrichten
+
+-   `blocked_input_messaging` : Nachricht, die Benutzern angezeigt wird, wenn eine Eingabe blockiert wird
+-   `blocked_outputs_messaging` : Nachricht, die Benutzern angezeigt wird, wenn eine Ausgabe blockiert wird
+-   `guardrail_description` : Zweck und Beschreibung des Guardrails
+-   `kms_key_arn` : ARN des benutzerdefinierten KMS-Schlüssels zur Verschlüsselung der Guardrail-Daten
+
+#### Inhaltsrichtlinien (`content_policy_config`)
+
+-   `content_policy_config.type` : Typ der Inhaltsrichtlinie – `HATE`, `INSULTS`, `SEXUAL`, `VIOLENCE`, `MISCONDUCT`
+-   `content_policy_config.input_strength` : Richtlinienintensität für Eingaben – `LOW`, `MEDIUM`, `HIGH`, `NONE`
+-   `content_policy_config.output_strength` : Richtlinienintensität für Ausgaben – `LOW`, `MEDIUM`, `HIGH`, `NONE`
+
+#### Themenrichtlinien (`topic_policy_config`)
+
+-   `topic_policy_config.definition` : Definition der eingeschränkten oder erlaubten Themen
+-   `topic_policy_config.type` : Richtlinientyp – `DENY`, `ALLOW`
+-   `topic_policy_config.examples` : Liste von Themenbeispielen, auf die die Richtlinie angewendet wird
+
+#### Kontextbasierte Validierung (`contextual_grounding_policy_config`)
+
+-   `contextual_grounding_policy_config.threshold` : Schwellenwert zur Beurteilung der Kontextübereinstimmung (0~1)
+-   `contextual_grounding_policy_config.type` : Validierungsmethode – `RELEVANCE`, `GROUNDING`
+
+#### Schutz sensibler Informationen (`sensitive_information_policy_config`)
+
+-   `sensitive_information_policy_config.pii_entities_config.action` : Maßnahme bei Erkennung personenbezogener Daten (PII) – `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.pii_entities_config.type` : Zu erkennende PII-Typen
+-   `sensitive_information_policy_config.regexes_config.action` : Maßnahme bei Regex-Erkennung – `BLOCK`, `ANONYMIZE`, `NONE`
+-   `sensitive_information_policy_config.regexes_config.description` : Beschreibung des regulären Ausdrucks
+-   `sensitive_information_policy_config.regexes_config.pattern` : Muster des regulären Ausdrucks
+
+#### Wortlistenrichtlinien (`word_policy_config`)
+
+-   `word_policy_config.managed_word_lists_config.type` : Typ der verwalteten verbotenen Wortliste – `PROFANITY`
+-   `word_policy_config.words_config.text` : Benutzerdefinierte verbotene oder eingeschränkte Wörter
+
+#### Versionsverwaltung (`versions`)
+
+-   `versions.descript

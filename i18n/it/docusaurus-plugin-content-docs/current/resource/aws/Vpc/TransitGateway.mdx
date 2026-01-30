@@ -1,0 +1,66 @@
+---
+title: TransitGateway
+sidebar_position: 15
+tags: [AWS, Risorsa, Ec2, TransitGateway]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-transit_gateway.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Un Transit Gateway è un hub di trasporto di rete che consente di interconnettere Virtual Private Cloud (VPC) e reti on-premise.  
+Con l’espansione globale dell’infrastruttura cloud, il peering tra regioni collega i Transit Gateway utilizzando l’infrastruttura globale di AWS.
+
+I dati vengono automaticamente crittografati e non transitano attraverso Internet pubblico.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**DxGateway**](https://docs.cstudio.app/docs/resource/aws/DirectConnect/DxGateway)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/aws/Vpc/RouteTable)
+-   [**CustomerGateway**](https://docs.cstudio.app/docs/resource/aws/Vpc/CustomerGateway)
+-   [**TransitGateway Attachment**](https://docs.cstudio.app/docs/resource/aws/Vpc/TransitGatewayAttachment)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `dns_support` : Abilitazione della risoluzione DNS per i VPC collegati - `enable`, `disable`
+-   `vpn_ecmp_support` : Supporto al routing ECMP (multipath) per VPN collegate - `enable`, `disable`
+-   `default_route_table_association` : Associazione automatica degli attachment alla route table predefinita - `enable`, `disable`
+-   `default_route_table_propagation` : Propagazione automatica degli attachment alla route table predefinita - `enable`, `disable`
+-   `multicast_support` : Abilitazione della creazione di domini multicast - `enable`, `disable`
+-   `transit_gateway_cidr_blocks` : Elenco dei blocchi CIDR assegnati al Transit Gateway
+
+#### Impostazioni Direct Connect Gateway (`dx_gateway`)
+
+-   `dx_gateway.linked_dx_gateway` : Nome del Direct Connect Gateway da collegare
+-   `dx_gateway.allowed_prefixes` : Elenco dei prefix VPC (CIDR) annunciati verso la rete on-premise
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [AWS Transit Gateway (AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/tgw/what-is-transit-gateway.html?nc2=type_a)
+-   [Prezzi AWS Transit Gateway (AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/?nc2=type_a)
+-   [aws_ec2_transit_gateway (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_transit_gateway)

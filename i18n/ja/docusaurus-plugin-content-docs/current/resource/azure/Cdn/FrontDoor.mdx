@@ -1,7 +1,7 @@
 ---
 title: FrontDoor
-sidebar_position: 1
-tags: [Azure, リソース, Cdn, FrontDoor]
+sidebar_position: 0
+tags: [Azure, Cdn, FrontDoor]
 ---
 
 <hr />
@@ -11,63 +11,87 @@ tags: [Azure, リソース, Cdn, FrontDoor]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cdn-frontdoor.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cdn-frontdoor.webp"
     }
 />
 
 ## リソース概要
 
-Azure Front Door は、世界中のユーザーとアプリケーションの静的及び動的ウェブコンテンツとの間で、迅速かつ安定的で安全なアクセスを提供する Microsoft の最新クラウド CDN(Content Delivery Network)です。
-Azure Front Door は、エンタープライズおよび消費者エンドユーザーの両方に近い世界中に配布された数百のグローバルおよびローカル POP(支店)がある Microsoft のグローバルエッジネットワークを使用してコンテンツを提供します。
+Azure Front Door は、世界中に分散された Microsoft のグローバル エッジ ネットワークを活用し、ユーザーに Web コンテンツを高速かつ安定して配信するグローバル アプリケーション アクセラレーション サービスです。  
+トラフィック ルーティング、ロード バランシング、ヘルス プローブ、TLS 終端、およびセキュアな通信をサポートし、複数のオリジンを持つ環境でも高可用性と低レイテンシを提供します。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+---
 
 ## リソース設定値
 
--   `sku` : Front Door プロファイルに対する SKU を指定 - `Standard_AzureFrontDoor` , `Premium_AzureFrontDoor`
+### 基本設定
 
--   `endpoint_names` : 使用するエンドポイントの名前のリスト
+-   `sku` : Front Door プロファイルの SKU - `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`
 
--   `origin_group`
+-   `endpoint_names` : 使用するエンドポイント名の一覧
 
-    -   `restore_traffic_time_in_minutes` : エンドポイントが異常になったり、新しいエンドポイントが追加されたとき、他のエンドポイントにトラフィックを移動する前に経過する時間を指定します。 `0` ~ `50`
-    -   `session_affinity_enabled` : ホストでセッションの好みを有効にする必要があるかどうかを指定 - `true` , `false`
-    -   `health_probe_path` : 状態をチェックする相対経路を指定
-    -   `health_probe_protocol` : 状態プローブに使用するプロトコルを指定 - `Http` , `Https`
-    -   `health_probe_method` : 状態プローブリクエストのタイプを指定 - `HEAD` , `GET`
-    -   `health_probe_interval_in_seconds` : 状態プローブ間隔(秒)を指定 `5` ~ `31536000`
-    -   `load_balancing_latency_in_milliseconds` : 最も低い遅延時間バケットに含めることができる追加の遅延時間をミリ秒単位で指定 - `0` ~ `1000`
-    -   `load_balancing_sample_size` : ロード バランシング サンプル数を指定 - `0` ~ `255`
-    -   `load_balancing_sample_required` : 期間内で成功する必要があるサンプルの数を指定 - `0` ~ `255`
+### オリジン グループ設定（`origin_group`）
 
--   `origin`
+-   `restore_traffic_time_in_minutes` : エンドポイント障害発生時、または新しいエンドポイント追加時に、トラフィックを切り替える前の待機時間（分）- `0` ~ `50`
 
-    -   `origin_group_name` : オリジンが含まれるグループの名前
-    -   `host_name` : オリジンのホスト名 (IPv4 アドレス, IPv6 アドレスまたはドメイン名)
-    -   `origin_host_header` : 各リクエストとともにオリジンに送信されるホストヘッダー値(IPv4 アドレス、IPv6 アドレスまたはドメイン名)
-    -   `certificate_name_check_enabled` : 証明書の適用可否を指定 - `true` , `false`
-    -   `enabled` : オリジン活性化の有無 - `true` , `false`
-    -   `priority` : ロードバランシングのために指定されたオリジングループのオリジン優先順位、低い優先順位オリジンが正常の場合、高い優先順位はロードバランシングに使用されません。 - `1` ~ `5`
-    -   `weight` : ロードバランシングのために指定されたオリジングループのオリジン加重値 - `1` ~ `1000`
-    -   `http_port` : Http ポート値 - `1` ~ `65535`
+-   `session_affinity_enabled` : セッション アフィニティ（Session Affinity）を有効にするかどうか - `true`, `false`
 
--   `route`
-    -   `endpoint_name` : 指定するフロントドアのエンドポイント名
-    -   `origin_group_name` : オリジンが含まれるグループの名前
-    -   `origin_names` : 指定するオリジンの名前
-    -   `patterns_to_match` : ルーティングパスパターン
-    -   `supported_protocols` : フロントドアで指定するプロトコル - `Http` , `Https`
-    -   `forwarding_protocol` : トラフィックをバックエンドに転送する際に使用するプロトコル - `HttpOnly`, `HttpsOnly`, `MatchRequest`
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `health_probe_path` : オリジンの状態確認に使用する相対パス
+
+-   `health_probe_protocol` : ヘルス プローブに使用するプロトコル - `Http`, `Https`
+
+-   `health_probe_method` : ヘルス プローブのリクエスト方式 - `HEAD`, `GET`
+
+-   `health_probe_interval_in_seconds` : ヘルス プローブの実行間隔（秒）
+
+-   `load_balancing_latency_in_milliseconds` : 最小レイテンシ バケットに含める追加レイテンシ（ミリ秒）
+
+-   `load_balancing_sample_size` : ロード バランシング判断に使用するサンプル数
+
+-   `load_balancing_sample_required` : 正常と判断されるために必要な成功サンプル数
+
+### オリジン設定（`origin`）
+
+-   `origin_group_name` : オリジンが属するオリジン グループ名
+
+-   `host_name` : オリジンのホスト名（IPv4、IPv6、またはドメイン）
+
+-   `origin_host_header` : オリジンに送信される Host ヘッダーの値
+
+-   `certificate_name_check_enabled` : 証明書名の検証を有効にするかどうか - `true`, `false`
+
+-   `enabled` : オリジンを有効にするかどうか - `true`, `false`
+
+-   `priority` : オリジンの優先順位 - `1` ~ `5`
+
+-   `weight` : ロード バランシングの重み - `1` ~ `1000`
+
+-   `http_port` : HTTP ポート番号 - `1` ~ `65535`
+
+-   `https_port` : HTTPS ポート番号 - `1` ~ `65535`
+
+### ルート設定（`route`）
+
+-   `endpoint_name` : ルートを適用する Front Door エンドポイント名
+
+-   `origin_group_name` : トラフィックを転送するオリジン グループ名
+
+-   `patterns_to_match` : ルーティング対象となるパス パターンの一覧
+
+-   `supported_protocols` : Front Door で許可されるプロトコル - `Http`, `Https`
+
+-   `forwarding_protocol` : バックエンドへトラフィックを転送する際に使用するプロトコル - `HttpOnly`, `HttpsOnly`, `MatchRequest`
 
 ---
 
 ## 参考資料
 
--   [Azure FrontDoor(Microsoft)](https://learn.microsoft.com/ko-kr/azure/frontdoor/front-door-overview)
--   [Azure FrontDoor 価格](https://azure.microsoft.com/en-us/pricing/details/frontdoor/)
--   [Azure FrontDoor(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint)
+-   [Azure Front Door（Microsoft）](https://learn.microsoft.com/ko-kr/azure/frontdoor/front-door-overview)
+-   [Azure Front Door 料金](https://azure.microsoft.com/en-us/pricing/details/frontdoor/)
+-   [Azure Front Door（Terraform）](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_endpoint)

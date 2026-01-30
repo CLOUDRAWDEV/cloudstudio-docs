@@ -1,7 +1,7 @@
 ---
 title: ExpressRouteCircuit
-sidebar_position: 2
-tags: [Azure, Resource, Network, ExpressRouteCircuit]
+sidebar_position: 10
+tags: [Azure, Network, ExpressRoute, ExpressRouteCircuit]
 ---
 
 <hr />
@@ -11,56 +11,46 @@ tags: [Azure, Resource, Network, ExpressRouteCircuit]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-express_route_circuit.webp"
     }
 />
 
 ## Resource Overview
 
-ExpressRoute Circuit is a service provided by Microsoft Azure that allows users to create a private connection between their on-premises infrastructure and Azure data centers. 
-Since traffic is routed through a private connection rather than the public internet, it offers a more secure and reliable connection compared to typical internet-based connections.
-ExpressRoute Circuit essentially provides a dedicated private network connection, enabling access to Azure services like virtual machines, storage, and databases as if they were part of the user's own on-premises infrastructure. 
-This allows organizations to extend their on-premises infrastructure to the cloud and access Azure services without exposing their network to the public internet.
+ExpressRoute Circuit is an Azure network resource that connects on-premises networks to the Microsoft cloud through a **private dedicated connection**.  
+It provides stable connectivity without traversing the public internet and is commonly used in enterprise environments with high bandwidth, low latency, and strict security requirements.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
-
-## Resource Setting Values
-
--   `service_provider` : The name of the Express route service provider -`KINX`, `KT`, `SKTTelecom`, `LGCNS`, ` LGUplus`,   `SejongTelecom`
--   `peering_location` : The name of the peering location, Not the Azure resource location - `Seoul`, `Busan`
-
--   `bandwidth_in_mbps` : The bandwidth of the circuit in Mbps -`50`, `100`, `200`, `500`, `1000`, `2000`, `5000`, `10000`
-
--   `sku_tier` : The SKU of Express route circuit - `Basic`, `Local`, `Standard`, `Premium`
-
--   `sku_family` : The billing mode for outbound data transport - `MeteredData`, `UnlimitedData`
-
--   `authorization_name` : The name of authorization
-
--   `circuit_peering`
-
-    -   `AzurePrivatePeering`
-        -   `enabled_peering` : Enable option types of Circuit Peering
-        -   `peer_asn` : The Either a 16-bit ASN, Can either be public or private - `0`~`65535`
-        -   `primary_peer_address` : The /30 subnet for the primary link
-        -   `secondary_peer_address` : The /30 subnet for the secondary link
-        -   `vlan_id` : The valid VLAN ID to establish the peering on
-        -   `advertised_public_prefixes` : List of public IPv4 address prefixes advertised through BGP sessions
-    -   `AzurePublicPeering`
-        -   `enabled_peering` : Enable option types of Circuit Peering
-    -   `MicrosoftPeering`
-        -   `enabled_peering` : Enable option types of Circuit Peering
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure ExpressRouteCircuit(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings#circuits)
--   [Azure ExpressRouteCircuit Price](https://azure.microsoft.com/en-us/pricing/details/expressroute/)
--   [Azure ExpressRouteCircuit(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/express_route_circuit)
+-   `service_provider` : ISP provider that supplies the ExpressRoute circuit
+-   `peering_location` : Peering location where the ISP provisions the circuit
+-   `bandwidth_in_mbps` : Bandwidth of the ExpressRoute circuit (Mbps)
+-   `sku_tier` : Pricing tier of the ExpressRoute circuit - `Basic`, `Local`, `Standard`, `Premium`
+-   `sku_family` : Billing model for outbound data transfer - `MeteredData`, `UnlimitedData`
+-   `authorization_names` : List of authorization names permitted to use the circuit
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+#### Circuit Peering Settings (`circuit_peering`)
+
+-   `circuit_peering.enabled_peering` : Whether the peering type is enabled - `true`, `false`
+-   `circuit_peering.peer_asn` : ASN value used for BGP peering
+-   `circuit_peering.primary_peer_address` : `/30` IPv4 subnet for the primary link
+-   `circuit_peering.secondary_peer_address` : `/30` IPv4 subnet for the secondary link
+-   `circuit_peering.vlan_id` : VLAN ID for peering configuration
+-   `circuit_peering.advertised_public_prefixes` : List of public IPv4 address prefixes advertised through the BGP session
+
+---
+
+## References
+
+-   [Azure ExpressRoute Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-introduction)
+-   [ExpressRoute Circuits and SKUs(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-circuit-peerings)
+-   [Configure ExpressRoute Peering(Microsoft)](https://learn.microsoft.com/ko-kr/azure/expressroute/expressroute-howto-routing-portal)

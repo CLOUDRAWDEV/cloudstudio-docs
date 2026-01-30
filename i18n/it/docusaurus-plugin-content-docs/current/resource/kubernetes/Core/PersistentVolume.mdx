@@ -1,0 +1,58 @@
+---
+title: PersistentVolume
+sidebar_position: 2
+tags: [Kubernetes, Risorsa, Core, PersistentVolume]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes che fornisce storage collegato in rete al cluster.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Cluster**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Cluster)
+
+### Risorse collegate
+
+-   [**StorageClass**](https://docs.cstudio.app/it/docs/resource/kubernetes/Storage/StorageClass)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/it/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `annotations` : Metadati di sistema Kubernetes
+-   `labels` : Etichette personalizzate per identificazione e classificazione del PV
+-   `spec.storage_class_name` : Nome dello StorageClass da utilizzare
+-   `spec.storage_capacity` : Capacità di storage
+-   `spec.volume_driver` : Driver di volume basato su CSI
+-   `spec.volume_handle` : Identificatore della risorsa di storage reale
+-   `spec.persistent_volume_reclaim_policy` : Politica di gestione del volume al rilascio del claim -`Retain / Delete / Recycle`
+-   `spec.read_only` : Modalità di sola lettura del volume
+-   `spec.volume_attributes` : Attributi aggiuntivi del volume specifici del driver
+-   `spec.access_modes` : Modalità di accesso al volume - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : Opzioni di mount aggiuntive
+-   `node_stage_secret_ref` : Riferimento al Secret contenente le credenziali di accesso allo storage
+
+---
+
+## Riferimenti
+
+-   [PersistentVolume (Kubernetes)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/persistent_volume)
+-   [PersistentVolume (Terraform)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

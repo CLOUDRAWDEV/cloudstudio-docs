@@ -1,0 +1,96 @@
+---
+title: WindowsVirtualMachineScaleSet
+sidebar_position: 3
+tags: [Azure, WindowsVirtualMachineScaleSet, VirtualMachineScaleSet, Compute]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-windows_virtual_machine_scale_set.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Windows Virtual Machine Scale Set は、複数の Windows 仮想マシン インスタンスを作成し、  
+需要または定義されたスケジュールに応じてインスタンス数を自動的に増減できるリソースです。  
+VM サイズ（SKU）、オペレーティングシステム イメージ、管理者アカウント情報、OS ディスク構成、  
+ネットワーク インターフェース構成などを設定することで、同一構成の Windows VM をスケールに応じて運用できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
+
+### 接続リソース
+
+-   [**Monitor Autoscale Setting**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+
+---
+
+## リソース設定値
+
+-   `included_vnet_name` : Virtual Machine Scale Set が属する Virtual Network の名前
+
+-   `orchestration_mode` : Scale Set による VM 管理方式を決定するオーケストレーション モード - `Uniform`, `Flexible`
+
+-   `platform_fault_domain_count` : 共通の電源およびネットワーク スイッチを共有する VM グループの数
+
+-   `vmss_sku` : Virtual Machine Scale Set の価格設定レベル
+
+-   `instances` : Scale Set 内の仮想マシン数 - `1` ~ `1000`
+
+-   `computer_name_prefix` : Virtual Machines の名前に使用するプレフィックス
+
+-   `admin_username` : VM の管理者ユーザー名 - 1 ~ 64 文字
+
+-   `admin_password` : VM の管理者パスワード - 12 ~ 72 文字
+
+-   `os_disk_caching` : 内部 OS ディスクのキャッシュ方式 - `ReadWrite`, `ReadOnly`, `None`
+
+-   `storage_account_type` : 内部 OS ディスクをバックアップするためのストレージ種類 - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+
+-   `disk_size_gb` : 内部 OS ディスクのサイズ（GB） - `32` ~ `11400`
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
+
+### イメージ設定（`source_image`）
+
+-   `source_image.type` : カスタム イメージ ID を使用するかどうか - `recommended`, `custom_id`, `custom_input`
+
+-   `source_image.image_id` : VM 作成に使用するイメージの ID
+
+-   `source_image.image` : VM 作成に使用するイメージ
+
+-   `source_image.publisher` : VM 作成に使用するイメージの発行元
+
+-   `source_image.offer` : VM 作成に使用するイメージの Offer
+
+-   `source_image.sku` : VM 作成に使用するイメージの SKU
+
+### ネットワーク設定（`network_interface`）
+
+-   `network_interface.is_primary` : 既定の IP 構成として設定 - `true`, `false`
+
+-   `network_interface.subnet_name` : Network Interface が配置される Subnet の名前
+
+### IP 構成（`network_interface.ip_configuration`）
+
+-   `network_interface.ip_configuration.is_primary` : ネットワーク インターフェースの既定 IP 構成として設定 - `true`, `false`
+
+-   `network_interface.ip_configuration.enabled_public_ip` : パブリック IP の使用有無 - `true`, `false`
+
+-   `network_interface.ip_configuration.public_ip_name` : 使用するパブリック IP の名前
+
+---
+
+## 参考資料
+
+-   [Azure Virtual Machine Scale Sets（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/)
+-   [Terraform azurerm Windows Virtual Machine Scale Set](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine_scale_set)

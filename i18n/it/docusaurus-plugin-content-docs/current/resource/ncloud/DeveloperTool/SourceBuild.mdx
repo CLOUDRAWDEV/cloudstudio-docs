@@ -1,0 +1,98 @@
+---
+title: SourceBuild
+sidebar_position: 0
+tags: [Ncloud, Resource, DeveloperTool, SourceBuild]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.webp"
+    }
+/>
+
+## Resource Overview
+
+SourceBuild is a service that makes it easy to build source code developed in various languages.  
+It creates independent build servers in real time and can process multiple build execution requests simultaneously.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/it/docs/resource/ncloud/DeveloperTool/SourcePipeline)
+
+### Connected Resources
+
+-   [**SourceCommit**](https://docs.cstudio.app/it/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/it/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `description` : Build project description (up to 500 characters)
+-   `source_type` : Build target type - `SourceCommit`
+-   `source_branch` : Name of the branch to build
+-   `linked_repository_name` : Name of the repository to build
+
+#### Build Environment Settings (`env`)
+
+-   `env.env_compute_spec` : Build compute environment specification - `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : Build environment image type - `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : OS specification to use
+-   `env.env_platform_runtime_name` : Build runtime name
+-   `env.env_platform_runtime_version` : Build runtime version
+-   `env.target_registry_name` : Name of the container registry where the build image will be stored
+-   `env.target_container_image_name` : Name of the container image to create
+-   `env.target_container_image_tag` : Tag of the container image to create
+-   `env.env_timeout` : Maximum build wait time (minutes) - `5` ~ `540`
+-   `env.env_use_docker` : Whether to use the Docker engine - `true`, `false`
+-   `env.env_docker_engine_version` : Docker engine version
+-   `env.env_var` : Environment variables to use for the build (key-value)
+
+#### Build Commands (`build_command`)
+
+-   `build_command.pre_build_command` : List of commands to execute before the build
+-   `build_command.in_build_command` : List of commands to execute during the build
+-   `build_command.post_build_command` : List of commands to execute after the build
+-   `build_command.use_docker_image_build_command` : Whether to use Docker image build - `true`, `false`
+-   `build_command.docker_image_build_registry` : Name of the container registry to store the image
+-   `build_command.docker_image_dockerfile` : Path to the Dockerfile
+-   `build_command.docker_image` : Name of the image to upload
+-   `build_command.docker_image_build_tag` : Tag of the image to upload
+
+#### Logs and Security
+
+-   `enable_cloud_log_analytics` : Whether to store build logs in Cloud Log Analytics - `true`, `false`
+-   `enable_file_safer` : Whether to perform security checks using File Safer - `true`, `false`
+
+#### Build Artifact Storage (`artifact`)
+
+-   `artifact.save_build_results` : Whether to save build results - `true`, `false`
+-   `artifact.path_to_save_build_results` : Path to save build results
+-   `artifact.object_storage_name_to_save` : Object Storage bucket name
+-   `artifact.object_storage_path_to_save` : Object Storage bucket path
+-   `artifact.file_name_to_save` : Name of the file to save
+-   `artifact.enable_backup_build_results` : Whether to back up build results - `true`, `false`
+
+#### Image Upload (`upload`)
+
+-   `upload.upload_build_results` : Whether to upload the build environment image - `true`, `false`
+-   `upload.container_registry_name_to_upload_build_results` : Name of the container registry for image upload
+-   `upload.image_name_to_upload` : Name of the image to upload
+-   `upload.image_tag_to_upload` : Tag of the image to upload
+
+---
+
+## References
+
+-   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
+-   [Source Build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

@@ -1,0 +1,54 @@
+---
+title: SearchService
+sidebar_position: 0
+tags: [Azure, Search, CognitiveSearch, SearchService]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/search-search_service.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Search Service は、大規模なテキスト・ドキュメント・データに対して、検索、フィルタリング、ランキングなどの機能を提供する完全マネージドの検索サービスです。  
+検索インデックスを基盤に高速なクエリ処理とスケーラブルな検索性能を提供し、セキュリティおよびネットワークアクセス ポリシーによりサービスへのアクセス範囲を制御できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private Endpoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+
+---
+
+## リソース設定値
+
+-   `sku_name` : Search Service を利用するための価格レベル - `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1`, `storage_optimized_l2`
+-   `public_network_access_enabled` : パブリック インターネット経由でのリソースアクセスを許可するかどうか - `true`, `false`
+-   `allowed_ips` : 特定の IP または CIDR 範囲から Search Service へのアクセスを許可する IP 許可リスト
+-   `local_authentication_enabled` : API キーを用いたローカル認証を使用するかどうか - `true`, `false`
+-   `authentication_failure_mode` : クライアント認証失敗時に要求をブロックするか、制限付きで許可するかを決定する動作モード - `http401WithBearerChallenge`, `http403`
+-   `partition_count` : インデックス データを分散して保存するためのパーティション数 - `1`, `2`, `3`, `4`, `6`, `12`
+-   `replica_count` : 検索クエリを処理するレプリカ数
+
+#### Private Link (`private_link`)
+
+-   `private_link.target_ai_service_name` : Private Link 接続を作成する対象 AI Service リソースの名前を指定
+-   `private_link.request_message` : Private Link 接続要求時に承認者へ送信する説明またはメッセージ
+
+## 参考資料
+
+-   [Azure Cognitive Search 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-what-is-azure-search)
+-   [Azure Cognitive Search 価格と SKU (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-sku-tier)
+-   [Azure Cognitive Search ネットワーク セキュリティ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/search/search-security-overview)

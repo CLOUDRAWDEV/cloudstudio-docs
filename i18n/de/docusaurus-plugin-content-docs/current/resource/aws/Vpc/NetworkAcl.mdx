@@ -1,0 +1,67 @@
+---
+title: NetworkAcl
+sidebar_position: 9
+tags: [AWS, Ressource, Vpc, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_acl.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Network Access Control List (ACL) erlaubt oder verweigert bestimmten eingehenden oder ausgehenden Datenverkehr auf Subnetz-Ebene. Durch die Verwendung der Standard-Netzwerk-ACL einer VPC oder durch das Erstellen benutzerdefinierter Netzwerk-ACLs mit regelbasiertem Verhalten ähnlich wie bei Security Groups kann eine zusätzliche Sicherheitsschicht für die VPC geschaffen werden.  
+Für die Nutzung von Netzwerk-ACLs fallen keine zusätzlichen Kosten an.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name der VPC, in der die ACL erstellt wird
+-   `nacl_description` : Beschreibung der ACL
+
+#### Eingehende Regeln (`inbound_rule`)
+
+-   `inbound_rule.priority` : Priorität der eingehenden Regel – `0` ~ `199`
+-   `inbound_rule.protocol` : Protokoll des eingehenden Datenverkehrs – `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Aktion für eingehenden Datenverkehr – `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : CIDR-Bereich der Quelle des eingehenden Datenverkehrs
+-   `inbound_rule.port_range` : Portbereich für die eingehende Regel – `1` ~ `65535`
+
+#### Ausgehende Regeln (`outbound_rule`)
+
+-   `outbound_rule.priority` : Priorität der ausgehenden Regel – `0` ~ `199`
+-   `outbound_rule.protocol` : Protokoll des ausgehenden Datenverkehrs – `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Aktion für ausgehenden Datenverkehr – `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : CIDR-Bereich des Ziels des ausgehenden Datenverkehrs
+-   `outbound_rule.port_range` : Portbereich für die ausgehende Regel – `1` ~ `65535`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Steuerung des Datenverkehrs zu Subnetzen mit Network ACLs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-network-acls.html)
+-   [aws_network_acl(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/network_acl)

@@ -1,0 +1,79 @@
+---
+title: FirewallPolicyRuleCollectionGroup
+sidebar_position: 19
+tags: [Azure, Network, FirewallPolicyRuleCollectionGroup]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall_policy_rule_collection_group.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+FirewallPolicyRuleCollectionGroup es un recurso que permite **agrupar y administrar de forma centralizada múltiples colecciones de reglas dentro de una Azure Firewall Policy**.  
+Las colecciones de reglas Application, NAT y Network pueden organizarse en un solo grupo, y el orden de procesamiento dentro de la política se controla según la prioridad del grupo (priority).
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**FirewallPolicy**](https://docs.cstudio.app/es/docs/resource/azure/Network/FirewallPolicy)
+
+---
+
+## Valores de configuración del recurso
+
+-   `included_firewall_policy_name` : Nombre de la Azure Firewall Policy que se incluirá
+-   `priority` : Prioridad de procesamiento del Rule Collection Group
+-   `tag` : Etiquetas para clasificar el recurso
+
+#### Application Rule Collection (`application_rule_collection`)
+
+-   `application_rule_collection.priority` : Prioridad dentro de la Application Rule Collection
+-   `application_rule_collection.action` : Acción que ejecutará la Application Rule Collection – `Allow`, `Deny`
+
+#### Application Rule Collection > Rule (`application_rule_collection.rule`)
+
+-   `application_rule_collection.rule.protocols` : Protocolos aplicados al tráfico
+-   `application_rule_collection.rule.source_addresses` : Lista de direcciones IP de origen o rangos de direcciones del tráfico
+-   `application_rule_collection.rule.destination_fqdns` : Lista de FQDN de destino (nombres de dominio completamente calificados) del tráfico
+
+#### NAT Rule Collection (`nat_rule_collection`)
+
+-   `nat_rule_collection.priority` : Prioridad dentro de la NAT Rule Collection
+-   `nat_rule_collection.action` : Acción que ejecutarán las reglas NAT – `Dnat`
+
+#### NAT Rule Collection > Rule (`nat_rule_collection.rule`)
+
+-   `nat_rule_collection.rule.protocols` : Lista de protocolos a aplicar – `TCP`, `UDP`
+-   `nat_rule_collection.rule.source_addresses` : Lista de direcciones IP de origen o rangos de direcciones del tráfico
+-   `nat_rule_collection.rule.destination_address` : Dirección IP de destino del tráfico
+-   `nat_rule_collection.rule.destination_port` : Número de puerto de destino del tráfico
+-   `nat_rule_collection.rule.translated_address` : Dirección IP de destino traducida
+-   `nat_rule_collection.rule.translated_port` : Número de puerto de destino traducido
+
+#### Network Rule Collection (`network_rule_collection`)
+
+-   `network_rule_collection.priority` : Prioridad dentro de la Network Rule Collection
+-   `network_rule_collection.action` : Acción que ejecutarán las reglas de red – `Allow`
+
+#### Network Rule Collection > Rule (`network_rule_collection.rule`)
+
+-   `network_rule_collection.rule.protocols` : Lista de protocolos a aplicar – `Any`, `TCP`, `UDP`, `ICMP`
+-   `network_rule_collection.rule.source_addresses` : Lista de direcciones IP de origen o rangos de direcciones del tráfico
+-   `network_rule_collection.rule.destination_addresses` : Lista de direcciones IP de destino o rangos de direcciones del tráfico
+-   `network_rule_collection.rule.destination_ports` : Lista de números de puerto de destino del tráfico
+
+---
+
+## Referencias
+
+-   [Descripción general de Azure Firewall Policy (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/policy-overview)
+-   [Procesamiento de reglas de Azure Firewall Policy (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall-manager/rule-processing)

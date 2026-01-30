@@ -1,6 +1,6 @@
 ---
 title: PublicIP
-sidebar_position: 0
+sidebar_position: 3
 tags: [Ncloud, リソース, Networking, PublicIP]
 ---
 
@@ -11,30 +11,34 @@ tags: [Ncloud, リソース, Networking, PublicIP]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-public_ip.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-public_ip.webp"
     }
 />
 
 ## リソース概要
 
-サーバーをサービス目的で利用したり、生成したサーバーに接続するのに役立つサービスです。
+サーバーをサービス用途で利用したり、作成したサーバーへ接続するために使用されるサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/Region)
+-   [**Region**](https://docs.cstudio.app/docs/resource/ncloud/Base/Region)
 
 ### 接続リソース
 
--   [**Server**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/Server)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+
+---
 
 ## リソース設定値
 
--   `target_server_name` : 公用 IP を適用するサーバーインスタンスの名前
+#### 基本設定
+
+-   `target_server_name` : パブリック IP を適用する Server インスタンス名
 
 ---
 
 ## 参考資料
 
--   [ncloud_publicip(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/public_ip)
+-   [Public IP(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/public_ip)

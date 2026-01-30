@@ -1,0 +1,53 @@
+---
+title: IngressClass
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Networking, IngressClass]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource zur Auswahl des Ingress-Controllers, der von Ingress verwendet werden soll.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Cluster**](https://docs.cstudio.app/de/docs/resource/kubernetes/Base/Cluster)
+
+### Verbundene Ressourcen
+
+-   [**Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/Ingress)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `annotations` : Key-Value-Metadaten für das Verhalten der IngressClass
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der IngressClass
+-   `controller` : Kennung des Ingress-Controllers für diese IngressClass
+
+#### Parameterkonfiguration (`parameters`)
+
+-   `parameters.kind` : Typ der referenzierten Parameter-Ressource – `IngressParameter`, `ClusterIngressParameter`
+-   `parameters.namespace` : Namespace der referenzierten Parameter-Ressource
+-   `parameters.api_group` : API-Gruppe der referenzierten Parameter-Ressource
+
+---
+
+## Referenzen
+
+-   [IngressClass(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
+-   [IngressClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress_class)

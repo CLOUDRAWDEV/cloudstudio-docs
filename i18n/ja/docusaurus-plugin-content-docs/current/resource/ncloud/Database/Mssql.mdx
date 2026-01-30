@@ -11,39 +11,42 @@ tags: [Ncloud, リソース, Database, Mssql]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mssql.webp"
     }
 />
 
 ## リソース概要
 
-Cloud DB for MSSQL は MSSQL データベースを簡単に構築し、自動的に管理することができます。
-NAVER Cloud の最適化設定を通じて安定的に運営し、障害発生時に自動復旧する完全管理型クラウドデータベースサービスです。
+Cloud DB for MSSQL は、MSSQL データベースを簡単に構築し、自動管理できるフルマネージド型クラウドデータベースサービスです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Subnet)
 
-### 下位リソース
+---
 
 ## リソース設定値
 
--   `enable_high_availability` : 高可用性機能の使用有無
--   `user_name` : MSSQL ユーザーアクセス ID
--   `user_password` : MSSQL ユーザーアクセスパスワード
--   `image_product_code` : 生成する MSSQL インスタントサーバーイメージスペックのイメージ製品番号
--   `product_code` : 生成する MSSQL インスタンスサーバイメージスペックの製品番号
--   `data_storage_type` : データストレージの種類 - `SSD`, `HDD`
--   `backup_file_retention_period` : バックアップファイルの保管期間、バックアップは日単位で行われ、バックアップファイルは別のストレージに保存 - `1~30`
--   `enable_automatic_backup` : バックアップの自動化を使用するかどうかの可否
--   `port` : MySQL 接続ポート - `3306~20000`
--   `character_set_name` : DB 文字セット。ハングルと英語の組み合わせから選択可能
+#### 基本設定
+
+-   `included_subnet_name` : MSSQL が属する Subnet 名
+-   `enable_high_availability` : 高可用性使用可否 - `true`, `false`
+-   `user_name` : MSSQL ユーザー ID
+-   `user_password` : MSSQL ユーザーパスワード
+-   `image_product_code` : MSSQL イメージ製品コード
+-   `product_code` : MSSQL サーバー製品コード
+-   `data_storage_type` : ストレージタイプ - `SSD`, `HDD`
+-   `backup_file_retention_period` : バックアップ保持期間 - `1` ~ `30`
+-   `enable_automatic_backup` : 自動バックアップ使用可否
+-   `backup_time` : バックアップ時間
+-   `port` : MSSQL ポート（既定: `1433`）
+-   `character_set_name` : 文字セット名
 
 ---
 
 ## 参考資料
 
--   [Mssql(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
--   [ncloud_mssql(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)
+-   [MSSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbMssql)
+-   [MSSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mssql)

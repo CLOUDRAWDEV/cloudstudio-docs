@@ -11,62 +11,89 @@ tags: [AWS, リソース, Elasticsearch]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.webp"
     }
 />
 
 ## リソース概要
 
-AWS Elastic Search は分散検索及び分析エンジンで、迅速な検索及びデータ分析のために構築された検索サービスです。
-Elastic Search は Apache Lucene 検索エンジンの上に構築されており、迅速かつ拡張可能なオープンソースソリューションです。
-Elastic Search はデータ収集、ログ分析、モニタリングなど様々な用途で使用されます。
-Elastic Search は Amazon VPC 内で実行することができ、AWS Lambda、Kinesis などと統合して使用することができます。
-Elastic Search は AWS が提供するセキュリティ及びアクセス制御機能を提供し、Amazon CloudWatch と統合してモニタリング及びロギング機能を提供します。
+AWS Elasticsearch は分散型検索および分析エンジンであり、高速な検索とデータ分析のために構築された検索サービスです。  
+Elasticsearch は Apache Lucene 検索エンジン上に構築されており、高速かつスケーラブルなオープンソースソリューションです。  
+データ収集、ログ分析、モニタリングなど、さまざまな用途で使用されます。  
+Amazon VPC 内で実行でき、AWS Lambda や Kinesis などと統合して利用することも可能です。  
+また、AWS が提供するセキュリティおよびアクセス制御機能を備えており、Amazon CloudWatch と統合してモニタリングおよびロギングを行えます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 -   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Subnet)
 
 ### 接続リソース
 
--   [**Elastic Search**](https://docs.cstudio.app/ja/docs/resource/aws/Elasticsearch/Elasticsearch)
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+-   [**Elasticsearch**](https://docs.cstudio.app/ja/docs/resource/aws/Elasticsearch/)
+
+---
 
 ## リソース設定値
 
+#### 基本設定
+
 -   `elasticsearch_version` : Elasticsearch Domain のバージョン
--   `availability_zone_count` : availability zone の数 - `2`,`3`
--   `tls_security_policy` : HTTPS endpoint に適用すべき TLS セキュリティポリシーの名前 - `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`
--   `data_node`
-    -   `instance_type` : クラスター内のデータ node のインスタンスタイプ
-    -   `instance_count` : クラスターのインスタンス数 - `1`~`80`
-    -   `ebs_enabled` : EBS ボリュームがドメインのデータ node に接続されているかどうかの可否 - `true`, `false`
-    -   `ebs_volume_type` : データ node に接続された EBS ボリュームタイプ - `standard`, `gp2`, `io1`
-    -   `ebs_volume_size` : データ node に接続された EBS ボリュームのサイズ(GiB) - `1`~`16384`
--   `master_node`
-    -   `master_node_enabled` : クラスターの専用メイン node を有効にする - `true`, `false`
-    -   `master_instance_type` : クラスター内の専用メイン node のインスタンスタイプ - `r5.large.search`
-    -   `master_node_count ` : クラスターの専用メイン node の数 - `3`, `5`
--   `custom_endpoint`
-    -   `custom_endpoint_enabled` : ユーザーカスタムエンドポイントを有効にする - `true`, `false`
--   `network`
-    -   `network_type` : ネットワークアクセスのタイプ - `vpc_access`, `public_access`
-    -   `included_subnet_names` : 生成する Elasticsearch ドメインエンドポイントの VPC サブネット ID リスト
-    -   `security_group_names` : Elasticsearch ドメインエンドポイントに適用する VPC Security Group ID のリスト
--   `fine_grained_access`
-    -   `fine_grained_access_enabled` : 細分化されたアクセス制御を有効にする - `true`, `false`
-    -   `master_user_type` : マスターユーザータイプ - `iam_arn`, `master_user`
-    -   `iam_arn` : 基本ユーザー向け IAM ARN
--   `encryption`
-    -   `enforce_https` : HTTPS リクエストの可否 - `true`, `false`
-    -   `node_to_node_encryption_enabled` : node 間暗号化活性化の可否 - `true`, `false`
-    -   `data_at_rest_encryption_enabled` : 保存データの暗号化活性化の可否 - `true`, `false`
--   `kms_key_name` : データの暗号化に使用する KMS キー名
+-   `availability_zone_count` : 可用性ゾーン数 - `2`, `3`
+-   `tls_security_policy` : HTTPS エンドポイントに適用する TLS セキュリティポリシー
+-   `engine` : Elasticsearch エンジン設定
+
+#### データノード (`data_node`)
+
+-   `data_node.instance_type` : データノードのインスタンスタイプ
+-   `data_node.instance_count` : データノード数
+-   `data_node.ebs_enabled` : データノードに EBS を接続するかどうか - `true`, `false`
+-   `data_node.ebs_volume_type` : EBS ボリュームタイプ - `gp2`, `gp3`, `io1`, `standard`
+-   `data_node.ebs_volume_size` : EBS ボリュームサイズ (GiB)
+-   `data_node.ebs_volume_iops` : EBS IOPS
+-   `data_node.ebs_volume_throughput` : EBS スループット (MiB/s)
+
+#### マスターノード (`master_node`)
+
+-   `master_node.master_node_enabled` : 専用マスターノード有効化可否 - `true`, `false`
+-   `master_node.master_instance_type` : マスターノードのインスタンスタイプ
+-   `master_node.master_node_count` : マスターノード数
+
+#### カスタムエンドポイント (`custom_endpoint`)
+
+-   `custom_endpoint.custom_endpoint_enabled` : カスタムエンドポイント有効化可否 - `true`, `false`
+-   `custom_endpoint.custom_host_name` : カスタムホスト名
+-   `custom_endpoint.acm_certificate_name` : ACM 証明書名
+
+#### ネットワーク設定 (`network`)
+
+-   `network.network_type` : ネットワークアクセス方式 - `vpc_access`, `public_access`
+-   `network.included_subnet_names` : Elasticsearch ドメインを作成する Subnet 名一覧
+-   `network.linked_security_group_names` : 接続する Security Group 名一覧
+
+#### きめ細かいアクセス制御 (`fine_grained_access`)
+
+-   `fine_grained_access.fine_grained_access_enabled` : 有効化可否 - `true`, `false`
+-   `fine_grained_access.master_user_type` : マスターユーザータイプ - `iam_arn`, `master_user`
+-   `fine_grained_access.iam_arn` : マスターユーザー IAM ARN
+-   `fine_grained_access.master_user_name` : マスターユーザー名
+-   `fine_grained_access.master_user_password` : マスターユーザーパスワード
+
+#### 暗号化設定 (`encryption`)
+
+-   `encryption.enforce_https` : HTTPS 強制可否 - `true`, `false`
+-   `encryption.node_to_node_encryption_enabled` : ノード間暗号化有効化可否 - `true`, `false`
+-   `encryption.data_at_rest_encryption_enabled` : 保存データ暗号化有効化可否 - `true`, `false`
+-   `encryption.kms_key_name` : 使用する KMS キー名
+
+#### タグ
+
+-   `tag` : リソースを分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)
+-   [aws_elasticsearch_domain (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

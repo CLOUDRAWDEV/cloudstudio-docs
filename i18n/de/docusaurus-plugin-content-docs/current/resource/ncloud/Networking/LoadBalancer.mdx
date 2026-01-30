@@ -1,0 +1,59 @@
+---
+title: LoadBalancer
+sidebar_position: 6
+tags: [Ncloud, Ressource, Network, LoadBalancer]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-load_balancer.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Dienst, der Netzwerkverkehr unter Berücksichtigung von Serverleistung und Auslastung auf mehrere Server verteilt.  
+Durch Lastverteilung werden Verfügbarkeit und Antwortzeiten optimiert und unterbrechungsfreie Services ermöglicht.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**LoadBalancer (AWS)**](https://docs.cstudio.app/de/docs/resource/aws/Networking/LoadBalancer)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `network_type` : Netzwerktyp – `PUBLIC`, `PRIVATE`
+-   `type` : Load-Balancer-Typ – `APPLICATION`, `NETWORK`, `NETWORK_PROXY`
+-   `throughput_type` : Leistungsstufe (Verbindungen/Sek.) – `SMALL(30k)`, `MEDIUM(60k)`, `LARGE(90k)`
+-   `included_subnet_names` : Liste der verbundenen Subnet-Namen
+
+#### Listener (`listener`)
+
+-   `listener.protocol` : Listener-Protokoll – `HTTP`, `HTTPS`, `TCP`, `TLS`
+-   `listener.tls_min_version_type` : Minimale TLS-Version – `TLSV10`, `TLSV11`, `TLSV12`
+-   `listener.port` : Listener-Port – `1` ~ `65534`
+-   `listener.use_http2` : Verwendung von HTTP/2 – `true`, `false`
+-   `listener.ssl_certificate_no` : SSL-Zertifikatsnummer
+-   `listener.target_group_name` : Ziel-Target-Group-Name
+
+---
+
+## Referenzen
+
+-   [Load Balancer(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
+-   [Load Balancer(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb)

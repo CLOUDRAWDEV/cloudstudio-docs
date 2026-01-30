@@ -11,27 +11,44 @@ tags: [Kubernetes, リソース, Base, Cluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
     }
 />
 
 ## リソース概要
 
-ユーザー Credential に接続された Cluster を選択します。
+ユーザー Credential に紐づいた Cluster を選択。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Base)
 
-### 接続リソース
+### 下位リソース
 
-## リソース設定値
-
--   `target_cluster` : ユーザークレデンシャル
--   `Token` : Ncloud Kuberntes Service 接続用トークン - `Ncloud Kubernetes Service`のみ使用
+-   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/ja/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Storage/StorageClass)
 
 ---
 
-## 参考資料
+## リソース設定値
+
+#### 基本設定
+
+-   `target_cluster` : 接続する Ncloud Kubernetes クラスターを選択
+-   `token` : Ncloud Kubernetes Service 接続に使用される認証トークン
+
+---
+
+## References
+
+-   [Kubernetes クラスター概要(Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Kubernetes 認証(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [kubectl クラスター設定(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [kubectl ユーザー認証設定(kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

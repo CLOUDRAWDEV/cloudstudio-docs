@@ -1,0 +1,47 @@
+---
+title: NetworkInterface
+sidebar_position: 2
+tags: [Ncloud, Recurso, Networking, NetworkInterface]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-network_interface.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio que permite crear interfaces de red asignables a servidores.  
+Los servidores con Network Interface pueden comunicarse de forma independiente utilizando Subnets.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
+
+### Recursos conectados
+
+-   [**AccessControlGroup**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/AccessControlGroup)
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_subnet_name` : Nombre del Subnet donde se incluirá la Network Interface
+-   `linked_acg_names` : Lista de nombres de Access Control Group a aplicar
+
+---
+
+## Referencias
+
+-   [Network Interface(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_interface)

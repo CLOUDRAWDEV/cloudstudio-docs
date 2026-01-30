@@ -1,7 +1,7 @@
 ---
 title: DxGateway
 sidebar_position: 0
-tags: [AWS, リソース, DirectConnect, DxGateway]
+tags: [AWS, Resource, DirectConnect, DxGateway]
 ---
 
 <hr />
@@ -11,32 +11,36 @@ tags: [AWS, リソース, DirectConnect, DxGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/direct_connect-dx_gateway.webp"
     }
 />
 
 ## リソース概要
 
-Direct Connect 接続を通じて AWS リージョンの VPC へのアクセスをサポートする DxGateway
+Direct Connect 接続を通じて、AWS リージョン内の VPC へアクセスできるようにする DxGateway です。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base)
+-   [**Base**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Base)
 
-### 下位リソース
+### 接続リソース
 
--   [**Transit Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
--   [**Vpn Gateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpnGateway)
+-   [**TransitGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpnGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpnGateway)
+
+---
 
 ## リソース設定値
 
--   `side_asn` : Amazon 側 ASN（自律システム番号） - `64512 ~ 4294967294`
+#### 基本設定
+
+-   `side_asn` : Amazon 側 ASN（自律システム番号）
 
 ---
 
 ## 参考資料
 
--   [Amazon DxGateway(AWS)](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/direct-connect-gateways-intro.html)
--   [Amazon DxGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_gateway)
+-   [Amazon DX Gateway（AWS）](https://docs.aws.amazon.com/ko_kr/directconnect/latest/UserGuide/direct-connect-gateways-intro.html)
+-   [Amazon DX Gateway（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dx_gateway)

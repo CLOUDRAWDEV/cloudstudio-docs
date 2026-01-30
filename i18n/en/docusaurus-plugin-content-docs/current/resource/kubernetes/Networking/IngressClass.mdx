@@ -4,22 +4,20 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Networking, IngressClass]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress_class.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource for selecting the Ingress controller to be used by Ingress.
+A Kubernetes resource used to select the Ingress Controller that an Ingress will use.
 
 ## Associated Resources
 
@@ -27,30 +25,29 @@ A Kubernetes resource for selecting the Ingress controller to be used by Ingress
 
 -   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 
-
-
 ### Connected Resources
 
 -   [**Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/Ingress)
 
+---
 
+## Resource Configuration
 
-## Resource Setting Values
+#### Basic Settings
 
--   `service_name`: Name of the IngressClass resource
--   `annotations`: Key-value pairs used to display necessary information in the Kubernetes system
--   `labels`: User-specified values to distinguish objects
--   `controller`: Name of the controller responsible for handling the IngressClass
--   `parameters`: Information about the referenced resource
-    -   `name`: Name of the referenced resource
-    -   `kind`: Type of the referenced resource
-    -   `namespace`: Namespace of the referenced resource
-    -   `scope`: Indicates the scope of the resource - Cluster or Namespace
-    -   `api_group`: API group of the referenced resource
+-   `annotations` : Metadata key-value required for IngressClass behavior in the Kubernetes system
+-   `labels` : User-defined labels used to distinguish the IngressClass object
+-   `controller` : Identifier of the Ingress Controller that handles this IngressClass
+
+#### Parameter Settings (`parameters`)
+
+-   `parameters.kind` : Referenced parameter resource type - `IngressParameter`, `ClusterIngressParameter`
+-   `parameters.namespace` : Namespace of the referenced parameter resource
+-   `parameters.api_group` : API Group to which the referenced parameter resource belongs
 
 ---
 
-## Reference Materials
+## References
 
 -   [IngressClass(kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class)
 -   [IngressClass(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress_class)

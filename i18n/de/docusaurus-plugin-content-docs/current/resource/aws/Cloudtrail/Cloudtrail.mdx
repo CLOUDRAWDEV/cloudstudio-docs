@@ -1,0 +1,55 @@
+---
+title: CloudTrail
+sidebar_position: 0
+tags: [AWS, Ressource, CloudTrail]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudtrail-cloudtrail.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Mit AWS CloudTrail können Sie den Status von AWS-Bereitstellungen in der Cloud überwachen, indem Protokolle von AWS-API-Aufrufen erfasst werden, einschließlich Aufrufen über die AWS Management Console, AWS SDKs, Befehlszeilentools und übergeordnete AWS-Services.  
+Außerdem können Sie nachvollziehen, welche Benutzer und Konten AWS-APIs für CloudTrail-unterstützte Services aufgerufen haben, von welchen Quell-IP-Adressen die Aufrufe erfolgten und zu welchen Zeitpunkten diese stattgefunden haben.  
+Mithilfe von APIs lässt sich CloudTrail in Anwendungen integrieren, die Erstellung von Trails für Organisationen automatisieren, der Status von Trails überprüfen sowie steuern, wie Administratoren CloudTrail-Protokollierung aktivieren oder deaktivieren.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**S3Bucket**](https://docs.cstudio.app/de/docs/resource/aws/S3/S3Bucket)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `linked_s3_bucket_name` : Name des S3-Buckets zur Speicherung der CloudTrail-Logdateien
+-   `s3_key_prefix` : S3-Objektschlüssel-Präfix für die Speicherung der Logdateien
+-   `multi_region_enabled` : Aktivierung der regionsübergreifenden Protokollierung – `true`, `false`
+-   `global_service_events` : Gibt an, ob globale Service-Ereignisse wie IAM protokolliert werden – `true`, `false`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon CloudTrail(AWS)](https://docs.aws.amazon.com/ko_kr/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+-   [Amazon CloudTrail 가격(AWS)](https://aws.amazon.com/ko/cloudtrail/pricing/?nc2=type_a)
+-   [Amazon CloudTrail(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudtrail)

@@ -1,0 +1,63 @@
+---
+title: PrivateDnsResolver
+sidebar_position: 0
+tags: [Azure, Network, PrivateDnsResolver]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Symbol
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/private_dns_resolver-private_dns_resolver.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Private DNS Resolver ist ein **verwalteter DNS-Resolver-Dienst, der Private-DNS-Abfragen innerhalb eines Virtual Networks verarbeitet oder Abfragen an lokale und externe DNS-Server weiterleitet**.  
+Mithilfe von Inbound-/Outbound-Endpunkten und Weiterleitungsregeln kann eine hybride DNS-Auflösungsarchitektur aufgebaut werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Virtual Network**](https://docs.cstudio.app/de/docs/resource/azure/Network/VirtualNetwork)
+
+### Verbundene Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `included_vnet_name` : Name des Virtual Networks, auf das der DNS Resolver angewendet wird
+
+#### Inbound-Resolver (`inbound`)
+
+-   `inbound.linked_inbound_subnet_name` : Name des Subnetzes, in dem der Inbound-Resolver-Endpunkt bereitgestellt wird
+-   `inbound.private_ip_allocation_method` : IP-Zuweisungsmethode für den Inbound-Endpunkt - `Dynamic`, `Static`
+-   `inbound.private_ip_address` : Private IP-Adresse des Inbound-Endpunkts
+
+#### Outbound-Resolver (`outbound`)
+
+-   `outbound.linked_outbound_subnet_name` : Name des Subnetzes, in dem der Outbound-Resolver-Endpunkt bereitgestellt wird
+-   `target_outbound_endpoints` : Liste der Outbound-Resolver-Endpunkte für die DNS-Abfrageweiterleitung
+
+#### DNS-Weiterleitungsregel (`rule`)
+
+-   `rule.domain_name` : Domänenname, auf den die Regel angewendet wird
+-   `rule.enable_forwarding_rule` : Aktivierung der DNS-Weiterleitungsregel - `true`, `false`
+
+##### Ziel-DNS-Server (`rule.target_dns_servers`)
+
+-   `rule.target_dns_servers.ip_address` : IP-Adresse des Ziel-DNS-Servers
+-   `rule.target_dns_servers.port` : Portnummer, auf der der DNS-Server lauscht
+
+## Referenzen
+
+-   [Azure Private DNS Resolver – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-overview)
+-   [Azure DNS-Weiterleitung konfigurieren (Microsoft)](https://learn.microsoft.com/ko-kr/azure/dns/private-resolver-endpoints-rulesets)

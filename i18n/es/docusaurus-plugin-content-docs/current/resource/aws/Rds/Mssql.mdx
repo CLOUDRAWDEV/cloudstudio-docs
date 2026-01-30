@@ -1,0 +1,82 @@
+---
+title: Mssql
+sidebar_position: 2
+tags: [AWS, Recurso, Rds, Mssql]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-mssql.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+SQL Server es un sistema de gestión de bases de datos relacionales desarrollado por Microsoft.  
+Al utilizar Amazon RDS for SQL Server, es posible configurar, operar y escalar fácilmente implementaciones de SQL Server en la nube.  
+Amazon RDS permite desplegar en pocos minutos varias ediciones de SQL Server (2014, 2016, 2017 y 2019), como Express, Web, Standard y Enterprise, junto con potencia de cómputo escalable y rentable.  
+Además, Amazon RDS se encarga de tareas de administración que consumen mucho tiempo, como el aprovisionamiento, las copias de seguridad, los parches de software, la supervisión y el escalado de hardware, permitiendo a los clientes centrarse únicamente en el desarrollo de aplicaciones.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/Subnet)
+
+### Recursos conectados
+
+-   [**Mssql**](https://docs.cstudio.app/es/docs/resource/aws/Rds/Mssql)
+-   [**SecurityGroup**](https://docs.cstudio.app/es/docs/resource/aws/Vpc/SecurityGroup)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `engine` : Tipo de motor Microsoft SQL Server a utilizar en RDS - `sqlserver-ex`, `sqlserver-ee`, `sqlserver-web`, `sqlserver-se`
+-   `engine_version` : Versión de Microsoft SQL Server a utilizar en RDS
+-   `instance_class` : Tipo de instancia de base de datos RDS
+-   `storage_type` : Tipo de almacenamiento de la instancia RDS
+-   `iops` : Operaciones de E/S por segundo admitidas por la instancia DB - `1000` ~ `40000`
+-   `allocated_storage` : Capacidad de almacenamiento de la instancia RDS (GiB) - `20` ~ `65536`
+-   `max_allocated_storage` : Límite superior del escalado automático del almacenamiento
+-   `multi_az_enabled` : Indica si se habilita la implementación Multi-AZ - `true`, `false`
+-   `username` : Nombre de usuario de RDS
+-   `password` : Contraseña del usuario de RDS
+-   `included_subnet_names` : Lista de nombres de Subnet a conectar al Subnet Group de RDS
+-   `subnet_group_name` : Nombre del Subnet Group a utilizar en RDS
+-   `linked_security_group_names` : Lista de Security Group aplicados
+-   `publicly_accessible` : Indica si se permite el acceso público - `true`, `false`
+
+#### Configuración de monitoreo (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Indica si se habilitan los Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nombre de la clave KMS utilizada para Performance Insights
+
+#### Configuración de cifrado (`encryption`)
+
+-   `encryption.storage_encrypted` : Indica si la instancia DB está cifrada - `true`, `false`
+-   `encryption.kms_key_name` : Nombre de la clave KMS utilizada para el cifrado
+
+#### Configuración de copias de seguridad (`backup`)
+
+-   `backup.backup_retention_period` : Período de retención de copias de seguridad (días) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Indica si se crea un snapshot final antes de eliminar la DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nombre del snapshot final
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría - máximo 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Amazon RDS for SQL Server (AWS)](https://aws.amazon.com/ko/rds/sqlserver/)
+-   [Precios de Amazon RDS for SQL Server (AWS)](https://aws.amazon.com/ko/rds/sqlserver/pricing/?nc=sn&loc=4)

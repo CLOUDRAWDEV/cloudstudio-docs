@@ -1,0 +1,47 @@
+---
+title: NetworkPolicy
+sidebar_position: 0
+tags: [Kubernetes, Networking, NetworkPolicy]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-network_policy.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+NetworkPolicy ist eine Kubernetes-Ressource, die Pods anhand von Labels auswählt und Regeln für erlaubten eingehenden (Ingress) und ausgehenden (Egress) Netzwerkverkehr definiert. Sie wird auf Namespace-Ebene angewendet und dient zur feingranularen Zugriffskontrolle in Clustern, die standardmäßig sämtlichen Traffic erlauben.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `annotations` : Key-Value-Metadaten für die NetworkPolicy-Ressource
+-   `labels` : Benutzerdefinierte Labels zur Identifikation der NetworkPolicy
+-   `match_expressions` : Pod-Auswahlregeln mithilfe von Label-Selektor-Ausdrücken
+-   `match_labels` : Label-Bedingungen zur Pod-Auswahl im Key-Value-Format
+-   `ingress` : Erlaubte Regeln für eingehenden Traffic – `from IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `egress` : Erlaubte Regeln für ausgehenden Traffic – `to IPBlock`, `NamespaceSelector`, `PodSelector`, `Port`
+-   `policy_types` : Anzuwendende Richtlinientypen (Ingress, Egress)
+
+---
+
+## Referenzen
+
+-   [NetworkPolicy(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+-   [NetworkPolicy API-Referenz](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.29/#networkpolicy-v1-networking-k8s-io)

@@ -1,0 +1,85 @@
+---
+title: ClusterIssuer
+sidebar_position: 1
+tags: [Kubernetes, CertManager, Certificate, ClusterIssuer]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/manifest-cluster_issuer.webp"
+    }
+/>
+
+## リソース概要
+
+ClusterIssuer は cert-manager で使用されるクラスタースコープ（Kubernetes cluster-scoped）のリソースで、証明書署名要求（CSR）を受け取り、認証局（CA）から署名済み証明書を発行するための設定単位です。  
+Issuer と異なり特定の Namespace に依存せず、クラスター全体の Certificate リソースから共通で参照できます。  
+ACME ベースの認証局（例: Let’s Encrypt）を使用し、HTTP-01 または DNS-01 チャレンジによってドメイン所有権を検証します。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
+
+---
+
+## リソース設定値
+
+#### ACME 設定 (`acme`)
+
+-   `acme.server` : ACME サーバーのエンドポイント URL
+-   `acme.email` : 証明書の問題や期限切れ時に Let’s Encrypt から連絡を受け取るメールアドレス
+-   `acme.private_key_secret_ref` : ACME 通信用クライアントキーを保存する Kubernetes Secret 名
+
+#### DNS Solver 設定 (`dns_solvers`)
+
+-   `dns_solvers.provider` : DNS-01 チャレンジ方式 - `AzureDNS`, `Route53`, `ACMEDNS`
+
+#### ACME DNS 設定 (`dns_solvers.acme_dns`)
+
+-   `dns_solvers.acme_dns.host` : acme-dns サーバーのエンドポイント
+-   `dns_solvers.acme_dns.account_secret_ref_name` : acme-dns アカウント情報を保存する Secret 名
+-   `dns_solvers.acme_dns.account_secret_ref_key` : Secret 内で使用するキー名
+
+#### Azure DNS 設定 (`dns_solvers.azure_dns`)
+
+-   `dns_solvers.azure_dns.client_id` : Azure Service Principal のクライアント ID
+-   `dns_solvers.azure_dns.client_secret_name` : client secret を保存する Secret 名
+-   `dns_solvers.azure_dns.client_secret_key` : Secret 内のキー名
+-   `dns_solvers.azure_dns.subscription_id` : Azure サブスクリプション ID
+-   `dns_solvers.azure_dns.tenant_id` : Azure テナント ID
+-   `dns_solvers.azure_dns.resource_group_name` : Azure DNS Zone が属するリソースグループ
+-   `dns_solvers.azure_dns.hosted_zone_name` : Azure DNS Zone 名
+
+#### Route53 設定 (`dns_solvers.route53`)
+
+-   `dns_solvers.route53.region` : Route53 を使用する AWS リージョン
+-   `dns_solvers.route53.access_key_id` : AWS アクセスキー ID
+-   `dns_solvers.route53.access_key_secret_name` : Secret に保存されたアクセスキー名
+-   `dns_solvers.route53.access_key_secret_key` : Secret 内のキー名
+-   `dns_solvers.route53.secret_access_key_secret_name` : シークレットアクセスキーを保存する Secret 名
+-   `dns_solvers.route53.secret_access_key_secret_key` : Secret 内のキー名
+-   `dns_solvers.route53.role` : Route53 管理用 IAM Role
+
+#### HTTP Solver 設定 (`http_solvers`)
+
+-   `http_solvers.provider` : HTTP-01 チャレンジ方式 - `Ingress`, `Gateway`
+-   `http_solvers.ingress_class_name` : 使用する Ingress クラス名
+
+#### Gateway 設定 (`http_solvers.gateway_parent_refs`)
+
+-   `http_solvers.gateway_parent_refs.name` : 接続する Gateway リソース名
+-   `http_solvers.gateway_parent_refs.namespace` : Gateway が属する Namespace
+
+---
+
+## 参考資料
+
+-   [ClusterIssuer(cert-manager)](https://cert-manager.io/docs/configuration/acme/)
+-   [ClusterIssuer API Reference](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.ClusterIssuer)

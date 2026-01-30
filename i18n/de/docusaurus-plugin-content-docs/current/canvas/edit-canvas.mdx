@@ -1,0 +1,193 @@
+---
+title: Canvas bearbeiten
+sidebar_position: 2
+tags:
+    [
+        Canvas,
+        Werkzeugkasten,
+        Ressourcenliste,
+        Fehler,
+        Canvas bearbeiten,
+        Zeichnen,
+        Loslegen
+    ]
+last_update:
+    date: 01/27/2026
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import dragDrop from "../start/img/gif/drag&drop.gif"
+import lineConnection from "../start/img/gif/line-connection.gif"
+import error from "../start/img/gif/error.gif"
+import optionEdit from "../start/img/gif/option-edit.png"
+import undo from "../start/img/undo.png"
+import redo from "../start/img/redo.png"
+import list from "../start/img/list.png"
+import listName from "../start/img/list-name.png"
+import ratio from "../start/img/ratio.png"
+import grid from "../start/img/grid.png"
+import connect from "../start/img/connect.png"
+import basic from "../start/img/basic.png"
+import group from "../start/img/group.png"
+import back from "../start/img/back.png"
+import front from "../start/img/front.png"
+import tools from "../start/img/tools.png"
+import fullscreen from "../start/img/fullscreen.png"
+import text from "../start/img/text.png"
+import background from "../start/img/background.png"
+import theme from "../start/img/theme.png"
+import icon from "../start/img/icon.png"
+import save from "../start/img/save.png"
+import exporter from "../start/img/export.png"
+import importer from "../start/img/import.png"
+import versionSave from "../start/img/version-save.png"
+import versionCommit from "../start/img/version-commit.png"
+import billing from "../start/img/billing.png"
+import diagnose from "../start/img/diagnose.png"
+import plan from "../start/img/plan.png"
+import deploy from "../start/img/deploy.png"
+import migrate from "../start/img/migrate.png"
+import resourceOption from "../start/img/resource-option.png"
+import code from "../start/img/code.png"
+import configuration from "../start/img/configuration.png"
+import erroroption from "../start/img/error.png"
+
+<hr />
+<br />
+
+Canvas ist ein <highlight color="#206FD6">Kerndienst von Cloud Studio</highlight>, der es Ihnen ermöglicht, Cloud-Infrastrukturen per `Drag & Drop` zu zeichnen, Versionen zu verwalten und bereitzustellen.
+Die mit dem Canvas erstellte Infrastruktur kann nicht nur als visuelle Architektur verwendet werden, sondern auch direkt an den gewünschten CSP geliefert werden.
+
+✂️ Bearbeiten Sie das Canvas nach Belieben!
+
+<p>&nbsp;</p>
+
+## Verwendung der Diagramm-Optionen im Werkzeugkasten {#toolbox}
+
+Die oben positionierte Diagramm-Optionen-Werkzeugbox bietet verschiedene Funktionen zum Anpassen des Canvas.
+
+| Bild                                                                   | Aktion                  | Funktion                                                                                 |
+| ---------------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
+| <img width="40px" src={ undo } alt="Rückgängig machen Bild" />         | Rückgängig machen       | Eine Stufe zurückgehen.                                                                  |
+| <img width="40px" src={ redo } alt="Wiederholen Bild" />               | Wiederholen             | Eine Stufe vorwärts gehen.                                                               |
+| <img width="40px" src={ list } alt="Wiederholen Bild" />               | Ressourcenliste         | Dies ist die Schaltfläche zum Ein- und Ausschalten der Ressourcen-Icon-Liste.            |
+| <img width="40px" src={ listName } alt="Ressourcenname Liste Bild" />  | Ressourcenname anzeigen | Dies ist die Schaltfläche zum Anzeigen der Ressourcen-Icon-Liste mit Namen.              |
+| <img width="40px" src={ front } alt="Nach hinten senden Bild" />       | Nach hinten senden      | Wenn zwei Ressourcen überlappen, wird die ausgewählte Ressource nach hinten verschoben.  |
+| <img width="40px" src={ back } alt="Nach vorne senden Bild" />         | Nach vorne senden       | Wenn zwei Ressourcen überlappen, wird die ausgewählte Ressource nach vorne verschoben.   |
+| <img width="40px" src={ text } alt="Textfarbe ändern Bild" />          | Textfarbe ändern        | Die Optionen für den Text können geändert werden.                                        |
+| <img width="40px" src={ background } alt="Canvas-Farbe ändern Bild" /> | Canvas-Farbe ändern     | Der Hintergrund des Canvas kann geändert werden.                                         |
+| <img width="40px" src={ theme } alt="Canvas-Thema Bild" />             | Canvas-Thema ändern     | Das Thema des Canvas kann gemäß dem entsprechenden CSP geändert werden.                  |
+| <img width="100px" src={ grid } alt="Raster Bild" />                   | Raster                  | Das Canvas-Raster kann deaktiviert werden.                                               |
+| <img width="100px" src={ ratio } alt="Bildschirmverhältnis Bild" />    | Bildschirmverhältnis    | Das Bildschirmverhältnis des Canvas wird angepasst                                       |
+| <img width="40px" src={ fullscreen } alt="Vollbild Bild" />            | Vollbild                | Es kann in den Vollbildmodus gewechselt werden.                                          |
+| <img width="40px" src={ icon } alt="Symbol Bild" />                    | Canvas-Modus ändern     | Der Modus kann auf Studio (mit Funktionen) / Diagramm (ohne Funktionen) geändert werden. |
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+## Verwendung des Canvas-Optionstoolboxes {#toolbox}
+
+Durch das Canvas-Optionstoolbox im Seitenmenü können verschiedene Funktionen von Cloud Studio genutzt werden.
+
+| Bild                                                                        | Aktion                             | Funktion                                                                                                                              |
+| --------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="40px" src={ save } alt="Speichern Bild" />                      | Speichern                          | Speichern Sie die bisher erstellte Leinwand.                                                                                          |
+| <img width="40px" src={ exporter } alt="Exportieren Bild" />                | Exportieren                        | Laden Sie die Architekturabbildung und den Terraform-Code der Leinwand als ZIP-Datei herunter.                                        |
+| <img width="40px" src={ importer } alt="Laden Bild" />                      | Laden                              | Laden Sie die in einer realen Cloud-Umgebung bereitgestellten Ressourcen in die Leinwand.                                             |
+| <img width="40px" src={ versionSave } alt="Version speichern Bild" />       | Version speichern                  | Sie können die aktuell konfigurierte Leinwand nach Version speichern.                                                                 |
+| <img width="40px" src={ versionCommit } alt="Version commit Bild" />        | Version commit                     | Sie können frühere Versionen des Commits einsehen und laden.                                                                          |
+| <img width="40px" src={ billing } alt="Kostenberechnung Bild" />            | Kostenberechnung                   | Berechnen Sie die geschätzten Kosten der auf der Leinwand konfigurierten Ressourcen.                                                  |
+| <img width="40px" src={ diagnose } alt="Sicherheitsdiagnose Bild" />        | Sicherheitsdiagnose                | Diagnostizieren Sie Schwachstellen im Terraform-Code, der auf der Leinwand erstellt wurde.                                            |
+| <img width="40px" src={ plan } alt="Validierung Bild" />                    | Validierung                        | Führen Sie eine Validierung des Terraform-Codes durch, der auf der Leinwand erstellt wurde.                                           |
+| <img width="40px" src={ deploy } alt="Deployment Bild" />                   | Deployment                         | Setzen Sie die auf der Leinwand konfigurierten Ressourcen in einer Cloud-Umgebung tatsächlich um.                                     |
+| <img width="40px" src={ migrate } alt=" Migration Bild" />                  | Migration                          | Die Rolle der Umwandlung der auf der Leinwand konfigurierten Infrastruktur in eine Infrastruktur einer anderen Cloud wird ausgeführt. |
+| <img width="40px" src={ resourceOption } alt=" Ressourcenoptionen Bild" />  | Ressourcenoptionen überprüfen      | Sie können die Optionen der auf der Leinwand konfigurierten Ressourcen überprüfen.                                                    |
+| <img width="40px" src={ code } alt=" Terraform-Code Bild" />                | Terraform-Code überprüfen          | Sie können den Terraform-Code einsehen, der durch die Leinwandkonfiguration erstellt wurde.                                           |
+| <img width="40px" src={ configuration } alt="Canvas-Konfiguration Bild" />  | Canvas-Konfiguration überprüfen    | Sie können die Leinwandkonfiguration in Baumstruktur anzeigen.                                                                        |
+| <img width="40px" src={ erroroption } alt="Ressourcenoption-Fehler Bild" /> | Ressourcenoption-Fehler überprüfen | Sie können Fehler in den Optionen der konfigurierten Ressourcen überprüfen.                                                           |
+
+<p>&nbsp;</p>
+
+## Ressourcen Drag & Drop {#drag-drop}
+
+`Drag & Drop` ist die grundlegendste Methode zur Konfiguration des Canvas.
+Sie können eine gewünschte Ressource aus der linken `Ressourcenliste` auswählen und im Canvas-Bereich platzieren.
+Wenn Ressourcen nicht miteinander verbunden werden können, wird die Verbindung mit einer roten Markierung eingeschränkt.
+
+<div className={styles.imgWrap}>
+    <img src={dragDrop} alt="Drag & Drop Bild" />
+</div>
+
+<br />
+
+:::info
+
+Die `Ressourcenliste` ist ein Panel, das alle Ressourcen auf der linken Seite der Leinwand zusammenstellt.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Ressourcen verbinden {#resource-connect}
+
+Unter den auf dem Canvas platzierten Ressourcen können miteinander verbindbare Ressourcen durch Linien verbunden werden.<br/>
+Diese Verbindungen werden verwendet, um bestimmte Optionen zwischen Ressourcen zu konfigurieren oder deren Beziehungen zu definieren.
+
+<div className={styles.imgrap}>
+    <img src={lineConnection} alt="Bild der Ressourcenverbindung" />
+</div>
+
+<br />
+<br />
+
+### Ressourcentypen
+
+Ressourcen werden in die folgenden `vier` Haupttypen unterteilt. Sie können die folgende Liste der Ressourcen als Referenz verwenden, um Leinwandressourcen...
+
+| Bild                                            | Name            | Erklärung                                                                                    |
+| ----------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------- |
+| <img width="40px" src={ basic } alt="Bild" />   | Erklärung       | Zeigt die Ressourcen an, die in eine Gruppe aufgenommen werden können.                       |
+| <img width="40px" src={ connect } alt="Bild" /> | Verbindungsform | Zeigt die Liste der Ressourcen an, die mit der jeweiligen Ressource verbunden werden können. |
+| <img width="40px" src={ group } alt="Bild" />   | Verbindungsform | Zeigt die Liste der Ressourcen an, die in die jeweilige Gruppe aufgenommen werden können.    |
+| <img width="40px" src={ tools } alt="Bild" />   | Tools           | Zeigt die Liste der Canvas-Tools an.                                                         |
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Ressourcenoptionen bearbeiten {#option-edit}
+
+Durch einen `Doppelklick` auf eine Ressource können Sie das `Bearbeitungsfenster` öffnen, um die Ressourceneinstellungen zu ändern.
+Durch Klicken auf das `Details anzeigen`-Symbol können Sie die Beschreibung der entsprechenden Ressource einsehen.<br/>
+Wenn Sie den Mauszeiger über das `Fragezeichen-Symbol` neben einer Option bewegen, wird eine Beschreibung dieser Option angezeigt.
+Anhand der bereitgestellten Beschreibungen können die erforderlichen Werte konfiguriert werden.
+
+<div className={styles.imgWrap}>
+    <img src={optionEdit} alt="Optionen Bearbeiten Bild" />
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+## Fehlerbehebung {#error-correction}
+
+🔴 Rote Punkte zeigen an, dass bei der entsprechenden Ressource ein Fehler vorliegt. <highlight color="#FF7272">Wenn ein Fehler vorhanden ist, kann die Canvas nicht gespeichert oder bereitgestellt werden.</highlight>
+Um den Fehler zu beheben, doppelklicken Sie auf der Canvas auf die Ressource mit dem Fehler, um das Canvas-Fehlerfenster zu öffnen.
+Wenn Sie im Canvas-Fehlerfenster einen bestimmten Fehler doppelt anklicken, werden Sie zur entsprechenden Fehlerstelle geführt und können das Problem anhand der angezeigten Fehlerursache beheben.
+
+<div className={styles.imgWrap}>
+    <img src={error} alt="Fehlerbehebung Bild" />
+</div>
+
+<p>&nbsp;</p>
+
+### Fehlertypen
+
+| Arten | Erklärung                                                                      |
+| ----- | ------------------------------------------------------------------------------ |
+| value | Ein Fehler, der auftritt, wenn die Eingabewerte ungültig sind                  |
+| group | Ein Fehler, der auftritt, wenn keine Zugehörigkeit zu einer Gruppe besteht     |
+| line  | Ein Fehler, der auftritt, wenn die erforderliche Ressource nicht verbunden ist |
+
+<p>&nbsp;</p>

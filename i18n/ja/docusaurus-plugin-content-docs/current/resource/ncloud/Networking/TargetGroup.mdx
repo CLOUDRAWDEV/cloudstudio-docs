@@ -1,6 +1,6 @@
 ---
 title: TargetGroup
-sidebar_position: 0
+sidebar_position: 7
 tags: [Ncloud, リソース, Network, TargetGroup]
 ---
 
@@ -11,42 +11,47 @@ tags: [Ncloud, リソース, Network, TargetGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
     }
 />
 
 ## リソース概要
 
-Load Balancer のリクエストを処理するターゲットへのセットを表すリソースです。
+ロードバランサーのリクエストを処理するターゲットの集合を表すリソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
 ### 接続リソース
 
--   [**Server**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/Server)
--   [**Load Balancer**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/LoadBalancer)
--   [**Auto Scaling**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+
+---
 
 ## リソース設定値
 
--   `included_vpc_name` : ターゲットグループが存在する VPC の名前
--   `protocol` : トラフィックをルーティングするために使用するプロトコルの種類 - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
--   `port` : ターゲットがトラフィックを受信するポート
--   `algorithm_type` : ロードバランシングに使用するアルゴリズムの種類, RR/SIPHS/LC - `RR`, `SIPHS`, `LC`, `MH`
+#### 基本設定
+
+-   `included_vpc_name` : Target Group が作成される VPC 名（読み取り専用）
+-   `protocol` : トラフィックルーティングに使用するプロトコル - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : ターゲットがトラフィックを受信するポート番号
+-   `algorithm_type` : ロードバランシングアルゴリズム - `RR`, `SIPHS`, `LC`, `MH`
 -   `health_check_protocol` : ヘルスチェックに使用するプロトコル - `TCP`, `HTTP`, `HTTPS`
--   `health_check_http_method` : ヘルスチェックプロトコルに HTTP/HTTPS を使用する場合の HTTP メソッド、HEAD または GET - `HEAD`, `GET`
+-   `health_check_http_method` : HTTP/HTTPS 使用時のヘルスチェックメソッド - `HEAD`, `GET`
 -   `health_check_port` : ヘルスチェックに使用するポート番号
--   `health_check_cycle` : ヘルスチェックサイクル（秒）、範囲は 5〜300
--   `health_check_up_threshold` : ヘルスチェックの正常閾値の数
--   `health_check_down_threshold` : ヘルスチェックの失敗閾値の数
--   `linked_server_names` : 接続するサーバー名のリスト
+-   `health_check_cycle` : ヘルスチェック周期（秒） - `5` ~ `300`
+-   `health_check_up_threshold` : 正常状態に移行するための連続成功回数 - `2` ~ `10`
+-   `health_check_down_threshold` : 異常状態に移行するための連続失敗回数 - `2` ~ `10`
+-   `health_check_url_path` : ヘルスチェックリクエスト URL パス
+-   `linked_server_names` : Target Group に接続する Server 名リスト
 
 ---
 
 ## 参考資料
 
--   [ncloud_target_group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

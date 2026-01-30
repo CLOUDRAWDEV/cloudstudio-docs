@@ -1,0 +1,75 @@
+---
+title: ManagedApplicationDefinition
+sidebar_position: 0
+tags: [Azure, ManagedApplication, ManagedApplicationDefinition]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/managed_application_definition-managed_application_definition.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Una Managed Application Definition è una risorsa che archivia la definizione di una **applicazione gestita (Managed Application)** che gli utenti possono distribuire tramite Azure Marketplace o un catalogo interno dell’organizzazione.  
+Impacchettando modelli ARM e definizioni dell’interfaccia utente, consente di standardizzare le schermate di input e l’ambito delle autorizzazioni fornite agli utenti durante la distribuzione.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Informazioni di base
+
+-   `description` : Descrizione della Managed Application Definition
+-   `display_name` : Nome visualizzato nell’interfaccia utente
+
+#### Livello di blocco (`lock_level`)
+
+Definisce il livello di operazioni che gli utenti possono eseguire sulle risorse distribuite.
+
+-   `None` : Nessuna restrizione
+-   `CanNotDelete` : Eliminazione non consentita
+-   `ReadOnly` : Sola lettura
+
+#### URI del file del pacchetto (`package_file_uri`)
+
+-   URI del file `.zip` che contiene il modello ARM e i metadati per la distribuzione
+-   Deve includere obbligatoriamente i seguenti file
+    -   `mainTemplate.json`
+    -   `createUiDefinition.json`
+-   `mainTemplate.json` deve includere almeno una sezione minima di `parameters`
+
+#### Autorizzazioni (`authorization`)
+
+Definisce i ruoli che verranno assegnati automaticamente durante la distribuzione dell’applicazione.
+
+-   `authorization.service_principal_id` : ID del Service Principal a cui verrà assegnato il ruolo
+-   `authorization.role_definition_id` : ID della risorsa della Role Definition
+
+---
+
+## Scenari di utilizzo
+
+-   Distribuzione di pacchetti SaaS o soluzioni per Azure Marketplace
+-   Fornitura di architetture interne standardizzate come Managed Applications
+-   Fornitura di infrastruttura a clienti o utenti interni con autorizzazioni operative limitate
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Managed Applications (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/overview)
+-   [Descrizione di createUiDefinition.json (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-resource-manager/managed-applications/create-uidefinition-overview)
+-   [Risorsa ARM di Managed Application Definition (Microsoft)](https://learn.microsoft.com/ko-kr/azure/templates/microsoft.solutions/applicationdefinitions)

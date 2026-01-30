@@ -11,46 +11,34 @@ tags: [Kubernetes, リソース, Core, ConfigMap]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.webp"
     }
 />
 
 ## リソース概要
 
-アプリケーション設定情報を分離して保存し、パッド内のコンテナに渡すために使用されるクバネティス リソースです。
+アプリケーション設定情報を分離して保存し、Pod 内コンテナへ提供する Kubernetes Resource。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+### 接続対象
 
 -   [**Pod**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Pod)
 -   [**Deployment**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/DaemonSet)
+-   [**DaemonSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**StatefulSet**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Apps/StatefulSet)
 -   [**Job**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/Job)
 -   [**CronJob**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Batch/CronJob)
 
-## リソース設定値
-
--   `service_name` : ConfigMap リソース名
--   `namespace` : コンフィグマップリソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `data` : key-value ペアで一般的なデータ - 設定ファイル、環境変数などのテキスト形式の構成情報を保存するために使用
-    -   `data.name` : data の key 値
-    -   `data.value` : data の value 値
--   `binary_data` : 特定のキーのバイナリデータ-バイナリファイルまたはその他のバイナリ形式のデータを保存するために使用
-    -   `data.name` : binary data の key 値
-    -   `data.value` : binary data の value 値
-
 ---
 
-## 参考資料
+## リソース設定値
 
--   [ConfigMap(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
--   [ConfigMap(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)
+#### 基本設定
+
+-   `namespace` : ConfigMap を配置する Namespace
+-   `annotations` : K

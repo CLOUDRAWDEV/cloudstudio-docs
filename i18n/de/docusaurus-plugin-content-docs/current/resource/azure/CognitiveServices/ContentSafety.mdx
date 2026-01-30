@@ -1,0 +1,59 @@
+---
+title: ContentSafety
+sidebar_position: 0
+tags: [Azure, ContentSafety, CognitiveServices]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cognitive_services-content_safety.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Content Safety ist ein KI-basiertes Validierungsservice, das verschiedene Arten von Inhalten wie Text und Bilder automatisch analysiert, um schädliche oder unangemessene Elemente zu erkennen und zu filtern.  
+Es wird verwendet, um in Anwendungen erzeugte oder eingegebene Inhalte vorab zu prüfen, Richtlinienverstöße zu verhindern und eine sichere Benutzererfahrung zu gewährleisten.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `sku_name` : Preisstufe für die Nutzung von Content Safety
+
+    -   `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`
+
+-   `custom_subdomain_name` : Benutzerdefinierter Subdomain-Name für die Endpoint-URL
+
+### Netzwerkzugriffskontrolle (`network_acls`)
+
+-   `network_acls.default_action` : Standardrichtlinie für die Netzwerkzugriffskontrolle – `Allow`, `Deny`
+
+-   `network_acls.ip_rules` : Liste zulässiger IP-Adressen oder CIDR-Bereiche für den Ressourcenzugriff
+
+-   `local_auth_enabled` : Aktivierung der lokalen Authentifizierung über API-Schlüssel – `true`, `false`
+
+-   `public_network_access_enabled` : Zulassen des Ressourcenzugriffs über das öffentliche Internet – `true`, `false`
+
+-   `outbound_network_access_restricted` : Einschränkung der ausgehenden Kommunikation zu externen Netzwerken – `true`, `false`
+
+-   `dynamic_throttling_enabled` : Aktivierung der automatischen Anforderungsdrosselung basierend auf dem Anfragevolumen – `true`, `false`
+
+---
+
+## Referenzen
+
+-   [Azure AI Content Safety (Microsoft)](https://learn.microsoft.com/ko-kr/azure/ai-services/content-safety/overview)
+-   [Azure Cognitive Services – Preise](https://azure.microsoft.com/ko-kr/pricing/details/cognitive-services/)
+-   [Azure Cognitive Services Account (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)

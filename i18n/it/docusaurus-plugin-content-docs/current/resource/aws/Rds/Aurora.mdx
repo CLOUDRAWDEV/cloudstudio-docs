@@ -1,0 +1,70 @@
+---
+title: Aurora
+sidebar_position: 0
+tags: [AWS, Risorsa, Rds, Aurora]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-aurora.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Amazon Aurora (Aurora) è un motore di database relazionale completamente gestito compatibile con MySQL e PostgreSQL. È noto per combinare la velocità e l’affidabilità dei database commerciali di fascia alta con la semplicità e l’efficienza economica dei database open source. Tutto il codice, gli strumenti e le applicazioni utilizzati oggi con MySQL e PostgreSQL possono essere utilizzati anche con Aurora. Per alcuni carichi di lavoro, Aurora può offrire fino a 5 volte il throughput di MySQL e fino a 3 volte quello di PostgreSQL, con modifiche minime alle applicazioni esistenti.
+
+### Risorse principaligate
+
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `database_name` : Nome iniziale del database, stringa alfanumerica da 1 a 64 caratteri
+-   `engine` : Tipo di motore Aurora da utilizzare in RDS - `aurora-mysql`, `aurora-postgresql`
+-   `engine_version` : Versione del motore Aurora da utilizzare in RDS
+-   `instance_class` : Tipo di istanza DB RDS
+-   `engine_mode` : Modalità del motore Aurora - `provisioned`, `multimaster`, `parallelquery`, `serverless`
+-   `multi_az_enabled` : Abilitazione della distribuzione Multi-AZ - `true`, `false`
+-   `master_username` : Nome utente master
+-   `master_password` : Password dell’utente master
+-   `included_subnet_names` : Elenco dei nomi delle subnet da includere nel gruppo subnet RDS
+-   `subnet_group_name` : Nome del gruppo subnet da utilizzare per RDS
+-   `linked_security_group_names` : Elenco dei gruppi di sicurezza da applicare
+
+#### Configurazione del monitoraggio (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Abilitazione di Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nome della chiave KMS da utilizzare per Performance Insights
+
+#### Configurazione della crittografia (`encryption`)
+
+-   `encryption.storage_encrypted` : Abilitazione della crittografia dell’istanza DB - `true`, `false`
+-   `encryption.kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+
+#### Configurazione del backup (`backup`)
+
+-   `backup.backup_retention_period` : Periodo di conservazione dei backup - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Creazione dello snapshot finale prima dell’eliminazione del DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nome dello snapshot finale
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Amazon Aurora(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
+-   [Prezzi di Amazon Aurora(AWS)](https://aws.amazon.com/ko/rds/aurora/pricing/?nc2=type_a)
+-   [rds-aurora(Terraform)](https://registry.terraform.io/modules/terraform-aws-modules/rds-aurora/aws/latest)

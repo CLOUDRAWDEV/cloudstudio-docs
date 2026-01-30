@@ -11,20 +11,33 @@ tags: [Ncloud, リソース, Base]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/base-base.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/base-base.webp"
     }
 />
 
 ## リソース概要
 
-ユーザーの購読情報を保存している Ncloud の最上位グループを示します。
+ユーザーのサブスクリプション情報を管理する、Ncloud における最上位グループを表します。
 
 ## 関連リソース
 
-### 下位リソース
+### 子リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/ncloud/Base/Region)
+-   [**LoginKey**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/LoginKey)
+
+---
 
 ## リソース設定値
 
--   `credential_id` : ユーザークレデンシャル
+#### 基本設定
+
+-   `credential_id` : ユーザー Credential
+-   `site` : Ncloud サービス種別
+
+---
+
+## 参考資料
+
+-   [Ncloud Environment Overview(Ncloud)](https://guide.ncloud-docs.com/docs/environment-environment-1-1)
+-   [Terraform Ncloud Provider(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs)

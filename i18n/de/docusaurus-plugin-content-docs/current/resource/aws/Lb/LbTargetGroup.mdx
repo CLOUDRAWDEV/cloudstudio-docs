@@ -1,0 +1,59 @@
+---
+title: LbTargetGroup
+sidebar_position: 1
+tags: [AWS, Ressource, Lb, LbTargetGroup]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb_target_group.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Service, der Anfragen anhand des festgelegten Protokolls und Ports an ein oder mehrere registrierte Ziele wie EC2-Instances weiterleitet.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**Instance**](https://docs.cstudio.app/de/docs/resource/aws/Ec2/Instance)
+-   [**LambdaFunction**](https://docs.cstudio.app/de/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Lb**](https://docs.cstudio.app/de/docs/resource/aws/Lb/Lb)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `target_type` : Typ des LB-Ziels – `instance`, `ip`, `lambda`, `alb`
+-   `protocol` : Protokoll für das Routing des Traffics – `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `GENEVE`
+-   `port` : Empfangsport für Traffic – `1` ~ `65535`
+-   `included_vpc_name` : Name des VPCs für die Zielgruppe
+-   `linked_instance_names` : Liste der Ziel-Instance-Namen
+-   `ips` : Liste der Ziel-IP-Adressen
+-   `linked_lambda_name` : Name der Ziel-Lambda-Funktion
+-   `linked_application_lb_name` : Name des Ziel-ALB
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [LB Target Group(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+-   [LB Target Group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)

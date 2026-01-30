@@ -1,7 +1,7 @@
 ---
 title: Efs
 sidebar_position: 0
-tags: [AWS, リソース, Efs]
+tags: [AWS, Resource, Efs]
 ---
 
 <hr />
@@ -11,46 +11,73 @@ tags: [AWS, リソース, Efs]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/efs-efs.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/efs-efs.webp"
     }
 />
 
 ## リソース概要
 
-ファイルシステムを生成、EC2 インスタンスにファイルシステムを搭載、EC2 インスタンスからデータを読み取ってファイルシステムに作成したり、ファイルを共有したりすることができます。
+ファイルシステムを作成し、EC2 インスタンスにマウントしてデータの読み書きやファイル共有を行うことができます。
 
 ## 関連リソース
 
 ### 上位リソース
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
+
+---
 
 ## リソース設定値
 
--   `create_token` : ファイルシステムの作成を保証するために Elastic ファイルシステムを作成する時の参照として使用される固有の名前
--   `availability_zone_name` : ファイルシステムを生成する AWS 可用性領域
--   `enabled_encrypted` : ファイルシステムを暗号化の可否 - `false`,`true`
--   `throughput_mode` : ファイルシステムのスループットモード - `provisioned`,`elastic`, `bursting`
--   `provisioned_throughput_in_mibps` : ファイルシステムにプロビジョニングするスループット（MiB/s 単位） - `1-3414`
--   `performance_mode` : ファイルシステムパフォーマンスモード - `generalPurpose`, `maxIO`
--   `lifecycle_policy` : ライフサイクル管理、アクセスパターンの変化に応じて自動的にコストダウン
-    -   `transition_to_ia` : ファイルを IA ストレージクラスに切り替えるのにかかる時間" - `1`,`7`,`14`,`30`,`60`
-    -   `ransition_to_primary_storage_class` : ファイルをアクセスリポジトリからデフォルトリポジトリに切り替えるために使用されるポリシー - `None`,`FirstAccess`
--   `mount_target_subnets` : マウントターゲットを追加するサブネットのリスト
--   `file_system_policy` : EFS ファイルシステムに対する JSON フォーマットファイルシステムポリシー
--   `enable_backup_policy` : バックアップ ポリシーの使用可否 - `false`,`true`
--   `enable_replica` : レプリケーション生成の可否 - `false`,`true`
--   `access_point` : 共有データセットへのアプリケーションアクセスをより簡単に管理できるようにする EFS ファイルシステムのアプリケーションごとのエントリポイント
-    -   `root_directory_path` : アクセスポイントを使用して EFS ファイルシステムにアクセスする NFS クライアントにルートディレクトリで露出する EFS ファイルシステムのパス
-    -   `posix_user_uid` : このアクセスポイントを使用するすべてのファイルシステム作業に使用される POSIX ユーザー ID - `4294967295이하`
-    -   `posix_user_gid` : このアクセスポイントを使用するすべてのファイルシステム作業に使用される POSIX グループ ID - `4294967295이하`
-    -   `posix_user_secondary_gids` : このアクセスポイントを使用するすべてのファイルシステム作業に使用されるセカンダリー POSIX グループ ID
-    -   `root_owner_uid` : Root Directory に適用する POSIX ユーザー ID - `4294967295이하`
-    -   `root_owner_gid` : Root Directory に適用する POSIX グループ ID - `4294967295이하`
-    -   `root_permissions` : ファイルのモードビットを表す 8 進数形式の Root Directory に適用できる POSIX 権限
+#### 基本設定
 
-## 参考資料
+-   `creation_token` : ファイルシステム作成を保証するための一意な識別子
+-   `availability_zone_name` : ファイルシステムを作成する AWS 可用性ゾーン
+-   `enable_encrypted` : 暗号化有効化可否 - `true`, `false`
+-   `throughput_mode` : スループットモード - `provisioned`, `elastic`, `bursting`
+-   `provisioned_throughput_in_mibps` : プロビジョニングスループット（MiB/s）
+-   `performance_mode` : パフォーマンスモード - `generalPurpose`, `maxIO`
 
--   [Amazon Efs(AWS)](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
--   [Amazon Efs Cluster(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)
+#### ライフサイクルポリシー (`lifecycle_policy`)
+
+-   `lifecycle_policy.transition_to_ia` : IA ストレージ移行までの期間
+-   `lifecycle_policy.transition_to_primary_storage_class` : プライマリストレージ移行ポリシー
+
+#### マウントターゲット (`mount_target_subnets`)
+
+-   `mount_target_subnets` : マウント対象 Subnet 一覧
+
+#### ファイルシステムポリシー
+
+-   `file_system_policy` : JSON 形式のファイルシステムポリシー
+
+#### バックアップおよびレプリケーション
+
+-   `enable_backup_policy` : バックアップ有効化可否 - `true`, `false`
+-   `enable_replica` : レプリケーション有効化可否 - `true`, `false`
+
+#### レプリケーション設定 (`replication_configuration`)
+
+-   `replication_configuration.replication_region` : レプリケーション先リージョン
+-   `replication_configuration.replication_region_availability_zone_name` : レプリケーション先可用性ゾーン
+-   `replication_configuration.kms_key_name` : 使用する KMS キー名
+
+#### アクセスポイント (`access_point`)
+
+-   `access_point.root_directory_path` : ルートディレクトリとして公開するパス
+-   `access_point.posix_user_uid` : POSIX ユーザー ID
+-   `access_point.posix_user_gid` : POSIX グループ ID
+-   `access_point.posix_user_secondary_gids` : 補助 POSIX グループ ID 一覧
+-   `access_point.root_owner_uid` : ルート所有者 UID
+-   `access_point.root_owner_gid` : ルート所有者 GID
+-   `access_point.root_permissions` : POSIX 権限（8 進数）
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
+
+## References
+
+-   [Amazon EFS（AWS）](https://docs.aws.amazon.com/ko_kr/efs/latest/ug/whatisefs.html)
+-   [Amazon EFS（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/efs_file_system)

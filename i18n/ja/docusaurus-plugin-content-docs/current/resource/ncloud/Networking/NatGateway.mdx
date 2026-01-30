@@ -1,6 +1,6 @@
 ---
-title: Nat Gateway
-sidebar_position: 0
+title: NatGateway
+sidebar_position: 5
 tags: [Ncloud, リソース, Network, NatGateway]
 ---
 
@@ -11,29 +11,33 @@ tags: [Ncloud, リソース, Network, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-nat_gateway.webp"
     }
 />
 
 ## リソース概要
 
-一つの共用 IP で複数のサーバーと接続し、外部からの直接アクセスを防ぐサービスです。
-複数台の非公認 IP を持つサーバーが外部サーバーと通信できるように接続し、外部からの直接アクセスを防ぎ、セキュリティを維持します。
+1 つのパブリック IP を使用して複数のサーバーを接続し、外部からの直接アクセスを遮断するサービスです。  
+複数のプライベート IP を持つサーバーが外部サーバーと通信できるようにし、同時に外部からの直接アクセスを防いでセキュリティを維持します。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+---
 
 ## リソース設定値
 
--   `included_vpc_name` : Nat Gateway を作成する VPC の名前
--   `zone` : Nat Gateway が位置する物理的地域です - `KR-1`, `KR-2`
+#### 基本設定
+
+-   `included_vpc_name` : NAT Gateway を作成する VPC 名
+-   `included_subnet_name` : NAT Gateway を作成する Subnet 名
 
 ---
 
 ## 参考資料
 
 -   [NAT Gateway(Ncloud)](https://www.ncloud.com/product/networking/natGateway)
--   [ncloud_nat_gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)
+-   [NAT Gateway(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nat_gateway)

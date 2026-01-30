@@ -1,0 +1,50 @@
+---
+title: HorizontalPodAutoscaler
+sidebar_position: 0
+tags: [Kubernetes, 리소스, AutoScaling, HorizontalPodAutoscaler]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/auto_scaling-horizontal_pod_autoscaler.webp"
+    }
+/>
+
+## 리소스 개요
+
+관찰된 CPU 사용률을 기반으로 Deployment, ReplicaSet, StatefulSet의 파드(Pod) 수를 자동으로 확장해주는 kubernetes 리소스입니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### 연결 리소스
+
+-   [**Deployment**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/docs/resource/kubernetes/Apps/StatefulSet)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `namespace` : HPA 리소스가 배포될 네임스페이스
+-   `annotations` : 쿠버네티스 시스템 메타데이터 key-value
+-   `labels` : HPA 리소스 식별용 라벨
+-   `min_replicas` : 자동 확장에서 유지할 최소 Pod 수
+-   `max_replicas` : 자동 확장에서 유지할 최대 Pod 수
+-   `target_cpu_utilization_percentage` : Pod 평균 CPU 사용률 목표 값
+-   `scale_target_ref` : 스케일링 대상이 되는 컨트롤러 리소스 참조 (Deployment, StatefulSet)
+
+---
+
+## 참고 자료
+
+-   [Horizontal Pod Autoscaling(Kubernetes)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+-   [Horizontal Pod Autoscaling(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/horizontal_pod_autoscaler)

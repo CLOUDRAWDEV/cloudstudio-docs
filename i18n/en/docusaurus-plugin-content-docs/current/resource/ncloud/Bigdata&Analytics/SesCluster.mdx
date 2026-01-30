@@ -1,6 +1,6 @@
 ---
 title: SesCluster
-sidebar_position: 0
+sidebar_position: 2
 tags: [Ncloud, Resource, Bigdata&Analytics, SesCluster]
 ---
 
@@ -11,46 +11,60 @@ tags: [Ncloud, Resource, Bigdata&Analytics, SesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/big_data_&_analytics-ses_cluster.webp"
     }
 />
 
 ## Resource Overview
 
-This resource provides an environment for conveniently managing Elasticsearch and OpenSearch clusters, allowing you to configure clusters by selecting various server types and storage capacities, and enabling easy deployment, operation, and scaling.
+A resource that provides an environment for conveniently managing Elasticsearch and OpenSearch clusters, allowing you to configure clusters by selecting various server types and storage capacities, and easily deploy, operate, and scale them.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**VPC**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
-
-### Connected Resources
-
-
-## Resource Setting Values
-
--   `os_image_code` : The OS type to be used
--   `search_engine` : The main items of Search Engine
-    -   `version_code` : The Search Engine Service version to be used
-    -   `user_name` : The Search Engine UserName
-    -   `user_password` : The Search Engine User password
-    -   `dashboard_port` : The Search Engine Dashboard port (1024 ~ 65535)
--   `manager_node` : The main items of manager node
-    -   `enable_dual_manager` : Whether to make redundancy of manager node
-    -   `manager_node_product_code` : Whether to make redundancy of manager node
-    -   `manager_node_subnet_name` : The subnet number where the manager node is to be located
--   `data_node` : The main items of data node
-    -   `data_node_product_code` : The HW specifications of the data node
-    -   `data_node_subnet_name` : The subnet number where the data node is to be located
-    -   `data_node_count` : Number of data nodes (3 ~10)
-    -   `data_node_storage_size` : The data node storage capacity (100~2000)
--   `enable_master_node` : Whether to use master node
--   `login_key_name` : The name of Login key to encrypt with the public key
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Vpc)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC where SES will be created
+-   `os_image_code` : OS type to use - `osImageName`
+-   `enable_master_node` : Whether to enable the master node - `true`, `false`
+-   `login_key_name` : Public login key name for encryption
+
+#### Search Engine Settings (`search_engine`)
+
+-   `search_engine.version_code` : Search Engine version code to use - `versionCode`
+-   `search_engine.user_name` : Search Engine user name
+-   `search_engine.user_password` : Search Engine user password
+-   `search_engine.dashboard_port` : Port of the Search Engine dashboard - `1024` ~ `65535`
+
+#### Manager Node Settings (`manager_node`)
+
+-   `manager_node.enable_dual_manager` : Whether to enable manager node redundancy - `true`, `false`
+-   `manager_node.manager_node_subnet_name` : Subnet name where the manager node will be located
+-   `manager_node.manager_node_product_code` : Manager node product code to use - `managerNodeProductCode`
+
+#### Data Node Settings (`data_node`)
+
+-   `data_node.data_node_subnet_name` : Subnet name where the data node will be located
+-   `data_node.data_node_product_code` : Data node product code to use - `managerNodeProductCode`
+-   `data_node.data_node_count` : Number of data nodes - `3` ~ `10`
+-   `data_node.data_node_storage_size` : Data node storage size - `100` ~ `2000`
+
+#### Master Node Settings (`master_node`)
+
+-   `master_node.master_node_subnet_name` : Subnet name where the master node will be located
+-   `master_node.master_node_product_code` : Master node product code to use - `managerNodeProductCode`
+-   `master_node.master_node_count` : Number of master nodes - `3` ~ `5`
+
+---
+
+## References
 
 -   [Ses Cluster(Ncloud)](https://www.ncloud.com/product/analytics/searchEngineService)
 -   [ncloud_ses_cluster(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/ses_cluster)

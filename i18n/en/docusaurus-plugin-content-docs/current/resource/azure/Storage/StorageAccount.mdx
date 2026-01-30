@@ -1,7 +1,7 @@
 ---
 title: StorageAccount
 sidebar_position: 0
-tags: [Azure, Resource, Storage, StorageAccount]
+tags: [Azure, Storage, StorageAccount]
 ---
 
 <hr />
@@ -11,68 +11,66 @@ tags: [Azure, Resource, Storage, StorageAccount]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/storage-storage_account.webp"
     }
 />
 
 ## Resource Overview
 
-Azure Storage Accounts are a cloud-based storage solution provided by Microsoft Azure. 
-They offer a scalable and highly available data storage platform for applications, virtual machines, and other services running on the Azure cloud. 
-Azure Storage Accounts support various types of storage services, including Blob Storage, File Storage, Queue Storage, and Table Storage. 
-Blob Storage is used to store unstructured data such as text, images, videos, and other binary data.
+Azure Storage Account is a **foundational storage resource that provides Blob, File, Queue, and Table storage services within a single account**.  
+It supports a wide range of application workloads through scalable data storage, high availability, and secure network access control.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
 ### Connected Resources
 
 -   [**Backup**](https://docs.cstudio.app/en/docs/resource/azure/RecoveryServices/Backup)
+-   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/Metric)
+-   [**Eventhub**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/Eventhub)
+-   [**PrivateEndpoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
-## Resource Setting Values
-
--   `account_kind` : The kind of Account - `StorageV2`,`Storage`
-
--   `account_tier` : The tier to use for the Storage Account - `Standard`,`Premium`
-
--   `account_replication_type` : The type of replication to use for the Storage Account - `LRS`,`GRS`,`RAFRS`,`ZRS`,`GZRS`,`RAGZRS`
-
--   `access_tier` : Data usage pattern for BlobStorage/FileStorage/StorageV2 account - `Hot`,`Cool`
-
--   `min_tls_version` : The minimum supported TLS version for the Storage Account - `TLS1_1`,`TLS1_2`,`TLS1_0`
-
--   `enable_https_traffic_only` : When secure transfer is required, call the Azure Storage REST API operation with HTTPS - `true`,`false`
-
--   `network_rules`
-
-    -   `default_action` : Default action applied to Network Rules - `Deny`,`Allow`
-    -   `bypass` : Specifies whether traffic is bypassed for Logging/Metrics/AzureServices - `AzureServices`,`Logging`,`Metrics`,`None`
-    -   `ip_rules` : IP address to which the network rule applies
-
--   `storage_container`
-
-    -   `container_access_type` : The access level configured for the Container - `private`,`blob`,`container`
-
--   `storage_queue`
-
-    -   `name` : The name of queue
-
--   `storage_share`
-
-    -   `quota` : The maximum size of the share in GB - `1` ~ `5120`
-
--   `storage_table`
-
-    -   `name` : The name of table
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key`:`value`
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure StorageAccount(Microsoft)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview)
--   [Azure StorageAccount Price](https://azure.microsoft.com/en-us/pricing/details/storage/blobs/)
--   [Azure StorageAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+-   `account_kind` : Type of the Storage Account - `StorageV2`, `Storage`
+-   `account_tier` : Performance tier for using the Storage Account - `Standard`, `Premium`
+-   `account_replication_type` : Data replication type of the Storage Account - `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS`, `RAGZRS`
+-   `access_tier` : Data usage tier - `Hot`, `Cool`
+-   `min_tls_version` : Minimum supported TLS version for the Storage Account - `TLS1_0`, `TLS1_1`, `TLS1_2`
+-   `enable_https_traffic_only` : Whether to allow access only through HTTPS - `true`, `false`
+-   `tag` : Tags used to categorize resources
+
+#### Networking (`networking`)
+
+-   `networking.public_network_access` : Public Network Access policy - `All`, `Selected`, `Disabled`
+-   `networking.ip_rules` : List of IP address ranges to which network rules are applied
+-   `networking.bypass` : Traffic bypass targets - `AzureServices`, `Logging`, `Metrics`
+
+#### Storage Container (`storage_container`)
+
+-   `storage_container.container_access_type` : Storage Container access level - `private`, `blob`, `container`
+
+#### Storage Queue (`storage_queue`)
+
+-   `storage_queue.name` : Queue name
+
+#### Storage Share (`storage_share`)
+
+-   `storage_share.quota` : Maximum capacity of the file share (GB)
+
+#### Storage Table (`storage_table`)
+
+-   `storage_table.name` : Table name
+
+---
+
+## References
+
+-   [Azure Storage Account Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-account-overview)
+-   [Azure Storage Replication Options(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-redundancy)
+-   [Azure Storage Network Security(Microsoft)](https://learn.microsoft.com/ko-kr/azure/storage/common/storage-network-security)

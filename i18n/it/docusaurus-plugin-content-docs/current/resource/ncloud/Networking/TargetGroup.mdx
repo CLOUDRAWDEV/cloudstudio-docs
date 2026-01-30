@@ -1,0 +1,51 @@
+---
+title: TargetGroup
+sidebar_position: 7
+tags: [Ncloud, Resource, Network, TargetGroup]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
+    }
+/>
+
+## Resource Overview
+
+A resource that represents a group of targets responsible for handling requests from a Load Balancer.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
+
+### Connected Resources
+
+-   [**Server**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/AutoScaling)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC in which the Target Group will be created
+-   `target_group_name` : Name of the Target Group
+-   `target_type` : Target type (`SERVER`, `AUTO_SCALING_GROUP`)
+-   `protocol` : Protocol type (`HTTP`, `HTTPS`, `TCP`)
+-   `port` : Target port number
+
+---
+
+## References
+
+-   [Target Group(Ncloud)](https://www.ncloud.com/product/networking/loadBalancer)
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/target_group)

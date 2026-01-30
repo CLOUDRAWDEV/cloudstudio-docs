@@ -1,0 +1,105 @@
+---
+title: Job
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Batch, Job]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso de Kubernetes utilizado para ejecutar trabajos de una sola vez.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Job
+-   `annotations` : Metadatos key-value necesarios para el sistema Kubernetes
+-   `labels` : Key-value definidos por el usuario para identificar el objeto
+-   `enable_manual_selector` : Habilitar el uso de selector manual - `true`, `false`
+-   `template_labels` : Labels que se asignarán al Pod
+-   `restart_policy` : Política de manejo al finalizar el contenedor - `Never`, `OnFailure`
+-   `backoff_limit` : Número de reintentos antes de considerar el trabajo como fallido
+-   `wait_for_completion` : Bloquear creación/actualización hasta que el trabajo finalice o falle - `true`, `false`
+-   `dns_policy` : Política DNS - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Habilitar enlaces de servicio - `true`, `false`
+-   `host_network` : Habilitar uso de red del host - `true`, `false`
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
+
+#### Tiempos de espera (`timeouts`)
+
+-   `timeouts.create` : Tiempo de espera desde la creación hasta la finalización del trabajo
+-   `timeouts.update` : Tiempo de espera desde la actualización hasta la finalización del trabajo
+
+#### Contexto de seguridad del Pod (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : UID del usuario que ejecutará el contenedor
+-   `pod_security_context.run_as_group` : GID del grupo que ejecutará el contenedor
+-   `pod_security_context.run_as_non_root` : Ejecutar como usuario non-root - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : Usuario SELinux
+-   `pod_security_context.se_linux_options_role` : Rol SELinux
+-   `pod_security_context.se_linux_options_type` : Tipo SELinux
+-   `pod_security_context.se_linux_options_level` : Nivel SELinux
+
+#### Contenedores de inicialización (`init_containers`)
+
+-   `init_containers.image` : Imagen del contenedor
+-   `init_containers.args` : Lista de argumentos de ejecución
+-   `init_containers.command` : Comando de ejecución
+-   `init_containers.env` : Variables de entorno
+-   `init_containers.env_from` : Variables de entorno desde ConfigMap o Secret
+-   `init_containers.resources` : Límites y solicitudes de CPU y memoria
+-   `init_containers.probe` : Probes de estado
+-   `init_containers.port` : Configuración de puertos
+-   `init_containers.volume_mount` : Configuración de montaje de volúmenes
+
+#### Contenedores (`containers`)
+
+-   `containers.image` : Imagen del contenedor
+-   `containers.args` : Lista de argumentos de ejecución
+-   `containers.command` : Comando de ejecución
+-   `containers.env` : Variables de entorno
+-   `containers.env_from` : Variables de entorno desde ConfigMap o Secret
+-   `containers.resources` : Límites y solicitudes de CPU y memoria
+-   `containers.probe` : Probes de estado
+-   `containers.port` : Configuración de puertos
+-   `containers.volume_mount` : Configuración de montaje de volúmenes
+
+#### Volúmenes (`volume`)
+
+-   `volume.volume_type` : Tipo de volumen - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Nombre del recurso de destino
+-   `volume.path` : Ruta de montaje
+-   `volume.default_mode` : Modo de permisos de archivos
+-   `volume.items` : Mapeo de elementos de ConfigMap
+-   `volume.read_only` : Modo de solo lectura - `true`, `false`
+
+---
+
+## Referencias
+
+-   [Job(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+-   [Job(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/job)

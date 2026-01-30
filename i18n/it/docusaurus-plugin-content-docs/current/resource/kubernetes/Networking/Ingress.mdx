@@ -1,0 +1,67 @@
+---
+title: Ingress
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Networking, Ingress]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes che definisce regole per consentire alle connessioni in ingresso di raggiungere gli endpoint definiti nel backend.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**Issuer**](https://docs.cstudio.app/it/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Service**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Service)
+-   [**IngressClass**](https://docs.cstudio.app/it/docs/resource/kubernetes/Networking/IngressClass)
+-   [**Nginx Ingress**](https://docs.cstudio.app/it/docs/resource/kubernetes/Helm/NginxIngress)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Ingress
+-   `annotations` : Key-value utilizzati per fornire informazioni necessarie al sistema Kubernetes
+-   `labels` : Valori definiti dall’utente per distinguere gli oggetti
+-   `ingress_class_name` : Nome della classe Ingress da associare
+
+#### Configurazione TLS (`tls`)
+
+-   `tls.hosts` : Elenco degli host inclusi nel certificato TLS
+-   `tls.secret_name` : Nome del Kubernetes Secret associato al certificato TLS
+
+#### Regole di routing (`rule`)
+
+-   `rule.host` : Nome host a cui applicare la regola di routing
+
+#### Configurazione backend (`rule.backend`)
+
+-   `rule.backend.target_service` : Servizio backend di destinazione
+-   `rule.backend.path` : Percorso di collegamento al backend
+-   `rule.backend.port` : Numero di porta del servizio
+-   `rule.backend.path_type` : Tipo di corrispondenza del percorso - `ImplementationSpecific`, `Prefix`, `Exact`
+
+---
+
+## Riferimenti
+
+-   [Ingress(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+-   [Ingress(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress)

@@ -1,7 +1,7 @@
 ---
 title: SecurityCenter
 sidebar_position: 0
-tags: [Azure, リソース, SecurityCenter]
+tags: [Azure, Security, Defender, SecurityCenter]
 ---
 
 <hr />
@@ -11,16 +11,14 @@ tags: [Azure, リソース, SecurityCenter]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/security_center-security_center.webp"
     }
 />
 
 ## リソース概要
 
-Azure Security Center は、組織がハイブリッドクラウドワークロードにおけるセキュリティ脅威を防止、
-検出、対応できるように、Microsoft が提供するクラウドベースのサービスです。Microsoft Azure およびオンプレミス環境でホストされているすべてのリソースの
-セキュリティ状況を可視化するための中央管理型ダッシュボードを提供します。Azure Security Center は、環境を継続的に監視し、セキュリティ推奨事項、脆弱性評価、
-脅威インテリジェンス、セキュリティアラートを提供することで、脅威から保護し、潜在的な脆弱性を特定するのに役立ちます。
+Azure Security Center は、クラウドリソース全体のセキュリティ状態を継続的に評価し、脅威を検知・防止するための統合セキュリティ管理サービスです。  
+Microsoft Defender プランと連携することで、脆弱性評価、セキュリティ推奨事項、脅威保護を中央で管理できます。
 
 ## 関連リソース
 
@@ -30,27 +28,32 @@ Azure Security Center は、組織がハイブリッドクラウドワークロ�
 
 ### 接続リソース
 
--   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
--   [**Log Analytics Workspace**](https://docs.cstudio.app/ja/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
-
-## リソース設定値
-
--   `linked_log_analytics_workspace` : データを保存する Log Analytics Workspace の名前
-
--   `assessment_policy`
-
-    -   `display_name`: Security Center Assessment の表示名
-    -   `severity`: Security center assessment の重要度レベル
-    -   `description`: Security center assessment の説明
-
--   `assessment`
-
--   `linked_advanced_threat_protection` : Security Center Advanced Threat Protection の名前
+-   [**Log Analytics Workspace**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/LogAnalyticsWorkspace)
 
 ---
 
+## リソース設定値
+
+-   `linked_log_analytics_workspace` : セキュリティデータを保存する Log Analytics Workspace の名前
+
+#### Assessment Policy (`assessment_policy`)
+
+-   `assessment_policy.display_name` : Security Center 評価の表示名
+-   `assessment_policy.severity` : Security Center 評価の重大度 - `Low`, `Medium`, `High`
+-   `assessment_policy.description` : Security Center 評価の説明
+
+#### Assessment (`assessment`)
+
+-   `assessment.policy_name` : リソースに適用されるセキュリティ評価ポリシー名
+-   `assessment.status_code` : 評価ステータスコード - `Healthy`, `Unhealthy`, `NotApplicable`
+
+#### Subscription Pricing (`subscription_pricing`)
+
+-   `subscription_pricing.pricing_tier` : 高度なセキュリティ機能を有効にするかどうか - `Free`, `Standard`
+-   `subscription_pricing.pricing_resource_type` : 高度なセキュリティ機能を適用するリソースの種類
+
 ## 参考資料
 
--   [Azure SecurityCenter(Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
--   [Azure SecurityCenter 価格](https://azure.microsoft.com/ko-kr/pricing/details/defender-for-cloud/)
--   [Azure SecurityCenter(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/security_center_workspace)
+-   [Microsoft Defender for Cloud 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-introduction)
+-   [Security Center セキュリティ評価 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/security-policy-concept)
+-   [Defender for Cloud 価格 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/defender-for-cloud/defender-for-cloud-pricing)

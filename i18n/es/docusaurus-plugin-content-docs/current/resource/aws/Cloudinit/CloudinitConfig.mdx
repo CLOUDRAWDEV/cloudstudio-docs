@@ -1,0 +1,46 @@
+---
+title: CloudinitConfig
+sidebar_position: 0
+tags: [Terraform, Cloudinit, CloudinitConfig, VM, Compute]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudinit-cloudinit_config.webp" />
+
+## Descripción general del recurso
+
+Cloud-init es una herramienta que inicializa y configura instancias de máquinas virtuales.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `gzip` : Indica si se utiliza compresión de datos - `true`, `false`
+
+#### Configuración de partes (`part`)
+
+-   `part.content_type` : Tipo de datos que se insertarán - `text/cloud-config`, `text/x-shellscript`, `text/cloud-boothook`, `multipart/mixed`, `text/cloud-config-archive`, `text/jinja`, `text/x-include-url`, `text/part-handler`
+-   `part.content` : Contenido real de los datos que se insertarán
+
+#### Etiquetas
+
+-   `tag` : Etiqueta para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [cloud-init documentación oficial](https://cloudinit.readthedocs.io/en/latest/)
+-   [Terraform cloudinit provider documentación](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/config)

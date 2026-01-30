@@ -1,7 +1,7 @@
 ---
 title: Firewall
-sidebar_position: 3
-tags: [Azure, リソース, Network, Firewall]
+sidebar_position: 14
+tags: [Azure, Network, Firewall]
 ---
 
 <hr />
@@ -11,83 +11,79 @@ tags: [Azure, リソース, Network, Firewall]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-firewall.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-firewall.webp"
     }
 />
 
 ## リソース概要
 
-Azure Firewall は Azure で実行されるクラウドワークロードに対して最高の脅威保護を提供するクラウドネイティブおよびインテリジェントネットワークファイアウォールセキュリティサービスです。
-高可用性と無制限のクラウド拡張性が基本的に提供されるサービス形態の完全な状態保存ファイアウォールです。
+Azure Firewall は Virtual Network 内に配置される**マネージド型ネットワーク ファイアウォール サービス**で、インバウンド／アウトバウンド トラフィックを中央集中的に制御し、脅威保護を提供します。  
+Network／Application／NAT ルールを用いて L3 ～ L7 レベルのフィルタリングを構成でき、ハブ＆スポーク構成や単一 VNet 構成における共通のセキュリティ境界として利用されます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
--   [**Network Interface**](https://docs.cstudio.app/ja/docs/resource/azure/Network/NetworkInterface)
--   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+
+---
 
 ## リソース設定値
 
--   `included_subnet_name` : Firewall が位置する Subnet の名前
+-   `sku_tier` : Firewall の価格レベル - `Basic`, `Standard`, `Premium`
+-   `ip_config_name` : IP Configuration 名
+-   `included_subnet_name` : Firewall を配置する Subnet 名
+-   `linked_firewall_subnet_public_ip_name` : Firewall Subnet に関連付ける Public IP 名
+-   `management_ip_config_name` : Management IP Configuration 名
+-   `target_firewall_management_subnet_name` : Firewall Management Subnet 名
+-   `linked_firewall_management_subnet_public_ip_name` : Firewall Management Subnet に関連付ける Public IP 名
+-   `sku_name` : Firewall SKU 名 - `AZFW_VNet`, `AZFW_Hub`
+-   `tag` : リソースを分類するためのタグ
 
--   `sku_tier` : Firewall の価格設定階層 - `Basic`, `Standard`, `Premium`
+#### ネットワーク ルール コレクション (`network_rule_collection`)
 
--   `sku_name` : Firewall の価格設定階層名 -`AZFW_VNet`, `AZFW_Hub`
+-   `network_rule_collection.priority` : ルール コレクションの優先度 - `100` ~ `65000`
+-   `network_rule_collection.action` : 一致したトラフィックに適用する動作 - `Allow`, `Deny`
 
--   `linked_public_ip_name` : Firewall に接続する Public IP の名前
+#### ネットワーク ルール (`network_rules`)
 
--   `ip_config_name` : IP Configuration の名前
+-   `network_rules.source_addresses` : 送信元 IP アドレスまたは範囲の一覧
+-   `network_rules.destination_ports` : 宛先ポートの一覧
+-   `network_rules.destination_addresses` : 宛先 IP アドレスまたは範囲の一覧
+-   `network_rules.protocols` : ルールに適用するプロトコル一覧 - `TCP`, `UDP`, `ICMP`, `Any`
 
--   `network_rule_collection`
+#### アプリケーション ルール コレクション (`application_rule_collection`)
 
-    -   `priority` : Rule Collection의 우선순위, 100 ~ 65000의 범위 - `100`~ `65000`
-    -   `action` : 일치하는 트래픽에 Rule을 적용할 동작 - `Allow`,`Deny`
+-   `application_rule_collection.priority` : ルール コレクションの優先度 - `100` ~ `65000`
+-   `application_rule_collection.action` : 一致したトラフィックに適用する動作 - `Allow`, `Deny`
 
--   `network_rules`
+#### アプリケーション ルール (`application_rules`)
 
-    -   `source_addresses` : 元の IP アドレスまたは範囲のリスト
-    -   `destination_ports` : 宛先ポートのリスト
-    -   `destination_address` : 宛先 IP アドレスまたは IP 範囲のリスト
-    -   `protocols` : ルールを設定するプロトコルのリスト - `TCP`,`UDP`,`ICMP`,`Any`
+-   `application_rules.source_addresses` : 送信元 IP アドレスまたは範囲の一覧
+-   `application_rules.target_fqdns` : アウトバウンド トラフィックをフィルタリングするための FQDN 一覧
+-   `application_rules.protocol_port` : プロトコル接続に使用するポート
+-   `application_rules.protocol_type` : プロトコル種別 - `Http`, `Https`, `Mssql`
 
--   `application_rule_collection`
+#### NAT ルール コレクション (`nat_rule_collection`)
 
-    -   `priority` : Rule Collection の優先順位、100~65000 の範囲 - `100` ~ `65000`
-    -   `action` : 一致するトラフィックにルールを適用する動作 - `Allow`,`Deny`
+-   `nat_rule_collection.priority` : ルール コレクションの優先度 - `100` ~ `65000`
+-   `nat_rule_collection.action` : 一致したトラフィックに適用する動作 - `Dnat`, `Snat`
 
--   `application_rules`
+#### NAT ルール (`nat_rules`)
 
-    -   `source_addresses` : 元の IP アドレスまたは範囲のリスト
-    -   `target_fqdns` : 任意の TCP/UDP プロトコルを使用してアウトバウンドトラフィックをフィルタリングするための FQDN リスト
-    -   `protocol_port` : プロトコル接続のためのポート - `1` ~ `65502`
-    -   `protocol_type` : プロトコル接続タイプ - `Http`, `Https`, `Mssql`
-
--   `nat_rule_collection`
-
-    -   `priority` : Rule Collection の優先順位、100~65000 の範囲 - `100` ~ `65000`
-    -   `action` : 一致するトラフィックにルールを適用する動作 - `Dnat`, `Snat`
-
--   `nat_rules`
-
-    -   `source_addresses` : 元の IP アドレスまたは範囲のリスト
-    -   `destination_ports` : 宛先ポートのリスト
-    -   `translated_port` : Firewall を使用するサービスの変換ポート
-    -   `translated_address` : Firewall を使用するサービスの変換アドレス
-    -   `protocols` : Rule を構成するプロトコルのリスト - `TCP`, `UDP`, `ICMP`, `Any`
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `nat_rules.source_addresses` : 送信元 IP アドレスまたは範囲の一覧
+-   `nat_rules.destination_ports` : 宛先ポートの一覧
+-   `nat_rules.translated_port` : 変換後のポート
+-   `nat_rules.translated_address` : 変換後のアドレス
+-   `nat_rules.protocols` : ルールに適用するプロトコル一覧 - `TCP`, `UDP`, `ICMP`, `Any`
 
 ---
 
 ## 参考資料
 
--   [Azure Firewall(Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
--   [Azure Firewall 価格](https://azure.microsoft.com/en-us/pricing/details/azure-firewall/)
--   [Azure Firewall(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+-   [Azure Firewall 概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/overview)
+-   [Azure Firewall のルール処理ロジック (Microsoft)](https://learn.microsoft.com/ko-kr/azure/firewall/rule-processing)

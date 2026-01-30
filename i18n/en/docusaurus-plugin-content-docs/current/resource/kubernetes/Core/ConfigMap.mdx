@@ -4,57 +4,51 @@ sidebar_position: 0
 tags: [Kubernetes, Resource, Core, ConfigMap]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-config_map.webp"
     }
 />
 
 ## Resource Overview
 
-A Kubernetes resource used to separate and store application configuration data and pass it to containers within a pod.
+A Kubernetes resource used to store application configuration data separately and deliver it to containers within Pods.
 
 ## Associated Resources
 
 ### Parent Resource
 
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
-### Connected Resources
+### Connected Targets
 
 -   [**Pod**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Pod)
 -   [**Deployment**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/Deployment)
--   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/DaemonSet)
+-   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**StatefulSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/StatefulSet)
 -   [**Job**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/Job)
 -   [**CronJob**](https://docs.cstudio.app/en/docs/resource/kubernetes/Batch/CronJob)
 
+---
 
-## Resource Setting Values
+## Resource Configuration
 
--   `service_name` : Name of the ConfigMap resource
--   `namespace` : Namespace where ConfigMap resources will be deployed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `data` : General data as key-value pairs - used to store configuration information in text format such as configuration files, environment variables, etc
-    -   `data.name` : The key value of the data
-    -   `data.value` : The value of the data
--   `binary_data` : Binary data for a specific key - used to store binary files or other binary format data
-    -   `data.name` : The key for the binary data
-    -   `data.value` : The value for the binary data
+#### Basic Settings
 
+-   `namespace` : Namespace where the ConfigMap resource will be deployed
+-   `annotations` : Kubernetes system metadata
+-   `data` : Stores text-based configuration data in key-value format
+-   `labels` : User-defined labels for resource identification and classification
+-   `binary_data` : Stores binary data in key-value format
 
 ---
 
-## Reference Materials
+## References
 
 -   [ConfigMap(Kubernetes)](https://kubernetes.io/docs/concepts/configuration/configmap/)
 -   [ConfigMap(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map)

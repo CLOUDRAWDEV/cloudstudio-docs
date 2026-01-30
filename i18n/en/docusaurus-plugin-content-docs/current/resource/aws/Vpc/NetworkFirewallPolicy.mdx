@@ -1,6 +1,6 @@
 ---
 title: NetworkFirewallPolicy
-sidebar_position: 0
+sidebar_position: 11
 tags: [AWS, Resource, Vpc, NetworkFirewallPolicy]
 ---
 
@@ -11,13 +11,13 @@ tags: [AWS, Resource, Vpc, NetworkFirewallPolicy]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-network_firewall_policy.webp"
     }
 />
 
 ## Resource Overview
 
-The AWS Network Firewall Policy defines the monitoring and protection actions for the Network Firewall.
+An AWS Network Firewall Policy defines monitoring and protection behavior for Network Firewall.
 
 ## Associated Resources
 
@@ -27,30 +27,44 @@ The AWS Network Firewall Policy defines the monitoring and protection actions fo
 
 ### Connected Resources
 
--   [**Network Firewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
--   [**Network Firewall Rule Group**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
-
-
-## Resource Setting Values
-
--   `description` : Description of the firewall policy
--   `stream_exception_policy` : Describes how to treat traffic which has broken midstream - `drop`, `continue`, `reject`
--   `stateless_default_action` : stateless default action setting
-    -   `enabled_fragment_packet_action` : Whether to enable fragment packet action - `false`, `true`
-    -   `default_action` : Set of actions to take on a packet if it does not match any of the stateless rules in the policy - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
--   `stateless_rule_group_names` : The stateless rule groups that are used in the policy
--   `stateful_default_action` : Configuration of stateful default action
-    -   `rule_evaluation_order` : Indicates how to manage the order of stateful rule evaluation for the policy
-    -   `default_actions` : Set of actions to take on a packet if it does not match any of the stateful rules in the policy - `aws:drop_strict`, `aws:drop_established`, `aws:alert_strict`, `aws:alert_established`
--   `strict_stateful_rule_group_names` : The strict stateful rule groups name that are used in the policy
--   `rule_variables` : Variables that you can use to override default Suricata settings in your firewall policy
--   `encryption_configuration`
-    -   `enabled_custom_configuration` : Encrypt data using AWS-managed key - `false`, `true`
-
+-   [**NetworkFirewallRuleGroup**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewallRuleGroup)
+-   [**NetworkFirewall**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/NetworkFirewall)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [NetworkFirewallPolicy(AWS)](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html)
--   [NetworkFirewallPolicy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_firewall_policy)
+#### Basic Settings
+
+-   `description` : Firewall policy description (maximum 256 characters)
+-   `stream_exception_policy` : Handling of midstream traffic interruption - `DROP`, `CONTINUE`, `REJECT`
+
+#### Stateless Default Actions (`stateless_default_action`)
+
+-   `stateless_default_action.enabled_fragment_packet_action` : Whether fragment packet handling is enabled - `true`, `false`
+-   `stateless_default_action.default_action` : Default action for packets not matching stateless rules - `aws:drop`, `aws:pass`, `aws:forward_to_sfe`
+-   `stateless_default_action.fragment_default_action` : Action for fragmented packets not matching rules
+
+#### Stateless Rule Groups
+
+-   `stateless_rule_group_names` : List of stateless rule groups associated with the policy
+    -   key : priority
+    -   value : rule group name
+
+#### Stateful Default Actions (`stateful_default_action`)
+
+-   `stateful_default_action.rule_evaluation_order` : Rule evaluation order - `STRICT_ORDER`, `DEFAULT_ACTION_ORDER`
+-   `stateful_default_action.default_actions` : Default actions for packets not matching stateful rules
+
+#### Stateful Rule Groups
+
+-   `strict_stateful_rule_group_names` : Stateful rule groups evaluated in STRICT_ORDER
+-   `default_stateful_rule_group_names` : Default stateful rule group names
+
+#### Rule Variables (`rule_variables`)
+
+-   `rule_variables` : Variables used to override Suricata default settings
+
+#### Encryption Configuration (`encryption_configuration`)
+
+-   `encrypt

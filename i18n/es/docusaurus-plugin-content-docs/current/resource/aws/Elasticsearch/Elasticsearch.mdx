@@ -1,0 +1,71 @@
+---
+title: Elasticsearch
+sidebar_position: 0
+tags: [AWS, recurso, Elasticsearch]
+---
+
+<hr />
+<br />
+
+## Ícono del recurso
+
+<img
+    src={
+        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticsearch-elasticsearch.png"
+    }
+/>
+
+## Descripción general del recurso
+
+AWS ElasticSearch es un motor de búsqueda y análisis distribuido, diseñado para ofrecer búsquedas rápidas y análisis de datos. ElasticSearch se construye sobre el motor de búsqueda Apache Lucene y es una solución de código abierto, rápida y escalable. ElasticSearch se utiliza para diversas aplicaciones como recopilación de datos, análisis de logs y monitoreo. ElasticSearch puede ejecutarse dentro de Amazon VPC e integrarse con otros servicios de AWS como Lambda, Kinesis, entre otros. ElasticSearch ofrece funciones de control de acceso y seguridad proporcionadas por AWS, y se integra con Amazon CloudWatch para monitoreo y registro.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Región**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/Vpc/Subnet)
+
+### Recurso conectado
+
+-   [**Elastic Search**](https://docs.cstudio.app/docs/resource/aws/Elasticsearch/Elasticsearch)
+
+
+---
+
+## Valores de configuración del recurso
+
+-   `elasticsearch_version` : Versión del dominio de Elasticsearch  
+-   `availability_zone_count` : Número de zonas de disponibilidad – `2`, `3`  
+-   `tls_security_policy` : Nombre de la política de seguridad TLS que se debe aplicar al endpoint HTTPS – `Policy-Min-TLS-1-2-2019-07`, `Policy-Min-TLS-1-0-2019-07`  
+-   `data_node`
+    -   `instance_type` : Tipo de instancia de los nodos de datos en el clúster  
+    -   `instance_count` : Número de instancias en el clúster – `1`~`80`  
+    -   `ebs_enabled` : Indica si los volúmenes EBS están conectados a los nodos de datos – `true`, `false`  
+    -   `ebs_volume_type` : Tipo de volumen EBS conectado a los nodos de datos – `standard`, `gp2`, `io1`  
+    -   `ebs_volume_size` : Tamaño del volumen EBS conectado a los nodos de datos (GiB) – `1`~`16384`  
+-   `master_node`
+    -   `master_node_enabled` : Activar el nodo maestro dedicado en el clúster – `true`, `false`  
+    -   `master_instance_type` : Tipo de instancia del nodo maestro dedicado en el clúster – `r5.large.search`  
+    -   `master_node_count` : Número de nodos maestros dedicados en el clúster – `3`, `5`  
+-   `custom_endpoint`
+    -   `custom_endpoint_enabled` : Activar punto de acceso personalizado – `true`, `false`  
+-   `network`
+    -   `network_type` : Tipo de acceso a la red – `vpc_access`, `public_access`  
+    -   `included_subnet_names` : Lista de IDs de subredes VPC para crear el endpoint de dominio de Elasticsearch  
+    -   `security_group_names` : Lista de IDs de grupos de seguridad de VPC para aplicar al endpoint de dominio de Elasticsearch  
+-   `fine_grained_access`
+    -   `fine_grained_access_enabled` : Activar control de acceso granular – `true`, `false`  
+    -   `master_user_type` : Tipo de usuario maestro – `iam_arn`, `master_user`  
+    -   `iam_arn` : ARN de IAM para el usuario principal  
+-   `encryption`
+    -   `enforce_https` : Requerir HTTPS – `true`, `false`  
+    -   `node_to_node_encryption_enabled` : Activar cifrado entre nodos – `true`, `false`  
+    -   `data_at_rest_encryption_enabled` : Activar cifrado de datos en reposo – `true`, `false`  
+-   `kms_key_name` : Nombre de la clave KMS para cifrar los datos
+
+---
+
+## Referencias
+
+-   [aws_elasticsearch_domain(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticsearch_domain)

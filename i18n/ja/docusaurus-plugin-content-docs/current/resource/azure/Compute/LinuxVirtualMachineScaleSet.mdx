@@ -1,7 +1,7 @@
 ---
 title: LinuxVirtualMachineScaleSet
-sidebar_position: 3
-tags: [Azure, リソース, Compute, LinuxVirtualMachineScaleSet]
+sidebar_position: 1
+tags: [Azure, LinuxVirtualMachineScaleSet, VirtualMachineScaleSet, Compute]
 ---
 
 <hr />
@@ -11,48 +11,89 @@ tags: [Azure, リソース, Compute, LinuxVirtualMachineScaleSet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/compute-linux_virtual_machine_scale_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/compute-linux_virtual_machine_scale_set.webp"
     }
 />
 
 ## リソース概要
 
-Azure Linux Virtual Machine Scale Set は Linux オペレーティングシステムを実行する同一の仮想マシングループであり、 必要に応じて自動的に拡張または縮小することができます。
-Scale Set の VM 数を手動で調整するか、リソース使用量（例:CPU、メモリ要求量、またはネットワークトラフィック）に応じて自動的にサイズを調整するルールを定義できます。
-これにより、Azure 負荷分散装置で Scale Set の VM インスタンスにトラフィックを分散します。
+Azure Linux Virtual Machine Scale Set は、同一構成の Linux 仮想マシン インスタンスを複数作成し、需要やポリシーに応じてインスタンス数を自動的にスケールアウト／スケールインできるコンピューティング リソースです。  
+仮想ネットワーク接続、VM SKU、インスタンス数、イメージ設定、認証方式、ディスク設定、ネットワーク インターフェース構成などを設定することで、大規模なワークロードを効率的に運用できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Virtual Network**](https://docs.cstudio.app/docs/resource/azure/Network/VirtualNetwork)
+-   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
+
+### 接続リソース
+
+-   [**Monitor Autoscale Setting**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+
+---
 
 ## リソース設定値
 
--   `included_vnet_name` : Subnet が含まれている Virtual Network 名
--   `orchestration_mode` : Scale Set によって VM が管理されるかどうかを決定するオーケストレーション方式
--   `platform_fault_domain_count` : 共通電源およびネットワークスイッチを共有する VM のグループ数
--   `vmss_sku` : Virtual Machine Scale Set の価格設定階層
--   `instances` : Scale Set の仮想マシン数 `1`~`1000`
--   `source_image`
-    -   `enabled_custom_image` : ユーザーイメージ ID の使用有無 - `true`, `false`
-    -   `image_id` : VM 生成のために使用するイメージの ID
-    -   `publisher` : VM 生成のために使用するイメージのプロバイダー
-    -   `Offer` : VM 生成のために使用するイメージの ID
-    -   `sku` : VM 生成のために使用するイメージの価格設定階層
--   `enable_ssh_key_authentication` : 管理者アカウントを認証するために ssh キーを使用
--   `admin_username` : VM に対する管理者ユーザー名
--   `admin_password` : VM に対する管理者パスワード
--   `os_disk_caching` : 内部 OS Disk 使用のための caching タイプ - `ReadWrite`, `ReadOnly`, `None`
--   `storage_account_type` : 内部 OS Disk をバックアップするためのストレージタイプ - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
--   `disk_size_gb` : 内部 OS Disk のサイズ(GB) - `1` ~ `11400`
--   `primary_network_interface_name` : Virtual Machine が接続された Network Interface 名
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `included_vnet_name` : Virtual Machine Scale Set が属する Virtual Network の名前
+
+-   `orchestration_mode` : Scale Set によって VM が管理される方式を決定するオーケストレーション モード - `Uniform`, `Flexible`
+
+-   `platform_fault_domain_count` : 共通の電源およびネットワーク スイッチを共有する VM グループ数
+
+-   `vmss_sku` : Virtual Machine Scale Set の価格レベル
+
+-   `instances` : Scale Set の仮想マシン数 - `1` ~ `1000`
+
+### イメージ設定 (`source_image`)
+
+-   `source_image.type` : カスタム イメージ ID の使用有無 - `recommended`, `custom_id`, `custom_input`
+
+-   `source_image.image_id` : VM 作成に使用するイメージの ID
+
+-   `source_image.image` : VM 作成に使用するイメージ
+
+-   `source_image.publisher` : VM 作成に使用するイメージの発行元
+
+-   `source_image.offer` : VM 作成に使用するイメージの Offer
+
+-   `source_image.sku` : VM 作成に使用するイメージの SKU
+
+-   `enable_ssh_key_authentication` : 管理者アカウントの認証に SSH キーを使用するかどうか - `true`, `false`
+
+-   `ssh_public_key` : VM 用の公開 SSH キー - 最大 600 文字
+
+-   `admin_username` : VM の管理者ユーザー名 - 1 ～ 64 文字
+
+-   `admin_password` : VM の管理者パスワード - 12 ～ 72 文字
+
+-   `os_disk_caching` : 内部 OS ディスクのキャッシュ方式 - `ReadWrite`, `ReadOnly`, `None`
+
+-   `storage_account_type` : 内部 OS ディスクのストレージ種別 - `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`
+
+-   `disk_size_gb` : 内部 OS ディスクのサイズ（GB） - `32` ~ `11400`
+
+### ネットワーク インターフェース設定 (`network_interface`)
+
+-   `network_interface.is_primary` : 既定の Network Interface として設定 - `true`, `false`
+
+-   `network_interface.subnet_name` : Network Interface が配置される Subnet の名前
+
+### IP 構成設定 (`network_interface.ip_configuration`)
+
+-   `network_interface.ip_configuration.is_primary` : ネットワーク インターフェースの既定 IP 構成として設定 - `true`, `false`
+
+-   `network_interface.ip_configuration.enabled_public_ip` : Public IP を使用するかどうか - `true`, `false`
+
+-   `network_interface.ip_configuration.public_ip_name` : 使用する Public IP の名前
+
+-   `cloudinit_config` : サーバー作成時に自動実行されるスクリプト内容
+
+-   `tag` : リソースをカテゴリ分けするためのタグ
 
 ---
 
 ## 参考資料
 
--   [Azure LinuxVirtualMachine(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machines/overview)
--   [Azure LinuxVirtualMachine 가격](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
--   [Azure LinuxVirtualMachine(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
+-   [Azure Virtual Machine Scale Sets (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-machine-scale-sets/overview)
+-   [Azure Linux Virtual Machine Scale Set (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine_scale_set)
+-   [Terraform cloudinit_config](https://registry.terraform.io/providers/hashicorp/cloudinit/latest/docs/resources/cloudinit_config)

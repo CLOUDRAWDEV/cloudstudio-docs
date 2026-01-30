@@ -1,0 +1,51 @@
+---
+title: ShieldAdvanced
+sidebar_position: 0
+tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-shield_advanced.webp" />
+
+## Ressourcenübersicht
+
+Mit AWS Shield Advanced können AWS-Ressourcen vor DDoS-Angriffen geschützt werden. Zusätzlich lassen sich die Aggregationsmethode der in einer Protection Group enthaltenen Ressourcen sowie die Einstellungen für Zustandsprüfungen konfigurieren.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Base**](https://docs.cstudio.app/de/docs/resource/aws/Base)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `aggregation` : Methode, mit der AWS Shield Ressourcendaten innerhalb einer Gruppe aggregiert, um Ereignisse zu erkennen, zu mindern und zu melden – `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : Kriterium zur Auswahl der in die Gruppe aufzunehmenden geschützten Ressourcen – `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Typ der Ressource, die in der Protection Group enthalten ist
+
+#### Einstellungen für Zustandsprüfungen
+
+-   `health_check_ip_address` : IP-Adresse des zu überprüfenden Endpunkts
+-   `health_check_fqdn` : Vollqualifizierter Domainname (FQDN) des zu überprüfenden Endpunkts
+-   `health_check_type` : Protokoll für die Durchführung der Zustandsprüfung – `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : Intervall der Zustandsprüfungsanforderungen (Sekunden) – `10`, `30`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [AWS Shield Advanced (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)
+-   [Shield Advanced Schutzmaßnahmen und Protection Groups (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview-shield-advanced.html)
+-   [Amazon Route 53 Zustandsprüfungen (AWS)](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)

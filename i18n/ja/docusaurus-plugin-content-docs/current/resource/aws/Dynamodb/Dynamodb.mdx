@@ -1,7 +1,7 @@
 ---
 title: Dynamodb
 sidebar_position: 0
-tags: [AWS, リソース, Dynamodb]
+tags: [AWS, Resource, Dynamodb]
 ---
 
 <hr />
@@ -11,39 +11,44 @@ tags: [AWS, リソース, Dynamodb]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/dynamodb-dynamodb.webp"
     }
 />
-
-## リソース概要
-
-Amazon Dynamo DB は完璧に管理される NoSQL データベースサービスで、円滑な拡張性とともに迅速かつ予測可能な性能を提供します。
-Amazon Dynamo DB を使用して、必要な量のデータを保存または取得できるデータベーステーブルを作成し、どのレベルの要求トラフィックも処理できます。
-Amazon Dynamo DB はテーブルのデータとトラフィックを十分な数のサーバーに自動分散し、お客様が指定した要求容量と保存されたデータ量を処理しながらも一貫して速い性能を維持します。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+-   [**Region**](https://docs.cstudio.app/jp/docs/resource/aws/Base/Region)
+
+---
 
 ## リソース設定値
 
--   `billing_mode` : DynamoDB の読み取り·書き込み処理量に対する料金賦課方式と容量管理方式 - `PROVISIONED`,`PAY_PER_REQUEST`
--   `read_capacity` : DynamoDB Table の読み取り単位数
--   `write_capacity` : DynamoDB Table の書き込み単位数
--   `hash_key` : ハッシュ（パーティション）キーとして使用するプロパティ
--   `hash_key_type` : ハッシュ（パーティション）キーとして使用するプロパティ - `S`, `N`, `B`
--   `range_key` :範囲（並び替え）キーで使用するプロパティ
--   `range_key_type` : 範囲（並び替え）キーで使用するプロパティ - `S`, `N`, `B`
--   `point_in_time_recovery_enabled` : 特定の時点リカバリオプションを有効にする - `true`, `false`
--   `server_side_encryption` : Server Side Encryption の名前
-    -   `encryption_enabled` : AWS 管理型 KMS 顧客マスターキーを使用して保存データ暗号化を有効にするかどうかの可否 - `true`, `false`
+#### 基本設定
+
+-   `billing_mode` : DynamoDB の読み取り／書き込みスループットに対する課金および容量管理方式 - `PROVISIONED`, `PAY_PER_REQUEST`
+-   `read_capacity` : DynamoDB テーブルの読み取りキャパシティユニット数
+-   `write_capacity` : DynamoDB テーブルの書き込みキャパシティユニット数
+-   `hash_key` : ハッシュ（パーティション）キーとして使用する属性
+-   `hash_key_type` : ハッシュ（パーティション）キーの属性型 - `S`, `N`, `B`
+-   `range_key` : レンジ（ソート）キーとして使用する属性
+-   `range_key_type` : レンジ（ソート）キーの属性型 - `S`, `N`, `B`
+-   `point_in_time_recovery_enabled` : 特定時点復旧（PITR）有効化可否 - `true`, `false`
+
+#### サーバー側暗号化 (`server_side_encryption`)
+
+-   `server_side_encryption.encryption_enabled` : AWS 管理 KMS キーによる保存データ暗号化有効化可否 - `true`, `false`
+-   `server_side_encryption.kms_key_name` : 使用する AWS KMS CMK 名
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
 ## 参考資料
 
--   [Amazon DynamoDB(AWS)](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/Introduction.html)
--   [Amazon DynamoDB(AWS)](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)
--   [Amazon DynamoDB(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_contributor_insights)
+-   [Amazon DynamoDB（AWS）](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/Introduction.html)
+-   [Amazon DynamoDB 料金（AWS）](https://aws.amazon.com/ko/dynamodb/pricing/?nc2=type_a)
+-   [Amazon DynamoDB（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_contributor_insights)

@@ -1,0 +1,67 @@
+---
+title: Ingress
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Networking, Ingress]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/networking-ingress.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource mit Regeln, die es eingehenden Verbindungen erlauben, die im Backend definierten Endpunkte zu erreichen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**Issuer**](https://docs.cstudio.app/de/docs/resource/kubernetes/Manifest/Issuer)
+-   [**Service**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Service)
+-   [**IngressClass**](https://docs.cstudio.app/de/docs/resource/kubernetes/Networking/IngressClass)
+-   [**Nginx Ingress**](https://docs.cstudio.app/de/docs/resource/kubernetes/Helm/NginxIngress)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die Ingress-Ressource bereitgestellt wird
+-   `annotations` : Key-Value-Metadaten für das Kubernetes-System
+-   `labels` : Benutzerdefinierte Labels zur Objektidentifikation
+-   `ingress_class_name` : Name der zu verbindenden Ingress-Klasse
+
+#### TLS-Konfiguration (`tls`)
+
+-   `tls.hosts` : Liste der Hosts im TLS-Zertifikat
+-   `tls.secret_name` : Name des Kubernetes-Secrets für das TLS-Zertifikat
+
+#### Routing-Regeln (`rule`)
+
+-   `rule.host` : Hostname, auf den die Routing-Regel angewendet wird
+
+#### Backend-Konfiguration (`rule.backend`)
+
+-   `rule.backend.target_service` : Ziel-Backend-Service
+-   `rule.backend.path` : Pfad zum Backend
+-   `rule.backend.port` : Portnummer des Services
+-   `rule.backend.path_type` : Auswertung der Pfadübereinstimmung – `ImplementationSpecific`, `Prefix`, `Exact`
+
+---
+
+## Referenzen
+
+-   [Ingress(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+-   [Ingress(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/ingress)

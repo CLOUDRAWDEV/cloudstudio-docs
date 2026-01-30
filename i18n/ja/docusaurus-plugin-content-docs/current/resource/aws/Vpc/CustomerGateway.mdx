@@ -1,6 +1,6 @@
 ---
-title: Customer Gateway
-sidebar_position: 0
+title: CustomerGateway
+sidebar_position: 3
 tags: [AWS, リソース, Vpc, CustomerGateway]
 ---
 
@@ -11,14 +11,14 @@ tags: [AWS, リソース, Vpc, CustomerGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-customer_gateway.webp"
     }
 />
 
 ## リソース概要
 
-AWS Transit Gateway は、中央ハブを通じて Amazon Virtual Private Cloud(VPC)とオンプレミスネットワークを接続します。
-この接続は複雑なピアリング関係を排除してネットワークを簡素化します。Transit Gateway は高度に拡張可能なクラウドルーターとして機能します。
+AWS Transit Gateway は中央ハブを通じて Amazon VPC とオンプレミスネットワークを接続し、複雑なピアリング構成を排除してネットワーク構成を簡素化する。  
+高い拡張性を持つクラウドルーターとして機能する。
 
 ## 関連リソース
 
@@ -26,15 +26,33 @@ AWS Transit Gateway は、中央ハブを通じて Amazon Virtual Private Cloud(
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
+### 接続リソース
+
+-   [**TransitGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/TransitGateway)
+-   [**VpnGateway**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/VpnGateway)
+
 ## リソース設定値
 
--   `bgp_asn` : ゲートウェイの BGP(Border Gateway Protocol)ASN(自律システム番号)
--   `ip_address` : ゲートウェイのインターネットルーティング可能な外部インターフェイスの固定 IP アドレス
+#### 基本設定
 
----
+-   `bgp_asn` : ゲートウェイの BGP ASN 値 - `1` ~ `2147483647`
+-   `ip_address` : ゲートウェイ外部インターフェースの固定パブリック IP アドレス
+-   `private_certificate_arn` : AWS Private Certificate Manager 証明書 ARN
+
+#### VPN 接続設定 (`vpn_connection`)
+
+-   `vpn_connection.resource_type` : Customer Gateway と接続するリソース種別 - `none`, `transit_gateway`, `vpn_gateway`
+-   `vpn_connection.linked_resource_name` : 接続対象リソース名
+-   `vpn_connection.static_routes_only` : スタティックルーティングのみ使用可否 - `true`, `false`
+-   `vpn_connection.outside_ip_address_type` : 外部 IP アドレス種別 - `PublicIpv4`, `PrivateIpv4`
+-   `vpn_connection.dx_gateway_name` : プライベート IP VPN 接続に使用する Transit Gateway Attachment 名
+
+#### タグ
+
+-   `tag` : リソースをカテゴリ別に分類するためのタグ
 
 ## 参考資料
 
 -   [AWS Transit Gateway(AWS)](https://aws.amazon.com/ko/transit-gateway/?nc2=type_a)
--   [AWS Transit Gateway 料金(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
+-   [AWS Transit Gateway 요금(AWS)](https://aws.amazon.com/ko/transit-gateway/pricing/)
 -   [aws_customer_gateway(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/customer_gateway)

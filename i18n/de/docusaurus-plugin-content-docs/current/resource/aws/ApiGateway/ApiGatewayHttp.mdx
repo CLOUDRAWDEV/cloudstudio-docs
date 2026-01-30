@@ -1,0 +1,55 @@
+---
+title: ApiGatewayHttp
+sidebar_position: 0
+tags: [AWS, Ressource, ApiGatewayHttp]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/api_gateway-api_gateway_http.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+In API Gateway ist die HTTP API ein Typ von API Gateway, der dafür vorgesehen ist, APIs einfach und leichtgewichtig auf Basis des HTTP-Protokolls zu erstellen.  
+HTTP APIs sind einfacher und kosteneffizienter als bestehende REST APIs und eignen sich hauptsächlich für serverlose Webanwendungen und einfache Microservices.
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+## Zugehörige Ressourcen
+
+-   [**LambdaFunction**](https://docs.cstudio.app/de/docs/resource/aws/Lambda/LambdaFunction)
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+#### Integrationseinstellungen (`integration`)
+
+-   `integration.integration_type` : Typ der API-Gateway-Integration – `Http`, `Lambda`
+-   `integration.integration_method` : HTTP-Methode der API-Gateway-Integration – `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `integration.integration_uri` : Angabe der vollqualifizierten URL für die HTTP-Integration
+-   `integration.linked_lambda_name` : Name der Lambda-Funktion für die Lambda-Proxy-Integration
+
+#### Routeneinstellungen (`route`)
+
+-   `route.route_method` : HTTP-Methode für die HTTP API – `ANY`, `GET`, `POST`, `PUT`, `PATCH`, `HEAD`, `OPTIONS`, `DELETE`
+-   `route.route_path` : Ressourcenpfad für die HTTP API
+-   `route.target_integration` : Name der zu verbindenden API-Gateway-Integration für die Route
+
+#### Bereitstellungseinstellungen (`deployment`)
+
+-   `deployment.description` : Beschreibung der API-Gateway-Bereitstellung
+
+#### Stage-Einstellungen (`stage`)
+
+-   `stage.auto_deployment` : Aktivierung der automatischen Bereitstellung – `true`, `false`
+-   `stage.deployment_name` : Name der zu verbindenden API-Gateway-Bereitstellung

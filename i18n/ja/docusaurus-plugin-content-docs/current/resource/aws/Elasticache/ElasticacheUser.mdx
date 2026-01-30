@@ -1,7 +1,7 @@
 ---
-title: Elasticache User
-sidebar_position: 0
-tags: [AWS, リソース, Elasticache, ElasticacheUser]
+title: ElasticacheUser
+sidebar_position: 1
+tags: [AWS, Resource, Elasticache, ElasticacheUser]
 ---
 
 <hr />
@@ -11,17 +11,14 @@ tags: [AWS, リソース, Elasticache, ElasticacheUser]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_user.webp"
     }
 />
 
 ## リソース概要
 
-AWS Elasticache User は Elasticache クラスタを使用するために必要な IAM ユーザーです。
-Elasticache User は Elasticache クラスタを生成、修正及び削除する権限を持ちます。
-Elasticache User は AWS IAM で生成され、一般的に Elasticache を使用するアプリケーションまたは開発者に割り当てられます。
-Elasticache User は Elasticache クラスタに対するセキュリティ及びアクセス制御を担当し、これによりアプリケーションとデータを保護することができます。
-Elasticache User は AWS アカウントで他のリソースと一緒に使用することができます。
+AWS ElastiCache User は、ElastiCache クラスターを利用するためのユーザーです。  
+クラスターの作成・変更・削除権限を持ち、アプリケーションや開発者に割り当てられます。
 
 ## 関連リソース
 
@@ -29,16 +26,25 @@ Elasticache User は AWS アカウントで他のリソースと一緒に使用�
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
+---
+
 ## リソース設定値
 
--   `user_id` : ユーザーの ID、英文字、ハイフン(-)使用可能、文字で始まり、ハイフンで終わるか、ハイフンを二つ連続で含めることはできない、最大 40 文字
--   `access_string` : ユーザーに適用する権限を入力した string
--   `authentication_type` : ユーザーがクラスターにアクセスするための認証方式
+#### 基本設定
+
+-   `user_id` : 各ユーザーの一意な ID
+-   `access_string` : 適用する権限文字列
+-   `authentication_type` : 認証方式 - `iam`, `password`, `no-password-required`
+-   `passwords` : ユーザーのパスワード（最大 2 件）
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
 
 ---
 
-## 参考資料
+## References
 
--   [Amazon ElastiCache for Redis(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
--   [Amazon ElastiCache for Redis 料金(AWS)](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
--   [aws_elasticache_user(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)
+-   [Amazon ElastiCache for Redis（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/WhatIs.html)
+-   [Amazon ElastiCache for Redis 料金（AWS）](https://aws.amazon.com/ko/elasticache/pricing/?nc=sn&loc=5)
+-   [aws_elasticache_user（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/elasticache_user)

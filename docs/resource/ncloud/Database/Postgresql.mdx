@@ -1,0 +1,57 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, 리소스, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## 리소스 개요
+
+PostgreSQL은 **오픈소스 관계형 데이터베이스(RDBMS)**로,  
+Ncloud에서는 고가용성(HA), 백업 자동화, 암호화 스토리지 기능이 포함된 완전 관리형 Database 서비스로 제공합니다.  
+복잡한 인프라 구성 없이 손쉽게 PostgreSQL 환경을 구축할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Subnet**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Subnet)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `server_name_prefix` : Postgresql 서버 이름 (영소문자/숫자/하이픈 허용, 영소문자로 시작, 영소문자 또는 숫자로 종료, 3~30자)
+-   `included_vpc_name` : Postgresql이 포함된 VPC 이름
+-   `included_subnet_name` : Postgresql이 포함된 Subnet 이름
+-   `enable_high_availability` : 고가용성 기능 사용 여부 - `true`, `false`
+-   `user_name` : Postgresql 사용자 접근 ID
+-   `user_password` : Postgresql 사용자 접근 비밀번호
+-   `image_product_code` : Postgresql 서버 이미지 제품 코드
+-   `product_code` : Postgresql 인스턴스 서버 사양 제품 코드
+-   `data_storage_type` : 데이터 스토리지 종류 - `SSD`, `HDD`
+-   `is_backup` : 백업 사용 여부 - `true`, `false`
+-   `backup_file_retention_period` : 백업 파일 보관 기간(일 단위) - `1` ~ `30`
+-   `enable_automatic_backup` : 자동 백업 사용 여부 - `true`, `false`
+-   `backup_time` : 사용자 지정 백업 시간
+-   `port` : Postgresql 접속 포트 번호
+-   `client_cidr` : 클라이언트 IP 주소가 할당되는 IP 주소 범위
+-   `database_name` : 기본 DB 이름
+-   `enable_storage_encryption` : 스토리지 암호화 사용 여부 - `true`, `false`
+
+---
+
+## 참고 자료
+
+-   [PostgreSQL Database(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [PostgreSQL Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

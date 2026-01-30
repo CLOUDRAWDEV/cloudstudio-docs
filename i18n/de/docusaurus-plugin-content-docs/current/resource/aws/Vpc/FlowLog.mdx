@@ -1,0 +1,56 @@
+---
+title: FlowLog
+sidebar_position: 6
+tags: [AWS, Ressource, Vpc, FlowLog]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/vpc-flow_log.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+VPC-Flussprotokolle ermöglichen das Erfassen von Informationen über IP-Datenverkehr, der an Netzwerkschnittstellen innerhalb einer VPC gesendet und empfangen wird. Die Flussprotokolldaten können in Amazon CloudWatch Logs, Amazon S3 oder Amazon Kinesis Data Firehose veröffentlicht werden. Nach der Erstellung von Flussprotokollen können die Datensätze der konfigurierten Protokollgruppe, des Buckets oder des Übertragungsstreams durchsucht und angezeigt werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**RouteTable**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/RouteTable)
+-   [**S3Bucket**](https://docs.cstudio.app/de/docs/resource/aws/S3/S3Bucket)
+-   [**Log**](https://docs.cstudio.app/de/docs/resource/aws/Cloudwatch/Log)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `linked_log_destination_type` : Typ des Ziels zur Speicherung der Protokolldaten (S3, CloudWatch Logs)
+-   `linked_log_destination_name` : Name des Ziels zur Speicherung der Protokolldaten
+-   `traffic_type` : Art des zu erfassenden Datenverkehrs – `ALL`, `ACCEPT`, `REJECT`
+-   `traffic_type` : `ALL`
+-   `included_vpc_name` : Name der VPC, mit der der Flow Log verbunden wird
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [IP-Traffic-Protokollierung mit VPC Flow Logs(AWS)](https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/flow-logs.html)
+-   [Amazon CloudWatch Preise(AWS)](zzzhttps://aws.amazon.com/ko/cloudwatch/pricing/)
+-   [aws_flow_log(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/flow_log)

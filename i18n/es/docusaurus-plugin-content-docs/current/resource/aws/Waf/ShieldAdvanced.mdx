@@ -1,0 +1,51 @@
+---
+title: ShieldAdvanced
+sidebar_position: 0
+tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-shield_advanced.webp" />
+
+## Descripción general del recurso
+
+AWS Shield Advanced permite proteger los recursos de AWS contra ataques DDoS y configurar el método de agregación de recursos incluidos en un grupo de protección (Protection group), así como los ajustes de comprobación de estado.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Base**](https://docs.cstudio.app/docs/resource/aws/Base)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `aggregation` : Método mediante el cual AWS Shield combina los datos de los recursos del grupo para detectar, mitigar y reportar eventos - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : Criterio para seleccionar los recursos protegidos que se incluirán en el grupo - `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Tipo de recurso incluido en el protection group
+
+#### Configuración de comprobación de estado
+
+-   `health_check_ip_address` : Dirección IP del endpoint que se va a verificar
+-   `health_check_fqdn` : Nombre de dominio completamente calificado (FQDN) del endpoint que se va a verificar
+-   `health_check_type` : Protocolo utilizado para realizar la comprobación de estado - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : Intervalo de solicitudes de comprobación de estado (segundos) - `10`, `30`
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría
+
+---
+
+## Referencias
+
+-   [AWS Shield Advanced (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)
+-   [Shield Advanced protections and protection groups (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview-shield-advanced.html)
+-   [Amazon Route 53 health checks (AWS)](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)

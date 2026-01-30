@@ -1,0 +1,59 @@
+---
+title: LaunchTemplate
+sidebar_position: 4
+tags: [AWS, EC2, LaunchTemplate, AutoScaling]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-launch_template.webp" />
+
+## リソース概要
+
+Auto Scaling 時に自動生成される仮想サーバーの仕様を定義するテンプレートです。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
+
+### 接続リソース
+
+-   [**SecurityGroup**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/SecurityGroup)
+
+---
+
+## リソース設定値
+
+#### 基本設定
+
+-   `image_name` : 使用する OS イメージコード
+-   `instance_type` : EC2 インスタンスタイプ
+-   `key_name` : 使用する公開鍵名
+-   `linked_security_group_name` : 接続する Security Group 名
+-   `user_data` : 起動時に自動実行されるスクリプト
+
+#### Block Device Mapping (`block_device_mapping`)
+
+-   `block_device_mapping.volume_type` : EBS Volume タイプ
+-   `block_device_mapping.volume_size` : EBS Volume サイズ（GiB）
+-   `block_device_mapping.iops` : IOPS
+-   `block_device_mapping.delete_on_termination` : 終了時削除可否 - `true`, `false`
+-   `block_device_mapping.snapshot_name` : スナップショット名
+-   `block_device_mapping.encrypted` : 暗号化可否 - `true`, `false`
+-   `block_device_mapping.kms_key_name` : 使用する KMS Key 名
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
+
+---
+
+## 参考資料
+
+-   [Launch Templates（Amazon EC2）](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+-   [Block Device Mapping（Amazon EC2）](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)

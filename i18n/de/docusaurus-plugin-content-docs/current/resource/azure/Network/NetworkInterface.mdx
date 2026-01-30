@@ -1,0 +1,57 @@
+---
+title: NetworkInterface
+sidebar_position: 4
+tags: [Azure, Network, NetworkInterface]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-network_interface.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Network Interface ist eine Netzwerkverbindungsressource, die es einer Virtual Machine ermöglicht, mit Ressourcen innerhalb eines Virtual Networks, dem Internet sowie mit On-Premises-Netzwerken zu kommunizieren.  
+Sie gehört zu einem Subnet und erhält eine IP-Adresse; bei Bedarf kann eine Public IP zugeordnet werden, um externe Kommunikation zu ermöglichen.  
+Eine einzelne Network Interface kann mehrere IP-Konfigurationen enthalten und unterstützt dadurch verschiedene Netzwerkszenarien.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Public IP**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Network Security Group**](https://docs.cstudio.app/de/docs/resource/azure/Network/NetworkSecurityGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `included_subnet_name` : Name des Subnets, das die Network Interface enthält
+
+#### IP-Konfiguration (`ip_configuration`)
+
+-   `ip_configuration.is_primary` : Gibt an, ob die primäre IP-Konfiguration aktiviert ist - `true`, `false`
+-   `ip_configuration.private_ip_address_allocation` : Methode zur Zuweisung der privaten IP-Adresse - `Dynamic`, `Static`
+-   `ip_configuration.private_ip_address` : Private IP-Adresse
+-   `ip_configuration.enabled_public_ip` : Gibt an, ob eine Public IP verwendet wird - `true`, `false`
+-   `ip_configuration.linked_public_ip_name` : Name der zu verwendenden Public IP
+
+-   `tag` : Tags zur Kategorisierung der Ressource - bis zu 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure Network Interface – Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/virtual-network-network-interface)
+-   [IP-Konfigurationseinstellungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/virtual-network-network-interface-addresses)

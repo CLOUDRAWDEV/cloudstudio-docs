@@ -1,0 +1,72 @@
+---
+title: Lb
+sidebar_position: 0
+tags: [AWS, Risorsa, Lb]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Elastic Load Balancing distribuisce automaticamente il traffico applicativo in ingresso verso più destinazioni, come istanze EC2. Monitora inoltre lo stato delle destinazioni registrate e instrada il traffico solo verso quelle in buone condizioni. Elastic Load Balancing supporta tre tipi di load balancer: Application Load Balancer, Network Load Balancer e Classic Load Balancer.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/it/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/EndpointService)
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `load_balancer_type` : Tipo di ELB - `application`, `network`, `gateway`
+-   `internal` : Distribuzione dell’ELB come Internet-facing o Internal - `true`, `false`
+-   `included_vpc_name` : Nome del VPC in cui creare le risorse di destinazione
+-   `linked_subnet_names` : Elenco dei nomi delle subnet collegate al load balancer
+-   `linked_security_group_names` : Elenco dei nomi dei Security Group assegnati al load balancer (solo Application LB)
+-   `drop_invalid_header` : Rimozione degli header HTTP non validi - `true`, `false`
+
+#### Listener (`listener`)
+
+-   `listener.protocol` : Protocollo di connessione client → load balancer - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+-   `listener.port` : Porta su cui il load balancer resta in ascolto
+-   `listener.default_action_type` : Tipo di azione di routing predefinita - `forward`, `redirect`, `fixed-response`
+-   `listener.linked_target_group_name` : Nome del Target Group verso cui instradare il traffico
+-   `listener.acm_certificate_name` : Nome del certificato SSL del server
+-   `listener.ssl_policy` : Nome della policy SSL applicata al listener
+
+#### Regole del listener (`rule`)
+
+-   `rule.target_listener` : Nome del listener a cui applicare la regola
+-   `rule.priority` : Priorità della regola - `1` ~ `50000`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Prezzi di Elastic Load Balancing(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

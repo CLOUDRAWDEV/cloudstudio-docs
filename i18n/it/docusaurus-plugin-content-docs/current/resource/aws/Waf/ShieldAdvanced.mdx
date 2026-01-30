@@ -1,0 +1,51 @@
+---
+title: ShieldAdvanced
+sidebar_position: 0
+tags: [AWS, Shield, WAF, DDoS, ShieldAdvanced]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/waf-shield_advanced.webp" />
+
+## Panoramica della risorsa
+
+AWS Shield Advanced consente di proteggere le risorse AWS dagli attacchi DDoS e di configurare il metodo di aggregazione delle risorse incluse nei Protection Group, nonché le impostazioni di monitoraggio dello stato.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Base**](https://docs.cstudio.app/it/docs/resource/aws/Base)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `aggregation` : Metodo con cui AWS Shield aggrega i dati delle risorse del gruppo per rilevare, mitigare e segnalare eventi - `MAX`, `MEAN`, `BY_RESOURCE_TYPE`
+-   `pattern` : Criterio per selezionare le risorse protette da includere nel gruppo - `ALL`, `ARBITRARY`, `SUM`
+-   `resource_type` : Tipo di risorsa da includere nel protection group
+
+#### Impostazioni di health check
+
+-   `health_check_ip_address` : Indirizzo IP dell’endpoint da verificare
+-   `health_check_fqdn` : Nome di dominio completo (FQDN) dell’endpoint da verificare
+-   `health_check_type` : Protocollo utilizzato per il controllo dello stato - `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC`, `RECOVERY_CONTROL`
+-   `health_check_request_interval` : Intervallo delle richieste di controllo dello stato (secondi) - `10`, `30`
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [AWS Shield Advanced (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview.html)
+-   [Shield Advanced protections and protection groups (AWS)](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-overview-shield-advanced.html)
+-   [Amazon Route 53 health checks (AWS)](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html)

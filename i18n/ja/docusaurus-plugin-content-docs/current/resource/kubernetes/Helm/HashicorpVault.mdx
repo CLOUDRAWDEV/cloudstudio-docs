@@ -1,6 +1,6 @@
 ---
 title: HashicorpVault
-sidebar_position: 0
+sidebar_position: 2
 tags: [Kubernetes, リソース, Helm, HashicorpVault]
 ---
 
@@ -11,29 +11,29 @@ tags: [Kubernetes, リソース, Helm, HashicorpVault]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-hashicorp_vault.webp"
     }
 />
 
 ## リソース概要
 
-Hashicorp-Vault をインストールするための Helm Chart です。
+HashiCorp Vault をインストールするための Helm チャートです。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
-### 接続リソース
+---
 
 ## リソース設定値
 
--   `service_name` : Hashicorp-vault Helm Chart リリース名
--   `namespace` : Hashicorp Vault Helm Chart リソースがデプロイされるネームスペース
--   `version` : Hashicorp Vault Helm Chart のバージョンを指定
--   `set` : Hashicorp Vault デフォルトのチャートの値を動的に変更
+#### 基本設定
+
+-   `namespace` : HashiCorp Vault Helm Chart をデプロイする Namespace
+-   `version` : 使用する HashiCorp Vault Helm Chart のバージョン
+-   `set` : Vault の既定値を動的に変更する key-value 設定
 
 ---
 

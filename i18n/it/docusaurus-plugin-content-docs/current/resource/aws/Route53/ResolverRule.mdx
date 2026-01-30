@@ -1,0 +1,55 @@
+---
+title: ResolverRule
+sidebar_position: 2
+tags: [AWS, Risorsa, Route53, ResolverRule]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
+    }
+/>
+
+## Panoramica della risorsa
+
+Regola utilizzata dal resolver per inoltrare le query di un nome di dominio specificato verso la rete
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**ResolverEndpoint**](https://docs.cstudio.app/it/docs/resource/aws/Route53/ResolverEndpoint)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `rule_type` : Tipo di regola - `FORWARD`, `SYSTEM`
+-   `domain_name` : Nome di dominio verso cui vengono inoltrate le query DNS
+-   `linked_vpc_names` : Elenco dei nomi dei VPC che utilizzano la regola
+-   `linked_resolver_endpoint_name` : Nome dell’endpoint outbound utilizzato dal resolver
+-   `target_ip.ip` : Indirizzo IP di destinazione
+-   `target_ip.port` : Porta dell’indirizzo IP di destinazione
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria
+
+---
+
+## Riferimenti
+
+-   [Amazon Resolver Rule (AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
+-   [Amazon Resolver Rule (Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)

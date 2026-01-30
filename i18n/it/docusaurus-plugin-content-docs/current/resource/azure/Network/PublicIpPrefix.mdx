@@ -1,0 +1,41 @@
+---
+title: PublicIpPrefix
+sidebar_position: 7
+tags: [Azure, Network, PublicIpPrefix]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-public_ip_prefix.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Public IP Prefix è una risorsa di rete in Azure che consente di riservare e gestire in anticipo un **intervallo contiguo di indirizzi IP pubblici**.  
+Assegnando più Public IP da un blocco di indirizzi coerente, offre prevedibilità e semplicità operativa nella gestione delle regole del firewall o nell’integrazione con sistemi esterni.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Resource Group**](https://docs.cstudio.app/it/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+-   `prefix_length` : Lunghezza in bit del Public IP Prefix - `28` ~ `31`
+-   `tag` : Tag per classificare la risorsa - fino a 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [Panoramica di Azure Public IP Prefix (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix)
+-   [Limitazioni di Public IP Prefix (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-network/ip-services/public-ip-address-prefix#limitations)

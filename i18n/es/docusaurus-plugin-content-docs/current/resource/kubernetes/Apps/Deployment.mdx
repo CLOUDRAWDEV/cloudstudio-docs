@@ -1,0 +1,61 @@
+---
+title: Deployment
+sidebar_position: 0
+tags: [Kubernetes, Recurso, Apps, Deployment]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-deployment.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Servicio de Kubernetes que garantiza que un número especificado de réplicas de Pod estén siempre en ejecución.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Namespace**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Namespace)
+
+### Recursos conectados
+
+-   [**ConfigMap**](https://docs.cstudio.app/es/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/es/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Service)
+-   [**Secret**](https://docs.cstudio.app/es/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `namespace` : Namespace donde se desplegará el recurso Deployment
+-   `annotations` : Metadatos key-value del sistema Kubernetes
+-   `labels` : Etiquetas para identificar el recurso Deployment
+-   `template_labels` : Etiquetas aplicadas a los Pods creados
+-   `replicas` : Número de réplicas de Pod a mantener
+-   `pod_security_context` : Configuración de seguridad y privilegios a nivel de Pod
+-   `init_containers` : Definición de contenedores de inicialización
+-   `containers` : Definición de contenedores incluidos en el Pod
+-   `volume` : Definición de volúmenes utilizados por el Pod
+-   `dns_policy` : Política DNS del Pod
+-   `enable_service_links` : Habilitar inyección automática de variables de entorno de servicios
+-   `host_network` : Habilitar el uso de la red del host
+-   `image_pull_secrets` : Lista de Secrets utilizados para extraer imágenes
+
+---
+
+## Referencias
+
+-   [Deployment(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+-   [Deployment(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/deployment)

@@ -1,0 +1,62 @@
+---
+title: NetworkAcl
+sidebar_position: 1
+tags: [Ncloud, Ressource, Security, NetworkAcl]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-network_acl.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Service zur Verwaltung der Netzwerksicherheit auf Subnet-Ebene.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Vpc)
+
+### Verbundene Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `included_vpc_name` : Name des VPC, in dem das ACL erstellt wird
+-   `nacl_description` : Beschreibung des ACL
+
+#### Eingehende Regeln (`inbound_rule`)
+
+-   `inbound_rule.priority` : Priorität der eingehenden Regel – `0` ~ `199`
+-   `inbound_rule.protocol` : Protokoll des eingehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_action` : Aktion für eingehenden Traffic – `ALLOW`, `DROP`
+-   `inbound_rule.ip_block` : Quell-IP-Adressbereich des eingehenden Traffics (CIDR-Format)
+-   `inbound_rule.port_range` : Portbereich für die eingehende Regel – `1` ~ `65535`
+
+#### Ausgehende Regeln (`outbound_rule`)
+
+-   `outbound_rule.priority` : Priorität der ausgehenden Regel – `0` ~ `199`
+-   `outbound_rule.protocol` : Protokoll des ausgehenden Traffics – `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_action` : Aktion für ausgehenden Traffic – `ALLOW`, `DROP`
+-   `outbound_rule.ip_block` : Ziel-IP-Adressbereich des ausgehenden Traffics (CIDR-Format)
+-   `outbound_rule.port_range` : Portbereich für die ausgehende Regel – `1` ~ `65535`
+
+---
+
+## Referenzen
+
+-   [Network ACL(Ncloud)](https://guide.ncloud-docs.com/docs/vpc-nacl-vpc)
+-   [Network ACL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/network_acl)

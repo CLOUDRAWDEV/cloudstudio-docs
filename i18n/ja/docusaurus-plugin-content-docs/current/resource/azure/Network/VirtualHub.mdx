@@ -1,0 +1,47 @@
+---
+title: VirtualHub
+sidebar_position: 21
+tags: [Azure, Network, VirtualHub]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-virtual_hub.webp"
+    }
+/>
+
+## リソース概要
+
+Azure Virtual Hub は、Virtual WAN 環境において **中央集約型のルーティングおよびネットワーク接続を担うリージョン単位のハブリソース** です。  
+VPN、ExpressRoute、VNet 接続を集約してトラフィックフローを制御し、グローバルネットワークトポロジの中核コンポーネントとして使用されます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Virtual WAN**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualWan)
+
+---
+
+## リソース設定値
+
+-   `included_virtual_wan_name` : Virtual Hub が接続される上位 Virtual WAN の名前
+-   `address_prefix` : Virtual Hub 内で使用されるアドレス空間（CIDR ブロック）
+-   `hub_routing_preference` : トラフィックのルーティング時におけるインターネット経路選択の優先順位
+    -   `ExpressRoute`
+    -   `ASPath`
+    -   `VpnGateway`
+
+#### Connection (`connection`)
+
+-   `connection.target_virtual_network_name` : Virtual Hub に接続する対象 Virtual Network（VNet）の名前
+
+## 参考資料
+
+-   [Azure Virtual Hub の概要 (Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/virtual-hub-about)
+-   [Azure Virtual WAN アーキテクチャ (Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

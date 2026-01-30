@@ -1,0 +1,126 @@
+---
+title: Lb
+sidebar_position: 0
+tags: [AWS, Ressource, Lb]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Elastic Load Balancing verteilt eingehenden Anwendungstraffic automatisch auf mehrere Ziele wie EC2-Instances. Dabei wird der Zustand der registrierten Ziele überwacht und Traffic nur an gesunde Ziele weitergeleitet. Elastic Load Balancing unterstützt drei Typen von Load Balancern: Application Load Balancer, Network Load Balancer und Classic Load Balancer.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Vpc**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/)
+
+### Verknüpfte Ressourcen
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/de/docs/resource/aws/Networking/TargetGroup)
+-   [**SecurityGroup**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/SecurityGroup)
+-   [**EndpointService**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/EndpointService)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/aws/Vpc/Subnet)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `load_balancer_type` : Typ des Load Balancers – `application`, `network`, `gateway`
+-   `internal` : Bereitstellung als Internet-facing oder Internal – `true`, `false`
+-   `included_vpc_name` : Name des VPCs, in dem Zielressourcen erstellt werden
+-   `linked_subnet_names` : Liste der mit dem LB verknüpften Subnets
+-   `linked_security_group_names` : Security Groups für den LB (nur Application LB)
+-   `drop_invalid_header` : Entfernen ungültiger HTTP-Header – `true`, `false`
+
+#### Listener (`listener`)
+
+-   `listener.protocol` : Protokoll Client → Load Balancer – `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`
+-   `listener.port` : Port, auf dem der Load Balancer lauscht
+-   `listener.default_action_type` : Standard-Aktion – `forward`, `redirect`, `fixed-response`
+-   `listener.linked_target_group_name` : Name der Zielgruppe für das Routing
+-   `listener.acm_certificate_name` : Name des SSL-Zertifikats
+-   `listener.ssl_policy` : Name der anzuwendenden SSL-Richtlinie
+
+#### Listener-Regeln (`rule`)
+
+-   `rule.target_listener` : Name des Listeners, auf den die Regel angewendet wird
+-   `rule.priority` : Priorität der Regel – `1` ~ `50000`
+
+#### Feste Antwort (`rule.fixed_response`)
+
+-   `rule.fixed_response.fixed_response_order` : Priorität der festen Antwort – `1` ~ `50000`
+-   `rule.fixed_response.content_type` : Content-Type der Antwort
+-   `rule.fixed_response.message_body` : Antwortinhalt
+-   `rule.fixed_response.fixed_response_status_code` : HTTP-Statuscode
+
+#### Weiterleitung (`rule.forward`)
+
+-   `rule.forward.forward_order` : Priorität der Weiterleitung – `1` ~ `50000`
+-   `rule.forward.forward_target_group_list` : Liste der Zielgruppen
+-   `rule.forward.enable_stickiness` : Aktivierung der Sitzungsbindung – `true`, `false`
+-   `rule.forward.duration` : Dauer der Bindung an dieselbe Zielgruppe (Sekunden)
+
+#### Weiterleitung (Redirect) (`rule.redirect`)
+
+-   `rule.redirect.redirect_order` : Redirect-Priorität – `1` ~ `50000`
+-   `rule.redirect.host` : Hostname (`#{host}` zulässig)
+-   `rule.redirect.path` : Absoluter Pfad (beginnend mit `/`)
+-   `rule.redirect.port` : Port – `1` ~ `65535` oder `#{port}`
+-   `rule.redirect.protocol` : Protokoll – `HTTP`, `HTTPS`, `#{protocol}`
+-   `rule.redirect.query` : Query-String
+-   `rule.redirect.redirect_status_code` : HTTP-Redirect-Code – `HTTP_301`, `HTTP_302`
+
+#### Authentifizierung (`rule.authenticate`)
+
+-   `rule.authenticate.authenticate_type` : Authentifizierungstyp – `authenticate_cognito`, `authenticate_oidc`
+-   `rule.authenticate.authenticate_order` : Authentifizierungspriorität – `1` ~ `50000`
+-   `rule.authenticate.on_unauthenticated_request` : Verhalten bei nicht authentifizierten Anfragen – `deny`, `allow`, `authenticate`
+-   `rule.authenticate.scope` : Benutzer-Scope für IdP
+-   `rule.authenticate.session_cookie_name` : Name des Session-Cookies
+-   `rule.authenticate.session_timeout` : Sitzungsdauer (Sekunden) – `60` ~ `86400`
+-   `rule.authenticate.user_pool_arn` : ARN des Cognito User Pools
+-   `rule.authenticate.user_pool_client_id` : Client-ID des Cognito User Pools
+-   `rule.authenticate.user_pool_domain` : Domain des Cognito User Pools
+-   `rule.authenticate.authorization_endpoint` : Autorisierungs-Endpunkt des IdP
+-   `rule.authenticate.client_id` : OAuth-2.0-Client-ID
+-   `rule.authenticate.client_secret` : OAuth-2.0-Client-Secret
+-   `rule.authenticate.issuer` : OIDC-Issuer
+-   `rule.authenticate.token_endpoint` : Token-Endpunkt
+-   `rule.authenticate.user_info_endpoint` : User-Info-Endpunkt
+
+#### Bedingungen (`rule.condition`)
+
+-   `condition_list` : Liste der Regelbedingungen
+-   `host_header` : Bedingung für Host-Header
+-   `path_pattern` : Bedingung für Pfadmuster
+-   `http_request_method` : Bedingung für HTTP-Methode
+-   `http_header_name` : Name des HTTP-Headers
+-   `http_header_value` : Wert des HTTP-Headers
+-   `query_string_key` : Query-String-Schlüssel
+-   `query_string_value` : Query-String-Wert
+-   `source_ip` : Bedingung für Quell-IP
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Elastic Load Balancing(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+-   [Elastic Load Balancing 요금(AWS)](https://aws.amazon.com/ko/elasticloadbalancing/pricing/?nc2=type_a)
+-   [aws_lb(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)

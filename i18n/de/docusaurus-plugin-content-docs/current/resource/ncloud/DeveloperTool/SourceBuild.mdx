@@ -1,0 +1,98 @@
+---
+title: SourceBuild
+sidebar_position: 0
+tags: [Ncloud, Ressource, DeveloperTool, SourceBuild]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_build.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+SourceBuild ist ein Service zum einfachen Erstellen von Quellcode, der in verschiedenen Programmiersprachen entwickelt wurde.  
+Dabei werden unabhängige Build-Server in Echtzeit erstellt, um mehrere Build-Anfragen gleichzeitig zu verarbeiten.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/ncloud/Base/Region)
+-   [**SourcePipeline**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourcePipeline)
+
+### Verbundene Ressourcen
+
+-   [**SourceCommit**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeployStage**](https://docs.cstudio.app/de/docs/resource/ncloud/DeveloperTool/SourceDeployStage)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `description` : Beschreibung des Build-Projekts (max. 500 Zeichen)
+-   `source_type` : Typ des Build-Ziels – `SourceCommit`
+-   `source_branch` : Name des zu buildenden Branches
+-   `linked_repository_name` : Name des Repositorys für den Build
+
+#### Build-Umgebung (`env`)
+
+-   `env.env_compute_spec` : Rechenleistung der Build-Umgebung – `2cpu-4memory`, `4cpu-8memory`, `8cpu-16memory`
+-   `env.env_platform_type` : Typ des Build-Umgebungs-Images – `SourceBuild`, `ContainerRegistry`, `PublicRegistry`
+-   `env.env_platform_os_spec` : Verwendete OS-Spezifikation
+-   `env.env_platform_runtime_name` : Name der Build-Runtime
+-   `env.env_platform_runtime_version` : Version der Build-Runtime
+-   `env.target_registry_name` : Name der Container-Registry für Build-Images
+-   `env.target_container_image_name` : Name des zu erstellenden Container-Images
+-   `env.target_container_image_tag` : Tag des zu erstellenden Container-Images
+-   `env.env_timeout` : Maximale Wartezeit für den Build (Minuten) – `5` ~ `540`
+-   `env.env_use_docker` : Verwendung der Docker-Engine – `true`, `false`
+-   `env.env_docker_engine_version` : Version der Docker-Engine
+-   `env.env_var` : Umgebungsvariablen für den Build (Key-Value)
+
+#### Build-Befehle (`build_command`)
+
+-   `build_command.pre_build_command` : Befehle vor dem Build
+-   `build_command.in_build_command` : Befehle während des Builds
+-   `build_command.post_build_command` : Befehle nach dem Build
+-   `build_command.use_docker_image_build_command` : Verwendung von Docker-Image-Build – `true`, `false`
+-   `build_command.docker_image_build_registry` : Container-Registry für Images
+-   `build_command.docker_image_dockerfile` : Pfad zur Dockerfile
+-   `build_command.docker_image` : Name des hochzuladenden Images
+-   `build_command.docker_image_build_tag` : Tag des hochzuladenden Images
+
+#### Protokollierung und Sicherheit
+
+-   `enable_cloud_log_analytics` : Speicherung von Build-Logs in Cloud Log Analytics – `true`, `false`
+-   `enable_file_safer` : Sicherheitsprüfung über File Safer – `true`, `false`
+
+#### Artefaktspeicherung (`artifact`)
+
+-   `artifact.save_build_results` : Speicherung der Build-Ergebnisse – `true`, `false`
+-   `artifact.path_to_save_build_results` : Speicherpfad für Build-Ergebnisse
+-   `artifact.object_storage_name_to_save` : Name des Object-Storage-Buckets
+-   `artifact.object_storage_path_to_save` : Pfad im Object-Storage-Bucket
+-   `artifact.file_name_to_save` : Name der zu speichernden Datei
+-   `artifact.enable_backup_build_results` : Backup der Build-Ergebnisse – `true`, `false`
+
+#### Image-Upload (`upload`)
+
+-   `upload.upload_build_results` : Speicherung der Build-Images – `true`, `false`
+-   `upload.container_registry_name_to_upload_build_results` : Container-Registry-Name für Uploads
+-   `upload.image_name_to_upload` : Name des hochzuladenden Images
+-   `upload.image_tag_to_upload` : Tag des hochzuladenden Images
+
+---
+
+## Referenzen
+
+-   [Source Build(Ncloud)](https://www.ncloud.com/product/devTools/sourceBuild)
+-   [Source Build(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/nks_cluster)

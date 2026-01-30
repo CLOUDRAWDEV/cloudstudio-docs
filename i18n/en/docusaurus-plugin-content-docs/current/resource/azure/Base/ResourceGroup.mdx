@@ -1,7 +1,7 @@
 ---
 title: ResourceGroup
 sidebar_position: 0
-tags: [Azure, Resource, Base, ResourceGroup]
+tags: [Azure, Base, ResourceGroup]
 ---
 
 <hr />
@@ -11,83 +11,96 @@ tags: [Azure, Resource, Base, ResourceGroup]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/base-resource_group.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/base-resource_group.webp"
     }
 />
 
 ## Resource Overview
 
-A resource group is a container that holds resources related to an Azure solution. 
-A resource group can contain all resources for a solution or only those resources that you want to manage as a group.
-Decide how to assign resources to resource groups based on what best fits your organization.
-In general, you add resources that share the same lifecycle for the same resource group so that you can easily deploy, update, and delete them as a group.
+A resource group is a container that holds related resources for an Azure solution.  
+A resource group can include all the resources for a solution or only those resources that you want to manage as a group.  
+You decide how resources are allocated to resource groups based on what works best for your organization.  
+Typically, resources that share the same lifecycle are added to the same resource group so that they can be easily deployed, updated, and deleted together.
 
 ## Associated Resources
 
-### Parent Resource
+### Parent Resources
 
 -   [**Subscription**](https://docs.cstudio.app/en/docs/resource/azure/Base/Subscription)
 
-### Child Resource
+### Child Resources
 
--   [**Linux App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
--   [**Windows App Service**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
--   [**Service Plan**](https://docs.cstudio.app/en/docs/resource/azure/AppService/ServicePlan)
--   [**Application Insights**](https://docs.cstudio.app/en/docs/resource/azure/ApplicationInsights/)
--   [**Cdn**](https://docs.cstudio.app/en/docs/resource/azure/Cdn/)
--   [**Frontdoor**](https://docs.cstudio.app/en/docs/resource/azure/FrontDoor)
--   [**Cognitive Account**](https://docs.cstudio.app/en/docs/resource/azure/CognitiveServices/CognitiveAccount)
--   [**Availability Set**](https://docs.cstudio.app/en/docs/resource/azure/Compute/Availabilityset)
--   [**Container Registry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
--   [**Kubernetes Cluster**](https://docs.cstudio.app/en/docs/resource/azure/Container/KubernetesCluster)
--   [**Cosmosdb Cassandra**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
--   [**Cosmosdb Gremlin**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
--   [**Cosmosdb Mongo**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbMongo)
--   [**Cosmosdb Sql**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbSql)
--   [**Cosmosdb Table**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbTable)
--   [**Cost Management Export**](https://docs.cstudio.app/en/docs/resource/azure/CostManagement/CostManagementExport)
--   [**Mssql Server**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlServer)
--   [**Mysql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Mysql)
--   [**Mysql Flexible**](https://docs.cstudio.app/en/docs/resource/azure/Database/MysqlFlexible)
--   [**Postgresql**](https://docs.cstudio.app/en/docs/resource/azure/Database/Postgresql)
--   [**Dns Zone**](https://docs.cstudio.app/en/docs/resource/azure/Dns/DnsZone)
--   [**Private Dns Zone**](https://docs.cstudio.app/en/docs/resource/azure/Dns/PrivateDnsZone)
--   [**Key Vault**](https://docs.cstudio.app/en/docs/resource/azure/KeyVault/)
--   [**Private Load Balancer**](https://docs.cstudio.app/en/docs/resource/azure/LoadBalancer/PrivateLoadBalancer)
--   [**Public Load Balancer**](https://docs.cstudio.app/en/docs/resource/azure/PublicLoadBalancer)
--   [**Log Analytics Workspace**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
--   [**Action Group**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/ActionGroup)
--   [**Monitor Activity Log Alert**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorActivityLogAlert)
--   [**Monitor Autoscale Setting**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
--   [**Monitor Metric Alert**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorMetricAlert)
--   [**Monitor Activity Log Alert**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorActivityLogAlert)
--   [**Monitor Scheduled Query Rules Alert**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorScheduledQueryRulesAlert)
--   [**Monitor Smart Detector Alert Rule**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorSmartDetectorAlertRule)
--   [**Virtual Network**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
--   [**Network Ddos Protection Plan**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkDdosProtectionPlan)
--   [**Network Interface**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkInterface)
--   [**Public Ip**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
--   [**Public Ip Prefix**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIpPrefix)
--   [**Network Security Group**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkSecurityGroup)
--   [**Nat Gateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/NatGateway)
--   [**Traffic Manager**](https://docs.cstudio.app/en/docs/resource/azure//Network/TrafficManager)
--   [**Express Route Circuit**](https://docs.cstudio.app/en/docs/resource/azure/Network/ExpressRouteCircuit)
--   [**Virtual Network Peering**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetworkPeering)
--   [**Express Route Circuit**](https://docs.cstudio.app/en/docs/resource/azure/Network/ExpressRouteCircuit)
--   [**Web Application Firewall Policy**](https://docs.cstudio.app/en/docs/resource/azure/Network/WebApplicationFirewallPolicy)
+-   [**ApiManagement**](https://docs.cstudio.app/en/docs/resource/azure/ApiManagement/ApiManagement)
+-   [**LinuxAppService**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxAppService)
+-   [**WindowsAppService**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsAppService)
+-   [**LinuxFunctionApp**](https://docs.cstudio.app/en/docs/resource/azure/AppService/LinuxFunctionApp)
+-   [**WindowsFunctionApp**](https://docs.cstudio.app/en/docs/resource/azure/AppService/WindowsFunctionApp)
+-   [**ServicePlan**](https://docs.cstudio.app/en/docs/resource/azure/AppService/ServicePlan)
+-   [**ApplicationInsights**](https://docs.cstudio.app/en/docs/resource/azure/ApplicationInsights/ApplicationInsights)
+-   [**Frontdoor**](https://docs.cstudio.app/en/docs/resource/azure/Cdn/Frontdoor)
+-   [**CloudinitConfig**](https://docs.cstudio.app/en/docs/resource/azure/Cloudinit/CloudinitConfig)
+-   [**CognitiveServices**](https://docs.cstudio.app/en/docs/resource/azure/CognitiveServices/ContentSafety)
+-   [**AiService**](https://docs.cstudio.app/en/docs/resource/azure/CognitiveServices/AiService)
+-   [**AvailabilitySet**](https://docs.cstudio.app/en/docs/resource/azure/Compute/Availabilityset)
+-   [**Disk**](https://docs.cstudio.app/en/docs/resource/azure/Compute/Disk)
+-   [**SharedImage**](https://docs.cstudio.app/en/docs/resource/azure/Compute/SharedImage)
+-   [**KubernetesCluster**](https://docs.cstudio.app/en/docs/resource/azure/Container/KubernetesCluster)
+-   [**ContainerRegistry**](https://docs.cstudio.app/en/docs/resource/azure/Container/ContainerRegistry)
+-   [**ContainerAppsEnvironment**](https://docs.cstudio.app/en/docs/resource/azure/ContainerApps/ContainerAppsEnvironment)
+-   [**CosmosdbCassandra**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
+-   [**CosmosdbGremlin**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
+-   [**CosmosdbMongo**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbMongo)
+-   [**CosmosdbSql**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbSql)
+-   [**CosmosdbTable**](https://docs.cstudio.app/en/docs/resource/azure/Cosmosdb/CosmosdbTable)
+-   [**MssqlServer**](https://docs.cstudio.app/en/docs/resource/azure/Database/MssqlServer)
+-   [**MysqlFlexible**](https://docs.cstudio.app/en/docs/resource/azure/Database/MysqlFlexible)
+-   [**PostgresqlFlexible**](https://docs.cstudio.app/en/docs/resource/azure/Database/PostgresqlFlexible)
+-   [**DnsZone**](https://docs.cstudio.app/en/docs/resource/azure/Dns/DnsZone)
+-   [**PrivateDnsZone**](https://docs.cstudio.app/en/docs/resource/azure/Dns/PrivateDnsZone)
+-   [**KeyVault**](https://docs.cstudio.app/en/docs/resource/azure/KeyVault/)
+-   [**PrivateLoadBalancer**](https://docs.cstudio.app/en/docs/resource/azure/LoadBalancer/PrivateLoadBalancer)
+-   [**PublicLoadBalancer**](https://docs.cstudio.app/en/docs/resource/azure/PublicLoadBalancer)
+-   [**LogAnalyticsWorkspace**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/LogAnalyticsWorkspace)
+-   [**Eventhub**](https://docs.cstudio.app/en/docs/resource/azure/LogAnalytics/Eventhub)
+-   [**MonitorAutoscaleSetting**](https://docs.cstudio.app/en/docs/resource/azure/Monitor/MonitorAutoscaleSetting)
+-   [**Metric**](https://docs.cstudio.app/en/docs/resource/azure/MonitorAutoscaleSetting/Metric)
+-   [**ManagedApplicationDefinition**](https://docs.cstudio.app/en/docs/resource/azure/ManagedApplicationDefinition/ManagedApplicationDefinition)
+-   [**ExpressRouteCircuit**](https://docs.cstudio.app/en/docs/resource/azure/Network/ExpressRouteCircuit)
+-   [**RouteTable**](https://docs.cstudio.app/en/docs/resource/azure/Network/RouteTable)
+-   [**VirtualNetwork**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetwork)
+-   [**NetworkDdosProtectionPlan**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkDdosProtectionPlan)
+-   [**NetworkSecurityGroup**](https://docs.cstudio.app/en/docs/resource/azure/Network/NetworkSecurityGroup)
+-   [**NatGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/NatGateway)
+-   [**PublicIp**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIp)
+-   [**PublicIpPrefix**](https://docs.cstudio.app/en/docs/resource/azure/Network/PublicIpPrefix)
+-   [**TrafficManager**](https://docs.cstudio.app/en/docs/resource/azure//Network/TrafficManager)
+-   [**WebApplicationFirewallPolicy**](https://docs.cstudio.app/en/docs/resource/azure/Network/WebApplicationFirewallPolicy)
+-   [**FirewallPolicy**](https://docs.cstudio.app/en/docs/resource/azure/Network/FirewallPolicy)
+-   [**VirtualWan**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualWan)
+-   [**VpnSite**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnSite)
+-   [**PrivateLinkService**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateLinkService)
+-   [**VpnGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/VpnGateway)
 -   [**Backup**](https://docs.cstudio.app/en/docs/resource/azure/RecoveryServices/Backup)
--   [**Redis Cache**](https://docs.cstudio.app/en/docs/resource/azure/RedisCache/)
--   [**Sentinel**](https://docs.cstudio.app/en/docs/resource/azure/Sentinel/)
--   [**Site Recovery**](https://docs.cstudio.app/en/docs/resource/azure/RecoveryServices/SiteRecovery)
--   [**Storage Account**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
+-   [**RedisCache**](https://docs.cstudio.app/en/docs/resource/azure/RedisCache/RedisCache)
+-   [**SearchService**](https://docs.cstudio.app/en/docs/resource/azure/SearchService/)
+-   [**Sentinel**](https://docs.cstudio.app/en/docs/resource/azure/Sentinel/Sentinel)
+-   [**Servicebus**](https://docs.cstudio.app/en/docs/resource/azure/Servicebus/Servicebus)
+-   [**StorageAccount**](https://docs.cstudio.app/en/docs/resource/azure/Storage/StorageAccount)
 
-## Resource Setting Values
+### Connected Resources
 
--   `location` : Azure Region in which to deploy resource group
+-   [**PolicySetDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicySetDefinition)
+-   [**PolicyDefinition**](https://docs.cstudio.app/en/docs/resource/azure/Policy/PolicyDefinition)
 
 ---
 
-## Reference Materials
+## Resource Configuration
+
+-   `location` : Azure region where the resource group will be deployed
+
+---
+
+## References
 
 -   [Azure ResourceGroup(Microsoft)](https://learn.microsoft.com/ko-kr/azure/automation/overview)
 -   [Azure ResourceGroup(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)

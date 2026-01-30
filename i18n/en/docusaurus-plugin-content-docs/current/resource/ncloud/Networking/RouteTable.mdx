@@ -1,6 +1,6 @@
 ---
-title: Route Table
-sidebar_position: 0
+title: RouteTable
+sidebar_position: 4
 tags: [Ncloud, Resource, Network, RouteTable]
 ---
 
@@ -11,13 +11,13 @@ tags: [Ncloud, Resource, Network, RouteTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-route_table.webp"
     }
 />
 
 ## Resource Overview
 
-This service defines the network paths for resources within a VPC.
+A service that defines network routes for resources within a VPC.
 
 ## Associated Resources
 
@@ -29,20 +29,26 @@ This service defines the network paths for resources within a VPC.
 
 -   [**Subnet**](https://docs.cstudio.app/en/docs/resource/ncloud/Networking/Subnet)
 
-## Resource Setting Values
+---
 
--   `included_vpc_name` : The name of VPC to associate to
--   `supported_subnet_type` : The type of Subnet, public or private - `PUBLIC`, `PRIVATE`
--   `route_table_description` : Description of Route table
--   `linked_subnet_names` : The list of Subnet names to associate to
--   `route`
-    -   `target_type` : The type of destination, Nat gateway or VPC peering - `NATGW`, `VPCPEERING`, `VGW`
-    -   `target_name` : The name of destination
-    -   `destination_cidr_block` : The destination IP address range in CIDR format
+## Resource Configuration
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC to which the route table will be connected
+-   `supported_subnet_type` : Supported subnet type (`PUBLIC`, `PRIVATE`)
+-   `route_table_description` : Route table description
+-   `linked_subnet_names` : List of subnet names to connect to the route table
+
+#### Routing Settings (`route`)
+
+-   `target_type` : Destination type (`NATGW`, `VPCPEERING`)
+-   `target_name` : Destination resource name
+-   `destination_cidr_block` : Destination IP range in CIDR format
 
 ---
 
-## Reference Materials
+## References
 
 -   [Route Table(Ncloud)](https://guide.ncloud-docs.com/docs/networking-vpc-vpcdetailedroutetable)
--   [ncloud_route_table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)
+-   [Route Table(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/route_table)

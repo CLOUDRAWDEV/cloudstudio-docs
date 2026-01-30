@@ -1,0 +1,58 @@
+---
+title: EcrRepository
+sidebar_position: 0
+tags: [AWS, Ressource, Ecr, EcrRepository]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecr-ecr_repository.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Amazon Elastic Container Registry (Amazon ECR) ist ein sicherer, skalierbarer und zuverlässiger, von AWS verwalteter Container-Image-Registry-Service.  
+Amazon ECR unterstützt private Repositories mit ressourcenbasierten Berechtigungen unter Verwendung von AWS IAM, sodass autorisierte Benutzer oder Amazon-EC2-Instances auf Container-Repositories und Images zugreifen können.  
+Docker-Images, OCI-Images und OCI-kompatible Artefakte können mit der bevorzugten CLI gepusht, gepullt und verwaltet werden.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressource
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `image_tag_mutability` : Einstellung zur Änderbarkeit von Image-Tags – `IMMUTABLE`, `MUTABLE`
+-   `scan_on_push` : Gibt an, ob Images nach dem Push in das Repository gescannt werden – `true`, `false`
+-   `encryption_type` : Art der für das Repository verwendeten Verschlüsselung – `KMS`, `AES256`
+-   `kms_key_name` : ARN-Name des zu verwendenden KMS-Schlüssels
+
+#### Richtlinien (`policy`)
+
+-   `policy.effect` : Erlaubnis oder Verweigerung der Richtlinie – `Allow`, `Deny`
+-   `policy.principal_arn` : ARN des Ziels, auf das die Richtlinie angewendet wird
+-   `policy.enabled_not_actions` : Gibt an, ob bestimmte Aktionen ausgeschlossen werden – `true`, `false`
+-   `policy.actions` : Liste der erlaubten oder verweigerten Aktionen
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon Elastic Container Registry(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/what-is-ecr.html)
+-   [Amazon Elastic Container Registry(AWS)](https://aws.amazon.com/ko/ecr/pricing/?nc2=type_a)
+-   [aws_ecr_repository(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecr_repository)

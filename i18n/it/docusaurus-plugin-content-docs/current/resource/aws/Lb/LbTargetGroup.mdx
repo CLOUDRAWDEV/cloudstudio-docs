@@ -1,0 +1,59 @@
+---
+title: LbTargetGroup
+sidebar_position: 1
+tags: [AWS, Risorsa, Lb, LbTargetGroup]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/lb-lb_target_group.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Servizio che instrada le richieste verso una o più destinazioni registrate, come istanze EC2, utilizzando il protocollo e la porta specificati.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/)
+
+### Risorse collegate
+
+-   [**Instance**](https://docs.cstudio.app/it/docs/resource/aws/Ec2/Instance)
+-   [**LambdaFunction**](https://docs.cstudio.app/it/docs/resource/aws/Lambda/LambdaFunction)
+-   [**Lb**](https://docs.cstudio.app/it/docs/resource/aws/Lb/Lb)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `target_type` : Tipo di destinazione del load balancer - `instance`, `ip`, `lambda`, `alb`
+-   `protocol` : Protocollo utilizzato per instradare il traffico verso le destinazioni - `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, `UDP`, `GENEVE`
+-   `port` : Porta su cui viene ricevuto il traffico - `1` ~ `65535`
+-   `included_vpc_name` : Nome del VPC in cui creare il target group
+-   `linked_instance_names` : Elenco dei nomi delle istanze di destinazione
+-   `ips` : Elenco degli IP di destinazione
+-   `linked_lambda_name` : Nome della funzione Lambda di destinazione
+-   `linked_application_lb_name` : Nome dell’Application Load Balancer di destinazione
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [LB Target Group(AWS)](https://docs.aws.amazon.com/ko_kr/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
+-   [LB Target Group(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group)

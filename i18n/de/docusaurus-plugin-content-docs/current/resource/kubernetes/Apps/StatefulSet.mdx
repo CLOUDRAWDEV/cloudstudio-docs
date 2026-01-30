@@ -1,0 +1,63 @@
+---
+title: StatefulSet
+sidebar_position: 0
+tags: [Kubernetes, Ressource, Apps, StatefulSet]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Kubernetes-Ressource, die die Bereitstellung und Skalierung einer Gruppe von Pods verwaltet und Garantien für deren Reihenfolge und Eindeutigkeit bietet.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+### Verbundene Ressourcen
+
+-   [**ConfigMap**](https://docs.cstudio.app/de/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/de/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Service)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die StatefulSet-Ressource bereitgestellt wird
+-   `annotations` : Kubernetes-Systemmetadaten im Key-Value-Format
+-   `labels` : Labels zur Identifizierung der StatefulSet-Ressource
+-   `template_labels` : Labels, die auf die zu erstellenden Pods angewendet werden
+-   `pod_management_policy` : Steuerung der Reihenfolge bei Pod-Erstellung und -Löschung (`Parallel`, `OrderedReady`)
+-   `revision_history_limit` : Anzahl der aufzubewahrenden Revisionsverläufe
+-   `linked_service_name` : Name des Headless Service, der das StatefulSet verwaltet
+-   `replicas` : Anzahl der beizubehaltenden Pod-Replikate
+-   `pod_security_context` : Sicherheits- und Berechtigungseinstellungen auf Pod-Ebene
+-   `init_containers` : Definition von Initialisierungs-Containern vor Ausführung des Haupt-Containers
+-   `containers` : Definition der im Pod enthaltenen Container
+-   `volume` : Definition der im Pod verwendeten Volumes
+-   `dns_policy` : DNS-Richtlinie des Pods
+-   `enable_service_links` : Ob Service-Umgebungsvariablen automatisch injiziert werden
+-   `host_network` : Ob das Host-Netzwerk verwendet wird
+-   `image_pull_secrets` : Liste der Secrets, die beim Image-Pull verwendet werden
+
+---
+
+## Referenzen
+
+-   [StatefulSet(Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+-   [StatefulSet(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/stateful_set)

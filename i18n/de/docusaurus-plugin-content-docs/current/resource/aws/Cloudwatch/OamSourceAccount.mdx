@@ -1,0 +1,53 @@
+---
+title: OamSourceAccount
+sidebar_position: 3
+tags: [AWS, Ressource, Cloudwatch, OamSourceAccount]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_source_account.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+AWS CloudWatch OAM Source Accounts konfigurieren Quellkonten, die Daten mit einem zentralen Überwachungskonto teilen.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Region**](https://docs.cstudio.app/de/docs/resource/aws/Base/Region)
+
+### Verknüpfte Ressourcen
+
+-   [**OamMonitoringAccount**](https://docs.cstudio.app/de/docs/resource/aws/CloudWatch/OamMonitoringAccount)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `is_manual` : Gibt an, ob die ARN des OAM-Source-Accounts manuell angegeben wird – `true`, `false`
+-   `linked_oam_monitoring_account_name` : Name des zu verknüpfenden OAM-Monitoring-Accounts
+-   `oam_monitoring_account_arn` : ARN des Monitoring-Accounts, mit dem Daten geteilt werden
+-   `resource_types` : Datentypen, die mit dem Monitoring-Account geteilt werden – `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+-   `label_template` : Vorlage zur Identifikation des Quellkontos – `$AccountName`, `$AccountEmail`, `$AccountEmailNoDomain`
+
+#### Tags
+
+-   `tag` : Tag zur Kategorisierung der Ressource
+
+---
+
+## Referenzen
+
+-   [Amazon CloudWatch OamMonitoringAccount(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureSourceAccount)
+-   [Amazon CloudWatch OamMonitoringAccount(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)

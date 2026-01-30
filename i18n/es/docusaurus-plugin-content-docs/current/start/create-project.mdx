@@ -1,0 +1,205 @@
+---
+title: Crear nuevo proyecto
+sidebar_position: 7
+tags:
+    [
+        project,
+        creación de proyecto,
+        proyecto vacío,
+        plantilla,
+        importar,
+        import,
+        empezar
+    ]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import createProject01 from "./img/create-project-01.png"
+import createProject02 from "./img/create-project-02.png"
+import createProject03 from "./img/create-project-03.png"
+import createProject04 from "./img/create-project-04.png"
+import createProject05 from "./img/create-project-05.png"
+import createProject06 from "./img/create-project-06.png"
+import createProject07 from "./img/create-project-07.png"
+import import01 from "./img/gif/import01.gif"
+
+<hr />
+<br />
+
+En Cloud Studio, cada lienzo se llama 📄 proyecto.
+Para crear un proyecto, primero debe existir una 📁 carpeta en la que puedas gestionarlo.
+
+Consulta cómo crear una carpeta [aquí](/docs/start/create-folder).
+
+<p>&nbsp;</p>
+
+## Tres formas de crear un proyecto
+
+Existen `tres` maneras de crear un proyecto en Cloud Studio:
+
+-   [Crear con una plantilla proporcionada](#create-template)
+-   [Crear un proyecto vacío](#create-empty)
+-   [Importar infraestructura existente](#create-import)
+
+Si usas una **plantilla**, puedes crear rápidamente la infraestructura en la nube en la categoría que desees, como Landing Zone, MSA, Load Balancer, Ubuntu Virtual Machine, CDN, etc. Para más detalles sobre las plantillas, consulta <Link to="">aquí</Link>.
+
+Si prefieres **configurar el lienzo manualmente sin plantilla**, utiliza la opción de crear un proyecto vacío. En este lienzo vacío, puedes arrastrar y soltar los recursos que desees para construir tu infraestructura en la nube.
+
+Si quieres **importar infraestructura existente** al lienzo, accede al lienzo y haz clic en `Archivo > Importar` para cargar la infraestructura.
+
+<p>&nbsp;</p>
+
+### Crear con una plantilla proporcionada {#create-template}
+
+1. Haz clic en el botón `Crear proyecto` en la página de plantillas para abrir la ventana emergente de creación de proyecto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="imagen" />
+</div>
+
+<br />
+
+2. Escribe el `nombre del proyecto`. El nombre del proyecto debe cumplir con los siguientes `requisitos`.
+
+> -   Solo se permiten letras en inglés, coreano y números.
+> -   Sin espacios.
+> -   Entre 2 y 20 caracteres.
+
+<div className={styles.imgWrap}>
+    <img
+        src={createProject01}
+        alt="imagen de la ventana emergente de proyecto"
+        width={800}
+    />
+</div>
+
+<br />
+
+3. Selecciona la `carpeta` en la que deseas colocar el proyecto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="imagen de la carpeta del proyecto" />
+</div>
+
+<br />
+
+4. Ingresa una `descripción` para el proyecto. Se puede escribir hasta un máximo de 100 caracteres.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="imagen de la carpeta del proyecto" />
+</div>
+
+<br />
+
+5. Selecciona el `CSP (proveedor)` y la `categoría`.
+
+<div className={styles.imgWrap}>
+    <img
+        src={createProject04}
+        alt="imagen de la carpeta del proyecto"
+        width={800}
+    />
+</div>
+
+<br />
+
+<details>
+    <summary>¿Qué es CSP?</summary>
+    <h4>
+        CSP significa Cloud Service Provider (Proveedor de Servicios en la Nube)
+        y se refiere a las empresas que proporcionan servicios de
+        infraestructura y plataformas en la nube públicas. Los CSP
+        proporcionados en Cloud Studio incluyen Microsoft Azure, NAVER CLOUD
+        PLATFORM de Naver y Amazon Web Services de Amazon.
+    </h4>
+</details>
+
+<br />
+
+6. Haz clic en el botón `Crear proyecto`.
+
+:::info
+
+Para obtener más detalles sobre las plantillas proporcionadas, consulta <Link to="">aquí</Link>.
+
+:::
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Crear proyecto vacío {#create-empty}
+
+1. Haz clic en el botón `Crear proyecto` en la página de mis plantillas para abrir la ventana emergente de creación de proyecto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject05} alt="imagen" />
+</div>
+
+<br />
+
+2. Escribe el `nombre del proyecto`. El nombre del proyecto debe cumplir con los siguientes `requisitos`.
+
+> -   Solo se permiten letras en inglés, coreano y números.
+> -   Sin espacios.
+> -   Entre 2 y 20 caracteres.
+
+<div className={styles.imgWrap}>
+    <img
+        src={createProject07}
+        alt="imagen de la ventana emergente de proyecto"
+        width={800}
+    />
+</div>
+
+<br />
+
+3. Selecciona la `carpeta` en la que deseas colocar el proyecto.
+
+<div className={styles.imgWrap}>
+    <img src={createProject02} alt="imagen de la carpeta del proyecto" />
+</div>
+
+<br />
+
+4. Ingresa una `descripción` para el proyecto. Se puede escribir hasta un máximo de 100 caracteres.
+
+<div className={styles.imgWrap}>
+    <img src={createProject03} alt="imagen de la carpeta del proyecto" />
+</div>
+
+<br />
+
+5. Haz clic en el botón `Crear proyecto`.
+
+<div className={styles.imgWrap}>
+    <img src={createProject06} alt="imagen" />
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+### Importar infraestructura existente (Importar) {#create-import}
+
+Para importar infraestructura existente, primero debes acceder al lienzo. Crea un `proyecto vacío` primero. Consulta cómo crear un proyecto vacío [aquí](#create-empty).
+
+<br />
+
+<div className={styles.imgWrap}>
+    <img src={import01} width={800} alt="import 이미지" />
+</div>
+
+<br />
+
+1. Haz clic en `Proyecto vacío` para acceder a la página del lienzo.
+2. Haz clic en `Archivo > Importar`.
+3. Aparecerá una ventana emergente donde debes seleccionar el `credencial` deseada entre las registradas.
+4. Haz clic en el botón `Consultar recursos` y selecciona el `grupo de recursos` que deseas desde la lista.
+5. Haz clic en el botón `Importar` para completar la importación de la infraestructura existente.
+
+<p>&nbsp;</p>
+
+:::caution
+
+Para importar infraestructura, es necesario que las credenciales estén registradas.
+
+:::

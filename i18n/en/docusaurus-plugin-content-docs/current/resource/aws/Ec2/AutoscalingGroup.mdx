@@ -1,0 +1,103 @@
+---
+title: AutoscalingGroup
+sidebar_position: 0
+tags: [AWS, EC2, AutoScaling, AutoScalingGroup]
+---
+import asg01 from "./img/asg01.png"
+import asg02 from "./img/asg02.png"
+import asg03 from "./img/asg03.png"
+
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ec2-autoscaling_group.webp" />
+
+## Resource Overview
+
+An Auto Scaling Group (ASG) automatically adjusts resources by launching or terminating EC2 instances based on application demand.
+
+## Associated Resources
+
+### Parent Resources
+
+-   [**Vpc**](https://docs.cstudio.app/en/docs/resource/aws/Vpc/)
+
+### Connected Resources
+
+-   [**LbTargetGroup**](https://docs.cstudio.app/en/docs/resource/aws/Lb/LbTargetGroup)
+
+---
+
+## Resource Configuration
+
+#### Basic Settings
+
+-   `launch_template_name` : Name of the Launch Template used by the Auto Scaling Group
+-   `subnet_ids` : List of subnet IDs where the Auto Scaling Group launches resources
+-   `linked_targetgroup_name` : Name of the associated target group
+-   `desired_capacity` : Target number of instances to maintain
+-   `min_size` : Minimum number of instances to maintain
+-   `max_size` : Maximum number of instances to maintain
+-   `default_cooldown` : Time in seconds to wait between scaling activities
+
+#### Tags
+
+-   `tags` : Tags used to categorize the resource
+
+---
+
+## Autoscaling + LB Configuration
+
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg01} alt="asg01" />
+</div>
+
+<br />
+
+-   First, create a basic network environment for infrastructure configuration.
+-   Create one VPC and configure 2 Public Subnets and 2 Private Subnets in different Availability Zones for high availability.
+    Also, configure Internet Gateway and Route Table for external internet communication.
+-   Configure the Subnet by referring to [Public Subnet Configuration](/docs/resource/aws/Vpc/Subnet).
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg02} alt="asg02" />
+</div>
+
+<br />
+
+-   Add a **Load Balancer** to stably handle incoming traffic from the outside.
+-   Place the Load Balancer in the Public Subnet to make it accessible from the internet,
+    place a dedicated **Security Group** for security control, and connect a line towards the Load Balancer.
+-   To define the set of target resources to which the Load Balancer will actually deliver traffic, place a **Load Balancer Target Group** and
+    connect a line in the direction [Load Balancer -> Load Balancer Target Group].
+-   Select the connected Target Group in the **Listener - Linked Target Group Name** option of the Load Balancer.
+
+<br />
+<br />
+
+<div style={{ textAlign: "center" }}>
+    <img width="600px" src={asg03} alt="asg03" />
+</div>
+
+<br />
+
+-   Place **Launch Template** and **Auto Scaling Group** to automatically create and manage application servers.
+-   Set the Launch Template Name to use in the Autoscaling Group resource options, and set the subnets where EC2 instances will be created.
+-   Determine which Target Group the created EC2 instances will be automatically registered to using the Linked Targetgroup Name option.
+
+<br />
+<br />
+
+## References
+
+-   [Auto Scaling groups (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
+-   [Set up a launch template (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html)
+-   [Scaling cooldowns (AWS Auto Scaling) (AWS)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html)

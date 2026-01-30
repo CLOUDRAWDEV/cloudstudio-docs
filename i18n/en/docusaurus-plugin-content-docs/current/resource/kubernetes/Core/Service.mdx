@@ -1,60 +1,60 @@
 ---
 title: Service
-sidebar_position: 0
+sidebar_position: 6
 tags: [Kubernetes, Resource, Core, Service]
 ---
 
-
 <hr />
 <br />
-
 
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
     }
 />
 
 ## Resource Overview
 
-An abstract Kubernetes resource that provides a single entry point for Pods and manages communication between those Pods.
+An abstract Kubernetes resource that provides a single entry point to Pods and manages communication between them.
 
 ## Associated Resources
 
 ### Parent Resource
 
-
--   [**Cluster**](https://docs.cstudio.app/en/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Namespace)
 
 ### Connected Resources
 
 -   [**Deployment**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/en/docs/resource/kubernetes/Apps/DaemonSet)
 -   [**Pod**](https://docs.cstudio.app/en/docs/resource/kubernetes/Core/Pod)
 -   [**Ingress**](https://docs.cstudio.app/en/docs/resource/kubernetes/Networking/Ingress)
 
+---
 
-## Resource Setting Values
+## Resource Configuration
 
--   `service_name` : Name of the Service resource
--   `namespace` : Namespace where Service resources will be deployed
--   `annotations` : A key-value used to display necessary information in the Kubernetes system
--   `labels` : To distinguish objects, the user arbitrarily specifies the desired value
--   `selector` : Route service traffic to Pods using the key-value of the label that matches the selector
--   `type` : Specifies the type of service - `ClusterIP`,`NodePort`,`LoadBalancer`
--   `session_affinity` : A policy that ensures that requests from clients go only to specific pods - `None`,`clientIP`
--   `port` : List of ports exposed by the service
-    -   `name` : Port configuration name
-        -   `protocol` : IP protocol for that port - `TCP`,`UDP`
-        -   `port` : Port number exposed by the service 
-        -   `target_port` : Number of ports to be accessed by the serviced pod 
+#### Basic Settings
 
+-   `namespace` : Namespace where the Service resource will be deployed
+-   `annotations` : Kubernetes system metadata
+-   `labels` : Labels for Service identification and classification
+-   `selector` : Label selector used to choose Pods to receive traffic
+-   `type` : Service type - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : Whether to route requests from the same client to a specific Pod - `None`, `ClientIP`
+
+#### Port Settings (`port`)
+
+-   `port.protocol` : Protocol used on the Service port - `TCP`, `UDP`
+-   `port.port` : Service port number exposed externally
+-   `port.target_port` : Port number on the Pod that receives traffic
 
 ---
 
-## Reference Materials
+## References
 
 -   [Service(Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
 -   [Service(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

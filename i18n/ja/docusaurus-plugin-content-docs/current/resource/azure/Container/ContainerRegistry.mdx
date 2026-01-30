@@ -1,7 +1,7 @@
 ---
 title: ContainerRegistry
 sidebar_position: 0
-tags: [Azure, リソース, Container, ContainerRegistry]
+tags: [Azure, ContainerRegistry, Container]
 ---
 
 <hr />
@@ -11,32 +11,65 @@ tags: [Azure, リソース, Container, ContainerRegistry]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-container_registry.webp"
     }
 />
 
 ## リソース概要
 
-Azure Container Registry はオープンソース Docker Registry 2.0 を基盤とする管理型レジストリサービスです。
-Azure コンテナレジストリを作成·維持·管理してコンテナイメージと関連アーティファクトを保存·管理します。
+Azure Container Registry は、コンテナイメージおよび OCI アーティファクトを安全に保存・管理するための  
+プライベートコンテナレジストリサービスです。  
+Docker および Kubernetes ベースのワークロードと密接に連携し、  
+セキュリティ、パフォーマンス、ネットワークアクセス制御をきめ細かく設定できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+
+---
 
 ## リソース設定値
 
--   `sku` : Container Registry の性能及び拡張性のための SKU タイプ - `Basic`, `Standard`, `Premium`
+-   `sku` :  
+    Container Registry のパフォーマンスおよびスケーラビリティのための SKU タイプ
 
--   `admin_enabled` : 管理者活性化 - `true`, `false`
+    -   `Basic`
+    -   `Standard`
+    -   `Premium`
 
--   `public_network_access_enabled` : Public ネットワークへのアクセスを許容 - `true`, `false`
+-   `admin_enabled` :  
+    管理者アカウントの使用可否 – `true`, `false`
 
--   `network_rule_set` : SKU タイプが Premium の場合に生成可能
-    -   `default_action` : Rule と一致しないリクエストに対する動作 - `Deny`, `Allow`
-    -   `ip_ranges` : Rule と一致するリクエストの IP アドレス IP 주소 CIDR
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `public_network_access_enabled` :  
+    パブリックネットワークアクセスの許可可否 – `true`, `false`
+
+### ネットワークルール設定（`network_rule_set`）
+
+> SKU が `Premium` の場合のみ設定可能です。
+
+-   `network_rule_set.default_action` :  
+    ルールに一致しないリクエストに対する既定の動作
+
+    -   `Allow`
+    -   `Deny`
+
+-   `network_rule_set.ip_ranges` :  
+    ルールに一致するリクエストの IP アドレス CIDR 一覧
+
+### タグ
+
+-   `tag` :  
+    リソースをカテゴリ分けするためのタグ – 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure ContainerRegistry(Microsoft)](https://learn.microsoft.com/ko-kr/azure/container-registry/container-registry-intro)
--   [Azure ContainerRegistry 価格](https://azure.microsoft.com/en-us/pricing/details/container-registry/)
--   [Azure ContainerRegistry(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)
+-   [Azure Container Registry（Microsoft）](https://learn.microsoft.com/ko-kr/azure/container-registry/)
+-   [Terraform azurerm_container_registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry)

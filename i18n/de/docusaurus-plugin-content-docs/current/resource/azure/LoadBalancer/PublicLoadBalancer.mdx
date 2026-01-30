@@ -1,0 +1,92 @@
+---
+title: PublicLoadBalancer
+sidebar_position: 1
+tags: [Azure, LoadBalancer, PublicLoadBalancer, Network]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/load_balancer-public_load_balancer.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Public Load Balancer ist ein Lastverteilungsdienst, der eingehenden Traffic aus externen Quellen (Internet) am Frontend entgegennimmt und zur Vermeidung von Traffic-Überlastungen auf Backend-Pool-Instanzen verteilt.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Linux Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/de/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**Public IP**](https://docs.cstudio.app/de/docs/resource/azure/Network/PublicIp)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `sku` : Preiskategorie zur Auswahl von Größe und Funktionen des Azure Load Balancer - `Standard`, `Basic`
+-   `virtual_network_name` : Name des Virtual Network, an das der Load Balancer den Traffic weiterleitet
+
+#### Frontend-IP-Konfiguration (`public_lb_frontend_ip_config`)
+
+-   `public_lb_frontend_ip_config.linked_public_ip_name` : Name der zu verwendenden öffentlichen IP-Adresse
+
+#### Backend-Pool (`backend_pool`)
+
+-   `backend_pool` : Name des Backend-Pools des Load Balancers
+-   `backend_pool.linked_virtual_machine_names` : Namen der Virtual Machines, an die der Load Balancer den Traffic weiterleitet (müssen zum ausgewählten Virtual Network gehören)
+
+#### Integritätsüberprüfung (`health_probe`)
+
+-   `health_probe.protocol` : Protokolltyp des vom Health Probe verwendeten Backend-Endpunkts - `Http`, `Https`, `Tcp`
+-   `health_probe.port` : Port, über den der Health Probe den Backend-Endpunkt überprüft - `0` ~ `65535`
+-   `health_probe.request_path` : Pfad für GET-Anfragen bei Verwendung von Http(s)-Probes
+-   `health_probe.interval_in_seconds` : Intervall (in Sekunden), in dem der Health Probe die Antwort der Backend-Pool-Instanzen überprüft - `5` ~ `2147483646`
+
+#### Lastverteilungsregel (`rule`)
+
+-   `rule.protocol` : Transportprotokoll für den externen Endpunkt - `Tcp`, `Udp`, `All`
+-   `rule.frontend_port` : Port des externen Endpunkts - `0` ~ `65534`
+-   `rule.backend_port` : Port für interne Verbindungen - `0` ~ `65535`
+-   `rule.disable_outbound_snat` : Aktiviert SNAT für die Regel bei ausgehenden Verbindungen - `true`, `false`
+-   `rule.frontend_ip_config_name` : Name der Frontend-IP-Konfiguration des Public Load Balancers
+-   `rule.backend_pool_name` : Name des Backend-Adresspools, an den der Load Balancer den Traffic weiterleitet
+
+#### NAT-Regel (`nat_rule`)
+
+-   `nat_rule.protocol` : Transportprotokoll für den externen Endpunkt - `Tcp`, `Udp`, `All`
+-   `nat_rule.frontend_port` : Port des externen Endpunkts - `0` ~ `65534`
+-   `nat_rule.backend_port` : Port für interne Verbindungen - `0` ~ `65535`
+-   `nat_rule.frontend_ip_config_name` : Name der Frontend-IP-Konfiguration des Public Load Balancers
+
+#### Outbound-Regel (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Transportprotokoll für den externen Endpunkt - `Tcp`, `Udp`, `All`
+-   `outbound_rule.frontend_ip_config_name` : Name der Frontend-IP-Konfiguration des Public Load Balancers
+-   `outbound_rule.backend_pool_name` : Name des Backend-Adresspools, an den der Load Balancer den Traffic weiterleitet
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure Load Balancer Übersicht (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview)
+-   [Load Balancer-Integritätsüberprüfungen (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-custom-probe-overview)
+-   [Load Balancer-Regeln und NAT-Regeln (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-overview#load-balancing-rules)
+-   [Load Balancer-Outbound-Regeln (Microsoft)](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-rules-overview)

@@ -1,73 +1,77 @@
 ---
 title: CosmosdbTable
 sidebar_position: 4
-tags: [Azure, Resource, Cosmosdb, CosmosdbTable]
+tags: [Azure, CosmosdbTable, CosmosDB, Table, Database]
 ---
 
 <hr />
 <br />
 
-
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_table.webp"
     }
 />
 
 ## Resource Overview
 
-The Cosmos DB Table API is a NoSQL database service provided on Microsoft’s Azure platform. 
-It allows developers to use tables as the fundamental data storage concept, enabling them to store and query vast amounts of semi-structured or structured data. 
-The Cosmos DB Table API supports features such as automatic indexing, global distribution, and high availability, making it suitable for a variety of use cases, including IoT telemetry and game leaderboards.
+Azure Cosmos DB Table API is a highly available table API that enables automatic indexing without requiring separate index management.  
+It provides scalability and reliability through global distribution, automatic failover, backup, and consistency policies.
 
-### Parent Resource
+## Associated Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+### Parent Resources
 
-## Resource Setting Values
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
--   `capabilities_list` : List of the Cosmos DB API which should be used - `EnableServerless`, `EnableAggregationPipeline`
+### Connected Resources
 
--   `enable_multiple_write_locations` : Enable multi-region writes to leverage provisioned throughput across global databases and containers - `true`, `false`
-
--   `public_network_access_enabled` : Enable connection to the account by public IP address or service endpoint - `true`, `false`
-
--   `enable_automatic_failover` : Enable automatic failover for the account - `true`, `false`
-
--   `virtual_network_filter_enabled` : Enable filters so that only certain Subnets in the Virtual network can access the account - `true`, `false`
-
--   `network_acl_bypass_for_azure_services` :Allow ACL bypass for Azure service - `true`, `false`
-
--   `geo_location`
-
-    -   `failover_priority` : The failover priority of the region - `0`~ `0`
-    -   `zone_redundant` : Enable the zone redundancy in case of an error - `true`~ `false`
-
--   `consistency_policy`
-
-    -   `consistency_level` : The consistency level of Cassandra DB to set availability and performance of database - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : If using Bounded Staleness, the time amount of staleness tolerated in seconds - `5`~ `86400`
-    -   `max_staleness_prefix` : If using Bounded Staleness, the number of stale requests tolerated - `10`~`2147483647`
-
--   `backup`
-
-    -   `type` : The type of backup - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : The interval of backup in minutes, Between 60 and 1440 - `60`~ `1440`
-    -   `retention_in_hours` : The time in hours that the backup is retained, Between 8 and 720 - `8`~`720`
-
--   `table`
-
-    -   `throughput` : The throughput of the Cosmos DB Table - `Continuous`, `Periodic`
-    -   `enable_autoscale` : Whether to apply auto scaling to Cassandra keyspace - `60`~ `1440`
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   [**PrivateEndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb Price](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+#### Basic Settings
+
+-   `capabilities_list` : List of Cosmos DB APIs to use
+-   `enable_multiple_write_locations` : Whether to enable multi-region writes - `true`, `false`
+-   `public_network_access_enabled` : Whether to allow public access to the account via public IP addresses or service endpoints - `true`, `false`
+-   `enable_automatic_failover` : Whether to enable automatic failover - `true`, `false`
+-   `virtual_network_filter_enabled` : Whether to enable filtering so only specific virtual network subnets can access the account - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Whether to enable ACL bypass for Azure services - `true`, `false`
+
+#### Region Settings (`geo_location`)
+
+-   `geo_location.failover_priority` : Failover priority of the region
+-   `geo_location.zone_redundant` : Whether to allow automatic zone replication for fault tolerance - `true`, `false`
+
+#### Consistency Policy (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Consistency level for database availability and performance
+-   `consistency_policy.max_interval_in_seconds` : Allowed staleness time (seconds) when the consistency level is Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximum number of stale requests allowed when the consistency level is Bounded Staleness
+
+#### Backup Settings (`backup`)
+
+-   `backup.type` : Backup policy type - `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Backup execution frequency in minutes - `60` ~ `1440`
+-   `backup.retention_in_hours` : Backup retention period in hours - `8` ~ `720`
+
+#### Table Settings (`table`)
+
+-   `table.throughput` : Throughput of the Cosmos DB table - `400` ~ `1000000`
+-   `table.enable_autoscale` : Whether to enable autoscaling - `true`, `false`
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Azure Cosmos DB(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB Table API(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/table/introduction)

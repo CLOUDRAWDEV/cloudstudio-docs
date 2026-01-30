@@ -1,6 +1,6 @@
 ---
 title: ResolverRule
-sidebar_position: 0
+sidebar_position: 2
 tags: [AWS, リソース, Route53, ResolverRule]
 ---
 
@@ -11,13 +11,15 @@ tags: [AWS, リソース, Route53, ResolverRule]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/route53-resolver_rule.png"
     }
 />
 
 ## リソース概要
 
-Resolver が指定されたドメイン名のクエリをネットワークに転送するときに使用するルール
+指定されたドメイン名のクエリをネットワークへ転送する際に Resolver が使用するルールです。
+
+## 関連リソース
 
 ### 上位リソース
 
@@ -25,23 +27,29 @@ Resolver が指定されたドメイン名のクエリをネットワークに�
 
 ### 接続リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/Vpc)
 -   [**ResolverEndpoint**](https://docs.cstudio.app/ja/docs/resource/aws/Route53/ResolverEndpoint)
-
-## リソース設定値
-
--   `rule_type` : ルールタイプ - `Forward`, `system`
--   `domain_name` : DNS クエリーが転送されるドメイン名
--   `linked_vpc_names` : ルールを使用する VPC 名
--   `linked_resolver_endpoint_name` : Resolver が使用するアウトバウンドエンドポイントの名前
--   `target_ip` : Target IP アドレス
--   `target_ip.name`
--   `target_ip.ip` : Target IP アドレスの IP
--   `target_ip.port` : Target IP アドレスのポート - `1~65535`
+-   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/aws/Vpc/)
 
 ---
 
-## 参考資料
+## リソース設定値
+
+#### 基本設定
+
+-   `rule_type` : ルールタイプ - `FORWARD`, `SYSTEM`
+-   `domain_name` : DNS クエリが転送されるドメイン名
+-   `linked_vpc_names` : ルールを使用する VPC 名一覧
+-   `linked_resolver_endpoint_name` : Resolver が使用するアウトバウンドエンドポイント名
+-   `target_ip.ip` : Target IP アドレス
+-   `target_ip.port` : Target IP アドレスのポート
+
+#### タグ
+
+-   `tag` : Resource をカテゴリ別に分類するためのタグ
+
+---
+
+## References
 
 -   [Amazon Resolver rule(AWS)](https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/resolver.html)
 -   [Amazon Resolver rule(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_resolver_rule)

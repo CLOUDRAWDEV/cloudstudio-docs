@@ -11,43 +11,54 @@ tags: [AWS, Resource, Backup, BackupPlan]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/backup-backup_plan.webp"
     }
 />
 
 ## Resource Overview
 
-This is a policy expression that defines when and how to back up AWS resources. 
-You can assign resources to a Backup Plan, and AWS Backup will automatically create and manage backups for those resources according to the Backup Plan.
-
-### Parent Resource
-
--   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
+A policy expression that defines when and how AWS resources are backed up. Resources can be assigned to a Backup Plan, and AWS Backup automatically backs up and retains those resources according to the Backup Plan.
 
 ## Associated Resources
 
-## Resource Setting Values
+### Parent Resources
 
-- `rule`
-  - `rule_name` : The name of Backup Plan's rule
-  - `backup_vault_name` : The name of a logical container where backups are stored
-  - `frequency_type` : The frequency timing about backup
-  - `frequency_hour` : Determine the exact hour to initiate backup plan - `1 or more`
-  - `start_time` : The time to start initiating backup plan
-  - `start_after_minutes` : The amount of time in minutes before beginning a backup - `60 or more`
-  - `complete_after_minutes` : The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error - `121 or more`
-  - `enabled_use_cold_storage` : Whether to use cold storage
-  - `warm_storage_retention_days` : Specifies the number of days after creation that a recovery point is moved to cold storage - `1 ~ 36410`
-  - `cold_retention_days` : Number of days after creation to delete recovery points - `91 ~ 36500`
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/aws/Base/Region)
 
-- `resource_assignment`
-  - `name`
-  - `iam_role_arn` : The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource
-  - `enabled_contain_all` : Whether to contain all resources - `false`, `true`
+## Resource Configuration
+
+#### Basic Settings
+
+#### Rules (`rule`)
+
+-   `rule.rule_name` : Backup rule name, alphanumeric characters or characters including -, \_, . within 1 to 50 characters
+-   `rule.backup_vault_name` : Logical container name used to store backups
+-   `rule.frequency_type` : Backup schedule timing - `Hourly`, `Weekly`, `Monthly`, `Custom`
+-   `rule.frequency_hour` : Hour to initiate the backup plan - minimum `1`
+-   `rule.frequency_days` : Day to initiate the backup plan - `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`
+-   `rule.frequency_date` : Date to initiate the backup plan - `1` ~ `31`
+-   `rule.start_time` : Backup plan start time
+-   `rule.custom_cron_expression` : Custom expression defining when the backup plan starts
+-   `rule.start_after_minutes` : Total time before starting the backup - minimum `60`
+-   `rule.complete_after_minutes` : Time in minutes AWS Backup attempts the backup before canceling and returning an error
+-   `rule.enabled_use_cold_storage` : Whether to use cold storage - `true`, `false`
+-   `rule.warm_storage_retention_days` : Number of days after creation to move recovery points to cold storage - `1` ~ `36410`
+-   `rule.total_retention_days` : Number of days after creation to delete recovery points - `1` ~ `36500`
+
+#### Resource Assignment (`resource_assignment`)
+
+-   `resource_assignment.iam_role_arn` : ARN of the IAM role used by AWS Backup for authentication when backing up and restoring target resources
+-   `resource_assignment.enabled_contain_all` : Whether to include all resources - `true`, `false`
+-   `resource_assignment.contain_arn_or_pattern` : Array of strings containing Amazon Resource Names or patterns matching resources to assign to the backup plan
+-   `resource_assignment.exclude_arn_or_pattern` : Array of strings containing Amazon Resource Names or patterns matching resources to exclude from the backup plan
+
+#### Tags
+
+-   `tag` : Tags used to categorize the resource - maximum 512 characters, `key`:`value`
 
 ---
 
-## Reference Materials
+## References
 
 -   [Amazon BackupPlan(AWS)](https://docs.aws.amazon.com/ko_kr/aws-backup/latest/devguide/creating-a-backup-plan.html)
 -   [Amazon BackupPlan(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/backup_plan)

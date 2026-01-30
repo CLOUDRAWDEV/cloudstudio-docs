@@ -1,86 +1,89 @@
 ---
-title: CosmodbSql
+title: CosmosdbSql
 sidebar_position: 3
-tags: [Azure, Resource, Cosmosdb, CosmodbSql]
+tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
 ---
 
 <hr />
 <br />
 
-
 ## Resource Icon
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.webp"
     }
 />
 
 ## Resource Overview
 
-Cosmos DB SQL (Structured Query Language) is the query language used in Azure Cosmos DB, a globally distributed multi-model database service provided by Microsoft. 
-With Cosmos DB SQL, you can execute SQL queries on JSON documents within Cosmos DB containers. 
-It allows you to perform CRUD (Create, Read, Update, Delete) operations, filter and sort data, and aggregate results using familiar SQL functions and expressions. 
-Additionally, Cosmos DB SQL supports advanced features such as stored procedures, triggers, and user-defined functions, enabling you to customize query behavior and perform complex operations on your data.
+Azure Cosmos DB SQL API is a fully managed NoSQL database service that allows storing and querying JSON-formatted data supported by the SQL API.  
+It provides scalability and high availability through global distribution, automatic failover, backup, and consistency policies.
 
-### Parent Resource
+## Associated Resources
 
--   [**Resource Group**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+### Parent Resources
 
-## Resource Setting Values
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
 
--   `capabilities_list` : List of the Cosmos DB API which should be used - `EnableServerless`, `EnableAggregationPipeline`
+### Connected Resources
 
--   `enable_multiple_write_locations` : Enable multi-region writes to leverage provisioned throughput across global databases and containers - `true`, `false`
-
--   `public_network_access_enabled` : Enable connection to the account by public IP address or service endpoint - `true`, `false`
-
--   `enable_automatic_failover` : Enable automatic failover for the account - `true`, `false`
-
--   `virtual_network_filter_enabled` : Enable filters so that only certain Subnets in the Virtual network can access the account - `true`, `false`
-
--   `network_acl_bypass_for_azure_services` : Allow ACL bypass for Azure service - `true`, `false`
-
--   `geo_location`
-
-    -   `failover_priority` : The failover priority of the region - `0`~ `0`
-    -   `zone_redundant` : Enable the zone redundancy in case of an error - `true`~ `false`
-
--   `consistency_policy`
-
-    -   `consistency_level` : The consistency level of Cassandra DB to set availability and performance of database - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : If using Bounded Staleness, the time amount of staleness tolerated in seconds - `5`~ `86400`
-    -   `max_staleness_prefix` : If using Bounded Staleness, the number of stale requests tolerated - `10`~`2147483647`
-
--   `backup`
-
-    -   `type` : The type of backup - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : The interval of backup in minutes, Between 60 and 1440 - `60`~ `1440`
-    -   `retention_in_hours` : The time in hours that the backup is retained, Between 8 and 720 - `8`~`720`
-
--   `sql_database`
-
-    -   `throughput` : The throughput of Cassandra keyspace - `400`~ `1000000`
-    -   `enable_autoscale` : Whether to apply auto scaling to Cassandra keyspace - `true`, `false`
-
--   `sql_container`
-
-    -   `partition_key_version`: The version of partition key among 1 and 2 - `400`~ `1000000`
-    -   `partition_key_path` : Define a partition key to use SQL Container
-    -   `throughput` : The throughput of the Cosmos DB SQL database
-    -   `indexing_mode` : The indexting mode
-    -   `included_path` : List of paths to include in the indexing - `Asc` , `Desc`
-    -   `excluded_path` : Whether to apply auto scaling to Cassandra keyspace - `true`, `false`
-    -   `unique_key_path` : List of paths to use for the unique key - `Asc` , `Desc`
-    -   `enable_autoscale` : Whether to apply auto scaling to Cassandra keyspace - `true`, `false`
-    -   `included_sql_database_name` : The name of SQL database in which container is created
-
--   `tag` : Tag to categorize resources - up to 512 characters, `key:value`
+-   [**PrivateEndPoint**](https://docs.cstudio.app/en/docs/resource/azure/Network/PrivateEndpoint)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb Price](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+#### Basic Settings
+
+-   `capabilities_list` : List of Cosmos DB APIs to use
+-   `enable_multiple_write_locations` : Whether to enable multi-region writes - `true`, `false`
+-   `public_network_access_enabled` : Whether to allow public access to the account via public IP addresses or service endpoints - `true`, `false`
+-   `enable_automatic_failover` : Whether to enable automatic failover - `true`, `false`
+-   `virtual_network_filter_enabled` : Whether to enable filtering so only specific virtual network subnets can access the account - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Whether to enable ACL bypass for Azure services - `true`, `false`
+
+#### Region Settings (`geo_location`)
+
+-   `geo_location.failover_priority` : Failover priority of the region
+-   `geo_location.zone_redundant` : Whether to allow automatic zone replication for fault tolerance - `true`, `false`
+
+#### Consistency Policy (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Consistency level for database availability and performance
+-   `consistency_policy.max_interval_in_seconds` : Allowed staleness time (seconds) when the consistency level is Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximum number of stale requests allowed when the consistency level is Bounded Staleness
+
+#### Backup Settings (`backup`)
+
+-   `backup.type` : Backup policy type - `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Backup execution frequency in minutes - `60` ~ `1440`
+-   `backup.retention_in_hours` : Backup retention period in hours - `8` ~ `720`
+
+#### SQL Database Settings (`sql_database`)
+
+-   `sql_database.throughput` : Throughput of the Cosmos DB SQL database - `400` ~ `1000000`
+-   `sql_database.enable_autoscale` : Whether to enable autoscaling - `true`, `false`
+
+#### SQL Container Settings (`sql_container`)
+
+-   `sql_container.partition_key_version` : Partition key version - `1`, `2`
+-   `sql_container.partition_key_paths` : List of partition key paths used by the SQL container
+-   `sql_container.throughput` : Throughput of the SQL container - `400` ~ `1000000`
+-   `sql_container.indexing_mode` : Indexing mode - `consistent`, `none`
+-   `sql_container.included_path` : List of included indexing paths
+-   `sql_container.excluded_path` : List of excluded indexing paths
+-   `sql_container.unique_key_path` : List of unique key paths for adding a data integrity layer
+-   `sql_container.enable_autoscale` : Whether to enable autoscaling - `true`, `false`
+-   `sql_container.included_sql_database_name` : Name of the SQL database where the container will be created
+
+#### Tags
+
+-   `tag` : Tags used to categorize resources - maximum 512 characters, `key`:`value`
+
+---
+
+## References
+
+-   [Azure Cosmos DB(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

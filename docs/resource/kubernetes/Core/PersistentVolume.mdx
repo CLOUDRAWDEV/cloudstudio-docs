@@ -1,19 +1,17 @@
 ---
 title: PersistentVolume
-sidebar_position: 0
+sidebar_position: 2
 tags: [Kubernetes, 리소스, Core, PersistentVolume]
 ---
 
-
 <hr />
 <br />
-
 
 ## 리소스 아이콘
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-persistent_volume.webp"
     }
 />
 
@@ -27,31 +25,28 @@ tags: [Kubernetes, 리소스, Core, PersistentVolume]
 
 -   [**Cluster**](https://docs.cstudio.app/docs/resource/kubernetes/Base/Cluster)
 
-
 ### 연결 리소스
 
 -   [**StorageClass**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/StorageClass)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Storage/PersistentVolumeClaim)
+-   [**Secret**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Secret)
 
 ## 리소스 설정 값
 
--   `service_name` : PersistentVolume 리소스 이름
--   `annotations` : 쿠버네티스 시스템에서 필요한 정보들을 표시해 주기 위해서 사용하는 key-value
--   `labels` : 객체를 구분하기 위해서 사용자가 임의로 원하는 값을 지정
--   `spec` : Persistent Volume의 구체적인 스펙을 정의
-    -   `spec.storage_class_name` : 사용할 storageclass 이름 지정
-    -   `spec.storage_capacity` : 사용할 storage 용량 설정
-    -   `spec.volume_driver` : 사용할 volume 드라이버 설정
-    -   `spec.volume_handle` : PV가 실제 스토리지 자원에 연결되는 식별자
-    -   `spec.persistent_volume_reclaim_policy` : 클레임에서 해제되었을 때 볼륨 회수 정책 - `retain`,`delete`,`recycle`
-    -   `spec.read_only` : Volume mounts에서 Readonly 설정을 강제할지 여부 - `false`,`true`
-    -   `spec.volume_attributes` : 사용할 볼륨의 속성을 지정
-    -   `spec.access_modes` : 볼륨을 마운트할 수 있는 방법을 지정 - `ReadOnlyMany`,`ReadWriteOnce`,`ReadWriteMany`
-    -   `spec.mount_options` : 추가 마운트 옵션 지정 
--   `node_stage_secret_ref` : 스토리지에 접근할 수 있는 사용자에 대한 인증이 담긴 쿠버네티스 시크릿을 지정
-    -   `node_stage_secret_ref.name` : 시크릿 이름 설정
-    -   `node_stage_secret_ref.namespace` : 시크릿이 있는 네임스페이스 설정
+#### 기본 설정
 
+-   `annotations` : Kubernetes 시스템 메타데이터
+-   `labels` : PV 식별 및 분류용 사용자 정의 라벨
+-   `spec.storage_class_name` : 사용할 StorageClass 이름
+-   `spec.storage_capacity` : 스토리지 용량
+-   `spec.volume_driver` : CSI 기반 볼륨 드라이버
+-   `spec.volume_handle` : 실제 스토리지 리소스 식별자
+-   `spec.persistent_volume_reclaim_policy` : 클레임 해제 시 볼륨 처리 정책 -`Retain / Delete / Recycle`
+-   `spec.read_only` : 볼륨 읽기 전용 여부
+-   `spec.volume_attributes` : 드라이버별 추가 볼륨 속성
+-   `spec.access_modes` : 볼륨 접근 방식 - `ReadOnlyMany, ReadWriteOnce, ReadWriteMany`
+-   `spec.mount_options` : 추가 마운트 옵션
+-   `node_stage_secret_ref` : 스토리지 접근 인증 정보가 담긴 Secret 참조
 
 ---
 

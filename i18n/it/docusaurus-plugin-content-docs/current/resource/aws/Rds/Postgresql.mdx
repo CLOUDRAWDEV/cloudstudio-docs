@@ -1,0 +1,76 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [AWS, Risorsa, Rds, Postgresql]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/rds-postgresql.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+L’utilizzo di PostgreSQL su Amazon RDS consente una gestione semplice ed efficiente del database, offrendo al tempo stesso un’elevata scalabilità.  
+RDS fornisce funzionalità di backup e ripristino automatici per prevenire la perdita di dati e garantisce la sicurezza dei dati grazie ai meccanismi di protezione offerti da AWS.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Vpc/Subnet)
+
+### Risorse collegate
+
+-   [**PostgreSQL**](https://docs.cstudio.app/it/docs/resource/aws/Rds/PostgreSQL)
+-   [**SecurityGroup**](https://docs.cstudio.app/it/docs/resource/aws/Vpc/SecurityGroup)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `database_name` : Nome iniziale del database - caratteri alfanumerici da `1` a `64`
+-   `engine_version` : Versione del motore PostgreSQL da utilizzare su RDS
+-   `instance_class` : Tipo di istanza del database RDS
+-   `storage_type` : Tipo di storage dell’istanza RDS - `gp2`, `io1`, `standard`
+-   `allocated_storage` : Capacità di storage RDS (GB) - `20` ~ `65536`
+-   `max_allocated_storage` : Limite massimo per l’espansione automatica dello storage
+-   `iops` : Numero di operazioni I/O al secondo supportate - `1000` ~ `40000`
+-   `multi_az_enabled` : Abilitazione del deployment Multi-AZ - `true`, `false`
+-   `username` : Nome utente amministratore RDS
+-   `password` : Password dell’utente amministratore RDS
+-   `publicly_accessible` : Abilitazione dell’accesso pubblico - `true`, `false`
+
+#### Configurazione di rete
+
+-   `included_subnet_names` : Elenco dei nomi delle subnet incluse nel Subnet Group RDS
+-   `subnet_group_name` : Nome del Subnet Group da utilizzare
+-   `linked_security_group_names` : Elenco dei Security Group applicati
+
+#### Configurazione di monitoraggio (`monitoring`)
+
+-   `monitoring.performance_insights_enabled` : Abilitazione di Performance Insights - `true`, `false`
+-   `monitoring.kms_key_name` : Nome della chiave KMS utilizzata per Performance Insights
+
+#### Configurazione della crittografia (`encryption`)
+
+-   `encryption.storage_encrypted` : Abilitazione della crittografia dello storage - `true`, `false`
+-   `encryption.kms_key_name` : Nome della chiave KMS da utilizzare per la crittografia
+
+#### Configurazione dei backup (`backup`)
+
+-   `backup.backup_retention_period` : Periodo di conservazione dei backup (giorni) - `1` ~ `35`
+-   `backup.final_snapshot_enabled` : Creazione dello snapshot finale prima dell’eliminazione del DB - `true`, `false`
+-   `backup.final_snapshot_name` : Nome dello snapshot finale
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria

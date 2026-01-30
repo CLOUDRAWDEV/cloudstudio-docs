@@ -1,7 +1,7 @@
 ---
-title: SourceDeployStage
-sidebar_position: 0
-tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
+title: SourcePipeline
+sidebar_position: 4
+tags: [Ncloud, Resource, DeveloperTool, SourcePipeline]
 ---
 
 <hr />
@@ -11,46 +11,74 @@ tags: [Ncloud, Resource, DeveloperTool, SourceDeployStage]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_deploy_stage.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/developer_tool-source_pipeline.webp"
     }
 />
 
 ## Resource Overview
 
-You can add, modify, or delete Deploy Stages in the SourceDeploy project you created, or create deployment targets for Deploy Stages that currently do not have any targets.
-
+A process automation service for fast and stable software releases by integrating SourceCommit, SourceBuild, and SourceDeploy services.
 
 ## Associated Resources
 
 ### Parent Resource
 
-### Child Resource
+-   [**Region**](https://docs.cstudio.app/en/docs/resource/ncloud/Base/Region)
 
+### Child Targets
 
-
-## Resource Setting Values
-
--   `included_source_deploy_name` : The name of Sourcedeploy project
--   `target_type` : The type of deploy target - `Server`,`AutoScalingGroup`,`KubernetesService`,`ObjectStorage`
--   `linked_server_list` : The list of server name to use
--   `included_subnet_names` : The list of Subnet names to configure the Cluster, Up to 3
--   `scenario` : Scenario to run deployment environment
-    -   `deploy_scenario_description` : Source deploy project description
-    -   `deploy_scenario_strategy` : Deployment strategy - `normal`,`blueGreen`,`rolling`,`canary`
-    -   `deploy_scenario_file_type` : File type of scenario - `SourceBuild`,`ObjectStorage`,`later`
-    -   `linked_source_build_project` : The name of Source Biuld project
-    -   `rollback` : Whether to use rollback on deployment failure
-    -   `pre_deploy_user` : Account used for pre-deployment execution
-    -   `pre_deploy_command` : Command executed before deployment
-    -   `source_path_command` : Path to the source files to be deployed
-    -   `deploy_path_command` : Path where the files will be deployed
-    -   `post_deploy_user` : Account used for post-deployment execution
-    -   `post_deploy_command` : Command executed after deployment
-  
+-   [**SourceBuild**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceBuild)
+-   [**SourceCommit**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceCommit)
+-   [**SourceDeploy**](https://docs.cstudio.app/en/docs/resource/ncloud/DeveloperTool/SourceDeploy)
 
 ---
 
-## Reference Materials
+## Resource Configuration
 
--   [Source Deploy Stage(Ncloud)](https://www.ncloud.com/product/devTools/sourceDeploy)
--   [ncloud_source_deploy_stage(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcedeploy_project_stage)
+#### Basic Settings
+
+-   `description` : Pipeline project description to create - up to 500 characters
+
+#### Default Task (`default_task`)
+
+-   `default_task.name` : Name of the first task executed by the pipeline - letters/numbers/`-`/`_`, 1~50 characters
+-   `default_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `default_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `default_task.target_source_deploy_project` : Name of the SourceDeploy project to link
+-   `default_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `default_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `default_task.repository_branch` : Repository branch name targeted by the SourceBuild task
+
+#### Additional Tasks (`additional_task`)
+
+-   `additional_task.type` : Task type - `SourceBuild`, `SourceDeploy`
+-   `additional_task.target_source_build_project` : Name of the SourceBuild project to link
+-   `additional_task.target_source_deploy_project` : Name of the SourceDeploy project to link
+-   `additional_task.target_source_deploy_project_stage` : Stage name of the SourceDeploy project
+-   `additional_task.target_source_deploy_project_scenario` : Scenario name of the SourceDeploy project
+-   `additional_task.repository_branch` : Repository branch name targeted by the SourceBuild task
+-   `additional_task.pre_tasks` : List of prerequisite tasks to execute first
+
+#### Push Trigger (`trigger_push_repository`)
+
+-   `trigger_push_repository.type_of_repository` : Repository type used for the trigger - `sourcecommit`
+-   `trigger_push_repository.name_of_repository` : Repository name used for the trigger
+-   `trigger_push_repository.branch_of_repository` : Repository branch name used for the trigger
+
+#### Schedule Trigger (`trigger_schedule`)
+
+-   `trigger_schedule.day` : Scheduled deployment day - `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
+-   `trigger_schedule.time` : Scheduled deployment time
+-   `trigger_schedule.timezone` : Scheduled deployment time zone
+-   `trigger_schedule.execute_only_with_change` : Whether to execute only when the pipeline or SourceCommit changes - `true`, `false`
+
+#### Pipeline Chaining (`trigger_target_sourcecpipeline_id`)
+
+-   `trigger_target_sourcecpipeline_id` : List of pipeline IDs to automatically execute after the current pipeline completes
+
+---
+
+## References
+
+-   [Source Pipeline(Ncloud)](https://www.ncloud.com/product/devTools/sourcePipeline)
+-   [Source Pipeline Project(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/sourcepipeline_project)

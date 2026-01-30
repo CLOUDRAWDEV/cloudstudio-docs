@@ -1,6 +1,6 @@
 ---
 title: CloudfrontCachePolicy
-sidebar_position: 0
+sidebar_position: 1
 tags: [AWS, Resource, Cloudfront, CloudfrontCachePolicy]
 ---
 
@@ -11,35 +11,50 @@ tags: [AWS, Resource, Cloudfront, CloudfrontCachePolicy]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudfront-cloudfront_cache_policy.webp"
     }
 />
 
 ## Resource Overview
 
-A CloudFront Cache Policy is a cache policy that defines the caching behavior settings for a CloudFront distribution. 
-It allows for customization of how CloudFront handles caching.
+CloudFront Cache Policy is a cache policy that configures CloudFront customization by associating cache behavior with a CloudFront distribution.
 
 ## Associated Resources
 
 ### Parent Resources
 
--   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base)
+-   [**Base**](https://docs.cstudio.app/en/docs/resource/aws/Base/Base)
 
 ### Connected Resources
 
 -   [**CloudfrontDistribution**](https://docs.cstudio.app/en/docs/resource/aws/Cloudfront/CloudfrontDistribution)
 
-## Resource Setting Values
+---
 
--   `min_ttl` : Minimum amount of time, in seconds, that objects should remain in the CloudFront cache
--   `max_ttl` : Maximum amount of time, in seconds, that objects stay in the CloudFront cache
--   `default_ttl` : Default amount of time, in seconds, that objects stay in the CloudFront cache
--   `cookie_behavior` : Whether to forward cookies to the origin server - `whitelist`, `all`, `none`, `allExcept`
--   `header_behavior` : Whether to cache objects based on the values of specified headers - `whitelist`, `none`
--   `query_string_behavior` : Whether to cache different versions of content based on query string parameter values - `whitelist`, `all`, `none`, `allExcept`
+## Resource Configuration
 
-## Reference Materials
+#### Basic Settings
+
+-   `min_ttl` : Minimum time (seconds) that objects remain in the cache
+-   `default_ttl` : Default time (seconds) that objects remain in the cache
+-   `max_ttl` : Maximum time (seconds) that objects remain in the cache
+
+#### Cookie Settings (`cookie_config`)
+
+-   `cookie_behavior` : Cookie forwarding behavior - `whitelist`, `all`, `none`, `allExcept`
+-   `cookies_items` : List of cookies to forward to the origin
+
+#### Header Settings (`header_config`)
+
+-   `header_behavior` : Header-based caching behavior - `whitelist`, `none`
+-   `headers_items` : List of headers to use for caching
+
+#### Query String Settings (`query_string_config`)
+
+-   `query_string_behavior` : Query string handling behavior - `whitelist`, `all`, `none`, `allExcept`
+-   `query_strings_items` : List of query string parameters to use for caching
+
+## References
 
 -   [Amazon CloudFront Cache Policy(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 -   [Amazon CloudFront Cache Policy(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_cache_policy)

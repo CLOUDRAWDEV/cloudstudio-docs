@@ -1,0 +1,47 @@
+---
+title: OpensearchServerlessCollection
+sidebar_position: 0
+tags: [AWS, OpenSearch, Serverless, OpensearchServerlessCollection, Search]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/opensearch-opensearch_serverless_collection.webp" />
+
+## 리소스 개요
+
+인프라 관리 없이 자동으로 확장되는 OpenSearch 클러스터 환경에서 데이터를 저장·검색할 수 있도록 하는 서버리스 형태의 OpenSearch 인덱스 그룹입니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Region**](https://docs.cstudio.app/docs/resource/aws/Base/Region)
+
+### 연결 리소스
+
+-   [**ResourceShareAccepter**](https://docs.cstudio.app/docs/resource/aws/Ram/ResourceShareAccepter)
+
+## 리소스 설정 값
+
+#### 기본 설정
+
+-   `shared_resource_types` : 공유할 리소스 유형 목록
+-   `transit_gateway_names` : 공유할 Transit Gateway 이름 목록
+-   `resource_arns` : 공유할 리소스 ARN 목록
+-   `enabled_allow_external_principals` : 외부 AWS 계정에 대한 공유 허용 여부 - `true`, `false`
+-   `principal_arns` : 공유를 허용할 보안 주체 ARN 또는 AWS 계정 ID 목록
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그 - 최대 512자, `key`:`value`
+
+---
+
+## 참고 자료
+
+-   [Amazon OpenSearch Serverless (AWS)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html)
+-   [Creating collections (OpenSearch Serverless) (AWS)](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-manage.html)

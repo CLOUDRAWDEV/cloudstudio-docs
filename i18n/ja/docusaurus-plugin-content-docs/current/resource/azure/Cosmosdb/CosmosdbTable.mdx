@@ -1,7 +1,7 @@
 ---
 title: CosmosdbTable
 sidebar_position: 4
-tags: [Azure, リソース, Cosmosdb, CosmosdbTable]
+tags: [Azure, CosmosdbTable, CosmosDB, Table, Database]
 ---
 
 <hr />
@@ -11,62 +11,67 @@ tags: [Azure, リソース, Cosmosdb, CosmosdbTable]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_table.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_table.webp"
     }
 />
 
 ## リソース概要
 
-Cosmos DB Table API は、Microsoft の Azure プラットフォームが提供する NoSQL データベースサービスで  
-これにより、開発者はテーブルをデフォルトのデータ ストレージの概念として使用し、膨大な量の半定型または定型データを保存およびクエリできます。
-Cosmos DB Table API は、自動インデックス作成、グローバルデプロイ、高可用性などの機能をサポートするため、IoT 遠隔測定、ゲーム順位表などの様々な使用事例に適しています。
+Azure Cosmos DB Table API は、インデックスを個別に管理することなく自動インデックスを利用できる高可用性の Table API です。  
+グローバル分散、自動フェールオーバー、バックアップ、一貫性ポリシーなどを通じて、拡張性と安定性を提供します。
+
+## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+
+### 接続リソース
+
+-   [**Private EndPoint**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PrivateEndpoint)
+
+---
 
 ## リソース設定値
 
--   `capabilities_list` : 使用する Cosmos DB の API リスト - `EnableServerless`, `EnableAggregationPipeline`
+#### 基本設定
 
--   `enable_multiple_write_locations` : 世界中のデータベースとコンテナに対してプロビジョニングされたスループットを活用するためのマルチゾーン書き込みを活性化 - `true`, `false`
+-   `capabilities_list` : 使用する Cosmos DB の API 一覧
+-   `enable_multiple_write_locations` : 複数リージョン書き込みの有効化 여부 - `true`, `false`
+-   `public_network_access_enabled` : 公開 IP アドレスまたはサービスエンドポイント経由でアカウントへの公開接続を有効化 - `true`, `false`
+-   `enable_automatic_failover` : 自動フェールオーバーの有効化 - `true`, `false`
+-   `virtual_network_filter_enabled` : 特定の仮想ネットワーク Subnet のみがアカウントにアクセスできるようフィルターを有効化 - `true`, `false`
+-   `network_acl_bypass_for_azure_services` : Azure サービスに対する ACL バイパスの有効化 - `true`, `false`
 
--   `public_network_access_enabled` : パブリック IP アドレスまたはサービス エンドポイントを介して公開的にアカウントへの接続を活性化 - `true`, `false`
+#### リージョン設定（`geo_location`）
 
--   `enable_automatic_failover` : 自動フェイルオーバーを活性化 - `true`, `false`
+-   `geo_location.failover_priority` : リージョンのフェールオーバー優先順位
+-   `geo_location.zone_redundant` : 障害対策として自動的にゾーン冗長を有効化 - `true`, `false`
 
--   `virtual_network_filter_enabled` : 仮想ネットワーク上の特定 Subnet のみがアカウントにアクセスできるようにフィルタを活性化 - `true`, `false`
+#### 一貫性ポリシー（`consistency_policy`）
 
--   `network_acl_bypass_for_azure_services` : Azure サービスの ACL bypass を活性化 - `true`, `false`
+-   `consistency_policy.consistency_level` : データベースの可用性およびパフォーマンスを設定する一貫性レベル
+-   `consistency_policy.max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合に許容される最大遅延時間（秒）
+-   `consistency_policy.max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合に許容される最大 Stale リクエスト数
 
--   `geo_location`
+#### バックアップ設定（`backup`）
 
-    -   `failover_priority` : リージョンのフェイルオーバー処理優先順位 - `0`~ `0`
-    -   `zone_redundant` : エラーに備えて自動的に zone 複製を許容 - `true`~ `false`
+-   `backup.type` : バックアップポリシーの種類 - `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : バックアップ実行間隔（分） - `60` ~ `1440`
+-   `backup.retention_in_hours` : バックアップ保持期間（時間） - `8` ~ `720`
 
--   `consistency_policy`
+#### テーブル設定（`table`）
 
-    -   `consistency_level` : データベースの可用性と性能設定のための Cassandra DB の一貫性レベル - `Eventual`, `Session`, `Strong`, `ConsistentPrefix`, `BoundedStaleness`
-    -   `max_interval_in_seconds` : 一貫性レベルが Bounded Staleness の場合、許容される Staleness 時間(秒) - `5`~ `86400`
-    -   `max_staleness_prefix` : 一貫性レベルが Bounded Staleness の場合、許容される最大 Stale Request 数 - `10`~`2147483647`
+-   `table.throughput` : Cosmos DB テーブルのスループット - `400` ~ `1000000`
+-   `table.enable_autoscale` : 自動スケーリングの有効化 여부 - `true`, `false`
 
--   `backup`
+#### タグ
 
-    -   `type` : バックアップ ポリシー タイプ - `Continuous`, `Periodic`
-    -   `interval_in_minutes` : バックアップを実行する毎分の頻度、60 ~ 1440 の範囲 - `60`~ `1440`
-    -   `retention_in_hours` : バックアップを保存する期間(時間)、8~720 の範囲 - '8'~'720'
-
--   `table`
-
-    -   `throughput` : Cosmos DB SQL データベースの処理量 - `400`~ `1000000`
-    -   `enable_autoscale` : Cassandra キースペースに autoscaling を適用するかどうか - `true`, `false`
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `tag` : リソースをカテゴリ別に分類するためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure Cosmosdb(Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/introduction)
--   [Azure Cosmosdb 価格](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/)
--   [Azure Cosmosdb(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account)
+-   [Azure Cosmos DB（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB Table API（Microsoft）](https://learn.microsoft.com/ko-kr/azure/cosmos-db/table/introduction)

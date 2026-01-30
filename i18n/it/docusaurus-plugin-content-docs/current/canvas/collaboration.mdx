@@ -1,0 +1,104 @@
+---
+title: Collaborazione
+sidebar_position: 7
+tags: [Collaboration, Collaborazione, Autorizzazioni, Controllo, Canvas]
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+import collaboration01 from "./img/collaboration01.png"
+import collaboration02 from "./img/gif/collaboration02.gif"
+import collaboration03 from "./img/gif/collaboration03.gif"
+
+<hr />
+<br />
+
+Cloud Studio offre la funzione di aggiungere membri al progetto per consentire la `collaborazione`.
+Per collaborare, prima devi creare un progetto. Puoi trovare le istruzioni per creare un progetto [qui](/docs/start/create-project.mdx).
+Il membro che crea il progetto avrà il permesso `master` e potrà condividere lo schermo del progetto con i membri invitati, nonché modificarlo.
+
+## Aggiungere e rimuovere membri per la collaborazione
+
+### Aggiungere membri
+
+<div className={styles.imgWrap}>
+    <img src={collaboration02} width="800px" alt="Immagine" />
+</div>
+
+<br />
+
+1. Clicca sul `progetto` con cui desideri collaborare.
+2. Clicca sull'`icona dell'utente`.
+3. Quando appare la finestra modale dei membri del progetto, cerca l'`ID` del membro che desideri aggiungere.
+4. Dopo aver trovato l'utente, assegna le `autorizzazioni` e clicca su `Aggiungi alla lista`. (Puoi aggiungere più membri).
+5. Dopo aver aggiunto tutti i membri desiderati, clicca su `Aggiungi membro`.
+6. Clicca su `Chiudi`. (Una volta aggiunto un membro al progetto, riceverà un invito via e-mail).
+
+<br />
+
+### 멤버 삭제
+
+<div className={styles.imgWrap}>
+    <img src={collaboration03} alt="Immagine" />
+</div>
+
+<br />
+
+1. Clicca sul `progetto` con cui desideri collaborare.
+2. Clicca sulla `freccia` per visualizzare i dettagli del membro.
+3. Clicca sull'`icona delle impostazioni` e seleziona `Altro`.
+4. Clicca su `Rimuovi`.
+
+<br />
+
+### Autorizzazioni del progetto
+
+| Autorizzazione del progetto | Descrizione                                                                                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| master                      | Il creatore del progetto ha il permesso di leggere, modificare, eliminare, importare, distribuire il progetto e invitare membri per condividerlo. |
+| admin                       | Può leggere, modificare, importare e distribuire il progetto, ma non può eliminarlo.                                                              |
+| editor                      | Può leggere e modificare il progetto, ma non può fare altre azioni.                                                                               |
+| viewer                      | Può solo leggere il progetto.                                                                                                                     |
+
+<br />
+
+## Collaborare
+
+1. Dopo che il master ha aggiunto membri al progetto, un'email di invito verrà inviata ai membri, e il progetto condiviso apparirà nella `cartella condivisa` di Cloud Studio.
+2. Per collaborare, clicca sul progetto condiviso e poi clicca su `Modifica progetto`.
+3. Ora puoi modificare il canvas liberamente con i membri del team.
+
+<br />
+
+### Controllo del Canvas
+
+Per modificare il canvas, oltre alle autorizzazioni del progetto, è necessario avere il `controllo del canvas`.
+Di base, solo una persona può modificare il canvas, e inizialmente il controllo del canvas è assegnato al `master`.
+Il master può delegare il controllo del canvas a un altro membro.
+
+<p />
+
+Un membro che non ha il controllo del canvas può inviare una <highlight color="#206FD6">richiesta di controllo</highlight> al membro che ha attualmente il controllo. Se l'altro membro accetta la richiesta, il controllo del canvas verrà trasferito.
+
+<admonition>
+    <p>
+        Tuttavia, il master può acquisire immediatamente il controllo del canvas
+        senza la necessità di una richiesta, indipendentemente dalla volontà
+        dell'altro.
+    </p>
+</admonition>
+
+<p />
+
+Il controllo del canvas viene trasferito automaticamente al prossimo utente in caso di
+abbandono del master dal progetto, seguendo questo ordine: `master → admin → editor`. (I viewer non hanno diritti di modifica, quindi sono esclusi.)
+
+<br />
+
+Per trasferire il controllo del canvas, segui i `passaggi seguenti`:
+
+1. Fai clic con il tasto destro sul profilo del membro a cui desideri trasferire il controllo.
+2. Clicca su `Trasferisci controllo`.
+
+<div className={styles.imgWrap}>
+    <img src={collaboration01} alt="Immagine di trasferimento controllo" />
+</div>

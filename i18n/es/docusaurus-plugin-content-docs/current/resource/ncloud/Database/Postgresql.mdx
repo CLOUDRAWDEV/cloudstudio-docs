@@ -1,0 +1,59 @@
+---
+title: Postgresql
+sidebar_position: 5
+tags: [Ncloud, Recurso, Database, Postgresql]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-postgresql.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+PostgreSQL es una **base de datos relacional de código abierto (RDBMS)**.  
+En Ncloud se ofrece como un servicio de base de datos completamente gestionado que incluye alta disponibilidad (HA), automatización de respaldos y cifrado de almacenamiento.  
+Permite construir fácilmente entornos PostgreSQL sin configuraciones de infraestructura complejas.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `server_name_prefix` : Nombre del servidor PostgreSQL (letras minúsculas, números y guiones permitidos; comienza con letra minúscula y termina con letra minúscula o número; 3~30 caracteres)
+-   `included_vpc_name` : Nombre del VPC que incluye PostgreSQL
+-   `included_subnet_name` : Nombre del Subnet que incluye PostgreSQL
+-   `enable_high_availability` : Uso de alta disponibilidad - `true`, `false`
+-   `user_name` : ID de acceso del usuario PostgreSQL
+-   `user_password` : Contraseña del usuario PostgreSQL
+-   `image_product_code` : Código del producto de imagen del servidor PostgreSQL
+-   `product_code` : Código del producto del servidor PostgreSQL
+-   `data_storage_type` : Tipo de almacenamiento de datos - `SSD`, `HDD`
+-   `is_backup` : Uso de respaldo - `true`, `false`
+-   `backup_file_retention_period` : Periodo de retención de archivos de respaldo (en días) - `1` ~ `30`
+-   `enable_automatic_backup` : Uso de respaldo automático - `true`, `false`
+-   `backup_time` : Hora de respaldo definida por el usuario
+-   `port` : Puerto de acceso PostgreSQL
+-   `client_cidr` : Rango de direcciones IP asignadas a clientes
+-   `database_name` : Nombre de la base de datos inicial
+-   `enable_storage_encryption` : Uso de cifrado de almacenamiento - `true`, `false`
+
+---
+
+## Referencias
+
+-   [Base de datos PostgreSQL(Ncloud)](https://www.ncloud.com/product/database/cloudDbPostgresql)
+-   [Base de datos PostgreSQL(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/postgresql)

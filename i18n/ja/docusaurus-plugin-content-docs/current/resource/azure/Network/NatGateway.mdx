@@ -1,7 +1,7 @@
 ---
 title: NatGateway
-sidebar_position: 4
-tags: [Azure, リソース, Network, NatGateway]
+sidebar_position: 3
+tags: [Azure, Network, NatGateway]
 ---
 
 <hr />
@@ -11,15 +11,15 @@ tags: [Azure, リソース, Network, NatGateway]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-nat_gateway.webp"
     }
 />
 
 ## リソース概要
 
-で提供する管理型ネットワーキングサービスで、ソース IP アドレスを非表示にした状態で VNet（仮想ネットワーク）内のリソースがインターネットにアクセスできるようにします。
-Azure NAT Gateway を使用して、個人の IP アドレスをインターネットに露出することなく、VNet 内のリソースにインターネット接続を提供することができます。これにより、インターネットからリソースに直接アクセスするのを防ぎ、セキュリティを改善するのに役立ちます。
-また、VNet 内のリソースにアクセスするために必要なパブリック IP アドレスの数を減らすのに役立ちます。
+NAT Gateway は、Virtual Network 内の 1 つ以上の Subnet に対して **アウトバウンド（Outbound）インターネット接続** を提供するリソースです。  
+Subnet に関連付けると、その Subnet 内のリソースは指定された Public IP を通じて外部と通信し、インバウンド（Inbound）の公開エンドポイントは提供されません。  
+アイドル（Idle）接続のタイムアウトを調整することで、長時間の接続を維持したり、不要な接続を迅速に解放したりすることができます。
 
 ## 関連リソース
 
@@ -29,23 +29,21 @@ Azure NAT Gateway を使用して、個人の IP アドレスをインターネ�
 
 ### 接続リソース
 
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
--   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+---
 
 ## リソース設定値
 
--   `linked_subnet_name` : Nat Gateway を接続する Subnet の名前
-
--   `linked_public_ip_name` : Nat Gateway に接続する Public Ip の名前
-
--   `idle_timeout_in_minutes` : NatGateway でアイドル状態の流れを除去する時間制限(分) - `4`~ `120`
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `linked_subnet_names` : Nat Gateway を関連付ける Subnet の名前
+-   `linked_public_ip_name` : Nat Gateway に関連付ける Public IP の名前
+-   `idle_timeout_in_minutes` : Nat Gateway におけるアイドル フローを削除するまでのタイムアウト（分） - `4` ~ `120`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure NatGateway(Microsoft)](https://learn.microsoft.com/en-us/azure/virtual-network/nat-gateway/nat-overview)
--   [Azure NatGateway 価格](https://azure.microsoft.com/en-us/pricing/details/virtual-network/)
--   [Azure NatGateway(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway)
+-   [Azure NAT Gateway の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/virtual-network/nat-gateway/nat-overview)
+-   [Load Balancer のアウトバウンド接続と NAT Gateway（Microsoft）](https://learn.microsoft.com/ko-kr/azure/load-balancer/load-balancer-outbound-connections)

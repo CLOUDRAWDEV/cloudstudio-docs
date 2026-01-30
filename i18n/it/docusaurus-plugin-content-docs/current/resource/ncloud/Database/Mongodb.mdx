@@ -1,0 +1,78 @@
+---
+title: Mongodb
+sidebar_position: 2
+tags: [Ncloud, Resource, Database, Mongodb]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/database-mongodb.webp"
+    }
+/>
+
+## Resource Overview
+
+Cloud DB for MongoDB allows you to easily build and automatically manage MongoDB databases.  
+It is a fully managed cloud database service that operates stably with Naver’s optimized settings and provides automatic recovery in case of failures.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Subnet**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Subnet)
+
+---
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `server_name_prefix` : MongoDB server name (lowercase letters, numbers, hyphens allowed; must start with a lowercase letter and end with a lowercase letter or number; 3–15 characters)
+-   `user_name` : MongoDB user access ID
+-   `user_password` : MongoDB user password
+-   `included_vpc_name` : Name of the VPC where MongoDB is located
+-   `included_subnet_name` : Name of the Subnet where MongoDB is located
+-   `cluster_type_code` : MongoDB cluster type code - `clusterTypeCode`
+-   `shard_count` : Number of MongoDB shards - `2`, `3`
+-   `image_product_code` : MongoDB version image product code - `imageProductCode`
+-   `backup_file_retention_period` : Backup retention period in days - `1` ~ `30`
+-   `backup_time` : User-defined backup time
+-   `data_storage_type` : Data storage type - `SSD`, `HDD`
+-   `compress_code` : MongoDB data compression algorithm - `SNPP`, `ZLIB`, `ZSTD`, `NONE`
+
+#### MongoDB Member (`member`)
+
+-   `member.member_port` : TCP port for MongoDB Member access - `10000` ~ `65535`
+-   `member.member_product_code` : MongoDB Member server product code
+-   `member.member_server_count` : Number of MongoDB Member servers - `3` ~ `7`
+
+#### MongoDB Arbiter (`arbiter`)
+
+-   `arbiter.arbiter_server_count` : Number of MongoDB Arbiter servers - `0`, `1`
+-   `arbiter.arbiter_product_code` : MongoDB Arbiter server product code
+
+#### MongoDB Mongos (`mongos`)
+
+-   `mongos.mongos_port` : TCP port for MongoDB Mongos access - `10000` ~ `65535`
+-   `mongos.mongos_product_code` : MongoDB Mongos product code
+-   `mongos.mongos_server_count` : Number of MongoDB Mongos servers - `2` ~ `5`
+
+#### MongoDB Config (`config`)
+
+-   `config.config_port` : TCP port for MongoDB Config server access - `10000` ~ `65535`
+-   `config.config_product_code` : MongoDB Config server product code
+-   `config.config_server_count` : Number of MongoDB Config servers - `3` ~ `7`
+
+---
+
+## References
+
+-   [MongoDB Database(Ncloud)](https://www.gov-ncloud.com/v2/product/database/cloudDbCache)
+-   [MongoDB Database(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/mongodb)

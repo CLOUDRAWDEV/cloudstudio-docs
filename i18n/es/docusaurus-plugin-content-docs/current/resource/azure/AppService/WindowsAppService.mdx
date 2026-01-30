@@ -1,0 +1,60 @@
+---
+title: WindowsAppService
+sidebar_position: 2
+tags: [Azure, AppService, WindowsAppService]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-windows_app_service.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Windows App Service es un servicio basado en HTTP que permite alojar aplicaciones web, API REST y backends móviles en un entorno basado en Windows.  
+Se ejecuta en conjunto con un App Service Plan y proporciona un entorno operativo de aplicaciones estable y escalable mediante la configuración de autenticación, la gestión de registros, la integración de red y la configuración de protocolos de seguridad.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Resource Group**](https://docs.cstudio.app/es/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/es/docs/resource/azure/Network/Subnet)
+
+---
+
+## Valores de configuración del recurso
+
+-   `linked_service_plan_name` : Nombre del Service Plan que se aplicará al App Service
+
+-   `delegated_subnet_name` : Nombre de la Subnet para la delegación de la red virtual
+
+-   `auth_settings_enabled` : Indica si se habilita la autenticación para que todas las comunicaciones de la aplicación estén autenticadas – `true`, `false`
+
+-   `detailed_error_messages_enabled` : Indica si se incluyen mensajes de error detallados en la página de error cuando se producen errores HTTP – `true`, `false`
+
+-   `failed_request_tracing_enabled` : Indica si se habilita el registro de información detallada de seguimiento para solicitudes fallidas – `true`, `false`
+
+-   `retention_in_days` : Número de días de retención de los registros relacionados con las solicitudes HTTP – `0` ~ `99999`
+
+-   `retention_in_mb` : Capacidad de almacenamiento (MB) para conservar los registros relacionados con las solicitudes HTTP – `25` ~ `100`
+
+-   `ftps_state` : Indica si se aplica TLS/SSL al usar FTP – `Disabled`, `FtpsOnly`, `AllAllowed`
+
+-   `http2_enabled` : Indica si se utiliza el protocolo HTTP más reciente (HTTP/2) – `true`, `false`
+
+-   `tag` : Etiquetas para clasificar el recurso – hasta 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Azure App Service (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/)
+-   [Azure Windows Web App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/app-service/quickstart-nodejs)
+-   [Azure Windows Web App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app)

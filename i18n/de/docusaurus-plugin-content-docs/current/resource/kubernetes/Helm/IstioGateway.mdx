@@ -1,0 +1,43 @@
+---
+title: IstioGateway
+sidebar_position: 5
+tags: [Kubernetes, Ressource, Helm, IstioGateway]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/helm-istio_gateway.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Ein Helm-Chart für Istio Gateway.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Namespace**](https://docs.cstudio.app/de/docs/resource/kubernetes/Core/Namespace)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `namespace` : Namespace, in dem die Istio-Gateway-Helm-Chart-Ressource bereitgestellt wird
+-   `version` : Version des zu verwendenden Istio-Ingress-Helm-Charts
+-   `set` : Key-Value-Einstellungen zur dynamischen Änderung der Standardwerte des Istio-Ingress-Helm-Charts
+
+---
+
+## Referenzen
+
+-   [Helm-Installation(Istio Gateway)](https://artifacthub.io/packages/helm/istio-official/gateway)
+-   [Helm Provider(Terraform)](https://registry.terraform.io/providers/hashicorp/helm/latest/docs)

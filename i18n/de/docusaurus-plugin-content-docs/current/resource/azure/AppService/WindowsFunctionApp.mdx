@@ -1,0 +1,62 @@
+---
+title: WindowsFunctionApp
+sidebar_position: 4
+tags: [Azure, FunctionApp, LinuxFunctionApp]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/app_service-windows_function_app.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Windows Function App ist ein vollständig verwalteter Function-App-Dienst, der die Ausführung ereignisgesteuerten, serverlosen Codes in einer Windows-Umgebung ermöglicht.  
+Code kann auf Basis verschiedener Trigger wie HTTP-Anfragen, Timer, Nachrichtenwarteschlangen oder Ereignisstreams ausgeführt werden, sodass Sie sich ohne Infrastrukturverwaltung ausschließlich auf die Anwendungslogik konzentrieren können.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/azure/Network/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**Service Plan**](https://docs.cstudio.app/de/docs/resource/azure/AppService/ServicePlan)
+
+---
+
+## Ressourcenkonfiguration
+
+-   `linked_service_plan_name` : Name des Service Plans, in dem die Function App ausgeführt wird
+
+-   `delegated_subnet_name` : Name des Subnetzes für die Delegierung im virtuellen Netzwerk
+
+-   `target_storage_account_name` : Name des Speicherkontos zum Ablegen von Dateien, Protokollen und Metadaten, die für die Ausführung der Function App erforderlich sind
+
+-   `https_only` : Gibt an, ob ausschließlich HTTPS-Zugriffe für verschlüsselte und authentifizierte Verbindungen zugelassen sind – `true`, `false`
+
+-   `auth_settings_enabled` : Gibt an, ob Authentifizierungs- und Autorisierungsfunktionen für die Function App aktiviert sind – `true`, `false`
+
+-   `http2_enabled` : Gibt an, ob das HTTP/2-Protokoll verwendet wird – `true`, `false`
+
+-   `target_content_safety_name` : Name der zu integrierenden Azure Content Safety-Ressource
+
+-   `target_ai_service_name` : Name der zu integrierenden Azure AI Service-Ressource
+
+-   `target_search_service_name` : Name der zu integrierenden Azure Search Service-Ressource
+
+<hr />
+
+## Referenzen
+
+-   [Azure Functions (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-overview)
+-   [Azure Windows Function App (Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-functions/functions-create-function-app-portal)
+-   [Azure Windows Function App (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app)

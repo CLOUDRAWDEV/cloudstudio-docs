@@ -1,0 +1,54 @@
+---
+title: Cluster
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Base, Cluster]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/base-cluster.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Consente di selezionare un Cluster collegato alle credenziali utente.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Base**](https://docs.cstudio.app/it/docs/resource/kubernetes/Base/Base)
+
+### Risorse figlie
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+-   [**PersistentVolume**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/PersistentVolume)
+-   [**ClusterIssuer**](https://docs.cstudio.app/it/docs/resource/kubernetes/Manifest/ClusterIssuer)
+-   [**IngressClass**](https://docs.cstudio.app/it/docs/resource/kubernetes/Networking/IngressClass)
+-   [**ClusterRole**](https://docs.cstudio.app/it/docs/resource/kubernetes/RBAC/ClusterRole)
+-   [**ClusterRoleBinding**](https://docs.cstudio.app/it/docs/resource/kubernetes/Rbac/ClusterRoleBinding)
+-   [**StorageClass**](https://docs.cstudio.app/it/docs/resource/kubernetes/Storage/StorageClass)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `target_cluster` : Selezione del cluster Kubernetes Ncloud da collegare
+-   `token` : Token di autenticazione utilizzato per la connessione al servizio Ncloud Kubernetes
+
+---
+
+## Riferimenti
+
+-   [Panoramica del cluster Kubernetes (Kubernetes)](https://kubernetes.io/docs/concepts/architecture/)
+-   [Autenticazione Kubernetes (Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)
+-   [Configurazione del cluster kubectl (kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-cluster/)
+-   [Configurazione credenziali utente kubectl (kubectl)](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_config_set-credentials/)

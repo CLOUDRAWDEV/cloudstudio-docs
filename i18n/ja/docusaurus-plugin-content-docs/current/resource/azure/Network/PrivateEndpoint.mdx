@@ -1,60 +1,64 @@
 ---
 title: PrivateEndpoint
-sidebar_position: 8
-tags: [Azure, リソース, Network, PrivateEndpoint]
+sidebar_position: 5
+tags: [Azure, Network, PrivateEndpoint]
 ---
 
 <hr />
-<br />
+<br />ㅇ
 
 ## リソースアイコン
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-private_endpoint.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-private_endpoint.webp"
     }
 />
 
 ## リソース概要
 
-Azure Private Endpoint は仮想ネットワークで非公開で Azure サービス(例:Azure Storage、Azure SQL Database、および Azure Cosmos DB)にアクセスできるようにする Azure の機能です。
-これにより、インターネットではなく仮想ネットワークのプライベートエンドポイントを介して、これらのサービスに安全にアクセスできます。
-Azure プライベートエンドポイントを使用すると、アクセスするサービスが仮想ネットワークのプライベート IP アドレスにマッピングされ、仮想ネットワークとサービス間のトラフィックがプライベートリンクを通じてルーティングされます。
-これにより、トラフィックが仮想ネットワークの境界内に保持され、パブリック インターネットにさらされることはありません。
+Private Endpoint は、パブリック IP アドレスを使用せずに、Virtual Network 内から Azure サービスへ **プライベート接続（Private Link）** を提供するネットワークリソースです。  
+サービス エンドポイントは Subnet に割り当てられた Private IP を通じて公開され、インターネットを経由しない安全な通信経路を構成できます。  
+Private DNS Zone と連携することで、サービスの FQDN を内部ネットワーク内で自然に名前解決できるように構成できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
+-   [**Linux App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/LinuxAppService)
+-   [**Windows App Service**](https://docs.cstudio.app/ja/docs/resource/azure/AppService/WindowsAppService)
 -   [**Container Registry**](https://docs.cstudio.app/ja/docs/resource/azure/Container/ContainerRegistry)
--   [**Mysql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Mysql)
--   [**Mssql Database**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlDatabase)
--   [**Postgresql**](https://docs.cstudio.app/ja/docs/resource/azure/Database/Postgresql)
--   [**Key Vault**](https://docs.cstudio.app/ja/docs/resource/azure/KeyVault)
--   [**Application Gateway**](https://docs.cstudio.app/ja/docs/resource/azure/Network/ApplicationGateway)
+-   [**Cosmosdb Cassandra**](https://docs.cstudio.app/ja/docs/resource/azure/Cosmosdb/CosmosdbCassandra)
+-   [**Cosmosdb Gremlin**](https://docs.cstudio.app/ja/docs/resource/azure/Cosmosdb/CosmosdbGremlin)
+-   [**Cosmosdb Mongo**](https://docs.cstudio.app/ja/docs/resource/azure/Cosmosdb/CosmosdbMongo)
+-   [**Cosmosdb Sql**](https://docs.cstudio.app/ja/docs/resource/azure/Cosmosdb/CosmosdbSql)
+-   [**Cosmosdb Table**](https://docs.cstudio.app/ja/docs/resource/azure/Cosmosdb/CosmosdbTable)
+-   [**Mssql Server**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MssqlServer)
+-   [**Mysql Flexible**](https://docs.cstudio.app/ja/docs/resource/azure/Database/MysqlFlexible)
+-   [**Key Vault**](https://docs.cstudio.app/ja/docs/resource/azure/KeyVault/)
 -   [**Redis Cache**](https://docs.cstudio.app/ja/docs/resource/azure/RedisCache/)
 -   [**Storage Account**](https://docs.cstudio.app/ja/docs/resource/azure/Storage/StorageAccount)
 
+---
+
 ## リソース設定値
 
--   `included_subnet_name` : Private Endpoint に割り当てられる PrivateIP アドレスを持つ Subnet 名
--   `linked_connection_resource_name` : Private Endpoint が接続されるリソース名
--   `subresource_names` : Private Endpoint が接続できる Subresource 名のリスト
--   `dns_zone_group_name` : Private Endpoint と接続する Private DNS Zone のグループ名
--   `private_dns_zone_names` : Private Endpoint とリソースに接続するリソースの Private DNS Zone 名のリスト
--   `connection_name` : Private Endpoint とリソースの接続名
--   `manual_connection` : 外部リソース所有者の Manual Approval が必要
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `included_subnet_name` : Private Endpoint に割り当てられる Private IP アドレスを持つ Subnet の名前
+-   `connection_name` : Private Endpoint とリソース間の接続名
+-   `linked_connection_resource_name` : Private Endpoint が接続されるリソースの名前
+-   `subresource_name` : Private Endpoint が接続されるサブリソースの名前
+-   `dns_zone_group_name` : Private Endpoint に関連付ける Private DNS Zone グループの名前
+-   `private_dns_zone_names` : Private Endpoint に関連付ける Private DNS Zone 名の一覧
+-   `manual_connection` : 外部リソース所有者による手動承認が必要かどうか - `true`, `false`
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure PrivateEndpoint(Microsoft)](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
--   [Azure PrivateEndpoint 価格](https://azure.microsoft.com/en-us/pricing/details/private-link/)
--   [Azure PrivateEndpoint(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint)
+-   [Azure Private Endpoint の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-overview)
+-   [Private Endpoint の DNS 構成（Microsoft）](https://learn.microsoft.com/ko-kr/azure/private-link/private-endpoint-dns)

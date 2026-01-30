@@ -1,0 +1,60 @@
+---
+title: ApiManagement
+sidebar_position: 0
+tags: [Azure, ApiManagement]
+---
+
+<hr />
+<br />
+
+## リソースアイコン
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/api_management-api_management.webp"
+    }
+/>
+
+## リソース概要
+
+API Management は、API の作成、デプロイ、セキュリティ、モニタリング、および管理を統合的に支援するサービスです。  
+内部および外部のクライアントから呼び出される API を単一のエンドポイントとして提供し、認証・認可ポリシーの適用、リクエスト／レスポンスの変換、呼び出し制限（スロットリング）、ロギングおよびモニタリングを通じて、安定した API 運用を実現します。  
+また、API をポータル形式で公開することで、ドキュメント化とサブスクライバー管理をあわせて行うことができます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+---
+
+## リソース設定値
+
+-   `publisher_name` : API Management サービスの発行者名
+
+-   `publisher_email` : 発行者のメールアドレス
+
+-   `sku_name` : API Management サービスの SKU（料金プラン）名 – `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium`, `PremiumV2`
+
+-   `sku_capacity` : 選択した SKU に対する容量（インスタンス数）の設定
+
+-   `virtual_network_type` : API Management を仮想ネットワークに接続する方式 – `None`, `External`, `Internal`
+
+-   `target_subnet_name` : API Management がデプロイされるサブネット名
+
+-   `apis` : API Management サービスに登録または管理する API の一覧を指定するオプション
+    -   `revision` : API のリビジョン番号
+    -   `api_type` : API の種類 – `http`, `soap`, `graphql`
+    -   `display_name` : ポータルに表示される API の名称
+    -   `path` : API エンドポイントへアクセスする際に使用するパス
+    -   `protocols` : API がサポートする通信プロトコル – `http`, `https`, `ws`, `wss`
+
+---
+
+## 参考資料
+
+-   [Azure API Management (Microsoft)](https://learn.microsoft.com/ko-kr/azure/api-management/api-management-key-concepts)
+-   [Azure API Management 料金](https://azure.microsoft.com/ko-kr/pricing/details/api-management/)
+-   [Azure API Management (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management)
+-   [Azure API Management API (Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management_api)

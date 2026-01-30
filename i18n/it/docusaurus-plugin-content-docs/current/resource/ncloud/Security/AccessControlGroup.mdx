@@ -1,0 +1,65 @@
+---
+title: AccessControlGroup
+sidebar_position: 0
+tags: [Ncloud, Resource, Security, AccessControlGroup]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/security-access_control_group.webp"
+    }
+/>
+
+## Resource Overview
+
+An IP/Port-based filtering firewall service that enables network access control and management between servers.
+
+## Associated Resources
+
+### Risorse principali
+
+-   [**Vpc**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/Vpc)
+
+### Connected Resources
+
+-   [**NetworkInterface**](https://docs.cstudio.app/it/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**AutoScaling**](https://docs.cstudio.app/it/docs/resource/ncloud/Compute/AutoScaling)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Basic Settings
+
+-   `included_vpc_name` : Name of the VPC in which the ACG will be created
+-   `acg_description` : Description of the ACG
+
+#### Inbound Rules (`inbound_rule`)
+
+-   `inbound_rule.protocol` : Protocol of inbound traffic - `TCP`, `UDP`, `ICMP`
+-   `inbound_rule.rule_apply_method` : Method to apply inbound rules - `ip_block`, `source_name`
+-   `inbound_rule.ip_block` : Source IP range of inbound traffic (CIDR format)
+-   `inbound_rule.source_access_control_group_name` : Source ACG name for inbound traffic
+-   `inbound_rule.port_range` : Port range to apply inbound rules - `1` ~ `65535`
+-   `inbound_rule.description` : Description of the inbound rule
+
+#### Outbound Rules (`outbound_rule`)
+
+-   `outbound_rule.protocol` : Protocol of outbound traffic - `TCP`, `UDP`, `ICMP`
+-   `outbound_rule.rule_apply_method` : Method to apply outbound rules - `ip_block`, `source_name`
+-   `outbound_rule.ip_block` : Destination IP range of outbound traffic (CIDR format)
+-   `outbound_rule.source_access_control_group_name` : Source ACG name for outbound traffic
+-   `outbound_rule.port_range` : Port range to apply outbound rules - `1` ~ `65535`
+-   `outbound_rule.description` : Description of the outbound rule
+
+---
+
+## References
+
+-   [ACG(Ncloud)](https://www.ncloud.com/product/security/acg)
+-   [Access Control Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/access_control_group)

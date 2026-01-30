@@ -1,0 +1,23 @@
+---
+title: v1.6.1
+last_update: 2025-5-23
+date: 2025-5-23
+---
+
+import styles from "/src/scss/_markdown.module.scss"
+
+<hr />
+
+#### Die Bereitstellung kann durch die Trennung von Terraform Workspaces durchgeführt werden.
+
+<div className={styles.releaseWrap} >
+<div className={styles.tag} data-type="feature">
+    Feature
+</div>
+
+1. Durch die Nutzung der Workspace-Funktion von Terraform wird die getrennte Bereitstellung der Infrastruktur nach Umgebungen unterstützt.
+    - Terraform Workspaces können erstellt und gelöscht werden.
+    - Durch die getrennte Verwaltung der Statusdateien (State) pro Workspace können Entwicklungs-, Staging- und Produktionsumgebungen unabhängig voneinander betrieben werden.
+
+</div>
+<br/>

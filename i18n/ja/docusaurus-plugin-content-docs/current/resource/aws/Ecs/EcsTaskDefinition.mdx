@@ -1,7 +1,7 @@
 ---
 title: EcsTaskDefinition
-sidebar_position: 0
-tags: [AWS, リソース, Ecs, EcsTaskDefinition]
+sidebar_position: 1
+tags: [AWS, Resource, Ecs, EcsTaskDefinition]
 ---
 
 <hr />
@@ -11,11 +11,9 @@ tags: [AWS, リソース, Ecs, EcsTaskDefinition]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ecs-ecs_task_definition.webp"
     }
 />
-
-## リソース概要
 
 ## 関連リソース
 
@@ -23,34 +21,44 @@ tags: [AWS, リソース, Ecs, EcsTaskDefinition]
 
 -   [**Region**](https://docs.cstudio.app/ja/docs/resource/aws/Base/Region)
 
+---
+
 ## リソース設定値
 
--   `app_environment` : 作業に必要な開始タイプ - `EC2`,`Fargate`
--   `os_architecture` : タスク定義の登録に使用するオペレーティングシステムの製品ライン
--   `task_cpu` : 作業で使用する CPU 単位の数
--   `task_memory` : 作業で使用するメモリ量(MiB)
--   `network_mode` : タスクのコンテナに使用するネットワーキング モード - `awsvpc`,`none`,`bridge`,`host`
--   `container` : ECS Cluster で動作する Container の名前
-    -   `image_url` : ECS Cluster で動作する Container のイメージ
-    -   `essential_enabled` : Container が動作を停止した場合、container 関連の他のオブジェクトも一緒に動作を停止するか正常に動作するかの可否 - `false`,`true`
-    -   `port_mapping` : ポートマッピング名
-        -   `name` : 
-        -   `container_port` : Container が Host Container Instance にトラフィックを送信または受信するときに使用するポート番号
-        -   `protocol` : ポートのマッピングに使用するプロトコル - `tcp`,`udp`
-    -   `container.port_mapping.app_protocol` : サービス接続に使用するアプリケーションプロトコル - `http`,`http2`,`grpc`,`none`
-    -   `cpu` : ECS Cluster で動作する Container の CPU 容量
-    -   `memory` : ECS Cluster で動作する Container の Memory 容量
+#### 基本設定
 
--   `volume`
-    -   `name` : Task Definition に接続する Volume 名
--   `volume_mount`
-    -   `name` : Task Definition に接続する Volume 名
-    -   `container_name` : Volume をマウントする Container 名
-    -   `volume_name` : マウントする Volume 名
-    -   `container_path` : Volume をマウントするコンテナへのパス
-    -   `read_only` : Container が Volume に read-only アクセスのみ可能かどうかの可否 - `false`,`true`
+-   `app_environment` : タスクの起動方式 - `EC2`, `FARGATE`
+-   `os_architecture` : 使用する OS アーキテクチャ - `LINUX X86_64`
+-   `task_cpu` : タスクに割り当てる CPU ユニット数
+-   `task_memory` : タスクに割り当てるメモリ量（MiB）
+-   `network_mode` : ネットワークモード - `awsvpc`, `none`, `bridge`, `host`
 
-## 参考資料
+#### コンテナ (`container`)
 
--   [Amazon Ecs Task Definition(AWS)](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
--   [Amazon Ecs Task Definition(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)
+-   `container.image_url` : ECS クラスターで実行するコンテナイメージ
+-   `container.essential_enabled` : コンテナ停止時に他コンテナも停止するかどうか - `true`, `false`
+-   `container.port_mapping.container_port` : 使用するコンテナポート番号
+-   `container.port_mapping.protocol` : ポートマッピングのプロトコル - `tcp`, `udp`
+-   `container.port_mapping.app_protocol` : サービス接続用アプリケーションプロトコル - `http`, `http2`, `grpc`, `none`
+-   `container.cpu` : コンテナに割り当てる CPU
+-   `container.memory` : コンテナに割り当てるメモリ
+
+#### ボリューム (`volume`)
+
+-   `volume.host_path` : ホスト側のボリュームパス
+
+#### ボリュームマウント (`volume_mount`)
+
+-   `volume_mount.container_name` : マウント対象コンテナ名
+-   `volume_mount.volume_name` : マウントする Volume 名
+-   `volume_mount.container_path` : コンテナ内マウントパス
+-   `volume_mount.read_only` : 読み取り専用可否 - `true`, `false`
+
+#### タグ
+
+-   `tag` : Resource を分類するためのタグ
+
+## References
+
+-   [Amazon ECS Task Definition（AWS）](https://docs.aws.amazon.com/ko_kr/AmazonECS/latest/developerguide/task_definitions.html)
+-   [Amazon ECS Task Definition（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition)

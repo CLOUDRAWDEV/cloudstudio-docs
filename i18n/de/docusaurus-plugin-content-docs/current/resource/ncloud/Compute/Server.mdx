@@ -1,0 +1,54 @@
+---
+title: Server
+sidebar_position: 2
+tags: [Ncloud, Ressource, Compute, Server]
+---
+
+<hr />
+<br />
+
+## Ressourcen-Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/compute-server.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Eine Computing-Ressource, die die Flexibilität der Virtualisierung bietet, ohne dass physische Hardware verwaltet werden muss.  
+Sie ermöglicht die effiziente Erstellung von Servern in Cloud-Umgebungen und eignet sich besonders für Szenarien mit temporär hohem Ressourcenbedarf oder reduziertem Infrastrukturverwaltungsaufwand.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Subnet**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/Subnet)
+
+### Verbundene Ressourcen
+
+-   [**NetworkInterface**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**BlockStorage**](https://docs.cstudio.app/de/docs/resource/ncloud/Storage/BlockStorage)
+-   [**PublicIp**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/PublicIp)
+-   [**TargetGroup**](https://docs.cstudio.app/de/docs/resource/ncloud/Networking/TargetGroup)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `included_subnet_name` : Name des Subnetzes, in dem der Server platziert wird
+-   `server_image_product_code` : Betriebssystem-Image-Code – `ncloudServerImage`
+-   `server_product_code` : Hardwarekonfigurationscode des Servers – `ncloudServerType`
+-   `login_key_name` : Name des zu verwendenden Login-Schlüssels
+-   `init_script` : Name des zu verwendenden Init-Skripts
+-   `is_encrypted_base_block_storage_volume` : Aktivierung der Block-Storage-Verschlüsselung – `true`, `false`
+-   `linked_network_interface_names` : Dem Server zugewiesene Netzwerkschnittstellen
+
+---
+
+## Referenzen
+
+-   [Server(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/server)

@@ -11,41 +11,44 @@ tags: [Kubernetes, リソース, RBAC, Role]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/rbac-role.webp"
     }
 />
 
 ## リソース概要
 
-指定された名前空間にのみ適用される役割を生成するクバネティスリソース
+特定のネームスペース内にのみ適用される Role を定義する Kubernetes リソースです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
 -   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
--   [**RoleBinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Rbac/RoleBinding)
+-   [**RoleBinding**](https://docs.cstudio.app/ja/docs/resource/kubernetes/RBAC/RoleBinding)
+
+---
 
 ## リソース設定値
 
--   `service_name` : Role リソース名
+#### 基本設定
+
 -   `namespace` : Role リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `rule` : 当該 Cluster Role に対するポリシーの役割
-    -   `name` : rule 名
-    -   `api_groups` : 作業を許可するリソースを含む API Group
-    -   `resources` : このルールが適用されるリソースのリスト
-    -   `resource_names` : 対応するリソースの個別のインスタンスとして選択する場合は指定 - 空き値の場合は、対応するリソース全体を含めます
-    -   `verbs` : Rule に含まれるすべてのリソースに適用される動詞リスト
+-   `annotations` : Kubernetes システムメタデータ key-value
+-   `labels` : オブジェクト識別用のユーザー定義ラベル
+
+#### ポリシールール (`rule`)
+
+-   `rule.api_groups` : 操作を許可するリソースが属する API Group
+-   `rule.resources` : このルールが適用されるリソース一覧
+-   `rule.resource_names` : 特定リソースインスタンスを指定する場合に使用
+-   `rule.verbs` : 許可される操作 - `get`, `list`, `create`, `update`, `patch`, `watch`, `delete`, `deletecollection`
 
 ---
 
 ## 参考資料
 
--   [Role(kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
+-   [Role(Kubernetes)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole)
 -   [Role(Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role)

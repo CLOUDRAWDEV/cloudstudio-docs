@@ -11,85 +11,49 @@ tags: [Kubernetes, リソース, Apps, StatefulSet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/apps-stateful_set.webp"
     }
 />
 
 ## リソース概要
 
-Pod セットのデプロイと拡張を管理し、これらの Pod の順序と固有性に対する保証を提供するクバネティス リソースです。
+Pod 集合のデプロイおよびスケーリングを管理し、各 Pod の順序性と一意性を保証する Kubernetes リソース。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Cluster**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Base/Cluster)
--   [**Namespace**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Namespace)
+-   [**Namespace**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Namespace)
 
 ### 接続リソース
 
--   [**ConfigMap**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/ConfigMap)
--   [**Service**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/Service)
--   [**PersistentVolumeClaim**](https://docs.cstudio.app/ja/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**ConfigMap**](https://docs.cstudio.app/docs/resource/kubernetes/Config/ConfigMap)
+-   [**HorizontalPodAutoscaler**](https://docs.cstudio.app/docs/resource/kubernetes/AutoScaling/HorizontalPodAutoscaler)
+-   [**PersistentVolumeClaim**](https://docs.cstudio.app/docs/resource/kubernetes/Core/PersistentVolumeClaim)
+-   [**Service**](https://docs.cstudio.app/docs/resource/kubernetes/Core/Service)
+
+---
 
 ## リソース設定値
 
--   `service_name` : StatefulSet リソース名
--   `namespace` : StatefulSet リソースがデプロイされるネームスペース
--   `annotations` : クバネティスシステムで必要な情報を表示するために使用する key-value
--   `labels` : オブジェクトを区切るためにユーザーが任意に希望する値を指定
--   `template_labels` : Pod に設定される Label
--   `pod_management_policy` : Node でパドを交換または縮小するときにパドが生成される方法を制御 - `Parallel`,`OrderedReady`
--   `revision_history_limit` : StatefulSet の改訂記録に維持される最大改訂数、既定値は 10
--   `service_name` : statefulset を管理する Headless サービス名
--   `replicas` : 希望の Pod レプリカの数、基本値は 1
+#### 基本設定
 
--   `containers` : ファードに属するコンテナのテンプレートを定義
-
-    -   `name` : コンテナの名前を定義
-
-        -   `image` : 使用する Docker イメージ名
-        -   `args` : コンテナ内で実行されるコマンド
-        -   `command` : コンテナ内で実行されるコマンド
-        -   `port` : コンテナから露出するポートのリスト
-
-        -   `resources` : コンテナのコンピューティング リソースの量を指定
-
-            -   `name` : 最小/最大コンピューティングリソースの量を指定 - `Limits`, `requests`
-            -   `cpu` : cpu(m)の量を指定
-            -   `memory` : メモリ(Mi)の量を指定
-
-        -   `probe` : Pod の状態を診断する方法の定義
-
-            -   `name` : Probe 方法を選択 - `startup`,`liveness`,`readiness`
-            -   `http_get_path` : HTTP サーバーにアクセスするためのパス
-            -   `http_get_port` : コンテナからアクセスするポート番号
-            -   `http_header` : リクエストに設定するカスタム ヘッダー
-            -   `initial_delay_seconds` : コンテナが始まってからプローブが始まるまでの時間(秒)
-            -   `period_seconds` : プローブを行う頻度(秒)
-
-        -   `env` : コンテナ環境に設定する key-value ペアのブロック
-
-            -   `name` : env 変数名
-            -   `value` : env 変数で設定する値
-
-        -   `volume_mount` : コンテナのファイルシステムにマウントするファッドボリューム
-            -   `name` : ボリュームマウント名の設定
-            -   `path`
-                -   `mount_path` : ボリュームをマウントする必要があるコンテナ内のパス
-                -   `sub_path` : ボリュームをマウントする必要があるコンテナ内のパス
-
--   `volume` : ファッドに属するコンテナが搭載できるボリュームのリスト
-
-    -   `name` : volume 名
-        -   `type` : マウントするボリュームのタイプ - `EmptyDir`,`ConfigMap`,`PersistentVolumeClaim`
-        -   `target_name` : 永久ボリュームクレームの名前
-        -   `default_mode` : 生成されたファイルに使用するモード - 0 ~ 0777 の間、デフォルトは 0644
-        -   `ead_only` : true の場合は読み取り専用にマウントされ、そうでない場合は読み取り/書き込みが可能
-
--   `image_pull_secrets` : Container で使用するイメージを取得するために必要な権限が含まれた同じネームスペースにある Secret
-
----
+-   `namespace` : StatefulSet リソースをデプロイするネームスペース
+-   `annotations` : Kubernetes システムメタデータの key-value
+-   `labels` : StatefulSet リソース識別用ラベル
+-   `template_labels` : 生成される Pod に適用されるラベル
+-   `pod_management_policy` : Pod 作成・削除順序制御方式 (`Parallel`, `OrderedReady`)
+-   `revision_history_limit` : 保持するリビジョン履歴数
+-   `linked_service_name` : StatefulSet を管理する Headless Service 名
+-   `replicas` : 維持する Pod レプリカ数
+-   `pod_security_context` : Pod 単位のセキュリティおよび権限設定
+-   `init_containers` : 初期化コンテナ定義
+-   `containers` : Pod コンテナ定義
+-   `volume` : 使用ボリューム定義
+-   `dns_policy` : DNS ポリシー
+-   `enable_service_links` : サービスリンク有効化有無
+-   `host_network` : ホストネットワーク使用有無
+-   `image_pull_secrets` : イメージ取得用 Secret 一覧
 
 ## 参考資料
 

@@ -1,7 +1,7 @@
 ---
 title: OamMonitoringAccount
-sidebar_position: 0
-tags: [AWS, リソース, Cloudwatch, OamMonitoringAccount]
+sidebar_position: 2
+tags: [AWS, Resource, Cloudwatch, OamMonitoringAccount]
 ---
 
 <hr />
@@ -11,13 +11,13 @@ tags: [AWS, リソース, Cloudwatch, OamMonitoringAccount]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/cloudwatch-oam_monitoring_account.webp"
     }
 />
 
 ## リソース概要
 
-AWS CloudWatch Oam Monitoring Accounts は中央モニタリングアカウントを設定し、複数のアカウントのアプリケーションをモニタリングするサービスです。
+AWS CloudWatch OAM Monitoring Accounts は、中央モニタリングアカウントを設定し、複数アカウントのアプリケーションを監視するサービスです。
 
 ## 関連リソース
 
@@ -27,21 +27,25 @@ AWS CloudWatch Oam Monitoring Accounts は中央モニタリングアカウン�
 
 ### 接続リソース
 
--   [**Oam Source Account**](https://docs.cstudio.app/ja/docs/resource/aws/Cloudwatch/OamSourceAccount)
+-   [**OamSourceAccount**](https://docs.cstudio.app/ja/docs/resource/aws/CloudWatch/OamSourceAccount)
+
+---
 
 ## リソース設定値
 
--   `oam_source_accounts` : モニタリングアカウントとデータを共有するアカウントのアカウント、組織パスまたは組織 ID
--   `resource_types` : 共有しようとしているデータタイプ
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Cloudwatch::LogGroup`
-    -   `AWS::Logs::LogGroup`
-    -   `AWS::Logs::LogGroup`
+#### 基本設定
+
+-   `oam_source_accounts` : モニタリングアカウントとデータを共有するソースアカウント一覧（アカウント ID、組織パス、または組織 ID）
+-   `resource_types` : ソースアカウントから共有されるデータ種別 - `AWS::Logs::LogGroup`, `AWS::CloudWatch::Metric`, `AWS::XRay::Trace`, `AWS::ApplicationInsights::Application`
+
+#### タグ設定
+
+-   `tag` : Resource を分類するためのタグ一覧
 
 ---
 
 ## 参考資料
 
--   [Amazon CloudWatch Oam Monitoring Account(AWS)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
--   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
--   [Amazon CloudWatch Oam Monitoring Account(Terraform)](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)
+-   [Amazon CloudWatch OAM Monitoring Account（AWS）](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#Unified-Cross-Account-Setup-ConfigureMonitoringAccount)
+-   [Amazon CloudWatch OAM Monitoring Account（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_link)
+-   [Amazon CloudWatch OAM Monitoring Account（Terraform）](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/oam_sink_policy)

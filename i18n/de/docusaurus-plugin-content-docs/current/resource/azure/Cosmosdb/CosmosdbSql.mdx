@@ -1,0 +1,89 @@
+---
+title: CosmosdbSql
+sidebar_position: 3
+tags: [Azure, CosmosdbSql, CosmosDB, SQL, Database]
+---
+
+<hr />
+<br />
+
+## Ressourcenicon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/cosmosdb-cosmosdb_sql.webp"
+    }
+/>
+
+## Ressourcenübersicht
+
+Azure Cosmos DB SQL API ist ein vollständig verwalteter NoSQL-Datenbankdienst, mit dem Daten im von der SQL API unterstützten JSON-Format gespeichert und abgefragt werden können.  
+Er bietet Skalierbarkeit und hohe Verfügbarkeit durch globale Verteilung, automatisches Failover, Backups und flexible Konsistenzrichtlinien.
+
+## Zugehörige Ressourcen
+
+### Übergeordnete Ressourcen
+
+-   [**Resource Group**](https://docs.cstudio.app/de/docs/resource/azure/Base/ResourceGroup)
+
+### Verbundene Ressourcen
+
+-   [**Private EndPoint**](https://docs.cstudio.app/de/docs/resource/azure/Network/PrivateEndpoint)
+
+---
+
+## Ressourcenkonfiguration
+
+#### Grundeinstellungen
+
+-   `capabilities_list` : Liste der zu verwendenden Cosmos DB APIs
+-   `enable_multiple_write_locations` : Aktivierung von Schreibvorgängen in mehreren Regionen – `true`, `false`
+-   `public_network_access_enabled` : Öffentlichen Zugriff auf das Konto über öffentliche IPs oder Service-Endpunkte aktivieren – `true`, `false`
+-   `enable_automatic_failover` : Automatisches Failover aktivieren – `true`, `false`
+-   `virtual_network_filter_enabled` : Zugriff auf das Konto nur für bestimmte Subnetze eines virtuellen Netzwerks zulassen – `true`, `false`
+-   `network_acl_bypass_for_azure_services` : ACL-Bypass für Azure-Dienste aktivieren – `true`, `false`
+
+#### Regionaleinstellungen (`geo_location`)
+
+-   `geo_location.failover_priority` : Failover-Priorität der Region
+-   `geo_location.zone_redundant` : Automatische Zonenreplikation zur Fehlerabsicherung aktivieren – `true`, `false`
+
+#### Konsistenzrichtlinie (`consistency_policy`)
+
+-   `consistency_policy.consistency_level` : Konsistenzstufe zur Steuerung von Verfügbarkeit und Leistung der Datenbank
+-   `consistency_policy.max_interval_in_seconds` : Maximal zulässige Staleness-Zeit (Sekunden) bei Bounded Staleness
+-   `consistency_policy.max_staleness_prefix` : Maximal zulässige Anzahl veralteter Anforderungen bei Bounded Staleness
+
+#### Backup-Einstellungen (`backup`)
+
+-   `backup.type` : Typ der Backup-Richtlinie – `Continuous`, `Periodic`
+-   `backup.interval_in_minutes` : Intervall für die Backup-Ausführung (Minuten) – `60` ~ `1440`
+-   `backup.retention_in_hours` : Aufbewahrungsdauer der Backups (Stunden) – `8` ~ `720`
+
+#### SQL-Datenbankeinstellungen (`sql_database`)
+
+-   `sql_database.throughput` : Durchsatz der Cosmos DB SQL-Datenbank – `400` ~ `1000000`
+-   `sql_database.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
+
+#### SQL-Container-Einstellungen (`sql_container`)
+
+-   `sql_container.partition_key_version` : Version des Partition Keys – `1`, `2`
+-   `sql_container.partition_key_paths` : Liste der Partition-Key-Pfade für den SQL-Container
+-   `sql_container.throughput` : Durchsatz des SQL-Containers – `400` ~ `1000000`
+-   `sql_container.indexing_mode` : Indexierungsmodus – `consistent`, `none`
+-   `sql_container.included_path` : Liste der in die Indexierung einbezogenen Pfade
+-   `sql_container.excluded_path` : Liste der von der Indexierung ausgeschlossenen Pfade
+-   `sql_container.unique_key_path` : Liste der Unique-Key-Pfade zur zusätzlichen Sicherstellung der Datenintegrität
+-   `sql_container.enable_autoscale` : Aktivierung der automatischen Skalierung – `true`, `false`
+-   `sql_container.included_sql_database_name` : Name der SQL-Datenbank, in der der SQL-Container erstellt wird
+
+#### Tags
+
+-   `tag` : Tags zur Kategorisierung der Ressource – maximal 512 Zeichen, `key`:`value`
+
+---
+
+## Referenzen
+
+-   [Azure Cosmos DB (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/)
+-   [Azure Cosmos DB SQL API (Microsoft)](https://learn.microsoft.com/ko-kr/azure/cosmos-db/nosql/introduction)

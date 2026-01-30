@@ -1,0 +1,105 @@
+---
+title: Job
+sidebar_position: 0
+tags: [Kubernetes, Risorsa, Batch, Job]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/batch-job.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Job è una risorsa Kubernetes utilizzata per eseguire attività una tantum.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**ConfigMap**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/ConfigMap)
+-   [**Secret**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Secret)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Job
+-   `annotations` : Key-value per indicare informazioni richieste dal sistema Kubernetes
+-   `labels` : Key-value definiti dall’utente per distinguere le risorse
+-   `enable_manual_selector` : Abilitazione del selettore manuale - `true`, `false`
+-   `template_labels` : Etichette applicate ai Pod
+-   `restart_policy` : Comportamento alla terminazione del container - `Never`, `OnFailure`
+-   `backoff_limit` : Numero di tentativi prima di considerare il job come fallito
+-   `wait_for_completion` : Blocco della creazione/aggiornamento fino al completamento o fallimento - `true`, `false`
+-   `dns_policy` : Policy DNS - `ClusterFirst`, `ClusterFirstWithHostNet`, `Default`
+-   `enable_service_links` : Abilitazione dei service link - `true`, `false`
+-   `host_network` : Utilizzo della rete host - `true`, `false`
+-   `image_pull_secrets` : Elenco dei Secret utilizzati per il pull delle immagini
+
+#### Timeout (`timeouts`)
+
+-   `timeouts.create` : Tempo di attesa dal momento della creazione del job fino al completamento
+-   `timeouts.update` : Tempo di attesa dal momento dell’aggiornamento del job fino al completamento
+
+#### Contesto di sicurezza del Pod (`pod_security_context`)
+
+-   `pod_security_context.run_as_user` : UID dell’utente che esegue il container
+-   `pod_security_context.run_as_group` : GID dell’utente che esegue il container
+-   `pod_security_context.run_as_non_root` : Esecuzione come utente non root - `true`, `false`
+-   `pod_security_context.se_linux_options_user` : Utente SELinux
+-   `pod_security_context.se_linux_options_role` : Ruolo SELinux
+-   `pod_security_context.se_linux_options_type` : Tipo SELinux
+-   `pod_security_context.se_linux_options_level` : Livello SELinux
+
+#### Container di inizializzazione (`init_containers`)
+
+-   `init_containers.image` : Immagine del container
+-   `init_containers.args` : Elenco degli argomenti di esecuzione
+-   `init_containers.command` : Comando di esecuzione
+-   `init_containers.env` : Configurazione delle variabili d’ambiente
+-   `init_containers.env_from` : Variabili d’ambiente basate su ConfigMap o Secret
+-   `init_containers.resources` : Limiti e richieste di CPU e memoria
+-   `init_containers.probe` : Probe di verifica dello stato
+-   `init_containers.port` : Configurazione delle porte del container
+-   `init_containers.volume_mount` : Configurazione del mount dei volumi
+
+#### Container (`containers`)
+
+-   `containers.image` : Immagine del container
+-   `containers.args` : Elenco degli argomenti di esecuzione
+-   `containers.command` : Comando di esecuzione
+-   `containers.env` : Configurazione delle variabili d’ambiente
+-   `containers.env_from` : Variabili d’ambiente basate su ConfigMap o Secret
+-   `containers.resources` : Limiti e richieste di CPU e memoria
+-   `containers.probe` : Probe di verifica dello stato
+-   `containers.port` : Configurazione delle porte del container
+-   `containers.volume_mount` : Configurazione del mount dei volumi
+
+#### Volumi (`volume`)
+
+-   `volume.volume_type` : Tipo di volume - `EmptyDir`, `ConfigMap`, `PersistentVolumeClaim`, `DownwardApi`, `Projected`, `HostPath`
+-   `volume.target_name` : Nome della risorsa di destinazione
+-   `volume.path` : Percorso di mount
+-   `volume.default_mode` : Modalità dei permessi dei file
+-   `volume.items` : Mappatura degli elementi di ConfigMap
+-   `volume.read_only` : Modalità di sola lettura - `true`, `false`
+
+---
+
+## Riferimenti
+
+-   [Job (Kubernetes)](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
+-   [Job (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/job)

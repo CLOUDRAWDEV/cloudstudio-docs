@@ -1,0 +1,46 @@
+---
+title: ResourceShareAccepter
+sidebar_position: 1
+tags: [AWS, RAM, ResourceShareAccepter, Sharing]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ram-resource_share_accepter.webp" />
+
+## Descripción general del recurso
+
+Recurso que determina si se acepta o no un recurso compartido (Resource Share) proveniente de otra cuenta.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Region**](https://docs.cstudio.app/es/docs/resource/aws/Base/Region)
+
+### Recursos conectados
+
+-   [**ResourceShare**](https://docs.cstudio.app/es/docs/resource/aws/RAM/ResourceShare)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `is_manual` : Indica si el ARN del Resource Share se introduce manualmente - `true`, `false`
+-   `linked_resource_share_name` : Nombre del Resource Share a conectar
+-   `resource_share_arn` : ARN del Resource Share que se aceptará
+
+#### Etiquetas
+
+-   `tag` : Etiquetas para clasificar el recurso por categoría - máximo 512 caracteres, `key`:`value`
+
+---
+
+## Referencias
+
+-   [Aceptación de una invitación de recurso compartido (AWS RAM) (AWS)](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html)

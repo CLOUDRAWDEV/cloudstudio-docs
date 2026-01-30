@@ -1,0 +1,60 @@
+---
+title: Service
+sidebar_position: 6
+tags: [Kubernetes, Risorsa, Core, Service]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/kubernetesImg/core-service.webp"
+    }
+/>
+
+## Panoramica della risorsa
+
+Risorsa Kubernetes astratta che fornisce un punto di ingresso unico ai Pod e gestisce la comunicazione tra di essi.
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Namespace**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Namespace)
+
+### Risorse collegate
+
+-   [**Deployment**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/Deployment)
+-   [**StatefulSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/StatefulSet)
+-   [**DaemonSet**](https://docs.cstudio.app/it/docs/resource/kubernetes/Apps/DaemonSet)
+-   [**Pod**](https://docs.cstudio.app/it/docs/resource/kubernetes/Core/Pod)
+-   [**Ingress**](https://docs.cstudio.app/it/docs/resource/kubernetes/Networking/Ingress)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `namespace` : Namespace in cui verrà distribuita la risorsa Service
+-   `annotations` : Metadati di sistema Kubernetes
+-   `labels` : Etichette per identificazione e classificazione del Service
+-   `selector` : Selettore di etichette per scegliere i Pod a cui inoltrare il traffico
+-   `type` : Tipo di Service - `ClusterIP`, `NodePort`, `LoadBalancer`
+-   `session_affinity` : Se fissare le richieste dello stesso client a uno specifico Pod - `None`, `ClientIP`
+
+#### Configurazione delle porte (`port`)
+
+-   `port.protocol` : Protocollo utilizzato dalla porta del servizio - `TCP`, `UDP`
+-   `port.port` : Numero di porta del Service esposto esternamente
+-   `port.target_port` : Numero di porta del Pod che riceve effettivamente il traffico
+
+---
+
+## Riferimenti
+
+-   [Service (Kubernetes)](https://kubernetes.io/docs/concepts/services-networking/service/)
+-   [Service (Terraform)](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service)

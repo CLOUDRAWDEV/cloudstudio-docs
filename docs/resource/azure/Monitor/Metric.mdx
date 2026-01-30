@@ -1,0 +1,111 @@
+---
+title: Metric
+sidebar_position: 1
+tags: [Azure, Monitor, Metric, Alert]
+---
+
+<hr />
+<br />
+
+## 리소스 아이콘
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/monitor-metric.webp"
+    }
+/>
+
+## 리소스 개요
+
+Metric은 모니터링 대상 리소스의 성능이나 상태를 **수치화한 시간 기반 데이터(메트릭)** 를 기준으로 조건을 평가하고, 임계값을 만족할 때 알림을 발생시키기 위한 설정 리소스입니다.  
+대상 리소스, 메트릭 조건(criteria), 알림 수신 방식(action group)을 함께 구성하여 모니터링과 알림을 자동화할 수 있습니다.
+
+## 연관 리소스
+
+### 상위 리소스
+
+-   [**Resource Group**](https://docs.cstudio.app/docs/resource/azure/Base/ResourceGroup)
+
+### 연결 리소스
+
+-   [**Windows Virtual Machine**](https://docs.cstudio.app/docs/resource/azure/Compute/WindowsVirtualMachine)
+-   [**LinuxVirtualMachine**](https://docs.cstudio.app/docs/resource/azure/Compute/LinuxVirtualMachine)
+-   [**Linux App Service**](https://docs.cstudio.app/docs/resource/azure/Web/LinuxWebApp)
+-   [**Windows App Service**](https://docs.cstudio.app/docs/resource/azure/Web/WindowsWebApp)
+-   [**Storage Account**](https://docs.cstudio.app/docs/resource/azure/Storage/StorageAccount)
+-   [**MSSQL Database**](https://docs.cstudio.app/docs/resource/azure/Database/MssqlDatabase)
+-   [**Kubernetes Cluster**](https://docs.cstudio.app/docs/resource/azure/Containers/KubernetesCluster)
+
+## 리소스 설정 값
+
+#### 대상 리소스 (`target_resources`)
+
+알림 규칙이 적용될 대상 리소스 목록을 지정합니다.
+
+-   `target_resources.resource_type` : 대상 리소스의 Azure 리소스 타입을 지정
+    -   `windows_virtual_machine`, `linux_virtual_machine`, `windows_app_service`, `linux_app_service`, `storage_account`, `mssql_database`, `kubernetes_cluster`
+-   `target_resources.resource_name` : 대상 리소스의 이름
+-   `target_resources.mssql_server_name` : 대상 리소스가 `mssql_database`인 경우, 해당 데이터베이스를 포함하는 MSSQL Server의 이름 (읽기 전용)
+
+---
+
+#### 설명 (`description`)
+
+-   `description` : 알림 규칙에 대한 설명
+
+---
+
+#### 조건 설정 (`criteria`)
+
+어떤 metric 값이 어떤 조건을 만족할 때 알림을 발생시킬지를 정의합니다.
+
+-   `criteria.metric_namespace` : 모니터링할 메트릭이 속한 네임스페이스
+-   `criteria.metric_name` : 모니터링할 메트릭 이름
+-   `criteria.aggregation` : 지표 데이터를 집계할 방식
+    -   `Average`, `Count`, `Maximum`, `Minimum`, `Total`
+-   `criteria.operator` : 메트릭 값과 임계 값을 비교하기 위해 사용하는 연산자
+    -   `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `Equal`
+-   `criteria.threshold` : 경고를 활성화하는 기준 임계값
+
+---
+
+#### 액션 그룹 (`action_group`)
+
+알림이 발생했을 때 이메일, Webhook, Azure Function, Azure 모바일 앱 푸시 등의 알림을 보내는 액션 그룹을 설정합니다.
+
+-   `action_group.short_name` : 액션 그룹을 식별하기 위한 짧은 이름
+-   `action_group.enable_action_group` : 액션 그룹을 활성화할지 여부 - `true`, `false`
+
+##### Azure 모바일 앱 푸시 수신자 (`action_group.azure_app_push_receiver`)
+
+-   `azure_app_push_receiver.email_address` : Azure 모바일 앱 알림을 받을 사용자의 이메일 주소
+
+##### Azure Function 수신자 (`action_group.azure_function_receiver`)
+
+-   `azure_function_receiver.target_function_app_id` : 함수가 배포된 Function App의 ID
+-   `azure_function_receiver.function_name` : 호출할 Azure Function의 이름
+-   `azure_function_receiver.http_trigger_url` : Function이 HTTP 트리거 방식일 때 호출할 URL
+-   `azure_function_receiver.enable_common_alert_schema` : 공통 알림 스키마를 사용할지 여부 - `true`, `false`
+
+##### Webhook 수신자 (`action_group.webhook_receiver`)
+
+-   `webhook_receiver.service_uri` : 알림 발생 시 호출할 Webhook 서비스의 URL
+-   `webhook_receiver.enable_common_alert_schema` : 공통 알림 스키마를 사용할지 여부 - `true`, `false`
+
+##### 이메일 수신자 (`action_group.email_receiver`)
+
+-   `email_receiver.email_address` : 알림을 수신할 이메일 주소
+-   `email_receiver.enable_common_alert_schema` : 공통 알림 스키마를 사용할지 여부 - `true`, `false`
+
+---
+
+#### 액션 그룹 선택 (`action_group_name`)
+
+-   `action_group_name` : 알림 발생 시 실행할 액션 그룹의 이름을 지정
+
+---
+
+## 참고 자료
+
+-   [Azure Monitor 메트릭 경고 개요(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/alerts-metric-overview)
+-   [메트릭 경고 만들기(Microsoft)](https://learn.microsoft.com/ko-kr/azure/azure-monitor/alerts/tutorial-metric-alert)

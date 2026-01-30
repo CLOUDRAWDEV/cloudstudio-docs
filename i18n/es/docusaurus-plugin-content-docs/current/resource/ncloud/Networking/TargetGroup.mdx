@@ -1,0 +1,57 @@
+---
+title: TargetGroup
+sidebar_position: 7
+tags: [Ncloud, Recurso, Network, TargetGroup]
+---
+
+<hr />
+<br />
+
+## Icono del recurso
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-target_group.webp"
+    }
+/>
+
+## Descripción general del recurso
+
+Recurso que representa un conjunto de destinos que procesarán las solicitudes del Load Balancer.
+
+## Recursos relacionados
+
+### Recursos principales
+
+-   [**Vpc**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/Vpc)
+
+### Recursos conectados
+
+-   [**Server**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/es/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**AutoScaling**](https://docs.cstudio.app/es/docs/resource/ncloud/Compute/AutoScaling)
+
+---
+
+## Valores de configuración del recurso
+
+#### Configuración básica
+
+-   `included_vpc_name` : Nombre del VPC donde se creará el Target Group (solo lectura)
+-   `protocol` : Protocolo utilizado para el enrutamiento del tráfico - `TCP`, `PROXY_TCP`, `HTTP`, `HTTPS`
+-   `port` : Puerto en el que el target recibirá el tráfico
+-   `algorithm_type` : Algoritmo de balanceo de carga - `RR`, `SIPHS`, `LC`, `MH`
+-   `health_check_protocol` : Protocolo utilizado para el health check - `TCP`, `HTTP`, `HTTPS`
+-   `health_check_http_method` : Método de health check para HTTP/HTTPS - `HEAD`, `GET`
+-   `health_check_port` : Puerto utilizado para el health check
+-   `health_check_cycle` : Intervalo del health check (segundos) - `5` ~ `300`
+-   `health_check_up_threshold` : Número de éxitos consecutivos para marcar como saludable - `2` ~ `10`
+-   `health_check_down_threshold` : Número de fallos consecutivos para marcar como no saludable - `2` ~ `10`
+-   `health_check_url_path` : Ruta URL para las solicitudes de health check
+-   `linked_server_names` : Lista de nombres de servidores a conectar al Target Group
+
+---
+
+## Referencias
+
+-   [Target Group(Terraform)](https://registry.terraform.io/providers/NaverCloudPlatform/ncloud/latest/docs/resources/lb_target_group)

@@ -1,0 +1,55 @@
+---
+title: VpnSite
+sidebar_position: 22
+tags: [Azure, Network, VpnSite]
+---
+
+<hr />
+<br />
+
+## Resource Icon
+
+<img
+    src={
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-vpn_site.webp"
+    }
+/>
+
+## Resource Overview
+
+Azure VpnSite is a **VPN site definition resource used to connect on-premises networks to a Virtual WAN environment**.  
+It defines the logical target for Site-to-Site VPN connections based on on-premises VPN device information, address spaces, and link details.
+
+## Associated Resources
+
+### Parent Resources
+
+-   [**ResourceGroup**](https://docs.cstudio.app/en/docs/resource/azure/Base/ResourceGroup)
+
+### Connected Resources
+
+-   [**VirtualWan**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualWan)
+-   [**VPNGateway**](https://docs.cstudio.app/en/docs/resource/azure/Network/VirtualNetworkGateway)
+
+---
+
+## Resource Configuration
+
+#### Basic Settings
+
+-   `linked_virtual_wan_name` : Name of the Virtual WAN to which the VPN Site is connected
+-   `device_vendor` : Manufacturer of the on-premises VPN device
+-   `address_cidrs` : List of IP address ranges (CIDR) used by the VPN Site
+
+#### Link (`link`)
+
+-   `link.speed_in_mbps` : Maximum bandwidth of the link (Mbps)
+-   `link.ip_address` : Public IP address assigned to the VPN device
+-   `link.provider_name` : Name of the connectivity service provider
+-   `link.autonomous_system_number` : ASN of the on-premises router when using BGP
+-   `link.peering_address` : Local router IP address used for BGP peering
+
+## References
+
+-   [Azure VPN Site Overview(Microsoft)](https://learn.microsoft.com/ko-kr/azure/virtual-wan/vpn-site-about)
+-   [Azure Virtual WAN VPN Architecture(Microsoft)](https://learn.microsoft.com/ko-kr/azure/architecture/reference-architectures/hybrid-networking/virtual-wan)

@@ -1,7 +1,7 @@
 ---
 title: BastionHost
-sidebar_position: 1
-tags: [Azure, リソース, Network, BastionHost]
+sidebar_position: 8
+tags: [Azure, Network, BastionHost]
 ---
 
 <hr />
@@ -11,44 +11,38 @@ tags: [Azure, リソース, Network, BastionHost]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/network-bastion_host.webp"
     }
 />
 
 ## リソース概要
 
-Azure Bastion はブラウザと Azure Portal を使用したり、ローカルコンピュータに既にインストールされている基本 SSH または RDP クライアントを通じて仮想マシンに接続できるように配布するサービスです。
-Azure Bastion サービスは仮想ネットワーク内部でプロビジョニングする完全なプラットフォーム管理型 PaaS サービスです。TLS を通じて Azure Portal で直接仮想マシンに対する安全で円滑な RDP/SSH 接続を提供します。
-Azure Bastion を通じて接続すると、仮想マシンに共用 IP アドレス、エージェント、または特殊クライアントソフトウェアを必要としません。
+Bastion Host は、VM にパブリック IP を直接公開することなく、Virtual Network 内の仮想マシンに対して **安全な RDP および SSH 接続** を提供する Azure の PaaS ネットワーク サービスです。  
+ブラウザベースのアクセスをサポートし、管理ポートを開放せずに集中管理されたアクセス ポイントを構成できるため、セキュリティと運用の利便性を同時に確保できます。
 
 ## 関連リソース
 
 ### 上位リソース
 
--   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
--   [**Virtual Network**](https://docs.cstudio.app/ja/docs/resource/azure/Network/VirtualNetwork)
--   [- [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)](https://docs.cstudio.app/docs/resource/azure/Network/Subnet)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
 
 ### 接続リソース
 
--   [**Public Ip**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+-   [**Public IP**](https://docs.cstudio.app/ja/docs/resource/azure/Network/PublicIp)
+
+---
 
 ## リソース設定値
 
--   `included_subnet_name` : Bastion Host が位置する Subnet の名前
-
+-   `included_subnet_name` : Bastion Host を配置する Subnet の名前
 -   `sku` : Bastion Host の SKU - `Basic`, `Standard`
-
--   `linked_public_ip_name` : Bastion Host に接続する Public Ip の名前
-
--   `ip_config_name` : IP Configuration の名前
-
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+-   `linked_public_ip_name` : Bastion Host に関連付ける Public IP の名前
+-   `ip_config_name` : Bastion Host で使用する IP 構成の名前
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure BastionHost(Microsoft)](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview)
--   [Azure BastionHost 価格](https://azure.microsoft.com/en-us/pricing/details/azure-bastion/)
--   [Azure BastionHost(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host)
+-   [Azure Bastion の概要（Microsoft）](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview)
+-   [Azure Bastion の SKU 比較（Microsoft）](https://learn.microsoft.com/ko-kr/azure/bastion/bastion-overview#sku)

@@ -1,0 +1,49 @@
+---
+title: ResourceShare
+sidebar_position: 0
+tags: [AWS, RAM, ResourceShare, Sharing]
+---
+
+<hr />
+<br />
+
+## Icona della risorsa
+
+<img src="https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/ram-resource_share.webp" />
+
+## Panoramica della risorsa
+
+Servizio che consente di condividere in modo sicuro risorse supportate tra account AWS all’interno di un’organizzazione o di un’unità organizzativa (OU).
+
+## Risorse correlate
+
+### Risorse principali
+
+-   [**Region**](https://docs.cstudio.app/it/docs/resource/aws/Base/Region)
+
+### Risorse collegate
+
+-   [**ResourceShareAccepter**](https://docs.cstudio.app/it/docs/resource/aws/Ram/ResourceShareAccepter)
+
+---
+
+## Valori di configurazione della risorsa
+
+#### Impostazioni di base
+
+-   `shared_resource_types` : Elenco dei tipi di risorse da condividere
+-   `transit_gateway_names` : Elenco dei nomi dei Transit Gateway da condividere
+-   `resource_arns` : Elenco degli ARN delle risorse da condividere
+-   `enabled_allow_external_principals` : Consente la condivisione con account AWS esterni - `true`, `false`
+-   `principal_arns` : Elenco degli ARN dei principal o degli ID degli account AWS autorizzati alla condivisione
+
+#### Tag
+
+-   `tag` : Tag per classificare la risorsa per categoria - massimo 512 caratteri, `key`:`value`
+
+---
+
+## Riferimenti
+
+-   [AWS Resource Access Manager (RAM) (AWS)](https://docs.aws.amazon.com/ram/)
+-   [Sharing your resources (AWS RAM) (AWS)](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html)

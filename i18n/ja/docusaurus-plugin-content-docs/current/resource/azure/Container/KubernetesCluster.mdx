@@ -1,7 +1,7 @@
 ---
 title: KubernetesCluster
 sidebar_position: 1
-tags: [Azure, リソース, Container, KubernetesCluster]
+tags: [Azure, KubernetesCluster, AKS, Container]
 ---
 
 <hr />
@@ -11,67 +11,113 @@ tags: [Azure, リソース, Container, KubernetesCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/azureImg/container-kubernetes_cluster.webp"
     }
 />
 
 ## リソース概要
 
-AKS(Azure Kubernetes Service)はクラスターを迅速に配布·管理できる管理型 Kubernetes サービスです。 このクイックスタートでは、次の手順を実行します。
+Azure Kubernetes Service（AKS）は、Kubernetes クラスターを容易にデプロイおよび運用できるようにするマネージドサービスです。  
+クラスターの基本設定、認証／認可（RBAC）、ネットワークポリシー、ノードプール構成、API サーバーのアクセス制御などを設定することで、コンテナベースのワークロードを運用できます。
+
+## 関連リソース
+
+### 上位リソース
+
+-   [**Resource Group**](https://docs.cstudio.app/ja/docs/resource/azure/Base/ResourceGroup)
+-   [**Subnet**](https://docs.cstudio.app/ja/docs/resource/azure/Network/Subnet)
+
+### 接続リソース
+
+-   [**Metric**](https://docs.cstudio.app/ja/docs/resource/azure/Monitor/Metric)
+
+---
 
 ## リソース設定値
 
--   `dns_prefix` : ホスティングされた Kubernetes API サーバー FQDN と一緒に使用する DNS プレフィックス
+-   `dns_prefix` : ホストされた Kubernetes API サーバーの FQDN とともに使用する DNS プレフィックス
 
--   `sku_tier` : クバネティスクラスターを使用するための価格設定階層 - `Free`, `Paid`
+-   `sku_tier` : Kubernetes クラスター利用のための価格レベル - `Free`, `Standard`
 
--   `enable_public_network_access` : - `true`, `false`
+-   `enable_public_network_access` : パブリックネットワークからのアクセス許可 - `true`, `false`
 
--   `api_server_authorized_ip_ranges` : API サーバーへのアクセスを保護するための権限ある IP アドレス範囲
--   `default_node_pool`
+-   `api_server_authorized_ip_ranges` : API サーバーへのアクセスを保護するための許可済み IP アドレス範囲の一覧
 
-    -   `node_pool_name` : クバネティスクラスターに生成する Node Pool 名
-    -   `enable_auto_scaling` : クラスターが適切なノード数で実行されるようにクラスターの自動サイズ調整を活性化
-    -   `node_count` : Node Pool のノード数 - `1`~ `1000`
-    -   `vm_size` : Node Pool からノードを形成する仮想マシンのサイズ
-    -   `os_disk_size_gb` : 仮想マシンの OS ディスクサイズ(GB) - `0`~ `114000`
-    -   `max_pods` : ノードで実行できる Pod の最大数 - `10`~ `250`
-    -   `enable_node_public_ip` : ノードごとのパブリック IP アドレスの使用を活性化 - `true`, `false`
+-   `authentication_authorization` : クラスターリソースへのアクセスを制限するための認可方式 - `local_accounts`, `azure_rbac`, `kubernetes_rbac`
 
--   `authentication_authorization` : クラスター リソースへのアクセスを制限するための役割ベースのアクセス制御活性化 - `local_accounts`, `azure_rbac`, `kubernetes_rbac`
+-   `admin_group_object_ids` : クラスター管理者ロールを持つ必要がある Azure Active Directory グループのオブジェクト ID 一覧
 
--   `network_policy` : 特定のポッド(Pod) へのアクセスを制限するためのネットワーク ポリシー - `calico`, `azure`
+-   `network_policy` : 特定の Pod へのアクセス制限のためのネットワークポリシー - `calico`, `azure`, `none`
 
--   `network_plugin` : 基本仮想ネットワークを kubenet または Azure CNI でネットワーク構成 - `kubenet`, `azure`
+-   `load_balancer_sku` : Load Balancer の価格レベル - `standard`, `basic`
 
--   `included_subnet_name` : Kubernetes Cluster がデプロイされる Subnet 名
+-   `network_plugin` : 基本の仮想ネットワーク構成方式 - `kubenet`, `azure`
 
--   `load_balancer_sku` : Load Balancer の価格設定階層 - `standard`, `basic`
+-   `included_subnet_name` : Kubernetes クラスターがデプロイされる Subnet 名
 
--   `pod_cidr` : Pod IP アドレスを使用するための CIDR
+-   `pod_cidr` : Pod の IP アドレスに使用する CIDR
 
--   `outbound_type` : 」:アウトバウンドルーティングタイプ - `loadBalancer`, `userDefinedRouting`
+-   `service_cidr` : サービスのクラスター IP を割り当てる CIDR 範囲
 
--   `cluster_node_pool`
+-   `dns_service_ip` : Kubernetes DNS サービスに割り当てられる IP アドレス
 
-    -   `node_mode` : Node Pool に対するシステムまたはユーザーモード - `User`, `System`
-    -   `node_os_type` : Node Pool で VM の OS タイプ - `Linux`, `Windows`
-    -   `enable_auto_scaling` : クラスターが適切なノード数で実行されるようにクラスターの自動サイズ調整を活性化 - `true`, `false`
-    -   `node_count` : Node Pool のノード数 - `1`~ `1000`
-    -   `max_node_count` : Node Pool の最大ノード数 - `0`~ `1000`
-    -   `min_node_count` : Node Pool の最小ノード数 - `0`~ `1000`
-    -   `vm_size` : Node Pool でノードを形成する仮想マシンのサイズ
-    -   `os_disk_size_gb` : 仮想マシンの OS ディスクのサイズ(GB) - `4`~ `11400`
-    -   `max_pods` : ノードで実行できる Pod の最大数
-    -   `enable_node_public_ip` : ノードごとに共用 IP アドレスの使用を活性化 - `true`, `false`
-    -   `public_ip_prefix_name`
+-   `outbound_type` : アウトバウンドルーティングのタイプ - `loadBalancer`, `userDefinedRouting`
 
--   `tag` : リソースをカテゴリに分類するためのタグ - 最大 512 文字, `key`:`value`
+### 既定ノードプール設定（`default_node_pool`）
+
+-   `default_node_pool.node_pool_name` : Node Pool 名 - Linux `1` ～ `12` 文字、Windows `1` ～ `6` 文字
+
+-   `default_node_pool.enable_auto_scaling` : クラスターの自動スケーリング有効化 - `true`, `false`
+
+-   `default_node_pool.node_count` : Node Pool のノード数 - `0` ～ `1000`
+
+-   `default_node_pool.min_node_count` : Node Pool の最小ノード数 - `1` ～ `1000`
+
+-   `default_node_pool.max_node_count` : Node Pool の最大ノード数 - `1` ～ `1000`
+
+-   `default_node_pool.vm_size` : Node Pool を構成する仮想マシンのサイズ
+
+-   `default_node_pool.os_disk_size_gb` : 仮想マシンの OS ディスクサイズ（GB） - `30` ～ `2048`
+
+-   `default_node_pool.max_pods` : ノードで実行可能な Pod の最大数 - `10` ～ `250`
+
+-   `default_node_pool.enable_node_public_ip` : ノードごとのパブリック IP アドレス使用の有効化 - `true`, `false`
+
+-   `default_node_pool.public_ip_prefix_name` : このノードプールのノードに対するパブリック IP アドレスプレフィックスのリソース ID
+
+-   `default_node_pool.temporary_name_for_rotation` : 特定の値変更時に必須となる一時的な Node Pool 名
+
+### 追加ノードプール設定（`cluster_node_pool`）
+
+-   `cluster_node_pool.node_mode` : Node Pool モード - `User`, `System`
+
+-   `cluster_node_pool.node_os_type` : Node Pool 内 VM の OS タイプ - `Linux`, `Windows`
+
+-   `cluster_node_pool.enable_auto_scaling` : 自動スケーリング有効化 - `true`, `false`
+
+-   `cluster_node_pool.node_count` : Node Pool のノード数
+
+-   `cluster_node_pool.max_node_count` : Node Pool の最大ノード数
+
+-   `cluster_node_pool.min_node_count` : Node Pool の最小ノード数
+
+-   `cluster_node_pool.vm_size` : Node Pool を構成する仮想マシンのサイズ
+
+-   `cluster_node_pool.os_disk_size_gb` : 仮想マシンの OS ディスクサイズ（GB） - `30` ～ `2048`
+
+-   `cluster_node_pool.max_pods` : ノードで実行可能な Pod の最大数 - `10` ～ `250`
+
+-   `cluster_node_pool.enable_node_public_ip` : ノードごとのパブリック IP アドレス使用の有効化 - `true`, `false`
+
+-   `cluster_node_pool.public_ip_prefix_name` : 該当 Node Pool のノードに対するパブリック IP アドレスプレフィックスのリソース ID
+
+### タグ
+
+-   `tag` : リソースをカテゴリ分けするためのタグ - 最大 512 文字、`key`:`value`
 
 ---
 
 ## 参考資料
 
--   [Azure KubernetesCluster(Microsoft)](https://learn.microsoft.com/ko-kr/azure/aks/intro-kubernetes)
--   [Azure KubernetesCluster 価格](https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/)
--   [Azure KubernetesCluster(Terraform)](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)
+-   [Azure Kubernetes Service（AKS）（Microsoft）](https://learn.microsoft.com/ko-kr/azure/aks/)
+-   [Terraform azurerm_kubernetes_cluster](https://registry.terraform.io/p)

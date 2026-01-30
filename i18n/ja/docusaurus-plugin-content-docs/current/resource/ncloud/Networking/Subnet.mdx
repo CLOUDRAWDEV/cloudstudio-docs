@@ -1,6 +1,6 @@
 ---
 title: Subnet
-sidebar_position: 0
+sidebar_position: 1
 tags: [Ncloud, リソース, Network, Subnet]
 ---
 
@@ -11,38 +11,51 @@ tags: [Ncloud, リソース, Network, Subnet]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/ncloudImg/networking-subnet.webp"
     }
 />
 
 ## リソース概要
 
-ネットワーク用途別の細分化が可能な VPC 下位ネットワークです。
+ネットワーク用途別に分割可能な VPC 配下のサブネットワークです。
 
 ## 関連リソース
 
-### 上位リソース
+### 親リソース
 
--   [**Vpc**](https://docs.cstudio.app/ja/docs/resource/ncloud/Networking/Vpc)
+-   [**Vpc**](https://docs.cstudio.app/docs/resource/ncloud/Networking/Vpc)
 
-### 下位リソース
+### 含まれるリソース
 
--   [**Server**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/Server)
--   [**Auto Scaling**](https://docs.cstudio.app/ja/docs/resource/ncloud/Compute/AutoScaling)
--   [**Block Storage**](https://docs.cstudio.app/ja/docs/resource/ncloud/Storage/BlockStorage)
+-   [**AutoScaling**](https://docs.cstudio.app/docs/resource/ncloud/Compute/AutoScaling)
+-   [**Redis**](https://docs.cstudio.app/docs/resource/ncloud/Database/Redis)
+-   [**NetworkInterface**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NetworkInterface)
+-   [**Server**](https://docs.cstudio.app/docs/resource/ncloud/Compute/Server)
+-   [**LoadBalancer**](https://docs.cstudio.app/docs/resource/ncloud/Networking/LoadBalancer)
+-   [**NatGateway**](https://docs.cstudio.app/docs/resource/ncloud/Networking/NatGateway)
+-   [**MSSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mssql)
+-   [**MySQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mysql)
+-   [**MongoDB**](https://docs.cstudio.app/docs/resource/ncloud/Database/Mongodb)
+-   [**PostgreSQL**](https://docs.cstudio.app/docs/resource/ncloud/Database/Postgresql)
 
 ### 接続リソース
 
--   [**Network Acl**](https://docs.cstudio.app/ja/docs/resource/ncloud/Network/NetworkAcl)
+-   [**NetworkACL**](https://docs.cstudio.app/docs/resource/ncloud/Security/NetworkAcl)
+-   [**KubernetesCluster**](https://docs.cstudio.app/docs/resource/ncloud/Containers/KubernetesCluster)
+-   [**RouteTable**](https://docs.cstudio.app/docs/resource/ncloud/Networking/RouteTable)
+
+---
 
 ## リソース設定値
 
--   `subnet_cidr` : VPC アドレス範囲内のサブネット IP アドレス範囲
--   `zone` : サブネットが配置される物理的なゾーン - `KR-1`, `KR-2`
--   `subnet_type` : インターネット接続、公用またはプライベート - `PUBLIC`, `PRIVATE`
--   `usage_type` : ロードバランサーの使用可否の設定 - `GEN`, `BM`
--   `included_vpc_name` : サブネットが配置される VPC の名前
--   `linked_nacl_name` : ブネットへのアクセスを制御する Network access control list
+#### 基本設定
+
+-   `subnet_cidr` : VPC CIDR 範囲内で割り当てる Subnet IP 範囲
+-   `zone` : Subnet が配置される可用ゾーン (`KR-1`, `KR-2`)
+-   `subnet_type` : Subnet タイプ (`PUBLIC`, `PRIVATE`)
+-   `usage_type` : Subnet 使用目的 (`General`, `LoadBalancer`, `BareMetal`, `NatGateway`)
+-   `included_vpc_name` : Subnet が属する VPC 名（読み取り専用）
+-   `linked_nacl_name` : Subnet に適用する Network ACL 名（読み取り専用）
 
 ---
 

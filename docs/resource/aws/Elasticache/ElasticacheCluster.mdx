@@ -1,5 +1,5 @@
 ---
-title: Elasticache Cluster
+title: ElasticacheCluster
 sidebar_position: 0
 tags: [AWS, 리소스, Elasticache, ElasticacheCluster]
 ---
@@ -11,7 +11,7 @@ tags: [AWS, 리소스, Elasticache, ElasticacheCluster]
 
 <img
     src={
-        "https://cloudstudioblob.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.png"
+        "https://cloudstudioblobprod.blob.core.windows.net/cloudstudio/awsImg/elasticache-elasticache_cluster.webp"
     }
 />
 
@@ -27,19 +27,26 @@ AWS Elasticache Cluster는 클라우드 기반의 인 메모리 데이터 스토
 
 ### 연결 리소스
 
--   [**Subnet**](https://docs.cstudio.app/docs/resource/aws/ElastiCache/ElasticacheCluster)
+-   [**ElasticacheCluster**](https://docs.cstudio.app/docs/resource/aws/Elasticache/ElasticacheCluster)
 
 ## 리소스 설정 값
 
--   `engine` : Cache Cluster에서 사용할 Cache Engine의 이름 - `redis`, `memcached`
--   `engine_version` : Cache Engine의 버전
--   `port` : 각 Cache Node와 연결할 때 사용할 포트 번호. Memcached는 11211, Redis는 6379번 포트를 기본값으로 사용
--   `parameter_group_name` : Cache Cluster와 연결할 파라미터 그룹의 이름
--   `node_type` : Cache Cluster에 사용된 인스턴스 클래스
--   `num_cache_nodes` : Cache Cluster의 최초 Cache Node 수 - `1`~`40`
--   `az_mode` : Memcached Node Group의 Node가 단일 가용 영역에서 생성되는지 아니면 클러스터 지역의 여러 가용 영역에 걸쳐 생성되는지 여부 - `single-az`, `cross-az`
--   `included_subnet_names` : Elasticache Cluster를 배포할 Subnet Group에 포함될 Subnet의 이름
--   `snapshot_retention_limit` : ElastiCache가 자동 캐시 클러스터 스냅샷을 삭제하기 전에 보관하는 기간
+#### 기본 설정
+
+-   `engine` : Cache Engine 종류 - `redis`, `memcached`
+-   `engine_version` : Cache Engine 버전
+-   `port` : Cache Node 연결 포트 (Redis: 6379, Memcached: 11211)
+-   `parameter_group_name` : 연결할 파라미터 그룹 이름
+-   `node_type` : Cache Node 인스턴스 타입
+-   `num_cache_nodes` : Cache Node 개수
+-   `az_mode` : 가용 영역 구성 방식 - `single-az`, `cross-az`
+-   `included_subnet_names` : Subnet Group에 포함될 Subnet 이름 목록
+-   `subnet_group_name` : 사용할 Subnet Group 이름
+-   `snapshot_retention_limit` : 자동 스냅샷 보관 기간(일)
+
+#### 태그
+
+-   `tag` : 리소스를 카테고리로 분류하기 위한 태그
 
 ---
 
