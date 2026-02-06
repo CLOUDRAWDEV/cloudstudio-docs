@@ -5,9 +5,9 @@ tags: [deploy, 배포점검, 배포, 점검결과, 자격증명, 시작하기]
 ---
 
 import styles from "/src/scss/_markdown.module.scss"
-import deploy01 from "/docs/start/img/deploy01.png"
-import deploy02 from "/docs/start/img/deploy02.png"
-import deploy03 from "/docs/start/img/deploy03.png"
+import deploy01 from "./img/deploy01.png"
+import deploy02 from "./img/deploy02.png"
+import deploy03 from "./img/deploy03.png"
 
 <hr />
 <br />
@@ -19,6 +19,7 @@ import deploy03 from "/docs/start/img/deploy03.png"
 ## 배포 점검 {#deploy-test}
 
 IaC의 문법적 오류나 설정이 올바르게 되었는지 가상으로 검증하는 단계입니다. 실제 CSP에 배포되지 않습니다.
+(`--dry-run` option과 같은 역할을 합니다.)
 
 1. 배포테스트를 진행하기 위해서 `배포관리 > 유효성 검사`를 클릭합니다.
 
@@ -54,7 +55,7 @@ IaC의 문법적 오류나 설정이 올바르게 되었는지 가상으로 검�
 1. 배포 이력을 확인하기 위해서 `배포관리` > `배포이력`을 클릭합니다.
 
 <div className={styles.imgWrap}>
-    <img src={deploy01} width="200px" alt="배포이미지" />
+    <img src={deploy01} width="500px" alt="배포이미지" />
 </div>
 
 <br />

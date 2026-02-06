@@ -1,7 +1,7 @@
 ---
-title: Asset Inquiry and Asset Modification
+title: Asset-Abfrage und Asset-Änderung
 sidebar_position: 1
-tags: [Asset Inquiry, Asset Modification, Batch Input, Asset Transfer, Excel]
+tags: [Asset-Abfrage, Asset-Änderung, Stapeleingabe, Asset-Verschiebung, Excel]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -18,81 +18,81 @@ import inquiry10 from "./img/inquiry10.png"
 import inquiry11 from "./img/inquiry11.png"
 import inquiry12 from "./img/inquiry12.png"
 
-# Asset Inquiry and Asset Modification
+# Asset-Abfrage und Asset-Änderung
 
-To inquire about or modify assets, click `Assets>Asset Register`.
+Um Assets abzufragen oder zu ändern, klicken Sie auf `Assets > Anlagenregister`.
 
-## Asset Ledger permission inspection
+## Berechtigungsprüfung des Anlagenregisters
 
-To inquire about asset ledger permissions, click the `ⓘ Button`.
+Um die Berechtigungen für das Anlagenregister einzusehen, klicken Sie auf die `ⓘ Schaltfläche`.
 
 <img width="400" src={inquiry11} alt="조회하기 이미지" />
 <p></p>
 <img width="400" src={inquiry12} alt="조회하기 이미지" />
 <p></p>
 
-## Asset Inquiry
+## Asset-Abfrage
 
-1. Click `Asset Inquiry Button` at the top right.
+1. Klicken Sie oben rechts auf die `Schaltfläche Asset-Abfrage`.
 
-    <img width="400" src={inquiry1} alt="Asset Inquire button image" />
+    <img width="400" src={inquiry11} alt="Asset Inquire button image" />
 
-2. Assets are retrieved based on the `held credentials`. After checking the list of credentials to be retrieved, click the `View Button` to load the assets. (`Authorized` indicates permission to retrieve credentials.)
+2. Assets werden basierend auf den `vorhandenen Anmeldedaten` abgerufen. Nachdem Sie die Liste der abzurufenden Anmeldedaten überprüft haben, klicken Sie auf die `Schaltfläche Anzeigen`, um die Assets zu laden. (`Autorisiert` zeigt die Berechtigung zum Abrufen von Anmeldedaten an.)
 
     <img width="400" src={inquiry2} alt="Query img" />
 
 <p>&nbsp;</p>
 
-## Asset Modification
+## Asset-Änderung
 
-Assets are divided into six categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
-Uncategorized is a category that groups assets that do not fall under Server, Storage, Information Security System, Network, or DBMS.
-Assets can be modified within each category.
+Assets sind in sechs Kategorien unterteilt: `Server, Speicher, Informationssicherheitssystem, Netzwerk, DBMS, Nicht kategorisiert`.
+Nicht kategorisiert ist eine Kategorie, die Assets gruppiert, die nicht unter Server, Speicher, Informationssicherheitssystem, Netzwerk oder DBMS fallen.
+Assets können innerhalb jeder Kategorie geändert werden.
 
-1. Click the tab to navigate to the desired asset category.
-2. After querying the assets, `click on the empty cells in the table` to enter information.
+1. Klicken Sie auf den Tab, um zur gewünschten Asset-Kategorie zu navigieren.
+2. Nachdem Sie die Assets abgefragt haben, `klicken Sie auf die leeren Zellen in der Tabelle`, um Informationen einzugeben.
 
     <img width="400" src={inquiry4} alt="Query img" />
 
-3. After entering all the values, click the `Save icon Button`. If you want to revert to the previous values, click the `Back icon Button` to go back.
+3. Nachdem Sie alle Werte eingegeben haben, klicken Sie auf das `Speicher-Symbol`. Wenn Sie zu den vorherigen Werten zurückkehren möchten, klicken Sie auf das `Zurück-Symbol`, um zurückzugehen.
 
     <img width="200" src={inquiry5} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Batch Input
+### Stapeleingabe
 
-1. Select the assets for batch input and click the `Batch Input Button`.
+1. Wählen Sie die Assets für die Stapeleingabe aus und klicken Sie auf die `Schaltfläche Stapeleingabe`.
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. Select the column name to be batch-modified. (e.g., Management Number, Asset Description, Domain, Ownership Department, Administrator, Person in Charge) <br /> After entering the input value, click the Batch Input button to complete.
+2. Wählen Sie den Spaltennamen aus, der stapelweise geändert werden soll. (z. B. Verwaltungsnummer, Asset-Beschreibung, Domain, Besitzende Abteilung, Administrator, Verantwortlicher) <br /> Nach Eingabe des Wertes klicken Sie auf die Schaltfläche Stapeleingabe, um den Vorgang abzuschließen.
 
     <img width="400" src={inquiry6} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Asset Movement
+### Asset-Verschiebung
 
-1. Select the assets to be moved and click the `Asset Movement Button`.
+1. Wählen Sie die zu verschiebenden Assets aus und klicken Sie auf die `Schaltfläche Asset-Verschiebung`.
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. In the current tab, select the tab where you want to move the assets and review the list of assets to be moved.
+2. Wählen Sie im aktuellen Tab den Tab aus, in den Sie die Assets verschieben möchten, und überprüfen Sie die Liste der zu verschiebenden Assets.
 
     <img width="400" src={inquiry7} alt="Query img" />
 
-3. Click the `Move Button` to complete the asset movement.
+3. Klicken Sie auf die `Schaltfläche Verschieben`, um die Asset-Verschiebung abzuschließen.
 
 <p>&nbsp;</p>
 
-### Excel Export
+### Excel-Export
 
-CS Checker provides an asset register. You can export the same information you see on the web into an Excel file.
+CS Checker stellt ein Anlagenregister zur Verfügung. Sie können dieselben Informationen, die Sie im Web sehen, in eine Excel-Datei exportieren.
 
-1. Click the `Download Button` to download the Excel file.
+1. Klicken Sie auf die `Schaltfläche Download`, um die Excel-Datei herunterzuladen.
 
     <img width="200" src={inquiry8} alt="Query img" />
 
-2. In Excel, you can view assets from all categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
+2. In Excel können Sie Assets aus allen Kategorien einsehen: `Server, Speicher, Informationssicherheitssystem, Netzwerk, DBMS, Nicht kategorisiert`.
     <img width="700" src={inquiry10} alt="Query img" />
