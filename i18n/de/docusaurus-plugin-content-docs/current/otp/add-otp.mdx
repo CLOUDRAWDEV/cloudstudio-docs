@@ -6,12 +6,13 @@ last_update:
     date: 02/01/2023
 ---
 
-import otp01 from "@site/docs/start/img/otp01.png"
-import otp02 from "@site/docs/start/img/otp02.png"
-import otp03 from "@site/docs/start/img/otp03.png"
-import otp04 from "@site/docs/start/img/otp04.png"
-import otp05 from "@site/docs/start/img/otp05.png"
-import otp06 from "@site/docs/start/img/otp06.png"
+import otp01 from "../start/img/otp01.png"
+import otp02 from "../start/img/otp02.png"
+import otp03 from "../start/img/otp03.png"
+import otp04 from "../start/img/otp04.png"
+import otp05 from "../start/img/otp05.png"
+import otp06 from "../start/img/otp06.png"
+import otp08 from "../start/img/otp08.png"
 import styles from "/src/scss/_markdown.module.scss"
 
 <span className="theme-doc-version-badge badge badge--secondary">
@@ -21,24 +22,30 @@ import styles from "/src/scss/_markdown.module.scss"
 <hr />
 <br />
 
-1. Installieren Sie die Google Authenticator App über den Link.
+1. Gehen Sie zu `Meine Informationen - Kontoverwaltung`, klicken Sie auf den `OTP Registrierungsbutton` und geben Sie das für die Anmeldung erforderliche `Passwort` ein.
+
+<img width="100%" src={otp08} alt="otp img" />
+
+<p>&nbsp;</p>
+
+2. Installieren Sie die `Google Authenticator-App` über den bereitgestellten Link.
 
 <img width="100%" src={otp01} alt="otp img" />
 
 <p>&nbsp;</p>
 
-2. Starten Sie die Google Authenticator App und scannen Sie den QR-Code.
+3. Starten Sie die Google Authenticator-App und scannen Sie den `QR-Code`.
 
 <img width="100%" src={otp02} alt="otp img" />
 
 <p>&nbsp;</p>
 
-3. Der einmal ausgestellte Authentifizierungsschlüssel kann `nicht wiedergefunden werden`, also stellen Sie sicher, dass Sie ihn aufschreiben.
+4. Einmal generierte Authentifizierungsschlüssel `können nicht wiederhergestellt werden`, daher sollten Sie ihn unbedingt aufschreiben.
 
 <img width="100%" src={otp03} alt="otp img" />
 
 <p>&nbsp;</p>
 
-4. Geben Sie den `6-stelligen Authentifizierungscode`, der in der Google Authenticator App registriert ist, ein und klicken Sie auf die Schaltfläche `Authentifizierung abschließen`.
+5. Geben Sie den `6-stelligen Authentifizierungscode` aus der Google Authenticator-App ein und klicken Sie auf den `Authentifizierung abgeschlossen`-Button.
 
 <img width="100%" src={otp04} alt="otp img" />

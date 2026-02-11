@@ -1,7 +1,7 @@
 ---
-title: Console Inspection
+title: コンソール点検
 sidebar_position: 2
-tags: [Inspection, Console Inspection]
+tags: [点検, コンソール点検]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -13,8 +13,8 @@ import compliance6 from "./img/compliance6.png"
 import inspect8 from "./img/inspect8.png"
 import compliance9 from "./img/compliance9.png"
 import compliance12 from "./img/compliance12.png"
-import compliance13 from "./img/compliance13.png"
 import inspect14 from "./img/inspect14.png"
+import compliance13 from "./img/compliance13.png"
 import compliance15 from "./img/compliance15.png"
 import compliance16 from "./img/compliance16.png"
 import compliance17 from "./img/compliance17.png"
@@ -25,78 +25,76 @@ import compliance21 from "./img/compliance21.png"
 import compliance22 from "./img/compliance22.png"
 import compliance23 from "./img/compliance23.png"
 
-# Console Inspection
+# コンソール点検
 
-## Console Inspection Permission Inquiry
+## コンソール点検権限照会
 
-To inquire about console inspection permissions, click the `ⓘ Button`.
+コンソール点検の権限を照会するには、`ⓘ ボタン`をクリックします。
 
-<img width="400" src={compliance22} alt="조회하기 이미지" />
+<img width="400" src={compliance22} alt="照会イメージ" />
 <p></p>
-<img width="400" src={compliance23} alt="조회하기 이미지" />
+<img width="400" src={compliance23} alt="照회イメージ" />
 <p></p>
 
-# Console Inspection
+# コンソール点検
 
-## How to Execute
+## 実行方法
 
-1. Click the `Inspection > Inspection Management > Console Inspection` tab to access console inspection.
-2. Select the `group you want to inspect` from the group list.
+1. `点検 > 点検管理 > コンソール点検`タブをクリックして、コンソール点検にアクセスします。
+2. グループリストから`点検したいグループ`を選択します。
 
 :::info
 
-Console inspections are performed based on the selected group. Please `create a group first` before starting console inspections.
-[How to Create a Group](/docs/compliance/group)
+コンソール点検は選択したグループに基づいて実行されます。コンソール点検を開始する前に、まず`グループを作成`してください。
+[グループの作成方法](/docs/compliance/group)
 
 :::
 
-3. Click the `Console Inspection tab`.
+3. `コンソール点検タブ`をクリックします。
 
 <img width="400" src={inspect2} alt="img" />
 <br />
 
-4. Click the `Inspection Button`.
+4. `点検ボタン`をクリックします。
 
     <img width="200" src={compliance3} alt="img" />
 
-5. Enter an inspection title (to specify what the inspection is about), then click the `Start Inspection Button`. The inspection title can be viewed and edited in the inspection details.
+5. 点検タイトル（点検内容を特定するため）を入力し、`点検開始ボタン`をクリックします。点検タイトルは、点検の詳細で確認および編集できます。
 
     <img width="400" src={compliance4} alt="img" />
 
 <p>&nbsp;</p>
 
-### Inspection Result Details
+### 点検結果の詳細
 
-You can view detailed results for each column in the table. Click on the column you want to review.
+テーブルの各列の詳細な結果を確認できます。確認したい列をクリックしてください。
 
 <img width="800" src={inspect8} alt="img" />
 
 <p>&nbsp;</p>
 
-**Console Inspection**<br/>
-Displays the inspection method (e.g., if the result is vulnerable, it specifies how to resolve the issue).
+**コンソール点検**<br/>
+点検方法を表示します（例：結果が脆弱な場合、問題の解決方法が指定されます）。
 
-**Inspection Results**<br/>
-In the inspection results, `Y` means compliant, `N` means vulnerable, `N/A` means not inspectable, and `P` means average.
+**点検結果**<br/>
+点検結果において、`Y`は適合、`N`は脆弱、`N/A`は点検不可、`P`は平均を意味します。
 
 <img width="800" src={compliance6} alt="img" />
 <br />
 
-**Certification Criteria**<br/>
-You can manage the items corresponding to each certification criterion. For
-example, in the image below, the certification criteria are (ISMS, ISO). You can
-check the desired items using the checkboxes and add them.
+**認証基準**<br/>
+各認証基準に対応する項目を管理できます。例えば、下の画像では認証基準は (ISMS, ISO) です。チェックボックスを使用して目的の項目を確認し、追加できます。
 
 <img width="400" src={compliance9} alt="img" />
 
-**Consultant Opinion Field**<br/>
-A field where consultants can write their opinions regarding the inspection results.
+**コンサルタント意見欄**<br/>
+コンサルタントが点検結果に関する意見を記入できる欄です。
 
-**Detailed Results Table**<br/>
-In the detailed results table, you can view all assets. If a vulnerable item belongs to the overall items, you can move it to the vulnerable tab by clicking the checkbox.
+**詳細結果テーブル**<br/>
+詳細結果テーブルでは、すべての資産を表示できます。脆弱な項目が全体の項目に含まれている場合、チェックボックスをクリックして脆弱タブに移動させることができます。
 
-**Export Detailed Results as an Image File**<br/>
-Click the "Export as Image File Button" to save the results as a PNG file.
+**詳細結果を画像ファイルとしてエクスポート**<br/>
+「画像ファイルとしてエクスポートボタン」をクリックすると、結果をPNGファイルとして保存できます。
 
 <img width="300" src={compliance16} alt="img" />
 
@@ -104,72 +102,72 @@ Click the "Export as Image File Button" to save the results as a PNG file.
 
 :::caution
 
-If you navigate away from the page without clicking the Save Changes button after editing the details, **the changes will not be applied.**
+詳細を編集した後、[変更を保存]ボタンをクリックせずにページを移動すると、**変更は適用されません。**
 
 :::
 
 <p>&nbsp;</p>
 
-## Report Generation
+## レポート作成
 
-Once the inspection is complete, you can view the results in a table. The table includes six columns: `Scope, Item Name, Inspection Criteria, Priority, Inspection Result, and Inspection Result Details`.
-For more detailed information about `Inspection Criteria` refer to [here](/docs/compliance/result).
-CS Checker provides two types of reports: Excel and Word.
+点検が完了すると、結果をテーブルで確認できます。テーブルには、`範囲、項目名、点検基準、優先度、点検結果、点検結果の詳細`の6つの列が含まれます。
+`点検基準`の詳細については[こちら](/docs/compliance/result)を参照してください。
+CS Checkerは、ExcelとWordの2種類のレポートを提供します。
 
-### Excel Report
+### Excelレポート
 
-1. To download the Excel file, click the `Excel Report Button`.
+1. Excelファイルをダウンロードするには、`Excelレポートボタン`をクリックします。
 
     <img width="200" src={compliance12} alt="img" />
 
-2. Select the compliance and click the `Create Button`.
+2. コンプライアンスを選択した後、「生成」ボタンをクリックします。
 
-    <img width="400" src={compliance13} alt="img" />
+    <img width="400" src={compliance13} alt="이미지" />
 
-3. Open the Excel file to review the inspection details.
-    <img width="800" src={compliance17} alt="img" />
+3. エクセルファイルを開いて、点検内容を確認します。
+    <img width="800" src={compliance17} alt="이미지" />
 
-### Word Report
+### Wordレポート
 
-1. To download the Word file, click the `Word Report Button`.
+1. Wordファイルをダウンロードするには、`Wordレポートボタン`をクリックします。
 
     <img width="200" src={compliance18} alt="img" />
 
-2. When the popup opens, enter the required information.
+2. ポップアップが開いたら、必要な情報を入力します。
 
-    2-1. Select Compliance<br />
-    2-2. Enter the Report Title<br />
-    2-3. Choose the Inspection Schedule<br />
-    2-4. Enter the Inspector<br />
-    2-5. Click the Create button
+    2-1. コンプライアンスを選択<br />
+    2-2. レポートタイトルを入力<br />
+    2-3. 点検スケジュールを選択<br />
+    2-4. 点検者を入力<br />
+    2-5. [作成]ボタンをクリック
 
     <img width="400" src={inspect19} alt="img" />
 
-3. Open the Word file to review the inspection details.
+3. Wordファイルを開いて、点検の詳細を確認します。
     <img width="600" src={compliance20} alt="img" />
 
 <p>&nbsp;</p>
 
-## Excel Upload
+## Excelアップロード
 
-If you upload the modified Excel report to CS Checker, the changes will be applied.
+修正したExcelレポートをCS Checkerにアップロードすると、変更が適用されます。
 
 <img width="400" src={compliance21} alt="img" />
 
 <p>&nbsp;</p>
 
-## Inspection History Check
+## 点検履歴の確認
 
-1. Click the `Inspection History Button`.
+1. `点検履歴ボタン`をクリックします。
 
     <img width="200" src={compliance15} alt="img" />
 
-2. In the inspection history, you can check the `Inspection Title, Inspection Execution Date & Time`.
+2. 点検履歴では、`点検タイトル、点検実行日時`を確認できます。
 
     <img width="400" src={inspect14} alt="img" />
 
 :::info
 
-You can click on the history you want to navigate to and review the inspection details. You can also delete an inspection by clicking the button.
+移動したい履歴をクリックして、点検の詳細を確認できます。また、ボタンをクリックして点検を削除することもできます。
 
 :::

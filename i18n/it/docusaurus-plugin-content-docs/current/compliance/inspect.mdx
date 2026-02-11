@@ -1,7 +1,7 @@
 ---
-title: Console Inspection
+title: Ispezione Console
 sidebar_position: 2
-tags: [Inspection, Console Inspection]
+tags: [Ispezione, Ispezione Console]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -25,78 +25,76 @@ import compliance21 from "./img/compliance21.png"
 import compliance22 from "./img/compliance22.png"
 import compliance23 from "./img/compliance23.png"
 
-# Console Inspection
+# Ispezione Console
 
-## Console Inspection Permission Inquiry
+## Richiesta di Autorizzazione per l'Ispezione Console
 
-To inquire about console inspection permissions, click the `ⓘ Button`.
+Per richiedere le autorizzazioni per l'ispezione della console, fare clic sul `Pulsante ⓘ`.
 
-<img width="400" src={compliance22} alt="조회하기 이미지" />
+<img width="400" src={compliance22} alt="Immagine di richiesta" />
 <p></p>
-<img width="400" src={compliance23} alt="조회하기 이미지" />
+<img width="400" src={compliance23} alt="Immagine di richiesta" />
 <p></p>
 
-# Console Inspection
+# Ispezione Console
 
-## How to Execute
+## Come Eseguire
 
-1. Click the `Inspection > Inspection Management > Console Inspection` tab to access console inspection.
-2. Select the `group you want to inspect` from the group list.
+1. Fare clic sulla scheda `Ispezione > Gestione Ispezioni > Ispezione Console` per accedere all'ispezione della console.
+2. Selezionare il `gruppo che si desidera ispezionare` dall'elenco dei gruppi.
 
 :::info
 
-Console inspections are performed based on the selected group. Please `create a group first` before starting console inspections.
-[How to Create a Group](/docs/compliance/group)
+Le ispezioni della console vengono eseguite in base al gruppo selezionato. Si prega di `creare prima un gruppo` prima di iniziare le ispezioni della console.
+[Come creare un gruppo](/docs/compliance/group)
 
 :::
 
-3. Click the `Console Inspection tab`.
+3. Fare clic sulla scheda `Ispezione Console`.
 
 <img width="400" src={inspect2} alt="img" />
 <br />
 
-4. Click the `Inspection Button`.
+4. Fare clic sul `Pulsante Ispezione`.
 
     <img width="200" src={compliance3} alt="img" />
 
-5. Enter an inspection title (to specify what the inspection is about), then click the `Start Inspection Button`. The inspection title can be viewed and edited in the inspection details.
+5. Inserire un titolo per l'ispezione (per specificare lo scopo dell'ispezione), quindi fare clic sul `Pulsante Avvia Ispezione`. Il titolo dell'ispezione può essere visualizzato e modificato nei dettagli dell'ispezione.
 
     <img width="400" src={compliance4} alt="img" />
 
 <p>&nbsp;</p>
 
-### Inspection Result Details
+### Dettagli dei Risultati dell'Ispezione
 
-You can view detailed results for each column in the table. Click on the column you want to review.
+È possibile visualizzare i risultati dettagliati per ogni colonna nella tabella. Fare clic sulla colonna che si desidera esaminare.
 
 <img width="800" src={inspect8} alt="img" />
 
 <p>&nbsp;</p>
 
-**Console Inspection**<br/>
-Displays the inspection method (e.g., if the result is vulnerable, it specifies how to resolve the issue).
+**Ispezione Console**<br/>
+Visualizza il metodo di ispezione (ad esempio, se il risultato è vulnerabile, specifica come risolvere il problema).
 
-**Inspection Results**<br/>
-In the inspection results, `Y` means compliant, `N` means vulnerable, `N/A` means not inspectable, and `P` means average.
+**Risultati dell'Ispezione**<br/>
+Nei risultati dell'ispezione, `Y` significa conforme, `N` significa vulnerabile, `N/A` significa non ispezionabile e `P` significa medio.
 
 <img width="800" src={compliance6} alt="img" />
 <br />
 
-**Certification Criteria**<br/>
-You can manage the items corresponding to each certification criterion. For
-example, in the image below, the certification criteria are (ISMS, ISO). You can
-check the desired items using the checkboxes and add them.
+**Criteri di Certificazione**<br/>
+È possibile gestire gli elementi corrispondenti a ciascun criterio di certificazione. Nell'immagine seguente, ad esempio, i criteri di certificazione sono (ISMS, ISO). È possibile selezionare gli elementi desiderati utilizzando le caselle di controllo e aggiungerli.
 
 <img width="400" src={compliance9} alt="img" />
 
-**Consultant Opinion Field**<br/>
-A field where consultants can write their opinions regarding the inspection results.
+**Campo Opinione Consulente**<br/>
+Un campo in cui i consulenti possono scrivere le proprie opinioni riguardo ai risultati dell'ispezione.
 
-**Detailed Results Table**<br/>
-In the detailed results table, you can view all assets. If a vulnerable item belongs to the overall items, you can move it to the vulnerable tab by clicking the checkbox.
+**Tabella Risultati Dettagliati**<br/>
+Nella tabella dei risultati dettagliati, è possibile visualizzare tutti gli asset. Se un elemento vulnerabile appartiene agli elementi complessivi, è possibile spostarlo nella scheda dei vulnerabili facendo clic sulla casella di controllo.
 
-**Export Detailed Results as an Image File**<br/>
-Click the "Export as Image File Button" to save the results as a PNG file.
+**Esporta Risultati Dettagliati come File Immagine**<br/>
+Fare clic sul pulsante "Esporta come File Immagine" per salvare i risultati come file PNG.
 
 <img width="300" src={compliance16} alt="img" />
 
@@ -104,72 +102,72 @@ Click the "Export as Image File Button" to save the results as a PNG file.
 
 :::caution
 
-If you navigate away from the page without clicking the Save Changes button after editing the details, **the changes will not be applied.**
+Se ci si allontana dalla pagina senza fare clic sul pulsante Salva Modifiche dopo aver modificato i dettagli, **le modifiche non verranno applicate.**
 
 :::
 
 <p>&nbsp;</p>
 
-## Report Generation
+## Generazione Report
 
-Once the inspection is complete, you can view the results in a table. The table includes six columns: `Scope, Item Name, Inspection Criteria, Priority, Inspection Result, and Inspection Result Details`.
-For more detailed information about `Inspection Criteria` refer to [here](/docs/compliance/result).
-CS Checker provides two types of reports: Excel and Word.
+Una volta completata l'ispezione, è possibile visualizzare i risultati in una tabella. La tabella include sei colonne: `Ambito, Nome Elemento, Criteri di Ispezione, Priorità, Risultato Ispezione e Dettagli Risultato Ispezione`.
+Per informazioni più dettagliate sui `Criteri di Ispezione` consultare [qui](/docs/compliance/result).
+CS Checker fornisce due tipi di report: Excel e Word.
 
-### Excel Report
+### Report Excel
 
-1. To download the Excel file, click the `Excel Report Button`.
+1. Per scaricare il file Excel, fare clic sul `Pulsante Report Excel`.
 
     <img width="200" src={compliance12} alt="img" />
 
-2. Select the compliance and click the `Create Button`.
+2. Selezionare Compliance e fare clic sul pulsante Genera.
 
-    <img width="400" src={compliance13} alt="img" />
+    <img width="400" src={compliance13} alt="이미지" />
 
-3. Open the Excel file to review the inspection details.
-    <img width="800" src={compliance17} alt="img" />
+3. Aprire il file Excel per verificare i dettagli del controllo.
+    <img width="800" src={compliance17} alt="이미지" />
 
-### Word Report
+### Report Word
 
-1. To download the Word file, click the `Word Report Button`.
+1. Per scaricare il file Word, fare clic sul `Pulsante Report Word`.
 
     <img width="200" src={compliance18} alt="img" />
 
-2. When the popup opens, enter the required information.
+2. Quando si apre il popup, inserire le informazioni richieste.
 
-    2-1. Select Compliance<br />
-    2-2. Enter the Report Title<br />
-    2-3. Choose the Inspection Schedule<br />
-    2-4. Enter the Inspector<br />
-    2-5. Click the Create button
+    2-1. Selezionare Compliance<br />
+    2-2. Inserire il Titolo del Report<br />
+    2-3. Scegliere la Pianificazione dell'Ispezione<br />
+    2-4. Inserire l'Ispettore<br />
+    2-5. Fare clic sul pulsante Crea
 
     <img width="400" src={inspect19} alt="img" />
 
-3. Open the Word file to review the inspection details.
+3. Aprire il file Word per esaminare i dettagli dell'ispezione.
     <img width="600" src={compliance20} alt="img" />
 
 <p>&nbsp;</p>
 
-## Excel Upload
+## Caricamento Excel
 
-If you upload the modified Excel report to CS Checker, the changes will be applied.
+Se si carica il report Excel modificato su CS Checker, verranno applicate le modifiche.
 
 <img width="400" src={compliance21} alt="img" />
 
 <p>&nbsp;</p>
 
-## Inspection History Check
+## Controllo Cronologia Ispezioni
 
-1. Click the `Inspection History Button`.
+1. Fare clic sul `Pulsante Cronologia Ispezioni`.
 
     <img width="200" src={compliance15} alt="img" />
 
-2. In the inspection history, you can check the `Inspection Title, Inspection Execution Date & Time`.
+2. Nella cronologia delle ispezioni, è possibile controllare il `Titolo dell'Ispezione, Data e Ora di Esecuzione`.
 
     <img width="400" src={inspect14} alt="img" />
 
 :::info
 
-You can click on the history you want to navigate to and review the inspection details. You can also delete an inspection by clicking the button.
+È possibile fare clic sulla cronologia su cui si desidera navigare e rivedere i dettagli dell'ispezione. È inoltre possibile eliminare un'ispezione facendo clic sul pulsante corrispondente.
 
 :::

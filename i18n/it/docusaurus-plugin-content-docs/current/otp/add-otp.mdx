@@ -6,12 +6,13 @@ last_update:
     date: 02/01/2023
 ---
 
-import otp01 from "@site/docs/start/img/otp01.png"
-import otp02 from "@site/docs/start/img/otp02.png"
-import otp03 from "@site/docs/start/img/otp03.png"
-import otp04 from "@site/docs/start/img/otp04.png"
-import otp05 from "@site/docs/start/img/otp05.png"
-import otp06 from "@site/docs/start/img/otp06.png"
+import otp01 from "../start/img/otp01.png"
+import otp02 from "../start/img/otp02.png"
+import otp03 from "../start/img/otp03.png"
+import otp04 from "../start/img/otp04.png"
+import otp05 from "../start/img/otp05.png"
+import otp06 from "../start/img/otp06.png"
+import otp08 from "../start/img/otp08.png"
 import styles from "/src/scss/_markdown.module.scss"
 
 <span className="theme-doc-version-badge badge badge--secondary">
@@ -21,24 +22,30 @@ import styles from "/src/scss/_markdown.module.scss"
 <hr />
 <br />
 
-1. `Installa l'app Google Authenticator` tramite il link fornito.
+1. Clicca il pulsante Registrazione OTP nella sezione `Le mie informazioni - Gestione account`, quindi inserisci la tua `password` richiesta per il login.
+
+<img width="100%" src={otp08} alt="otp img" />
+
+<p>&nbsp;</p>
+
+2. Utilizza il link per `installare l'app Google Authenticator`.
 
 <img width="100%" src={otp01} alt="otp img" />
 
 <p>&nbsp;</p>
 
-2. Dopo aver avviato l'app Google Authenticator, `scansiona il QR code`.
+3. Esegui l'app Google Authenticator e `scansiona il QR code`.
 
 <img width="100%" src={otp02} alt="otp img" />
 
 <p>&nbsp;</p>
 
-3. Poiché la chiave di autenticazione emessa una volta `non può essere recuperata`, assicurati di annotarla.
+4. La chiave di autenticazione emessa una volta `non sarà più recuperabile`, quindi assicurati di annotarla.
 
 <img width="100%" src={otp03} alt="otp img" />
 
 <p>&nbsp;</p>
 
-4. Inserisci il `codice di autenticazione a 6 cifre` registrato nell'app Google Authenticator, quindi clicca sul pulsante `Completa autenticazione`.
+5. Inserisci il `codice di autenticazione a 6 cifre` registrato nell'app Google Authenticator e clicca il pulsante Completamento autenticazione.
 
 <img width="100%" src={otp04} alt="otp img" />

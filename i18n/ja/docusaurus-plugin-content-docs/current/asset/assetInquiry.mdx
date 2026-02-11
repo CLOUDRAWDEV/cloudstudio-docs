@@ -1,7 +1,7 @@
 ---
-title: Asset Inquiry and Asset Modification
+title: 資産照会および資産修正
 sidebar_position: 1
-tags: [Asset Inquiry, Asset Modification, Batch Input, Asset Transfer, Excel]
+tags: [資産照会, 資産修正, 一括入力, 資産移動, Excel]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -18,81 +18,81 @@ import inquiry10 from "./img/inquiry10.png"
 import inquiry11 from "./img/inquiry11.png"
 import inquiry12 from "./img/inquiry12.png"
 
-# Asset Inquiry and Asset Modification
+# 資産照会および資産修正
 
-To inquire about or modify assets, click `Assets>Asset Register`.
+資産を照会または修正するには、`資産 > 資産台帳`をクリックします。
 
-## Asset Ledger permission inspection
+## 資産台帳の権限確認
 
-To inquire about asset ledger permissions, click the `ⓘ Button`.
+資産台帳の権限を確認するには、`ⓘ ボタン`をクリックします。
 
 <img width="400" src={inquiry11} alt="조회하기 이미지" />
 <p></p>
 <img width="400" src={inquiry12} alt="조회하기 이미지" />
 <p></p>
 
-## Asset Inquiry
+## 資産照会
 
-1. Click `Asset Inquiry Button` at the top right.
+1. 右上の`資産照会ボタン`をクリックします。
 
-    <img width="400" src={inquiry1} alt="Asset Inquire button image" />
+    <img width="400" src={inquiry11} alt="Asset Inquire button image" />
 
-2. Assets are retrieved based on the `held credentials`. After checking the list of credentials to be retrieved, click the `View Button` to load the assets. (`Authorized` indicates permission to retrieve credentials.)
+2. `保有する認証情報`に基づいて資産が取得されます。取得する認証情報のリストを確認した後、`表示ボタン`をクリックして資産を読み込みます。（「承認済み」は認証情報を取得する権限があることを示します。）
 
     <img width="400" src={inquiry2} alt="Query img" />
 
 <p>&nbsp;</p>
 
-## Asset Modification
+## 資産修正
 
-Assets are divided into six categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
-Uncategorized is a category that groups assets that do not fall under Server, Storage, Information Security System, Network, or DBMS.
-Assets can be modified within each category.
+資産は、`サーバー、ストレージ、情報セキュリティシステム、ネットワーク、DBMS、未分類`の6つのカテゴリに分類されます。
+「未分類」は、上記のいずれにも該当しない資産をまとめるカテゴリです。
+資産は各カテゴリ内で修正できます。
 
-1. Click the tab to navigate to the desired asset category.
-2. After querying the assets, `click on the empty cells in the table` to enter information.
+1. タブをクリックして、目的の資産カテゴリに移動します。
+2. 資産を照会した後、`テーブルの空のセルをクリック`して情報を入力します。
 
     <img width="400" src={inquiry4} alt="Query img" />
 
-3. After entering all the values, click the `Save icon Button`. If you want to revert to the previous values, click the `Back icon Button` to go back.
+3. すべての値を入力した後、`保存アイコンボタン`をクリックします。以前の値に戻したい場合は、`戻るアイコンボタン`をクリックして戻ります。
 
     <img width="200" src={inquiry5} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Batch Input
+### 一括入力
 
-1. Select the assets for batch input and click the `Batch Input Button`.
+1. 一括入力する資産を選択し、`一括入力ボタン`をクリックします。
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. Select the column name to be batch-modified. (e.g., Management Number, Asset Description, Domain, Ownership Department, Administrator, Person in Charge) <br /> After entering the input value, click the Batch Input button to complete.
+2. 一括修正する列名を選択します（例：管理番号、資産説明、ドメイン、所有部門、管理者、担当者）。 <br /> 入力値を入力した後、一括入力ボタンをクリックして完了します。
 
     <img width="400" src={inquiry6} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Asset Movement
+### 資産移動
 
-1. Select the assets to be moved and click the `Asset Movement Button`.
+1. 移動する資産を選択し、`資産移動ボタン`をクリックします。
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. In the current tab, select the tab where you want to move the assets and review the list of assets to be moved.
+2. 現在のタブで、資産の移動先となるタブを選択し、移動する資産のリストを確認します。
 
     <img width="400" src={inquiry7} alt="Query img" />
 
-3. Click the `Move Button` to complete the asset movement.
+3. `移動ボタン`をクリックして、資産の移動を完了します。
 
 <p>&nbsp;</p>
 
-### Excel Export
+### Excelエクスポート
 
-CS Checker provides an asset register. You can export the same information you see on the web into an Excel file.
+CS Checkerは資産台帳を提供します。ウェブで表示されているものと同じ情報をExcelファイルとしてエクスポートできます。
 
-1. Click the `Download Button` to download the Excel file.
+1. `ダウンロードボタン`をクリックして、Excelファイルをダウンロードします。
 
     <img width="200" src={inquiry8} alt="Query img" />
 
-2. In Excel, you can view assets from all categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
+2. Excelでは、`サーバー、ストレージ、情報セキュリティシステム、ネットワーク、DBMS、未分類`のすべてのカテゴリの資産を確認できます。
     <img width="700" src={inquiry10} alt="Query img" />

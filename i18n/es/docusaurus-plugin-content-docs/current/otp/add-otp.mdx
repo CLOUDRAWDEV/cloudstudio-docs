@@ -6,12 +6,13 @@ last_update:
     date: 02/01/2023
 ---
 
-import otp01 from "@site/docs/start/img/otp01.png"
-import otp02 from "@site/docs/start/img/otp02.png"
-import otp03 from "@site/docs/start/img/otp03.png"
-import otp04 from "@site/docs/start/img/otp04.png"
-import otp05 from "@site/docs/start/img/otp05.png"
-import otp06 from "@site/docs/start/img/otp06.png"
+import otp01 from "../start/img/otp01.png"
+import otp02 from "../start/img/otp02.png"
+import otp03 from "../start/img/otp03.png"
+import otp04 from "../start/img/otp04.png"
+import otp05 from "../start/img/otp05.png"
+import otp06 from "../start/img/otp06.png"
+import otp08 from "../start/img/otp08.png"
 import styles from "/src/scss/_markdown.module.scss"
 
 <span className="theme-doc-version-badge badge badge--secondary">
@@ -21,24 +22,30 @@ import styles from "/src/scss/_markdown.module.scss"
 <hr />
 <br />
 
-1. Instala la `app Google Authenticator` a través del enlace.
+1. Haz clic en el botón `Registrar OTP` en `Mi información - Gestión de cuenta` e ingresa la `contraseña` necesaria para iniciar sesión.
+
+<img width="100%" src={otp08} alt="otp img" />
+
+<p>&nbsp;</p>
+
+2. A través del enlace, `instala la app google authenticator`.
 
 <img width="100%" src={otp01} alt="otp img" />
 
 <p>&nbsp;</p>
 
-2. Abre la app Google Authenticator y `escanea el código QR`.
+3. Ejecuta la app google authenticator y `escanea el código QR`.
 
 <img width="100%" src={otp02} alt="otp img" />
 
 <p>&nbsp;</p>
 
-3. La clave de autenticación emitida una sola vez `no podrá recuperarse`, así que asegúrate de anotarla.
+4. La clave de autenticación generada una vez `no se puede recuperar`, por lo que asegúrate de anotarla.
 
 <img width="100%" src={otp03} alt="otp img" />
 
 <p>&nbsp;</p>
 
-4. Introduce el `código de autenticación de 6 dígitos` registrado en la app Google Authenticator y haz clic en el `botón Confirmar autenticación`.
+5. Ingresa el `código de autenticación de 6 dígitos` registrado en la app google authenticator y haz clic en el botón `Completar autenticación`.
 
 <img width="100%" src={otp04} alt="otp img" />
