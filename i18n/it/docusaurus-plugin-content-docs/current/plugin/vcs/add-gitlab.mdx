@@ -1,9 +1,7 @@
 ---
 title: Registrazione Gitlab
-sidebar_position: 1
+sidebar_position: 2
 tags: [Plugin, Plugin, Git, Gitlab]
-last_update:
-    date: 09/30/2024
 ---
 
 import gitlab01 from "../img/gitlab01.png"
@@ -16,7 +14,7 @@ import gitlab06 from "../img/gitlab06.png"
 import styles from "/src/scss/_markdown.module.scss"
 
 <span className="theme-doc-version-badge badge badge--secondary">
-    last update: 2024.09.30
+    last update: 2026.02.01
 </span>
 
 <hr />
@@ -24,9 +22,9 @@ import styles from "/src/scss/_markdown.module.scss"
 
 ## Registrare Gitlab
 
-Per gestire le versioni del canvas in Cloud Studio, è necessaria l'integrazione con un VCS (Version Control System).<br/> 
-Inoltre, per l'integrazione con l'account Terraform Cloud per la convalida del progetto e la distribuzione, 
-è necessario prima collegare l'account VCS.<br/> 
+Per gestire le versioni del canvas in Cloud Studio, è necessaria l'integrazione con un VCS (Version Control System).<br/>
+Inoltre, per l'integrazione con l'account Terraform Cloud per la convalida del progetto e la distribuzione,
+è necessario prima collegare l'account VCS.<br/>
 In questa pagina verrà spiegato come collegare un account Gitlab tra i VCS.
 
 <br />
@@ -34,7 +32,8 @@ In questa pagina verrà spiegato come collegare un account Gitlab tra i VCS.
 <details>
     <summary>Cos'è GitLab??</summary>
     <h5>
-        GitLab è una piattaforma che consente di ospitare e gestire progetti di sviluppo software.
+        GitLab è una piattaforma che consente di ospitare e gestire progetti di
+        sviluppo software.
     </h5>
 </details>
 
@@ -52,8 +51,8 @@ In questa pagina verrà spiegato come collegare un account Gitlab tra i VCS.
 
 <p>&nbsp;</p>
 
-3. Inserisci il `nome del token` e la `data di scadenza del token`, quindi nella sezione Select scopes (opzioni di accesso del token), 
-seleziona `api`, `read_repository`, `write_repository` e clicca sul pulsante `Create personal access token` per generare il token.
+3. Inserisci il `nome del token` e la `data di scadenza del token`, quindi nella sezione Select scopes (opzioni di accesso del token),
+   seleziona `api`, `read_repository`, `write_repository` e clicca sul pulsante `Create personal access token` per generare il token.
 
 <img width="100%" src={gitlab03} alt="otp img" />
 
