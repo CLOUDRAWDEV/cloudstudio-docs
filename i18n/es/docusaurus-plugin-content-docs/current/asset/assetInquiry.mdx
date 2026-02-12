@@ -1,7 +1,14 @@
 ---
-title: Asset Inquiry and Asset Modification
+title: Consulta y Modificación de Activos
 sidebar_position: 1
-tags: [Asset Inquiry, Asset Modification, Batch Input, Asset Transfer, Excel]
+tags:
+    [
+        Consulta de activos,
+        Modificación de activos,
+        Entrada por lote,
+        Movimiento de activos,
+        Excel
+    ]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -18,81 +25,81 @@ import inquiry10 from "./img/inquiry10.png"
 import inquiry11 from "./img/inquiry11.png"
 import inquiry12 from "./img/inquiry12.png"
 
-# Asset Inquiry and Asset Modification
+# Consulta y Modificación de Activos
 
-To inquire about or modify assets, click `Assets>Asset Register`.
+Para consultar o modificar activos, haga clic en `Activos > Registro de activos`.
 
-## Asset Ledger permission inspection
+## Inspección de permisos del registro de activos
 
-To inquire about asset ledger permissions, click the `ⓘ Button`.
+Para consultar los permisos del registro de activos, haga clic en el `Botón ⓘ`.
 
 <img width="400" src={inquiry11} alt="조회하기 이미지" />
 <p></p>
 <img width="400" src={inquiry12} alt="조회하기 이미지" />
 <p></p>
 
-## Asset Inquiry
+## Consulta de Activos
 
-1. Click `Asset Inquiry Button` at the top right.
+1. Haga clic en el `Botón Consulta de activos` en la parte superior derecha.
 
-    <img width="400" src={inquiry1} alt="Asset Inquire button image" />
+    <img width="400" src={inquiry11} alt="Asset Inquire button image" />
 
-2. Assets are retrieved based on the `held credentials`. After checking the list of credentials to be retrieved, click the `View Button` to load the assets. (`Authorized` indicates permission to retrieve credentials.)
+2. Los activos se recuperan en función de las `credenciales poseídas`. Después de verificar la lista de credenciales, haga clic en el `Botón Ver` para cargar los activos. (`Autorizado` indica permiso para recuperar credenciales).
 
     <img width="400" src={inquiry2} alt="Query img" />
 
 <p>&nbsp;</p>
 
-## Asset Modification
+## Modificación de Activos
 
-Assets are divided into six categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
-Uncategorized is a category that groups assets that do not fall under Server, Storage, Information Security System, Network, or DBMS.
-Assets can be modified within each category.
+Los activos se dividen en seis categorías: `Servidor, Almacenamiento, Sistema de seguridad de la información, Red, DBMS, Sin categorizar`.
+"Sin categorizar" es una categoría que agrupa los activos que no pertenecen a ninguna de las otras categorías.
+Los activos se pueden modificar dentro de cada categoría.
 
-1. Click the tab to navigate to the desired asset category.
-2. After querying the assets, `click on the empty cells in the table` to enter information.
+1. Haga clic en la pestaña para navegar a la categoría de activos deseada.
+2. Después de consultar los activos, `haga clic en las celdas vacías de la tabla` para ingresar información.
 
     <img width="400" src={inquiry4} alt="Query img" />
 
-3. After entering all the values, click the `Save icon Button`. If you want to revert to the previous values, click the `Back icon Button` to go back.
+3. Después de ingresar todos los valores, haga clic en el `Botón con el icono Guardar`. Si desea volver a los valores anteriores, haga clic en el `Botón con el icono Atrás`.
 
     <img width="200" src={inquiry5} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Batch Input
+### Entrada por lote
 
-1. Select the assets for batch input and click the `Batch Input Button`.
+1. Seleccione los activos para la entrada masiva y haga clic en el `Botón Entrada por lote`.
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. Select the column name to be batch-modified. (e.g., Management Number, Asset Description, Domain, Ownership Department, Administrator, Person in Charge) <br /> After entering the input value, click the Batch Input button to complete.
+2. Seleccione el nombre de la columna que desea modificar por lotes. (p. ej., Número de gestión, Descripción del activo, Dominio, Departamento propietario, Administrador, Persona a cargo) <br /> Después de ingresar el valor, haga clic en el botón Entrada por lote para completar.
 
     <img width="400" src={inquiry6} alt="Query img" />
 
 <p>&nbsp;</p>
 
-### Asset Movement
+### Movimiento de Activos
 
-1. Select the assets to be moved and click the `Asset Movement Button`.
+1. Seleccione los activos que desea mover y haga clic en el `Botón Movimiento de activos`.
 
     <img width="300" src={inquiry3} alt="Query img" />
 
-2. In the current tab, select the tab where you want to move the assets and review the list of assets to be moved.
+2. En la pestaña actual, seleccione la pestaña a la que desea mover los activos y revise la lista.
 
     <img width="400" src={inquiry7} alt="Query img" />
 
-3. Click the `Move Button` to complete the asset movement.
+3. Haga clic en el `Botón Mover` para completar el movimiento de activos.
 
 <p>&nbsp;</p>
 
-### Excel Export
+### Exportación a Excel
 
-CS Checker provides an asset register. You can export the same information you see on the web into an Excel file.
+CS Checker proporciona un registro de activos. Puede exportar la misma información que ve en la web a un archivo Excel.
 
-1. Click the `Download Button` to download the Excel file.
+1. Haga clic en el `Botón Descargar` para descargar el archivo Excel.
 
     <img width="200" src={inquiry8} alt="Query img" />
 
-2. In Excel, you can view assets from all categories: `Server, Storage, Information Security System, Network, DBMS, Uncategorized`.
+2. En Excel, puede ver los activos de todas las categorías: `Servidor, Almacenamiento, Sistema de seguridad de la información, Red, DBMS, Sin categorizar`.
     <img width="700" src={inquiry10} alt="Query img" />

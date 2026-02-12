@@ -1,7 +1,7 @@
 ---
-title: Remote Inspection
+title: Inspección Remota
 sidebar_position: 2
-tags: [Inspection, Remote Inspection]
+tags: [Inspección, Inspección remota]
 ---
 
 import styles from "../../scss/_asset.module.scss"
@@ -38,125 +38,123 @@ import remoteInspect30 from "./img/remoteInspect30.png"
 import remoteInspect5 from "./img/remoteInspect5.png"
 import remoteInspect7 from "./img/remoteInspect7.png"
 
-# Remote Inspection
+# Inspección Remota
 
-## Remote Inspection Permission Inquiry
+## Consulta de permisos de inspección remota
 
-To inquire about console inspection permissions, click the `ⓘ Button`.
+Para consultar los permisos de inspección de consola, haga clic en el `Botón ⓘ`.
 
-<img width="400" src={remoteInspect29} alt="조회하기 이미지" />
+<img width="200" src={remoteInspect29} alt="Imagen de consulta" />
 <p></p>
-<img width="400" src={remoteInspect30} alt="조회하기 이미지" />
+<img width="400" src={remoteInspect30} alt="Imagen de consulta" />
 <p></p>
 
-## How to Execute
+## Cómo ejecutar
 
-1. Click the `Inspection > Inspection Management > Remote Inspection` tab to access remote inspection.
-2. Select the `group you want to inspect` from the group list.
+1. Haga clic en la pestaña `Inspección > Gestión de inspecciones > Inspección remota` para acceder.
+2. Seleccione el `grupo que desea inspeccionar` de la lista de grupos.
 
 :::info
 
-Remote inspections are conducted based on the selected group. Please `create a group first` before starting remote inspections.
-[How to Create a Group](/docs/compliance/group)
+Las inspecciones remotas se realizan en función del grupo seleccionado. Por favor, `cree un grupo primero` antes de comenzar las inspecciones remotas.
+[Cómo crear un grupo](/docs/compliance/group)
 
 :::
 
-3. Click the `Remote Inspection tab`.
+3. Haga clic en la pestaña `Inspección remota`.
 
 <img width="400" src={remoteInspect2} alt="img" />
 
-4. Click the `Inspection Button`.
+4. Haga clic en el `Botón Inspección`.
 
     <img width="200" src={remoteInspect3} alt="img" />
 
-5. Enter a inspection title (to specify what the inspection is about) and click the `Next Button`.
+5. Ingrese un título de inspección (para especificar de qué trata) y haga clic en el `Botón Siguiente`.
 
     <img width="400" src={remoteInspect5} alt="img" />
 
-    5-1. If using an existing server, enter the information of the server you want to use.
+    5-1. Si usa un servidor existente, ingrese la información del servidor que desea utilizar.
 
-    <img width="400" src={remoteInspect7} alt="이미지" />
+    <img width="400" src={remoteInspect7} alt="Imagen" />
 
-6. Enter a inspection title (indicating what the inspection is about), then click the `Start Inspection Button`.
+6. Ingrese un título de inspección (que indique de qué trata la misma) y luego haga clic en el `Botón Iniciar inspección`.
 
-    <img width="400" src={remoteInspect4} alt="이미지" />
+    <img width="400" src={remoteInspect4} alt="Imagen" />
 
 <p>&nbsp;</p>
 
-### Inspection Result Details
+### Detalles de los resultados de la inspección
 
-You can view detailed results for each column in the table. Click on the item you want to review.
+Puede ver los resultados detallados para cada columna de la tabla. Haga clic en el elemento que desee revisar.
 
 <img width="800" src={remoteInspect8} alt="img" />
 
 <p>&nbsp;</p>
 
-**Detailed Results Table**<br/>
-3-1. Title<br/>
-3-2. Item Name<br/>
-3-3. Detailed Description<br/>
-3-4. Inspection Result<br/>
-3-5. Inspection Method
+**Tabla de resultados detallados**<br/>
+3-1. Título<br/>
+3-2. Nombre del elemento<br/>
+3-3. Descripción detallada<br/>
+3-4. Resultado de la inspección<br/>
+3-5. Método de inspección
 
 <img width="800" src={remoteInspect28} alt="img" />
 
 <p>&nbsp;</p>
 
-## Report Generation
+## Generación de informes
 
-Once the inspection is complete, you can view the results in a table. The table includes six columns: `Scope, Item Name, Inspection Criteria, Priority, Inspection Result, and Inspection Result Details`.
-For more detailed information about `Inspection Criteria`, refer to [here](/docs/compliance/result).
-CS Checker provides two types of reports: Excel and Word.
+Una vez completada la inspección, puede ver los resultados en una tabla. La tabla incluye seis columnas: `Alcance, Nombre del elemento, Criterios de inspección, Prioridad, Resultado de la inspección y Detalles del resultado`.
+Para obtener información más detallada sobre los `Criterios de inspección`, consulte [aquí](/docs/compliance/result).
+CS Checker proporciona dos tipos de informes: Excel y Word.
 
-### Report
+### Informe
 
-1. To download the report file, click the `Excel Report Button`.
+1. Para descargar el archivo del informe, haga clic en el `Botón Informe de Excel`.
 
     <img width="200" src={remoteInspect12} alt="img" />
 
-2. Select the compliance and click the `Create Button`.
+2. Abra el archivo Excel para revisar los detalles de la inspección.
 
-    <img width="400" src={remoteInspect13} alt="img" />
-
-3. Open the Excel file to review the inspection details.
-
-    3-1. Cover Page
+    2-1. Portada
 
     <img width="800" src={remoteInspect22} alt="img" />
     <br />
-    3-2. Asset List
+    2-2. Lista de activos
     <br />
 
     <img width="800" src={remoteInspect23} alt="img" />
     <br />
-    3-3. postgres [Resource Type] Inspection Items
+    2-3. Elementos de inspección de postgres [Tipo de recurso]
     <br />
 
     <img width="800" src={remoteInspect24} alt="img" />
     <br />
-    3-4. Vulnerability Inspection by Resource Statistics [Resource Type]
+    2-4. Inspección de vulnerabilidades por estadísticas de recursos [Tipo de
+    recurso]
     <br />
 
     <img width="800" src={remoteInspect25} alt="img" />
     <br />
-    3-5. Vulnerability Inspection by Item Statistics [Resource Type]
+    2-5. Inspección de vulnerabilidades por estadísticas de elementos [Tipo de
+    recurso]
     <br />
 
     <img width="800" src={remoteInspect26} alt="img" />
     <br />
-    3-6. Detailed Results [Resource Name]
+    2-6. Resultados detallados [Nombre del recurso]
     <br />
 
     <img width="800" src={remoteInspect27} alt="img" />
 
-## Inspection History Check
+## Comprobación del historial de inspecciones
 
-1.  In the inspection history, you can view the `Inspection Title, Execution Date & Time`.
+1. En el historial de inspecciones, puede ver el `Título de la inspección y la fecha y hora de ejecución`.
 
     <img width="200" src={remoteInspect14} alt="img" />
 
 :::inforemo
 
-You can click on the history you want to navigate to and review the corresponding inspection details.
+Puede hacer clic en el historial al que desee navegar para revisar los detalles correspondientes de la inspección.
 
 :::
