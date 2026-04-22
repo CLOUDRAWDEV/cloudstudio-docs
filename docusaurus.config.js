@@ -6,10 +6,10 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import("@docusaurus/types").Config} */
 const config = {
-    title: "CloudStudio Documents",
-    tagline: "",
+    title: "CloudStudio Docs",
+    tagline: 'Visualizing Cloud IaC for Seamless Infrastructure Management',
     // url: "https://cloudrawdev.github.io",
-    url: "https://docs.cloudraw.kr",
+    url: "https://docs.cstudio.app",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
@@ -83,6 +83,28 @@ const config = {
     themeConfig:
         /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
         ({
+            metadata: [
+                {
+                    name: 'keywords',
+                    content: 'CloudStudio, IaC Visualization, Cloud Infrastructure, Terraform GUI, DevOps, Cloud Security'
+                },
+                {
+                    name: 'description',
+                    content: 'CloudStudio Official Docs: Visualize cloud infrastructure with an intuitive GUI. Manage IaC, estimate costs, and audit security all in one place.'
+                },
+                {
+                    property: 'og:title',
+                    content: 'CloudStudio Docs | Visual IaC Management Service'
+                },
+                {
+                    property: 'og:description',
+                    content: 'Design, deploy, and manage your cloud infrastructure visually with CloudStudio.'
+                },
+                {
+                    property: 'og:image',
+                    content: 'https://cstudio.app/images/mainLogo/mainCloudStudio.png'
+                },
+            ],
             navbar: {
                 title: "",
                 logo: {

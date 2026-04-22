@@ -9,7 +9,7 @@ const config = {
     title: "CloudStudio Documents",
     tagline: "",
     // url: "https://cloudrawdev.github.io",
-    url: "https://docs.cloudraw.kr",
+    url: "https://docs.cstudio.app",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",

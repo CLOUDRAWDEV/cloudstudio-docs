@@ -27,7 +27,7 @@ export default function Home(): JSX.Element {
             <Head>
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-                <meta property="og:url" content="https://docs.cloudraw.kr" />
+                <meta property="og:url" content="https://docs.cstudio.app/ja" />
                 <meta property="og:title" content="CloudStudio Docs" />
                 <meta
                     property="og:description"
