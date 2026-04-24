@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[19948],{1731:e=>{e.exports=JSON.parse('{"label":"Pod","permalink":"/es/docs/tags/pod","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/kubernetes/Core/Pod","title":"Pod","description":"Icono del recurso","permalink":"/es/docs/resource/kubernetes/Core/Pod"}]}')}}]);

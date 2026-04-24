@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[95888],{77424:s=>{s.exports=JSON.parse('{"label":"Streaming","permalink":"/de/docs/tags/streaming","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Msk/MskCluster","title":"MskCluster","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Msk/MskCluster"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[58230],{93925:e=>{e.exports=JSON.parse('{"label":"Ecr","permalink":"/de/docs/tags/ecr","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Ecr/EcrRepository","title":"EcrRepository","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Ecr/EcrRepository"}]}')}}]);

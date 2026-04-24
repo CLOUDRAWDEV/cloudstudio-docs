@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[42898],{16673:e=>{e.exports=JSON.parse('{"label":"Server","permalink":"/de/docs/tags/server","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/ncloud/Compute/Server","title":"Server","description":"Ressourcen-Icon","permalink":"/de/docs/resource/ncloud/Compute/Server"}]}')}}]);

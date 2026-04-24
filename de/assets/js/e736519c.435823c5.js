@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[62630],{77103:e=>{e.exports=JSON.parse('{"label":"Job","permalink":"/de/docs/tags/job","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/kubernetes/Batch/Job","title":"Job","description":"Ressourcen-Icon","permalink":"/de/docs/resource/kubernetes/Batch/Job"}]}')}}]);

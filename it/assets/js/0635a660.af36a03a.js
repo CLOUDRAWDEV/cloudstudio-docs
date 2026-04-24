@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[25326],{16391:s=>{s.exports=JSON.parse('{"label":"Excel","permalink":"/it/docs/tags/excel","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"asset/assetInquiry","title":"Consultazione e Modifica Asset","description":"last update: 2026.02.01","permalink":"/it/docs/asset/assetInquiry"}]}')}}]);

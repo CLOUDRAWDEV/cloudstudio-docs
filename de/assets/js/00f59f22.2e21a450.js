@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[42497],{90636:e=>{e.exports=JSON.parse('{"label":"Zeichnen","permalink":"/de/docs/tags/zeichnen","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"canvas/edit-canvas","title":"Canvas bearbeiten","description":"last update: 2026.02.01","permalink":"/de/docs/canvas/edit-canvas"}]}')}}]);

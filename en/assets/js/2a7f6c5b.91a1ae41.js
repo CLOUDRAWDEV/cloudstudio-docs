@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[30571],{32779:a=>{a.exports=JSON.parse('{"label":"Toolbox","permalink":"/en/docs/tags/toolbox","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"canvas/edit-canvas","title":"Edit Canvas","description":"last update: 2026.02.01","permalink":"/en/docs/canvas/edit-canvas"}]}')}}]);

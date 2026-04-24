@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[22636],{1484:s=>{s.exports=JSON.parse('{"label":"Zoom In","permalink":"/en/docs/tags/zoom-in","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Shortcut","description":"last update: 2026.02.01","permalink":"/en/docs/canvas/shortcuts"}]}')}}]);

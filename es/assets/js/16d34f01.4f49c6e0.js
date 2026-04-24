@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[70502],{35407:e=>{e.exports=JSON.parse('{"title":"OTP","slug":"/category/otp","permalink":"/es/docs/category/otp","navigation":{"previous":{"title":"Gesti\xf3n de proyectos","permalink":"/es/docs/start/project-management"},"next":{"title":"Registrar OTP","permalink":"/es/docs/otp/add-otp"}}}')}}]);

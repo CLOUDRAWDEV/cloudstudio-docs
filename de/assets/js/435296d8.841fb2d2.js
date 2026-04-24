@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[35544],{80846:s=>{s.exports=JSON.parse('{"label":"start","permalink":"/de/docs/tags/start","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"start/datshboard","title":"Dashboard","description":"last update: 2026.02.01","permalink":"/de/docs/start/datshboard"}]}')}}]);

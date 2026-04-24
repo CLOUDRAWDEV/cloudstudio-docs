@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5074],{42316:s=>{s.exports=JSON.parse('{"label":"Sign up","permalink":"/en/docs/tags/sign-up","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"start/sign-up","title":"Sign Up","description":"last update: 2026.02.01","permalink":"/en/docs/start/sign-up"}]}')}}]);

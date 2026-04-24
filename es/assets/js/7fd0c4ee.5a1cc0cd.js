@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[34591],{28082:e=>{e.exports=JSON.parse('{"label":"KeyVault","permalink":"/es/docs/tags/key-vault","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/azure/KeyVault/KeyVault","title":"KeyVault","description":"Icono del recurso","permalink":"/es/docs/resource/azure/KeyVault/"}]}')}}]);

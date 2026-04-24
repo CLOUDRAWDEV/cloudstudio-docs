@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[21665],{31252:t=>{t.exports=JSON.parse('{"label":"creazione account","permalink":"/it/docs/tags/creazione-account","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"start/sign-up","title":"Registrazione","description":"last update: 2026.02.01","permalink":"/it/docs/start/sign-up"}]}')}}]);

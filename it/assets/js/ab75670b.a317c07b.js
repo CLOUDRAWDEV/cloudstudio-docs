@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[32245],{882:s=>{s.exports=JSON.parse('{"label":"Riduci","permalink":"/it/docs/tags/riduci","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Scorciatoie","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/shortcuts"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[98363],{49185:t=>{t.exports=JSON.parse('{"label":"Autenticazione","permalink":"/it/docs/tags/autenticazione","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"otp/add-otp","title":"Registrazione OTP","description":"last update: 2026.02.01","permalink":"/it/docs/otp/add-otp"}]}')}}]);

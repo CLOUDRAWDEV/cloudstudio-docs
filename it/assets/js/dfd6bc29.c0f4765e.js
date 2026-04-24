@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[62705],{13249:e=>{e.exports=JSON.parse('{"label":"Region","permalink":"/it/docs/tags/region","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/ncloud/Base/Region","title":"Region","description":"Icona della risorsa","permalink":"/it/docs/resource/ncloud/Base/Region"}]}')}}]);

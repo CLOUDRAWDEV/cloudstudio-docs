@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[66773],{63165:s=>{s.exports=JSON.parse('{"label":"Ressourcen","permalink":"/de/docs/tags/ressourcen","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Rds/Postgresql","title":"Postgresql","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Rds/Postgresql"}]}')}}]);

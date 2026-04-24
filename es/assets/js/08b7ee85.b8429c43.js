@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[93545],{60404:e=>{e.exports=JSON.parse('{"label":"crear carpeta","permalink":"/es/docs/tags/crear-carpeta","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"otp/confirm-otp","title":"Verificar OTP","description":"last update: 2026.02.01","permalink":"/es/docs/otp/confirm-otp"}]}')}}]);

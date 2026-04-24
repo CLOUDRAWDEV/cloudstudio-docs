@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[56679],{95798:e=>{e.exports=JSON.parse('{"label":"Rechner","permalink":"/de/docs/tags/rechner","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"canvas/calculator","title":"Infrastruktur-Kostenrechner","description":"last update: 2026.02.01","permalink":"/de/docs/canvas/calculator"}]}')}}]);

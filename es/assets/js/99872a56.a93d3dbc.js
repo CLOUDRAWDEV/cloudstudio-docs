@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[28344],{40844:s=>{s.exports=JSON.parse('{"label":"registro","permalink":"/es/docs/tags/registro","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"start/sign-up","title":"Registro","description":"last update: 2026.02.01","permalink":"/es/docs/start/sign-up"}]}')}}]);

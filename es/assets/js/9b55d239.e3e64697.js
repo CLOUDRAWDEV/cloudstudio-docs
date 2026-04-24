@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[81298],{26144:s=>{s.exports=JSON.parse('{"label":"permisos","permalink":"/es/docs/tags/permisos","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"canvas/collaboration","title":"Colaboraci\xf3n","description":"last update: 2026.02.01","permalink":"/es/docs/canvas/collaboration"}]}')}}]);

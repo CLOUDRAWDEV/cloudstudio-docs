@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[8944],{51596:e=>{e.exports=JSON.parse('{"label":"Deploy","permalink":"/en/docs/tags/deploy","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"canvas/deploy","title":"Deployment Management","description":"last update: 2026.02.01","permalink":"/en/docs/canvas/deploy"}]}')}}]);

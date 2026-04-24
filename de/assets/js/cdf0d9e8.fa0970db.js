@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[58706],{89703:e=>{e.exports=JSON.parse('{"label":"Inspektion","permalink":"/de/docs/tags/inspektion","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"compliance/inspect","title":"Konsolenpr\xfcfung","description":"last update: 2026.02.01","permalink":"/de/docs/compliance/inspect"}]}')}}]);

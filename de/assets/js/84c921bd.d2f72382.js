@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[19822],{56461:e=>{e.exports=JSON.parse('{"label":"Tastenk\xfcrzel","permalink":"/de/docs/tags/tastenkurzel","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Tastenk\xfcrzel","description":"last update: 2026.02.01","permalink":"/de/docs/canvas/shortcuts"}]}')}}]);

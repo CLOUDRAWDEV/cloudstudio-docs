@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[72283],{79921:e=>{e.exports=JSON.parse('{"label":"Cdn","permalink":"/de/docs/tags/cdn","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/azure/Cdn/FrontDoor","title":"FrontDoor","description":"Ressourcenicon","permalink":"/de/docs/resource/azure/Cdn/FrontDoor"}]}')}}]);

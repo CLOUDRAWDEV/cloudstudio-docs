@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[53528],{46264:t=>{t.exports=JSON.parse('{"label":"tf","permalink":"/it/docs/tags/tf","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/export","title":"Esportazione","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/export"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[99786],{50486:e=>{e.exports=JSON.parse('{"label":"Deploy","permalink":"/it/docs/tags/deploy","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/deploy","title":"Gestione delle distribuzioni","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/deploy"}]}')}}]);

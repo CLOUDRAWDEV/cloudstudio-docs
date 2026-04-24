@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[67455],{34079:s=>{s.exports=JSON.parse('{"label":"guardar versi\xf3n","permalink":"/es/docs/tags/guardar-version","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"canvas/save","title":"Guardar","description":"last update: 2026.02.01","permalink":"/es/docs/canvas/save"}]}')}}]);

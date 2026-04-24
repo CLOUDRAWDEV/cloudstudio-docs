@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[74182],{2640:e=>{e.exports=JSON.parse('{"title":"AWS","slug":"/category/aws","permalink":"/es/docs/category/aws","navigation":{"previous":{"title":"StorageAccount","permalink":"/es/docs/resource/azure/Storage/StorageAccount"},"next":{"title":"Acm","permalink":"/es/docs/category/acm"}}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[36229],{6883:s=>{s.exports=JSON.parse('{"label":"\u767b\u9332","permalink":"/ja/docs/tags/\u767b\u9332","allTagsPath":"/ja/docs/tags","count":1,"items":[{"id":"start/sign-up","title":"\u4f1a\u54e1\u767b\u9332","description":"last update: 2026.02.01","permalink":"/ja/docs/start/sign-up"}]}')}}]);

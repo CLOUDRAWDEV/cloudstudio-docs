@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[34888],{24391:e=>{e.exports=JSON.parse('{"title":"Kms","slug":"/category/kms","permalink":"/de/docs/category/kms","navigation":{"previous":{"title":"Elasticsearch","permalink":"/de/docs/resource/aws/Elasticsearch/"},"next":{"title":"KmsKey","permalink":"/de/docs/resource/aws/Kms/KmsKey"}}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[97112],{6313:e=>{e.exports=JSON.parse('{"label":"deploy","permalink":"/es/docs/tags/deploy","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"canvas/deploy","title":"Gesti\xf3n de despliegue","description":"last update: 2026.02.01","permalink":"/es/docs/canvas/deploy"}]}')}}]);

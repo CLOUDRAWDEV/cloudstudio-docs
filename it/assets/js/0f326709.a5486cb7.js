@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[16350],{88697:e=>{e.exports=JSON.parse('{"label":"Disk","permalink":"/it/docs/tags/disk","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/azure/Compute/Disk","title":"Disk","description":"Icona della risorsa","permalink":"/it/docs/resource/azure/Compute/Disk"}]}')}}]);

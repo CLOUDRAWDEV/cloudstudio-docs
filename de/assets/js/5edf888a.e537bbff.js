@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[11166],{6005:e=>{e.exports=JSON.parse('{"label":"Eip","permalink":"/de/docs/tags/eip","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Ec2/Eip","title":"Eip","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Ec2/Eip"}]}')}}]);

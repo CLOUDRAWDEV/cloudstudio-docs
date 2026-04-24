@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[34521],{52769:e=>{e.exports=JSON.parse('{"label":"Istiod","permalink":"/it/docs/tags/istiod","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/kubernetes/Helm/Istiod","title":"Istiod","description":"Icona della risorsa","permalink":"/it/docs/resource/kubernetes/Helm/Istiod"}]}')}}]);

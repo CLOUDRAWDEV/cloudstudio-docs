@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[30451],{75375:s=>{s.exports=JSON.parse('{"label":"Asset-Verlauf","permalink":"/de/docs/tags/asset-verlauf","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"asset/history","title":"Asset-Verlauf","description":"last update: 2026.02.01","permalink":"/de/docs/asset/history"}]}')}}]);

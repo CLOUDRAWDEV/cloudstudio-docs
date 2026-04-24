@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[94429],{12107:e=>{e.exports=JSON.parse('{"label":"DnsZone","permalink":"/it/docs/tags/dns-zone","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/azure/Dns/DnsZone","title":"DnsZone","description":"Icona della risorsa","permalink":"/it/docs/resource/azure/Dns/DnsZone"}]}')}}]);

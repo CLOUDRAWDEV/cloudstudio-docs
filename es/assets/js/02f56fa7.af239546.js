@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[43450],{64851:s=>{s.exports=JSON.parse('{"label":"zoom in","permalink":"/es/docs/tags/zoom-in","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Atajos de teclado","description":"last update: 2026.02.01","permalink":"/es/docs/canvas/shortcuts"}]}')}}]);

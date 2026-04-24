@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[89725],{67362:e=>{e.exports=JSON.parse('{"label":"Cache","permalink":"/es/docs/tags/cache","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/azure/RedisCache/RedisCache","title":"RedisCache","description":"Icono del recurso","permalink":"/es/docs/resource/azure/RedisCache/"}]}')}}]);

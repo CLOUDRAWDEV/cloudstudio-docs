@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[90418],{71105:e=>{e.exports=JSON.parse('{"title":"Primeros pasos","slug":"/category/\uc2dc\uc791\ud558\uae30","permalink":"/es/docs/category/\uc2dc\uc791\ud558\uae30","navigation":{"next":{"title":"Registro","permalink":"/es/docs/start/sign-up"}}}')}}]);

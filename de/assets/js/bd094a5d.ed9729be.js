@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[34418],{96587:s=>{s.exports=JSON.parse('{"label":"L\xf6schen","permalink":"/de/docs/tags/loschen","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Tastenk\xfcrzel","description":"last update: 2026.02.01","permalink":"/de/docs/canvas/shortcuts"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[28390],{99608:a=>{a.exports=JSON.parse('{"label":"save","permalink":"/ja/docs/tags/save","allTagsPath":"/ja/docs/tags","count":1,"items":[{"id":"canvas/save","title":"\u4fdd\u5b58","description":"last update: 2026.02.01","permalink":"/ja/docs/canvas/save"}]}')}}]);

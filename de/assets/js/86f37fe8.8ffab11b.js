@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[27648],{97926:s=>{s.exports=JSON.parse('{"label":"EksCluster","permalink":"/de/docs/tags/eks-cluster","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Eks/EksCluster","title":"EksCluster","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Eks/EksCluster"}]}')}}]);

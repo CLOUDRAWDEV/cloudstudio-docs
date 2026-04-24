@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[80732],{14226:e=>{e.exports=JSON.parse('{"label":"creaci\xf3n de cuenta","permalink":"/es/docs/tags/creacion-de-cuenta","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"start/sign-up","title":"Registro","description":"last update: 2026.02.01","permalink":"/es/docs/start/sign-up"}]}')}}]);

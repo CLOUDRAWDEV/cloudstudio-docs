@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[57151],{6574:s=>{s.exports=JSON.parse('{"label":"Log","permalink":"/it/docs/tags/log","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/aws/Cloudwatch/Log","title":"Log","description":"Icona della risorsa","permalink":"/it/docs/resource/aws/Cloudwatch/Log"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[48160],{77402:e=>{e.exports=JSON.parse('{"title":"Route53","slug":"/category/route53","permalink":"/de/docs/category/route53","navigation":{"previous":{"title":"Oracle","permalink":"/de/docs/resource/aws/Rds/Oracle"},"next":{"title":"Route53","permalink":"/de/docs/resource/aws/Route53/"}}}')}}]);

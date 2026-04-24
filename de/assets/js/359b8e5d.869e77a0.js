@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[96776],{65641:e=>{e.exports=JSON.parse('{"label":"Alert","permalink":"/de/docs/tags/alert","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/azure/Monitor/Metric","title":"Metric","description":"Ressourcenicon","permalink":"/de/docs/resource/azure/Monitor/Metric"}]}')}}]);

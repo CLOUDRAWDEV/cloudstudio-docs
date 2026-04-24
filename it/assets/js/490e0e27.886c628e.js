@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[89555],{4516:s=>{s.exports=JSON.parse('{"label":"Aurora","permalink":"/it/docs/tags/aurora","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/aws/Rds/Aurora","title":"Aurora","description":"Icona della risorsa","permalink":"/it/docs/resource/aws/Rds/Aurora"}]}')}}]);

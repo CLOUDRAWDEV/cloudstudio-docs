@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[96664],{50452:e=>{e.exports=JSON.parse('{"label":"Mongodb","permalink":"/de/docs/tags/mongodb","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/ncloud/Database/Mongodb","title":"Mongodb","description":"Ressourcen-Icon","permalink":"/de/docs/resource/ncloud/Database/Mongodb"}]}')}}]);

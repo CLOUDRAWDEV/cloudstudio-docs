@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[19995],{32963:e=>{e.exports=JSON.parse('{"title":"Loslegen","slug":"/category/\uc2dc\uc791\ud558\uae30","permalink":"/de/docs/category/\uc2dc\uc791\ud558\uae30","navigation":{"next":{"title":"Anmeldung","permalink":"/de/docs/start/sign-up"}}}')}}]);

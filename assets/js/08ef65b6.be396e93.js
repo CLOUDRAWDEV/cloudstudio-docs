@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[93621],{25827:e=>{e.exports=JSON.parse('{"title":"Msk","slug":"/category/msk","permalink":"/docs/category/msk","navigation":{"previous":{"title":"LbTargetGroup","permalink":"/docs/resource/aws/Lb/LbTargetGroup"},"next":{"title":"MskCluster","permalink":"/docs/resource/aws/Msk/MskCluster"}}}')}}]);

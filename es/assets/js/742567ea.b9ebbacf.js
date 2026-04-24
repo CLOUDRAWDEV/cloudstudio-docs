@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[59918],{40973:e=>{e.exports=JSON.parse('{"title":"Azure","slug":"/category/azure","permalink":"/es/docs/category/azure","navigation":{"previous":{"title":"Recurso","permalink":"/es/docs/category/\ub9ac\uc18c\uc2a4"},"next":{"title":"Analytics","permalink":"/es/docs/category/analytics"}}}')}}]);

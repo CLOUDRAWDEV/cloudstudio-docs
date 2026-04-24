@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[79833],{1575:e=>{e.exports=JSON.parse('{"label":"github","permalink":"/de/docs/tags/github","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"plugin/vcs/add-github","title":"Registrierung von Github","description":"last update: 2026.02.01","permalink":"/de/docs/plugin/vcs/add-github"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[53320],{78385:a=>{a.exports=JSON.parse('{"label":"Mariadb","permalink":"/it/docs/tags/mariadb","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/aws/Rds/Mariadb","title":"Mariadb","description":"Icona della risorsa","permalink":"/it/docs/resource/aws/Rds/Mariadb"}]}')}}]);

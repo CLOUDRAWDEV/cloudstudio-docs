@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[93828],{79777:e=>{e.exports=JSON.parse('{"label":"WafWebAcl","permalink":"/de/docs/tags/waf-web-acl","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Waf/WafWebAcl","title":"WafWebAcl","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Waf/WafWebAcl"}]}')}}]);

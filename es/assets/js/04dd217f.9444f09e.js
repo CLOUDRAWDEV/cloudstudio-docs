@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[78899],{59807:e=>{e.exports=JSON.parse('{"label":"Config","permalink":"/es/docs/tags/config","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/aws/Config/Config","title":"Config","description":"Icono del recurso","permalink":"/es/docs/resource/aws/Config/"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[98721],{63693:e=>{e.exports=JSON.parse('{"label":"Oracle","permalink":"/es/docs/tags/oracle","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/aws/Rds/Oracle","title":"Oracle","description":"Icono del recurso","permalink":"/es/docs/resource/aws/Rds/Oracle"}]}')}}]);

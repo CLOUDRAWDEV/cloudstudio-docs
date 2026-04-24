@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[72558],{9082:s=>{s.exports=JSON.parse('{"label":"Scorciatoie","permalink":"/it/docs/tags/scorciatoie","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Scorciatoie","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/shortcuts"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[61985],{26012:e=>{e.exports=JSON.parse('{"label":"Endpoint","permalink":"/es/docs/tags/endpoint","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/aws/Vpc/Endpoint","title":"Endpoint","description":"Icono del recurso","permalink":"/es/docs/resource/aws/Vpc/Endpoint"}]}')}}]);

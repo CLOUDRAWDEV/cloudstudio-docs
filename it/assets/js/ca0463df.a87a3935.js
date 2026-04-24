@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[54288],{95016:a=>{a.exports=JSON.parse('{"label":"Save","permalink":"/it/docs/tags/save","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/save","title":"Salvataggio","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/save"}]}')}}]);

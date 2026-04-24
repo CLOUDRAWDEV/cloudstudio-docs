@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[14617],{58443:e=>{e.exports=JSON.parse('{"label":"\uadf8\ub8f9","permalink":"/docs/tags/\uadf8\ub8f9","allTagsPath":"/docs/tags","count":1,"items":[{"id":"compliance/group","title":"\uadf8\ub8f9\uad00\ub9ac","description":"last update: 2026.02.01","permalink":"/docs/compliance/group"}]}')}}]);

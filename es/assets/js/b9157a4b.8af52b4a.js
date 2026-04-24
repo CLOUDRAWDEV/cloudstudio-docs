@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[77228],{99437:e=>{e.exports=JSON.parse('{"title":"Vpc","slug":"/category/vpc","permalink":"/es/docs/category/vpc","navigation":{"previous":{"title":"SnsTopic","permalink":"/es/docs/resource/aws/Sns/SnsTopic"},"next":{"title":"Vpc","permalink":"/es/docs/resource/aws/Vpc/"}}}')}}]);

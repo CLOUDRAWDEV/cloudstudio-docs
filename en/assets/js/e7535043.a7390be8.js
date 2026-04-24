@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[72355],{73585:e=>{e.exports=JSON.parse('{"label":"VpnSite","permalink":"/en/docs/tags/vpn-site","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"resource/azure/Network/VpnSite","title":"VpnSite","description":"Resource Icon","permalink":"/en/docs/resource/azure/Network/VpnSite"}]}')}}]);

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.cstudio.app/es/release</id>
+    <title>CloudStudio Docs Blog</title>
+    <updated>2026-01-01T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.cstudio.app/es/release"/>
+    <subtitle>CloudStudio Docs Blog</subtitle>
+    <icon>https://docs.cstudio.app/es/img/simbol3.png</icon>
+    <entry>
+        <title type="html"><![CDATA[v2.2.0]]></title>
+        <id>/220</id>
+        <link href="https://docs.cstudio.app/es/release/220"/>
+        <updated>2026-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se han añadido nuevos recursos de IA.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-han-añadido-nuevos-recursos-de-ia">Se han añadido nuevos recursos de IA.<a class="hash-link" href="#se-han-añadido-nuevos-recursos-de-ia" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se han añadido nuevos recursos de IA basados en AWS y Azure.</p><ul><li><p>Recursos de IA de AWS</p><ul><li>Bedrock Agent</li><li>Bedrock Knowledge Base</li><li>Bedrock Action Group</li><li>Bedrock Guardrail</li></ul></li><li><p>Recursos de IA de Azure</p><ul><li>Content Safety</li><li>AI Service</li><li>Search Service</li></ul></li><li><p>Ahora los usuarios pueden diseñar y gestionar de forma más intuitiva los recursos relacionados con IA proporcionados por los principales servicios en la nube.</p></li></ul></li><li><p>Se ha añadido una función para mostrar u ocultar errores de configuración.</p><ul><li>Incluso si existen errores no resueltos en los recursos, es posible mostrar u ocultar los indicadores de error de forma opcional.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2.1.0]]></title>
+        <id>/210</id>
+        <link href="https://docs.cstudio.app/es/release/210"/>
+        <updated>2025-11-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido una nueva función de inicio de sesión social basada en OAuth de Microsoft y Google.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-una-nueva-función-de-inicio-de-sesión-social-basada-en-oauth-de-microsoft-y-google">Se ha añadido una nueva función de inicio de sesión social basada en OAuth de Microsoft y Google.<a class="hash-link" href="#se-ha-añadido-una-nueva-función-de-inicio-de-sesión-social-basada-en-oauth-de-microsoft-y-google" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se admite de forma nueva el inicio de sesión social OAuth utilizando cuentas de Microsoft y Google.</p><ul><li>Esto permite a los usuarios iniciar sesión rápidamente con sus cuentas de Microsoft o Google sin necesidad de un registro independiente.</li><li>Se admite la autenticación basada en OAuth 2.0.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v2.0.0]]></title>
+        <id>/200</id>
+        <link href="https://docs.cstudio.app/es/release/200"/>
+        <updated>2025-10-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido la función AI Builder.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-la-función-ai-builder">Se ha añadido la función AI Builder.<a class="hash-link" href="#se-ha-añadido-la-función-ai-builder" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se ha añadido la función AI Builder.</p><ul><li>En lugar de diseñar la infraestructura mediante Drag &amp; Drop de iconos de recursos, se ha incorporado la función AI Builder, que permite diseñar la infraestructura a través de una sencilla entrada de texto.</li><li>AI Builder analiza los requisitos introducidos, propone recursos en la nube optimizados y configura automáticamente el diagrama de arquitectura.</li><li>La arquitectura generada por AI Builder puede ser modificada y complementada directamente por el usuario.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.9.0]]></title>
+        <id>/190</id>
+        <link href="https://docs.cstudio.app/es/release/190"/>
+        <updated>2025-08-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[CloudStudio y CS Checker han sido integrados.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="cloudstudio-y-cs-checker-han-sido-integrados">CloudStudio y CS Checker han sido integrados.<a class="hash-link" href="#cloudstudio-y-cs-checker-han-sido-integrados" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Las funciones de CS Checker ahora pueden utilizarse en CloudStudio.</p><ul><li>CS Checker es un servicio integrado de gestión de seguridad en la nube que ofrece funciones como el inventario de activos de infraestructura en la nube, la comparación de activos y la visualización de activos, así como diversas funcionalidades en el área de inspección de consola, incluyendo comprobación de vulnerabilidades, monitoreo y generación de informes.</li><li>A partir de ahora, las funciones de CS Checker pueden utilizarse conjuntamente dentro de CloudStudio.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.8.0]]></title>
+        <id>/180</id>
+        <link href="https://docs.cstudio.app/es/release/180"/>
+        <updated>2025-08-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[La suscripción Pro se ofrece de forma gratuita por tiempo limitado.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="la-suscripción-pro-se-ofrece-de-forma-gratuita-por-tiempo-limitado">La suscripción Pro se ofrece de forma gratuita por tiempo limitado.<a class="hash-link" href="#la-suscripción-pro-se-ofrece-de-forma-gratuita-por-tiempo-limitado" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="changed">Update</div><ol><li>La suscripción Pro se ofrece de forma gratuita por tiempo limitado.<ul><li>Con la suscripción Pro se pueden utilizar todas las funciones.<ul><li>Dibujo en el canvas</li><li>Cálculo de costes</li><li>Comprobación de vulnerabilidades</li><li>Importación de infraestructura</li><li>Despliegue de infraestructura (Terraform plan, apply)</li><li>Revisión de infraestructura con IA</li><li>Conversión de canvas C2C</li></ul></li></ul></li></ol></div><br><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se ha añadido una guía de IA para errores de Terraform.</p><ul><li>La IA analiza los errores de Terraform que se producen al utilizar las funciones de verificación previa (plan) y despliegue (apply), y propone soluciones.</li></ul></li><li><p>Se pueden consultar las informaciones de los recursos de Kubernetes.</p><ul><li>Se pueden consultar las informaciones Get, Logs y Event de los recursos de Kubernetes desplegados.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.7.0]]></title>
+        <id>/170</id>
+        <link href="https://docs.cstudio.app/es/release/170"/>
+        <updated>2025-06-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido la función de importación de Kubernetes.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-la-función-de-importación-de-kubernetes">Se ha añadido la función de importación de Kubernetes.<a class="hash-link" href="#se-ha-añadido-la-función-de-importación-de-kubernetes" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Se ha añadido la función de importación de Kubernetes.<ul><li>Se ha incorporado una función de importación en el proveedor de Kubernetes que permite convertir en diagramas los recursos de Kubernetes ya desplegados.<ul><li>Plataformas compatibles: AKS (Microsoft Azure), EKS (AWS), NKS (Naver Cloud)</li></ul></li><li>Los recursos de Kubernetes importados se convierten en código Terraform.</li><li>Mediante la función de generación de tfstate, se puede crear un archivo de estado de Terraform.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.6.1]]></title>
+        <id>/161</id>
+        <link href="https://docs.cstudio.app/es/release/161"/>
+        <updated>2025-05-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Es posible realizar la implementación separando los Terraform Workspaces.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="es-posible-realizar-la-implementación-separando-los-terraform-workspaces">Es posible realizar la implementación separando los Terraform Workspaces.<a class="hash-link" href="#es-posible-realizar-la-implementación-separando-los-terraform-workspaces" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Se admite la implementación de la infraestructura separada por entornos mediante el uso de la función Workspace de Terraform.<ul><li>Es posible crear y eliminar Terraform Workspaces.</li><li>Al gestionar los archivos de estado (State) de forma independiente por Workspace, los entornos de desarrollo, staging y producción pueden operarse de manera independiente.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.6.0]]></title>
+        <id>/160</id>
+        <link href="https://docs.cstudio.app/es/release/160"/>
+        <updated>2025-02-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se soporta la integración con Terraform Enterprise.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-soporta-la-integración-con-terraform-enterprise">Se soporta la integración con Terraform Enterprise.<a class="hash-link" href="#se-soporta-la-integración-con-terraform-enterprise" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se soporta la integración con la versión de Terraform Enterprise.</p><ul><li>Se admiten las versiones de Terraform Cloud y Terraform Enterprise como plugins para la gestión de despliegues.</li><li>Para la integración con Terraform Enterprise, se necesita un Endpoint alojado.</li></ul></li></ol></div><br>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.5.1]]></title>
+        <id>/151</id>
+        <link href="https://docs.cstudio.app/es/release/151"/>
+        <updated>2025-01-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido el servicio de notificaciones para despliegue y carga.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-el-servicio-de-notificaciones-para-despliegue-y-carga">Se ha añadido el servicio de notificaciones para despliegue y carga.<a class="hash-link" href="#se-ha-añadido-el-servicio-de-notificaciones-para-despliegue-y-carga" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se ha añadido el servicio de notificaciones para despliegue y carga.</p><ul><li>Se enviará un correo de notificación al finalizar el proceso de despliegue y carga.</li><li>Para proporcionar el servicio de notificación, es necesaria la integración con el Terraform Plugin.</li></ul></li></ol></div><br><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="changed">Update</div><ol start="2"><li><p>Se ha añadido el formato de reporte para la revisión de infraestructura AI.</p><ul><li>Al descargar el reporte de revisión de infraestructura AI, se proporciona también el formato Markdown.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.5.0]]></title>
+        <id>/150</id>
+        <link href="https://docs.cstudio.app/es/release/150"/>
+        <updated>2024-12-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido un servicio AI.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-un-servicio-ai">Se ha añadido un servicio AI.<a class="hash-link" href="#se-ha-añadido-un-servicio-ai" title="Enlace directo al encabezado">​</a></h4><p><a href="https://docs.cstudio.app/docs/ai/text-to-infra" target="_blank" rel="noopener noreferrer"><strong>Enlace directo a AI Docs.</strong></a></p><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li><p>Se ha añadido un servicio AI.</p><ul><li>Text to Infrastructure: Durante la creación del proyecto, se puede generar infraestructura a partir de texto utilizando AI generativa.</li><li>AI Infrastructure Review: Permite obtener fácilmente el estado y las áreas de mejora de la infraestructura configurada.</li><li>AI Chatbot: A través del chatbot, se puede consultar sobre el uso de CloudStudio y las formas de mejorar la infraestructura.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.4.1]]></title>
+        <id>/141</id>
+        <link href="https://docs.cstudio.app/es/release/141"/>
+        <updated>2024-09-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[La funcionalidad de integración VCS (Github, Gitlab) ha sido actualizada.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="la-funcionalidad-de-integración-vcs-github-gitlab-ha-sido-actualizada">La funcionalidad de integración VCS (Github, Gitlab) ha sido actualizada.<a class="hash-link" href="#la-funcionalidad-de-integración-vcs-github-gitlab-ha-sido-actualizada" title="Enlace directo al encabezado">​</a></h4><p><a href="https://docs.cstudio.app/docs/plugin/vcs/add-github" target="_blank" rel="noopener noreferrer"><strong>Enlace directo a la integración VCS.</strong></a></p><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="changed">Update</div><ol><li>Integración VCS<ul><li>La funcionalidad de integración con Github y Gitlab ha sido actualizada.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.4.0]]></title>
+        <id>/140</id>
+        <link href="https://docs.cstudio.app/es/release/140"/>
+        <updated>2024-07-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido la funcionalidad de monitoreo.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-la-funcionalidad-de-monitoreo">Se ha añadido la funcionalidad de monitoreo.<a class="hash-link" href="#se-ha-añadido-la-funcionalidad-de-monitoreo" title="Enlace directo al encabezado">​</a></h4><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-han-añadido-idiomas-de-soporte-para-el-servicio">Se han añadido idiomas de soporte para el servicio.<a class="hash-link" href="#se-han-añadido-idiomas-de-soporte-para-el-servicio" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Se ha añadido el monitoreo de métricas de recursos desplegados<ul><li>CSP soportados: Azure, AWS, Ncloud.</li></ul></li><li>Se soporta el japonés.</li></ol></div><br><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="changed">Update</div><ol><li>Actualización de la UI<ul><li>La interfaz detallada de validación ha sido actualizada.</li><li>La interfaz detallada del historial de despliegues en Despliegue &gt; Historial de despliegues ha sido actualizada.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.3.1]]></title>
+        <id>/131</id>
+        <link href="https://docs.cstudio.app/es/release/131"/>
+        <updated>2024-06-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se soportan las credenciales de account compartido AWS.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-soportan-las-credenciales-de-account-compartido-aws">Se soportan las credenciales de account compartido AWS.<a class="hash-link" href="#se-soportan-las-credenciales-de-account-compartido-aws" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Soporte para cuentas compartidas AWS<ul><li>Al registrar las credenciales de AWS, se puede elegir entre cuenta propietaria y cuenta compartida.</li><li>Al seleccionar una cuenta compartida, se puede ingresar el Session Token.</li></ul></li></ol></div><br><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="fixed">Fixed</div><ol><li>Carga de infraestructura<ul><li>Se ha corregido el error de carga de algunos recursos de AWS.</li><li>Se ha modificado la lógica de carga.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.3.0]]></title>
+        <id>/130</id>
+        <link href="https://docs.cstudio.app/es/release/130"/>
+        <updated>2024-06-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido un nuevo CSP.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-un-nuevo-csp">Se ha añadido un nuevo CSP.<a class="hash-link" href="#se-ha-añadido-un-nuevo-csp" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Servicio NHN Cloud<ul><li>Se soporta NHN Cloud.</li><li>Se proporcionan funcionalidades limitadas para el diagrama, gestión de versiones, diagnóstico de vulnerabilidades y gestión de despliegues.</li></ul></li></ol></div><br><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="fixed">Fixed</div><ol><li>Exportación<ul><li>Se ha modificado para permitir la exportación antes de la distribución, además de después de la misma.</li></ul></li><li>Recursos<ul><li>Ncloud: Se ha corregido para que al modificar el nombre de la interfaz de red, la prioridad del servidor no se vea afectada.</li></ul></li><li>Diagnóstico de vulnerabilidades<ul><li>Se han modificado los elementos de mapeo de cumplimiento en el diagnóstico de vulnerabilidades.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.2.0]]></title>
+        <id>/120</id>
+        <link href="https://docs.cstudio.app/es/release/120"/>
+        <updated>2024-06-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[La funcionalidad ha sido actualizada.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="la-funcionalidad-ha-sido-actualizada">La funcionalidad ha sido actualizada.<a class="hash-link" href="#la-funcionalidad-ha-sido-actualizada" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Mapeo de cumplimiento en diagnóstico de vulnerabilidades<ul><li>Durante el diagnóstico de vulnerabilidades, se muestran los controles relacionados con ISO 27001, ISMS-P, CSAP y la evaluación de seguridad del CSP.</li><li>Se ha mejorado la velocidad del diagnóstico de vulnerabilidades.</li></ul></li><li>Cálculo de costos con aplicación de tráfico<ul><li>Además de los costos de mantenimiento, se puede ingresar el tráfico por recurso y calcular los costos correspondientes.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.1.0]]></title>
+        <id>/110</id>
+        <link href="https://docs.cstudio.app/es/release/110"/>
+        <updated>2024-05-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ha añadido una nueva funcionalidad.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ha-añadido-una-nueva-funcionalidad">Se ha añadido una nueva funcionalidad.<a class="hash-link" href="#se-ha-añadido-una-nueva-funcionalidad" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="feature">Feature</div><ol><li>Carga de infraestructura<ul><li>Se puede consultar la infraestructura ya desplegada y visualizarla.</li><li>Se puede convertir la infraestructura existente en IaC y generar los valores de estado para su reutilización.</li></ul></li><li>Conversión de infraestructura<ul><li>El diagrama de infraestructura configurado se puede convertir a otro CSP.</li><li>Durante la conversión, se comparan los recursos mapeados y los costos.</li></ul></li></ol></div>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[v1.0.0]]></title>
+        <id>/100</id>
+        <link href="https://docs.cstudio.app/es/release/100"/>
+        <updated>2024-04-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Se ofrecen servicios para Azure, AWS, Naver Cloud, Kubernetes.]]></summary>
+        <content type="html"><![CDATA[<hr><h4 class="anchor anchorWithStickyNavbar_LWe7" id="se-ofrecen-servicios-para-azure-aws-naver-cloud-kubernetes">Se ofrecen servicios para Azure, AWS, Naver Cloud, Kubernetes.<a class="hash-link" href="#se-ofrecen-servicios-para-azure-aws-naver-cloud-kubernetes" title="Enlace directo al encabezado">​</a></h4><div class="releaseWrap_EdcT"><div class="tag_PSRA" data-type="new">New</div><div><ol><li>Diagrama de infraestructura en Cloud<ul><li>La infraestructura en el Cloud se puede diseñar mediante Drag &amp; Drop.</li><li>Durante el diseño de la infraestructura, se muestran errores en tiempo real sobre configuraciones incorrectas.</li><li>La infraestructura dibujada se puede convertir en IaC.</li></ul></li><li>Gestión de versiones<ul><li>Se ofrece una función de guardado de versiones para la infraestructura basada en IaC, permitiendo regresar a una versión específica.</li></ul></li><li>Cálculo de costos<ul><li>Se proporcionan los costos de mantenimiento mensuales, diarios y por hora de la infraestructura dibujada (KRW, USD).</li></ul></li><li>Diagnóstico de vulnerabilidades<ul><li>Se ofrece un diagnóstico de vulnerabilidades para la infraestructura dibujada, junto con una guía para la resolución de las vulnerabilidades.</li></ul></li><li>Gestión de despliegues<ul><li>La infraestructura dibujada se valida mediante pruebas de despliegue previas y se puede configurar la infraestructura real mediante la integración con credenciales específicas de cada CSP.</li></ul></li></ol></div></div>]]></content>
+    </entry>
+</feed>

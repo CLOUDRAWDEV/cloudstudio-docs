@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[63935],{48487:e=>{e.exports=JSON.parse('{"label":"WafWebAcl","permalink":"/es/docs/tags/waf-web-acl","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/aws/Waf/WafWebAcl","title":"WafWebAcl","description":"Icono del recurso","permalink":"/es/docs/resource/aws/Waf/WafWebAcl"}]}')}}]);

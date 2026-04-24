@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[7600],{20283:e=>{e.exports=JSON.parse('{"label":"Group","permalink":"/en/docs/tags/group","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"compliance/group","title":"Group Management","description":"last update: 2026.02.01","permalink":"/en/docs/compliance/group"}]}')}}]);

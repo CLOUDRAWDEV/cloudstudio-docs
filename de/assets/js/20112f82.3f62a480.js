@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[4581],{39489:e=>{e.exports=JSON.parse('{"label":"project","permalink":"/de/docs/tags/project","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"start/create-project","title":"Neues Projekt erstellen","description":"last update: 2026.02.01","permalink":"/de/docs/start/create-project"}]}')}}]);

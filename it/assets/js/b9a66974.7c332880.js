@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[10555],{32309:s=>{s.exports=JSON.parse('{"label":"find","permalink":"/it/docs/tags/find","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"start/find-id-password","title":"Recupero ID/Password","description":"last update: 2026.02.01","permalink":"/it/docs/start/find-id-password"}]}')}}]);

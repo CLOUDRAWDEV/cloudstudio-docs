@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[12100],{37582:e=>{e.exports=JSON.parse('{"label":"Dynamodb","permalink":"/de/docs/tags/dynamodb","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Dynamodb/Dynamodb","title":"Dynamodb","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Dynamodb/"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[2013],{93920:s=>{s.exports=JSON.parse('{"label":"Zoom","permalink":"/it/docs/tags/zoom","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Scorciatoie","description":"last update: 2026.02.01","permalink":"/it/docs/canvas/shortcuts"}]}')}}]);

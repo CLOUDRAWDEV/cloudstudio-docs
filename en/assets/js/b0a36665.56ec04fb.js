@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[97802],{85274:s=>{s.exports=JSON.parse('{"label":"Keyboard Shortcuts","permalink":"/en/docs/tags/keyboard-shortcuts","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"canvas/shortcuts","title":"Shortcut","description":"last update: 2026.02.01","permalink":"/en/docs/canvas/shortcuts"}]}')}}]);

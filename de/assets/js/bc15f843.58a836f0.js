@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[64209],{44956:e=>{e.exports=JSON.parse('{"label":"Service","permalink":"/de/docs/tags/service","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/kubernetes/Core/Service","title":"Service","description":"Ressourcen-Icon","permalink":"/de/docs/resource/kubernetes/Core/Service"}]}')}}]);

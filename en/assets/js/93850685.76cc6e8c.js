@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[77505],{62535:e=>{e.exports=JSON.parse('{"label":"Architecture","permalink":"/en/docs/tags/architecture","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"canvas/export","title":"Export","description":"last update: 2026.02.01","permalink":"/en/docs/canvas/export"}]}')}}]);

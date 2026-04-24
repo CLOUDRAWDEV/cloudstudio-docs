@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[98408],{33563:e=>{e.exports=JSON.parse('{"label":"Role","permalink":"/it/docs/tags/role","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/kubernetes/Rbac/Role","title":"Role","description":"Icona della risorsa","permalink":"/it/docs/resource/kubernetes/Rbac/Role"}]}')}}]);

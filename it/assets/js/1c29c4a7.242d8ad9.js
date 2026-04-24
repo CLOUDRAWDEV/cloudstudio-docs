@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[21969],{22357:s=>{s.exports=JSON.parse('{"label":"Cronologia asset","permalink":"/it/docs/tags/cronologia-asset","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"asset/history","title":"Cronologia Asset","description":"last update: 2026.02.01","permalink":"/it/docs/asset/history"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[98257],{69561:t=>{t.exports=JSON.parse('{"label":"otp","permalink":"/ja/docs/tags/otp","allTagsPath":"/ja/docs/tags","count":1,"items":[{"id":"otp/add-otp","title":"OTP\u767b\u9332","description":"last update: 2026.02.01","permalink":"/ja/docs/otp/add-otp"}]}')}}]);

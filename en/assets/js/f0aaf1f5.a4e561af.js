@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[53871],{48885:s=>{s.exports=JSON.parse('{"label":"SQL","permalink":"/en/docs/tags/sql","allTagsPath":"/en/docs/tags","count":1,"items":[{"id":"resource/azure/Cosmosdb/CosmosdbSql","title":"CosmosdbSql","description":"Resource Icon","permalink":"/en/docs/resource/azure/Cosmosdb/CosmosdbSql"}]}')}}]);

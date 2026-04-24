@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[67588],{83286:s=>{s.exports=JSON.parse('{"label":"Sns","permalink":"/de/docs/tags/sns","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"resource/aws/Sns/SnsTopic","title":"SnsTopic","description":"Ressourcenicon","permalink":"/de/docs/resource/aws/Sns/SnsTopic"}]}')}}]);

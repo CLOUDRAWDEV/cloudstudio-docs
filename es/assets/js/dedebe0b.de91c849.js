@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[47778],{56571:e=>{e.exports=JSON.parse('{"label":"Instance","permalink":"/es/docs/tags/instance","allTagsPath":"/es/docs/tags","count":1,"items":[{"id":"resource/aws/Ec2/Instance","title":"Instance","description":"\xcdcono del recurso","permalink":"/es/docs/resource/aws/Ec2/Instance"}]}')}}]);

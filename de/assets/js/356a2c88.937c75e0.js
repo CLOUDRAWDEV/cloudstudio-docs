@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[7261],{97291:e=>{e.exports=JSON.parse('{"title":"Base","slug":"/category/base-1","permalink":"/de/docs/category/base-1","navigation":{"previous":{"title":"BackupVault","permalink":"/de/docs/resource/aws/Backup/BackupVault"},"next":{"title":"Base","permalink":"/de/docs/resource/aws/Base/"}}}')}}]);

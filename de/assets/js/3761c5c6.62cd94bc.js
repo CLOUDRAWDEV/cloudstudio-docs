@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[3153],{68557:e=>{e.exports=JSON.parse('{"label":"gitlab","permalink":"/de/docs/tags/gitlab","allTagsPath":"/de/docs/tags","count":1,"items":[{"id":"plugin/vcs/add-gitlab","title":"Registrierung von Gitlab","description":"last update: 2026.02.01","permalink":"/de/docs/plugin/vcs/add-gitlab"}]}')}}]);

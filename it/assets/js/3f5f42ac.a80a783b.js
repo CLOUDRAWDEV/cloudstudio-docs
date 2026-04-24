@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[18091],{20873:e=>{e.exports=JSON.parse('{"label":"Ecr","permalink":"/it/docs/tags/ecr","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"resource/aws/Ecr/EcrRepository","title":"EcrRepository","description":"Icona della risorsa","permalink":"/it/docs/resource/aws/Ecr/EcrRepository"}]}')}}]);

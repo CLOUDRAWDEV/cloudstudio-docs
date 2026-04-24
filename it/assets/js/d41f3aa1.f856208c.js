@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[34408],{13976:t=>{t.exports=JSON.parse('{"label":"Cartella","permalink":"/it/docs/tags/cartella","allTagsPath":"/it/docs/tags","count":1,"items":[{"id":"otp/confirm-otp","title":"Autenticazione OTP","description":"last update: 2026.02.01","permalink":"/it/docs/otp/confirm-otp"}]}')}}]);
