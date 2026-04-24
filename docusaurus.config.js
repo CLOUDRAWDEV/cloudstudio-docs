@@ -7,7 +7,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import("@docusaurus/types").Config} */
 const config = {
     title: "CloudStudio Docs",
-    tagline: 'Visualizing Cloud IaC for Seamless Infrastructure Management',
+    tagline: "Visualizing Cloud IaC for Seamless Infrastructure Management",
     // url: "https://cloudrawdev.github.io",
     url: "https://docs.cstudio.app",
     baseUrl: "/",
@@ -18,7 +18,7 @@ const config = {
     projectName: "cloudstudio-docs",
     i18n: {
         defaultLocale: "ko",
-        locales: ["ko", "en", "ja", "de", "it", "es"]
+        locales: ["ko", "en", "ja", "de", "it", "es"],
     },
 
     presets: [
@@ -31,26 +31,26 @@ const config = {
                     routeBasePath: "docs",
                     path: "docs",
                     sidebarItemsGenerator: async ({
-                        defaultSidebarItemsGenerator,
-                        ...args
-                    }) => {
+                                                      defaultSidebarItemsGenerator,
+                                                      ...args
+                                                  }) => {
                         const sidebarItems = await defaultSidebarItemsGenerator(
-                            args
+                            args,
                         )
                         return sidebarItems
-                    }
+                    },
                 },
                 blog: {
                     routeBasePath: "release",
                     blogSidebarTitle: "Release Note",
                     blogSidebarCount: "ALL",
-                    path: "blog"
+                    path: "blog",
                 },
                 theme: {
-                    customCss: require.resolve("./src/scss/_custom.scss")
-                }
-            })
-        ]
+                    customCss: require.resolve("./src/scss/_custom.scss"),
+                },
+            }),
+        ],
     ],
 
     plugins: [
@@ -61,9 +61,9 @@ const config = {
                 id: "docs-faq",
                 path: "docs-faq",
                 routeBasePath: "docs-faq",
-                sidebarPath: require.resolve("./sidebars.js")
-            }
-        ]
+                sidebarPath: require.resolve("./sidebars.js"),
+            },
+        ],
     ],
 
     themes: [
@@ -75,34 +75,39 @@ const config = {
                 language: ["en"],
                 searchBarShortcutHint: true,
                 searchResultContextMaxLength: 20,
-                highlightSearchTermsOnTargetPage: true
-            }
-        ]
+                highlightSearchTermsOnTargetPage: true,
+            },
+        ],
     ],
 
     themeConfig:
-        /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
+    /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
         ({
             metadata: [
                 {
-                    name: 'keywords',
-                    content: 'CloudStudio, IaC Visualization, Cloud Infrastructure, Terraform GUI, DevOps, Cloud Security'
+                    name: "naver-site-verification",
+                    content: "619f41c6faad361ac9e9d2b8743a4f1b40ca3304",
+
                 },
                 {
-                    name: 'description',
-                    content: 'CloudStudio Official Docs: Visualize cloud infrastructure with an intuitive GUI. Manage IaC, estimate costs, and audit security all in one place.'
+                    name: "keywords",
+                    content: "CloudStudio, IaC Visualization, Cloud Infrastructure, Terraform GUI, DevOps, Cloud Security",
                 },
                 {
-                    property: 'og:title',
-                    content: 'CloudStudio Docs | Visual IaC Management Service'
+                    name: "description",
+                    content: "CloudStudio Official Docs: Visualize cloud infrastructure with an intuitive GUI. Manage IaC, estimate costs, and audit security all in one place.",
                 },
                 {
-                    property: 'og:description',
-                    content: 'Design, deploy, and manage your cloud infrastructure visually with CloudStudio.'
+                    property: "og:title",
+                    content: "CloudStudio Docs | Visual IaC Management Service",
                 },
                 {
-                    property: 'og:image',
-                    content: 'https://cstudio.app/images/mainLogo/mainCloudStudio.png'
+                    property: "og:description",
+                    content: "Design, deploy, and manage your cloud infrastructure visually with CloudStudio.",
+                },
+                {
+                    property: "og:image",
+                    content: "https://cstudio.app/images/mainLogo/mainCloudStudio.png",
                 },
             ],
             navbar: {
@@ -111,39 +116,39 @@ const config = {
                     alt: "cloudstudio Logo",
                     src: "img/cloudstudio_logo.png",
                     srcDark: "img/cloudstudio_logo_white.png",
-                    className: "navbarLogo"
+                    className: "navbarLogo",
                 },
                 items: [
                     {
                         to: "/docs/category/시작하기",
                         label: "Docs",
                         position: "left",
-                        activeBaseRegex: `/docs/`
+                        activeBaseRegex: `/docs/`,
                     },
                     {
                         to: "/release",
                         label: "Release",
                         position: "left",
-                        activeBaseRegex: `/release/`
+                        activeBaseRegex: `/release/`,
                     },
                     {
                         href: "https://cstudio.app/",
                         label: "CloudStudio",
                         position: "right",
-                        className: "btnTrial"
+                        className: "btnTrial",
                     },
                     {
                         type: "localeDropdown",
-                        position: "right"
-                    }
-                ]
+                        position: "right",
+                    },
+                ],
             },
             footer: {},
             prism: {
                 theme: lightCodeTheme,
-                darkTheme: darkCodeTheme
-            }
-        })
+                darkTheme: darkCodeTheme,
+            },
+        }),
 }
 
 module.exports = config
